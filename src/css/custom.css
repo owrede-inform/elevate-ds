@@ -28,14 +28,14 @@
   --ifm-font-family-base: var(--elvt-type-alias-default-content-m-font-family, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif);
   --ifm-font-family-monospace: var(--sl-font-mono, "RobotoMono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace);
   
-  /* Typography Scale with ELEVATE Alias Tokens - Proper hierarchy */
-  --ifm-font-size-base: var(--elvt-type-measures-content-size-m, 1rem);
-  --ifm-h1-font-size: var(--elvt-type-measures-display-size-l, 2.5rem);
-  --ifm-h2-font-size: var(--elvt-type-measures-display-size-m, 2rem);
-  --ifm-h3-font-size: var(--elvt-type-measures-headline-size-l, 1.375rem);
-  --ifm-h4-font-size: var(--elvt-type-measures-headline-size-m, 1.25rem);
-  --ifm-h5-font-size: var(--elvt-type-measures-headline-size-s, 1.125rem);
-  --ifm-h6-font-size: var(--elvt-type-measures-content-size-l, 1.125rem);
+  /* Typography Scale - Use standard Docusaurus values for UI components */
+  --ifm-font-size-base: 1rem;
+  --ifm-h1-font-size: 2rem;
+  --ifm-h2-font-size: 1.5rem;
+  --ifm-h3-font-size: 1.25rem;
+  --ifm-h4-font-size: 1rem;
+  --ifm-h5-font-size: 0.875rem;
+  --ifm-h6-font-size: 0.85rem;
 
   /* Typography Line Heights */
   --ifm-line-height-base: var(--elvt-type-measures-content-lineHeight-m, 1.5);
@@ -145,27 +145,41 @@
   --docusaurus-highlighted-code-line-bg: var(--elvt-alias-layout-backdrop, rgba(255, 255, 255, 0.1));
 }
 
-/* Apply ELEVATE typography to headings - make all bold with appropriate line heights */
-h1, h2 {
-  font-weight: 700 !important;
+/* Apply ELEVATE typography ONLY to documentation content, not UI components */
+.markdown h1, .theme-doc-markdown h1 {
+  font-size: var(--elvt-type-measures-display-size-l, 2.5rem);
+  font-weight: 700;
   line-height: var(--elvt-type-alias-default-display-m-line-height, 1.2);
 }
 
-h3, h4 {
-  font-weight: 700 !important;
+.markdown h2, .theme-doc-markdown h2 {
+  font-size: var(--elvt-type-measures-display-size-m, 2rem);
+  font-weight: 700;
+  line-height: var(--elvt-type-alias-default-display-m-line-height, 1.2);
+}
+
+.markdown h3, .theme-doc-markdown h3 {
+  font-size: var(--elvt-type-measures-headline-size-l, 1.375rem);
+  font-weight: 700;
   line-height: var(--elvt-type-measures-headline-lineHeight-m, 1.3);
 }
 
-h5, h6 {
-  font-weight: 700 !important;
+.markdown h4, .theme-doc-markdown h4 {
+  font-size: var(--elvt-type-measures-headline-size-m, 1.25rem);
+  font-weight: 700;
+  line-height: var(--elvt-type-measures-headline-lineHeight-m, 1.3);
+}
+
+.markdown h5, .theme-doc-markdown h5 {
+  font-size: var(--elvt-type-measures-headline-size-s, 1.125rem);
+  font-weight: 700;
   line-height: var(--elvt-type-measures-content-lineHeight-l, 1.4);
 }
 
-/* Ensure headings are bold in both light and dark themes */
-.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6,
-.theme-doc-markdown h1, .theme-doc-markdown h2, .theme-doc-markdown h3, 
-.theme-doc-markdown h4, .theme-doc-markdown h5, .theme-doc-markdown h6 {
-  font-weight: 700 !important;
+.markdown h6, .theme-doc-markdown h6 {
+  font-size: var(--elvt-type-measures-content-size-l, 1.125rem);
+  font-weight: 700;
+  line-height: var(--elvt-type-measures-content-lineHeight-l, 1.4);
 }
 
 /* Component integration styles for ELEVATE components */
@@ -648,7 +662,7 @@ article {
 /* Isolate ELEVATE components from Docusaurus typography inheritance */
 elvt-card *, elvt-card *::before, elvt-card *::after {
   /* Reset font-family to Inter for ELEVATE components only */
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 /* Specifically scope Docusaurus typography to NOT affect ELEVATE components */
@@ -665,77 +679,21 @@ elvt-card *, elvt-card *::before, elvt-card *::after {
 .theme-doc-markdown h4:not(elvt-card h4):not(elvt-card * h4),
 .theme-doc-markdown h5:not(elvt-card h5):not(elvt-card * h5),
 .theme-doc-markdown h6:not(elvt-card h6):not(elvt-card * h6) {
-  font-weight: 700 !important;
+  font-weight: 700;
 }
 
 /* Reset typography for ELEVATE Card content specifically */
 elvt-card h1, elvt-card h2, elvt-card h3, elvt-card h4, elvt-card h5, elvt-card h6 {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-  font-weight: 600 !important;
-  line-height: 1.4 !important;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
 /* Specific fixes for different heading levels in ELEVATE cards */
-elvt-card h1 { font-size: 1.75rem !important; }
-elvt-card h2 { font-size: 1.5rem !important; }
-elvt-card h3 { font-size: 1.25rem !important; }
-elvt-card h4 { font-size: 1.125rem !important; }
-elvt-card h5 { font-size: 1rem !important; }
-elvt-card h6 { font-size: 0.875rem !important; }
+elvt-card h1 { font-size: 1.75rem; }
+elvt-card h2 { font-size: 1.5rem; }
+elvt-card h3 { font-size: 1.25rem; }
+elvt-card h4 { font-size: 1.125rem; }
+elvt-card h5 { font-size: 1rem; }
+elvt-card h6 { font-size: 0.875rem; }
 
-/* Fix admonition typography - scope to prevent ELEVATE bleeding */
-.theme-admonition .admonition-heading h5,
-.alert .alert-heading,
-.alert__heading {
-  font-size: 1rem !important;
-  font-family: var(--ifm-font-family-base) !important;
-  font-weight: 600 !important;
-  line-height: 1.4 !important;
-}
-
-/* Target specific admonition elements more aggressively */
-div[class*="admonition"] h1,
-div[class*="admonition"] h2,
-div[class*="admonition"] h3,
-div[class*="admonition"] h4,
-div[class*="admonition"] h5,
-div[class*="admonition"] h6,
-.alert h1, .alert h2, .alert h3, .alert h4, .alert h5, .alert h6 {
-  font-size: 1rem !important;
-  font-family: var(--ifm-font-family-base) !important;
-  font-weight: 600 !important;
-  line-height: 1.4 !important;
-}
-
-/* Fix pagination typography and height - prevent ELEVATE token bleeding */
-.pagination-nav__label {
-  font-size: 1rem !important;
-  font-family: var(--ifm-font-family-base) !important;
-  font-weight: 600 !important;
-  line-height: 1.4 !important;
-}
-
-.pagination-nav__sublabel {
-  font-size: 0.875rem !important;
-  font-family: var(--ifm-font-family-base) !important;
-  font-weight: 400 !important;
-  line-height: 1.3 !important;
-}
-
-/* Fix pagination box height by overriding padding that might be inflated */
-.pagination-nav__link {
-  padding: 1rem 1.5rem !important;
-  line-height: 1.4 !important;
-}
-
-/* Ensure pagination nav container doesn't inherit inflated spacing */
-.pagination-nav {
-  font-family: var(--ifm-font-family-base) !important;
-}
-
-/* Reset any ELEVATE spacing that might affect pagination */
-.pagination-nav__link-label,
-.pagination-nav__link-sublabel {
-  margin: 0 !important;
-  line-height: inherit !important;
-}
