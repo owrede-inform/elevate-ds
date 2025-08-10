@@ -1,5 +1,5 @@
 import React from 'react';
-import CodePreview from 'docusaurus-plugin-code-preview';
+import CodeBlock from '@theme/CodeBlock';
 import styles from './styles.module.css';
 
 interface ComponentShowcaseProps {
@@ -15,7 +15,7 @@ export default function ComponentShowcase({
   title,
   description,
   code,
-  language = 'tsx'
+  language = 'html'
 }: ComponentShowcaseProps): JSX.Element {
   return (
     <div className={styles.componentShowcase}>
@@ -28,11 +28,9 @@ export default function ComponentShowcase({
         </div>
       </div>
 
-      <CodePreview
-        language={language}
-        code={code}
-        showLineNumbers={true}
-      />
+      <CodeBlock language={language} showLineNumbers={true}>
+        {code}
+      </CodeBlock>
     </div>
   );
 }

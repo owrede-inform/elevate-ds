@@ -1,0 +1,192 @@
+---
+sidebar_position: 5
+sidebar_label: 'Component Samples'
+title: 'ELEVATE Component Samples'
+description: 'Interactive examples of ELEVATE Core UI components with copyable code'
+---
+
+import { ElvtButton, ElvtInput, ElvtCard, ElvtStack } from '@inform-elevate/elevate-core-ui/dist/react';
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# ELEVATE Component Samples
+
+Interactive examples of ELEVATE Core UI components with live previews and copyable code snippets.
+
+## Button Components
+
+### Primary Button
+<ComponentShowcase
+  title="Primary Button"
+  description="Use for main actions and primary CTAs. The primary tone uses the brand's main color."
+  code={`<elvt-button tone="primary" size="medium">Click me</elvt-button>`}
+>
+  <ElvtButton tone="primary" size="medium">Click me</ElvtButton>
+</ComponentShowcase>
+
+### Button Variants
+<ComponentShowcase
+  title="Button Tone Variants"
+  description="Different button tones for various use cases."
+  code={`<elvt-button tone="neutral">Neutral</elvt-button>
+<elvt-button tone="primary">Primary</elvt-button>
+<elvt-button tone="success">Success</elvt-button>
+<elvt-button tone="warning">Warning</elvt-button>
+<elvt-button tone="danger">Danger</elvt-button>`}
+>
+  <div style={{display: 'flex', gap: '0.5rem', flexWrap: 'wrap'}}>
+    <ElvtButton tone="neutral">Neutral</ElvtButton>
+    <ElvtButton tone="primary">Primary</ElvtButton>
+    <ElvtButton tone="success">Success</ElvtButton>
+    <ElvtButton tone="warning">Warning</ElvtButton>
+    <ElvtButton tone="danger">Danger</ElvtButton>
+  </div>
+</ComponentShowcase>
+
+### Button Sizes
+<ComponentShowcase
+  title="Button Sizes"
+  description="Three button sizes available - small, medium (default), and large."
+  code={`<elvt-button tone="primary" size="small">Small</elvt-button>
+<elvt-button tone="primary" size="medium">Medium</elvt-button>
+<elvt-button tone="primary" size="large">Large</elvt-button>`}
+>
+  <div style={{display: 'flex', gap: '1rem', alignItems: 'center'}}>
+    <ElvtButton tone="primary" size="small">Small</ElvtButton>
+    <ElvtButton tone="primary" size="medium">Medium</ElvtButton>
+    <ElvtButton tone="primary" size="large">Large</ElvtButton>
+  </div>
+</ComponentShowcase>
+
+## Input Components
+
+### Basic Text Input
+<ComponentShowcase
+  title="Text Input"
+  description="Standard text input with label, placeholder, and help text."
+  code={`<elvt-input 
+  type="text" 
+  label="Full Name" 
+  placeholder="Enter your full name" 
+  help-text="Please provide your complete name">
+</elvt-input>`}
+>
+  <div style={{width: '300px'}}>
+    <ElvtInput
+      type="text"
+      label="Full Name"
+      placeholder="Enter your full name"
+      helpText="Please provide your complete name"
+    />
+  </div>
+</ComponentShowcase>
+
+### Email Input
+<ComponentShowcase
+  title="Email Input"
+  description="Email input type with built-in validation."
+  code={`<elvt-input 
+  type="email" 
+  label="Email Address" 
+  placeholder="Enter your email" 
+  required>
+</elvt-input>`}
+>
+  <div style={{width: '300px'}}>
+    <ElvtInput
+      type="email"
+      label="Email Address"
+      placeholder="Enter your email"
+      helpText="We'll never share your email"
+      required
+    />
+  </div>
+</ComponentShowcase>
+
+## Card Components
+
+### Basic Card
+<ComponentShowcase
+  title="Basic Card"
+  description="Simple card component with content padding."
+  code={`<elvt-card padding="l">
+  <h4>Card Title</h4>
+  <p>This is a basic card component.</p>
+  <elvt-button tone="primary">Learn More</elvt-button>
+</elvt-card>`}
+>
+  <div style={{maxWidth: '400px'}}>
+    <ElvtCard padding="l">
+      <h4 style={{marginTop: 0, marginBottom: '1rem'}}>Card Title</h4>
+      <p style={{margin: '0 0 1rem 0'}}>
+        This is a basic card component that can contain any content.
+        It uses ELEVATE design tokens for consistent styling.
+      </p>
+      <ElvtButton tone="primary" size="medium">Learn More</ElvtButton>
+    </ElvtCard>
+  </div>
+</ComponentShowcase>
+
+## Form Example
+
+### Simple Contact Form
+<ComponentShowcase
+  title="Contact Form"
+  description="A simple form using ELEVATE components."
+  code={`<elvt-card padding="l">
+  <h4>Contact Us</h4>
+  <elvt-input type="text" label="Name" placeholder="Your name"></elvt-input>
+  <elvt-input type="email" label="Email" placeholder="your@email.com"></elvt-input>
+  <div style="display: flex; gap: 0.5rem; justify-content: flex-end; margin-top: 1rem;">
+    <elvt-button tone="neutral">Cancel</elvt-button>
+    <elvt-button tone="primary">Send</elvt-button>
+  </div>
+</elvt-card>`}
+>
+  <div style={{maxWidth: '400px'}}>
+    <ElvtCard padding="l">
+      <h4 style={{margin: '0 0 1rem 0'}}>Contact Us</h4>
+      <div style={{marginBottom: '1rem'}}>
+        <ElvtInput
+          type="text"
+          label="Full Name"
+          placeholder="Enter your name"
+          required
+        />
+      </div>
+      <div style={{marginBottom: '1rem'}}>
+        <ElvtInput
+          type="email"
+          label="Email"
+          placeholder="your@email.com"
+          required
+        />
+      </div>
+      <div style={{display: 'flex', gap: '0.5rem', justifyContent: 'flex-end'}}>
+        <ElvtButton tone="neutral">Cancel</ElvtButton>
+        <ElvtButton tone="primary">Send Message</ElvtButton>
+      </div>
+    </ElvtCard>
+  </div>
+</ComponentShowcase>
+
+## Usage Tips
+
+### Best Practices
+- **Consistent Spacing**: Use CSS or layout components for consistent gaps between elements
+- **Proper Labeling**: Always provide `label` attributes for form inputs for accessibility
+- **Button Hierarchy**: Use `tone="primary"` for main actions, `tone="neutral"` for secondary actions
+- **Card Padding**: Use `padding` attribute values: `s`, `m`, `l`, `xl` for consistent spacing
+- **Web Standards**: ELEVATE components are native web components that work in any framework or vanilla HTML
+
+### Accessibility Features
+- **Keyboard Navigation**: All components support keyboard interaction
+- **Screen Reader Support**: Proper ARIA attributes and semantic markup
+- **Focus Management**: Clear focus indicators for all interactive elements
+
+:::tip Copy Code
+Click the copy button on any code block to copy the example to your clipboard!
+:::
+
+:::info Live Preview
+All examples show live, interactive ELEVATE components. Try interacting with them!
+:::
