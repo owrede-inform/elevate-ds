@@ -29,3 +29,5 @@ THEME.md
 kill-dev-simple.bat
 kill-dev-simple.ps1
 .idea
+/sample-data
+DEPLOYMENT-STRATEGY.md
