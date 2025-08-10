@@ -640,3 +640,66 @@ article {
   border-color: var(--elvt-primitives-color-blue-400, #2a90ff);
   background: var(--elvt-primitives-color-gray-800, #3d4253);
 }
+
+/* =======================================================================
+   ELEVATE COMPONENT ISOLATION
+   ======================================================================= */
+
+/* Isolate ELEVATE components from Docusaurus typography inheritance */
+elvt-card *, elvt-card *::before, elvt-card *::after {
+  /* Reset font-family to Inter for ELEVATE components only */
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* Specifically scope Docusaurus typography to NOT affect ELEVATE components */
+/* Target only Docusaurus content containers, not ELEVATE components */
+.markdown h1:not(elvt-card h1):not(elvt-card * h1),
+.markdown h2:not(elvt-card h2):not(elvt-card * h2),  
+.markdown h3:not(elvt-card h3):not(elvt-card * h3),
+.markdown h4:not(elvt-card h4):not(elvt-card * h4),
+.markdown h5:not(elvt-card h5):not(elvt-card * h5),
+.markdown h6:not(elvt-card h6):not(elvt-card * h6),
+.theme-doc-markdown h1:not(elvt-card h1):not(elvt-card * h1),
+.theme-doc-markdown h2:not(elvt-card h2):not(elvt-card * h2),
+.theme-doc-markdown h3:not(elvt-card h3):not(elvt-card * h3),
+.theme-doc-markdown h4:not(elvt-card h4):not(elvt-card * h4),
+.theme-doc-markdown h5:not(elvt-card h5):not(elvt-card * h5),
+.theme-doc-markdown h6:not(elvt-card h6):not(elvt-card * h6) {
+  font-weight: 700 !important;
+}
+
+/* Reset typography for ELEVATE Card content specifically */
+elvt-card h1, elvt-card h2, elvt-card h3, elvt-card h4, elvt-card h5, elvt-card h6 {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+}
+
+/* Specific fixes for different heading levels in ELEVATE cards */
+elvt-card h1 { font-size: 1.75rem !important; }
+elvt-card h2 { font-size: 1.5rem !important; }
+elvt-card h3 { font-size: 1.25rem !important; }
+elvt-card h4 { font-size: 1.125rem !important; }
+elvt-card h5 { font-size: 1rem !important; }
+elvt-card h6 { font-size: 0.875rem !important; }
+
+/* Fix admonition typography - scope to prevent ELEVATE bleeding */
+.theme-admonition .admonition-heading h5,
+.alert .alert-heading {
+  font-size: 1rem !important;
+  font-family: var(--ifm-font-family-base) !important;
+  font-weight: 600 !important;
+}
+
+/* Fix pagination typography - prevent ELEVATE token bleeding */
+.pagination-nav__label {
+  font-size: 1rem !important;
+  font-family: var(--ifm-font-family-base) !important;
+  font-weight: 600 !important;
+}
+
+.pagination-nav__sublabel {
+  font-size: 0.875rem !important;
+  font-family: var(--ifm-font-family-base) !important;
+  font-weight: 400 !important;
+}
