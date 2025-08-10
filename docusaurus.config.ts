@@ -19,14 +19,14 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://elevate-ds.com',
+  url: 'https://owrede-inform.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/elevate-ds/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'inform-elevate', // Usually your GitHub org/user name.
+  organizationName: 'owrede-inform', // Usually your GitHub org/user name.
   projectName: 'elevate-ds', // Usually your repo name.
 
   onBrokenLinks: 'throw',
@@ -135,7 +135,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Updates', position: 'left'},
         {
-          href: 'https://github.com/inform-elevate/elevate-core-ui',
+          href: 'https://github.com/owrede-inform/elevate-ds',
           label: 'GitHub',
           position: 'right',
         },
@@ -174,7 +174,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/inform-elevate/elevate-core-ui',
+              href: 'https://github.com/owrede-inform/elevate-ds',
             },
             {
               label: 'NPM Package',
@@ -191,7 +191,7 @@ const config: Config = {
             },
             {
               label: 'Changelog',
-              href: 'https://github.com/inform-elevate/elevate-core-ui/releases',
+              href: 'https://github.com/owrede-inform/elevate-ds/releases',
             },
           ],
         },

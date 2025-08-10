@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 
+// SSR polyfills for browser globals
+import '../ssr-polyfill.js';
+
 // Import ELEVATE web components and core styles only
 import '@inform-elevate/elevate-core-ui';
 import '@inform-elevate/elevate-core-ui/dist/elevate.css';
