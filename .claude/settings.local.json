@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-docusaurus:*)",
+      "Bash(robocopy:*)",
+      "Bash(xcopy:*)",
+      "Bash(powershell:*)"
+    ],
+    "deny": []
+  }
+}
