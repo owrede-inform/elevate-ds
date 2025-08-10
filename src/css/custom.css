@@ -136,7 +136,105 @@
   --docusaurus-highlighted-code-line-bg: var(--elvt-alias-layout-backdrop, rgba(255, 255, 255, 0.1));
 }
 
-/* Use default Docusaurus typography for all headings - no overrides */
+/* Typography - Proper vertical rhythm and spacing for content headings */
+.markdown h1,
+.theme-doc-markdown h1 {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.markdown h2,
+.theme-doc-markdown h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.markdown h3,
+.theme-doc-markdown h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.markdown h4,
+.theme-doc-markdown h4 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.markdown h5,
+.theme-doc-markdown h5 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.markdown h6,
+.theme-doc-markdown h6 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* First heading in content has reduced top margin */
+.markdown h1:first-child,
+.theme-doc-markdown h1:first-child,
+.markdown h2:first-child,
+.theme-doc-markdown h2:first-child,
+.markdown h3:first-child,
+.theme-doc-markdown h3:first-child {
+  margin-top: 0;
+}
+
+/* Proper paragraph spacing */
+.markdown p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Lists with proper spacing */
+.markdown ul,
+.markdown ol,
+.theme-doc-markdown ul,
+.theme-doc-markdown ol {
+  margin-bottom: 1rem;
+}
+
+.markdown li,
+.theme-doc-markdown li {
+  margin-bottom: 0.25rem;
+}
+
+/* Blockquotes with proper spacing */
+.markdown blockquote,
+.theme-doc-markdown blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 4px solid var(--ifm-color-primary-lightest);
+}
+
+/* Code blocks - Roboto Mono with 0.85rem font size */
+.theme-code-block,
+.prism-code,
+pre,
+.markdown pre,
+.theme-doc-markdown pre,
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: "RobotoMono", "Roboto Mono", Consolas, "Liberation Mono", Menlo, monospace !important;
+  font-size: 0.85rem !important;
+}
+
+/* Inline code */
+.markdown code,
+.theme-doc-markdown code,
+code:not([class*="language-"]) {
+  font-family: "RobotoMono", "Roboto Mono", Consolas, "Liberation Mono", Menlo, monospace !important;
+  font-size: 0.85rem !important;
+}
 
 /* Component integration styles for ELEVATE components */
 .elevate-component-showcase {
@@ -227,6 +325,17 @@
 
 [data-theme='dark'] .navbar__title strong {
   color: inherit;
+}
+
+/* Footer background to match sidebar */
+.footer {
+  background: var(--elvt-alias-layout-layer-elevated, #f8f9fb);
+  border-top: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
+}
+
+[data-theme='dark'] .footer {
+  background: var(--elvt-primitives-color-gray-1000, #111217);
+  border-top: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
 }
 
 /* Prevent links from breaking lines - universal fix for navbar and footer */
