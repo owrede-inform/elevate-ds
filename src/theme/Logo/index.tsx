@@ -16,9 +16,9 @@ export default function Logo(): JSX.Element {
   const logoLink = useBaseUrl(logo?.href || '/');
   const logoAlt = logo?.alt || title;
   
-  // For now, just use the light logo by default to avoid color mode issues
-  // We'll fix the dynamic switching once the context provider is properly set up
-  const logoSrc = useBaseUrl(logo?.src || '');
+  // Get both light and dark logo sources
+  const lightLogoSrc = useBaseUrl(logo?.src || '');
+  const darkLogoSrc = useBaseUrl(logo?.srcDark || logo?.src || '');
 
   return (
     <Link
@@ -27,15 +27,28 @@ export default function Logo(): JSX.Element {
       aria-label={logoAlt}
     >
       {logo && (
-        <img
-          src={logoSrc}
-          alt={logoAlt}
-          className="navbar__logo"
-          style={{
-            width: logo.width,
-            height: logo.height,
-          }}
-        />
+        <div className="navbar__logo-container">
+          {/* Light mode logo */}
+          <img
+            src={lightLogoSrc}
+            alt={logoAlt}
+            className="navbar__logo navbar__logo--light"
+            style={{
+              width: logo.width,
+              height: logo.height,
+            }}
+          />
+          {/* Dark mode logo */}
+          <img
+            src={darkLogoSrc}
+            alt={logoAlt}
+            className="navbar__logo navbar__logo--dark"
+            style={{
+              width: logo.width,
+              height: logo.height,
+            }}
+          />
+        </div>
       )}
       {navbarTitle && (
         <div className="navbar__title">

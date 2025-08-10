@@ -22,4 +22,10 @@ node_modules
 
 # Code Tools
 .claude
+CLAUDE.md
+PACKAGE-DEPENDENCY-GUIDE.md
+THEME-DEVELOPMENT.md
+THEME.md
+kill-dev-simple.bat
+kill-dev-simple.ps1
 .idea

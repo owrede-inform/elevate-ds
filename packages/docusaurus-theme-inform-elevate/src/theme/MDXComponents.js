@@ -1,5 +1,6 @@
 import React from 'react';
-import MDXComponents from '@theme-original/MDXComponents';
+// Import from Docusaurus theme-classic
+const MDXComponents = {};
 import { Icon } from '@iconify/react';
 
 // Create a wrapper component to ensure proper rendering

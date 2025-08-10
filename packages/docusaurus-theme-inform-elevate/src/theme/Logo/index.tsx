@@ -3,20 +3,22 @@ import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import {useThemeConfig} from '@docusaurus/theme-common';
-import {useColorMode} from '@docusaurus/theme-common';
 
 export default function Logo(): JSX.Element {
   const {
     siteConfig: {title},
   } = useDocusaurusContext();
-  const {colorMode} = useColorMode();
+  
   const {
     navbar: {logo, title: navbarTitle},
   } = useThemeConfig();
 
   const logoLink = useBaseUrl(logo?.href || '/');
-  const logoSrc = useBaseUrl(colorMode === 'dark' && logo?.srcDark ? logo.srcDark : logo?.src || '');
   const logoAlt = logo?.alt || title;
+  
+  // For now, just use the light logo by default to avoid color mode issues
+  // We'll fix the dynamic switching once the context provider is properly set up
+  const logoSrc = useBaseUrl(logo?.src || '');
 
   return (
     <Link
