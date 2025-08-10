@@ -31,12 +31,20 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
+          registry-url: 'https://npm.pkg.github.com'
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Configure npm for GitHub Packages
+        run: |
+          echo "@inform-elevate:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.ELEVATE_DS2 }}" >> .npmrc
+
       - name: Install dependencies
         run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.ELEVATE_DS2 }}
 
       - name: Build Docusaurus site
         run: npm run build
@@ -77,9 +85,17 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: Configure npm for GitHub Packages
+        run: |
+          echo "@inform-elevate:registry=https://npm.pkg.github.com" >> .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.ELEVATE_DS2 }}" >> .npmrc
 
       - name: Install dependencies
         run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.ELEVATE_DS2 }}
 
       - name: Test build
         run: npm run build
