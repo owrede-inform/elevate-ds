@@ -156,3 +156,4 @@ import DesignTokenTable from '@site/src/components/DesignTokenTable';
 ```
 - Always make sure that you to everything the docusaurus-way. Consult the manual first before changing things!
 - Never force CSS changes with !important unless the documentation requires that. Remove recently added !important statements. Never work around with shortcuts. Try harder to research in the Docusaurus documenation or community how to achieve a goal (maybe even creating a custom component).
+- Whenever you use an ELEVATE component from elevate-core-ui read the API documentation before creating code with it.
