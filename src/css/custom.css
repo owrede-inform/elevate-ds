@@ -685,21 +685,57 @@ elvt-card h6 { font-size: 0.875rem !important; }
 
 /* Fix admonition typography - scope to prevent ELEVATE bleeding */
 .theme-admonition .admonition-heading h5,
-.alert .alert-heading {
+.alert .alert-heading,
+.alert__heading {
   font-size: 1rem !important;
   font-family: var(--ifm-font-family-base) !important;
   font-weight: 600 !important;
+  line-height: 1.4 !important;
 }
 
-/* Fix pagination typography - prevent ELEVATE token bleeding */
+/* Target specific admonition elements more aggressively */
+div[class*="admonition"] h1,
+div[class*="admonition"] h2,
+div[class*="admonition"] h3,
+div[class*="admonition"] h4,
+div[class*="admonition"] h5,
+div[class*="admonition"] h6,
+.alert h1, .alert h2, .alert h3, .alert h4, .alert h5, .alert h6 {
+  font-size: 1rem !important;
+  font-family: var(--ifm-font-family-base) !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+}
+
+/* Fix pagination typography and height - prevent ELEVATE token bleeding */
 .pagination-nav__label {
   font-size: 1rem !important;
   font-family: var(--ifm-font-family-base) !important;
   font-weight: 600 !important;
+  line-height: 1.4 !important;
 }
 
 .pagination-nav__sublabel {
   font-size: 0.875rem !important;
   font-family: var(--ifm-font-family-base) !important;
   font-weight: 400 !important;
+  line-height: 1.3 !important;
+}
+
+/* Fix pagination box height by overriding padding that might be inflated */
+.pagination-nav__link {
+  padding: 1rem 1.5rem !important;
+  line-height: 1.4 !important;
+}
+
+/* Ensure pagination nav container doesn't inherit inflated spacing */
+.pagination-nav {
+  font-family: var(--ifm-font-family-base) !important;
+}
+
+/* Reset any ELEVATE spacing that might affect pagination */
+.pagination-nav__link-label,
+.pagination-nav__link-sublabel {
+  margin: 0 !important;
+  line-height: inherit !important;
 }
