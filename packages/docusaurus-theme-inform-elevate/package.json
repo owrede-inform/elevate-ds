@@ -1,0 +1,63 @@
+{
+  "name": "@inform/docusaurus-theme-elevate",
+  "version": "1.0.0",
+  "description": "INFORM ELEVATE Design System theme for Docusaurus",
+  "keywords": [
+    "docusaurus",
+    "theme",
+    "inform",
+    "elevate",
+    "design-system",
+    "react"
+  ],
+  "homepage": "https://github.com/inform-elevate/docusaurus-theme-elevate",
+  "bugs": {
+    "url": "https://github.com/inform-elevate/docusaurus-theme-elevate/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inform-elevate/docusaurus-theme-elevate.git"
+  },
+  "license": "MIT",
+  "author": "INFORM GmbH",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@docusaurus/theme-common": "^3.8.0",
+    "@docusaurus/theme-classic": "^3.8.0",
+    "@docusaurus/utils-validation": "^3.8.0",
+    "@inform-elevate/elevate-core-ui": "^0.0.27-alpha",
+    "@iconify/react": "^6.0.0",
+    "clsx": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@docusaurus/core": "^3.8.0",
+    "react": "^18.0.0 || ^19.0.0",
+    "react-dom": "^18.0.0 || ^19.0.0"
+  },
+  "devDependencies": {
+    "@docusaurus/types": "^3.8.0",
+    "@docusaurus/module-type-aliases": "^3.8.0",
+    "@types/react": "^18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18.0"
+  }
+}

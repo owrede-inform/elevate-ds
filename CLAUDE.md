@@ -4,50 +4,155 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This appears to be a newly initialized project called "elevate-ds" - likely a design system or component library based on the name. The repository currently contains only a basic README.md file and is in its initial state.
+**elevate-ds** is a design system documentation site built with Docusaurus. This project serves as a comprehensive documentation platform for design system components, patterns, and guidelines.
 
-## Current State
+## Technology Stack
 
-- **Project Status**: Empty/initial state - contains only README.md
-- **No Build System**: No package.json, build scripts, or dependency management detected
-- **No Source Code**: No JavaScript, TypeScript, or other source files present
-- **No Testing**: No test framework or test files configured
-- **No Documentation**: Only basic README.md exists
+- **Framework**: Docusaurus 3.8.1 (React-based static site generator)
+- **Language**: TypeScript
+- **Package Manager**: npm
+- **Node Version**: >=18.0
 
-## Development Setup
+## Development Commands
 
-Since this is a new project with no configuration files:
+```bash
+# Start development server (with hot reloading)
+npm start
 
-1. **Initialize the project** with the appropriate package manager:
-   - `npm init` for Node.js projects
-   - `yarn init` for Yarn projects
-   - Or setup appropriate build system based on project type
+# Build for production
+npm run build
 
-2. **Determine project type** and setup accordingly:
-   - React component library
-   - Vue component library  
-   - Pure CSS/SCSS design system
-   - Web Components library
-   - Documentation site (Storybook, etc.)
+# Serve production build locally
+npm run serve
 
-## Next Steps for Development
+# Type checking
+npm run typecheck
 
-This project needs foundational setup. Key decisions needed:
+# Clear Docusaurus cache
+npm run clear
 
-1. **Technology Stack**: Choose framework and build tools
-2. **Package Management**: npm, yarn, or pnpm
-3. **Build System**: Webpack, Vite, Rollup, or other
-4. **Testing Framework**: Jest, Vitest, Cypress, etc.
-5. **Code Quality**: ESLint, Prettier, TypeScript config
-6. **Documentation**: Storybook, Docusaurus, or similar
+# Deploy to GitHub Pages
+npm run deploy
+```
 
-## Repository Structure
+## Project Structure
 
-Currently minimal:
 ```
 elevate-ds/
-├── README.md          # Basic project description
-└── CLAUDE.md          # This file
+├── docs/                    # Documentation content (Markdown/MDX)
+│   ├── intro.md
+│   ├── tutorial-basics/
+│   └── tutorial-extras/
+├── blog/                    # Blog posts
+├── src/
+│   ├── components/          # React components
+│   │   └── HomepageFeatures/
+│   ├── css/                 # Global styles
+│   └── pages/               # Custom pages
+├── static/                  # Static assets (images, files)
+├── docusaurus.config.ts     # Main configuration
+├── sidebars.ts             # Sidebar navigation config
+├── package.json
+└── tsconfig.json
 ```
 
-Future instances should help establish the foundational project structure based on the intended use case of this design system.
+## Key Configuration Files
+
+- **`docusaurus.config.ts`**: Main Docusaurus configuration (site metadata, plugins, themes)
+- **`sidebars.ts`**: Controls sidebar navigation structure
+- **`src/pages/`**: Custom React pages (homepage, etc.)
+- **`docs/`**: Main documentation content in Markdown/MDX format
+
+## Content Management
+
+- **Documentation**: Add `.md` or `.mdx` files to the `docs/` directory
+- **Blog Posts**: Add files to `blog/` directory with date prefix (YYYY-MM-DD-title.md)
+- **Navigation**: Update `sidebars.ts` to control document organization
+- **Homepage**: Customize `src/pages/index.tsx` and `src/components/HomepageFeatures/`
+
+## Development Workflow
+
+1. **Content Creation**: Add/edit Markdown files in `docs/` or `blog/`
+2. **Component Development**: Create React components in `src/components/`
+3. **Styling**: Use CSS modules or edit `src/css/custom.css`
+4. **Configuration**: Modify `docusaurus.config.ts` for site-wide changes
+5. **Testing**: Use `npm run typecheck` for TypeScript validation
+6. **Preview**: Use `npm start` for live development server
+
+## Design System Integration
+
+The site is fully integrated with the ELEVATE Core UI library:
+
+### ELEVATE Core UI Integration
+- **Library**: `@inform-elevate/elevate-core-ui` (v0.0.27-alpha)
+- **Components**: 45+ React components available via custom wrappers
+- **Styling**: ELEVATE design tokens and themes applied throughout
+- **Typography**: Inter font family with ELEVATE type scales
+- **Colors**: ELEVATE brand colors and semantic color palette
+
+### Custom Components for Documentation
+
+**ComponentShowcase** (`src/components/ComponentShowcase/`)
+- Interactive component previews with live code examples
+- Uses `docusaurus-plugin-code-preview` for syntax highlighting
+- ELEVATE-themed styling with light/dark mode support
+
+**DesignTokenTable** (`src/components/DesignTokenTable/`)
+- Visual tables for design token documentation
+- Supports color, spacing, typography, and custom token types
+- Automatic preview generation with ELEVATE styling
+
+**ELEVATE Component Wrappers**
+- `ElvtButton`, `ElvtInput`, `ElvtCard` - React wrappers for ELEVATE components
+- TypeScript interfaces for proper prop typing
+- Ready for use in documentation pages
+
+### Theme Customization
+- **Custom CSS**: Fully themed with ELEVATE design tokens
+- **Root Theme**: `src/theme/Root.tsx` initializes ELEVATE custom elements
+- **Navigation**: Updated with design system specific navigation structure
+- **Typography**: ELEVATE type scale and Inter font integration
+
+### Available Plugins
+- **Code Preview**: `docusaurus-plugin-code-preview` for interactive examples
+- **Custom Elements**: ELEVATE web components auto-registered
+
+## Usage Examples
+
+### Component Documentation Pattern
+```tsx
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ElvtButton from '@site/src/components/ElvtButton';
+
+<ComponentShowcase
+  title="Primary Button"
+  description="Use for main actions and primary CTAs"
+  code={`<ElvtButton variant="primary" size="medium">
+  Click me
+</ElvtButton>`}
+>
+  <ElvtButton variant="primary" size="medium">
+    Click me
+  </ElvtButton>
+</ComponentShowcase>
+```
+
+### Design Token Documentation Pattern
+```tsx
+import DesignTokenTable from '@site/src/components/DesignTokenTable';
+
+<DesignTokenTable
+  title="Primary Colors"
+  type="color"
+  tokens={[
+    {
+      name: 'Primary 500',
+      value: '#0072ff',
+      cssVariable: '--elvt-primitives-color-blue-500',
+      description: 'Main brand color for primary actions'
+    }
+  ]}
+/>
+```
+- Always make sure that you to everything the docusaurus-way. Consult the manual first before changing things!
+- Never force CSS changes with !important unless the documentation requires that. Remove recently added !important statements. Never work around with shortcuts. Try harder to research in the Docusaurus documenation or community how to achieve a goal (maybe even creating a custom component).

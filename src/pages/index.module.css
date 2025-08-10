@@ -1,0 +1,73 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--ifm-background-color) 0%, var(--ifm-background-surface-color) 100%);
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sl-spacing-medium, 1rem);
+  flex-wrap: wrap;
+  margin-top: var(--sl-spacing-large, 1.25rem);
+}
+
+/* Ensure hero title and tagline use proper colors */
+.heroBanner .hero__title {
+  color: var(--ifm-color-content);
+  font-family: var(--elvt-type-alias-default-display-l-font-family, "Inter");
+  font-weight: var(--elvt-type-alias-default-display-l-font-weight, 600);
+  font-size: var(--elvt-type-alias-default-display-l-font-size, 2.5rem);
+  margin-bottom: var(--sl-spacing-medium, 1rem);
+}
+
+.heroBanner .hero__subtitle {
+  color: var(--ifm-color-content-secondary);
+  font-family: var(--elvt-type-alias-default-content-l-font-family, "Inter");
+  font-size: var(--elvt-type-alias-default-content-l-font-size, 1.125rem);
+  line-height: var(--elvt-type-alias-default-content-l-line-height, 1.6);
+  max-width: 600px;
+  margin: 0 auto var(--sl-spacing-large, 1.25rem) auto;
+}
+
+/* ELEVATE button styling integration */
+.buttons elvt-button {
+  --elvt-button-height: var(--sl-input-height-large, 3.125rem);
+  --elvt-button-font-size: var(--elvt-type-alias-default-content-m-font-size, 1rem);
+  --elvt-button-padding: var(--sl-spacing-medium, 1rem) var(--sl-spacing-x-large, 1.75rem);
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .heroBanner .hero__title {
+    font-size: var(--elvt-type-alias-default-display-m-font-size, 2rem);
+  }
+  
+  .heroBanner .hero__subtitle {
+    font-size: var(--elvt-type-alias-default-content-m-font-size, 1rem);
+  }
+  
+  .buttons {
+    flex-direction: column;
+    gap: var(--sl-spacing-small, 0.75rem);
+  }
+  
+  .buttons elvt-button {
+    width: 100%;
+    max-width: 280px;
+  }
+}

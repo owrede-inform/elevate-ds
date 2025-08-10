@@ -1,0 +1,25 @@
+# Source files
+src/
+tsconfig.json
+
+# Development files
+*.log
+node_modules/
+.DS_Store
+.env*
+
+# Testing
+__tests__/
+coverage/
+
+# Build files (keep lib/)
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Documentation (include README.md)
+# docs/

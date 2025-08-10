@@ -1,0 +1,27 @@
+{
+  "name": "docusaurus-theme-inform-elevate",
+  "version": "1.0.0",
+  "description": "INFORM ELEVATE Design System Theme for Docusaurus",
+  "author": "INFORM GmbH",
+  "license": "MIT",
+  "main": "src/theme/index.js",
+  "keywords": [
+    "docusaurus",
+    "theme",
+    "inform",
+    "elevate",
+    "design-system"
+  ],
+  "peerDependencies": {
+    "@docusaurus/core": "^3.0.0",
+    "@docusaurus/theme-classic": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inform-elevate/elevate-ds.git"
+  },
+  "homepage": "https://elevate-ds.inform.com",
+  "bugs": {
+    "url": "https://github.com/inform-elevate/elevate-ds/issues"
+  }
+}

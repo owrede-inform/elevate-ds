@@ -1,0 +1,46 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+  width: 100%;
+  background: var(--ifm-background-surface-color);
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+  /* Ensure SVGs adapt to theme */
+  filter: var(--ifm-filter-invert);
+}
+
+/* Dark theme adjustments */
+[data-theme='dark'] .featureSvg {
+  /* Invert SVG colors for dark theme visibility */
+  filter: invert(0.1) sepia(1) saturate(0.8) hue-rotate(180deg);
+  opacity: 0.9;
+}
+
+.features h3 {
+  color: var(--ifm-color-content);
+  font-family: var(--elvt-type-alias-default-title-m-font-family, "Inter");
+  font-weight: var(--elvt-type-alias-default-title-m-font-weight, 600);
+  margin-bottom: var(--sl-spacing-small, 0.75rem);
+}
+
+.features p {
+  color: var(--ifm-color-content-secondary);
+  font-size: var(--elvt-type-alias-default-content-m-font-size, 1rem);
+  line-height: var(--elvt-type-alias-default-content-m-line-height, 1.5);
+}
+
+.features code {
+  background: var(--ifm-code-background);
+  color: var(--elvt-primitives-color-blue-600, #0b5cdf);
+  padding: 0.125rem 0.25rem;
+  border-radius: var(--sl-border-radius-small, 0.1875rem);
+  font-size: 0.9em;
+}
+
+[data-theme='dark'] .features code {
+  color: var(--elvt-primitives-color-blue-300, #5facff);
+}

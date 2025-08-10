@@ -1,0 +1,494 @@
+/**
+ * INFORM ELEVATE Design System Theme
+ * Custom styling for INFORM GmbH's ELEVATE Design System documentation
+ * 
+ * Built on Docusaurus with ELEVATE design tokens integration
+ * Copyright © 2025 INFORM GmbH
+ */
+
+/* Import ELEVATE Core UI styles and themes */
+@import '@inform-elevate/elevate-core-ui/dist/elevate.css';
+@import '@inform-elevate/elevate-core-ui/dist/themes/light.css';
+@import '@inform-elevate/elevate-core-ui/dist/themes/dark.css';
+
+/* ELEVATE Design System Integration */
+:root {
+  /* ELEVATE Brand Colors */
+  --ifm-color-primary: var(--elvt-primitives-color-blue-500, #0072ff);
+  --ifm-color-primary-dark: var(--elvt-primitives-color-blue-600, #0b5cdf);
+  --ifm-color-primary-darker: var(--elvt-primitives-color-blue-700, #1b50a6);
+  --ifm-color-primary-darkest: var(--elvt-primitives-color-blue-800, #234275);
+  --ifm-color-primary-light: var(--elvt-primitives-color-blue-400, #2a90ff);
+  --ifm-color-primary-lighter: var(--elvt-primitives-color-blue-300, #5facff);
+  --ifm-color-primary-lightest: var(--elvt-primitives-color-blue-200, #90c6ff);
+
+  /* ELEVATE Typography */
+  --ifm-font-family-base: var(--elvt-type-alias-default-content-m-font-family, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif);
+  --ifm-font-family-monospace: var(--sl-font-mono, "RobotoMono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace);
+  
+  /* Typography Scale */
+  --ifm-font-size-base: var(--elvt-type-alias-default-content-m-font-size, 1rem);
+  --ifm-h1-font-size: var(--elvt-type-alias-default-display-l-font-size, 2.5rem);
+  --ifm-h2-font-size: var(--elvt-type-alias-default-display-m-font-size, 2rem);
+  --ifm-h3-font-size: var(--elvt-type-alias-default-display-s-font-size, 1.5rem);
+  --ifm-h4-font-size: var(--elvt-type-alias-default-title-m-font-size, 1.25rem);
+  --ifm-h5-font-size: var(--elvt-type-alias-default-title-s-font-size, 1.125rem);
+  --ifm-h6-font-size: var(--elvt-type-alias-default-content-l-font-size, 1rem);
+
+  /* ELEVATE Color Palette */
+  --ifm-color-success: var(--elvt-primitives-color-green-500, #128c46);
+  --ifm-color-info: var(--elvt-primitives-color-blue-500, #0072ff);
+  --ifm-color-warning: var(--elvt-primitives-color-yellow-500, #f59e0b);
+  --ifm-color-danger: var(--elvt-primitives-color-red-500, #ef4444);
+
+  /* Background Colors */
+  --ifm-background-color: var(--elvt-primitives-color-gray-50, #f3f4f7);
+  --ifm-background-surface-color: var(--elvt-primitives-color-white, #ffffff);
+
+  /* Text Colors */
+  --ifm-color-content: var(--elvt-primitives-color-gray-800, #3d4253);
+  --ifm-color-content-secondary: var(--elvt-primitives-color-gray-600, #5d6679);
+
+  /* Spacing using ELEVATE tokens */
+  --ifm-spacing-horizontal: var(--sl-spacing-medium, 1rem);
+  --ifm-spacing-vertical: var(--sl-spacing-medium, 1rem);
+
+  /* Border Radius */
+  --ifm-global-radius: var(--sl-border-radius-medium, 0.25rem);
+  --ifm-button-border-radius: var(--sl-border-radius-medium, 0.25rem);
+
+  /* Code styling */
+  --ifm-code-font-size: 0.875rem;
+  --ifm-code-background: var(--elvt-primitives-color-gray-100, #d5d9e1);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Shadows */
+  --ifm-global-shadow-lw: var(--sl-shadow-small, 0 1px 2px hsl(240 3.8% 46.1% / 12%));
+  --ifm-global-shadow-md: var(--sl-shadow-medium, 0 2px 4px hsl(240 3.8% 46.1% / 12%));
+  --ifm-global-shadow-tl: var(--sl-shadow-large, 0 2px 8px hsl(240 3.8% 46.1% / 12%));
+}
+
+/* Dark theme with ELEVATE tokens */
+[data-theme='dark'] {
+  /* ELEVATE Dark Brand Colors - use brighter variants for dark theme */
+  --ifm-color-primary: var(--elvt-primitives-color-blue-400, #2a90ff);
+  --ifm-color-primary-dark: var(--elvt-primitives-color-blue-300, #5facff);
+  --ifm-color-primary-darker: var(--elvt-primitives-color-blue-200, #90c6ff);
+  --ifm-color-primary-darkest: var(--elvt-primitives-color-blue-100, #b9dbff);
+  --ifm-color-primary-light: var(--elvt-primitives-color-blue-500, #0072ff);
+  --ifm-color-primary-lighter: var(--elvt-primitives-color-blue-600, #0b5cdf);
+  --ifm-color-primary-lightest: var(--elvt-primitives-color-blue-700, #1b50a6);
+
+  /* ELEVATE Dark Semantic Colors */
+  --ifm-color-success: var(--elvt-primitives-color-green-400, #31a554);
+  --ifm-color-info: var(--elvt-primitives-color-blue-400, #2a90ff);
+  --ifm-color-warning: var(--elvt-primitives-color-yellow-400, #facc15);
+  --ifm-color-danger: var(--elvt-primitives-color-red-400, #f87171);
+
+  /* ELEVATE Dark Backgrounds - use darker grays from ELEVATE */
+  --ifm-background-color: var(--elvt-primitives-color-gray-950, #1f212b);
+  --ifm-background-surface-color: var(--elvt-primitives-color-gray-900, #2f3240);
+
+  /* ELEVATE Dark Text Colors - use lighter grays for contrast */
+  --ifm-color-content: var(--elvt-primitives-color-gray-100, #d5d9e1);
+  --ifm-color-content-secondary: var(--elvt-primitives-color-gray-300, #a3aab4);
+
+  /* Dark Code and Syntax highlighting */
+  --ifm-code-background: var(--elvt-primitives-color-gray-800, #3d4253);
+  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+}
+
+/* Apply ELEVATE typography to headings - make all bold */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700 !important;
+  line-height: var(--elvt-type-alias-default-display-m-line-height, 1.2);
+}
+
+/* Ensure headings are bold in both light and dark themes */
+.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6,
+.theme-doc-markdown h1, .theme-doc-markdown h2, .theme-doc-markdown h3, 
+.theme-doc-markdown h4, .theme-doc-markdown h5, .theme-doc-markdown h6 {
+  font-weight: 700 !important;
+}
+
+/* Component integration styles for ELEVATE components */
+.elevate-component-showcase {
+  padding: var(--sl-spacing-large, 1.25rem);
+  border: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
+  border-radius: var(--sl-border-radius-large, 0.5rem);
+  background: var(--elvt-primitives-color-white, #ffffff);
+  margin: var(--sl-spacing-medium, 1rem) 0;
+}
+
+/* Override Infima navbar styling with ELEVATE theme */
+.navbar {
+  background: var(--elvt-primitives-color-white, #ffffff);
+  border-bottom: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
+  box-shadow: var(--sl-shadow-small, 0 1px 2px hsl(240 3.8% 46.1% / 12%));
+  padding: 0 var(--sl-spacing-medium, 1rem);
+}
+
+.navbar__brand {
+  margin-right: var(--sl-spacing-large, 1.25rem);
+}
+
+.navbar__logo {
+  margin-right: 0;
+  padding: 0 1rem 0 0;
+}
+
+/* Style the navbar title - Docusaurus way with swizzled component */
+.navbar__title {
+  font-family: var(--elvt-type-alias-default-title-m-font-family, "Inter");
+  font-weight: var(--elvt-type-alias-default-title-m-font-weight, 600);
+  color: var(--elvt-primitives-color-gray-800, #3d4253);
+  font-size: 1.375rem;
+  padding-right: 2rem;
+  margin-top: 0.15rem;
+}
+
+.navbar__title strong {
+  font-weight: var(--elvt-type-alias-default-title-m-font-weight, 700);
+  color: var(--elvt-primitives-color-blue-600, #0b5cdf);
+}
+
+/* Dark theme navbar */
+[data-theme='dark'] .navbar {
+  background: var(--elvt-primitives-color-gray-900, #2f3240);
+  border-bottom-color: var(--elvt-primitives-color-gray-700, #4d5366);
+}
+
+[data-theme='dark'] .navbar__title {
+  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+}
+
+[data-theme='dark'] .navbar__title strong {
+  color: var(--elvt-primitives-color-blue-300, #5facff);
+}
+
+/* Prevent navbar links from breaking lines */
+.navbar__item {
+  white-space: nowrap;
+}
+
+.navbar__link {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Fix dark/light mode toggle icon colors */
+.colorModeToggle_DEke {
+  color: var(--elvt-primitives-color-gray-600, #5d6679);
+}
+
+[data-theme='dark'] .colorModeToggle_DEke {
+  color: var(--elvt-primitives-color-gray-300, #a3aab4);
+}
+
+/* Alternative selector for color mode toggle */
+[class*="colorModeToggle"] {
+  color: var(--elvt-primitives-color-gray-600, #5d6679);
+}
+
+[data-theme='dark'] [class*="colorModeToggle"] {
+  color: var(--elvt-primitives-color-gray-300, #a3aab4);
+}
+
+/* Fix burger menu icon colors */
+.navbar__toggle {
+  color: var(--elvt-primitives-color-gray-600, #5d6679);
+}
+
+[data-theme='dark'] .navbar__toggle {
+  color: var(--elvt-primitives-color-gray-300, #a3aab4);
+}
+
+/* Target burger menu lines specifically */
+.navbar__toggle svg,
+[class*="toggleButton"] svg {
+  color: var(--elvt-primitives-color-gray-600, #5d6679);
+  fill: currentColor;
+}
+
+[data-theme='dark'] .navbar__toggle svg,
+[data-theme='dark'] [class*="toggleButton"] svg {
+  color: var(--elvt-primitives-color-gray-300, #a3aab4);
+  fill: currentColor;
+}
+
+/* Responsive navbar styling */
+@media screen and (max-width: 996px) {
+  .navbar__logo {
+    padding: 0 0.25rem;
+    margin-right: 0.5rem;
+  }
+  
+  .navbar__title {
+    font-size: 1rem;
+  }
+  
+  /* Hide navbar items on mobile (they'll show in mobile menu instead) */
+  .navbar__items--left .navbar__item:not(.navbar__toggle),
+  .navbar__items--right .navbar__item:not(.navbar__toggle):not([class*="colorModeToggle"]) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar__title {
+    font-size: 0.9rem;
+  }
+  
+  /* Hide "Design System" text on mobile, keep only "ELEVATE" */
+  .navbar__title {
+    visibility: visible;
+  }
+}
+
+/* Fix hero section colors in dark mode */
+.hero--primary {
+  background: var(--ifm-background-color);
+}
+
+[data-theme='dark'] .hero--primary {
+  background: linear-gradient(135deg, var(--elvt-primitives-color-gray-950, #1f212b) 0%, var(--elvt-primitives-color-gray-900, #2f3240) 100%);
+}
+
+/* Ensure ELEVATE buttons work properly in both themes */
+elvt-button {
+  font-family: var(--elvt-type-alias-default-content-m-font-family, "Inter");
+}
+
+/* Fix any remaining text color issues */
+.hero__title, .hero__subtitle, h1, h2, h3, h4, h5, h6 {
+  color: var(--ifm-color-content) !important;
+}
+
+[data-theme='dark'] .hero__subtitle {
+  color: var(--elvt-primitives-color-gray-300, #a3aab4) !important;
+}
+
+/* Main content area dark mode fixes */
+.main-wrapper {
+  background: var(--ifm-background-color);
+}
+
+[data-theme='dark'] .main-wrapper {
+  background: var(--elvt-primitives-color-gray-950, #1f212b);
+}
+
+/* Documentation content styling */
+.markdown {
+  color: var(--ifm-color-content);
+}
+
+.markdown p {
+  margin-bottom: 1rem;
+}
+
+[data-theme='dark'] .markdown {
+  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+}
+
+/* Sidebar dark mode */
+.theme-doc-sidebar-container {
+  background: var(--ifm-background-surface-color);
+  border-right: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-container {
+  background: var(--elvt-primitives-color-gray-900, #2f3240);
+  border-right-color: var(--elvt-primitives-color-gray-700, #4d5366);
+}
+
+/* Sidebar menu items */
+.theme-doc-sidebar-item-link {
+  color: var(--ifm-color-content);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-item-link {
+  color: var(--elvt-primitives-color-gray-200, #bec3cd);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-item-link:hover {
+  color: var(--elvt-primitives-color-blue-300, #5facff);
+  background: var(--elvt-primitives-color-gray-800, #3d4253);
+}
+
+/* Active sidebar item */
+.theme-doc-sidebar-item-link--active {
+  color: var(--ifm-color-primary);
+  background: var(--elvt-primitives-color-blue-50, #eff6ff);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-item-link--active {
+  color: var(--elvt-primitives-color-blue-300, #5facff);
+  background: var(--elvt-primitives-color-gray-800, #3d4253);
+}
+
+/* Content area */
+.theme-doc-markdown {
+  background: var(--ifm-background-color);
+}
+
+[data-theme='dark'] .theme-doc-markdown {
+  background: var(--elvt-primitives-color-gray-950, #1f212b);
+}
+
+/* Fix content boxes to match content area background */
+.theme-doc-markdown .markdown > div,
+.theme-doc-markdown .markdown pre,
+.theme-doc-markdown .markdown blockquote,
+.theme-doc-markdown .markdown .theme-code-block,
+.theme-doc-markdown .markdown .card,
+.theme-doc-markdown .markdown .item,
+.theme-doc-markdown .markdown .container,
+.docusaurus-highlight-code-line,
+article {
+  background: var(--ifm-background-color) !important;
+}
+
+[data-theme='dark'] .theme-doc-markdown .markdown > div,
+[data-theme='dark'] .theme-doc-markdown .markdown pre,
+[data-theme='dark'] .theme-doc-markdown .markdown blockquote,
+[data-theme='dark'] .theme-doc-markdown .markdown .theme-code-block,
+[data-theme='dark'] .theme-doc-markdown .markdown .card,
+[data-theme='dark'] .theme-doc-markdown .markdown .item,
+[data-theme='dark'] .theme-doc-markdown .markdown .container,
+[data-theme='dark'] .docusaurus-highlight-code-line,
+[data-theme='dark'] article {
+  background: var(--elvt-primitives-color-gray-950, #1f212b) !important;
+}
+
+/* Ensure code blocks have proper contrast backgrounds */
+.theme-code-block,
+.prism-code {
+  background: var(--ifm-background-surface-color) !important;
+}
+
+[data-theme='dark'] .theme-code-block,
+[data-theme='dark'] .prism-code {
+  background: var(--elvt-primitives-color-gray-900, #2f3240) !important;
+}
+
+/* Fix any remaining white content containers */
+.theme-doc-markdown .markdown .elevate-component-showcase,
+.theme-doc-markdown .markdown .component-showcase,
+.theme-doc-markdown .markdown .design-token-table {
+  background: var(--ifm-background-color) !important;
+  border: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
+}
+
+[data-theme='dark'] .theme-doc-markdown .markdown .elevate-component-showcase,
+[data-theme='dark'] .theme-doc-markdown .markdown .component-showcase,
+[data-theme='dark'] .theme-doc-markdown .markdown .design-token-table {
+  background: var(--elvt-primitives-color-gray-950, #1f212b) !important;
+  border-color: var(--elvt-primitives-color-gray-700, #4d5366);
+}
+
+/* Code blocks in documentation */
+[data-theme='dark'] .prism-code {
+  background: var(--elvt-primitives-color-gray-900, #2f3240) !important;
+}
+
+[data-theme='dark'] .token.comment,
+[data-theme='dark'] .token.prolog,
+[data-theme='dark'] .token.doctype,
+[data-theme='dark'] .token.cdata {
+  color: var(--elvt-primitives-color-gray-400, #8c95a5);
+}
+
+/* Inline code */
+[data-theme='dark'] code {
+  background: var(--elvt-primitives-color-gray-800, #3d4253) !important;
+  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+  border: 1px solid var(--elvt-primitives-color-gray-700, #4d5366);
+}
+
+/* Tables in documentation */
+[data-theme='dark'] .markdown table {
+  border-color: var(--elvt-primitives-color-gray-700, #4d5366);
+}
+
+[data-theme='dark'] .markdown thead tr {
+  background: var(--elvt-primitives-color-gray-800, #3d4253);
+  border-bottom-color: var(--elvt-primitives-color-gray-700, #4d5366);
+}
+
+[data-theme='dark'] .markdown tbody tr {
+  border-bottom-color: var(--elvt-primitives-color-gray-700, #4d5366);
+}
+
+[data-theme='dark'] .markdown td,
+[data-theme='dark'] .markdown th {
+  border-color: var(--elvt-primitives-color-gray-700, #4d5366);
+  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+}
+
+/* Admonitions (note, tip, warning, etc.) */
+[data-theme='dark'] .alert {
+  border-left-color: var(--elvt-primitives-color-gray-600, #5d6679);
+  background: var(--elvt-primitives-color-gray-900, #2f3240);
+  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+}
+
+[data-theme='dark'] .alert--info {
+  border-left-color: var(--elvt-primitives-color-blue-400, #2a90ff);
+  background: rgba(42, 144, 255, 0.1);
+}
+
+[data-theme='dark'] .alert--warning {
+  border-left-color: var(--elvt-primitives-color-yellow-400, #facc15);
+  background: rgba(250, 204, 21, 0.1);
+}
+
+[data-theme='dark'] .alert--danger {
+  border-left-color: var(--elvt-primitives-color-red-400, #f87171);
+  background: rgba(248, 113, 113, 0.1);
+}
+
+[data-theme='dark'] .alert--success {
+  border-left-color: var(--elvt-primitives-color-green-400, #31a554);
+  background: rgba(49, 165, 84, 0.1);
+}
+
+/* Breadcrumbs */
+[data-theme='dark'] .breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+}
+
+[data-theme='dark'] .breadcrumbs__link {
+  color: var(--elvt-primitives-color-gray-400, #8c95a5);
+}
+
+/* Search */
+[data-theme='dark'] .navbar__search-input {
+  background: var(--elvt-primitives-color-gray-800, #3d4253);
+  border: 1px solid var(--elvt-primitives-color-gray-700, #4d5366);
+  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+}
+
+[data-theme='dark'] .navbar__search-input::placeholder {
+  color: var(--elvt-primitives-color-gray-400, #8c95a5);
+}
+
+/* Pagination */
+[data-theme='dark'] .pagination-nav__label {
+  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+}
+
+[data-theme='dark'] .pagination-nav__sublabel {
+  color: var(--elvt-primitives-color-gray-400, #8c95a5);
+}
+
+[data-theme='dark'] .pagination-nav__link {
+  border-color: var(--elvt-primitives-color-gray-700, #4d5366);
+  background: var(--elvt-primitives-color-gray-900, #2f3240);
+}
+
+[data-theme='dark'] .pagination-nav__link:hover {
+  border-color: var(--elvt-primitives-color-blue-400, #2a90ff);
+  background: var(--elvt-primitives-color-gray-800, #3d4253);
+}

@@ -1,0 +1,32 @@
+/**
+ * INFORM ELEVATE Design System Theme - Main Styles
+ * Custom styling for INFORM GmbH's ELEVATE Design System
+ * 
+ * Copyright © 2025 INFORM GmbH
+ */
+
+/* Import ELEVATE Core UI styles and themes */
+@import '@inform-elevate/elevate-core-ui/dist/elevate.css';
+@import '@inform-elevate/elevate-core-ui/dist/themes/light.css';
+@import '@inform-elevate/elevate-core-ui/dist/themes/dark.css';
+
+/* Theme-specific ELEVATE integration styles */
+:root {
+  --ifm-color-primary: var(--elvt-primitives-color-blue-500, #0072ff);
+  --ifm-font-family-base: var(--elvt-type-alias-default-content-m-font-family, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: var(--elvt-primitives-color-blue-400, #2a90ff);
+  --ifm-background-color: var(--elvt-primitives-color-gray-950, #1f212b);
+}
+
+/* Make all headings bold */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+/* INFORM branding */
+.inform-elevate-theme {
+  /* Theme identifier class */
+}
