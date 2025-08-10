@@ -6,14 +6,16 @@
  * Copyright © 2025 INFORM GmbH
  */
 
-/* Import ELEVATE Core UI styles and themes */
+/* Import ELEVATE Core UI styles and light theme only */
 @import '@inform-elevate/elevate-core-ui/dist/elevate.css';
 @import '@inform-elevate/elevate-core-ui/dist/themes/light.css';
-@import '@inform-elevate/elevate-core-ui/dist/themes/dark.css';
 
-/* ELEVATE Design System Integration */
+/* Import ELEVATE theme override CSS for CSS-only approach */
+@import './elevate-theme-override.css';
+
+/* ELEVATE Design System Integration with Alias Tokens */
 :root {
-  /* ELEVATE Brand Colors */
+  /* ELEVATE Brand Colors using Alias Tokens */
   --ifm-color-primary: var(--elvt-primitives-color-blue-500, #0072ff);
   --ifm-color-primary-dark: var(--elvt-primitives-color-blue-600, #0b5cdf);
   --ifm-color-primary-darker: var(--elvt-primitives-color-blue-700, #1b50a6);
@@ -22,53 +24,85 @@
   --ifm-color-primary-lighter: var(--elvt-primitives-color-blue-300, #5facff);
   --ifm-color-primary-lightest: var(--elvt-primitives-color-blue-200, #90c6ff);
 
-  /* ELEVATE Typography */
+  /* ELEVATE Typography System - Alias Tokens */
   --ifm-font-family-base: var(--elvt-type-alias-default-content-m-font-family, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif);
   --ifm-font-family-monospace: var(--sl-font-mono, "RobotoMono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace);
   
-  /* Typography Scale */
-  --ifm-font-size-base: var(--elvt-type-alias-default-content-m-font-size, 1rem);
-  --ifm-h1-font-size: var(--elvt-type-alias-default-display-l-font-size, 2.5rem);
-  --ifm-h2-font-size: var(--elvt-type-alias-default-display-m-font-size, 2rem);
-  --ifm-h3-font-size: var(--elvt-type-alias-default-display-s-font-size, 1.5rem);
-  --ifm-h4-font-size: var(--elvt-type-alias-default-title-m-font-size, 1.25rem);
-  --ifm-h5-font-size: var(--elvt-type-alias-default-title-s-font-size, 1.125rem);
-  --ifm-h6-font-size: var(--elvt-type-alias-default-content-l-font-size, 1rem);
+  /* Typography Scale with ELEVATE Alias Tokens - Proper hierarchy */
+  --ifm-font-size-base: var(--elvt-type-measures-content-size-m, 1rem);
+  --ifm-h1-font-size: var(--elvt-type-measures-display-size-l, 2.5rem);
+  --ifm-h2-font-size: var(--elvt-type-measures-display-size-m, 2rem);
+  --ifm-h3-font-size: var(--elvt-type-measures-headline-size-l, 1.375rem);
+  --ifm-h4-font-size: var(--elvt-type-measures-headline-size-m, 1.25rem);
+  --ifm-h5-font-size: var(--elvt-type-measures-headline-size-s, 1.125rem);
+  --ifm-h6-font-size: var(--elvt-type-measures-content-size-l, 1.125rem);
 
-  /* ELEVATE Color Palette */
+  /* Typography Line Heights */
+  --ifm-line-height-base: var(--elvt-type-measures-content-lineHeight-m, 1.5);
+  --ifm-heading-line-height: var(--elvt-type-measures-display-lineHeight-m, 1.2);
+
+  /* ELEVATE Layout System - Alias Tokens */
+  
+  /* Background Colors using Layout Alias Tokens */
+  --ifm-background-color: var(--elvt-alias-layout-layer-appBackground, #f3f4f7);
+  --ifm-background-surface-color: var(--elvt-alias-layout-layer-default, #ffffff);
+  --ifm-card-background-color: var(--elvt-alias-layout-layer-default, #ffffff);
+  --ifm-sidebar-background-color: var(--elvt-alias-layout-layer-elevated, #f8f9fb);
+  --ifm-navbar-background-color: var(--elvt-alias-layout-layer-overlay, #ffffff);
+
+  /* Border Colors - Unified using layout/border/muted */
+  --ifm-border-color: var(--elvt-alias-layout-border-muted, #f3f4f7);
+  --ifm-border-color-light: var(--elvt-alias-layout-border-muted, #f3f4f7);
+  --ifm-border-color-prominent: var(--elvt-alias-layout-border-muted, #f3f4f7);
+  --ifm-border-color-accent: var(--elvt-alias-layout-border-muted, #f3f4f7);
+
+  /* ELEVATE Semantic Colors */
   --ifm-color-success: var(--elvt-primitives-color-green-500, #128c46);
   --ifm-color-info: var(--elvt-primitives-color-blue-500, #0072ff);
   --ifm-color-warning: var(--elvt-primitives-color-yellow-500, #f59e0b);
   --ifm-color-danger: var(--elvt-primitives-color-red-500, #ef4444);
 
-  /* Background Colors */
-  --ifm-background-color: var(--elvt-primitives-color-gray-50, #f3f4f7);
-  --ifm-background-surface-color: var(--elvt-primitives-color-white, #ffffff);
+  /* Text Colors using ELEVATE Content Alias Tokens */
+  --ifm-color-content: var(--elvt-alias-content-text-default, #3d4253);
+  --ifm-color-content-secondary: var(--elvt-alias-content-text-secondary, #5d6679);
+  --ifm-color-emphasis-300: var(--elvt-alias-content-text-muted, #707a8f);
+  --ifm-color-emphasis-500: var(--elvt-alias-content-text-subtle, #8891a0);
+  --ifm-color-emphasis-700: var(--elvt-primitives-color-gray-700, #4d5366);
 
-  /* Text Colors */
-  --ifm-color-content: var(--elvt-primitives-color-gray-800, #3d4253);
-  --ifm-color-content-secondary: var(--elvt-primitives-color-gray-600, #5d6679);
-
-  /* Spacing using ELEVATE tokens */
+  /* Spacing using ELEVATE/Shoelace Spacing Tokens */
   --ifm-spacing-horizontal: var(--sl-spacing-medium, 1rem);
   --ifm-spacing-vertical: var(--sl-spacing-medium, 1rem);
+  --ifm-global-spacing: var(--sl-spacing-medium, 1rem);
+  --ifm-blockquote-padding-horizontal: var(--sl-spacing-large, 1.25rem);
+  --ifm-blockquote-padding-vertical: var(--sl-spacing-small, 0.75rem);
+  --ifm-table-cell-padding: var(--sl-spacing-small, 0.75rem);
+  --ifm-card-padding-horizontal: var(--sl-spacing-large, 1.25rem);
+  --ifm-card-padding-vertical: var(--sl-spacing-large, 1.25rem);
 
-  /* Border Radius */
+  /* Border Radius using ELEVATE/Shoelace Radius Tokens */
   --ifm-global-radius: var(--sl-border-radius-medium, 0.25rem);
   --ifm-button-border-radius: var(--sl-border-radius-medium, 0.25rem);
+  --ifm-code-border-radius: var(--sl-border-radius-small, 0.1875rem);
+  --ifm-card-border-radius: var(--sl-border-radius-large, 0.5rem);
 
-  /* Code styling */
-  --ifm-code-font-size: 0.875rem;
+  /* Shadows using ELEVATE/Shoelace Shadow Tokens */
+  --ifm-global-shadow-lw: var(--sl-shadow-x-small, 0 1px 2px hsl(240 3.8% 46.1% / 6%));
+  --ifm-global-shadow-md: var(--sl-shadow-small, 0 1px 2px hsl(240 3.8% 46.1% / 12%));
+  --ifm-global-shadow-tl: var(--sl-shadow-medium, 0 2px 4px hsl(240 3.8% 46.1% / 12%));
+  --ifm-dropdown-shadow: var(--sl-shadow-large, 0 2px 8px hsl(240 3.8% 46.1% / 12%));
+
+  /* Code Styling with ELEVATE Tokens */
+  --ifm-code-font-size: var(--elvt-type-measures-caption-size-m, 0.875rem);
   --ifm-code-background: var(--elvt-primitives-color-gray-100, #d5d9e1);
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-pre-background: var(--elvt-alias-layout-layer-elevated, #f8f9fb);
+  --docusaurus-highlighted-code-line-bg: var(--elvt-alias-layout-backdrop, rgba(0, 0, 0, 0.1));
 
-  /* Shadows */
-  --ifm-global-shadow-lw: var(--sl-shadow-small, 0 1px 2px hsl(240 3.8% 46.1% / 12%));
-  --ifm-global-shadow-md: var(--sl-shadow-medium, 0 2px 4px hsl(240 3.8% 46.1% / 12%));
-  --ifm-global-shadow-tl: var(--sl-shadow-large, 0 2px 8px hsl(240 3.8% 46.1% / 12%));
+  /* Focus Ring using ELEVATE Tokens */
+  --ifm-focus-ring-color: var(--elvt-primitives-color-blue-500, #0072ff);
+  --ifm-focus-ring-width: 2px;
 }
 
-/* Dark theme with ELEVATE tokens */
+/* Dark theme with ELEVATE Alias Tokens */
 [data-theme='dark'] {
   /* ELEVATE Dark Brand Colors - use brighter variants for dark theme */
   --ifm-color-primary: var(--elvt-primitives-color-blue-400, #2a90ff);
@@ -85,23 +119,46 @@
   --ifm-color-warning: var(--elvt-primitives-color-yellow-400, #facc15);
   --ifm-color-danger: var(--elvt-primitives-color-red-400, #f87171);
 
-  /* ELEVATE Dark Backgrounds - use darker grays from ELEVATE */
-  --ifm-background-color: var(--elvt-primitives-color-gray-950, #1f212b);
-  --ifm-background-surface-color: var(--elvt-primitives-color-gray-900, #2f3240);
+  /* ELEVATE Dark Layout - Using specific gray primitives for visual hierarchy */
+  --ifm-background-color: var(--elvt-alias-layout-layer-appBackground, #111217);
+  --ifm-background-surface-color: var(--elvt-alias-layout-layer-appBackground, #111217);
+  --ifm-card-background-color: var(--elvt-alias-layout-layer-appBackground, #111217);
+  --ifm-sidebar-background-color: var(--elvt-primitives-color-gray-1000, #111217);
+  --ifm-navbar-background-color: var(--elvt-primitives-color-black, #000000);
 
-  /* ELEVATE Dark Text Colors - use lighter grays for contrast */
-  --ifm-color-content: var(--elvt-primitives-color-gray-100, #d5d9e1);
-  --ifm-color-content-secondary: var(--elvt-primitives-color-gray-300, #a3aab4);
+  /* Dark Border Colors - Unified using layout/border/muted */
+  --ifm-border-color: var(--elvt-alias-layout-border-muted, #4d5366);
+  --ifm-border-color-light: var(--elvt-alias-layout-border-muted, #4d5366);
+  --ifm-border-color-prominent: var(--elvt-alias-layout-border-muted, #4d5366);
+  --ifm-border-color-accent: var(--elvt-alias-layout-border-muted, #4d5366);
 
-  /* Dark Code and Syntax highlighting */
+  /* ELEVATE Dark Text Colors - Using alias tokens for consistent brighter text */
+  --ifm-color-content: var(--elvt-alias-content-text-default, #d5d9e1);
+  --ifm-color-content-secondary: var(--elvt-alias-content-text-secondary, #a3aab4);
+  --ifm-color-emphasis-300: var(--elvt-alias-content-text-muted, #8891a0);
+  --ifm-color-emphasis-500: var(--elvt-alias-content-text-subtle, #707a8f);
+  --ifm-color-emphasis-700: var(--elvt-alias-content-text-secondary, #a3aab4);
+
+  /* Dark Code Styling with ELEVATE Tokens - Better contrast */
   --ifm-code-background: var(--elvt-primitives-color-gray-800, #3d4253);
-  --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.1);
+  --ifm-pre-background: var(--elvt-alias-layout-layer-elevated, #2f3240);
+  --docusaurus-highlighted-code-line-bg: var(--elvt-alias-layout-backdrop, rgba(255, 255, 255, 0.1));
 }
 
-/* Apply ELEVATE typography to headings - make all bold */
-h1, h2, h3, h4, h5, h6 {
+/* Apply ELEVATE typography to headings - make all bold with appropriate line heights */
+h1, h2 {
   font-weight: 700 !important;
   line-height: var(--elvt-type-alias-default-display-m-line-height, 1.2);
+}
+
+h3, h4 {
+  font-weight: 700 !important;
+  line-height: var(--elvt-type-measures-headline-lineHeight-m, 1.3);
+}
+
+h5, h6 {
+  font-weight: 700 !important;
+  line-height: var(--elvt-type-measures-content-lineHeight-l, 1.4);
 }
 
 /* Ensure headings are bold in both light and dark themes */
@@ -114,7 +171,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Component integration styles for ELEVATE components */
 .elevate-component-showcase {
   padding: var(--sl-spacing-large, 1.25rem);
-  border: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
+  border: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
   border-radius: var(--sl-border-radius-large, 0.5rem);
   background: var(--elvt-primitives-color-white, #ffffff);
   margin: var(--sl-spacing-medium, 1rem) 0;
@@ -123,7 +180,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Override Infima navbar styling with ELEVATE theme */
 .navbar {
   background: var(--elvt-primitives-color-white, #ffffff);
-  border-bottom: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
+  border-bottom: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
   box-shadow: var(--sl-shadow-small, 0 1px 2px hsl(240 3.8% 46.1% / 12%));
   padding: 0 var(--sl-spacing-medium, 1rem);
 }
@@ -132,9 +189,45 @@ h1, h2, h3, h4, h5, h6 {
   margin-right: var(--sl-spacing-large, 1.25rem);
 }
 
-.navbar__logo {
+/* Logo container */
+.navbar__logo-container {
+  position: relative;
   margin-right: 0;
-  padding: 0 1rem 0 0;
+  padding: 0 0.25rem 0 0;
+}
+
+.navbar__logo {
+  display: block;
+}
+
+/* Show light logo by default, hide dark logo */
+.navbar__logo--light {
+  display: block;
+}
+
+.navbar__logo--dark {
+  display: none;
+}
+
+/* In dark mode: hide light logo, show dark logo */
+[data-theme='dark'] .navbar__logo--light {
+  display: none;
+}
+
+[data-theme='dark'] .navbar__logo--dark {
+  display: block;
+}
+
+/* Fix navbar brand link to not inherit link colors */
+.navbar__brand {
+  margin-right: var(--sl-spacing-large, 1.25rem);
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar__brand:hover {
+  color: inherit;
+  text-decoration: none;
 }
 
 /* Style the navbar title - Docusaurus way with swizzled component */
@@ -149,33 +242,60 @@ h1, h2, h3, h4, h5, h6 {
 
 .navbar__title strong {
   font-weight: var(--elvt-type-alias-default-title-m-font-weight, 700);
-  color: var(--elvt-primitives-color-blue-600, #0b5cdf);
+  color: inherit;
 }
 
-/* Dark theme navbar */
+/* Dark theme navbar - Using black for header */
 [data-theme='dark'] .navbar {
-  background: var(--elvt-primitives-color-gray-900, #2f3240);
-  border-bottom-color: var(--elvt-primitives-color-gray-700, #4d5366);
+  background: var(--elvt-primitives-color-black, #000000);
+  border-bottom: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
 }
 
 [data-theme='dark'] .navbar__title {
-  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
 }
 
 [data-theme='dark'] .navbar__title strong {
-  color: var(--elvt-primitives-color-blue-300, #5facff);
+  color: inherit;
 }
 
-/* Prevent navbar links from breaking lines */
-.navbar__item {
+/* Prevent links from breaking lines - universal fix for navbar and footer */
+.navbar__item,
+.footer__link-item {
   white-space: nowrap;
 }
 
-.navbar__link {
+.navbar__link,
+.footer__link-item a,
+.footer__link-item {
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
+}
+
+/* Fix specific link icon behaviors - prevent line breaks between text and icons */
+.footer__link-item a {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.footer__link-item a svg,
+.footer__link-item svg {
+  margin-left: 0.25rem;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* External link icons */
+a[href*="github.com"]::after,
+a[href^="http"]::after,
+.external-link::after {
+  white-space: nowrap;
+  margin-left: 0.25rem;
+  flex-shrink: 0;
 }
 
 /* Fix dark/light mode toggle icon colors */
@@ -253,7 +373,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 [data-theme='dark'] .hero--primary {
-  background: linear-gradient(135deg, var(--elvt-primitives-color-gray-950, #1f212b) 0%, var(--elvt-primitives-color-gray-900, #2f3240) 100%);
+  background: linear-gradient(135deg, var(--elvt-alias-layout-layer-appBackground, #111217) 0%, var(--elvt-alias-layout-layer-default, #1f212b) 100%);
 }
 
 /* Ensure ELEVATE buttons work properly in both themes */
@@ -267,10 +387,10 @@ elvt-button {
 }
 
 [data-theme='dark'] .hero__subtitle {
-  color: var(--elvt-primitives-color-gray-300, #a3aab4) !important;
+  color: var(--elvt-alias-content-text-secondary, #a3aab4) !important;
 }
 
-/* Main content area dark mode fixes */
+/* Main content area dark mode fixes - Using gray-950 for content */
 .main-wrapper {
   background: var(--ifm-background-color);
 }
@@ -289,18 +409,18 @@ elvt-button {
 }
 
 [data-theme='dark'] .markdown {
-  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
 }
 
 /* Sidebar dark mode */
 .theme-doc-sidebar-container {
   background: var(--ifm-background-surface-color);
-  border-right: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
+  border-right: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
 }
 
 [data-theme='dark'] .theme-doc-sidebar-container {
-  background: var(--elvt-primitives-color-gray-900, #2f3240);
-  border-right-color: var(--elvt-primitives-color-gray-700, #4d5366);
+  background: var(--elvt-primitives-color-gray-1000, #111217);
+  border-right: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
 }
 
 /* Sidebar menu items */
@@ -309,7 +429,7 @@ elvt-button {
 }
 
 [data-theme='dark'] .theme-doc-sidebar-item-link {
-  color: var(--elvt-primitives-color-gray-200, #bec3cd);
+  color: var(--elvt-alias-content-text-secondary, #bec3cd);
 }
 
 [data-theme='dark'] .theme-doc-sidebar-item-link:hover {
@@ -370,7 +490,7 @@ article {
 
 [data-theme='dark'] .theme-code-block,
 [data-theme='dark'] .prism-code {
-  background: var(--elvt-primitives-color-gray-900, #2f3240) !important;
+  background: var(--elvt-primitives-color-gray-1000, #111217) !important;
 }
 
 /* Fix any remaining white content containers */
@@ -378,60 +498,60 @@ article {
 .theme-doc-markdown .markdown .component-showcase,
 .theme-doc-markdown .markdown .design-token-table {
   background: var(--ifm-background-color) !important;
-  border: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
+  border: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
 }
 
 [data-theme='dark'] .theme-doc-markdown .markdown .elevate-component-showcase,
 [data-theme='dark'] .theme-doc-markdown .markdown .component-showcase,
 [data-theme='dark'] .theme-doc-markdown .markdown .design-token-table {
   background: var(--elvt-primitives-color-gray-950, #1f212b) !important;
-  border-color: var(--elvt-primitives-color-gray-700, #4d5366);
+  border: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
 }
 
-/* Code blocks in documentation */
+/* Code blocks in documentation - Using gray-1000 for contrast */
 [data-theme='dark'] .prism-code {
-  background: var(--elvt-primitives-color-gray-900, #2f3240) !important;
+  background: var(--elvt-primitives-color-gray-1000, #111217) !important;
 }
 
 [data-theme='dark'] .token.comment,
 [data-theme='dark'] .token.prolog,
 [data-theme='dark'] .token.doctype,
 [data-theme='dark'] .token.cdata {
-  color: var(--elvt-primitives-color-gray-400, #8c95a5);
+  color: var(--elvt-alias-content-text-muted, #8891a0);
 }
 
-/* Inline code */
+/* Inline code - Better contrast */
 [data-theme='dark'] code {
   background: var(--elvt-primitives-color-gray-800, #3d4253) !important;
-  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
-  border: 1px solid var(--elvt-primitives-color-gray-700, #4d5366);
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
+  border: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
 }
 
 /* Tables in documentation */
 [data-theme='dark'] .markdown table {
-  border-color: var(--elvt-primitives-color-gray-700, #4d5366);
+  border-color: var(--elvt-alias-layout-border-muted, #4d5366);
 }
 
 [data-theme='dark'] .markdown thead tr {
   background: var(--elvt-primitives-color-gray-800, #3d4253);
-  border-bottom-color: var(--elvt-primitives-color-gray-700, #4d5366);
+  border-bottom-color: var(--elvt-alias-layout-border-muted, #4d5366);
 }
 
 [data-theme='dark'] .markdown tbody tr {
-  border-bottom-color: var(--elvt-primitives-color-gray-700, #4d5366);
+  border-bottom-color: var(--elvt-alias-layout-border-muted, #4d5366);
 }
 
 [data-theme='dark'] .markdown td,
 [data-theme='dark'] .markdown th {
-  border-color: var(--elvt-primitives-color-gray-700, #4d5366);
-  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+  border-color: var(--elvt-alias-layout-border-muted, #4d5366);
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
 }
 
 /* Admonitions (note, tip, warning, etc.) */
 [data-theme='dark'] .alert {
-  border-left-color: var(--elvt-primitives-color-gray-600, #5d6679);
-  background: var(--elvt-primitives-color-gray-900, #2f3240);
-  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+  border-left-color: var(--elvt-alias-layout-border-prominent, #707a8f);
+  background: var(--elvt-primitives-color-gray-1000, #111217);
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
 }
 
 [data-theme='dark'] .alert--info {
@@ -455,18 +575,46 @@ article {
 }
 
 /* Breadcrumbs */
+.breadcrumbs {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.breadcrumbs__item {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.breadcrumbs__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+
+/* Fix breadcrumb home icon vertical alignment */
+.breadcrumbs__link svg,
+.breadcrumbs__item svg {
+  vertical-align: middle;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
 [data-theme='dark'] .breadcrumbs__item--active .breadcrumbs__link {
-  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
 }
 
 [data-theme='dark'] .breadcrumbs__link {
-  color: var(--elvt-primitives-color-gray-400, #8c95a5);
+  color: var(--elvt-alias-content-text-muted, #8891a0);
 }
 
 /* Search */
 [data-theme='dark'] .navbar__search-input {
   background: var(--elvt-primitives-color-gray-800, #3d4253);
-  border: 1px solid var(--elvt-primitives-color-gray-700, #4d5366);
+  border: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
   color: var(--elvt-primitives-color-gray-100, #d5d9e1);
 }
 
@@ -476,15 +624,15 @@ article {
 
 /* Pagination */
 [data-theme='dark'] .pagination-nav__label {
-  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
 }
 
 [data-theme='dark'] .pagination-nav__sublabel {
-  color: var(--elvt-primitives-color-gray-400, #8c95a5);
+  color: var(--elvt-alias-content-text-muted, #8891a0);
 }
 
 [data-theme='dark'] .pagination-nav__link {
-  border-color: var(--elvt-primitives-color-gray-700, #4d5366);
+  border-color: var(--elvt-alias-layout-border-muted, #4d5366);
   background: var(--elvt-primitives-color-gray-900, #2f3240);
 }
 

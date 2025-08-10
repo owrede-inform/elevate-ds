@@ -1,0 +1,87 @@
+/* 
+ * ELEVATE Theme Override CSS
+ * 
+ * This CSS file provides theme synchronization for ELEVATE components
+ * with Docusaurus light/dark mode switching using conditional CSS imports.
+ */
+
+/* Import ELEVATE dark theme only when Docusaurus is in dark mode */
+html[data-theme="dark"] {
+  /* ELEVATE Primitives - Proper Dark Theme Values (darker backgrounds, brighter text) */
+  --elvt-primitives-color-gray-0: rgb(255, 255, 255);
+  --elvt-primitives-color-gray-50: rgb(243, 244, 247);
+  --elvt-primitives-color-gray-100: rgb(213, 217, 225);
+  --elvt-primitives-color-gray-200: rgb(190, 195, 205);
+  --elvt-primitives-color-gray-300: rgb(163, 170, 180);
+  --elvt-primitives-color-gray-400: rgb(136, 145, 160);
+  --elvt-primitives-color-gray-500: rgb(112, 122, 143);
+  --elvt-primitives-color-gray-600: rgb(93, 102, 121);
+  --elvt-primitives-color-gray-700: rgb(77, 83, 102);
+  --elvt-primitives-color-gray-800: rgb(61, 66, 83);
+  --elvt-primitives-color-gray-900: rgb(47, 50, 64);
+  --elvt-primitives-color-gray-950: rgb(31, 33, 43);
+  --elvt-primitives-color-gray-1000: rgb(17, 18, 23);
+
+  /* ELEVATE Alias Layout Tokens - Darker backgrounds for improved contrast */
+  --elvt-alias-layout-layer-appBackground: var(--elvt-primitives-color-gray-1000, rgb(17, 18, 23));
+  --elvt-alias-layout-layer-default: var(--elvt-primitives-color-gray-950, rgb(31, 33, 43));
+  --elvt-alias-layout-layer-elevated: var(--elvt-primitives-color-gray-900, rgb(47, 50, 64));
+  --elvt-alias-layout-layer-overlay: var(--elvt-primitives-color-gray-950, rgb(31, 33, 43));
+  --elvt-alias-layout-backdrop: rgba(17, 18, 23, 0.8);
+
+  /* ELEVATE Border Tokens - Darker borders for dark mode */
+  --elvt-alias-layout-border-default: var(--elvt-primitives-color-gray-600, rgb(93, 102, 121));
+  --elvt-alias-layout-border-muted: var(--elvt-primitives-color-gray-800, rgb(61, 66, 83));
+  --elvt-alias-layout-border-prominent: var(--elvt-primitives-color-gray-500, rgb(112, 122, 143));
+  --elvt-alias-layout-border-accent: var(--elvt-primitives-color-gray-400, rgb(136, 145, 160));
+  --elvt-alias-layout-border-subtle: var(--elvt-primitives-color-gray-800, rgb(61, 66, 83));
+
+  /* ELEVATE Content Text Tokens - Brighter text for dark mode */
+  --elvt-alias-content-text-default: var(--elvt-primitives-color-gray-100, rgb(213, 217, 225));
+  --elvt-alias-content-text-secondary: var(--elvt-primitives-color-gray-300, rgb(163, 170, 180));
+  --elvt-alias-content-text-muted: var(--elvt-primitives-color-gray-400, rgb(136, 145, 160));
+  --elvt-alias-content-text-subtle: var(--elvt-primitives-color-gray-500, rgb(112, 122, 143));
+
+  /* Shoelace dark tokens that ELEVATE components use internally */
+  --sl-color-neutral-0: hsl(0 0% 7%);
+  --sl-color-neutral-50: hsl(240 5% 11%);
+  --sl-color-neutral-100: hsl(240 4% 16%);
+  --sl-color-neutral-200: hsl(240 5% 21%);
+  --sl-color-neutral-300: hsl(240 4% 26%);
+  --sl-color-neutral-400: hsl(240 5% 34%);
+  --sl-color-neutral-500: hsl(240 4% 46%);
+  --sl-color-neutral-600: hsl(240 5% 65%);
+  --sl-color-neutral-700: hsl(240 5% 84%);
+  --sl-color-neutral-800: hsl(240 6% 90%);
+  --sl-color-neutral-900: hsl(240 24% 96%);
+  --sl-color-neutral-950: hsl(0 0% 100%);
+  
+  /* Ensure color scheme is set for proper system colors */
+  color-scheme: dark;
+}
+
+/* Default light mode - ensure alias tokens have proper light values */
+html[data-theme="light"], :root {
+  /* ELEVATE Alias Layout Tokens - Light Mode Values */
+  --elvt-alias-layout-layer-appBackground: var(--elvt-primitives-color-gray-50, rgb(243, 244, 247));
+  --elvt-alias-layout-layer-default: var(--elvt-primitives-color-white, rgb(255, 255, 255));
+  --elvt-alias-layout-layer-elevated: var(--elvt-primitives-color-gray-50, rgb(243, 244, 247));
+  --elvt-alias-layout-layer-overlay: var(--elvt-primitives-color-white, rgb(255, 255, 255));
+  --elvt-alias-layout-backdrop: rgba(17, 18, 23, 0.4);
+
+  /* ELEVATE Border Tokens - Light Mode Values */
+  --elvt-alias-layout-border-default: var(--elvt-primitives-color-gray-200, rgb(190, 195, 205));
+  --elvt-alias-layout-border-muted: var(--elvt-primitives-color-gray-100, rgb(213, 217, 225));
+  --elvt-alias-layout-border-prominent: var(--elvt-primitives-color-gray-300, rgb(163, 170, 180));
+  --elvt-alias-layout-border-accent: var(--elvt-primitives-color-gray-400, rgb(136, 145, 160));
+  --elvt-alias-layout-border-subtle: var(--elvt-primitives-color-gray-100, rgb(213, 217, 225));
+
+  /* ELEVATE Content Text Tokens - Darker text for light mode */
+  --elvt-alias-content-text-default: var(--elvt-primitives-color-gray-800, rgb(61, 66, 83));
+  --elvt-alias-content-text-secondary: var(--elvt-primitives-color-gray-600, rgb(93, 102, 121));
+  --elvt-alias-content-text-muted: var(--elvt-primitives-color-gray-500, rgb(112, 122, 143));
+  --elvt-alias-content-text-subtle: var(--elvt-primitives-color-gray-400, rgb(136, 145, 160));
+
+  /* Ensure color scheme is set for proper system colors */
+  color-scheme: light;
+}
