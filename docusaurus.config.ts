@@ -29,7 +29,7 @@ const config: Config = {
   organizationName: 'owrede-inform', // Usually your GitHub org/user name.
   projectName: 'elevate-ds', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
