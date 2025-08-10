@@ -28,18 +28,9 @@
   --ifm-font-family-base: var(--elvt-type-alias-default-content-m-font-family, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif);
   --ifm-font-family-monospace: var(--sl-font-mono, "RobotoMono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace);
   
-  /* Typography Scale - Use standard Docusaurus values for UI components */
-  --ifm-font-size-base: 1rem;
-  --ifm-h1-font-size: 2rem;
-  --ifm-h2-font-size: 1.5rem;
-  --ifm-h3-font-size: 1.25rem;
-  --ifm-h4-font-size: 1rem;
-  --ifm-h5-font-size: 0.875rem;
-  --ifm-h6-font-size: 0.85rem;
+  /* Use default Docusaurus typography scale - no overrides */
 
-  /* Typography Line Heights */
-  --ifm-line-height-base: var(--elvt-type-measures-content-lineHeight-m, 1.5);
-  --ifm-heading-line-height: var(--elvt-type-measures-display-lineHeight-m, 1.2);
+  /* Use default Docusaurus line heights - no overrides */
 
   /* ELEVATE Layout System - Alias Tokens */
   
@@ -145,42 +136,7 @@
   --docusaurus-highlighted-code-line-bg: var(--elvt-alias-layout-backdrop, rgba(255, 255, 255, 0.1));
 }
 
-/* Apply ELEVATE typography ONLY to documentation content, not UI components */
-.markdown h1, .theme-doc-markdown h1 {
-  font-size: var(--elvt-type-measures-display-size-l, 2.5rem);
-  font-weight: 700;
-  line-height: var(--elvt-type-alias-default-display-m-line-height, 1.2);
-}
-
-.markdown h2, .theme-doc-markdown h2 {
-  font-size: var(--elvt-type-measures-display-size-m, 2rem);
-  font-weight: 700;
-  line-height: var(--elvt-type-alias-default-display-m-line-height, 1.2);
-}
-
-.markdown h3, .theme-doc-markdown h3 {
-  font-size: var(--elvt-type-measures-headline-size-l, 1.375rem);
-  font-weight: 700;
-  line-height: var(--elvt-type-measures-headline-lineHeight-m, 1.3);
-}
-
-.markdown h4, .theme-doc-markdown h4 {
-  font-size: var(--elvt-type-measures-headline-size-m, 1.25rem);
-  font-weight: 700;
-  line-height: var(--elvt-type-measures-headline-lineHeight-m, 1.3);
-}
-
-.markdown h5, .theme-doc-markdown h5 {
-  font-size: var(--elvt-type-measures-headline-size-s, 1.125rem);
-  font-weight: 700;
-  line-height: var(--elvt-type-measures-content-lineHeight-l, 1.4);
-}
-
-.markdown h6, .theme-doc-markdown h6 {
-  font-size: var(--elvt-type-measures-content-size-l, 1.125rem);
-  font-weight: 700;
-  line-height: var(--elvt-type-measures-content-lineHeight-l, 1.4);
-}
+/* Use default Docusaurus typography for all headings - no overrides */
 
 /* Component integration styles for ELEVATE components */
 .elevate-component-showcase {
@@ -665,22 +621,7 @@ elvt-card *, elvt-card *::before, elvt-card *::after {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Specifically scope Docusaurus typography to NOT affect ELEVATE components */
-/* Target only Docusaurus content containers, not ELEVATE components */
-.markdown h1:not(elvt-card h1):not(elvt-card * h1),
-.markdown h2:not(elvt-card h2):not(elvt-card * h2),  
-.markdown h3:not(elvt-card h3):not(elvt-card * h3),
-.markdown h4:not(elvt-card h4):not(elvt-card * h4),
-.markdown h5:not(elvt-card h5):not(elvt-card * h5),
-.markdown h6:not(elvt-card h6):not(elvt-card * h6),
-.theme-doc-markdown h1:not(elvt-card h1):not(elvt-card * h1),
-.theme-doc-markdown h2:not(elvt-card h2):not(elvt-card * h2),
-.theme-doc-markdown h3:not(elvt-card h3):not(elvt-card * h3),
-.theme-doc-markdown h4:not(elvt-card h4):not(elvt-card * h4),
-.theme-doc-markdown h5:not(elvt-card h5):not(elvt-card * h5),
-.theme-doc-markdown h6:not(elvt-card h6):not(elvt-card * h6) {
-  font-weight: 700;
-}
+/* This section removed - keeping it simple */
 
 /* Reset typography for ELEVATE Card content specifically */
 elvt-card h1, elvt-card h2, elvt-card h3, elvt-card h4, elvt-card h5, elvt-card h6 {
