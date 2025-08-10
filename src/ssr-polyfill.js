@@ -20,6 +20,11 @@ if (typeof global !== 'undefined' && typeof window === 'undefined') {
     createTreeWalker: () => ({
       nextNode: () => null
     }),
+    createTextNode: (text) => ({
+      nodeType: 3,
+      nodeValue: text || '',
+      textContent: text || ''
+    }),
     addEventListener: () => {},
     removeEventListener: () => {},
     querySelector: () => null,
