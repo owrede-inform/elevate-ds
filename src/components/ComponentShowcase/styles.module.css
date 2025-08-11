@@ -10,7 +10,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: var(--sl-spacing-large, 1.25rem) var(--sl-spacing-large, 1.25rem) 0;
+  padding: var(--sl-spacing-large, 1.25rem);
   gap: var(--sl-spacing-medium, 1rem);
 }
 
@@ -74,7 +74,7 @@
 }
 
 .preview {
-  padding: var(--sl-spacing-x-large, 1.75rem);
+  padding: var(--sl-spacing-large, 1.25rem);
   background: var(--elvt-alias-layout-layer-appBackground, #f3f4f7);
   border-bottom: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
   display: flex;
@@ -93,119 +93,15 @@
 
 .codeSection {
   position: relative;
-  border-top: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
 }
 
-.codeWrapper {
-  position: relative;
-}
+/* Code section now uses custom CodeDisplay component */
 
-/* Framework selector injected into CodeBlock button group */
-:global(.componentShowcase) .framework-selector-injected {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
 
-/* Line wrapping control - enabled by default */
-:global(.componentShowcase) .prism-code {
-  white-space: pre-wrap !important;
-  word-break: break-word !important;
-}
 
-.wrapLines :global(.prism-code) {
-  white-space: pre-wrap !important;
-  word-break: break-word !important;
-}
 
-.noWrapLines :global(.prism-code) {
-  white-space: pre !important;
-  overflow-x: auto !important;
-}
 
-/* Clean CodeBlock styling within ComponentShowcase */
-:global(.componentShowcase) .theme-code-block {
-  margin: 0;
-  border: none;
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-}
 
-/* Ensure CodeBlock button group displays properly with consistent padding */
-:global(.componentShowcase) .theme-code-block .buttonGroup__atx {
-  display: flex !important;
-  gap: 0.5rem;
-  align-items: center;
-  padding: var(--sl-spacing-large, 1.25rem) !important;
-  margin: 0 !important;
-}
-
-/* Hide word wrap toggle button completely */
-:global(.componentShowcase) .theme-code-block button[title*="wrap"],
-:global(.componentShowcase) .theme-code-block button[aria-label*="wrap"],
-:global(.componentShowcase) .theme-code-block button[title*="word wrap"],
-:global(.componentShowcase) .theme-code-block button[aria-label*="word wrap"] {
-  display: none !important;
-}
-
-:global(.componentShowcase) .prism-code {
-  background: var(--ifm-sidebar-background-color, var(--elvt-alias-layout-layer-elevated, #f8f9fb)) !important;
-  border: none;
-  border-radius: 0;
-  padding: var(--sl-spacing-large, 1.25rem);
-  font-family: "RobotoMono", "Roboto Mono", Consolas, "Liberation Mono", Menlo, monospace;
-  font-size: 0.85rem;
-  line-height: 1.5;
-  overflow-x: auto;
-}
-
-/* Clean line styling */
-:global(.componentShowcase) .token-line {
-  background: transparent;
-  display: table-row;
-  min-height: 1.5rem;
-}
-
-/* Line numbers styling */
-:global(.componentShowcase) .prism-code .token-line .line-number-style {
-  background: var(--ifm-sidebar-background-color, var(--elvt-alias-layout-layer-elevated, #f8f9fb));
-  color: var(--elvt-primitives-color-gray-500, #8891a0);
-  padding-right: var(--sl-spacing-medium, 1rem);
-  text-align: right;
-  user-select: none;
-  width: 3rem;
-  min-width: 3rem;
-  font-size: 0.8rem;
-  border-right: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
-}
-
-/* Code content */
-:global(.componentShowcase) .prism-code .token-line .token-content {
-  padding-left: var(--sl-spacing-medium, 1rem);
-  color: var(--elvt-primitives-color-gray-800, #3d4253);
-}
-
-/* Syntax highlighting for light theme */
-:global(.componentShowcase) .prism-code .token.tag {
-  color: var(--elvt-primitives-color-blue-600, #0b5cdf);
-}
-
-:global(.componentShowcase) .prism-code .token.attr-name {
-  color: var(--elvt-primitives-color-green-600, #0f8c3e);
-}
-
-:global(.componentShowcase) .prism-code .token.attr-value {
-  color: var(--elvt-primitives-color-orange-600, #dc6803);
-}
-
-:global(.componentShowcase) .prism-code .token.punctuation {
-  color: var(--elvt-primitives-color-gray-600, #5d6679);
-}
-
-:global(.componentShowcase) .prism-code .token.string {
-  color: var(--elvt-primitives-color-green-700, #166534);
-}
 
 /* Dark theme support */
 [data-theme='dark'] .componentShowcase {
@@ -242,46 +138,4 @@
   box-shadow: 0 0 0 2px var(--ifm-color-primary-darkest);
 }
 
-[data-theme='dark'] .codeSection {
-  border-top-color: var(--elvt-primitives-color-gray-700, #4d5366);
-}
 
-/* Dark theme framework selector inherits from FrameworkSwitcher component */
-
-/* Dark theme CodeBlock styling */
-[data-theme='dark'] :global(.componentShowcase) .prism-code {
-  background: var(--ifm-sidebar-background-color, var(--elvt-primitives-color-gray-1000, #111217)) !important;
-}
-
-/* Dark theme line numbers */
-[data-theme='dark'] :global(.componentShowcase) .prism-code .token-line .line-number-style {
-  background: var(--ifm-sidebar-background-color, var(--elvt-primitives-color-gray-1000, #111217));
-  color: var(--elvt-primitives-color-gray-400, #8c95a5);
-  border-right-color: var(--elvt-alias-layout-border-muted, #4d5366);
-}
-
-/* Dark theme code content */
-[data-theme='dark'] :global(.componentShowcase) .prism-code .token-line .token-content {
-  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
-}
-
-/* Syntax highlighting for dark theme */
-[data-theme='dark'] :global(.componentShowcase) .prism-code .token.tag {
-  color: var(--elvt-primitives-color-blue-300, #5facff);
-}
-
-[data-theme='dark'] :global(.componentShowcase) .prism-code .token.attr-name {
-  color: var(--elvt-primitives-color-green-300, #6ee7b7);
-}
-
-[data-theme='dark'] :global(.componentShowcase) .prism-code .token.attr-value {
-  color: var(--elvt-primitives-color-yellow-300, #fde047);
-}
-
-[data-theme='dark'] :global(.componentShowcase) .prism-code .token.punctuation {
-  color: var(--elvt-primitives-color-gray-300, #a3aab4);
-}
-
-[data-theme='dark'] :global(.componentShowcase) .prism-code .token.string {
-  color: var(--elvt-primitives-color-green-400, #31a554);
-}

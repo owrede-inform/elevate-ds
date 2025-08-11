@@ -11,11 +11,11 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Consistent Components',
+    title: '50+ UI Components',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        45+ production-ready components built with modern web standards.
+        Production-ready components built with modern web standards.
         Consistent design language across your entire application with 
         comprehensive <code>TypeScript</code> support.
       </>

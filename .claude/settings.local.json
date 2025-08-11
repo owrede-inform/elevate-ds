@@ -1,10 +1,27 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx create-docusaurus:*)",
       "Bash(robocopy:*)",
       "Bash(xcopy:*)",
-      "Bash(powershell:*)"
+      "Bash(timeout 20 npm start)",
+      "Bash(timeout 15 npm start)",
+      "Bash(del docselevate-components-test.mdx)",
+      "Bash(del nul)",
+      "Bash(timeout 10 npm start)",
+      "Bash(powershell:*)",
+      "WebFetch(domain:docusaurus.io)",
+      "Bash(mkdir:*)",
+      "Bash(npm start)",
+      "Bash(mkdir:*)",
+      "Bash(curl:*)",
+      "Bash(copy \"C:\\Users\\owrede\\WebstormProjects\\elevate-ds\\docs\\components\\button\\elvt-button-changes.json\" \"C:\\Users\\owrede\\WebstormProjects\\elevate-ds\\static\\component-changelogs\\elvt-button-changes.json\")",
+      "Bash(cp:*)",
+      "Bash(rm:*)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": []
   }

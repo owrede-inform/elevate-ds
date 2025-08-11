@@ -26,7 +26,6 @@
     "@inform-elevate/elevate-core-ui": "^0.0.27-alpha",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
-    "docusaurus-plugin-code-preview": "^0.0.1",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

@@ -156,5 +156,14 @@ import DesignTokenTable from '@site/src/components/DesignTokenTable';
 ```
 - Always make sure that you to everything the docusaurus-way. Consult the manual first before changing things!
 - Never force CSS changes with !important unless the documentation requires that. Remove recently added !important statements. Never work around with shortcuts. Try harder to research in the Docusaurus documenation or community how to achieve a goal (maybe even creating a custom component).
-- Whenever you use an ELEVATE component from elevate-core-ui read the API documentation before creating code with it.
+- **🚨 CRITICAL: Before using ANY ELEVATE component (elvt-*), ALWAYS read the component info file in `sample-data/component-infos/elvt-{component-name}.md` first to understand the TypeScript interface, properties, slots, and usage patterns. This is MANDATORY for all ELEVATE component usage.**
 - Never add hints about co-authorship of Claude Code to any commit message, comment or PR.
+- Remember to consult the API in elevate-core-ui components before you use an ELEVATE component.
+
+## ELEVATE Component API Lookup - MANDATORY PROCESS
+**🔍 STEP 1**: Before using any ELEVATE component, read `sample-data/component-infos/elvt-{component-name}.md`
+**🔍 STEP 2**: Check the TypeScript interface section for all available properties and their types
+**🔍 STEP 3**: Review slots, CSS custom properties, and usage notes
+**🔍 STEP 4**: Only then implement the component with correct properties and structure
+
+This process prevents API misuse and ensures accurate component implementation.

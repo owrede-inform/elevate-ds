@@ -325,17 +325,24 @@ code:not([class*="language-"]) {
   color: inherit;
 }
 
-/* Footer styling - Dark footer for both light and dark themes */
+/* Footer styling - Override Docusaurus footer background using CSS variables */
+:root {
+  --ifm-footer-background-color: var(--elvt-primitives-color-white, #ffffff);
+  --ifm-footer-color: var(--elvt-primitives-color-gray-700, #4d5366);
+}
+
+[data-theme='dark'] {
+  --ifm-footer-background-color: var(--elvt-primitives-color-black, #000000);
+  --ifm-footer-color: var(--elvt-primitives-color-gray-200, #bec3cd);
+}
+
+/* Additional footer styling */
 .footer {
-  background: var(--elvt-primitives-color-gray-900, #2f3240);
-  border-top: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
-  color: var(--elvt-primitives-color-gray-200, #bec3cd);
+  border-top: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
 }
 
 [data-theme='dark'] .footer {
-  background: var(--elvt-primitives-color-black, #000000);
   border-top: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
-  color: var(--elvt-primitives-color-gray-200, #bec3cd);
 }
 
 /* Footer logo - ensure proper display in both modes */
@@ -343,30 +350,47 @@ code:not([class*="language-"]) {
   display: block;
 }
 
-/* In light mode, use the dark version of logo since footer is dark */
+/* In light mode, use normal logo (footer is now light) */
 .footer__logo img {
-  filter: invert(1) brightness(1);
+  filter: none;
 }
 
-/* In dark mode, use the original logo (should be the dark version) */
+/* In dark mode, use the dark version of logo */
 [data-theme='dark'] .footer__logo img {
-  filter: none;
+  filter: invert(1) brightness(1);
 }
 
 /* Footer links styling */
 .footer__link-item {
-  color: var(--elvt-primitives-color-gray-300, #a3aab4);
+  color: var(--elvt-primitives-color-gray-600, #5d6679);
 }
 
 .footer__link-item:hover {
-  color: var(--elvt-primitives-color-white, #ffffff);
+  color: var(--elvt-primitives-color-primary, #0072ff);
 }
 
 .footer__title {
-  color: var(--elvt-primitives-color-white, #ffffff);
+  color: var(--elvt-primitives-color-gray-800, #3d4253);
 }
 
 .footer__copyright {
+  color: var(--elvt-primitives-color-gray-600, #5d6679);
+}
+
+/* Dark mode footer links styling */
+[data-theme='dark'] .footer__link-item {
+  color: var(--elvt-primitives-color-gray-300, #a3aab4);
+}
+
+[data-theme='dark'] .footer__link-item:hover {
+  color: var(--elvt-primitives-color-white, #ffffff);
+}
+
+[data-theme='dark'] .footer__title {
+  color: var(--elvt-primitives-color-white, #ffffff);
+}
+
+[data-theme='dark'] .footer__copyright {
   color: var(--elvt-primitives-color-gray-400, #8c95a5);
 }
 

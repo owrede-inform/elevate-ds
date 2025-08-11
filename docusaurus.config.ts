@@ -19,10 +19,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://owrede-inform.github.io',
+  url: process.env.NODE_ENV === 'production' 
+    ? 'https://owrede-inform.github.io'
+    : 'http://localhost:3000',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/elevate-ds/',
+  // For local development, use '/' root path
+  baseUrl: process.env.NODE_ENV === 'production' 
+    ? '/elevate-ds/'
+    : '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -50,8 +55,17 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          routeBasePath: 'docs',
           // Remove edit URL for now - can be added later when repo is set up
           // editUrl: 'https://github.com/inform-elevate/elevate-ds/tree/main/',
+          remarkPlugins: [],
+          rehypePlugins: [],
+          // Enable multiple sidebars functionality
+          sidebarCollapsible: true,
+          sidebarCollapsed: false,
+          // Configure sidebar behavior for multiple sidebars
+          showLastUpdateTime: false,
+          showLastUpdateAuthor: false,
         },
         blog: {
           showReadingTime: true,
@@ -85,6 +99,12 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/elevate-social-card.jpg',
     
+    // Table of contents configuration
+    tableOfContents: {
+      minHeadingLevel: 2,
+      maxHeadingLevel: 2,
+    },
+    
     // Theme metadata
     metadata: [
       {name: 'theme-name', content: 'docusaurus-theme-inform-elevate'},
@@ -105,44 +125,48 @@ const config: Config = {
       },
       items: [
         {
-          type: 'doc',
-          docId: 'get-started',
+          to: '/docs/home',
           position: 'left',
-          label: 'Get Started',
+          label: 'Home',
         },
         {
+          to: '/docs/guidelines',
+          position: 'left',
+          label: 'Guidelines',
+        },
+        {
+          to: '/docs/components',
+          position: 'left',
           label: 'Components',
-          position: 'left',
-          items: [
-            {
-              label: 'Button',
-              to: '/docs/components/button',
-            },
-            {
-              label: 'Input',
-              to: '/docs/components/input',
-            },
-            {
-              label: 'Card',
-              to: '/docs/components/card',
-            },
-          ],
         },
         {
-          label: 'Design Tokens',
-          to: '/docs/design-tokens',
+          to: '/docs/patterns',
           position: 'left',
+          label: 'Patterns',
+        },
+        {
+          to: '/docs/design',
+          position: 'left',
+          label: 'Design',
         },
         {to: '/blog', label: 'Updates', position: 'left'},
         {
-          href: 'https://github.com/owrede-inform/elevate-ds',
+          href: 'https://github.com/inform-elevate/',
           label: 'GitHub',
           position: 'right',
         },
       ],
+      hideOnScroll: false,
     },
     footer: {
-      style: 'dark',
+      style: 'light',
+      logo: {
+        alt: 'INFORM Logo',
+        src: 'img/inform-brand-footer.svg',
+        srcDark: 'img/inform-brand-footer-dark.svg',
+        width: 120,
+        height: 18,
+      },
       links: [
         {
           title: 'Documentation',
@@ -174,7 +198,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/owrede-inform/elevate-ds',
+              href: 'https://github.com/inform-elevate/',
             },
             {
               label: 'NPM Package',
@@ -191,7 +215,7 @@ const config: Config = {
             },
             {
               label: 'Changelog',
-              href: 'https://github.com/owrede-inform/elevate-ds/releases',
+              href: 'https://github.com/inform-elevate/',
             },
           ],
         },

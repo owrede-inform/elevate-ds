@@ -70,6 +70,46 @@ function convertAttributeName(attr: string, style: 'camelCase' | 'kebab-case'): 
 }
 
 /**
+ * Convert CSS style object to CSS string
+ */
+function convertStyleToString(styleObj: any): string {
+  if (typeof styleObj === 'string') {
+    return styleObj;
+  }
+  
+  if (typeof styleObj === 'object' && styleObj !== null) {
+    return Object.entries(styleObj)
+      .map(([property, value]) => {
+        const cssProperty = property.replace(/[A-Z]/g, letter => `-${letter.toLowerCase()}`);
+        return `${cssProperty}: ${value}`;
+      })
+      .join('; ');
+  }
+  
+  return '';
+}
+
+/**
+ * Convert CSS style string to JSX style object
+ */
+function convertStyleToObject(styleStr: string): Record<string, string> {
+  if (!styleStr || typeof styleStr !== 'string') {
+    return {};
+  }
+  
+  return styleStr
+    .split(';')
+    .reduce((acc, declaration) => {
+      const [property, value] = declaration.split(':').map(s => s.trim());
+      if (property && value) {
+        const jsProperty = property.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
+        acc[jsProperty] = value;
+      }
+      return acc;
+    }, {} as Record<string, string>);
+}
+
+/**
  * Transform component name based on framework
  */
 function transformComponentName(name: string, framework: string): string {
@@ -149,6 +189,22 @@ function generateFrameworkCode(element: any, framework: string, indent = 0): str
     // Generate attributes
     const attributes = Object.entries(element.attributes || {})
       .map(([key, value]) => {
+        // Special handling for style attribute
+        if (key === 'style') {
+          if (framework === 'react') {
+            // Convert string style to object for React
+            const styleObj = typeof value === 'string' ? convertStyleToObject(value) : value;
+            const styleObjStr = JSON.stringify(styleObj, null, 0)
+              .replace(/"/g, "'")
+              .replace(/'/g, '"');
+            return `style={${styleObjStr}}`;
+          } else {
+            // Convert object style to string for other frameworks
+            const styleStr = convertStyleToString(value);
+            return `style="${styleStr}"`;
+          }
+        }
+        
         const attrName = convertAttributeName(key, config.attributeStyle);
         
         // Handle different value types

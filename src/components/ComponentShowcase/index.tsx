@@ -1,9 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import CodeBlock from '@theme/CodeBlock';
 import { useFramework } from '../../contexts/FrameworkContext';
 import { transformToFramework, getFrameworkImports, extractComponentNames } from '../../utils/frameworkTransformer';
-import FrameworkSwitcher from '../FrameworkSwitcher';
-import FrameworkSelectorStandalone from './FrameworkSelectorStandalone';
+import CodeDisplay from '../CodeDisplay';
 import styles from './styles.module.css';
 
 interface ComponentShowcaseProps {
@@ -28,7 +26,6 @@ export default function ComponentShowcase({
   showCodeByDefault = false
 }: ComponentShowcaseProps): JSX.Element {
   const previewRef = useRef<HTMLDivElement>(null);
-  const codeBlockRef = useRef<HTMLDivElement>(null);
   const { selectedFramework, setSelectedFramework } = useFramework();
   const [transformedCode, setTransformedCode] = useState<string>('');
   const [componentNames, setComponentNames] = useState<string[]>([]);
@@ -82,48 +79,11 @@ export default function ComponentShowcase({
     ? `${imports}\n\n${transformedCode}` 
     : transformedCode;
 
-  // Inject framework selector into CodeBlock button group
-  useEffect(() => {
-    if (!showCode || !showFrameworkSwitcher || !codeBlockRef.current) {
-      return;
-    }
-
-    const codeBlockElement = codeBlockRef.current;
-    const buttonGroup = codeBlockElement.querySelector('.buttonGroup__atx, [class*="buttonGroup"]');
-    
-    if (buttonGroup && !buttonGroup.querySelector('.framework-selector-injected')) {
-      // Create framework selector container
-      const frameworkContainer = document.createElement('div');
-      frameworkContainer.className = 'framework-selector-injected';
-      frameworkContainer.style.cssText = 'display: flex; align-items: center; gap: 0.5rem;';
-      
-      // Create a temporary React root to render the standalone framework selector
-      import('react-dom/client').then(({ createRoot }) => {
-        const root = createRoot(frameworkContainer);
-        root.render(
-          React.createElement(FrameworkSelectorStandalone, {
-            selectedFramework: selectedFramework,
-            onFrameworkChange: setSelectedFramework,
-            size: 'small'
-          })
-        );
-        
-        // Insert as the last item in the button group
-        buttonGroup.appendChild(frameworkContainer);
-      });
-    }
-
-    // Cleanup function
-    return () => {
-      const injectedElement = buttonGroup?.querySelector('.framework-selector-injected');
-      if (injectedElement) {
-        injectedElement.remove();
-      }
-    };
-  }, [showCode, showFrameworkSwitcher, selectedFramework, displayCode]);
+  // No complex DOM manipulation needed with our custom CodeDisplay component
 
   return (
     <div className={`${styles.componentShowcase} componentShowcase`}>
+      {/* Header with title, description and toggle button */}
       <div className={styles.header}>
         <div className={styles.headerContent}>
           {title && <h3 className={styles.title}>{title}</h3>}
@@ -133,8 +93,8 @@ export default function ComponentShowcase({
           <button
             className={styles.codeToggle}
             onClick={() => setShowCode(!showCode)}
-            title={showCode ? 'Hide code' : 'Show code'}
-            aria-label={showCode ? 'Hide code' : 'Show code'}
+            title={showCode ? 'Hide source code' : 'Show source code'}
+            aria-label={showCode ? 'Hide source code' : 'Show source code'}
           >
             {showCode ? (
               <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
@@ -149,23 +109,23 @@ export default function ComponentShowcase({
         </div>
       </div>
       
+      {/* Preview area */}
       <div className={styles.preview}>
         <div className={styles.previewContent} ref={previewRef}>
           {children}
         </div>
       </div>
 
+      {/* Source code block - only shown when toggled */}
       {showCode && (
         <div className={styles.codeSection}>
-          <div className={styles.codeWrapper} ref={codeBlockRef}>
-            <CodeBlock 
-              language={getLanguage()} 
-              showLineNumbers={true}
-              className={wrapLines ? styles.wrapLines : styles.noWrapLines}
-            >
-              {displayCode}
-            </CodeBlock>
-          </div>
+          <CodeDisplay
+            code={displayCode}
+            language={getLanguage()}
+            showLineNumbers={true}
+            showFrameworkSwitcher={showFrameworkSwitcher}
+            wrapLines={wrapLines}
+          />
         </div>
       )}
     </div>
