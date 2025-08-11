@@ -48,7 +48,7 @@ const CustomHero: React.FC<CustomHeroProps> = ({
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
 
   // Select a random image path once on component creation
-  const randomIndex = Math.useMemo(() => Math.floor(Math.random() * backgroundImages.length), []);
+  const randomIndex = useMemo(() => Math.floor(Math.random() * backgroundImages.length), []);
   const selectedImagePath = `${backgroundImageFolder}/${backgroundImages[randomIndex]}`;
   const fullImagePath = useBaseUrl(selectedImagePath);
 
