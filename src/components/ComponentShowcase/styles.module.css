@@ -107,7 +107,12 @@
   gap: 0.5rem;
 }
 
-/* Line wrapping control */
+/* Line wrapping control - enabled by default */
+:global(.componentShowcase) .prism-code {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+}
+
 .wrapLines :global(.prism-code) {
   white-space: pre-wrap !important;
   word-break: break-word !important;
@@ -127,16 +132,20 @@
   box-shadow: none;
 }
 
-/* Ensure CodeBlock button group displays properly */
+/* Ensure CodeBlock button group displays properly with consistent padding */
 :global(.componentShowcase) .theme-code-block .buttonGroup__atx {
   display: flex !important;
   gap: 0.5rem;
   align-items: center;
+  padding: var(--sl-spacing-large, 1.25rem) !important;
+  margin: 0 !important;
 }
 
-/* Hide text wrap toggle button */
+/* Hide word wrap toggle button completely */
 :global(.componentShowcase) .theme-code-block button[title*="wrap"],
-:global(.componentShowcase) .theme-code-block button[aria-label*="wrap"] {
+:global(.componentShowcase) .theme-code-block button[aria-label*="wrap"],
+:global(.componentShowcase) .theme-code-block button[title*="word wrap"],
+:global(.componentShowcase) .theme-code-block button[aria-label*="word wrap"] {
   display: none !important;
 }
 
