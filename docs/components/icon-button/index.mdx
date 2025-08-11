@@ -1,0 +1,127 @@
+---
+title: Icon Button
+description: Compact button component that displays only an icon, ideal for toolbars, action bars, and space-constrained interfaces
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Icon Button
+
+Icon Button is a compact button variant that displays only an icon without text, making it perfect for toolbars, action bars, and interfaces where space is limited but actions need to be easily accessible.
+
+## When to Use
+
+- **Toolbars**: Action buttons in editing interfaces or toolbars
+- **Space-Constrained**: When space is limited but actions are needed
+- **Secondary Actions**: Quick actions that don't need prominent text labels
+- **Navigation**: Back, close, menu, and navigation actions
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Icon Buttons"
+  description="Icon buttons with different tones and states."
+  code={`<div style="display: flex; gap: 0.5rem; align-items: center;">
+  <elvt-icon-button icon="star" aria-label="Favorite"></elvt-icon-button>
+  <elvt-icon-button icon="share" tone="primary" aria-label="Share"></elvt-icon-button>
+  <elvt-icon-button icon="download" tone="success" aria-label="Download"></elvt-icon-button>
+  <elvt-icon-button icon="trash" tone="danger" aria-label="Delete"></elvt-icon-button>
+</div>`}
+>
+  <div style={{display: 'flex', gap: '0.5rem', alignItems: 'center'}}>
+    <button 
+      style={{
+        padding: '0.5rem',
+        background: 'transparent',
+        border: '1px solid var(--elvt-alias-layout-border-muted)',
+        borderRadius: '6px',
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}
+      aria-label="Favorite"
+    >
+      ⭐
+    </button>
+    <button 
+      style={{
+        padding: '0.5rem',
+        background: 'var(--elvt-primitives-color-blue-500)',
+        border: 'none',
+        borderRadius: '6px',
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'white'
+      }}
+      aria-label="Share"
+    >
+      📤
+    </button>
+    <button 
+      style={{
+        padding: '0.5rem',
+        background: 'var(--elvt-primitives-color-green-500)',
+        border: 'none',
+        borderRadius: '6px',
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'white'
+      }}
+      aria-label="Download"
+    >
+      ⬇️
+    </button>
+    <button 
+      style={{
+        padding: '0.5rem',
+        background: 'var(--elvt-primitives-color-red-500)',
+        border: 'none',
+        borderRadius: '6px',
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'white'
+      }}
+      aria-label="Delete"
+    >
+      🗑️
+    </button>
+  </div>
+</ComponentShowcase>
+
+## Framework Integration
+
+### React Usage
+
+```jsx
+import { ElvtIconButton } from '@inform-elevate/elevate-core-ui/dist/react';
+
+function Toolbar() {
+  return (
+    <div className="toolbar">
+      <ElvtIconButton icon="menu" ariaLabel="Open menu" onClick={openMenu} />
+      <ElvtIconButton icon="search" ariaLabel="Search" onClick={openSearch} />
+      <ElvtIconButton icon="settings" ariaLabel="Settings" onClick={openSettings} />
+    </div>
+  );
+}
+```
+
+## Resources
+
+- **[Button](/docs/components/button)** - Full button component with text and icons
+- **[Icon](/docs/components/icon)** - Icon component used within icon buttons
+- **[Storybook](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-icon-button)** - Interactive examples and API documentation
+
+---
+
+:::tip Accessibility
+Always provide `aria-label` or `aria-labelledby` attributes for icon buttons since they have no visible text. Screen reader users need to understand what each button does.
+:::

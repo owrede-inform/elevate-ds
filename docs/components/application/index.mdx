@@ -1,0 +1,209 @@
+---
+title: Application
+description: Root application wrapper component that provides theme context, global styles, and foundational setup for ELEVATE applications
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Application
+
+The Application component serves as the root wrapper for ELEVATE applications, providing essential setup including theme context, global styles, CSS custom properties, and foundational configuration.
+
+## When to Use
+
+- **Root Component**: Wrap your entire application at the top level
+- **Theme Setup**: Enable ELEVATE theming and design tokens
+- **Global Styles**: Apply ELEVATE global styles and CSS reset
+- **Context Providers**: Initialize ELEVATE context providers
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Application Setup"
+  description="The Application component wraps your entire app to provide ELEVATE theming and styles."
+  code={`<elvt-application>
+  <div>
+    <h1>My ELEVATE App</h1>
+    <elvt-button tone="primary">Get Started</elvt-button>
+  </div>
+</elvt-application>`}
+>
+  <div style={{padding: '1rem', border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '8px'}}>
+    <h3>My ELEVATE App</h3>
+    <p>Application wrapper provides theme context and global styles.</p>
+  </div>
+</ComponentShowcase>
+
+## Theme Integration
+
+<ComponentShowcase
+  title="Theme-aware Components"
+  description="Components inside Application automatically inherit ELEVATE theming."
+  code={`<elvt-application theme="light">
+  <elvt-card padding="l">
+    <h3>Themed Content</h3>
+    <p>This card uses ELEVATE design tokens automatically.</p>
+    <elvt-button tone="primary">Primary Action</elvt-button>
+    <elvt-button>Secondary Action</elvt-button>
+  </elvt-card>
+</elvt-application>`}
+>
+  <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-default)', borderRadius: '8px'}}>
+    <h4>Themed Content</h4>
+    <p>This content uses ELEVATE design tokens automatically.</p>
+    <div style={{display: 'flex', gap: '0.5rem'}}>
+      <button style={{padding: '0.5rem 1rem', background: 'var(--elvt-primitives-color-blue-500)', color: 'white', border: 'none', borderRadius: '4px'}}>
+        Primary Action
+      </button>
+      <button style={{padding: '0.5rem 1rem', background: 'transparent', border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '4px'}}>
+        Secondary Action
+      </button>
+    </div>
+  </div>
+</ComponentShowcase>
+
+## Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `theme` | `'light' \| 'dark' \| 'auto'` | `'auto'` | Sets the application theme mode |
+| `compact` | `boolean` | `false` | Enables compact spacing mode |
+| `dir` | `'ltr' \| 'rtl'` | `'ltr'` | Sets text direction for internationalization |
+
+## Slots
+
+| Slot | Description |
+|------|-------------|
+| Default | Main application content |
+
+## Framework Integration
+
+### React Usage
+
+```jsx
+import { ElvtApplication } from '@inform-elevate/elevate-core-ui/dist/react';
+
+function App() {
+  return (
+    <ElvtApplication theme="light">
+      <div>
+        <h1>My App</h1>
+        {/* Your app content */}
+      </div>
+    </ElvtApplication>
+  );
+}
+```
+
+### HTML Usage
+
+```html
+<elvt-application theme="light">
+  <div>
+    <h1>My App</h1>
+    <!-- Your app content -->
+  </div>
+</elvt-application>
+```
+
+### Vue Usage
+
+```vue
+<template>
+  <elvt-application theme="light">
+    <div>
+      <h1>My App</h1>
+      <!-- Your app content -->
+    </div>
+  </elvt-application>
+</template>
+```
+
+## Features
+
+### Theme Management
+- **Automatic Theme Detection**: Respects system theme preferences
+- **Manual Override**: Set specific light or dark themes
+- **CSS Custom Properties**: Provides all ELEVATE design tokens
+- **Theme Switching**: Runtime theme changes with smooth transitions
+
+### Global Styles
+- **CSS Reset**: Normalized base styles across browsers
+- **Typography**: Default font families and text styles
+- **Focus Management**: Consistent focus indicators
+- **Responsive**: Mobile-first responsive utilities
+
+### Accessibility
+- **Screen Reader Support**: Proper semantic structure
+- **High Contrast**: Supports high contrast mode
+- **Reduced Motion**: Respects motion preferences
+- **Keyboard Navigation**: Focus management and tab order
+
+## Best Practices
+
+### Setup
+```jsx
+// ✅ Good - Wrap entire application
+function App() {
+  return (
+    <ElvtApplication>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Router>
+    </ElvtApplication>
+  );
+}
+
+// ❌ Avoid - Multiple Application components
+function App() {
+  return (
+    <div>
+      <ElvtApplication>
+        <Header />
+      </ElvtApplication>
+      <ElvtApplication>
+        <Main />
+      </ElvtApplication>
+    </div>
+  );
+}
+```
+
+### Theme Configuration
+```jsx
+// ✅ Good - Let system preferences control theme
+<ElvtApplication theme="auto">
+
+// ✅ Good - Specific theme for branded apps
+<ElvtApplication theme="light">
+
+// ✅ Good - RTL support
+<ElvtApplication dir="rtl" theme="auto">
+```
+
+## Related Components
+
+- **[Card](/docs/components/card)** - Container components that work within Application
+- **[Button](/docs/components/button)** - Action components styled by Application theme
+- **[Input](/docs/components/input)** - Form components that inherit Application theming
+
+## Resources
+
+- **[Design Tokens](/docs/design)** - Available CSS custom properties
+- **[Theming Guide](/docs/home/themes)** - Theme customization and usage
+- **[Accessibility](/docs/guidelines/accessibility)** - Accessibility features and guidelines
+- **[Storybook](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-application)** - Interactive examples and API documentation
+
+---
+
+:::tip Theme Integration
+The Application component automatically applies ELEVATE design tokens as CSS custom properties, making them available to all child components and custom styles.
+:::
+
+:::info Global Setup
+Only use one Application component per app, typically at the root level. It provides global context and styles that should wrap your entire application.
+:::

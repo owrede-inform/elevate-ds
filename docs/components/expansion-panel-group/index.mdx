@@ -1,0 +1,445 @@
+---
+title: Expansion Panel Group
+description: Container component for managing multiple expansion panels with coordinated behavior and consistent styling
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Expansion Panel Group
+
+Expansion Panel Group provides a container for multiple expansion panels with coordinated behavior, consistent styling, and advanced features like accordion mode where only one panel can be expanded at a time.
+
+## When to Use
+
+- **Settings Pages**: Group related configuration sections
+- **FAQ Sections**: Organize questions and answers with accordion behavior
+- **Multi-Step Forms**: Break complex forms into manageable sections
+- **Content Organization**: Structure dense information into collapsible sections
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Expansion Panel Group"
+  description="Group of expansion panels with independent behavior."
+  code={`<elvt-expansion-panel-group>
+  <elvt-expansion-panel>
+    <span slot="header">Personal Information</span>
+    <div slot="content">
+      <p>Update your name, email, and contact details.</p>
+    </div>
+  </elvt-expansion-panel>
+  
+  <elvt-expansion-panel expanded>
+    <span slot="header">Account Settings</span>
+    <div slot="content">
+      <p>Configure your account preferences and security options.</p>
+    </div>
+  </elvt-expansion-panel>
+  
+  <elvt-expansion-panel>
+    <span slot="header">Notification Preferences</span>
+    <div slot="content">
+      <p>Choose how and when you receive notifications.</p>
+    </div>
+  </elvt-expansion-panel>
+</elvt-expansion-panel-group>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem', border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '8px', padding: '0.5rem'}}>
+    <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '6px', overflow: 'hidden'}}>
+      <details>
+        <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer'}}>
+          <strong>Personal Information</strong>
+        </summary>
+        <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-default)', borderTop: '1px solid var(--elvt-alias-layout-border-muted)'}}>
+          <p>Update your name, email, and contact details.</p>
+        </div>
+      </details>
+    </div>
+    
+    <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '6px', overflow: 'hidden'}}>
+      <details open>
+        <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer'}}>
+          <strong>Account Settings</strong>
+        </summary>
+        <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-default)', borderTop: '1px solid var(--elvt-alias-layout-border-muted)'}}>
+          <p>Configure your account preferences and security options.</p>
+        </div>
+      </details>
+    </div>
+    
+    <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '6px', overflow: 'hidden'}}>
+      <details>
+        <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer'}}>
+          <strong>Notification Preferences</strong>
+        </summary>
+        <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-default)', borderTop: '1px solid var(--elvt-alias-layout-border-muted)'}}>
+          <p>Choose how and when you receive notifications.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</ComponentShowcase>
+
+## Accordion Mode
+
+<ComponentShowcase
+  title="Accordion Behavior"
+  description="Only one panel can be expanded at a time in accordion mode."
+  code={`<elvt-expansion-panel-group accordion>
+  <elvt-expansion-panel>
+    <span slot="header">What is ELEVATE?</span>
+    <div slot="content">
+      <p>ELEVATE is INFORM's comprehensive design system that provides components, patterns, and guidelines for building consistent user interfaces.</p>
+    </div>
+  </elvt-expansion-panel>
+  
+  <elvt-expansion-panel>
+    <span slot="header">How do I install ELEVATE?</span>
+    <div slot="content">
+      <p>Install ELEVATE using npm: <code>npm install @inform-elevate/elevate-core-ui</code></p>
+    </div>
+  </elvt-expansion-panel>
+  
+  <elvt-expansion-panel expanded>
+    <span slot="header">Is ELEVATE accessible?</span>
+    <div slot="content">
+      <p>Yes, all ELEVATE components meet WCAG 2.1 AA accessibility standards and include keyboard navigation, screen reader support, and proper ARIA attributes.</p>
+    </div>
+  </elvt-expansion-panel>
+</elvt-expansion-panel-group>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem', border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '8px', padding: '0.5rem'}}>
+    <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '6px', overflow: 'hidden'}}>
+      <details>
+        <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer'}}>
+          <strong>What is ELEVATE?</strong>
+        </summary>
+      </details>
+    </div>
+    
+    <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '6px', overflow: 'hidden'}}>
+      <details>
+        <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer'}}>
+          <strong>How do I install ELEVATE?</strong>
+        </summary>
+      </details>
+    </div>
+    
+    <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '6px', overflow: 'hidden'}}>
+      <details open>
+        <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer'}}>
+          <strong>Is ELEVATE accessible?</strong>
+        </summary>
+        <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-default)', borderTop: '1px solid var(--elvt-alias-layout-border-muted)'}}>
+          <p>Yes, all ELEVATE components meet WCAG 2.1 AA accessibility standards and include keyboard navigation, screen reader support, and proper ARIA attributes.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</ComponentShowcase>
+
+## Bordered Variant
+
+<ComponentShowcase
+  title="Bordered Style"
+  description="Bordered variant with connected panels for a unified appearance."
+  code={`<elvt-expansion-panel-group variant="bordered">
+  <elvt-expansion-panel icon="user">
+    <span slot="header">Profile Settings</span>
+    <span slot="description">Update your personal information</span>
+    <div slot="content">
+      <p>Manage your profile details, avatar, and public information.</p>
+    </div>
+  </elvt-expansion-panel>
+  
+  <elvt-expansion-panel icon="shield">
+    <span slot="header">Security Settings</span>
+    <span slot="description">Manage passwords and authentication</span>
+    <div slot="content">
+      <p>Configure two-factor authentication, change passwords, and manage security settings.</p>
+    </div>
+  </elvt-expansion-panel>
+  
+  <elvt-expansion-panel icon="bell">
+    <span slot="header">Notifications</span>
+    <span slot="description">Control notification preferences</span>
+    <div slot="content">
+      <p>Choose which notifications to receive and how you want to be notified.</p>
+    </div>
+  </elvt-expansion-panel>
+</elvt-expansion-panel-group>`}
+>
+  <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '8px', overflow: 'hidden'}}>
+    <div style={{borderBottom: '1px solid var(--elvt-alias-layout-border-muted)'}}>
+      <details>
+        <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer'}}>
+          <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
+            <span style={{fontSize: '1.25rem'}}>👤</span>
+            <div>
+              <div><strong>Profile Settings</strong></div>
+              <div style={{fontSize: '0.875rem', color: 'var(--elvt-alias-content-text-secondary)', marginTop: '0.25rem'}}>
+                Update your personal information
+              </div>
+            </div>
+          </div>
+        </summary>
+        <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-default)', borderTop: '1px solid var(--elvt-alias-layout-border-muted)'}}>
+          <p>Manage your profile details, avatar, and public information.</p>
+        </div>
+      </details>
+    </div>
+    
+    <div style={{borderBottom: '1px solid var(--elvt-alias-layout-border-muted)'}}>
+      <details>
+        <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer'}}>
+          <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
+            <span style={{fontSize: '1.25rem'}}>🛡️</span>
+            <div>
+              <div><strong>Security Settings</strong></div>
+              <div style={{fontSize: '0.875rem', color: 'var(--elvt-alias-content-text-secondary)', marginTop: '0.25rem'}}>
+                Manage passwords and authentication
+              </div>
+            </div>
+          </div>
+        </summary>
+      </details>
+    </div>
+    
+    <div>
+      <details>
+        <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer'}}>
+          <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
+            <span style={{fontSize: '1.25rem'}}>🔔</span>
+            <div>
+              <div><strong>Notifications</strong></div>
+              <div style={{fontSize: '0.875rem', color: 'var(--elvt-alias-content-text-secondary)', marginTop: '0.25rem'}}>
+                Control notification preferences
+              </div>
+            </div>
+          </div>
+        </summary>
+      </details>
+    </div>
+  </div>
+</ComponentShowcase>
+
+## Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `accordion` | `boolean` | `false` | Enable accordion mode (only one panel expanded) |
+| `variant` | `'default' \| 'bordered' \| 'elevated'` | `'default'` | Visual style variant |
+| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | Overall size of panels in the group |
+| `gap` | `'none' \| 'small' \| 'medium' \| 'large'` | `'small'` | Spacing between panels |
+| `disabled` | `boolean` | `false` | Disables all panels in the group |
+
+## Events
+
+| Event | Detail Type | Description |
+|-------|-------------|-------------|
+| `elvt-panel-expand` | `CustomEvent<{ panelId: string, expanded: boolean }>` | Fired when any panel expands or collapses |
+| `elvt-active-panel-change` | `CustomEvent<{ activePanel: string \| null }>` | Fired when active panel changes (accordion mode) |
+
+## Methods
+
+| Method | Parameters | Description |
+|--------|------------|-------------|
+| `expandPanel(panelId)` | `panelId: string` | Programmatically expand a specific panel |
+| `collapsePanel(panelId)` | `panelId: string` | Programmatically collapse a specific panel |
+| `collapseAll()` | - | Collapse all panels in the group |
+| `getExpandedPanels()` | - | Returns array of expanded panel IDs |
+
+## Framework Integration
+
+### React Usage
+
+```jsx
+import { ElvtExpansionPanelGroup, ElvtExpansionPanel } from '@inform-elevate/elevate-core-ui/dist/react';
+
+function SettingsPage() {
+  const [activePanel, setActivePanel] = useState('general');
+
+  const handlePanelChange = (event) => {
+    setActivePanel(event.detail.activePanel);
+  };
+
+  return (
+    <ElvtExpansionPanelGroup 
+      accordion 
+      onElvtActivePanelChange={handlePanelChange}
+    >
+      <ElvtExpansionPanel 
+        id="general" 
+        expanded={activePanel === 'general'}
+      >
+        <span slot="header">General Settings</span>
+        <div slot="content">
+          <GeneralSettings />
+        </div>
+      </ElvtExpansionPanel>
+      
+      <ElvtExpansionPanel 
+        id="privacy" 
+        expanded={activePanel === 'privacy'}
+      >
+        <span slot="header">Privacy Settings</span>
+        <div slot="content">
+          <PrivacySettings />
+        </div>
+      </ElvtExpansionPanel>
+    </ElvtExpansionPanelGroup>
+  );
+}
+```
+
+### HTML Usage
+
+```html
+<elvt-expansion-panel-group accordion variant="bordered">
+  <elvt-expansion-panel id="faq-1">
+    <span slot="header">How do I reset my password?</span>
+    <div slot="content">
+      <p>Click the "Forgot Password" link on the login page and follow the instructions sent to your email.</p>
+    </div>
+  </elvt-expansion-panel>
+  
+  <elvt-expansion-panel id="faq-2">
+    <span slot="header">Can I change my username?</span>
+    <div slot="content">
+      <p>Usernames can be changed in your account settings. Note that this may affect your profile URL.</p>
+    </div>
+  </elvt-expansion-panel>
+</elvt-expansion-panel-group>
+```
+
+### Vue Usage
+
+```vue
+<template>
+  <elvt-expansion-panel-group 
+    :accordion="true"
+    @elvt-panel-expand="handlePanelExpand"
+  >
+    <elvt-expansion-panel
+      v-for="section in settingsSections"
+      :key="section.id"
+      :id="section.id"
+      :expanded="expandedPanels.includes(section.id)"
+    >
+      <span slot="header">{{ section.title }}</span>
+      <span slot="description">{{ section.description }}</span>
+      <div slot="content">
+        <component :is="section.component" />
+      </div>
+    </elvt-expansion-panel>
+  </elvt-expansion-panel-group>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      expandedPanels: ['general'],
+      settingsSections: [
+        { id: 'general', title: 'General', description: 'Basic settings', component: 'GeneralSettings' },
+        { id: 'privacy', title: 'Privacy', description: 'Privacy preferences', component: 'PrivacySettings' }
+      ]
+    };
+  },
+  methods: {
+    handlePanelExpand(event) {
+      const { panelId, expanded } = event.detail;
+      if (expanded) {
+        this.expandedPanels = [panelId]; // Accordion mode
+      } else {
+        this.expandedPanels = [];
+      }
+    }
+  }
+};
+</script>
+```
+
+## Accessibility
+
+- **Keyboard Navigation**: Arrow keys navigate between panel headers
+- **ARIA Attributes**: Proper `role="tablist"` and `role="tab"` attributes
+- **Screen Reader Support**: Announces panel states and content
+- **Focus Management**: Focus moves logically through panel content
+
+## Best Practices
+
+### Content Organization
+
+```jsx
+// ✅ Good - Related content grouped together
+<ElvtExpansionPanelGroup>
+  <ElvtExpansionPanel>
+    <span slot="header">Account Information</span>
+    <div slot="content">
+      <EmailSettings />
+      <PasswordSettings />
+      <ProfileSettings />
+    </div>
+  </ElvtExpansionPanel>
+</ElvtExpansionPanelGroup>
+
+// ❌ Avoid - Mixing unrelated content
+<ElvtExpansionPanelGroup>
+  <ElvtExpansionPanel>
+    <span slot="header">Mixed Settings</span>
+    <div slot="content">
+      <EmailSettings />
+      <GameSettings />
+      <BillingSettings />
+    </div>
+  </ElvtExpansionPanel>
+</ElvtExpansionPanelGroup>
+```
+
+### Accordion Usage
+
+```jsx
+// ✅ Good - Use accordion for FAQ sections
+<ElvtExpansionPanelGroup accordion>
+  {faqs.map(faq => (
+    <ElvtExpansionPanel key={faq.id}>
+      <span slot="header">{faq.question}</span>
+      <div slot="content">{faq.answer}</div>
+    </ElvtExpansionPanel>
+  ))}
+</ElvtExpansionPanelGroup>
+
+// ✅ Good - Multiple panels for settings sections
+<ElvtExpansionPanelGroup>
+  {settingsSections.map(section => (
+    <ElvtExpansionPanel key={section.id}>
+      <span slot="header">{section.title}</span>
+      <div slot="content">{section.content}</div>
+    </ElvtExpansionPanel>
+  ))}
+</ElvtExpansionPanelGroup>
+```
+
+## Related Components
+
+- **[Expansion Panel](/docs/components/expansion-panel)** - Individual collapsible content sections
+- **[Card](/docs/components/card)** - Alternative container for non-collapsible content
+- **[Button](/docs/components/button)** - Action triggers within panel content
+
+## Resources
+
+- **[Content Organization](/docs/guidelines/design)** - Principles for organizing content effectively
+- **[Accessibility](/docs/guidelines/accessibility)** - Keyboard navigation and screen reader support
+- **[Storybook](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-expansion-panel-group)** - Interactive examples and API documentation
+
+---
+
+:::tip Accordion vs Multiple
+Use accordion mode for FAQ sections where users typically need to see only one answer at a time. Use multiple expansion for settings where users might need to compare or work with multiple sections simultaneously.
+:::
+
+:::info Performance
+For groups with many panels containing heavy content, consider lazy loading panel content only when expanded to improve initial page performance.
+:::

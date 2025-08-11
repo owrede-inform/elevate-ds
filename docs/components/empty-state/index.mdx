@@ -1,0 +1,259 @@
+---
+title: Empty State
+description: Placeholder component for when no content or data is available, providing helpful guidance and next steps to users
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Empty State
+
+Empty State components provide helpful placeholders when no content, data, or search results are available. They guide users with clear messaging and actionable next steps to improve the user experience during empty scenarios.
+
+## When to Use
+
+- **No Data**: When lists, tables, or data views have no items
+- **Search Results**: When search queries return no matches
+- **First Time Use**: When users haven't created content yet
+- **Error Recovery**: After failed operations that result in empty states
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Empty State"
+  description="Simple empty state with icon, message, and call-to-action."
+  code={`<elvt-empty-state
+  icon="inbox"
+  title="No messages yet"
+  description="When you receive messages, they'll appear here."
+  action-text="Check settings"
+  action-href="/settings">
+</elvt-empty-state>`}
+>
+  <div style={{padding: '3rem', textAlign: 'center', background: 'var(--elvt-alias-layout-layer-elevated)', borderRadius: '8px', border: '1px solid var(--elvt-alias-layout-border-muted)'}}>
+    <div style={{fontSize: '3rem', marginBottom: '1rem', opacity: '0.5'}}>📥</div>
+    <h3 style={{margin: '0 0 0.5rem 0', color: 'var(--elvt-alias-content-text-primary)'}}>No messages yet</h3>
+    <p style={{margin: '0 0 1.5rem 0', color: 'var(--elvt-alias-content-text-secondary)'}}>
+      When you receive messages, they'll appear here.
+    </p>
+    <button style={{padding: '0.75rem 1.5rem', background: 'var(--elvt-primitives-color-blue-500)', color: 'white', border: 'none', borderRadius: '6px'}}>
+      Check settings
+    </button>
+  </div>
+</ComponentShowcase>
+
+## Search Results
+
+<ComponentShowcase
+  title="Search Empty State"
+  description="Empty state specifically for when search queries return no results."
+  code={`<elvt-empty-state
+  icon="search"
+  title="No results found"
+  description="Try adjusting your search terms or filters."
+  action-text="Clear filters"
+  variant="search">
+</elvt-empty-state>`}
+>
+  <div style={{padding: '3rem', textAlign: 'center', background: 'var(--elvt-alias-layout-layer-elevated)', borderRadius: '8px', border: '1px solid var(--elvt-alias-layout-border-muted)'}}>
+    <div style={{fontSize: '3rem', marginBottom: '1rem', opacity: '0.5'}}>🔍</div>
+    <h3 style={{margin: '0 0 0.5rem 0', color: 'var(--elvt-alias-content-text-primary)'}}>No results found</h3>
+    <p style={{margin: '0 0 1.5rem 0', color: 'var(--elvt-alias-content-text-secondary)'}}>
+      Try adjusting your search terms or filters.
+    </p>
+    <button style={{padding: '0.75rem 1.5rem', background: 'transparent', color: 'var(--elvt-primitives-color-blue-500)', border: '1px solid var(--elvt-primitives-color-blue-500)', borderRadius: '6px'}}>
+      Clear filters
+    </button>
+  </div>
+</ComponentShowcase>
+
+## First Time Experience
+
+<ComponentShowcase
+  title="First Time User"
+  description="Welcoming empty state for new users with onboarding guidance."
+  code={`<elvt-empty-state
+  icon="star"
+  title="Welcome to your dashboard!"
+  description="Start by creating your first project to see analytics and insights."
+  action-text="Create project"
+  variant="welcome">
+</elvt-empty-state>`}
+>
+  <div style={{padding: '3rem', textAlign: 'center', background: 'var(--elvt-alias-layout-layer-elevated)', borderRadius: '8px', border: '1px solid var(--elvt-alias-layout-border-muted)'}}>
+    <div style={{fontSize: '3rem', marginBottom: '1rem', opacity: '0.7'}}>⭐</div>
+    <h3 style={{margin: '0 0 0.5rem 0', color: 'var(--elvt-alias-content-text-primary)'}}>Welcome to your dashboard!</h3>
+    <p style={{margin: '0 0 1.5rem 0', color: 'var(--elvt-alias-content-text-secondary)'}}>
+      Start by creating your first project to see analytics and insights.
+    </p>
+    <button style={{padding: '0.75rem 1.5rem', background: 'var(--elvt-primitives-color-blue-500)', color: 'white', border: 'none', borderRadius: '6px'}}>
+      Create project
+    </button>
+  </div>
+</ComponentShowcase>
+
+## Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `icon` | `string` | | Icon name from ELEVATE icon library |
+| `title` | `string` | | Main heading text |
+| `description` | `string` | | Descriptive text explaining the empty state |
+| `action-text` | `string` | | Text for the primary action button |
+| `action-href` | `string` | | URL for the action button (makes it a link) |
+| `variant` | `'default' \| 'search' \| 'error' \| 'welcome'` | `'default'` | Visual style variant |
+| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | Overall size of the empty state |
+
+## Events
+
+| Event | Detail Type | Description |
+|-------|-------------|-------------|
+| `elvt-action-click` | `CustomEvent<void>` | Fired when action button is clicked |
+
+## Variants
+
+### Default
+Standard empty state for general no-data scenarios.
+
+### Search
+Optimized for search result pages with search-specific messaging.
+
+### Error
+For error states that result in empty content with error recovery actions.
+
+### Welcome
+Positive, welcoming tone for first-time user experiences.
+
+## Framework Integration
+
+### React Usage
+
+```jsx
+import { ElvtEmptyState } from '@inform-elevate/elevate-core-ui/dist/react';
+
+function DataTable({ data }) {
+  if (data.length === 0) {
+    return (
+      <ElvtEmptyState
+        icon="table"
+        title="No data available"
+        description="Import data or create new entries to get started."
+        actionText="Import data"
+        onElvtActionClick={handleImport}
+      />
+    );
+  }
+
+  return <Table data={data} />;
+}
+```
+
+### HTML Usage
+
+```html
+<elvt-empty-state
+  icon="inbox"
+  title="No notifications"
+  description="You're all caught up! Check back later for updates."
+  action-text="Go to settings"
+  action-href="/settings">
+</elvt-empty-state>
+```
+
+### Vue Usage
+
+```vue
+<template>
+  <elvt-empty-state
+    v-if="items.length === 0"
+    icon="list"
+    title="No items found"
+    description="Create your first item to get started."
+    action-text="Add item"
+    @elvt-action-click="addItem"
+  />
+</template>
+```
+
+## Accessibility
+
+- **Semantic Structure**: Uses proper heading hierarchy
+- **Screen Reader Support**: Descriptive text and ARIA labels
+- **Keyboard Navigation**: Action buttons are keyboard accessible
+- **Focus Management**: Proper focus indicators on interactive elements
+
+## Best Practices
+
+### Content Guidelines
+
+```jsx
+// ✅ Good - Helpful and actionable
+<ElvtEmptyState
+  title="No projects yet"
+  description="Create your first project to start tracking tasks and milestones."
+  actionText="Create project"
+/>
+
+// ❌ Avoid - Vague or unhelpful
+<ElvtEmptyState
+  title="Empty"
+  description="Nothing here."
+  actionText="Do something"
+/>
+```
+
+### Context-Specific Messaging
+
+```jsx
+// ✅ Good - Specific to the context
+<ElvtEmptyState
+  icon="search"
+  title="No results for 'design system'"
+  description="Try different keywords or check your spelling."
+  actionText="Clear search"
+  variant="search"
+/>
+
+// ✅ Good - First-time user guidance
+<ElvtEmptyState
+  icon="star"
+  title="Welcome to your workspace!"
+  description="Invite team members and create your first project."
+  actionText="Get started"
+  variant="welcome"
+/>
+```
+
+### Action Prioritization
+
+```jsx
+// ✅ Good - Clear primary action
+<ElvtEmptyState
+  title="No team members"
+  description="Collaborate by inviting team members to your workspace."
+  actionText="Invite members"
+  actionHref="/team/invite"
+/>
+```
+
+## Related Components
+
+- **[Button](/docs/components/button)** - Action buttons within empty states
+- **[Icon](/docs/components/icon)** - Icons used in empty state displays
+- **[Card](/docs/components/card)** - Container for empty state content
+
+## Resources
+
+- **[Content Guidelines](/docs/guidelines/language)** - Writing effective empty state content
+- **[Icon Library](/docs/components/icon)** - Available icons for empty states
+- **[Storybook](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-empty-state)** - Interactive examples and API documentation
+
+---
+
+:::tip Content Strategy
+Write empty state content that explains what happened and provides clear next steps. Focus on being helpful rather than just stating the obvious.
+:::
+
+:::info Error Recovery
+For error-related empty states, include recovery actions like "Try again" or "Contact support" to help users move forward.
+:::

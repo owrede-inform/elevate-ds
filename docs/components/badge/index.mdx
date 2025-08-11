@@ -8,13 +8,12 @@ import ComponentShowcase from '@site/src/components/ComponentShowcase';
 
 # Badge
 
-Badges are small visual indicators that help users quickly understand status, counts, and categories. The ELEVATE Badge component helps designers and developers create consistent, accessible interfaces that communicate important information without overwhelming the user.
+Badges are small visual labels that help users quickly understand status and categories. The ELEVATE Badge component helps designers and developers create consistent, accessible interfaces that communicate important information without overwhelming the user.
 
 ## Overview
 
 ### When to Use Badges
 - **Status indication**: Online/offline, active/inactive, approval states
-- **Notifications**: Unread counts, new items, urgent alerts
 - **Categorization**: Tags, labels, content classification
 - **Metadata**: Version numbers, types, feature flags
 - **Highlighting**: Important or featured content that needs attention
@@ -22,6 +21,7 @@ Badges are small visual indicators that help users quickly understand status, co
 ### When NOT to Use Badges
 - **Primary actions**: Use Button component for main interactions
 - **Navigation**: Use Link or navigation components for page transitions
+- **Notification counts**: Use Indicator component for unread counts, new items, alerts
 - **Large text content**: Use appropriate text components for substantial information
 - **Complex information**: Use Cards or other layout components for detailed data
 
@@ -34,80 +34,23 @@ Badges indicating various status states with semantic colors.
 <ComponentShowcase
   title="Status Badges"
   description="Status badges with semantic colors for different states."
-  code={`<div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-  <span style="background: #10b981; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500;">Active</span>
-  <span style="background: #f59e0b; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500;">Pending</span>
-  <span style="background: #ef4444; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500;">Inactive</span>
-  <span style="background: #3b82f6; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500;">Draft</span>
-  <span style="background: #6b7280; color: white; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 500;">Archived</span>
-</div>`}
+  code={`<elvt-stack direction="row" gap="s" wrap>
+  <elvt-badge tone="success">Active</elvt-badge>
+  <elvt-badge tone="warning">Pending</elvt-badge>
+  <elvt-badge tone="danger">Inactive</elvt-badge>
+  <elvt-badge tone="primary">Draft</elvt-badge>
+  <elvt-badge tone="neutral">Archived</elvt-badge>
+</elvt-stack>`}
 >
-  <div style={{display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap'}}>
-    <span style={{background: '#10b981', color: 'white', padding: '0.25rem 0.5rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: '500'}}>
-      Active
-    </span>
-    <span style={{background: '#f59e0b', color: 'white', padding: '0.25rem 0.5rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: '500'}}>
-      Pending
-    </span>
-    <span style={{background: '#ef4444', color: 'white', padding: '0.25rem 0.5rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: '500'}}>
-      Inactive
-    </span>
-    <span style={{background: '#3b82f6', color: 'white', padding: '0.25rem 0.5rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: '500'}}>
-      Draft
-    </span>
-    <span style={{background: '#6b7280', color: 'white', padding: '0.25rem 0.5rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: '500'}}>
-      Archived
-    </span>
-  </div>
+  <elvt-stack direction="row" gap="s" wrap>
+    <elvt-badge tone="success">Active</elvt-badge>
+    <elvt-badge tone="warning">Pending</elvt-badge>
+    <elvt-badge tone="danger">Inactive</elvt-badge>
+    <elvt-badge tone="primary">Draft</elvt-badge>
+    <elvt-badge tone="neutral">Archived</elvt-badge>
+  </elvt-stack>
 </ComponentShowcase>
 
-### Count Badges
-
-Badges displaying numeric values like notifications or item counts.
-
-<ComponentShowcase
-  title="Count Badges"
-  description="Numeric badges for counts, notifications, and quantities."
-  code={`<div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
-  <div style="position: relative; display: inline-flex; align-items: center;">
-    <span style="padding: 0.5rem 1rem; background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 4px;">
-      Messages
-    </span>
-    <span style="position: absolute; top: -8px; right: -8px; min-width: 20px; height: 20px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: #ef4444; color: white; font-size: 0.75rem; font-weight: 500;">
-      3
-    </span>
-  </div>
-  
-  <div style="position: relative; display: inline-flex; align-items: center;">
-    <span style="padding: 0.5rem 1rem; background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 4px;">
-      Notifications
-    </span>
-    <span style="position: absolute; top: -8px; right: -8px; min-width: 24px; height: 20px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: #3b82f6; color: white; font-size: 0.75rem; font-weight: 500;">
-      12
-    </span>
-  </div>
-</div>`}
->
-  <div style={{display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap'}}>
-    <div style={{position: 'relative', display: 'inline-flex', alignItems: 'center'}}>
-      <span style={{padding: '0.5rem 1rem', background: '#f3f4f6', border: '1px solid #d1d5db', borderRadius: '4px'}}>
-        Messages
-      </span>
-      <span style={{position: 'absolute', top: '-8px', right: '-8px', minWidth: '20px', height: '20px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#ef4444', color: 'white', fontSize: '0.75rem', fontWeight: '500'}}>
-        3
-      </span>
-    </div>
-    
-    <div style={{position: 'relative', display: 'inline-flex', alignItems: 'center'}}>
-      <span style={{padding: '0.5rem 1rem', background: '#f3f4f6', border: '1px solid #d1d5db', borderRadius: '4px'}}>
-        Notifications
-      </span>
-      <span style={{position: 'absolute', top: '-8px', right: '-8px', minWidth: '24px', height: '20px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#3b82f6', color: 'white', fontSize: '0.75rem', fontWeight: '500'}}>
-        12
-      </span>
-    </div>
-  </div>
-</ComponentShowcase>
 
 ## Design Principles
 
@@ -129,24 +72,24 @@ Badges displaying numeric values like notifications or item counts.
 
 **Why this matters:** Color carries meaning and helps users quickly understand information. Consistent semantic color usage creates predictable user experiences.
 
-:::tip Do: Use semantic colors that match user expectations
-Apply colors that align with common conventions and user mental models.
+:::tip Do: Use semantic tones that match user expectations
+Apply tones that align with common conventions and user mental models.
 
 ```html
-<elvt-badge variant="success">Approved</elvt-badge>
-<elvt-badge variant="warning">Under Review</elvt-badge>
-<elvt-badge variant="danger">Rejected</elvt-badge>
-<elvt-badge variant="info">Draft</elvt-badge>
+<elvt-badge tone="success">Approved</elvt-badge>
+<elvt-badge tone="warning">Under Review</elvt-badge>
+<elvt-badge tone="danger">Rejected</elvt-badge>
+<elvt-badge tone="primary">Draft</elvt-badge>
 ```
 :::
 
-:::danger Don't: Use arbitrary colors without meaning
-Avoid color choices that confuse users or contradict established patterns.
+:::danger Don't: Use arbitrary tones without meaning
+Avoid tone choices that confuse users or contradict established patterns.
 
 ```html
 <!-- Avoid this -->
-<elvt-badge variant="success">Error</elvt-badge>
-<elvt-badge variant="danger">Success</elvt-badge>
+<elvt-badge tone="success">Error</elvt-badge>
+<elvt-badge tone="danger">Success</elvt-badge>
 ```
 :::
 
@@ -162,27 +105,24 @@ npm install @inform-elevate/elevate-core-ui
 
 ```html
 <!-- Status badges -->
-<elvt-badge variant="success">Active</elvt-badge>
-<elvt-badge variant="warning">Pending</elvt-badge>
-<elvt-badge variant="danger">Error</elvt-badge>
+<elvt-badge tone="success">Active</elvt-badge>
+<elvt-badge tone="warning">Pending</elvt-badge>
+<elvt-badge tone="danger">Error</elvt-badge>
 
-<!-- Count badges -->
-<elvt-badge variant="info">5</elvt-badge>
-<elvt-badge variant="danger">99+</elvt-badge>
-
-<!-- Outline badges -->
-<elvt-badge variant="outline">Tag</elvt-badge>
-<elvt-badge variant="outline">Category</elvt-badge>
+<!-- Label badges -->
+<elvt-badge tone="primary">New</elvt-badge>
+<elvt-badge tone="neutral">Tag</elvt-badge>
+<elvt-badge tone="neutral">Category</elvt-badge>
 ```
 
 ### Key Properties
 
 | Property | Type | Description |
 |----------|------|-------------|
-| `variant` | `success`, `warning`, `danger`, `info`, `neutral`, `outline` | Badge color variant |
-| `size` | `small`, `medium` (default), `large` | Visual size of badge |
-| `dismissible` | Boolean | Whether badge can be closed/removed |
-| `icon` | String | Icon name to display before text |
+| `tone` | `success`, `warning`, `danger`, `primary`, `neutral` | Badge color tone |
+| `shape` | `pill` (default) | Badge shape style |
+| `padding` | `Padding` or `string` | Custom padding (optional) |
+| `pulse` | `boolean` | Adds pulsing animation effect |
 
 *For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-badge--docs).*
 

@@ -1,0 +1,54 @@
+---
+title: Lightbox
+description: Media viewing overlay component that displays images, videos, and other content in a modal interface with zoom and navigation controls
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Lightbox
+
+Lightbox provides an overlay interface for viewing media content like images and videos in a focused, modal environment with zoom controls, navigation, and keyboard support.
+
+## When to Use
+
+- **Image Galleries**: View images in full size with navigation
+- **Media Preview**: Preview videos, documents, or other media
+- **Product Images**: Detailed product image viewing in e-commerce
+- **Portfolio Display**: Showcase design work or photography
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Lightbox"
+  description="Click the image to open it in a lightbox overlay."
+  code={`<elvt-lightbox>
+  <img src="/img/sample-image.jpg" alt="Sample image" style="max-width: 200px; cursor: pointer;" />
+</elvt-lightbox>`}
+>
+  <div style={{textAlign: 'center'}}>
+    <div 
+      style={{
+        width: '200px',
+        height: '120px',
+        background: 'linear-gradient(45deg, var(--elvt-primitives-color-blue-100), var(--elvt-primitives-color-blue-300))',
+        borderRadius: '8px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        cursor: 'pointer',
+        border: '2px solid var(--elvt-alias-layout-border-muted)',
+        color: 'var(--elvt-alias-content-text-secondary)'
+      }}
+    >
+      🖼️ Click to view in lightbox
+    </div>
+  </div>
+</ComponentShowcase>
+
+## Resources
+
+- **[Dialog](/docs/components/dialog)** - Modal component for general overlay content
+- **[Button](/docs/components/button)** - Navigation and control buttons in lightbox
+- **[Storybook](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-lightbox)** - Interactive examples and API documentation
+:::

@@ -1,0 +1,61 @@
+---
+title: Field
+description: Form field wrapper component that provides consistent labeling, validation, help text, and error handling for form inputs
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Field
+
+Field is a wrapper component that provides consistent labeling, validation states, help text, and error handling for form inputs. It ensures all form fields follow ELEVATE design patterns and accessibility standards.
+
+## When to Use
+
+- **Form Consistency**: Standardize all form field layouts and styling
+- **Validation Display**: Show validation states and error messages
+- **Accessibility**: Ensure proper labeling and ARIA attributes
+- **Help Text**: Provide additional context and guidance
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Field"
+  description="Field wrapper with label and input component."
+  code={`<elvt-field label="Email Address" required>
+  <elvt-input type="email" placeholder="user@example.com"></elvt-input>
+</elvt-field>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem', maxWidth: '300px'}}>
+    <label style={{fontWeight: '500', fontSize: '0.875rem', color: 'var(--elvt-alias-content-text-primary)'}}>
+      Email Address <span style={{color: 'var(--elvt-primitives-color-red-500)'}}>*</span>
+    </label>
+    <input 
+      type="email" 
+      placeholder="user@example.com"
+      style={{
+        padding: '0.75rem',
+        border: '1px solid var(--elvt-alias-layout-border-muted)',
+        borderRadius: '6px',
+        fontSize: '0.875rem',
+        fontFamily: 'inherit'
+      }}
+    />
+  </div>
+</ComponentShowcase>
+
+## Resources
+
+- **[Form Guidelines](/docs/patterns/data-entry-forms)** - Best practices for form design
+- **[Accessibility](/docs/guidelines/accessibility)** - Form accessibility standards
+- **[Storybook](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-field)** - Interactive examples and API documentation
+
+---
+
+:::tip Consistent Validation
+Use the Field component consistently across your application to ensure all form fields have the same validation styling and behavior.
+:::
+
+:::info Accessibility
+The Field component automatically handles many accessibility requirements like label association and error announcements. Always provide meaningful labels and error messages.
+:::

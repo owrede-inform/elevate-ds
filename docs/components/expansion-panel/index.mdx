@@ -1,0 +1,387 @@
+---
+title: Expansion Panel
+description: Collapsible content sections that allow users to show and hide detailed information with smooth animations
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Expansion Panel
+
+Expansion Panels provide collapsible content sections that help organize and manage information density. They allow users to show and hide detailed content on demand, making interfaces more scannable and less overwhelming.
+
+## When to Use
+
+- **Content Organization**: Group related information into expandable sections
+- **Progressive Disclosure**: Show summary first, details on demand
+- **Space Conservation**: Reduce visual clutter in dense interfaces
+- **FAQ Sections**: Organize frequently asked questions and answers
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Expansion Panel"
+  description="Simple expansion panel with header and collapsible content."
+  code={`<elvt-expansion-panel>
+  <span slot="header">Account Settings</span>
+  <div slot="content">
+    <p>Configure your account preferences, notification settings, and privacy options.</p>
+    <elvt-button tone="primary" size="small">Update Settings</elvt-button>
+  </div>
+</elvt-expansion-panel>`}
+>
+  <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '8px', overflow: 'hidden'}}>
+    <details>
+      <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer', borderBottom: '1px solid var(--elvt-alias-layout-border-muted)'}}>
+        <strong>Account Settings</strong>
+      </summary>
+      <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-default)'}}>
+        <p>Configure your account preferences, notification settings, and privacy options.</p>
+        <button style={{padding: '0.5rem 1rem', background: 'var(--elvt-primitives-color-blue-500)', color: 'white', border: 'none', borderRadius: '4px', fontSize: '0.875rem'}}>
+          Update Settings
+        </button>
+      </div>
+    </details>
+  </div>
+</ComponentShowcase>
+
+## With Icon and Description
+
+<ComponentShowcase
+  title="Enhanced Expansion Panel"
+  description="Expansion panel with icon, description, and structured content."
+  code={`<elvt-expansion-panel icon="shield">
+  <span slot="header">Security & Privacy</span>
+  <span slot="description">Manage your security settings and privacy preferences</span>
+  <div slot="content">
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      <div>
+        <h4>Two-Factor Authentication</h4>
+        <p>Add an extra layer of security to your account.</p>
+        <elvt-switch label="Enable 2FA"></elvt-switch>
+      </div>
+      <div>
+        <h4>Privacy Settings</h4>
+        <p>Control who can see your information and activity.</p>
+        <elvt-select label="Profile Visibility" value="private">
+          <option value="public">Public</option>
+          <option value="private">Private</option>
+        </elvt-select>
+      </div>
+    </div>
+  </div>
+</elvt-expansion-panel>`}
+>
+  <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '8px', overflow: 'hidden'}}>
+    <details>
+      <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer', borderBottom: '1px solid var(--elvt-alias-layout-border-muted)'}}>
+        <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
+          <span style={{fontSize: '1.25rem'}}>🛡️</span>
+          <div>
+            <div><strong>Security & Privacy</strong></div>
+            <div style={{fontSize: '0.875rem', color: 'var(--elvt-alias-content-text-secondary)', marginTop: '0.25rem'}}>
+              Manage your security settings and privacy preferences
+            </div>
+          </div>
+        </div>
+      </summary>
+      <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-default)'}}>
+        <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+          <div>
+            <h4 style={{margin: '0 0 0.5rem 0'}}>Two-Factor Authentication</h4>
+            <p style={{margin: '0 0 0.5rem 0', fontSize: '0.875rem', color: 'var(--elvt-alias-content-text-secondary)'}}>
+              Add an extra layer of security to your account.
+            </p>
+            <label style={{display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem'}}>
+              <input type="checkbox" /> Enable 2FA
+            </label>
+          </div>
+          <div>
+            <h4 style={{margin: '0 0 0.5rem 0'}}>Privacy Settings</h4>
+            <p style={{margin: '0 0 0.5rem 0', fontSize: '0.875rem', color: 'var(--elvt-alias-content-text-secondary)'}}>
+              Control who can see your information and activity.
+            </p>
+            <select style={{padding: '0.5rem', border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '4px'}}>
+              <option>Public</option>
+              <option selected>Private</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+</ComponentShowcase>
+
+## Multiple Panels
+
+<ComponentShowcase
+  title="Multiple Expansion Panels"
+  description="Multiple expansion panels can be used together for organized content sections."
+  code={`<div>
+  <elvt-expansion-panel>
+    <span slot="header">General Information</span>
+    <div slot="content">
+      <p>Basic details about your account and profile.</p>
+    </div>
+  </elvt-expansion-panel>
+  
+  <elvt-expansion-panel expanded>
+    <span slot="header">Notifications</span>
+    <span slot="description">Email, push, and in-app notification preferences</span>
+    <div slot="content">
+      <p>Configure how and when you receive notifications.</p>
+    </div>
+  </elvt-expansion-panel>
+  
+  <elvt-expansion-panel disabled>
+    <span slot="header">Billing (Premium Only)</span>
+    <span slot="description">Upgrade to access billing features</span>
+    <div slot="content">
+      <p>Billing information and payment methods.</p>
+    </div>
+  </elvt-expansion-panel>
+</div>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
+    <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '8px', overflow: 'hidden'}}>
+      <details>
+        <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer'}}>
+          <strong>General Information</strong>
+        </summary>
+        <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-default)', borderTop: '1px solid var(--elvt-alias-layout-border-muted)'}}>
+          <p>Basic details about your account and profile.</p>
+        </div>
+      </details>
+    </div>
+    
+    <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '8px', overflow: 'hidden'}}>
+      <details open>
+        <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer'}}>
+          <div>
+            <div><strong>Notifications</strong></div>
+            <div style={{fontSize: '0.875rem', color: 'var(--elvt-alias-content-text-secondary)', marginTop: '0.25rem'}}>
+              Email, push, and in-app notification preferences
+            </div>
+          </div>
+        </summary>
+        <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-default)', borderTop: '1px solid var(--elvt-alias-layout-border-muted)'}}>
+          <p>Configure how and when you receive notifications.</p>
+        </div>
+      </details>
+    </div>
+    
+    <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '8px', overflow: 'hidden', opacity: '0.6'}}>
+      <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'not-allowed'}}>
+        <div>
+          <div><strong>Billing (Premium Only)</strong></div>
+          <div style={{fontSize: '0.875rem', color: 'var(--elvt-alias-content-text-secondary)', marginTop: '0.25rem'}}>
+            Upgrade to access billing features
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ComponentShowcase>
+
+## Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `expanded` | `boolean` | `false` | Whether the panel is expanded by default |
+| `disabled` | `boolean` | `false` | Disables interaction with the panel |
+| `icon` | `string` | | Icon name to display in the header |
+| `variant` | `'default' \| 'bordered' \| 'elevated'` | `'default'` | Visual style variant |
+| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | Overall size of the panel |
+
+## Slots
+
+| Slot | Description |
+|------|-------------|
+| `header` | Main header content (required) |
+| `description` | Optional description text below the header |
+| `content` | Collapsible content area (required) |
+| `icon` | Custom icon content (overrides icon property) |
+
+## Events
+
+| Event | Detail Type | Description |
+|-------|-------------|-------------|
+| `elvt-expand` | `CustomEvent<{ expanded: boolean }>` | Fired when panel expands or collapses |
+| `elvt-before-expand` | `CustomEvent<{ expanded: boolean }>` | Fired before expansion state changes (cancelable) |
+
+## Framework Integration
+
+### React Usage
+
+```jsx
+import { ElvtExpansionPanel } from '@inform-elevate/elevate-core-ui/dist/react';
+
+function SettingsPage() {
+  const [expandedPanels, setExpandedPanels] = useState(['notifications']);
+
+  const handleExpand = (panelId, event) => {
+    if (event.detail.expanded) {
+      setExpandedPanels([...expandedPanels, panelId]);
+    } else {
+      setExpandedPanels(expandedPanels.filter(id => id !== panelId));
+    }
+  };
+
+  return (
+    <div>
+      <ElvtExpansionPanel
+        expanded={expandedPanels.includes('general')}
+        onElvtExpand={(e) => handleExpand('general', e)}
+      >
+        <span slot="header">General Settings</span>
+        <div slot="content">
+          <GeneralSettings />
+        </div>
+      </ElvtExpansionPanel>
+      
+      <ElvtExpansionPanel
+        icon="bell"
+        expanded={expandedPanels.includes('notifications')}
+        onElvtExpand={(e) => handleExpand('notifications', e)}
+      >
+        <span slot="header">Notifications</span>
+        <span slot="description">Configure your notification preferences</span>
+        <div slot="content">
+          <NotificationSettings />
+        </div>
+      </ElvtExpansionPanel>
+    </div>
+  );
+}
+```
+
+### HTML Usage
+
+```html
+<elvt-expansion-panel icon="user" expanded>
+  <span slot="header">Profile Settings</span>
+  <span slot="description">Update your profile information and preferences</span>
+  <div slot="content">
+    <form>
+      <elvt-input label="Display Name" value="John Doe"></elvt-input>
+      <elvt-input label="Email" type="email" value="john@example.com"></elvt-input>
+      <elvt-button tone="primary">Save Changes</elvt-button>
+    </form>
+  </div>
+</elvt-expansion-panel>
+```
+
+### Vue Usage
+
+```vue
+<template>
+  <elvt-expansion-panel
+    :expanded="isExpanded"
+    @elvt-expand="handleExpand"
+    icon="settings"
+  >
+    <span slot="header">Advanced Settings</span>
+    <span slot="description">Configure advanced features and options</span>
+    <div slot="content">
+      <AdvancedSettings />
+    </div>
+  </elvt-expansion-panel>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isExpanded: false
+    };
+  },
+  methods: {
+    handleExpand(event) {
+      this.isExpanded = event.detail.expanded;
+    }
+  }
+};
+</script>
+```
+
+## Accessibility
+
+- **Keyboard Navigation**: Spacebar and Enter keys toggle expansion
+- **ARIA Attributes**: Proper `aria-expanded` and `aria-controls` attributes
+- **Screen Reader Support**: Announces expansion state changes
+- **Focus Management**: Focus moves logically through panel content
+
+## Best Practices
+
+### Content Organization
+
+```jsx
+// ✅ Good - Logical grouping
+<ElvtExpansionPanel>
+  <span slot="header">Account Security</span>
+  <span slot="description">Password, 2FA, and login settings</span>
+  <div slot="content">
+    <SecuritySettings />
+  </div>
+</ElvtExpansionPanel>
+
+// ❌ Avoid - Unrelated content
+<ElvtExpansionPanel>
+  <span slot="header">Mixed Settings</span>
+  <div slot="content">
+    <PasswordField />
+    <ColorPicker />
+    <NotificationToggle />
+  </div>
+</ElvtExpansionPanel>
+```
+
+### Header Content
+
+```jsx
+// ✅ Good - Clear and descriptive
+<ElvtExpansionPanel icon="credit-card">
+  <span slot="header">Payment Methods</span>
+  <span slot="description">Manage cards, billing, and payment preferences</span>
+</ElvtExpansionPanel>
+
+// ❌ Avoid - Vague headers
+<ElvtExpansionPanel>
+  <span slot="header">Other</span>
+  <span slot="description">Stuff</span>
+</ElvtExpansionPanel>
+```
+
+### Performance
+
+```jsx
+// ✅ Good - Lazy load heavy content
+<ElvtExpansionPanel>
+  <span slot="header">Analytics Dashboard</span>
+  <div slot="content">
+    {isExpanded && <AnalyticsDashboard />}
+  </div>
+</ElvtExpansionPanel>
+```
+
+## Related Components
+
+- **[Expansion Panel Group](/docs/components/expansion-panel-group)** - Container for multiple related panels
+- **[Card](/docs/components/card)** - Alternative container for non-collapsible content
+- **[Button](/docs/components/button)** - Action triggers within panel content
+
+## Resources
+
+- **[Content Guidelines](/docs/guidelines/design)** - Organizing content effectively
+- **[Accessibility](/docs/guidelines/accessibility)** - Keyboard navigation and screen readers
+- **[Storybook](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-expansion-panel)** - Interactive examples and API documentation
+
+---
+
+:::tip Performance
+For panels containing heavy content, consider lazy loading the content only when the panel is expanded to improve initial page performance.
+:::
+
+:::info Grouping
+Use multiple expansion panels together to create organized sections, but avoid nesting panels too deeply as it can become confusing for users.
+:::

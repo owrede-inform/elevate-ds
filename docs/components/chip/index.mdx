@@ -39,12 +39,12 @@ Filter chips help users refine content with clear active/inactive states.
   <elvt-chip variant="filter" selected>Selected Filter</elvt-chip>
 </div>`}
 >
-  <div style={{display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center'}}>
+  <elvt-stack direction="row" spacing="small" align="center" wrap>
     <elvt-chip variant="filter">All Items</elvt-chip>
     <elvt-chip variant="filter" selected>Active Filter</elvt-chip>
     <elvt-chip variant="filter">Another Filter</elvt-chip>
     <elvt-chip variant="filter" selected>Selected Filter</elvt-chip>
-  </div>
+  </elvt-stack>
 </ComponentShowcase>
 
 ### Tag Chips
@@ -61,12 +61,12 @@ Tag chips represent categories, labels, or user selections with dismissible opti
   <elvt-chip dismissible color="primary">Featured</elvt-chip>
 </div>`}
 >
-  <div style={{display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center'}}>
+  <elvt-stack direction="row" spacing="small" align="center" wrap>
     <elvt-chip dismissible>JavaScript</elvt-chip>
     <elvt-chip dismissible>React</elvt-chip>
     <elvt-chip dismissible>Design System</elvt-chip>
     <elvt-chip dismissible color="primary">Featured</elvt-chip>
-  </div>
+  </elvt-stack>
 </ComponentShowcase>
 
 ### Status Chips
@@ -83,12 +83,12 @@ Status chips communicate states with semantic colors and clear labels.
   <elvt-chip>Draft</elvt-chip>
 </div>`}
 >
-  <div style={{display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center'}}>
+  <elvt-stack direction="row" spacing="small" align="center" wrap>
     <elvt-chip color="success">Active</elvt-chip>
     <elvt-chip color="warning">Pending</elvt-chip>
     <elvt-chip color="error">Failed</elvt-chip>
     <elvt-chip>Draft</elvt-chip>
-  </div>
+  </elvt-stack>
 </ComponentShowcase>
 
 ## Design Guidelines

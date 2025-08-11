@@ -5,7 +5,6 @@ sidebar_position: 7
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
-import { ElvtSwitch } from '@inform-elevate/elevate-core-ui/dist/react';
 
 # Switch
 
@@ -34,33 +33,19 @@ Standard switches provide clear on/off states with standard sizing and contrast.
 
 <ComponentShowcase
   title="Basic Switch States"
-  description="Standard switches in different states for common usage patterns."
-  code={`<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 300px;">
-  <elvt-switch>
-    <label slot="label">Enable notifications</label>
-  </elvt-switch>
-  
-  <elvt-switch checked>
-    <label slot="label">Dark mode</label>
-  </elvt-switch>
-  
-  <elvt-switch disabled>
-    <label slot="label">Maintenance mode</label>
-  </elvt-switch>
-</div>`}
->
+  description="Standard switches in different states for common usage patterns.">
   <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '300px'}}>
-    <ElvtSwitch>
+    <elvt-switch>
       <label slot="label">Enable notifications</label>
-    </ElvtSwitch>
+    </elvt-switch>
     
-    <ElvtSwitch checked>
+    <elvt-switch checked>
       <label slot="label">Dark mode</label>
-    </ElvtSwitch>
+    </elvt-switch>
     
-    <ElvtSwitch disabled>
+    <elvt-switch disabled>
       <label slot="label">Maintenance mode</label>
-    </ElvtSwitch>
+    </elvt-switch>
   </div>
 </ComponentShowcase>
 
@@ -70,37 +55,21 @@ Switches with additional context and descriptive information.
 
 <ComponentShowcase
   title="Switch with Help Text"
-  description="Switches with descriptive help text for clearer user guidance."
-  code={`<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
-  <elvt-switch>
-    <label slot="label">Auto-save documents</label>
-    <span slot="help-text">Automatically save changes every 30 seconds</span>
-  </elvt-switch>
-  
-  <elvt-switch checked>
-    <label slot="label">Email notifications</label>
-    <span slot="help-text">Receive email alerts for important updates</span>
-  </elvt-switch>
-  
-  <elvt-switch size="small">
-    <label slot="label">Compact view</label>
-  </elvt-switch>
-</div>`}
->
+  description="Switches with descriptive help text for clearer user guidance.">
   <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px'}}>
-    <ElvtSwitch>
+    <elvt-switch>
       <label slot="label">Auto-save documents</label>
       <span slot="help-text">Automatically save changes every 30 seconds</span>
-    </ElvtSwitch>
+    </elvt-switch>
     
-    <ElvtSwitch checked>
+    <elvt-switch checked>
       <label slot="label">Email notifications</label>
       <span slot="help-text">Receive email alerts for important updates</span>
-    </ElvtSwitch>
+    </elvt-switch>
     
-    <ElvtSwitch size="small">
+    <elvt-switch size="small">
       <label slot="label">Compact view</label>
-    </ElvtSwitch>
+    </elvt-switch>
   </div>
 </ComponentShowcase>
 
@@ -110,50 +79,27 @@ Different switch sizes for various layout contexts and visual hierarchies.
 
 <ComponentShowcase
   title="Switch Sizes"
-  description="Three switch sizes for different contexts and design needs."
-  code={`<div style="display: flex; flex-direction: column; gap: 1.5rem;">
-  <div>
-    <h4 style="margin: 0 0 0.5rem 0;">Small Switch</h4>
-    <elvt-switch size="small" checked>
-      <label slot="label">Compact toggle</label>
-    </elvt-switch>
-  </div>
-  
-  <div>
-    <h4 style="margin: 0 0 0.5rem 0;">Medium Switch (Default)</h4>
-    <elvt-switch checked>
-      <label slot="label">Standard toggle</label>
-    </elvt-switch>
-  </div>
-  
-  <div>
-    <h4 style="margin: 0 0 0.5rem 0;">Large Switch</h4>
-    <elvt-switch size="large" checked>
-      <label slot="label">Prominent toggle</label>
-    </elvt-switch>
-  </div>
-</div>`}
->
+  description="Three switch sizes for different contexts and design needs.">
   <div style={{display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
     <div>
       <h4 style={{margin: '0 0 0.5rem 0'}}>Small Switch</h4>
-      <ElvtSwitch size="small" checked>
+      <elvt-switch size="small" checked>
         <label slot="label">Compact toggle</label>
-      </ElvtSwitch>
+      </elvt-switch>
     </div>
     
     <div>
       <h4 style={{margin: '0 0 0.5rem 0'}}>Medium Switch (Default)</h4>
-      <ElvtSwitch checked>
+      <elvt-switch checked>
         <label slot="label">Standard toggle</label>
-      </ElvtSwitch>
+      </elvt-switch>
     </div>
     
     <div>
       <h4 style={{margin: '0 0 0.5rem 0'}}>Large Switch</h4>
-      <ElvtSwitch size="large" checked>
+      <elvt-switch size="large" checked>
         <label slot="label">Prominent toggle</label>
-      </ElvtSwitch>
+      </elvt-switch>
     </div>
   </div>
 </ComponentShowcase>
@@ -336,61 +282,30 @@ npm install @inform-elevate/elevate-core-ui
 
 <ComponentShowcase
   title="Settings Panel Example"
-  description="Multiple switches working together in a comprehensive settings panel."
-  code={`<div style="max-width: 400px; padding: 1.5rem; border: 1px solid #e0e0e0; border-radius: 8px;">
-  <h3 style="margin-top: 0;">Account Settings</h3>
-  
-  <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-    <elvt-switch checked>
-      <label slot="label">Email notifications</label>
-      <span slot="help-text">Receive important updates and alerts</span>
-    </elvt-switch>
-    
-    <elvt-switch>
-      <label slot="label">SMS notifications</label>
-      <span slot="help-text">Get text messages for urgent notifications</span>
-    </elvt-switch>
-    
-    <elvt-switch checked>
-      <label slot="label">Profile visibility</label>
-      <span slot="help-text">Allow others to find and view your profile</span>
-    </elvt-switch>
-    
-    <elvt-switch disabled>
-      <label slot="label">Location sharing</label>
-      <span slot="help-text">Currently unavailable - upgrade required</span>
-    </elvt-switch>
-  </div>
-  
-  <div style="margin-top: 2rem; display: flex; gap: 0.5rem; justify-content: flex-end;">
-    <elvt-button>Reset</elvt-button>
-    <elvt-button tone="primary">Save Changes</elvt-button>
-  </div>
-</div>`}
->
+  description="Multiple switches working together in a comprehensive settings panel.">
   <div style={{maxWidth: '400px', padding: '1.5rem', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
     <h3 style={{marginTop: 0}}>Account Settings</h3>
     
     <div style={{display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
-      <ElvtSwitch checked>
+      <elvt-switch checked>
         <label slot="label">Email notifications</label>
         <span slot="help-text">Receive important updates and alerts</span>
-      </ElvtSwitch>
+      </elvt-switch>
       
-      <ElvtSwitch>
+      <elvt-switch>
         <label slot="label">SMS notifications</label>
         <span slot="help-text">Get text messages for urgent notifications</span>
-      </ElvtSwitch>
+      </elvt-switch>
       
-      <ElvtSwitch checked>
+      <elvt-switch checked>
         <label slot="label">Profile visibility</label>
         <span slot="help-text">Allow others to find and view your profile</span>
-      </ElvtSwitch>
+      </elvt-switch>
       
-      <ElvtSwitch disabled>
+      <elvt-switch disabled>
         <label slot="label">Location sharing</label>
         <span slot="help-text">Currently unavailable - upgrade required</span>
-      </ElvtSwitch>
+      </elvt-switch>
     </div>
     
     <div style={{marginTop: '2rem', display: 'flex', gap: '0.5rem', justifyContent: 'flex-end'}}>

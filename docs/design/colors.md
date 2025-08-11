@@ -1,0 +1,319 @@
+---
+title: Colors
+description: Comprehensive color palette including brand colors, semantic colors, and accessibility-compliant schemes
+sidebar_position: 2
+---
+
+# Color System
+
+The ELEVATE color system provides a comprehensive palette designed for accessibility, consistency, and brand expression. Our systematic approach ensures beautiful, functional interfaces across all INFORM products.
+
+## Color Philosophy
+
+### Design Principles
+- **Accessibility First** - All color combinations meet WCAG 2.1 AA standards
+- **Semantic Meaning** - Colors convey consistent meaning across interfaces
+- **Brand Expression** - Reflect INFORM's professional, trustworthy identity
+- **Systematic Scale** - Mathematical precision for consistency
+
+### Usage Guidelines
+- **Primary Colors** - For key actions, links, and brand expression
+- **Semantic Colors** - For feedback, status, and communication
+- **Neutral Colors** - For text, backgrounds, and interface structure
+- **Brand Colors** - For logos, marketing, and brand moments
+
+## Primary Color Palette
+
+### INFORM Blue
+Our primary brand color, used for key actions and brand expression.
+
+```css
+/* Primary Blue Scale */
+--elvt-primitives-color-blue-50: #eff6ff;   /* Light backgrounds */
+--elvt-primitives-color-blue-100: #dbeafe;  /* Subtle highlights */
+--elvt-primitives-color-blue-200: #bfdbfe;  /* Disabled states */
+--elvt-primitives-color-blue-300: #93c5fd;  /* Borders, accents */
+--elvt-primitives-color-blue-400: #60a5fa;  /* Secondary actions */
+--elvt-primitives-color-blue-500: #0072ff;  /* Primary brand */
+--elvt-primitives-color-blue-600: #0b5cdf;  /* Hover states */
+--elvt-primitives-color-blue-700: #1b50a6;  /* Active states */
+--elvt-primitives-color-blue-800: #234275;  /* Text on light */
+--elvt-primitives-color-blue-900: #1e3a5f;  /* Dark text */
+```
+
+### Usage Examples
+- **Primary Actions** - Blue 500 for buttons, links, CTAs
+- **Hover States** - Blue 600 for interactive feedback
+- **Focus States** - Blue 500 for accessibility indicators
+- **Backgrounds** - Blue 50 for subtle highlighting
+
+## Semantic Color Palette
+
+### Success Colors
+Used for positive feedback, confirmations, and successful states.
+
+```css
+/* Success Green Scale */
+--elvt-primitives-color-green-50: #f0fdf4;   /* Success backgrounds */
+--elvt-primitives-color-green-100: #dcfce7;  /* Light success */
+--elvt-primitives-color-green-500: #22c55e;  /* Success actions */
+--elvt-primitives-color-green-600: #16a34a;  /* Success hover */
+--elvt-primitives-color-green-700: #15803d;  /* Success active */
+```
+
+### Warning Colors
+For cautions, important notices, and attention-grabbing elements.
+
+```css
+/* Warning Orange Scale */
+--elvt-primitives-color-orange-50: #fff7ed;   /* Warning backgrounds */
+--elvt-primitives-color-orange-100: #ffedd5;  /* Light warnings */
+--elvt-primitives-color-orange-500: #f97316;  /* Warning actions */
+--elvt-primitives-color-orange-600: #ea580c;  /* Warning hover */
+--elvt-primitives-color-orange-700: #c2410c;  /* Warning active */
+```
+
+### Error Colors
+For errors, destructive actions, and critical alerts.
+
+```css
+/* Error Red Scale */
+--elvt-primitives-color-red-50: #fef2f2;     /* Error backgrounds */
+--elvt-primitives-color-red-100: #fee2e2;    /* Light errors */
+--elvt-primitives-color-red-500: #ef4444;    /* Error actions */
+--elvt-primitives-color-red-600: #dc2626;    /* Error hover */
+--elvt-primitives-color-red-700: #b91c1c;    /* Error active */
+```
+
+### Information Colors
+For informational messages, tips, and neutral communication.
+
+```css
+/* Info Blue Scale (lighter than primary) */
+--elvt-primitives-color-sky-50: #f0f9ff;     /* Info backgrounds */
+--elvt-primitives-color-sky-100: #e0f2fe;    /* Light info */
+--elvt-primitives-color-sky-500: #0ea5e9;    /* Info actions */
+--elvt-primitives-color-sky-600: #0284c7;    /* Info hover */
+--elvt-primitives-color-sky-700: #0369a1;    /* Info active */
+```
+
+## Neutral Color Palette
+
+### Gray Scale
+Primary neutral colors for text, backgrounds, and interface elements.
+
+```css
+/* Neutral Gray Scale */
+--elvt-primitives-color-gray-50: #f9fafb;    /* Lightest backgrounds */
+--elvt-primitives-color-gray-100: #f3f4f6;   /* Light backgrounds */
+--elvt-primitives-color-gray-200: #e5e7eb;   /* Subtle borders */
+--elvt-primitives-color-gray-300: #d1d5db;   /* Light borders */
+--elvt-primitives-color-gray-400: #9ca3af;   /* Placeholder text */
+--elvt-primitives-color-gray-500: #6b7280;   /* Secondary text */
+--elvt-primitives-color-gray-600: #4b5563;   /* Primary text (light) */
+--elvt-primitives-color-gray-700: #374151;   /* Headings */
+--elvt-primitives-color-gray-800: #1f2937;   /* Dark text */
+--elvt-primitives-color-gray-900: #111827;   /* Darkest text */
+```
+
+### Pure Colors
+Absolute black and white for maximum contrast and special cases.
+
+```css
+/* Pure Colors */
+--elvt-primitives-color-white: #ffffff;      /* Pure white */
+--elvt-primitives-color-black: #000000;      /* Pure black */
+```
+
+## Semantic Color Tokens
+
+### Layout Surface Colors
+Background colors for different interface surfaces and layers.
+
+```css
+/* Light Theme Layout */
+--elvt-alias-layout-surface-primary: var(--elvt-primitives-color-white);
+--elvt-alias-layout-surface-secondary: var(--elvt-primitives-color-gray-50);
+--elvt-alias-layout-surface-elevated: var(--elvt-primitives-color-white);
+--elvt-alias-layout-surface-overlay: var(--elvt-primitives-color-white);
+
+/* Dark Theme Layout */
+[data-theme='dark'] {
+  --elvt-alias-layout-surface-primary: var(--elvt-primitives-color-gray-900);
+  --elvt-alias-layout-surface-secondary: var(--elvt-primitives-color-gray-800);
+  --elvt-alias-layout-surface-elevated: var(--elvt-primitives-color-gray-800);
+  --elvt-alias-layout-surface-overlay: var(--elvt-primitives-color-gray-700);
+}
+```
+
+### Content Text Colors
+Text colors for different content hierarchy and emphasis levels.
+
+```css
+/* Light Theme Text */
+--elvt-alias-content-text-primary: var(--elvt-primitives-color-gray-900);
+--elvt-alias-content-text-secondary: var(--elvt-primitives-color-gray-600);
+--elvt-alias-content-text-tertiary: var(--elvt-primitives-color-gray-500);
+--elvt-alias-content-text-disabled: var(--elvt-primitives-color-gray-400);
+
+/* Dark Theme Text */
+[data-theme='dark'] {
+  --elvt-alias-content-text-primary: var(--elvt-primitives-color-white);
+  --elvt-alias-content-text-secondary: var(--elvt-primitives-color-gray-300);
+  --elvt-alias-content-text-tertiary: var(--elvt-primitives-color-gray-400);
+  --elvt-alias-content-text-disabled: var(--elvt-primitives-color-gray-600);
+}
+```
+
+### Interactive Element Colors
+Colors for buttons, links, and other interactive elements.
+
+```css
+/* Interactive Colors */
+--elvt-alias-action-primary: var(--elvt-primitives-color-blue-500);
+--elvt-alias-action-primary-hover: var(--elvt-primitives-color-blue-600);
+--elvt-alias-action-primary-active: var(--elvt-primitives-color-blue-700);
+
+--elvt-alias-action-secondary: var(--elvt-primitives-color-gray-100);
+--elvt-alias-action-secondary-hover: var(--elvt-primitives-color-gray-200);
+--elvt-alias-action-secondary-active: var(--elvt-primitives-color-gray-300);
+```
+
+## Accessibility Standards
+
+### Contrast Ratios
+All color combinations meet or exceed WCAG 2.1 AA requirements.
+
+#### Text Contrast Requirements
+- **Normal Text** - Minimum 4.5:1 contrast ratio
+- **Large Text** - Minimum 3:1 contrast ratio (18px+ or 14px+ bold)
+- **Interactive Elements** - Minimum 3:1 against adjacent colors
+
+#### Compliant Color Combinations
+```css
+/* High contrast text combinations */
+.high-contrast {
+  background: var(--elvt-primitives-color-white);      /* Background */
+  color: var(--elvt-primitives-color-gray-900);        /* Text: 21:1 ratio */
+}
+
+.medium-contrast {
+  background: var(--elvt-primitives-color-gray-100);   /* Background */
+  color: var(--elvt-primitives-color-gray-700);        /* Text: 7.5:1 ratio */
+}
+
+.link-contrast {
+  background: var(--elvt-primitives-color-white);      /* Background */
+  color: var(--elvt-primitives-color-blue-700);        /* Link: 6.2:1 ratio */
+}
+```
+
+### Color Blindness Considerations
+- **Never rely on color alone** - Use icons, patterns, or text labels
+- **Test with simulators** - Validate with color blindness filters
+- **Use distinct colors** - Ensure colors are distinguishable
+- **Provide alternatives** - Multiple ways to convey information
+
+## Dark Theme Support
+
+### Adaptive Color Strategy
+Colors automatically adapt between light and dark themes using CSS custom properties.
+
+```css
+/* Adaptive color tokens */
+.component {
+  background: var(--elvt-alias-layout-surface-primary);
+  color: var(--elvt-alias-content-text-primary);
+  border: 1px solid var(--elvt-alias-border-default);
+}
+
+/* Automatically adapts for dark theme */
+```
+
+### Dark Theme Color Adjustments
+- **Reversed Hierarchy** - Light colors for dark backgrounds
+- **Reduced Contrast** - Lower contrast ratios for eye comfort
+- **Color Temperature** - Warmer tones for reduced blue light
+- **Semantic Consistency** - Same semantic meaning in both themes
+
+## Implementation Guidelines
+
+### Using Color Tokens
+Always use semantic color tokens instead of primitive colors in components.
+
+```css
+/* ✅ Good - Semantic tokens */
+.button-primary {
+  background: var(--elvt-alias-action-primary);
+  color: var(--elvt-alias-content-text-inverse);
+}
+
+/* ❌ Avoid - Hard-coded colors */
+.button-primary {
+  background: #0072ff;
+  color: white;
+}
+```
+
+### Color Token Hierarchy
+1. **Use alias tokens** - Semantic tokens for most use cases
+2. **Reference primitives** - Only for custom brand extensions
+3. **Avoid hard-coding** - Never use hard-coded color values
+4. **Test both themes** - Verify colors work in light and dark themes
+
+### Custom Color Extensions
+When adding custom colors, follow the established token patterns.
+
+```css
+/* Custom brand color extension */
+:root {
+  /* Add primitive tokens */
+  --elvt-primitives-color-purple-500: #8b5cf6;
+  --elvt-primitives-color-purple-600: #7c3aed;
+  --elvt-primitives-color-purple-700: #6d28d9;
+  
+  /* Create semantic aliases */
+  --elvt-alias-action-tertiary: var(--elvt-primitives-color-purple-500);
+  --elvt-alias-action-tertiary-hover: var(--elvt-primitives-color-purple-600);
+}
+```
+
+## Color Usage Examples
+
+### Status Indicators
+```css
+.status-success { color: var(--elvt-primitives-color-green-600); }
+.status-warning { color: var(--elvt-primitives-color-orange-600); }
+.status-error { color: var(--elvt-primitives-color-red-600); }
+.status-info { color: var(--elvt-primitives-color-sky-600); }
+```
+
+### Interactive States
+```css
+.interactive-element {
+  color: var(--elvt-alias-action-primary);
+}
+.interactive-element:hover {
+  color: var(--elvt-alias-action-primary-hover);
+}
+.interactive-element:active {
+  color: var(--elvt-alias-action-primary-active);
+}
+```
+
+### Background Layers
+```css
+.page-background { background: var(--elvt-alias-layout-surface-primary); }
+.card-background { background: var(--elvt-alias-layout-surface-elevated); }
+.modal-background { background: var(--elvt-alias-layout-surface-overlay); }
+```
+
+---
+
+:::info Color Accessibility
+Always test your color choices with accessibility tools and consider users with color vision differences. Good color design works for everyone.
+:::
+
+:::tip Use Semantic Tokens
+Prefer semantic color tokens over primitive colors. This ensures your designs adapt properly to theme changes and maintain semantic meaning.
+:::

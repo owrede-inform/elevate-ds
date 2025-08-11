@@ -63,7 +63,7 @@ Avatars displaying profile photos or uploaded images.
   </elvt-avatar>
 </div>`}
 >
-  <div style={{display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap'}}>
+  <elvt-stack direction="row" spacing="medium" align="center" wrap>
     <div style={{width: '32px', height: '32px', borderRadius: '50%', background: '#4285f4', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '12px', fontWeight: '500'}}>
       JD
     </div>
@@ -79,7 +79,7 @@ Avatars displaying profile photos or uploaded images.
     <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#fbbc04', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#000', fontSize: '18px', fontWeight: '500'}}>
       EW
     </div>
-  </div>
+  </elvt-stack>
 </ComponentShowcase>
 
 ### Initial Avatars
@@ -114,7 +114,7 @@ Avatars displaying user initials when no image is available.
   </elvt-avatar>
 </div>`}
 >
-  <div style={{display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap'}}>
+  <elvt-stack direction="row" spacing="medium" align="center" wrap>
     <div style={{width: '32px', height: '32px', borderRadius: '50%', background: '#1f2937', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '12px', fontWeight: '500'}}>
       AB
     </div>
@@ -130,7 +130,7 @@ Avatars displaying user initials when no image is available.
     <div style={{width: '56px', height: '56px', borderRadius: '50%', background: '#7c3aed', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '18px', fontWeight: '500'}}>
       GH
     </div>
-  </div>
+  </elvt-stack>
 </ComponentShowcase>
 
 ### Icon Avatars
@@ -164,7 +164,7 @@ Avatars using icons for system accounts or placeholder states.
   </elvt-avatar>
 </div>`}
 >
-  <div style={{display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap'}}>
+  <elvt-stack direction="row" spacing="medium" align="center" wrap>
     <div style={{width: '32px', height: '32px', borderRadius: '50%', background: '#6b7280', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px'}}>
       👤
     </div>
@@ -180,7 +180,7 @@ Avatars using icons for system accounts or placeholder states.
     <div style={{width: '56px', height: '56px', borderRadius: '50%', background: '#8b5cf6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '20px'}}>
       🤖
     </div>
-  </div>
+  </elvt-stack>
 </ComponentShowcase>
 
 ### Avatar Sizes
@@ -237,42 +237,42 @@ Different avatar sizes for various interface contexts.
   </div>
 </div>`}
 >
-  <div style={{display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap'}}>
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem'}}>
+  <elvt-stack direction="row" spacing="large" align="center" wrap>
+    <elvt-stack direction="column" spacing="small" align="center">
       <div style={{width: '24px', height: '24px', borderRadius: '50%', background: '#6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '10px', fontWeight: '500'}}>
         XS
       </div>
       <span style={{fontSize: '0.75rem', color: '#6b7280'}}>XS (24px)</span>
-    </div>
+    </elvt-stack>
     
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem'}}>
+    <elvt-stack direction="column" spacing="small" align="center">
       <div style={{width: '32px', height: '32px', borderRadius: '50%', background: '#8b5cf6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '12px', fontWeight: '500'}}>
         SM
       </div>
       <span style={{fontSize: '0.75rem', color: '#6b7280'}}>Small (32px)</span>
-    </div>
+    </elvt-stack>
     
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem'}}>
+    <elvt-stack direction="column" spacing="small" align="center">
       <div style={{width: '40px', height: '40px', borderRadius: '50%', background: '#ec4899', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px', fontWeight: '500'}}>
         MD
       </div>
       <span style={{fontSize: '0.75rem', color: '#6b7280'}}>Medium (40px)</span>
-    </div>
+    </elvt-stack>
     
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem'}}>
+    <elvt-stack direction="column" spacing="small" align="center">
       <div style={{width: '48px', height: '48px', borderRadius: '50%', background: '#f59e0b', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '16px', fontWeight: '500'}}>
         LG
       </div>
       <span style={{fontSize: '0.75rem', color: '#6b7280'}}>Large (48px)</span>
-    </div>
+    </elvt-stack>
     
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem'}}>
+    <elvt-stack direction="column" spacing="small" align="center">
       <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '18px', fontWeight: '500'}}>
         XL
       </div>
       <span style={{fontSize: '0.75rem', color: '#6b7280'}}>XL (64px)</span>
-    </div>
-  </div>
+    </elvt-stack>
+  </elvt-stack>
 </ComponentShowcase>
 
 ## Design Principles

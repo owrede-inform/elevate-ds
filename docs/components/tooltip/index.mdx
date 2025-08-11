@@ -1,0 +1,106 @@
+---
+title: Tooltip
+description: Contextual information overlay that appears on hover or focus to provide additional details or help text
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Tooltip
+
+Tooltip component provides contextual information that appears on hover or focus, offering additional details, help text, or explanations without cluttering the interface.
+
+## When to Use
+
+- **Help Text**: Additional context for form fields or UI elements
+- **Definitions**: Explanations of terms or concepts
+- **Status Information**: Details about system states or processes
+- **Action Descriptions**: Clarification for icon buttons or controls
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Tooltips"
+  description="Hover over elements to see tooltip information."
+  code={`<div style="display: flex; gap: 1rem; align-items: center;">
+  <elvt-tooltip content="Save your current work">
+    <elvt-button tone="primary">Save</elvt-button>
+  </elvt-tooltip>
+  
+  <elvt-tooltip content="This action cannot be undone">
+    <elvt-button tone="danger">Delete</elvt-button>
+  </elvt-tooltip>
+  
+  <elvt-tooltip content="Download as PDF">
+    <elvt-icon-button icon="download"></elvt-icon-button>
+  </elvt-tooltip>
+</div>`}
+>
+  <div style={{display: 'flex', gap: '1rem', alignItems: 'center'}}>
+    <div style={{position: 'relative'}}>
+      <button 
+        style={{
+          padding: '0.75rem 1.5rem',
+          background: 'var(--elvt-primitives-color-blue-500)',
+          color: 'white',
+          border: 'none',
+          borderRadius: '6px',
+          cursor: 'pointer'
+        }}
+        title="Save your current work"
+      >
+        Save
+      </button>
+    </div>
+    
+    <div style={{position: 'relative'}}>
+      <button 
+        style={{
+          padding: '0.75rem 1.5rem',
+          background: 'var(--elvt-primitives-color-red-500)',
+          color: 'white',
+          border: 'none',
+          borderRadius: '6px',
+          cursor: 'pointer'
+        }}
+        title="This action cannot be undone"
+      >
+        Delete
+      </button>
+    </div>
+    
+    <div style={{position: 'relative'}}>
+      <button 
+        style={{
+          padding: '0.5rem',
+          background: 'transparent',
+          border: '1px solid var(--elvt-alias-layout-border-muted)',
+          borderRadius: '6px',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+        title="Download as PDF"
+      >
+        ⬇️
+      </button>
+    </div>
+  </div>
+</ComponentShowcase>
+
+## Resources
+
+- **[Button](/docs/components/button)** - Components commonly used with tooltips
+- **[Icon Button](/docs/components/icon-button)** - Icon buttons often need tooltip descriptions
+- **[Storybook](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-tooltip)** - Interactive examples and API documentation
+
+---
+
+:::tip Accessibility
+Tooltips automatically include proper ARIA attributes for screen readers. Keep tooltip content concise and helpful.
+:::
+
+:::info Timing
+Tooltips appear after a short delay on hover and disappear when the cursor moves away or focus is lost.
+:::

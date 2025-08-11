@@ -70,10 +70,10 @@ Each dialog type serves a specific purpose and provides appropriate user experie
   </elvt-dialog-actions>
 </elvt-dialog>`}
 >
-  <div style={{display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap'}}>
+  <elvt-stack direction="row" spacing="medium" align="center" wrap>
     <elvt-button onclick="document.getElementById('alert-dialog').open = true">Show Alert</elvt-button>
     <elvt-button onclick="document.getElementById('confirm-dialog').open = true">Show Confirmation</elvt-button>
-  </div>
+  </elvt-stack>
 
   <elvt-dialog id="alert-dialog">
     <elvt-dialog-header>
@@ -146,21 +146,21 @@ Each dialog type serves a specific purpose and provides appropriate user experie
   </elvt-dialog-actions>
 </elvt-dialog>`}
 >
-  <div style={{display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap'}}>
+  <elvt-stack direction="row" spacing="medium" align="center" wrap>
     <elvt-button onclick="document.getElementById('form-dialog').open = true">Edit Profile</elvt-button>
     <elvt-button onclick="document.getElementById('input-dialog').open = true">Rename Item</elvt-button>
-  </div>
+  </elvt-stack>
 
   <elvt-dialog id="form-dialog" size="medium">
     <elvt-dialog-header>
       <h2>Edit Profile</h2>
     </elvt-dialog-header>
     <elvt-dialog-content>
-      <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+      <elvt-stack direction="column" spacing="medium">
         <elvt-input label="Full Name" value="John Doe"></elvt-input>
         <elvt-input label="Email" type="email" value="john@example.com"></elvt-input>
         <elvt-textarea label="Bio" placeholder="Tell us about yourself"></elvt-textarea>
-      </div>
+      </elvt-stack>
     </elvt-dialog-content>
     <elvt-dialog-actions>
       <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>
@@ -214,9 +214,9 @@ Each dialog type serves a specific purpose and provides appropriate user experie
   </elvt-dialog-actions>
 </elvt-dialog>`}
 >
-  <div style={{display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap'}}>
+  <elvt-stack direction="row" spacing="medium" align="center" wrap>
     <elvt-button onclick="document.getElementById('loading-dialog').open = true">Start Process</elvt-button>
-  </div>
+  </elvt-stack>
 
   <elvt-dialog id="loading-dialog" persistent>
     <elvt-dialog-header>
@@ -282,12 +282,12 @@ Each dialog type serves a specific purpose and provides appropriate user experie
   <elvt-dialog-actions><elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false">Done</elvt-button></elvt-dialog-actions>
 </elvt-dialog>`}
 >
-  <div style={{display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap'}}>
+  <elvt-stack direction="row" spacing="medium" align="center" wrap>
     <elvt-button onclick="document.getElementById('small-dialog').open = true">Small Dialog</elvt-button>
     <elvt-button onclick="document.getElementById('medium-dialog').open = true">Medium Dialog</elvt-button>
     <elvt-button onclick="document.getElementById('large-dialog').open = true">Large Dialog</elvt-button>
     <elvt-button onclick="document.getElementById('fullscreen-dialog').open = true">Fullscreen Dialog</elvt-button>
-  </div>
+  </elvt-stack>
 
   <elvt-dialog id="small-dialog" size="small">
     <elvt-dialog-header><h3>Small Dialog</h3></elvt-dialog-header>
@@ -557,11 +557,11 @@ Test dialogs in common user workflow scenarios:
   </elvt-dialog-actions>
 </elvt-dialog>`}
 >
-  <div style={{display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap'}}>
+  <elvt-stack direction="row" spacing="medium" align="center" wrap>
     <elvt-button onclick="document.getElementById('logout-dialog').open = true">Sign Out</elvt-button>
     <elvt-button onclick="document.getElementById('delete-dialog').open = true">Delete Account</elvt-button>
     <elvt-button onclick="document.getElementById('upgrade-dialog').open = true">Upgrade Plan</elvt-button>
-  </div>
+  </elvt-stack>
 
   <elvt-dialog id="logout-dialog">
     <elvt-dialog-header>
@@ -686,17 +686,18 @@ See how dialogs handle form inputs and validation:
   </elvt-dialog-actions>
 </elvt-dialog>`}
 >
-  <div style={{display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap'}}>
+  <elvt-stack direction="row" spacing="medium" align="center" wrap>
     <elvt-button onclick="document.getElementById('contact-dialog').open = true">Add Contact</elvt-button>
     <elvt-button onclick="document.getElementById('settings-dialog').open = true">Edit Settings</elvt-button>
-  </div>
+  </elvt-stack>
 
   <elvt-dialog id="contact-dialog" size="medium">
     <elvt-dialog-header>
       <h2>Add New Contact</h2>
     </elvt-dialog-header>
     <elvt-dialog-content>
-      <form id="contact-form" style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+      <form id="contact-form">
+        <elvt-stack direction="column" spacing="medium">
         <elvt-input label="First Name" required></elvt-input>
         <elvt-input label="Last Name" required></elvt-input>
         <elvt-input label="Email" type="email" required></elvt-input>
@@ -706,6 +707,7 @@ See how dialogs handle form inputs and validation:
           <option value="personal">Personal</option>
           <option value="family">Family</option>
         </elvt-select>
+        </elvt-stack>
       </form>
     </elvt-dialog-content>
     <elvt-dialog-actions>
@@ -719,7 +721,7 @@ See how dialogs handle form inputs and validation:
       <h2>Account Settings</h2>
     </elvt-dialog-header>
     <elvt-dialog-content>
-      <div style={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
+      <elvt-stack direction="column" spacing="large">
         <section>
           <h3>Profile Information</h3>
           <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem'}}>
@@ -729,7 +731,7 @@ See how dialogs handle form inputs and validation:
         </section>
         <section>
           <h3>Preferences</h3>
-          <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
+          <elvt-stack direction="column" spacing="small">
             <label style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
               <input type="checkbox" defaultChecked /> Email notifications
             </label>
@@ -739,9 +741,9 @@ See how dialogs handle form inputs and validation:
             <label style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
               <input type="checkbox" defaultChecked /> Marketing emails
             </label>
-          </div>
+          </elvt-stack>
         </section>
-      </div>
+      </elvt-stack>
     </elvt-dialog-content>
     <elvt-dialog-actions>
       <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>

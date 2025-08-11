@@ -1,0 +1,238 @@
+---
+title: Indicator
+description: Indicators attach notification counts, alerts, or status dots to other components. They show overlay information like unread messages, new items, or status states.
+sidebar_position: 15
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Indicator
+
+Indicators are small notification overlays that attach to other components to show counts, alerts, or status information. The ELEVATE Indicator component helps create accessible, attention-grabbing notifications without overwhelming the interface.
+
+## Overview
+
+### When to Use Indicators
+- **Notification counts**: Unread messages, new items, pending tasks
+- **Status alerts**: Error states, warnings, success confirmations
+- **Activity indicators**: Online status, active processes, live updates
+- **Attention signals**: New features, important updates, required actions
+
+### When NOT to Use Indicators
+- **Primary content**: Use Badge component for main labels and status
+- **Navigation**: Use dedicated navigation indicators or breadcrumbs
+- **Large amounts of text**: Use appropriate text components for substantial information
+- **Decorative purposes**: Indicators should always convey meaningful information
+
+## Variations
+
+### Count Indicators
+
+Indicators displaying numeric values using badges for enhanced styling.
+
+<ComponentShowcase
+  title="Count Indicators with Badges"
+  description="Numeric indicators using elvt-badge in the indicator slot for better styling control."
+  code={`<elvt-stack direction="row" gap="l" wrap>
+  <elvt-indicator>
+    <elvt-badge slot="indicator" size="small" tone="danger" shape="box">42</elvt-badge>
+    <elvt-button tone="neutral">Messages</elvt-button>
+  </elvt-indicator>
+  
+  <elvt-indicator>
+    <elvt-badge slot="indicator" size="small" tone="primary" shape="pill">12</elvt-badge>
+    <elvt-button tone="neutral">Notifications</elvt-button>
+  </elvt-indicator>
+  
+  <elvt-indicator>
+    <elvt-badge slot="indicator" size="small" tone="warning" shape="box">99+</elvt-badge>
+    <elvt-button tone="neutral">Alerts</elvt-button>
+  </elvt-indicator>
+</elvt-stack>`}
+>
+  <elvt-stack direction="row" gap="l" wrap>
+    <elvt-indicator>
+      <elvt-badge slot="indicator" size="small" tone="danger" shape="box">42</elvt-badge>
+      <elvt-button tone="neutral">Messages</elvt-button>
+    </elvt-indicator>
+    
+    <elvt-indicator>
+      <elvt-badge slot="indicator" size="small" tone="primary" shape="pill">12</elvt-badge>
+      <elvt-button tone="neutral">Notifications</elvt-button>
+    </elvt-indicator>
+    
+    <elvt-indicator>
+      <elvt-badge slot="indicator" size="small" tone="warning" shape="box">99+</elvt-badge>
+      <elvt-button tone="neutral">Alerts</elvt-button>
+    </elvt-indicator>
+  </elvt-stack>
+</ComponentShowcase>
+
+### Status Indicators
+
+Indicators showing status or alert states without text.
+
+<ComponentShowcase
+  title="Status Indicators"
+  description="Status indicators for online/offline, active/inactive states."
+  code={`<elvt-stack direction="row" gap="l" wrap>
+  <elvt-indicator tone="success" position="bottom-end">
+    <elvt-button tone="neutral">User Online</elvt-button>
+  </elvt-indicator>
+  
+  <elvt-indicator tone="warning" position="top-start">
+    <elvt-button tone="neutral">Pending Review</elvt-button>
+  </elvt-indicator>
+  
+  <elvt-indicator tone="danger" position="top-end">
+    <elvt-button tone="neutral">Error State</elvt-button>
+  </elvt-indicator>
+</elvt-stack>`}
+>
+  <elvt-stack direction="row" gap="l" wrap>
+    <elvt-indicator tone="success" position="bottom-end">
+      <elvt-button tone="neutral">User Online</elvt-button>
+    </elvt-indicator>
+    
+    <elvt-indicator tone="warning" position="top-start">
+      <elvt-button tone="neutral">Pending Review</elvt-button>
+    </elvt-indicator>
+    
+    <elvt-indicator tone="danger" position="top-end">
+      <elvt-button tone="neutral">Error State</elvt-button>
+    </elvt-indicator>
+  </elvt-stack>
+</ComponentShowcase>
+
+## Design Principles
+
+### Attention Principle
+**Indicators should draw appropriate attention without overwhelming the interface.** Use them sparingly and ensure they genuinely represent important information that requires user awareness.
+
+### Position Principle
+**Indicator placement should be consistent and logical.** Follow established patterns for positioning (typically top-right for counts, bottom-right for status) to meet user expectations.
+
+### Clarity Principle
+**Indicator content should be immediately understandable.** Whether showing numbers or status dots, the meaning should be clear without additional context.
+
+## Best Practices
+
+### Using Semantic Tones
+
+**Why this matters:** Color carries meaning and helps users quickly understand the urgency and type of notification.
+
+:::tip Do: Use semantic tones that match notification importance
+Apply tones that align with the urgency and type of information being conveyed.
+
+```html
+<elvt-indicator tone="danger">99+</elvt-indicator>  <!-- Urgent/Error -->
+<elvt-indicator tone="warning">5</elvt-indicator>   <!-- Attention needed -->
+<elvt-indicator tone="primary">12</elvt-indicator>  <!-- General notifications -->
+<elvt-indicator tone="success"></elvt-indicator>    <!-- Positive status -->
+```
+:::
+
+:::danger Don't: Use arbitrary tones without meaning
+Avoid tone choices that confuse users or contradict established patterns.
+
+```html
+<!-- Avoid this -->
+<elvt-indicator tone="success">Error</elvt-indicator>
+<elvt-indicator tone="danger">All Good</elvt-indicator>
+```
+:::
+
+## Implementation
+
+### Getting Started
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+### Basic Usage
+
+```html
+<!-- Count indicators with badge slot (recommended) -->
+<elvt-indicator>
+  <elvt-badge slot="indicator" size="small" tone="danger" shape="box">42</elvt-badge>
+  <elvt-button>Messages</elvt-button>
+</elvt-indicator>
+
+<!-- Simple text indicators -->
+<elvt-indicator tone="danger" position="top-end">
+  <elvt-button>Messages</elvt-button>
+  3
+</elvt-indicator>
+
+<!-- Status indicators (no text content) -->
+<elvt-indicator tone="success" position="bottom-end">
+  <elvt-button>User Status</elvt-button>
+</elvt-indicator>
+
+<!-- Badge with different shapes -->
+<elvt-indicator>
+  <elvt-badge slot="indicator" size="small" tone="primary" shape="pill">New</elvt-badge>
+  <elvt-button>Feature</elvt-button>
+</elvt-indicator>
+```
+
+### Key Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `tone` | `success`, `warning`, `danger`, `primary`, `neutral` | Indicator color tone (when not using badge slot) |
+| `position` | `top-start`, `top-end`, `bottom-start`, `bottom-end` | Position relative to wrapped component |
+
+### Slots
+
+| Slot | Description |
+|------|-------------|
+| `indicator` | Use `elvt-badge` for enhanced styling control over the indicator |
+| (default) | The component to attach the indicator to |
+
+### CSS Custom Properties
+
+| Property | Description | Default |
+|----------|-------------|---------|
+| `--indicator-offset-column` | Horizontal indicator offset | `8px` |
+| `--indicator-offset-row` | Vertical indicator offset | `12px` |
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-indicator--docs).*
+
+## Accessibility
+
+### Essential Accessibility Practices
+
+**Screen reader support:**
+- Use appropriate ARIA labels for context ("3 unread messages")
+- Provide meaningful descriptions for status indicators
+- Ensure indicator purpose is clear from surrounding content
+- Test with screen readers to verify information is conveyed properly
+
+**Visual accessibility:**
+- Ensure sufficient color contrast for indicator content
+- Don't rely solely on color to convey meaning
+- Provide alternative indicators like text or icons when appropriate
+- Test indicators in high contrast mode
+
+**Interaction patterns:**
+- Make sure indicators don't interfere with the wrapped component's functionality
+- Consider keyboard navigation patterns for interactive indicators
+- Provide clear focus indicators when indicators are interactive
+
+## Related Components
+
+- **Badge**: Use for labels, status, and categorization that are part of the main content
+- **Button**: Often wrapped by indicators for notification counts
+- **Icon**: Can be used within indicators for status representation
+
+## Changelog
+
+### Version 0.0.27-alpha (Current)
+- Current version with stable indicator functionality
+
+### Version 0.0.14-alpha
+- **New**: Added Indicator component (experimental)
+- **New**: Position variants and tone support
+- **New**: CSS custom properties for offset control
