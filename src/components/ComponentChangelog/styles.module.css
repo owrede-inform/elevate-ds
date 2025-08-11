@@ -1,0 +1,438 @@
+/* ComponentChangelog Styles */
+.changelog {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.compact {
+  padding: 1rem;
+  margin: 0.5rem 0;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.header h3 {
+  margin: 0;
+  color: var(--ifm-heading-color);
+}
+
+.versionBadge {
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--ifm-global-radius);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* Metadata */
+.metadata {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--ifm-color-emphasis-100);
+  border-radius: var(--ifm-global-radius);
+}
+
+.metadataGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1rem;
+}
+
+.metadataItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.metadataItem strong {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+  display: block;
+}
+
+.metadataItem span {
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-700);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Version Entries */
+.versions {
+  space-y: 1rem;
+}
+
+.versionEntry {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: var(--ifm-global-radius);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.versionEntry:hover {
+  border-color: var(--ifm-color-primary-light);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.versionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  cursor: pointer;
+  background: var(--ifm-color-emphasis-50);
+  transition: background-color 0.2s ease;
+}
+
+.versionHeader:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.versionInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.versionNumber {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.breakingBadge {
+  background: var(--ifm-color-danger);
+  color: white;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--ifm-global-radius);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.versionDate {
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+}
+
+.versionSummary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.changeCount {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.9rem;
+}
+
+.expandIcon {
+  transition: transform 0.2s ease;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.expandIcon.expanded {
+  transform: rotate(180deg);
+}
+
+/* Changes */
+.changes {
+  padding: 0 1rem 1rem;
+  background: var(--ifm-background-color);
+}
+
+.change {
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-left: 4px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+  border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;
+}
+
+/* Change type colors */
+.change.success {
+  border-left-color: var(--ifm-color-success);
+}
+
+.change.warning {
+  border-left-color: var(--ifm-color-warning);
+}
+
+.change.danger {
+  border-left-color: var(--ifm-color-danger);
+}
+
+.change.primary {
+  border-left-color: var(--ifm-color-primary);
+}
+
+.changeHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.changeIcon {
+  font-size: 1.2rem;
+  margin-top: 0.1rem;
+}
+
+.changeTitle {
+  margin: 0;
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ifm-heading-color);
+}
+
+.changeDescription {
+  margin: 0.5rem 0;
+  color: var(--ifm-color-emphasis-800);
+  line-height: 1.5;
+}
+
+.changeFooter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.commitLink a,
+.issueLink a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-family: var(--ifm-font-family-monospace);
+  font-weight: 600;
+}
+
+.commitLink a:hover,
+.issueLink a:hover {
+  text-decoration: underline;
+}
+
+/* Impact badges */
+.impactBadge {
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.impactBadge.info {
+  background: var(--ifm-color-info-contrast-background);
+  color: var(--ifm-color-info-contrast-foreground);
+}
+
+.impactBadge.primary {
+  background: var(--ifm-color-primary-contrast-background);
+  color: var(--ifm-color-primary-contrast-foreground);
+}
+
+.impactBadge.success {
+  background: var(--ifm-color-success-contrast-background);
+  color: var(--ifm-color-success-contrast-foreground);
+}
+
+.impactBadge.warning {
+  background: var(--ifm-color-warning-contrast-background);
+  color: var(--ifm-color-warning-contrast-foreground);
+}
+
+.impactBadge.neutral {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-emphasis-800);
+}
+
+/* Migration guides */
+.migration {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--ifm-alert-background-color);
+  border: 1px solid var(--ifm-alert-border-color);
+  border-radius: var(--ifm-global-radius);
+}
+
+.migration h6 {
+  margin: 0 0 0.5rem 0;
+  color: var(--ifm-color-warning-dark);
+  font-weight: 600;
+}
+
+.codeComparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.codeBefore,
+.codeAfter {
+  padding: 0.75rem;
+  border-radius: var(--ifm-global-radius);
+}
+
+.codeBefore {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+}
+
+.codeAfter {
+  background: #f0fff4;
+  border: 1px solid #86efac;
+}
+
+.codeBefore strong {
+  color: #dc2626;
+}
+
+.codeAfter strong {
+  color: #16a34a;
+}
+
+.codeComparison pre {
+  margin: 0.5rem 0 0 0;
+  font-size: 0.85rem;
+}
+
+.codeComparison code {
+  background: transparent;
+  padding: 0;
+}
+
+/* API additions */
+.apiAdditions {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--ifm-color-primary-lightest);
+  border-radius: var(--ifm-global-radius);
+}
+
+.apiAdditions h6 {
+  margin: 0 0 0.5rem 0;
+  color: var(--ifm-color-primary-dark);
+  font-weight: 600;
+}
+
+.apiAdditions ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.apiAdditions li {
+  margin-bottom: 0.25rem;
+}
+
+.apiAdditions code {
+  background: var(--ifm-code-background);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.85rem;
+}
+
+/* Footer */
+.footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Loading states */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.spinner {
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid var(--ifm-color-emphasis-300);
+  border-top: 2px solid var(--ifm-color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error states */
+.error {
+  padding: 1rem;
+  background: var(--ifm-color-danger-lightest);
+  border: 1px solid var(--ifm-color-danger-light);
+  border-radius: var(--ifm-global-radius);
+  color: var(--ifm-color-danger-dark);
+}
+
+.errorDetail {
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0 0;
+  opacity: 0.8;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .codeComparison {
+    grid-template-columns: 1fr;
+  }
+  
+  .versionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .versionSummary {
+    align-self: flex-end;
+  }
+  
+  .metadataGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

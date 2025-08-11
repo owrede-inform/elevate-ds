@@ -1,0 +1,163 @@
+/* CodeDisplay Styles */
+
+.codeDisplay {
+  position: relative;
+  background: var(--ifm-sidebar-background-color, var(--elvt-alias-layout-layer-elevated, #f8f9fb));
+  border-radius: 0;
+}
+
+.floatingControls {
+  position: absolute;
+  top: var(--sl-spacing-large, 1.25rem);
+  right: var(--sl-spacing-large, 1.25rem);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.codeDisplay:hover .floatingControls {
+  opacity: 1;
+  visibility: visible;
+}
+
+.copyButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: var(--ifm-background-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0;
+  padding: 0;
+}
+
+.copyButton:hover {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-primary-lightest);
+}
+
+.copyButton:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px var(--ifm-color-primary-lightest);
+}
+
+.copyButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+.codeContent {
+  position: relative;
+}
+
+.code {
+  display: block;
+  background: var(--ifm-sidebar-background-color, var(--elvt-alias-layout-layer-elevated, #f8f9fb)) !important;
+  font-family: "RobotoMono", "Roboto Mono", Consolas, "Liberation Mono", Menlo, monospace !important;
+  font-size: 0.85rem !important;
+  line-height: 1.5 !important;
+  padding: var(--sl-spacing-medium, 1rem) !important;
+  overflow-x: auto;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.line {
+  display: table-row;
+  min-height: 1.5rem;
+}
+
+.lineNumber {
+  display: table-cell;
+  background: var(--ifm-sidebar-background-color, var(--elvt-alias-layout-layer-elevated, #f8f9fb));
+  color: var(--elvt-primitives-color-gray-500, #8891a0);
+  padding-right: var(--sl-spacing-medium, 1rem);
+  text-align: right;
+  user-select: none;
+  width: 3rem;
+  min-width: 3rem;
+  font-size: 0.8rem;
+  border-right: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
+  vertical-align: top;
+}
+
+.lineContent {
+  display: table-cell;
+  padding-left: var(--sl-spacing-medium, 1rem);
+  color: var(--elvt-primitives-color-gray-800, #3d4253);
+  vertical-align: top;
+  white-space: inherit;
+}
+
+/* Word wrapping control */
+.wrapLines .code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.noWrapLines .code {
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.wrapLines .lineContent {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.noWrapLines .lineContent {
+  white-space: pre;
+}
+
+/* Dark theme support */
+[data-theme='dark'] .codeDisplay {
+  background: var(--ifm-sidebar-background-color, var(--elvt-primitives-color-gray-1000, #111217));
+}
+
+
+[data-theme='dark'] .copyButton {
+  background: var(--ifm-background-color);
+  border-color: var(--ifm-color-emphasis-400);
+  color: var(--ifm-font-color-base);
+}
+
+[data-theme='dark'] .copyButton:hover {
+  border-color: var(--ifm-color-primary-light);
+  background: var(--ifm-color-primary-darkest);
+}
+
+[data-theme='dark'] .copyButton:focus {
+  border-color: var(--ifm-color-primary-light);
+  box-shadow: 0 0 0 2px var(--ifm-color-primary-darkest);
+}
+
+[data-theme='dark'] .pre {
+  background: var(--ifm-sidebar-background-color, var(--elvt-primitives-color-gray-1000, #111217));
+}
+
+[data-theme='dark'] .code {
+  background: var(--ifm-sidebar-background-color, var(--elvt-primitives-color-gray-1000, #111217)) !important;
+}
+
+[data-theme='dark'] .lineNumber {
+  background: var(--ifm-sidebar-background-color, var(--elvt-primitives-color-gray-1000, #111217));
+  color: var(--elvt-primitives-color-gray-400, #8c95a5);
+  border-right-color: var(--elvt-alias-layout-border-muted, #4d5366);
+}
+
+[data-theme='dark'] .lineContent {
+  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+}
+
+/* Prism syntax highlighting is handled by prism-react-renderer */

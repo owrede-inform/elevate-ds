@@ -1,0 +1,92 @@
+/**
+ * Structured Footer Layout for ELEVATE Design System
+ * Matches the main page layout: sidebar sticks to window edge, content area contained
+ */
+
+.structuredFooter {
+  background: var(--ifm-footer-background-color, var(--ifm-background-surface-color));
+  border-top: 1px solid var(--ifm-toc-border-color);
+  padding: 0;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.footerContainer {
+  display: flex;
+  align-items: flex-start;
+  min-height: 120px;
+  width: 100%;
+}
+
+/* Left section - Sidebar sticks to window edge like main layout */
+.footerSidebar {
+  width: 300px;
+  flex-shrink: 0;
+  padding: 2rem 1rem 2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-right: 1px solid var(--ifm-toc-border-color);
+  background: var(--ifm-sidebar-background-color, var(--elvt-alias-layout-layer-elevated, #f8f9fb));
+}
+
+/* Right section - Content area with max-width like main layout */
+.footerContent {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.footerContentInner {
+  max-width: 1140px;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Responsive behavior */
+@media (max-width: 996px) {
+  .footerContainer {
+    flex-direction: column;
+  }
+  
+  .footerSidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--ifm-toc-border-color);
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  
+  .footerContent {
+    justify-content: flex-start;
+  }
+  
+  .footerContentInner {
+    padding: 1.5rem;
+    max-width: none;
+  }
+}
+
+/* Dark theme adjustments */
+[data-theme='dark'] .footerSidebar {
+  background: var(--ifm-sidebar-background-color);
+  border-color: var(--ifm-toc-border-color);
+}
+
+[data-theme='dark'] .structuredFooter {
+  border-color: var(--ifm-toc-border-color);
+}
+
+/* Logo styling adjustments for footer context */
+.footerSidebar :global(.footer__logo) {
+  margin: 0;
+}
+
+.footerSidebar :global(.footer__logo img) {
+  height: 28px;
+  width: auto;
+  max-width: 140px;
+}
