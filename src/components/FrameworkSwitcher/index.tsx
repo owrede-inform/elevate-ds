@@ -10,9 +10,10 @@ import styles from './styles.module.css';
 interface FrameworkSwitcherProps {
   className?: string;
   size?: 'small' | 'medium';
+  hideLabel?: boolean;
 }
 
-export default function FrameworkSwitcher({ className, size = 'medium' }: FrameworkSwitcherProps) {
+export default function FrameworkSwitcher({ className, size = 'medium', hideLabel = false }: FrameworkSwitcherProps) {
   const { selectedFramework, setSelectedFramework, availableFrameworks } = useFramework();
   
   const handleFrameworkChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -21,10 +22,12 @@ export default function FrameworkSwitcher({ className, size = 'medium' }: Framew
   };
   
   return (
-    <div className={`${styles.frameworkSwitcher} ${className || ''}`}>
-      <label htmlFor="framework-selector" className={styles.label}>
-        Framework:
-      </label>
+    <div className={`${styles.frameworkSwitcher} ${className || ''} ${hideLabel ? styles.noLabel : ''}`}>
+      {!hideLabel && (
+        <label htmlFor="framework-selector" className={styles.label}>
+          Framework:
+        </label>
+      )}
       <select
         id="framework-selector"
         value={selectedFramework}

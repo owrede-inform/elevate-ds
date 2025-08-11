@@ -48,6 +48,17 @@
   min-width: 140px;
 }
 
+.noLabel {
+  gap: 0;
+}
+
+.noLabel .select {
+  height: 32px;
+  min-width: 110px;
+  padding: 0.375rem 0.5rem;
+  font-size: 0.75rem;
+}
+
 /* Dark mode styles */
 [data-theme='dark'] .select {
   background: var(--ifm-background-color);

@@ -118,7 +118,7 @@ export default function ComponentShowcase({
           <div className={styles.codeWrapper}>
             {showFrameworkSwitcher && (
               <div className={styles.frameworkSelectorInline}>
-                <FrameworkSwitcher size="small" />
+                <FrameworkSwitcher size="small" hideLabel={true} />
               </div>
             )}
             <CodeBlock 
