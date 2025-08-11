@@ -5,7 +5,6 @@ sidebar_position: 5
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
-import { ElvtCheckbox } from '@inform-elevate/elevate-core-ui/dist/react';
 
 # Checkbox
 
@@ -36,8 +35,8 @@ Basic checkbox for single option selection with clear labeling.
 
 <ComponentShowcase
   title="Standard Checkbox Options"
-  description="Basic checkboxes for independent option selections."
-  code={`<div style="display: flex; flex-direction: column; gap: 1rem;">
+  description="Basic checkboxes for independent option selections.">
+<div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
   <elvt-checkbox name="newsletter" value="subscribe">
     Subscribe to newsletter
   </elvt-checkbox>
@@ -47,19 +46,7 @@ Basic checkbox for single option selection with clear labeling.
   <elvt-checkbox name="terms" value="accepted" required>
     I agree to the terms and conditions *
   </elvt-checkbox>
-</div>`}
->
-  <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-    <ElvtCheckbox name="newsletter" value="subscribe">
-      Subscribe to newsletter
-    </ElvtCheckbox>
-    <ElvtCheckbox name="notifications" value="email" checked>
-      Email notifications
-    </ElvtCheckbox>
-    <ElvtCheckbox name="terms" value="accepted" required>
-      I agree to the terms and conditions *
-    </ElvtCheckbox>
-  </div>
+</div>
 </ComponentShowcase>
 
 ### Indeterminate Checkbox
@@ -68,28 +55,17 @@ Checkbox showing partial selection state for grouped options with mixed selectio
 
 <ComponentShowcase
   title="Indeterminate Checkbox State"
-  description="Parent checkbox showing mixed selection state for child options."
-  code={`<div style="display: flex; flex-direction: column; gap: 0.75rem;">
+  description="Parent checkbox showing mixed selection state for child options.">
+<div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
   <elvt-checkbox name="select-all" indeterminate>
     Select all permissions
   </elvt-checkbox>
-  <div style="margin-left: 2rem; display: flex; flex-direction: column; gap: 0.5rem;">
+  <div style={{marginLeft: '2rem', display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
     <elvt-checkbox name="permissions" value="read" checked>Read access</elvt-checkbox>
     <elvt-checkbox name="permissions" value="write">Write access</elvt-checkbox>
     <elvt-checkbox name="permissions" value="admin">Admin access</elvt-checkbox>
   </div>
-</div>`}
->
-  <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
-    <ElvtCheckbox name="select-all" indeterminate>
-      Select all permissions
-    </ElvtCheckbox>
-    <div style={{marginLeft: '2rem', display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
-      <ElvtCheckbox name="permissions" value="read" checked>Read access</ElvtCheckbox>
-      <ElvtCheckbox name="permissions" value="write">Write access</ElvtCheckbox>
-      <ElvtCheckbox name="permissions" value="admin">Admin access</ElvtCheckbox>
-    </div>
-  </div>
+</div>
 </ComponentShowcase>
 
 ### Checkbox with Helper Text
@@ -98,8 +74,8 @@ Checkbox with additional descriptive text for complex options requiring explanat
 
 <ComponentShowcase
   title="Checkbox with Helper Text"
-  description="Checkboxes with explanatory helper text for complex options."
-  code={`<div style="display: flex; flex-direction: column; gap: 1rem;">
+  description="Checkboxes with explanatory helper text for complex options.">
+<div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
   <elvt-checkbox 
     name="analytics" 
     value="enabled"
@@ -112,22 +88,7 @@ Checkbox with additional descriptive text for complex options requiring explanat
     helper-text="Receive promotional emails about new features and updates">
     Marketing communications
   </elvt-checkbox>
-</div>`}
->
-  <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-    <ElvtCheckbox 
-      name="analytics" 
-      value="enabled"
-      helperText="Help us improve by sharing anonymous usage data">
-      Enable analytics
-    </ElvtCheckbox>
-    <ElvtCheckbox 
-      name="marketing" 
-      value="consent"
-      helperText="Receive promotional emails about new features and updates">
-      Marketing communications
-    </ElvtCheckbox>
-  </div>
+</div>
 </ComponentShowcase>
 
 ## Design Principles
@@ -289,13 +250,13 @@ npm install @inform-elevate/elevate-core-ui
 
 <ComponentShowcase
   title="User Preferences Form"
-  description="Multiple checkbox groups working together in a comprehensive settings form."
-  code={`<form style="max-width: 500px; padding: 2rem; border: 1px solid #e0e0e0; border-radius: 8px;" onsubmit="event.preventDefault(); alert('Preferences saved!');">
-  <h3 style="margin-top: 0;">Account Preferences</h3>
+  description="Multiple checkbox groups working together in a comprehensive settings form.">
+<form style={{maxWidth: '500px', padding: '2rem', border: '1px solid #e0e0e0', borderRadius: '8px'}} onSubmit={(e) => {e.preventDefault(); alert('Preferences saved!');}}>
+  <h3 style={{marginTop: 0}}>Account Preferences</h3>
   
-  <fieldset style="border: none; padding: 0; margin: 0 0 1.5rem 0;">
-    <legend style="font-weight: 500; margin-bottom: 0.75rem;">Notifications</legend>
-    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+  <fieldset style={{border: 'none', padding: 0, margin: '0 0 1.5rem 0'}}>
+    <legend style={{fontWeight: '500', marginBottom: '0.75rem'}}>Notifications</legend>
+    <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
       <elvt-checkbox name="notifications" value="email" checked>
         Email notifications
       </elvt-checkbox>
@@ -308,9 +269,9 @@ npm install @inform-elevate/elevate-core-ui
     </div>
   </fieldset>
   
-  <fieldset style="border: none; padding: 0; margin: 0 0 1.5rem 0;">
-    <legend style="font-weight: 500; margin-bottom: 0.75rem;">Privacy</legend>
-    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+  <fieldset style={{border: 'none', padding: 0, margin: '0 0 1.5rem 0'}}>
+    <legend style={{fontWeight: '500', marginBottom: '0.75rem'}}>Privacy</legend>
+    <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
       <elvt-checkbox name="privacy" value="analytics" helper-text="Help us improve by sharing anonymous usage data">
         Enable analytics
       </elvt-checkbox>
@@ -321,42 +282,7 @@ npm install @inform-elevate/elevate-core-ui
   </fieldset>
   
   <elvt-button type="submit" tone="primary">Save Preferences</elvt-button>
-</form>`}
->
-  <div style={{maxWidth: '500px', padding: '2rem', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
-    <h3 style={{marginTop: 0}}>Account Preferences</h3>
-    
-    <fieldset style={{border: 'none', padding: 0, margin: '0 0 1.5rem 0'}}>
-      <legend style={{fontWeight: '500', marginBottom: '0.75rem'}}>Notifications</legend>
-      <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
-        <ElvtCheckbox name="notifications" value="email" checked>
-          Email notifications
-        </ElvtCheckbox>
-        <ElvtCheckbox name="notifications" value="sms">
-          SMS notifications
-        </ElvtCheckbox>
-        <ElvtCheckbox name="notifications" value="push">
-          Push notifications
-        </ElvtCheckbox>
-      </div>
-    </fieldset>
-    
-    <fieldset style={{border: 'none', padding: 0, margin: '0 0 1.5rem 0'}}>
-      <legend style={{fontWeight: '500', marginBottom: '0.75rem'}}>Privacy</legend>
-      <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
-        <ElvtCheckbox name="privacy" value="analytics" helperText="Help us improve by sharing anonymous usage data">
-          Enable analytics
-        </ElvtCheckbox>
-        <ElvtCheckbox name="privacy" value="marketing">
-          Marketing communications
-        </ElvtCheckbox>
-      </div>
-    </fieldset>
-    
-    <button style={{padding: '0.5rem 1rem', border: 'none', borderRadius: '4px', background: '#0066cc', color: 'white', cursor: 'pointer'}}>
-      Save Preferences
-    </button>
-  </div>
+</form>
 </ComponentShowcase>
 
 ## Accessibility

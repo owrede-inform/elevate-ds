@@ -5,7 +5,6 @@ sidebar_position: 6
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
-import { ElvtRadio, ElvtRadioGroup } from '@inform-elevate/elevate-core-ui/dist/react';
 
 # Radio
 
@@ -34,52 +33,30 @@ Standard Radio provides the fundamental single-selection interface pattern.
 
 <ComponentShowcase
   title="Basic Radio Buttons"
-  description="Standard radio button group for mutually exclusive selections."
-  code={`<elvt-radio-group label="Choose your preferred contact method:" name="contact-method">
-  <elvt-radio value="email" checked>
-    Email
-    <span slot="description">Receive notifications via email</span>
-  </elvt-radio>
-  
-  <elvt-radio value="sms">
-    SMS
-    <span slot="description">Receive text message notifications</span>
-  </elvt-radio>
-  
-  <elvt-radio value="phone">
-    Phone Call
-    <span slot="description">Receive voice call notifications</span>
-  </elvt-radio>
-  
-  <elvt-radio value="mail" disabled>
-    Postal Mail
-    <span slot="description">Currently unavailable</span>
-  </elvt-radio>
-</elvt-radio-group>`}
->
-  <div style={{padding: '1rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
-    <ElvtRadioGroup label="Choose your preferred contact method:" name="contact-method">
-      <ElvtRadio value="email" checked>
-        Email
-        <span slot="description">Receive notifications via email</span>
-      </ElvtRadio>
-      
-      <ElvtRadio value="sms">
-        SMS
-        <span slot="description">Receive text message notifications</span>
-      </ElvtRadio>
-      
-      <ElvtRadio value="phone">
-        Phone Call
-        <span slot="description">Receive voice call notifications</span>
-      </ElvtRadio>
-      
-      <ElvtRadio value="mail" disabled>
-        Postal Mail
-        <span slot="description">Currently unavailable</span>
-      </ElvtRadio>
-    </ElvtRadioGroup>
-  </div>
+  description="Standard radio button group for mutually exclusive selections.">
+<div style={{padding: '1rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
+  <elvt-radio-group label="Choose your preferred contact method:" name="contact-method">
+    <elvt-radio value="email" checked>
+      Email
+      <span slot="description">Receive notifications via email</span>
+    </elvt-radio>
+    
+    <elvt-radio value="sms">
+      SMS
+      <span slot="description">Receive text message notifications</span>
+    </elvt-radio>
+    
+    <elvt-radio value="phone">
+      Phone Call
+      <span slot="description">Receive voice call notifications</span>
+    </elvt-radio>
+    
+    <elvt-radio value="mail" disabled>
+      Postal Mail
+      <span slot="description">Currently unavailable</span>
+    </elvt-radio>
+  </elvt-radio-group>
+</div>
 </ComponentShowcase>
 
 ### Inline Radio Groups
@@ -88,42 +65,25 @@ Display options horizontally for compact layouts.
 
 <ComponentShowcase
   title="Inline Radio Group Layout"
-  description="Horizontal radio button layout for compact forms."
-  code={`<elvt-radio-group label="Select your subscription plan:" name="plan" orientation="horizontal">
-  <elvt-radio value="basic">
-    Basic
-    <span slot="description">$9/month</span>
-  </elvt-radio>
-  
-  <elvt-radio value="pro" checked>
-    Pro
-    <span slot="description">$19/month</span>
-  </elvt-radio>
-  
-  <elvt-radio value="enterprise">
-    Enterprise
-    <span slot="description">$49/month</span>
-  </elvt-radio>
-</elvt-radio-group>`}
->
-  <div style={{padding: '1rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
-    <ElvtRadioGroup label="Select your subscription plan:" name="plan" orientation="horizontal">
-      <ElvtRadio value="basic">
-        Basic
-        <span slot="description">$9/month</span>
-      </ElvtRadio>
-      
-      <ElvtRadio value="pro" checked>
-        Pro
-        <span slot="description">$19/month</span>
-      </ElvtRadio>
-      
-      <ElvtRadio value="enterprise">
-        Enterprise
-        <span slot="description">$49/month</span>
-      </ElvtRadio>
-    </ElvtRadioGroup>
-  </div>
+  description="Horizontal radio button layout for compact forms.">
+<div style={{padding: '1rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
+  <elvt-radio-group label="Select your subscription plan:" name="plan" orientation="horizontal">
+    <elvt-radio value="basic">
+      Basic
+      <span slot="description">$9/month</span>
+    </elvt-radio>
+    
+    <elvt-radio value="pro" checked>
+      Pro
+      <span slot="description">$19/month</span>
+    </elvt-radio>
+    
+    <elvt-radio value="enterprise">
+      Enterprise
+      <span slot="description">$49/month</span>
+    </elvt-radio>
+  </elvt-radio-group>
+</div>
 </ComponentShowcase>
 
 ### Radio with Rich Content
@@ -132,102 +92,55 @@ Support for complex option descriptions and additional context.
 
 <ComponentShowcase
   title="Radio Buttons with Rich Content"
-  description="Radio options with detailed descriptions and additional context."
-  code={`<elvt-radio-group label="Choose your deployment environment:" name="environment">
-  <elvt-radio value="development">
-    <div style="display: flex; align-items: start; gap: 1rem;">
-      <div style="color: #007bff; font-size: 1.5rem; margin-top: 0.125rem;">💻</div>
-      <div>
-        <div style="font-weight: 500;">Development Environment</div>
-        <div style="font-size: 0.875rem; color: #6f6f6f; margin-top: 0.25rem;">
-          Perfect for testing and development work. Includes debugging tools and hot reload.
-        </div>
-        <div style="font-size: 0.75rem; color: #28a745; margin-top: 0.5rem;">
-          ✓ Fast deployment • ✓ Debug tools • ✓ Auto-refresh
-        </div>
-      </div>
-    </div>
-  </elvt-radio>
-  
-  <elvt-radio value="staging" checked>
-    <div style="display: flex; align-items: start; gap: 1rem;">
-      <div style="color: #ffc107; font-size: 1.5rem; margin-top: 0.125rem;">🖥️</div>
-      <div>
-        <div style="font-weight: 500;">Staging Environment</div>
-        <div style="font-size: 0.875rem; color: #6f6f6f; margin-top: 0.25rem;">
-          Production-like environment for final testing. Mirrors production configuration.
-        </div>
-        <div style="font-size: 0.75rem; color: #007bff; margin-top: 0.5rem;">
-          ✓ Production config • ✓ Performance testing • ✓ Integration tests
-        </div>
-      </div>
-    </div>
-  </elvt-radio>
-  
-  <elvt-radio value="production">
-    <div style="display: flex; align-items: start; gap: 1rem;">
-      <div style="color: #dc3545; font-size: 1.5rem; margin-top: 0.125rem;">☁️</div>
-      <div>
-        <div style="font-weight: 500;">Production Environment</div>
-        <div style="font-size: 0.875rem; color: #6f6f6f; margin-top: 0.25rem;">
-          Live production environment. Use with caution - affects real users.
-        </div>
-        <div style="font-size: 0.75rem; color: #dc3545; margin-top: 0.5rem;">
-          ⚠️ Live environment • ⚠️ Real users • ⚠️ Careful deployment
-        </div>
-      </div>
-    </div>
-  </elvt-radio>
-</elvt-radio-group>`}
->
-  <div style={{padding: '1rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
-    <ElvtRadioGroup label="Choose your deployment environment:" name="environment">
-      <ElvtRadio value="development">
-        <div style={{display: 'flex', alignItems: 'start', gap: '1rem'}}>
-          <div style={{color: '#007bff', fontSize: '1.5rem', marginTop: '0.125rem'}}>💻</div>
-          <div>
-            <div style={{fontWeight: '500'}}>Development Environment</div>
-            <div style={{fontSize: '0.875rem', color: '#6f6f6f', marginTop: '0.25rem'}}>
-              Perfect for testing and development work. Includes debugging tools and hot reload.
-            </div>
-            <div style={{fontSize: '0.75rem', color: '#28a745', marginTop: '0.5rem'}}>
-              ✓ Fast deployment • ✓ Debug tools • ✓ Auto-refresh
-            </div>
+  description="Radio options with detailed descriptions and additional context.">
+<div style={{padding: '1rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
+  <elvt-radio-group label="Choose your deployment environment:" name="environment">
+    <elvt-radio value="development">
+      <div style={{display: 'flex', alignItems: 'start', gap: '1rem'}}>
+        <div style={{color: '#007bff', fontSize: '1.5rem', marginTop: '0.125rem'}}>💻</div>
+        <div>
+          <div style={{fontWeight: '500'}}>Development Environment</div>
+          <div style={{fontSize: '0.875rem', color: '#6f6f6f', marginTop: '0.25rem'}}>
+            Perfect for testing and development work. Includes debugging tools and hot reload.
+          </div>
+          <div style={{fontSize: '0.75rem', color: '#28a745', marginTop: '0.5rem'}}>
+            ✓ Fast deployment • ✓ Debug tools • ✓ Auto-refresh
           </div>
         </div>
-      </ElvtRadio>
-      
-      <ElvtRadio value="staging" checked>
-        <div style={{display: 'flex', alignItems: 'start', gap: '1rem'}}>
-          <div style={{color: '#ffc107', fontSize: '1.5rem', marginTop: '0.125rem'}}>🖥️</div>
-          <div>
-            <div style={{fontWeight: '500'}}>Staging Environment</div>
-            <div style={{fontSize: '0.875rem', color: '#6f6f6f', marginTop: '0.25rem'}}>
-              Production-like environment for final testing. Mirrors production configuration.
-            </div>
-            <div style={{fontSize: '0.75rem', color: '#007bff', marginTop: '0.5rem'}}>
-              ✓ Production config • ✓ Performance testing • ✓ Integration tests
-            </div>
+      </div>
+    </elvt-radio>
+    
+    <elvt-radio value="staging" checked>
+      <div style={{display: 'flex', alignItems: 'start', gap: '1rem'}}>
+        <div style={{color: '#ffc107', fontSize: '1.5rem', marginTop: '0.125rem'}}>🖥️</div>
+        <div>
+          <div style={{fontWeight: '500'}}>Staging Environment</div>
+          <div style={{fontSize: '0.875rem', color: '#6f6f6f', marginTop: '0.25rem'}}>
+            Production-like environment for final testing. Mirrors production configuration.
+          </div>
+          <div style={{fontSize: '0.75rem', color: '#007bff', marginTop: '0.5rem'}}>
+            ✓ Production config • ✓ Performance testing • ✓ Integration tests
           </div>
         </div>
-      </ElvtRadio>
-      
-      <ElvtRadio value="production">
-        <div style={{display: 'flex', alignItems: 'start', gap: '1rem'}}>
-          <div style={{color: '#dc3545', fontSize: '1.5rem', marginTop: '0.125rem'}}>☁️</div>
-          <div>
-            <div style={{fontWeight: '500'}}>Production Environment</div>
-            <div style={{fontSize: '0.875rem', color: '#6f6f6f', marginTop: '0.25rem'}}>
-              Live production environment. Use with caution - affects real users.
-            </div>
-            <div style={{fontSize: '0.75rem', color: '#dc3545', marginTop: '0.5rem'}}>
-              ⚠️ Live environment • ⚠️ Real users • ⚠️ Careful deployment
-            </div>
+      </div>
+    </elvt-radio>
+    
+    <elvt-radio value="production">
+      <div style={{display: 'flex', alignItems: 'start', gap: '1rem'}}>
+        <div style={{color: '#dc3545', fontSize: '1.5rem', marginTop: '0.125rem'}}>☁️</div>
+        <div>
+          <div style={{fontWeight: '500'}}>Production Environment</div>
+          <div style={{fontSize: '0.875rem', color: '#6f6f6f', marginTop: '0.25rem'}}>
+            Live production environment. Use with caution - affects real users.
+          </div>
+          <div style={{fontSize: '0.75rem', color: '#dc3545', marginTop: '0.5rem'}}>
+            ⚠️ Live environment • ⚠️ Real users • ⚠️ Careful deployment
           </div>
         </div>
-      </ElvtRadio>
-    </ElvtRadioGroup>
-  </div>
+      </div>
+    </elvt-radio>
+  </elvt-radio-group>
+</div>
 </ComponentShowcase>
 
 ### Size Variations
