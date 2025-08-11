@@ -87,6 +87,7 @@ const config: Config = {
     ],
   ],
 
+
   // Custom metadata for INFORM ELEVATE theme
   customFields: {
     themeName: 'docusaurus-theme-inform-elevate',
@@ -173,7 +174,7 @@ const config: Config = {
           items: [
             {
               label: 'Getting Started',
-              to: '/docs/get-started',
+              to: '/docs/home/overview',
             },
             {
               label: 'Components',
@@ -189,8 +190,8 @@ const config: Config = {
           title: 'Resources',
           items: [
             {
-              label: 'Docusaurus Tutorial',
-              to: '/docs/intro',
+              label: 'Design Guidelines',
+              to: '/docs/guidelines',
             },
             {
               label: 'Storybook',

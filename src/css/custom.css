@@ -514,6 +514,26 @@ a[href^="http"]::after,
 /* Ensure ELEVATE buttons work properly in both themes */
 elvt-button {
   font-family: var(--elvt-type-alias-default-content-m-font-family, "Inter");
+  /* Fix scrollbar issue: prevent overflow and ensure proper height */
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure button content doesn't cause overflow */
+elvt-button *,
+elvt-button::part(base),
+elvt-button::part(label) {
+  overflow: visible !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Fix Docusaurus skip-to-content fallback div height */
+#__docusaurus_skipToContent_fallback {
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 /* Fix any remaining text color issues */
@@ -547,6 +567,12 @@ elvt-button {
   color: var(--elvt-alias-content-text-default, #d5d9e1);
 }
 
+/* Sidebar width reduction - 80% of default */
+:root {
+  --doc-sidebar-width: 240px; /* 80% of default ~300px */
+  --ifm-sidebar-width: 240px; /* Override Docusaurus default sidebar width */
+}
+
 /* Sidebar dark mode */
 .theme-doc-sidebar-container {
   background: var(--ifm-background-surface-color);
@@ -556,6 +582,24 @@ elvt-button {
 [data-theme='dark'] .theme-doc-sidebar-container {
   background: var(--elvt-primitives-color-gray-1000, #111217);
   border-right: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
+}
+
+/* Apply sidebar width reduction only on desktop */
+@media (min-width: 997px) {
+  .theme-doc-sidebar-container {
+    width: var(--doc-sidebar-width);
+  }
+  
+  [data-theme='dark'] .theme-doc-sidebar-container {
+    width: var(--doc-sidebar-width);
+  }
+  
+  /* Fix sidebar content positioning to avoid clipping under navbar - but not in responsive mode */
+  .theme-doc-sidebar {
+    height: calc(100vh - var(--ifm-navbar-height, 60px));
+    position: sticky;
+    top: var(--ifm-navbar-height, 60px);
+  }
 }
 
 /* Sidebar menu items */
@@ -1013,4 +1057,12 @@ elvt-card h3 { font-size: 1.25rem; }
 elvt-card h4 { font-size: 1.125rem; }
 elvt-card h5 { font-size: 1rem; }
 elvt-card h6 { font-size: 0.875rem; }
+
+/* Clean responsive navigation - hide main navbar items below 1180px until burger menu appears */
+@media (max-width: 1180px) and (min-width: 768px) {
+  /* Hide left-side navigation items using correct Docusaurus class structure */
+  .navbar__items:not(.navbar__items--right) .navbar__item {
+    display: none;
+  }
+}
 

@@ -1,0 +1,208 @@
+/* Custom Hero Component Styles */
+
+.customHero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - var(--ifm-navbar-height, 60px));
+  padding: var(--sl-spacing-3x-large, 3rem) 0;
+  overflow: hidden;
+  
+  /* Fallback dark gray background */
+  background: #374151;
+}
+
+/* Overlay for better text readability */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/* Overlay variations */
+.overlay-light .overlay {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+}
+
+.overlay-dark .overlay {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+}
+
+.overlay-gradient .overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  backdrop-filter: blur(1px);
+}
+
+.overlay-none .overlay {
+  background: none;
+  backdrop-filter: none;
+}
+
+/* Hero content container */
+.heroContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contentWrapper {
+  padding: var(--sl-spacing-large, 1.25rem);
+  max-width: 800px;
+}
+
+/* Hero title styling */
+.heroTitle {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: var(--elvt-type-alias-default-title-xl-font-weight, 700);
+  line-height: 1.1;
+  margin-bottom: var(--sl-spacing-large, 1.25rem);
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  
+  /* Ensure good contrast */
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+/* Hero subtitle styling */
+.heroSubtitle {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  line-height: 1.4;
+  margin-bottom: var(--sl-spacing-2x-large, 2rem);
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+}
+
+/* Action buttons container */
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sl-spacing-medium, 1rem);
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: var(--sl-spacing-2x-large, 2rem);
+}
+
+/* Loading state */
+.loading {
+  opacity: 0.9;
+}
+
+.loading .heroTitle,
+.loading .heroSubtitle {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.loading .heroActions {
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .customHero {
+    min-height: calc(100vh - var(--ifm-navbar-height, 60px));
+    padding: var(--sl-spacing-2x-large, 2rem) 0;
+  }
+  
+  .heroActions {
+    flex-direction: column;
+    gap: var(--sl-spacing-small, 0.75rem);
+  }
+  
+  .heroActions > * {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contentWrapper {
+    padding: var(--sl-spacing-medium, 1rem);
+  }
+  
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Ensure white text in both light and dark themes */
+.heroTitle,
+[data-theme='light'] .heroTitle,
+[data-theme='dark'] .heroTitle {
+  color: white !important;
+}
+
+.heroSubtitle,
+[data-theme='light'] .heroSubtitle,
+[data-theme='dark'] .heroSubtitle {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Dark theme support */
+[data-theme='dark'] .customHero {
+  /* Fallback dark gray background for dark theme */
+  background: #374151;
+}
+
+[data-theme='dark'] .overlay-gradient .overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .heroTitle,
+  .heroSubtitle {
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+  }
+  
+  .overlay-gradient .overlay {
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .customHero {
+    transition: none;
+  }
+  
+  .loading .heroTitle,
+  .loading .heroSubtitle,
+  .loading .heroActions {
+    animation: none;
+  }
+}

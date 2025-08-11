@@ -1,171 +1,195 @@
-/* ComponentChangelog Styles */
+/* ComponentChangelog Styles - Clean & Elegant Design */
 .changelog {
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: var(--ifm-global-radius);
-  padding: 1.5rem;
-  margin: 1rem 0;
+  border: none;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
   background: var(--ifm-background-surface-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
 }
 
 .compact {
-  padding: 1rem;
-  margin: 0.5rem 0;
+  padding: 1.5rem;
+  margin: 1rem 0;
 }
 
-/* Header */
+/* Header - Minimal & Clean */
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  margin-bottom: 2rem;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .header h3 {
   margin: 0;
   color: var(--ifm-heading-color);
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
 }
 
 .versionBadge {
-  background: var(--ifm-color-primary);
-  color: white;
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--ifm-global-radius);
-  font-size: 0.875rem;
-  font-weight: 600;
+  background: var(--elvt-primitives-color-blue-50, #f0f9ff);
+  color: var(--elvt-primitives-color-blue-700, #1d4ed8);
+  padding: 0.375rem 0.875rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid var(--elvt-primitives-color-blue-200, #bfdbfe);
 }
 
-/* Metadata */
+/* Metadata - Subtle & Minimal */
 .metadata {
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: var(--ifm-color-emphasis-100);
-  border-radius: var(--ifm-global-radius);
+  margin-bottom: 2rem;
+  padding: 0;
+  background: none;
+  border-radius: 0;
 }
 
 .metadataGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  gap: 1rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-start;
 }
 
 .metadataItem {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
 
 .metadataItem strong {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--ifm-color-primary);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--ifm-heading-color);
   display: block;
+  margin-bottom: 0.125rem;
 }
 
 .metadataItem span {
-  font-size: 0.8rem;
-  color: var(--ifm-color-emphasis-700);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+  color: var(--ifm-color-emphasis-600);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
 }
 
-/* Version Entries */
+/* Version Entries - Clean Card Design */
 .versions {
-  space-y: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .versionEntry {
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: var(--ifm-global-radius);
-  margin-bottom: 1rem;
+  border: none;
+  border-radius: 12px;
+  margin-bottom: 0;
   overflow: hidden;
+  background: var(--ifm-background-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   transition: all 0.2s ease;
 }
 
 .versionEntry:hover {
-  border-color: var(--ifm-color-primary-light);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
 }
 
 .versionHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1.5rem;
   cursor: pointer;
-  background: var(--ifm-color-emphasis-50);
-  transition: background-color 0.2s ease;
+  background: transparent;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid var(--ifm-color-emphasis-100);
 }
 
 .versionHeader:hover {
-  background: var(--ifm-color-emphasis-100);
+  background: var(--ifm-color-emphasis-50);
 }
 
 .versionInfo {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   gap: 1rem;
 }
 
 .versionNumber {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: var(--ifm-heading-color);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  letter-spacing: -0.01em;
 }
 
 .breakingBadge {
-  background: var(--ifm-color-danger);
-  color: white;
-  padding: 0.15rem 0.5rem;
-  border-radius: var(--ifm-global-radius);
-  font-size: 0.7rem;
-  font-weight: 600;
+  background: var(--elvt-primitives-color-red-50, #fef2f2);
+  color: var(--elvt-primitives-color-red-700, #b91c1c);
+  padding: 0.25rem 0.625rem;
+  border-radius: 12px;
+  font-size: 0.65rem;
+  font-weight: 500;
   text-transform: uppercase;
+  letter-spacing: 0.025em;
+  border: 1px solid var(--elvt-primitives-color-red-200, #fecaca);
 }
 
 .versionDate {
-  color: var(--ifm-color-emphasis-700);
-  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.875rem;
+  font-weight: 400;
 }
 
 .versionSummary {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
 .changeCount {
   color: var(--ifm-color-emphasis-600);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
+  font-weight: 400;
 }
 
 .expandIcon {
   transition: transform 0.2s ease;
-  color: var(--ifm-color-emphasis-600);
+  color: var(--ifm-color-emphasis-500);
+  font-size: 0.75rem;
 }
 
 .expandIcon.expanded {
   transform: rotate(180deg);
 }
 
-/* Changes */
+/* Changes - Minimal List Design */
 .changes {
-  padding: 0 1rem 1rem;
-  background: var(--ifm-background-color);
+  padding: 0 1.5rem 1.5rem;
+  background: transparent;
 }
 
 .change {
-  padding: 1rem;
-  margin-bottom: 0.75rem;
-  border-left: 4px solid var(--ifm-color-emphasis-300);
-  background: var(--ifm-background-surface-color);
-  border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;
+  padding: 1.25rem 0;
+  margin-bottom: 0;
+  border-left: none;
+  background: transparent;
+  border-radius: 0;
+  border-bottom: 1px solid var(--ifm-color-emphasis-100);
+}
+
+.change:last-child {
+  border-bottom: none;
 }
 
 /* Change type colors */
@@ -188,35 +212,39 @@
 .changeHeader {
   display: flex;
   align-items: flex-start;
-  gap: 0.75rem;
-  margin-bottom: 0.75rem;
+  gap: 0.875rem;
+  margin-bottom: 0.625rem;
 }
 
 .changeIcon {
-  font-size: 1.2rem;
-  margin-top: 0.1rem;
+  font-size: 1.125rem;
+  margin-top: 0.125rem;
+  opacity: 0.8;
 }
 
 .changeTitle {
   margin: 0;
   flex: 1;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 500;
   color: var(--ifm-heading-color);
+  line-height: 1.4;
 }
 
 .changeDescription {
-  margin: 0.5rem 0;
-  color: var(--ifm-color-emphasis-800);
+  margin: 0.5rem 0 0.75rem 2rem;
+  color: var(--ifm-color-emphasis-700);
   line-height: 1.5;
+  font-size: 0.9rem;
 }
 
 .changeFooter {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 0.75rem;
-  font-size: 0.85rem;
+  margin-top: 0;
+  margin-left: 2rem;
+  font-size: 0.8rem;
 }
 
 .commitLink a,
@@ -232,14 +260,15 @@
   text-decoration: underline;
 }
 
-/* Impact badges */
+/* Impact badges - Subtle Design */
 .impactBadge {
-  padding: 0.2rem 0.6rem;
-  border-radius: 12px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
+  padding: 0.25rem 0.625rem;
+  border-radius: 10px;
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: 0.8;
 }
 
 .impactBadge.info {
@@ -353,28 +382,31 @@
   font-size: 0.85rem;
 }
 
-/* Footer */
+/* Footer - Minimal */
 .footer {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--ifm-color-emphasis-200);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ifm-color-emphasis-100);
   text-align: center;
 }
 
 .footer p {
   margin: 0;
-  color: var(--ifm-color-emphasis-700);
-  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.875rem;
+  font-weight: 400;
 }
 
 .footer a {
-  color: var(--ifm-color-primary);
+  color: var(--elvt-primitives-color-blue-600, #2563eb);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .footer a:hover {
-  text-decoration: underline;
+  color: var(--elvt-primitives-color-blue-700, #1d4ed8);
+  text-decoration: none;
 }
 
 /* Loading states */

@@ -176,18 +176,24 @@ export default function CodeDisplay({
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre className={`${styles.code} ${className}`} style={style}>
-              {tokens.map((line, i) => (
-                <div key={i} {...getLineProps({ line, key: i })} className={styles.line}>
-                  {showLineNumbers && (
-                    <span className={styles.lineNumber}>{i + 1}</span>
-                  )}
-                  <span className={styles.lineContent}>
-                    {line.map((token, key) => (
-                      <span key={key} {...getTokenProps({ token, key })} />
-                    ))}
-                  </span>
-                </div>
-              ))}
+              {tokens.map((line, i) => {
+                const lineProps = getLineProps({ line });
+                return (
+                  <div key={i} {...lineProps} className={styles.line}>
+                    {showLineNumbers && (
+                      <span className={styles.lineNumber}>{i + 1}</span>
+                    )}
+                    <span className={styles.lineContent}>
+                      {line.map((token, tokenIndex) => {
+                        const tokenProps = getTokenProps({ token });
+                        return (
+                          <span key={tokenIndex} {...tokenProps} />
+                        );
+                      })}
+                    </span>
+                  </div>
+                );
+              })}
             </pre>
           )}
         </Highlight>

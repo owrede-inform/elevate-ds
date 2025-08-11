@@ -1,0 +1,254 @@
+---
+title: Button2 - Test Component
+description: Test implementation of button component variations
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Button2 - Test Component
+
+:::warning Test Component
+This is a test component and not part of the official ELEVATE Design System documentation. This page is for development and testing purposes only.
+:::
+
+## Overview
+
+This page demonstrates various button implementations and experimental variations for testing purposes.
+
+## Primary Button Tests
+
+<ComponentShowcase
+  title="Primary Button - Basic"
+  description="Standard primary button implementation"
+  code={`<elvt-button tone="primary" size="medium">
+  Primary Button
+</elvt-button>`}
+>
+  <elvt-button tone="primary" size="medium">
+    Primary Button
+  </elvt-button>
+</ComponentShowcase>
+
+<ComponentShowcase
+  title="Primary Button - Small"
+  description="Small size primary button"
+  code={`<elvt-button tone="primary" size="small">
+  Small Primary
+</elvt-button>`}
+>
+  <elvt-button tone="primary" size="small">
+    Small Primary
+  </elvt-button>
+</ComponentShowcase>
+
+<ComponentShowcase
+  title="Primary Button - Large"
+  description="Large size primary button"
+  code={`<elvt-button tone="primary" size="large">
+  Large Primary
+</elvt-button>`}
+>
+  <elvt-button tone="primary" size="large">
+    Large Primary
+  </elvt-button>
+</ComponentShowcase>
+
+## Secondary Button Tests
+
+<ComponentShowcase
+  title="Neutral Button"
+  description="Neutral button variation for secondary actions"
+  code={`<elvt-button tone="neutral" size="medium">
+  Neutral Button
+</elvt-button>`}
+>
+  <elvt-button tone="neutral" size="medium">
+    Neutral Button
+  </elvt-button>
+</ComponentShowcase>
+
+<ComponentShowcase
+  title="Subtle Button"
+  description="Subtle button variation for tertiary actions"
+  code={`<elvt-button tone="subtle" size="medium">
+  Subtle Button
+</elvt-button>`}
+>
+  <elvt-button tone="subtle" size="medium">
+    Subtle Button
+  </elvt-button>
+</ComponentShowcase>
+
+## State Tests
+
+<ComponentShowcase
+  title="Disabled Button"
+  description="Button in disabled state"
+  code={`<elvt-button tone="primary" size="medium" disabled>
+  Disabled Button
+</elvt-button>`}
+>
+  <elvt-button tone="primary" size="medium" disabled>
+    Disabled Button
+  </elvt-button>
+</ComponentShowcase>
+
+<ComponentShowcase
+  title="Selected Button"
+  description="Button in selected state"
+  code={`<elvt-button tone="primary" size="medium" selected>
+  Selected Button
+</elvt-button>`}
+>
+  <elvt-button tone="primary" size="medium" selected>
+    Selected Button
+  </elvt-button>
+</ComponentShowcase>
+
+## Semantic Buttons
+
+<ComponentShowcase
+  title="Danger Button"
+  description="Button for destructive actions"
+  code={`<elvt-button tone="danger" size="medium">
+  Delete Item
+</elvt-button>`}
+>
+  <elvt-button tone="danger" size="medium">
+    Delete Item
+  </elvt-button>
+</ComponentShowcase>
+
+<ComponentShowcase
+  title="Success Button"
+  description="Button for positive actions"
+  code={`<elvt-button tone="success" size="medium">
+  Save Changes
+</elvt-button>`}
+>
+  <elvt-button tone="success" size="medium">
+    Save Changes
+  </elvt-button>
+</ComponentShowcase>
+
+<ComponentShowcase
+  title="Warning Button"
+  description="Button for cautionary actions"
+  code={`<elvt-button tone="warning" size="medium">
+  Proceed with Caution
+</elvt-button>`}
+>
+  <elvt-button tone="warning" size="medium">
+    Proceed with Caution
+  </elvt-button>
+</ComponentShowcase>
+
+<ComponentShowcase
+  title="Emphasized Button"
+  description="Button for highlighted secondary actions"
+  code={`<elvt-button tone="emphasized" size="medium">
+  Emphasized Action
+</elvt-button>`}
+>
+  <elvt-button tone="emphasized" size="medium">
+    Emphasized Action
+  </elvt-button>
+</ComponentShowcase>
+
+## Size Comparison
+
+<div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
+  <elvt-button tone="primary" size="small">Small</elvt-button>
+  <elvt-button tone="primary" size="medium">Medium</elvt-button>
+  <elvt-button tone="primary" size="large">Large</elvt-button>
+</div>
+
+## Tone Comparison
+
+<elvt-stack direction="row" spacing="medium" align="center" wrap>
+  <elvt-button tone="primary" size="medium">Primary</elvt-button>
+  <elvt-button tone="neutral" size="medium">Neutral</elvt-button>
+  <elvt-button tone="subtle" size="medium">Subtle</elvt-button>
+  <elvt-button tone="emphasized" size="medium">Emphasized</elvt-button>
+  <elvt-button tone="success" size="medium">Success</elvt-button>
+  <elvt-button tone="warning" size="medium">Warning</elvt-button>
+  <elvt-button tone="danger" size="medium">Danger</elvt-button>
+</elvt-stack>
+
+## Button with Icons
+
+<ComponentShowcase
+  title="Button with Prefix Icon"
+  description="Button with prefix icon using slot"
+  code={`<elvt-button tone="primary" size="medium">
+  <elvt-icon slot="prefix" name="plus"></elvt-icon>
+  Add Item
+</elvt-button>`}
+>
+  <elvt-button tone="primary" size="medium">
+    <elvt-icon slot="prefix" name="plus"></elvt-icon>
+    Add Item
+  </elvt-button>
+</ComponentShowcase>
+
+<ComponentShowcase
+  title="Button with Suffix Icon"
+  description="Button with suffix icon using slot"
+  code={`<elvt-button tone="neutral" size="medium">
+  Download
+  <elvt-icon slot="suffix" name="download"></elvt-icon>
+</elvt-button>`}
+>
+  <elvt-button tone="neutral" size="medium">
+    Download
+    <elvt-icon slot="suffix" name="download"></elvt-icon>
+  </elvt-button>
+</ComponentShowcase>
+
+## Link Buttons
+
+<ComponentShowcase
+  title="Button as Link"
+  description="Button rendered as link with href attribute"
+  code={`<elvt-button tone="primary" size="medium" href="#" target="_blank">
+  External Link
+</elvt-button>`}
+>
+  <elvt-button tone="primary" size="medium" href="#" target="_blank">
+    External Link
+  </elvt-button>
+</ComponentShowcase>
+
+## Testing Notes
+
+- ✅ Test various button combinations and states
+- ✅ Validate accessibility compliance (WCAG 2.1 AA)
+- ✅ Check responsive behavior across devices
+- ✅ Verify color contrast ratios meet standards
+- ✅ Test keyboard navigation (Tab, Enter, Space)
+- ✅ Validate with screen readers
+- ✅ Test focus states and visual indicators
+- ✅ Verify semantic meaning through tone variations
+
+## API Reference
+
+Based on `elvt-button` component API:
+
+### Properties
+- `tone`: `neutral` (default), `primary`, `success`, `warning`, `danger`, `emphasized`, `subtle`
+- `size`: `small`, `medium` (default), `large`
+- `disabled`: Boolean to disable interaction
+- `selected`: Display as selected state
+- `href`: Renders as anchor tag when provided
+- `target`: Link target when href is present
+- `type`: `button` (default), `reset`, `submit`
+
+### Slots
+- `default`: Button's label/content
+- `prefix`: Icon or element before text
+- `suffix`: Icon or element after text
+
+:::info Development Note
+This page is accessible directly via `/docs/test/button2` and will not appear in the main navigation.
+:::

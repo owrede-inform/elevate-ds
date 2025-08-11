@@ -1,46 +1,44 @@
 import type {ReactNode} from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Heading from '@theme/Heading';
-import { ElvtButton } from '@inform-elevate/elevate-core-ui/dist/react';
-
-import styles from './index.module.css';
-
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <ElvtButton tone="primary" size="large" href="/docs/intro">
-            Get Started
-          </ElvtButton>
-          <ElvtButton tone="neutral" size="large" href="/docs/components">
-            View Components
-          </ElvtButton>
-        </div>
-      </div>
-    </header>
-  );
-}
+import CustomHero from '@site/src/components/CustomHero';
 
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
+  
+  // Define hero actions
+  const heroActions = [
+    { 
+      label: 'Get Started', 
+      href: '/docs/home/overview', 
+      tone: 'primary' as const,
+      size: 'large' as const
+    },
+    { 
+      label: 'View Components', 
+      href: '/docs/components', 
+      tone: 'neutral' as const,
+      size: 'large' as const
+    },
+    { 
+      label: 'Design Guidelines', 
+      href: '/docs/guidelines', 
+      tone: 'subtle' as const,
+      size: 'large' as const
+    }
+  ];
+
   return (
     <Layout
       title={`${siteConfig.title}`}
       description="A comprehensive design system built for modern web applications with consistent components, design tokens, and guidelines.">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
+      <CustomHero
+        title={siteConfig.title}
+        subtitle={siteConfig.tagline}
+        actions={heroActions}
+        backgroundImageFolder="/img/hero-backgrounds"
+        overlay="gradient"
+      />
     </Layout>
   );
 }

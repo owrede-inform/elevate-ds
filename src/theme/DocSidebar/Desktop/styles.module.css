@@ -1,0 +1,44 @@
+/* Custom DocSidebar Desktop Styles */
+
+.docSidebarContainer {
+  position: relative;
+}
+
+.docSidebarContainerHidden {
+  margin-left: calc(-1 * var(--doc-sidebar-width, 300px));
+}
+
+.docSidebarGapTop {
+  height: var(--ifm-navbar-height);
+}
+
+.docSidebar {
+  position: relative;
+  height: 100%;
+}
+
+.sidebarHeaderContainer {
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.collapsedDocSidebar {
+  width: var(--doc-sidebar-width, 300px);
+  margin-top: calc(-100vh + var(--ifm-navbar-height));
+  height: calc(100vh - var(--ifm-navbar-height));
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Clean sidebar positioning for responsive navigation - now in normal flow */
+@media (min-width: 768px) and (max-width: 1180px) {
+  .docSidebarContainer {
+    top: var(--ifm-navbar-height, 60px);
+  }
+  
+  .docSidebar {
+    padding-top: 0; /* Remove any inherited padding */
+    top: 0; /* Reset sticky positioning */
+  }
+}

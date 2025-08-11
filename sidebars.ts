@@ -5,97 +5,143 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 /**
  * Multi-sidebar configuration for ELEVATE Design System
  * Each main area has its own dedicated sidebar that shows only 2nd/3rd level navigation
+ * Uses category linking to enable proper breadcrumb hierarchy
  */
 const sidebars: SidebarsConfig = {
   // Home sidebar - Introduction and getting started
   homeSidebar: [
-    'home/index',
-    'home/overview',
-    'home/adoption',
-    'home/installation',
-    'home/themes',
-    'home/releases',
-    'home/support',
+    {
+      type: 'category',
+      label: 'Home',
+      link: {
+        type: 'doc',
+        id: 'home/index',
+      },
+      items: [
+        'home/overview',
+        'home/adoption',
+        'home/installation',
+        'home/themes',
+        'home/releases',
+        'home/support',
+      ],
+    },
   ],
 
   // Guidelines sidebar - Design principles and best practices
   guidelinesSidebar: [
-    'guidelines/index',
-    'guidelines/design',
-    'guidelines/accessibility',
-    'guidelines/devices',
-    'guidelines/language',
-    'guidelines/ai',
+    {
+      type: 'category',
+      label: 'Guidelines',
+      link: {
+        type: 'doc',
+        id: 'guidelines/index',
+      },
+      items: [
+        'guidelines/design',
+        'guidelines/accessibility',
+        'guidelines/devices',
+        'guidelines/language',
+        'guidelines/ai',
+      ],
+    },
   ],
 
-  // Components sidebar - All design system components (alphabetically sorted, Overview first)
+  // Components sidebar - All design system components with proper category structure
   componentsSidebar: [
-    'components/index', // Overview - always first
-    'components/application/index',
-    'components/avatar/index',
-    'components/badge/index',
-    'components/breadcrumb/index',
-    'components/breadcrumb-item/index',
-    'components/button/index',
-    'components/button-group/index',
-    'components/card/index',
-    'components/charts/index',
-    'components/checkbox/index',
-    'components/chip/index',
-    'components/date-picker/index',
-    'components/dialog/index',
-    'components/divider/index',
-    'components/drawer/index',
-    'components/dropdown/index',
-    'components/empty-state/index',
-    'components/expansion-panel/index',
-    'components/expansion-panel-group/index',
-    'components/field/index',
-    'components/file-dropzone/index',
-    'components/icon/index',
-    'components/icon-button/index',
-    'components/indicator/index',
-    'components/input/index',
-    'components/lightbox/index',
-    'components/link/index',
-    'components/menu/index',
-    'components/menu-item/index',
-    'components/notification/index',
-    'components/paginator/index',
-    'components/progress/index',
-    'components/radio/index',
-    'components/select/index',
-    'components/skeleton/index',
-    'components/slider/index',
-    'components/switch/index',
-    'components/tab/index',
-    'components/tab-group/index',
-    'components/table/index',
-    'components/textarea/index',
-    'components/toast/index',
-    'components/toolbar/index',
-    'components/tooltip/index',
+    {
+      type: 'category',
+      label: 'Components',
+      link: {
+        type: 'doc',
+        id: 'components/index',
+      },
+      items: [
+        'components/application/index',
+        'components/avatar/index',
+        'components/badge/index',
+        'components/breadcrumb/index',
+        'components/breadcrumb-item/index',
+        'components/button/index',
+        'components/button-group/index',
+        'components/card/index',
+        'components/charts/index',
+        'components/checkbox/index',
+        'components/chip/index',
+        'components/date-picker/index',
+        'components/dialog/index',
+        'components/divider/index',
+        'components/drawer/index',
+        'components/dropdown/index',
+        'components/empty-state/index',
+        'components/expansion-panel/index',
+        'components/expansion-panel-group/index',
+        'components/field/index',
+        'components/file-dropzone/index',
+        'components/icon/index',
+        'components/icon-button/index',
+        'components/indicator/index',
+        'components/input/index',
+        'components/lightbox/index',
+        'components/link/index',
+        'components/menu/index',
+        'components/menu-item/index',
+        'components/notification/index',
+        'components/paginator/index',
+        'components/progress/index',
+        'components/radio/index',
+        'components/select/index',
+        'components/skeleton/index',
+        'components/slider/index',
+        'components/switch/index',
+        'components/tab/index',
+        'components/tab-group/index',
+        'components/table/index',
+        'components/textarea/index',
+        'components/toast/index',
+        'components/toolbar/index',
+        'components/tooltip/index',
+      ],
+    },
   ],
 
-  // Patterns sidebar - UI patterns and templates (auto-generated from folder)
+  // Patterns sidebar - UI patterns and templates
   patternsSidebar: [
     {
-      type: 'autogenerated',  
-      dirName: 'patterns',
+      type: 'category',
+      label: 'Patterns',
+      link: {
+        type: 'doc',
+        id: 'patterns/index',
+      },
+      items: [
+        {
+          type: 'autogenerated',
+          dirName: 'patterns',
+        },
+      ],
     },
   ],
 
   // Design sidebar - Design tokens and foundations
   designSidebar: [
-    'design/index',
-    'design/colors',
-    'design/typography',
-    'design/spacing',
-    'design/shadows',
-    'design/grid-layout',
-    'design/animation',
-    // Reference to existing design-tokens page
-    'design-tokens',
+    {
+      type: 'category',
+      label: 'Design',
+      link: {
+        type: 'doc',
+        id: 'design/index',
+      },
+      items: [
+        'design/colors',
+        'design/typography',
+        'design/spacing',
+        'design/shadows',
+        'design/grid-layout',
+        'design/animation',
+        'design-tokens',
+      ],
+    },
   ],
 };
 

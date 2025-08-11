@@ -1,0 +1,167 @@
+/* Responsive Navigation Styles */
+
+.responsiveNav {
+  position: static;
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--ifm-spacing-horizontal);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownToggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid var(--elvt-alias-layout-border-default, #bec3cd);
+  border-radius: var(--ifm-button-border-radius);
+  color: var(--ifm-font-color-base);
+  font-size: var(--ifm-font-size-base);
+  font-family: var(--ifm-font-family-base);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 140px;
+  justify-content: space-between;
+}
+
+.dropdownToggle:hover {
+  background: var(--elvt-alias-layout-layer-elevated, #f8f9fb);
+  border-color: var(--elvt-primitives-color-blue-500, #0072ff);
+}
+
+.dropdownToggle:focus {
+  outline: none;
+  border-color: var(--elvt-primitives-color-blue-500, #0072ff);
+  box-shadow: 0 0 0 2px var(--elvt-primitives-color-blue-200, #90c6ff);
+}
+
+.dropdownLabel {
+  font-weight: 500;
+}
+
+.dropdownIcon {
+  transition: transform 0.2s ease;
+  color: var(--elvt-alias-content-text-muted, #707a8f);
+}
+
+.dropdownIcon.open {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  min-width: 200px;
+  background: var(--ifm-navbar-background-color);
+  border: 1px solid var(--elvt-alias-layout-border-default, #bec3cd);
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ifm-dropdown-shadow);
+  z-index: 20;
+  overflow: hidden;
+}
+
+.dropdownItem {
+  display: block;
+  padding: 12px 16px;
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  font-size: var(--ifm-font-size-base);
+  font-weight: 400;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
+}
+
+.dropdownItem:last-child {
+  border-bottom: none;
+}
+
+.dropdownItem:hover {
+  background: var(--elvt-alias-layout-layer-elevated, #f8f9fb);
+  color: var(--elvt-primitives-color-blue-600, #0b5cdf);
+  text-decoration: none;
+}
+
+.dropdownItem.active {
+  background: var(--elvt-primitives-color-blue-50, #eaf4ff);
+  color: var(--elvt-primitives-color-blue-700, #1b50a6);
+  font-weight: 500;
+}
+
+/* Dark theme support */
+[data-theme='dark'] .responsiveNav {
+  background: var(--elvt-primitives-color-gray-950, #1f212b);
+  border-bottom-color: var(--elvt-alias-layout-border-muted, #4d5366);
+}
+
+[data-theme='dark'] .dropdownToggle {
+  border-color: var(--elvt-alias-layout-border-default, #5d6679);
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
+}
+
+[data-theme='dark'] .dropdownToggle:hover {
+  background: var(--elvt-primitives-color-gray-800, #3d4253);
+  border-color: var(--elvt-primitives-color-blue-400, #2a90ff);
+}
+
+[data-theme='dark'] .dropdownToggle:focus {
+  border-color: var(--elvt-primitives-color-blue-400, #2a90ff);
+  box-shadow: 0 0 0 2px var(--elvt-primitives-color-blue-800, #234275);
+}
+
+[data-theme='dark'] .dropdownMenu {
+  background: var(--elvt-primitives-color-gray-950, #1f212b);
+  border-color: var(--elvt-alias-layout-border-default, #5d6679);
+}
+
+[data-theme='dark'] .dropdownItem {
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
+  border-bottom-color: var(--elvt-alias-layout-border-muted, #4d5366);
+}
+
+[data-theme='dark'] .dropdownItem:hover {
+  background: var(--elvt-primitives-color-gray-800, #3d4253);
+  color: var(--elvt-primitives-color-blue-300, #5facff);
+}
+
+[data-theme='dark'] .dropdownItem.active {
+  background: var(--elvt-primitives-color-blue-900, #1e3a5f);
+  color: var(--elvt-primitives-color-blue-200, #90c6ff);
+}
+
+/* Animation for dropdown appearance */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownMenu {
+  animation: slideDown 0.15s ease-out;
+}
+
+/* Ensure responsive navigation only shows in tablet range */
+@media (max-width: 767px) {
+  .responsiveNav {
+    display: none;
+  }
+}
+
+@media (min-width: 1181px) {
+  .responsiveNav {
+    display: none;
+  }
+}
