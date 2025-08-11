@@ -77,10 +77,21 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = ({
           throw new Error(`Changelog not found for ${component}`);
         }
         
+        // Check if the response is actually JSON by looking at content type
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error(`Changelog not found for ${component}`);
+        }
+        
         const data: ComponentChangelogData = await response.json();
         setChangelogData(data);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to load changelog');
+        // Handle JSON parsing errors as "not found"
+        if (err instanceof Error && err.message.includes('Unexpected token')) {
+          setError(`Changelog not found for ${component}`);
+        } else {
+          setError(err instanceof Error ? err.message : 'Failed to load changelog');
+        }
       } finally {
         setLoading(false);
       }
@@ -234,41 +245,41 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = ({
                 <div className={styles.changes}>
                   {versionEntry.changes.map((change, index) => (
                     <div key={index} className={`${styles.change} ${styles[getChangeTypeColor(change.type)]}`}>
-                      <div className={styles.changeHeader}>
-                        <span className={styles.changeIcon}>
-                          {getChangeTypeIcon(change.type)}
-                        </span>
-                        <div className={styles.changeContent}>
-                          <div className={styles.changeTitleRow}>
-                            <h5 className={styles.changeTitle}>{change.title}</h5>
-                            {getImpactBadge(change.impact)}
-                          </div>
-                          <p className={styles.changeDescription}>{change.description}</p>
-                        </div>
+                      <div className={styles.changeIcon}>
+                        {getChangeTypeIcon(change.type)}
                       </div>
                       
-                      <div className={styles.changeFooter}>
-                        <span className={styles.commitLink}>
-                          <a 
-                            href={`https://github.com/inform-elevate/elevate-core-ui/commit/${change.commit}`}
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                          >
-                            {change.commit.substring(0, 7)}
-                          </a>
-                        </span>
+                      <div className={styles.changeContent}>
+                        <h5 className={styles.changeTitle}>{change.title}</h5>
+                        <p className={styles.changeDescription}>{change.description}</p>
                         
-                        {change.issueNumber && (
-                          <span className={styles.issueLink}>
+                        <div className={styles.changeFooter}>
+                          <span className={styles.commitLink}>
                             <a 
-                              href={`https://github.com/inform-elevate/elevate-core-ui/issues/${change.issueNumber}`}
+                              href={`https://github.com/inform-elevate/elevate-core-ui/commit/${change.commit}`}
                               target="_blank" 
                               rel="noopener noreferrer"
                             >
-                              #{change.issueNumber}
+                              {change.commit.substring(0, 7)}
                             </a>
                           </span>
-                        )}
+                          
+                          {change.issueNumber && (
+                            <span className={styles.issueLink}>
+                              <a 
+                                href={`https://github.com/inform-elevate/elevate-core-ui/issues/${change.issueNumber}`}
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                              >
+                                #{change.issueNumber}
+                              </a>
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                      
+                      <div className={styles.changeBadge}>
+                        {getImpactBadge(change.impact)}
                       </div>
 
                       {change.migration && (
