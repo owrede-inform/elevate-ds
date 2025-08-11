@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import Heading from '@theme/Heading';
 import { ElvtButton } from '@inform-elevate/elevate-core-ui/dist/react';
 import styles from './styles.module.css';
@@ -34,7 +35,7 @@ interface CustomHeroProps {
 const CustomHero: React.FC<CustomHeroProps> = ({
   title,
   subtitle,
-  backgroundImageFolder = '/img/hero-backgrounds',
+  backgroundImageFolder = 'img/hero-backgrounds',
   backgroundImages = ['hero-01.png', 'hero-02.png', 'hero-03.png', 'hero-04.png', 'hero-05.png', 'hero-06.png', 'hero-07.png', 'hero-08.png'],
   actions = [
     { label: 'Get Started', href: '/docs/home/overview', tone: 'primary', size: 'large' },
@@ -45,22 +46,32 @@ const CustomHero: React.FC<CustomHeroProps> = ({
 }) => {
   const [selectedBackground, setSelectedBackground] = useState<string>('');
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
+  const [selectedImagePath, setSelectedImagePath] = useState<string>('');
+
+  // Generate base URL for the selected image path
+  const fullImagePath = useBaseUrl(selectedImagePath);
 
   useEffect(() => {
     // Select a random background image
     const randomIndex = Math.floor(Math.random() * backgroundImages.length);
     const selectedImage = `${backgroundImageFolder}/${backgroundImages[randomIndex]}`;
-    setSelectedBackground(selectedImage);
+    setSelectedImagePath(selectedImage);
+  }, [backgroundImageFolder, backgroundImages]);
+
+  useEffect(() => {
+    if (!selectedImagePath) return;
+    
+    setSelectedBackground(fullImagePath);
     
     // Preload the image
     const img = new Image();
     img.onload = () => setImageLoaded(true);
     img.onerror = () => {
-      console.warn(`Failed to load hero background: ${selectedImage}`);
+      console.warn(`Failed to load hero background: ${fullImagePath}`);
       setImageLoaded(true); // Still show content even if image fails
     };
-    img.src = selectedImage;
-  }, [backgroundImageFolder, backgroundImages]);
+    img.src = fullImagePath;
+  }, [fullImagePath, selectedImagePath]);
 
   const heroStyle = (selectedBackground && imageLoaded) ? {
     backgroundImage: `url(${selectedBackground})`,

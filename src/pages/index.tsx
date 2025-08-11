@@ -36,7 +36,7 @@ export default function Home(): ReactNode {
         title={siteConfig.title}
         subtitle={siteConfig.tagline}
         actions={heroActions}
-        backgroundImageFolder="/img/hero-backgrounds"
+        backgroundImageFolder="img/hero-backgrounds"
         overlay="gradient"
       />
     </Layout>

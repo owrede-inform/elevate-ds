@@ -26,7 +26,9 @@
       "mcp__figma__get_code",
       "mcp__figma__get_image",
       "mcp__figma__get_variable_defs",
-      "Bash(copy:*)"
+      "Bash(copy:*)",
+      "Bash(npm view:*)",
+      "Bash(npm install:*)"
     ],
     "deny": []
   }
