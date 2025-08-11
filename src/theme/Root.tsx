@@ -9,6 +9,9 @@ import '@inform-elevate/elevate-core-ui/dist/elevate.css';
 // Import light theme as default - dark theme handled via CSS overrides
 import '@inform-elevate/elevate-core-ui/dist/themes/light.css';
 
+// Import framework context
+import { FrameworkProvider } from '../contexts/FrameworkContext';
+
 export default function Root({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // Force a re-render of ELEVATE components when theme changes
@@ -34,5 +37,9 @@ export default function Root({ children }: { children: React.ReactNode }) {
     return () => observer.disconnect();
   }, []);
 
-  return <>{children}</>;
+  return (
+    <FrameworkProvider>
+      {children}
+    </FrameworkProvider>
+  );
 }

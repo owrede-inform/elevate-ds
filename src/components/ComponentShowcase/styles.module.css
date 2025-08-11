@@ -3,7 +3,24 @@
   border: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
   border-radius: var(--sl-border-radius-large, 0.5rem);
   overflow: hidden;
-  background: var(--elvt-primitives-color-white, #ffffff);
+  background: var(--ifm-sidebar-background-color, var(--elvt-alias-layout-layer-elevated, #f8f9fb));
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--sl-spacing-large, 1.25rem) var(--sl-spacing-large, 1.25rem) 0;
+  gap: var(--sl-spacing-medium, 1rem);
+}
+
+.headerContent {
+  flex: 1;
+}
+
+.frameworkSwitcher {
+  flex-shrink: 0;
+  margin-top: 0.25rem;
 }
 
 .title {
@@ -12,6 +29,7 @@
   font-size: var(--elvt-type-alias-default-title-m-font-size, 1.25rem);
   font-weight: var(--elvt-type-alias-default-title-m-font-weight, 600);
   color: var(--elvt-primitives-color-gray-800, #3d4253);
+  background: transparent;
 }
 
 .description {
@@ -19,11 +37,12 @@
   color: var(--elvt-primitives-color-gray-600, #5d6679);
   font-size: var(--elvt-type-alias-default-content-m-font-size, 1rem);
   line-height: var(--elvt-type-alias-default-content-m-line-height, 1.5);
+  background: transparent;
 }
 
 .preview {
   padding: var(--sl-spacing-x-large, 1.75rem);
-  background: var(--elvt-primitives-color-gray-50, #f3f4f7);
+  background: var(--elvt-alias-layout-layer-appBackground, #f3f4f7);
   border-bottom: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
   display: flex;
   align-items: center;
@@ -39,9 +58,76 @@
   flex-wrap: wrap;
 }
 
+/* Clean CodeBlock styling within ComponentShowcase */
+:global(.componentShowcase) .theme-code-block {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+:global(.componentShowcase) .prism-code {
+  background: var(--ifm-sidebar-background-color, var(--elvt-alias-layout-layer-elevated, #f8f9fb)) !important;
+  border: none;
+  border-radius: 0;
+  padding: var(--sl-spacing-large, 1.25rem);
+  font-family: "RobotoMono", "Roboto Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+/* Clean line styling */
+:global(.componentShowcase) .token-line {
+  background: transparent;
+  display: table-row;
+  min-height: 1.5rem;
+}
+
+/* Line numbers styling */
+:global(.componentShowcase) .prism-code .token-line .line-number-style {
+  background: var(--ifm-sidebar-background-color, var(--elvt-alias-layout-layer-elevated, #f8f9fb));
+  color: var(--elvt-primitives-color-gray-500, #8891a0);
+  padding-right: var(--sl-spacing-medium, 1rem);
+  text-align: right;
+  user-select: none;
+  width: 3rem;
+  min-width: 3rem;
+  font-size: 0.8rem;
+  border-right: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
+}
+
+/* Code content */
+:global(.componentShowcase) .prism-code .token-line .token-content {
+  padding-left: var(--sl-spacing-medium, 1rem);
+  color: var(--elvt-primitives-color-gray-800, #3d4253);
+}
+
+/* Syntax highlighting for light theme */
+:global(.componentShowcase) .prism-code .token.tag {
+  color: var(--elvt-primitives-color-blue-600, #0b5cdf);
+}
+
+:global(.componentShowcase) .prism-code .token.attr-name {
+  color: var(--elvt-primitives-color-green-600, #0f8c3e);
+}
+
+:global(.componentShowcase) .prism-code .token.attr-value {
+  color: var(--elvt-primitives-color-orange-600, #dc6803);
+}
+
+:global(.componentShowcase) .prism-code .token.punctuation {
+  color: var(--elvt-primitives-color-gray-600, #5d6679);
+}
+
+:global(.componentShowcase) .prism-code .token.string {
+  color: var(--elvt-primitives-color-green-700, #166534);
+}
+
 /* Dark theme support */
 [data-theme='dark'] .componentShowcase {
-  background: var(--elvt-primitives-color-gray-800, #3d4253);
+  background: var(--ifm-sidebar-background-color, var(--elvt-primitives-color-gray-1000, #111217));
   border-color: var(--elvt-primitives-color-gray-700, #4d5366);
 }
 
@@ -54,6 +140,44 @@
 }
 
 [data-theme='dark'] .preview {
-  background: var(--elvt-primitives-color-gray-900, #2f3240);
+  background: var(--elvt-alias-layout-layer-appBackground, #111217);
   border-bottom-color: var(--elvt-primitives-color-gray-700, #4d5366);
+}
+
+/* Dark theme CodeBlock styling */
+[data-theme='dark'] :global(.componentShowcase) .prism-code {
+  background: var(--ifm-sidebar-background-color, var(--elvt-primitives-color-gray-1000, #111217)) !important;
+}
+
+/* Dark theme line numbers */
+[data-theme='dark'] :global(.componentShowcase) .prism-code .token-line .line-number-style {
+  background: var(--ifm-sidebar-background-color, var(--elvt-primitives-color-gray-1000, #111217));
+  color: var(--elvt-primitives-color-gray-400, #8c95a5);
+  border-right-color: var(--elvt-alias-layout-border-muted, #4d5366);
+}
+
+/* Dark theme code content */
+[data-theme='dark'] :global(.componentShowcase) .prism-code .token-line .token-content {
+  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+}
+
+/* Syntax highlighting for dark theme */
+[data-theme='dark'] :global(.componentShowcase) .prism-code .token.tag {
+  color: var(--elvt-primitives-color-blue-300, #5facff);
+}
+
+[data-theme='dark'] :global(.componentShowcase) .prism-code .token.attr-name {
+  color: var(--elvt-primitives-color-green-300, #6ee7b7);
+}
+
+[data-theme='dark'] :global(.componentShowcase) .prism-code .token.attr-value {
+  color: var(--elvt-primitives-color-yellow-300, #fde047);
+}
+
+[data-theme='dark'] :global(.componentShowcase) .prism-code .token.punctuation {
+  color: var(--elvt-primitives-color-gray-300, #a3aab4);
+}
+
+[data-theme='dark'] :global(.componentShowcase) .prism-code .token.string {
+  color: var(--elvt-primitives-color-green-400, #31a554);
 }

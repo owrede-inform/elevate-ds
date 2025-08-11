@@ -19,10 +19,10 @@ function HomepageHeader() {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
-          <ElvtButton variant="primary" size="large" href="/docs/intro">
+          <ElvtButton tone="primary" size="large" href="/docs/intro">
             Get Started
           </ElvtButton>
-          <ElvtButton variant="default" size="large" href="/docs/components">
+          <ElvtButton tone="neutral" size="large" href="/docs/components">
             View Components
           </ElvtButton>
         </div>
