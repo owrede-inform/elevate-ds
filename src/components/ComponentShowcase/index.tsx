@@ -108,13 +108,8 @@ export default function ComponentShowcase({
           })
         );
         
-        // Insert before copy button or at the beginning
-        const firstButton = buttonGroup.querySelector('button');
-        if (firstButton) {
-          buttonGroup.insertBefore(frameworkContainer, firstButton);
-        } else {
-          buttonGroup.appendChild(frameworkContainer);
-        }
+        // Insert as the last item in the button group
+        buttonGroup.appendChild(frameworkContainer);
       });
     }
 

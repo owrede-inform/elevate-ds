@@ -134,6 +134,12 @@
   align-items: center;
 }
 
+/* Hide text wrap toggle button */
+:global(.componentShowcase) .theme-code-block button[title*="wrap"],
+:global(.componentShowcase) .theme-code-block button[aria-label*="wrap"] {
+  display: none !important;
+}
+
 :global(.componentShowcase) .prism-code {
   background: var(--ifm-sidebar-background-color, var(--elvt-alias-layout-layer-elevated, #f8f9fb)) !important;
   border: none;
