@@ -3,6 +3,7 @@ import CodeBlock from '@theme/CodeBlock';
 import { useFramework } from '../../contexts/FrameworkContext';
 import { transformToFramework, getFrameworkImports, extractComponentNames } from '../../utils/frameworkTransformer';
 import FrameworkSwitcher from '../FrameworkSwitcher';
+import FrameworkSelectorStandalone from './FrameworkSelectorStandalone';
 import styles from './styles.module.css';
 
 interface ComponentShowcaseProps {
@@ -28,7 +29,7 @@ export default function ComponentShowcase({
 }: ComponentShowcaseProps): JSX.Element {
   const previewRef = useRef<HTMLDivElement>(null);
   const codeBlockRef = useRef<HTMLDivElement>(null);
-  const { selectedFramework } = useFramework();
+  const { selectedFramework, setSelectedFramework } = useFramework();
   const [transformedCode, setTransformedCode] = useState<string>('');
   const [componentNames, setComponentNames] = useState<string[]>([]);
   const [showCode, setShowCode] = useState<boolean>(showCodeByDefault);
@@ -96,10 +97,16 @@ export default function ComponentShowcase({
       frameworkContainer.className = 'framework-selector-injected';
       frameworkContainer.style.cssText = 'display: flex; align-items: center; gap: 0.5rem;';
       
-      // Create a temporary React root to render the framework selector
+      // Create a temporary React root to render the standalone framework selector
       import('react-dom/client').then(({ createRoot }) => {
         const root = createRoot(frameworkContainer);
-        root.render(React.createElement(FrameworkSwitcher, { size: 'small', hideLabel: true }));
+        root.render(
+          React.createElement(FrameworkSelectorStandalone, {
+            selectedFramework: selectedFramework,
+            onFrameworkChange: setSelectedFramework,
+            size: 'small'
+          })
+        );
         
         // Insert before copy button or at the beginning
         const firstButton = buttonGroup.querySelector('button');
