@@ -100,17 +100,20 @@
   position: relative;
 }
 
-.frameworkSelectorInline {
+.codeButtonRow {
   position: absolute;
-  top: 0.75rem;
-  right: 3rem;
+  top: 0.5rem;
+  right: 0.5rem;
   z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
+  transition: opacity var(--ifm-transition-fast), visibility var(--ifm-transition-fast);
 }
 
-.codeWrapper:hover .frameworkSelectorInline {
+.codeWrapper:hover .codeButtonRow {
   opacity: 1;
   visibility: visible;
 }
@@ -133,6 +136,20 @@
   border-radius: 0;
   background: transparent;
   box-shadow: none;
+}
+
+/* Integrate with existing CodeBlock button area */
+:global(.componentShowcase) .theme-code-block .buttonGroup__atx {
+  display: flex !important;
+  gap: 0.5rem;
+}
+
+/* Position our framework selector to appear with copy button */
+:global(.componentShowcase) .codeButtonRow {
+  position: absolute;
+  top: 0.5rem;
+  right: 3rem;
+  z-index: 21;
 }
 
 :global(.componentShowcase) .prism-code {

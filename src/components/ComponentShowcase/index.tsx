@@ -116,11 +116,6 @@ export default function ComponentShowcase({
       {showCode && (
         <div className={styles.codeSection}>
           <div className={styles.codeWrapper}>
-            {showFrameworkSwitcher && (
-              <div className={styles.frameworkSelectorInline}>
-                <FrameworkSwitcher size="small" hideLabel={true} />
-              </div>
-            )}
             <CodeBlock 
               language={getLanguage()} 
               showLineNumbers={true}
@@ -128,6 +123,11 @@ export default function ComponentShowcase({
             >
               {displayCode}
             </CodeBlock>
+            {showFrameworkSwitcher && (
+              <div className={styles.codeButtonRow}>
+                <FrameworkSwitcher size="small" hideLabel={true} />
+              </div>
+            )}
           </div>
         </div>
       )}
