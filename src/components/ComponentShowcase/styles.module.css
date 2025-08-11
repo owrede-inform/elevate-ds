@@ -100,22 +100,11 @@
   position: relative;
 }
 
-.codeButtonRow {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  z-index: 20;
+/* Framework selector injected into CodeBlock button group */
+:global(.componentShowcase) .framework-selector-injected {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity var(--ifm-transition-fast), visibility var(--ifm-transition-fast);
-}
-
-.codeWrapper:hover .codeButtonRow {
-  opacity: 1;
-  visibility: visible;
 }
 
 /* Line wrapping control */
@@ -138,18 +127,11 @@
   box-shadow: none;
 }
 
-/* Integrate with existing CodeBlock button area */
+/* Ensure CodeBlock button group displays properly */
 :global(.componentShowcase) .theme-code-block .buttonGroup__atx {
   display: flex !important;
   gap: 0.5rem;
-}
-
-/* Position our framework selector to appear with copy button */
-:global(.componentShowcase) .codeButtonRow {
-  position: absolute;
-  top: 0.5rem;
-  right: 3rem;
-  z-index: 21;
+  align-items: center;
 }
 
 :global(.componentShowcase) .prism-code {

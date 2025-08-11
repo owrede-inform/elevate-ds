@@ -27,6 +27,7 @@ export default function ComponentShowcase({
   showCodeByDefault = false
 }: ComponentShowcaseProps): JSX.Element {
   const previewRef = useRef<HTMLDivElement>(null);
+  const codeBlockRef = useRef<HTMLDivElement>(null);
   const { selectedFramework } = useFramework();
   const [transformedCode, setTransformedCode] = useState<string>('');
   const [componentNames, setComponentNames] = useState<string[]>([]);
@@ -80,6 +81,45 @@ export default function ComponentShowcase({
     ? `${imports}\n\n${transformedCode}` 
     : transformedCode;
 
+  // Inject framework selector into CodeBlock button group
+  useEffect(() => {
+    if (!showCode || !showFrameworkSwitcher || !codeBlockRef.current) {
+      return;
+    }
+
+    const codeBlockElement = codeBlockRef.current;
+    const buttonGroup = codeBlockElement.querySelector('.buttonGroup__atx, [class*="buttonGroup"]');
+    
+    if (buttonGroup && !buttonGroup.querySelector('.framework-selector-injected')) {
+      // Create framework selector container
+      const frameworkContainer = document.createElement('div');
+      frameworkContainer.className = 'framework-selector-injected';
+      frameworkContainer.style.cssText = 'display: flex; align-items: center; gap: 0.5rem;';
+      
+      // Create a temporary React root to render the framework selector
+      import('react-dom/client').then(({ createRoot }) => {
+        const root = createRoot(frameworkContainer);
+        root.render(React.createElement(FrameworkSwitcher, { size: 'small', hideLabel: true }));
+        
+        // Insert before copy button or at the beginning
+        const firstButton = buttonGroup.querySelector('button');
+        if (firstButton) {
+          buttonGroup.insertBefore(frameworkContainer, firstButton);
+        } else {
+          buttonGroup.appendChild(frameworkContainer);
+        }
+      });
+    }
+
+    // Cleanup function
+    return () => {
+      const injectedElement = buttonGroup?.querySelector('.framework-selector-injected');
+      if (injectedElement) {
+        injectedElement.remove();
+      }
+    };
+  }, [showCode, showFrameworkSwitcher, selectedFramework, displayCode]);
+
   return (
     <div className={`${styles.componentShowcase} componentShowcase`}>
       <div className={styles.header}>
@@ -115,7 +155,7 @@ export default function ComponentShowcase({
 
       {showCode && (
         <div className={styles.codeSection}>
-          <div className={styles.codeWrapper}>
+          <div className={styles.codeWrapper} ref={codeBlockRef}>
             <CodeBlock 
               language={getLanguage()} 
               showLineNumbers={true}
@@ -123,11 +163,6 @@ export default function ComponentShowcase({
             >
               {displayCode}
             </CodeBlock>
-            {showFrameworkSwitcher && (
-              <div className={styles.codeButtonRow}>
-                <FrameworkSwitcher size="small" hideLabel={true} />
-              </div>
-            )}
           </div>
         </div>
       )}
