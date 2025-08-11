@@ -1,0 +1,330 @@
+---
+title: Breadcrumb Item
+description: Individual items within breadcrumb navigation that represent specific levels in the site hierarchy. They provide clickable links to parent pages.
+sidebar_position: 13
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+Breadcrumb Items are the individual elements that make up breadcrumb navigation. The ELEVATE Breadcrumb Item component helps designers and developers create consistent styling and behavior for each level in the navigation hierarchy, supporting various states and interaction patterns that enhance wayfinding experiences.
+
+## Overview
+
+### When to Use Breadcrumb Items
+- **Hierarchical navigation**: Each level in a multi-tier site structure
+- **Page identification**: Showing the current location context within the hierarchy
+- **Quick navigation**: Providing shortcuts to parent levels without browser back button
+- **Path visualization**: Making site structure clear and understandable to users
+- **Context preservation**: Maintaining user orientation during deep navigation
+
+### When NOT to Use Breadcrumb Items
+- **Single-level navigation**: Simple sites without hierarchical structure
+- **Linear processes**: Step-by-step workflows or wizards (use progress indicators)
+- **Primary navigation**: Main site navigation should use dedicated navigation components
+- **Unrelated links**: Links that don't represent hierarchical relationships
+
+## Variations
+
+### Standard Link Item
+
+Clickable breadcrumb item that navigates to a parent page in the hierarchy.
+
+<ComponentShowcase
+  title="Standard Breadcrumb Link Items"
+  description="Clickable breadcrumb items for navigation to parent pages"
+  code={`<elvt-breadcrumb>
+  <elvt-breadcrumb-item href="/dashboard">Dashboard</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/settings">Settings</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/settings/account">Account</elvt-breadcrumb-item>
+</elvt-breadcrumb>`}
+>
+  <elvt-breadcrumb>
+    <elvt-breadcrumb-item href="/dashboard">Dashboard</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item href="/settings">Settings</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item href="/settings/account">Account</elvt-breadcrumb-item>
+  </elvt-breadcrumb>
+</ComponentShowcase>
+
+### Current Page Item
+
+Non-clickable item representing the current page location, visually distinct but accessible.
+
+<ComponentShowcase
+  title="Current Page Breadcrumb Item"
+  description="Non-clickable item indicating the current page location"
+  code={`<elvt-breadcrumb>
+  <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/products">Products</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item current>MacBook Pro</elvt-breadcrumb-item>
+</elvt-breadcrumb>`}
+>
+  <elvt-breadcrumb>
+    <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item href="/products">Products</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item current>MacBook Pro</elvt-breadcrumb-item>
+  </elvt-breadcrumb>
+</ComponentShowcase>
+
+### Icon-Enhanced Items
+
+Breadcrumb items with icons to improve visual recognition and category identification.
+
+<ComponentShowcase
+  title="Breadcrumb Items with Icons"
+  description="Enhanced breadcrumb items with meaningful icons for better recognition"
+  code={`<elvt-breadcrumb>
+  <elvt-breadcrumb-item href="/">
+    <elvt-icon slot="prefix" icon="mdi:home"></elvt-icon>
+    Home
+  </elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/admin">
+    <elvt-icon slot="prefix" icon="mdi:cog"></elvt-icon>
+    Admin
+  </elvt-breadcrumb-item>
+  <elvt-breadcrumb-item current>User Management</elvt-breadcrumb-item>
+</elvt-breadcrumb>`}
+>
+  <elvt-breadcrumb>
+    <elvt-breadcrumb-item href="/">
+      <elvt-icon slot="prefix" icon="mdi:home"></elvt-icon>
+      Home
+    </elvt-breadcrumb-item>
+    <elvt-breadcrumb-item href="/admin">
+      <elvt-icon slot="prefix" icon="mdi:cog"></elvt-icon>
+      Admin
+    </elvt-breadcrumb-item>
+    <elvt-breadcrumb-item current>User Management</elvt-breadcrumb-item>
+  </elvt-breadcrumb>
+</ComponentShowcase>
+
+### Disabled Items
+
+Non-interactive items that appear disabled but remain visible for context.
+
+<ComponentShowcase
+  title="Disabled Breadcrumb Items"
+  description="Non-interactive breadcrumb items that provide context without navigation"
+  code={`<elvt-breadcrumb>
+  <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item disabled>Restricted Section</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item current>Current Page</elvt-breadcrumb-item>
+</elvt-breadcrumb>`}
+>
+  <elvt-breadcrumb>
+    <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item disabled>Restricted Section</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item current>Current Page</elvt-breadcrumb-item>
+  </elvt-breadcrumb>
+</ComponentShowcase>
+
+## Design Principles
+
+Understanding these core principles will help you create breadcrumb items that enhance rather than hinder user navigation and orientation.
+
+### Contextual Clarity Principle
+**Each breadcrumb item should clearly represent its place in the hierarchy.** Users should immediately understand what level they're viewing and where each item will take them. Ambiguous or misleading item labels break navigation confidence.
+
+### Interactive Affordance Principle  
+**Visual treatment should match functional behavior.** Clickable items should look clickable, current items should be clearly non-interactive, and disabled items should appear unavailable. Mixed signals confuse users and create interaction errors.
+
+### Semantic Consistency Principle
+**Similar pages should use similar breadcrumb item patterns.** Consistent labeling and hierarchy across similar content types helps users predict navigation behavior and builds interface familiarity.
+
+### Cognitive Load Reduction Principle
+**Breadcrumb items should simplify navigation, not complicate it.** Overly complex item states or inconsistent interaction patterns increase mental effort and slow down navigation tasks.
+
+## Best Practices
+
+### Establishing Clear Interactive States
+
+**Why this matters:** Inconsistent visual states create confusion about what's clickable and what represents the current location. Users need immediate visual feedback to understand their navigation options and current position.
+
+:::tip Do
+Use clear visual distinction between clickable and current items
+
+Visual example showing proper contrast between clickable links (blue, underlined) and current page (black, medium weight)
+:::
+
+:::danger Don't
+Make current page items look clickable or unclear
+
+Visual example showing all items looking the same with blue color and underlines
+:::
+
+### Writing Descriptive Item Labels
+
+**Why this matters:** Generic or technical breadcrumb item labels force users to guess what each level represents. Clear, user-friendly labels enable quick scanning and confident navigation decisions.
+
+:::tip Do
+Use clear, descriptive labels that match user expectations
+
+Example: Documentation / Components / Button
+:::
+
+:::danger Don't
+Use technical IDs or unclear labels
+
+Example: Docs_Section_A / Type_UI_Elements / Button_Component
+:::
+
+## Implementation
+
+### Getting Started
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+### Basic Usage
+
+```html
+<elvt-breadcrumb-item href="/dashboard">
+  Dashboard
+</elvt-breadcrumb-item>
+```
+
+### Current Page Item
+
+```html
+<elvt-breadcrumb-item current>
+  Current Page
+</elvt-breadcrumb-item>
+```
+
+### With Icon
+
+```html
+<elvt-breadcrumb-item href="/">
+  <elvt-icon name="home"></elvt-icon>
+  Home
+</elvt-breadcrumb-item>
+```
+
+### Disabled Item
+
+```html
+<elvt-breadcrumb-item disabled>
+  Restricted Section
+</elvt-breadcrumb-item>
+```
+
+### With Dropdown
+
+```html
+<elvt-breadcrumb-item dropdown>
+  Categories
+  <elvt-menu slot="dropdown">
+    <elvt-menu-item href="/electronics">Electronics</elvt-menu-item>
+    <elvt-menu-item href="/clothing">Clothing</elvt-menu-item>
+    <elvt-menu-item href="/books">Books</elvt-menu-item>
+  </elvt-menu>
+</elvt-breadcrumb-item>
+```
+
+### Key Properties
+
+The most commonly used properties for design and development:
+
+| Property | Options | Description |
+|----------|---------|-------------|
+| `href` | URL string | Link destination for the breadcrumb item |
+| `current` | `true`, `false` (default) | Whether this represents the current page (non-clickable) |
+| `disabled` | `true`, `false` (default) | Whether the item appears disabled |
+| `dropdown` | `true`, `false` (default) | Whether item has dropdown functionality |
+| `target` | `string` | Link target (e.g., `_blank` for new window) |
+| `rel` | `string` | Link relationship attribute |
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-breadcrumb-item--docs).*
+
+## Interactive Examples
+
+### Live Breadcrumb Item Playground
+
+Experience how breadcrumb items behave in realistic contexts. All examples use actual ELEVATE components.
+
+<ComponentShowcase
+  title="Documentation Site Navigation"
+  description="Realistic breadcrumb navigation for a documentation website"
+  code={`<div style="padding: 2rem; background: #f8f9fa; border-radius: 8px;">
+  <!-- Documentation Navigation Example -->
+  <elvt-breadcrumb style="margin-bottom: 1.5rem;">
+    <elvt-breadcrumb-item href="/docs">
+      <elvt-icon slot="prefix" icon="mdi:book-open-page-variant"></elvt-icon>
+      Documentation
+    </elvt-breadcrumb-item>
+    <elvt-breadcrumb-item href="/docs/components">Components</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item href="/docs/components/forms">Forms</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item current>Input Field</elvt-breadcrumb-item>
+  </elvt-breadcrumb>
+  
+  <!-- Page Header -->
+  <h1 style="margin: 0 0 0.5rem 0; font-size: 1.75rem; color: #161616;">Input Field</h1>
+  <p style="margin: 0; color: #6f6f6f;">Form component for text input with validation and accessibility features</p>
+</div>`}
+>
+  <div style={{padding: '2rem', background: '#f8f9fa', borderRadius: '8px'}}>
+    <elvt-breadcrumb style={{marginBottom: '1.5rem'}}>
+      <elvt-breadcrumb-item href="/docs">
+        <elvt-icon slot="prefix" icon="mdi:book-open-page-variant"></elvt-icon>
+        Documentation
+      </elvt-breadcrumb-item>
+      <elvt-breadcrumb-item href="/docs/components">Components</elvt-breadcrumb-item>
+      <elvt-breadcrumb-item href="/docs/components/forms">Forms</elvt-breadcrumb-item>
+      <elvt-breadcrumb-item current>Input Field</elvt-breadcrumb-item>
+    </elvt-breadcrumb>
+    
+    <h1 style={{margin: '0 0 0.5rem 0', fontSize: '1.75rem', color: '#161616'}}>Input Field</h1>
+    <p style={{margin: 0, color: '#6f6f6f'}}>Form component for text input with validation and accessibility features</p>
+  </div>
+</ComponentShowcase>
+
+## Accessibility
+
+### Essential Accessibility Practices
+
+**Current page identification is critical:**
+```html
+<!-- Good: Proper current page marking -->
+<elvt-breadcrumb-item current aria-current="page">
+  Current Page
+</elvt-breadcrumb-item>
+
+<!-- Bad: Missing accessibility attributes -->
+<elvt-breadcrumb-item class="current">
+  Current Page
+</elvt-breadcrumb-item>
+```
+
+**Link context must be clear:**
+- ✅ Use descriptive link text that works out of context
+- ✅ Ensure current page status is announced to screen readers
+- ❌ Don't rely only on visual styling for state indication
+
+**Keyboard navigation works automatically:**
+- Tab moves focus to the breadcrumb item
+- Enter and Space activate links or open dropdowns
+- Escape closes open dropdowns
+- Arrow keys navigate within dropdown menus
+
+**Interactive states need proper semantics:**
+- Use appropriate link semantics for navigation items
+- Current page marked with `aria-current="page"`
+- Disabled items have proper `aria-disabled` state
+- Dropdown items have appropriate ARIA attributes
+
+**Focus management is built-in:**
+- Clear focus indicators on all interactive elements
+- Focus moves logically through breadcrumb items
+- Focus is managed appropriately in dropdown interactions
+- Focus returns to trigger after dropdown closes
+
+## Changelog
+
+### Version 0.0.26-alpha (July 16, 2025)
+- Current version in active development
+
+### Version 0.0.25-alpha (July 10, 2025)
+- **Enhanced**: Adjust Design for BreadcrumbItem
+
+### Version 0.0.2-alpha (March 19, 2025)
+- **New**: Add Breadcrumb and Breadcrumb Item Components (initial implementation)

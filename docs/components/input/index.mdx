@@ -1,0 +1,660 @@
+---
+title: Input
+description: Input fields allow users to enter and edit text. They provide clear affordances for data entry with validation feedback and accessibility features.
+sidebar_position: 3
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import { ElvtInput } from '@inform-elevate/elevate-core-ui/dist/react';
+
+# Input
+
+Input components are essential form elements that allow users to enter text, numbers, and other data. The ELEVATE Input component provides consistent styling, validation states, and accessibility features across all INFORM applications.
+
+## Overview
+
+### When to Use Inputs
+- **Data entry**: Text, numbers, emails, passwords, and other user input
+- **Search functionality**: Search boxes and filtering interfaces
+- **Forms**: Registration, contact forms, settings, and configuration
+- **Content creation**: Comments, posts, descriptions, and text content
+
+### When NOT to Use Inputs
+- **Binary choices**: Use Switch or Checkbox for yes/no selections
+- **Multiple selections**: Use Select, Dropdown, or Checkbox group for multiple options
+- **Large text**: Use Textarea component for multi-line text input
+- **Dates**: Use DatePicker for date selection with calendar interface
+
+## Variations
+
+### Input Types
+
+Different input types provide specific keyboard layouts and validation on mobile devices.
+
+<ComponentShowcase
+  title="Input Types"
+  description="Various input types for different data collection needs."
+  code={`<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
+  <elvt-input 
+    type="text" 
+    label="Full Name" 
+    placeholder="Enter your full name">
+  </elvt-input>
+  
+  <elvt-input 
+    type="email" 
+    label="Email Address" 
+    placeholder="user@example.com">
+  </elvt-input>
+  
+  <elvt-input 
+    type="password" 
+    label="Password" 
+    placeholder="Enter password">
+  </elvt-input>
+  
+  <elvt-input 
+    type="tel" 
+    label="Phone Number" 
+    placeholder="+1 (555) 123-4567">
+  </elvt-input>
+  
+  <elvt-input 
+    type="url" 
+    label="Website" 
+    placeholder="https://example.com">
+  </elvt-input>
+</div>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px'}}>
+    <ElvtInput 
+      type="text" 
+      label="Full Name" 
+      placeholder="Enter your full name"
+    />
+    
+    <ElvtInput 
+      type="email" 
+      label="Email Address" 
+      placeholder="user@example.com"
+    />
+    
+    <ElvtInput 
+      type="password" 
+      label="Password" 
+      placeholder="Enter password"
+    />
+    
+    <ElvtInput 
+      type="tel" 
+      label="Phone Number" 
+      placeholder="+1 (555) 123-4567"
+    />
+    
+    <ElvtInput 
+      type="url" 
+      label="Website" 
+      placeholder="https://example.com"
+    />
+  </div>
+</ComponentShowcase>
+
+### Input States
+
+Inputs can display various states to communicate status and guide user interaction.
+
+<ComponentShowcase
+  title="Input States"
+  description="Different states communicate validation status and interaction feedback."
+  code={`<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
+  <elvt-input 
+    type="text" 
+    label="Default State" 
+    placeholder="Normal input field">
+  </elvt-input>
+  
+  <elvt-input 
+    type="text" 
+    label="Required Field" 
+    placeholder="This field is required"
+    required>
+  </elvt-input>
+  
+  <elvt-input 
+    type="text" 
+    label="Disabled Input" 
+    placeholder="Cannot be edited"
+    disabled>
+  </elvt-input>
+  
+  <elvt-input 
+    type="text" 
+    label="Read-Only Input" 
+    value="Cannot be modified"
+    readonly>
+  </elvt-input>
+</div>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px'}}>
+    <ElvtInput 
+      type="text" 
+      label="Default State" 
+      placeholder="Normal input field"
+    />
+    
+    <ElvtInput 
+      type="text" 
+      label="Required Field" 
+      placeholder="This field is required"
+      required
+    />
+    
+    <ElvtInput 
+      type="text" 
+      label="Disabled Input" 
+      placeholder="Cannot be edited"
+      disabled
+    />
+    
+    <ElvtInput 
+      type="text" 
+      label="Read-Only Input" 
+      value="Cannot be modified"
+      readOnly
+    />
+  </div>
+</ComponentShowcase>
+
+### Validation States
+
+Clear validation feedback helps users understand and correct input errors.
+
+<ComponentShowcase
+  title="Validation States"
+  description="Visual feedback for validation status with helpful messages."
+  code={`<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
+  <elvt-input 
+    type="email" 
+    label="Valid Email" 
+    value="user@example.com"
+    valid
+    help-text="Email format is correct">
+  </elvt-input>
+  
+  <elvt-input 
+    type="email" 
+    label="Invalid Email" 
+    value="invalid-email"
+    invalid
+    help-text="Please enter a valid email address">
+  </elvt-input>
+  
+  <elvt-input 
+    type="text" 
+    label="Warning State" 
+    value="potential-issue"
+    warning
+    help-text="This value might cause issues">
+  </elvt-input>
+</div>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px'}}>
+    <ElvtInput 
+      type="email" 
+      label="Valid Email" 
+      value="user@example.com"
+      helpText="Email format is correct"
+    />
+    
+    <ElvtInput 
+      type="email" 
+      label="Invalid Email" 
+      value="invalid-email"
+      helpText="Please enter a valid email address"
+    />
+    
+    <ElvtInput 
+      type="text" 
+      label="Warning State" 
+      value="potential-issue"
+      helpText="This value might cause issues"
+    />
+  </div>
+</ComponentShowcase>
+
+### Input Sizes
+
+Different sizes accommodate various layout contexts and design hierarchies.
+
+<ComponentShowcase
+  title="Input Sizes"
+  description="Three input sizes for different contexts and visual hierarchies."
+  code={`<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
+  <elvt-input 
+    type="text" 
+    label="Small Input" 
+    placeholder="Small size input"
+    size="small">
+  </elvt-input>
+  
+  <elvt-input 
+    type="text" 
+    label="Medium Input" 
+    placeholder="Medium size input (default)"
+    size="medium">
+  </elvt-input>
+  
+  <elvt-input 
+    type="text" 
+    label="Large Input" 
+    placeholder="Large size input"
+    size="large">
+  </elvt-input>
+</div>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px'}}>
+    <ElvtInput 
+      type="text" 
+      label="Small Input" 
+      placeholder="Small size input"
+      size="small"
+    />
+    
+    <ElvtInput 
+      type="text" 
+      label="Medium Input" 
+      placeholder="Medium size input (default)"
+      size="medium"
+    />
+    
+    <ElvtInput 
+      type="text" 
+      label="Large Input" 
+      placeholder="Large size input"
+      size="large"
+    />
+  </div>
+</ComponentShowcase>
+
+### Help Text and Labels
+
+Proper labeling and help text improve usability and accessibility.
+
+<ComponentShowcase
+  title="Labels and Help Text"
+  description="Effective labeling and help text patterns for better user guidance."
+  code={`<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
+  <elvt-input 
+    type="text" 
+    label="Company Name" 
+    placeholder="Enter your company name"
+    help-text="This will appear on your invoices and receipts">
+  </elvt-input>
+  
+  <elvt-input 
+    type="password" 
+    label="New Password" 
+    placeholder="Create a strong password"
+    help-text="Must be at least 8 characters with numbers and symbols"
+    required>
+  </elvt-input>
+  
+  <elvt-input 
+    type="text" 
+    label="Optional Field" 
+    placeholder="This field is optional"
+    help-text="You can skip this field and add it later in settings">
+  </elvt-input>
+</div>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px'}}>
+    <ElvtInput 
+      type="text" 
+      label="Company Name" 
+      placeholder="Enter your company name"
+      helpText="This will appear on your invoices and receipts"
+    />
+    
+    <ElvtInput 
+      type="password" 
+      label="New Password" 
+      placeholder="Create a strong password"
+      helpText="Must be at least 8 characters with numbers and symbols"
+      required
+    />
+    
+    <ElvtInput 
+      type="text" 
+      label="Optional Field" 
+      placeholder="This field is optional"
+      helpText="You can skip this field and add it later in settings"
+    />
+  </div>
+</ComponentShowcase>
+
+## Design Principles
+
+### Clarity Principle
+**Input purpose and requirements must be immediately clear.** Users should understand what information is expected and how to format it correctly without guessing or trial-and-error.
+
+### Feedback Principle
+**Provide immediate, helpful feedback for user actions.** Validation messages should appear when relevant and offer specific guidance for correction, not just indicate that something is wrong.
+
+### Accessibility Principle
+**All users must be able to perceive, understand, and operate inputs.** This includes proper labeling, keyboard navigation, screen reader support, and sufficient color contrast.
+
+### Consistency Principle
+**Similar input types should behave similarly across the application.** Consistent patterns reduce cognitive load and help users transfer learning between different parts of the interface.
+
+## Best Practices
+
+### Writing Effective Labels and Help Text
+
+**Why this matters:** Unclear labels and missing help text force users to guess what information is expected, leading to errors, frustration, and form abandonment.
+
+:::tip Do: Use clear, descriptive labels with helpful guidance
+Provide specific labels and actionable help text that guide users toward success.
+
+```html
+<elvt-input 
+  type="email" 
+  label="Work Email Address" 
+  placeholder="name@company.com"
+  help-text="We'll use this to send you important account updates"
+  required>
+</elvt-input>
+```
+:::
+
+:::danger Don't: Use vague labels without context
+Avoid generic labels that don't specify requirements or expected format.
+
+```html
+<!-- Avoid this -->
+<elvt-input 
+  type="text" 
+  label="Email" 
+  placeholder="Email">
+</elvt-input>
+```
+:::
+
+### Providing Clear Validation Feedback
+
+**Why this matters:** Poor validation messages frustrate users and prevent successful form completion. Good validation helps users understand exactly what they need to fix.
+
+:::tip Do: Provide specific, actionable error messages
+Tell users exactly what's wrong and how to fix it.
+
+```html
+<elvt-input 
+  type="password" 
+  label="Password" 
+  invalid
+  help-text="Password must contain at least 8 characters, including 1 number and 1 symbol">
+</elvt-input>
+```
+:::
+
+:::danger Don't: Use generic or unhelpful error messages
+Avoid vague messages that don't help users understand how to fix the problem.
+
+```html
+<!-- Avoid this -->
+<elvt-input 
+  type="password" 
+  label="Password" 
+  invalid
+  help-text="Invalid password">
+</elvt-input>
+```
+:::
+
+### Using Appropriate Input Types
+
+**Why this matters:** Correct input types provide better mobile keyboards, built-in validation, and improved accessibility. Wrong types create friction and confusion.
+
+:::tip Do: Use specific input types for different data
+Choose the most appropriate input type for the expected data format.
+
+```html
+<elvt-input type="email" label="Email Address"></elvt-input>
+<elvt-input type="tel" label="Phone Number"></elvt-input>
+<elvt-input type="url" label="Website URL"></elvt-input>
+<elvt-input type="number" label="Age"></elvt-input>
+```
+:::
+
+:::danger Don't: Use generic text inputs for structured data
+Don't use text inputs when more specific types would provide better experience.
+
+```html
+<!-- Avoid this -->
+<elvt-input type="text" label="Email Address"></elvt-input>
+<elvt-input type="text" label="Phone Number"></elvt-input>
+<elvt-input type="text" label="Website URL"></elvt-input>
+```
+:::
+
+## Implementation
+
+### Getting Started
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+```javascript
+// Import all components
+import '@inform-elevate/elevate-core-ui';
+
+// Or import specific components  
+import '@inform-elevate/elevate-core-ui/dist/components/input/input.js';
+```
+
+### Common Usage Patterns
+
+```html
+<!-- Basic text input -->
+<elvt-input 
+  type="text" 
+  label="Full Name" 
+  placeholder="Enter your full name"
+  required>
+</elvt-input>
+
+<!-- Email input with validation -->
+<elvt-input 
+  type="email" 
+  label="Email Address" 
+  placeholder="user@example.com"
+  help-text="We'll never share your email address"
+  required>
+</elvt-input>
+
+<!-- Password input -->
+<elvt-input 
+  type="password" 
+  label="Password" 
+  help-text="Must be at least 8 characters"
+  required>
+</elvt-input>
+
+<!-- Input with validation state -->
+<elvt-input 
+  type="text" 
+  label="Username" 
+  value="user123"
+  valid
+  help-text="Username is available">
+</elvt-input>
+
+<!-- Disabled input -->
+<elvt-input 
+  type="text" 
+  label="Account ID" 
+  value="ACC-123456"
+  disabled>
+</elvt-input>
+```
+
+### Key Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `type` | `text`, `email`, `password`, `tel`, `url`, `number`, `search` | Input type for appropriate keyboard and validation |
+| `label` | String | Accessible label text (required) |
+| `placeholder` | String | Placeholder text shown when empty |
+| `help-text` | String | Additional guidance or validation message |
+| `value` | String | Current input value |
+| `size` | `small`, `medium` (default), `large` | Visual size of the input |
+| `required` | Boolean | Whether the field is required |
+| `disabled` | Boolean | Whether the input is disabled |
+| `readonly` | Boolean | Whether the input is read-only |
+| `valid` | Boolean | Shows positive validation state |
+| `invalid` | Boolean | Shows error validation state |
+| `warning` | Boolean | Shows warning validation state |
+| `maxlength` | Number | Maximum number of characters allowed |
+| `minlength` | Number | Minimum number of characters required |
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-forms-input--docs).*
+
+## Form Integration Examples
+
+### Contact Form
+
+<ComponentShowcase
+  title="Complete Contact Form"
+  description="A realistic contact form showing input components in context."
+  code={`<form style="max-width: 400px; display: flex; flex-direction: column; gap: 1rem;">
+  <h3>Contact Us</h3>
+  
+  <elvt-input 
+    type="text" 
+    label="Full Name" 
+    placeholder="Enter your full name"
+    required>
+  </elvt-input>
+  
+  <elvt-input 
+    type="email" 
+    label="Email Address" 
+    placeholder="user@example.com"
+    help-text="We'll respond within 24 hours"
+    required>
+  </elvt-input>
+  
+  <elvt-input 
+    type="tel" 
+    label="Phone Number (Optional)" 
+    placeholder="+1 (555) 123-4567">
+  </elvt-input>
+  
+  <elvt-input 
+    type="text" 
+    label="Company" 
+    placeholder="Your company name">
+  </elvt-input>
+  
+  <div style="display: flex; gap: 0.5rem; justify-content: flex-end; margin-top: 1rem;">
+    <elvt-button>Cancel</elvt-button>
+    <elvt-button tone="primary" type="submit">Send Message</elvt-button>
+  </div>
+</form>`}
+>
+  <div style={{maxWidth: '400px', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+    <h3 style={{margin: '0 0 1rem 0'}}>Contact Us</h3>
+    
+    <ElvtInput 
+      type="text" 
+      label="Full Name" 
+      placeholder="Enter your full name"
+      required
+    />
+    
+    <ElvtInput 
+      type="email" 
+      label="Email Address" 
+      placeholder="user@example.com"
+      helpText="We'll respond within 24 hours"
+      required
+    />
+    
+    <ElvtInput 
+      type="tel" 
+      label="Phone Number (Optional)" 
+      placeholder="+1 (555) 123-4567"
+    />
+    
+    <ElvtInput 
+      type="text" 
+      label="Company" 
+      placeholder="Your company name"
+    />
+    
+    <div style={{display: 'flex', gap: '0.5rem', justifyContent: 'flex-end', marginTop: '1rem'}}>
+      <button style={{padding: '0.5rem 1rem', border: '1px solid #ccc', borderRadius: '4px', background: 'white', cursor: 'pointer'}}>Cancel</button>
+      <button style={{padding: '0.5rem 1rem', border: 'none', borderRadius: '4px', background: '#0066cc', color: 'white', cursor: 'pointer'}}>Send Message</button>
+    </div>
+  </div>
+</ComponentShowcase>
+
+## Accessibility
+
+### Essential Accessibility Practices
+
+**Labels are required:**
+```html
+<!-- Good: Always include labels -->
+<elvt-input type="text" label="Full Name"></elvt-input>
+
+<!-- Bad: Missing label -->
+<elvt-input type="text" placeholder="Full Name"></elvt-input>
+```
+
+**Associate help text properly:**
+```html
+<!-- Good: Help text is automatically associated -->
+<elvt-input 
+  type="password" 
+  label="Password"
+  help-text="Must be at least 8 characters">
+</elvt-input>
+```
+
+**Use appropriate input types:**
+- Use `type="email"` for email addresses
+- Use `type="tel"` for phone numbers  
+- Use `type="password"` for passwords
+- Use `type="url"` for website addresses
+
+**Keyboard accessibility:**
+- Tab navigates between inputs
+- Enter submits forms or moves focus
+- All states are keyboard accessible
+
+**Screen reader support:**
+- Labels are announced automatically
+- Help text is associated with the input
+- Validation states are communicated clearly
+
+## Changelog
+
+### Version 0.0.26-alpha (July 16, 2025)
+- Current version in active development
+
+### Version 0.0.25-alpha (July 10, 2025)
+- **Enhanced**: Improved validation state styling
+- **New**: Added warning validation state
+
+### Version 0.0.22-alpha (June 25, 2025)
+- **New**: Added input size variations
+- **Enhanced**: Better help text positioning
+
+### Version 0.0.20-alpha (June 18, 2025)
+- **New**: Added validation state support
+- **Enhanced**: Improved accessibility features
+
+### Version 0.0.15-alpha (May 20, 2025)
+- **New**: Add Input Component (initial implementation)
+- **New**: Basic input types and styling

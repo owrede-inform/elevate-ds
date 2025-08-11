@@ -1,0 +1,463 @@
+---
+title: Card
+description: Cards are flexible containers that group related content and actions. They provide visual hierarchy and structure to complex interfaces.
+sidebar_position: 2
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import { ElvtCard, ElvtButton } from '@inform-elevate/elevate-core-ui/dist/react';
+
+# Card
+
+Cards are versatile containers that organize related information and actions into digestible sections. The ELEVATE Card component helps designers and developers create consistent, accessible layouts that structure complex information clearly and support user workflows.
+
+## Overview
+
+### When to Use Cards
+- **Content grouping**: Related information that belongs together logically
+- **Data display**: Metrics, statistics, dashboards, or summary information
+- **Navigation**: Category links, feature highlights, landing page sections
+- **Product listings**: Items in catalogs, directories, or search results
+- **Information hierarchy**: Breaking complex content into digestible sections
+
+### When NOT to Use Cards
+- **Simple lists**: Use List component for basic item collections
+- **Form sections**: Use proper form fieldsets or sections for form organization
+- **Full-page layouts**: Use appropriate layout components for main page structure
+- **Inline content**: Use appropriate text components for paragraph-level information
+
+## Variations
+
+### Basic Card
+
+Simple content container for grouping related information with default styling.
+
+<ComponentShowcase
+  title="Basic Card Example"
+  description="Simple card with text content and action button."
+  code={`<elvt-card>
+  <h3>Project Status</h3>
+  <p>Your project is currently in development phase. Next milestone: Beta testing scheduled for next week.</p>
+  <elvt-button tone="primary" size="medium">View Details</elvt-button>
+</elvt-card>`}
+>
+  <div style={{maxWidth: '400px'}}>
+    <ElvtCard>
+      <h3 style={{marginTop: 0}}>Project Status</h3>
+      <p>Your project is currently in development phase. Next milestone: Beta testing scheduled for next week.</p>
+      <ElvtButton tone="primary" size="medium">View Details</ElvtButton>
+    </ElvtCard>
+  </div>
+</ComponentShowcase>
+
+### Card with Header and Footer
+
+Structured card layout with dedicated header and footer areas for organized content hierarchy.
+
+<ComponentShowcase
+  title="Card with Header and Footer"
+  description="Card with structured header and footer sections for better content organization."
+  code={`<elvt-card>
+  <div slot="header">
+    <h3>Monthly Report</h3>
+    <elvt-button tone="subtle" size="small">Download</elvt-button>
+  </div>
+  
+  <p>Performance metrics show a 15% increase in user engagement this month. Key highlights include improved conversion rates and reduced bounce time.</p>
+  
+  <div slot="footer">
+    <elvt-button tone="primary">View Full Report</elvt-button>
+    <elvt-button>Share Report</elvt-button>
+  </div>
+</elvt-card>`}
+>
+  <div style={{maxWidth: '400px'}}>
+    <ElvtCard>
+      <div slot="header" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+        <h3 style={{margin: 0}}>Monthly Report</h3>
+        <ElvtButton tone="subtle" size="small">Download</ElvtButton>
+      </div>
+      
+      <p>Performance metrics show a 15% increase in user engagement this month. Key highlights include improved conversion rates and reduced bounce time.</p>
+      
+      <div slot="footer" style={{display: 'flex', gap: '0.5rem', justifyContent: 'flex-end'}}>
+        <ElvtButton tone="primary">View Full Report</ElvtButton>
+        <ElvtButton>Share Report</ElvtButton>
+      </div>
+    </ElvtCard>
+  </div>
+</ComponentShowcase>
+
+### Border Variations
+
+Different border treatments for various design contexts and integration needs.
+
+<ComponentShowcase
+  title="Card Border Variations"
+  description="Different border styles for various design contexts."
+  code={`<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+  <elvt-card border="all">
+    <h4>All Borders</h4>
+    <p>Complete border treatment (default)</p>
+  </elvt-card>
+  
+  <elvt-card border="rounded">
+    <h4>Rounded Only</h4>
+    <p>Rounded corners without borders</p>
+  </elvt-card>
+  
+  <elvt-card border="none">
+    <h4>No Borders</h4>
+    <p>Seamless integration design</p>
+  </elvt-card>
+</div>`}
+>
+  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem'}}>
+    <ElvtCard border="all">
+      <h4 style={{marginTop: 0}}>All Borders</h4>
+      <p>Complete border treatment (default)</p>
+    </ElvtCard>
+    
+    <ElvtCard border="rounded">
+      <h4 style={{marginTop: 0}}>Rounded Only</h4>
+      <p>Rounded corners without borders</p>
+    </ElvtCard>
+    
+    <ElvtCard border="none">
+      <h4 style={{marginTop: 0}}>No Borders</h4>
+      <p>Seamless integration design</p>
+    </ElvtCard>
+  </div>
+</ComponentShowcase>
+
+### Layer Variations
+
+Visual depth treatments for different card prominence and context needs.
+
+<ComponentShowcase
+  title="Card Layer Variations"
+  description="Different visual depth treatments for various contexts."
+  code={`<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; padding: 1rem; background: #f4f4f4;">
+  <elvt-card layer="default">
+    <h4>Default</h4>
+    <p>Standard appearance</p>
+  </elvt-card>
+  
+  <elvt-card layer="elevated">
+    <h4>Elevated</h4>
+    <p>Raised with shadow</p>
+  </elvt-card>
+  
+  <elvt-card layer="overlay">
+    <h4>Overlay</h4>
+    <p>Designed for overlays</p>
+  </elvt-card>
+  
+  <elvt-card layer="sunken">
+    <h4>Sunken</h4>
+    <p>Inset appearance</p>
+  </elvt-card>
+</div>`}
+>
+  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', padding: '1rem', background: '#f4f4f4', borderRadius: '8px'}}>
+    <ElvtCard layer="default">
+      <h4 style={{marginTop: 0}}>Default</h4>
+      <p>Standard appearance</p>
+    </ElvtCard>
+    
+    <ElvtCard layer="elevated">
+      <h4 style={{marginTop: 0}}>Elevated</h4>
+      <p>Raised with shadow</p>
+    </ElvtCard>
+    
+    <ElvtCard layer="overlay">
+      <h4 style={{marginTop: 0}}>Overlay</h4>
+      <p>Designed for overlays</p>
+    </ElvtCard>
+    
+    <ElvtCard layer="sunken">
+      <h4 style={{marginTop: 0}}>Sunken</h4>
+      <p>Inset appearance</p>
+    </ElvtCard>
+  </div>
+</ComponentShowcase>
+
+### Padding Variations
+
+<ComponentShowcase
+  title="Card Padding Options"
+  description="Different padding sizes for various content needs."
+  code={`<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+  <elvt-card padding="s">
+    <h4>Small Padding</h4>
+    <p>Compact layout for dense information.</p>
+  </elvt-card>
+  
+  <elvt-card padding="m">
+    <h4>Medium Padding</h4>
+    <p>Balanced spacing for most use cases.</p>
+  </elvt-card>
+  
+  <elvt-card padding="l">
+    <h4>Large Padding</h4>
+    <p>Generous spacing for prominent content.</p>
+  </elvt-card>
+</div>`}
+>
+  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem'}}>
+    <ElvtCard padding="s">
+      <h4 style={{marginTop: 0}}>Small Padding</h4>
+      <p>Compact layout for dense information.</p>
+    </ElvtCard>
+    
+    <ElvtCard padding="m">
+      <h4 style={{marginTop: 0}}>Medium Padding</h4>
+      <p>Balanced spacing for most use cases.</p>
+    </ElvtCard>
+    
+    <ElvtCard padding="l">
+      <h4 style={{marginTop: 0}}>Large Padding</h4>
+      <p>Generous spacing for prominent content.</p>
+    </ElvtCard>
+  </div>
+</ComponentShowcase>
+
+## Design Principles
+
+Understanding these core principles will help you create card layouts that enhance rather than complicate information consumption and user task completion.
+
+### Information Hierarchy Principle
+**Cards should create clear visual hierarchy within content.** Users need to quickly scan and prioritize information within cards. Poor hierarchy forces users to read everything to find what they need, slowing down task completion.
+
+### Content Cohesion Principle  
+**Related information should be grouped together logically.** Cards work best when they contain information that naturally belongs together. Mixing unrelated content confuses users and breaks their mental models of how information is organized.
+
+### Visual Consistency Principle
+**Similar content types should use similar card treatments.** Consistent card patterns help users predict where to find information and how to interact with content. Visual inconsistency creates cognitive overhead and reduces interface familiarity.
+
+### Contextual Appropriateness Principle
+**Card treatment should match the content's importance and purpose.** High-priority content may need elevated cards, while background information works better with subtle treatments. Mismatched visual weight creates confusion about content importance.
+
+## Best Practices
+
+### Creating Effective Content Hierarchy
+
+**Why this matters:** Cards without clear visual hierarchy force users to read all content to find relevant information. Good hierarchy enables quick scanning and helps users prioritize their attention effectively.
+
+:::tip Do: Use clear headings and visual hierarchy
+Structure card content with proper headings, logical spacing, and visual emphasis.
+
+```html
+<elvt-card>
+  <h3>Project Alpha</h3>
+  <p class="meta">Status: In Progress • Due: March 15</p>
+  <p>Backend API development is 80% complete. Frontend integration begins next week.</p>
+  <elvt-button tone="primary">View Details</elvt-button>
+</elvt-card>
+```
+:::
+
+:::danger Don't: Use flat hierarchy
+Avoid flat text structure that makes content difficult to scan and prioritize.
+
+```html
+<!-- Avoid this -->
+<elvt-card>
+  <p>Project Alpha</p>
+  <p>Status: In Progress</p>
+  <p>Due: March 15</p>
+  <p>Backend API development is 80% complete...</p>
+  <elvt-button>View Details</elvt-button>
+</elvt-card>
+```
+:::
+
+### Grouping Related Content Effectively
+
+**Why this matters:** Cards that mix unrelated information increase cognitive load and make it harder for users to understand the purpose of each card. Logical grouping helps users process information more efficiently.
+
+:::tip Do: Group logically related information
+Keep related information together that serves a common purpose.
+
+```html
+<elvt-card>
+  <h3>Account Security</h3>
+  <div class="security-items">
+    <div class="item">Two-factor Authentication: Enabled</div>
+    <div class="item">Password Strength: Strong</div>
+    <div class="item">Last Login: 2 hours ago</div>
+  </div>
+  <elvt-button tone="primary">Security Settings</elvt-button>
+</elvt-card>
+```
+:::
+
+:::danger Don't: Mix unrelated information
+Avoid combining unrelated content that serves different purposes.
+
+```html
+<!-- Avoid this -->
+<elvt-card>
+  <h3>Mixed Information</h3>
+  <p>Account balance: $1,234.56</p>
+  <p>Weather today: Sunny, 72°F</p>
+  <p>Unread messages: 5</p>
+  <p>System update available</p>
+</elvt-card>
+```
+:::
+
+## Implementation
+
+### Getting Started
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+```javascript
+// Import all components
+import '@inform-elevate/elevate-core-ui';
+
+// Or import specific components  
+import '@inform-elevate/elevate-core-ui/dist/components/card/card.js';
+```
+
+### Common Usage Patterns
+
+```html
+<!-- Basic content card -->
+<elvt-card>
+  <h3>Card Title</h3>
+  <p>Card content goes here.</p>
+  <elvt-button tone="primary">Action</elvt-button>
+</elvt-card>
+
+<!-- Card with header and footer -->
+<elvt-card>
+  <div slot="header">
+    <h3>Header Content</h3>
+  </div>
+  
+  <p>Main content area</p>
+  
+  <div slot="footer">
+    <elvt-button tone="primary">Primary Action</elvt-button>
+    <elvt-button>Secondary Action</elvt-button>
+  </div>
+</elvt-card>
+
+<!-- Elevated card with custom padding -->
+<elvt-card layer="elevated" padding="l">
+  <h3>Important Information</h3>
+  <p>This card stands out with elevation and generous padding.</p>
+</elvt-card>
+
+<!-- Card grid layout -->
+<div class="card-grid">
+  <elvt-card>Card 1</elvt-card>
+  <elvt-card>Card 2</elvt-card>
+  <elvt-card>Card 3</elvt-card>
+</div>
+```
+
+### Key Properties
+
+| Property | Options | Description |
+|----------|---------|-------------|
+| `padding` | `s`, `m` (default), `l`, `xl` | Internal spacing amount |
+| `border` | `all` (default), `rounded`, `none` | Border treatment style |
+| `layer` | `default`, `elevated`, `overlay`, `sunken` | Visual depth treatment |
+| `background` | `default`, `subtle`, `accent` | Background color variant |
+
+**Slots:** Use `slot="header"` and `slot="footer"` for structured layout sections.
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-layout-card--docs).*
+
+## Interactive Examples
+
+### Card Layout Patterns
+
+<ComponentShowcase
+  title="Card Grid Layout"
+  description="Common card grid pattern for dashboards and content listings."
+  code={`<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+  <elvt-card>
+    <h4>Feature A</h4>
+    <p>Description of feature A with key benefits.</p>
+    <elvt-button tone="primary">Learn More</elvt-button>
+  </elvt-card>
+  
+  <elvt-card>
+    <h4>Feature B</h4>
+    <p>Description of feature B with key benefits.</p>
+    <elvt-button tone="success">Get Started</elvt-button>
+  </elvt-card>
+  
+  <elvt-card>
+    <h4>Feature C</h4>
+    <p>Description of feature C with key benefits.</p>
+    <elvt-button tone="warning">View Details</elvt-button>
+  </elvt-card>
+</div>`}
+>
+  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem'}}>
+    <ElvtCard>
+      <h4 style={{marginTop: 0}}>Feature A</h4>
+      <p>Description of feature A with key benefits.</p>
+      <ElvtButton tone="primary">Learn More</ElvtButton>
+    </ElvtCard>
+    
+    <ElvtCard>
+      <h4 style={{marginTop: 0}}>Feature B</h4>
+      <p>Description of feature B with key benefits.</p>
+      <ElvtButton tone="success">Get Started</ElvtButton>
+    </ElvtCard>
+    
+    <ElvtCard>
+      <h4 style={{marginTop: 0}}>Feature C</h4>
+      <p>Description of feature C with key benefits.</p>
+      <ElvtButton tone="warning">View Details</ElvtButton>
+    </ElvtCard>
+  </div>
+</ComponentShowcase>
+
+## Accessibility
+
+### Essential Accessibility Practices
+
+**Semantic structure:**
+```html
+<!-- Good: Proper heading hierarchy -->
+<elvt-card>
+  <h3>Main Heading</h3>
+  <h4>Subheading</h4>
+  <p>Content text</p>
+</elvt-card>
+```
+
+**Focus management:**
+- Cards with interactive elements should allow proper tab navigation
+- Ensure sufficient color contrast for all text content
+- Use appropriate ARIA labels when cards represent complex structures
+
+**Keyboard interaction:**
+- All interactive elements within cards should be keyboard accessible
+- Consider card-level keyboard shortcuts for complex interactions
+
+## Changelog
+
+### Version 0.0.26-alpha (July 16, 2025)
+- Current version in active development
+
+### Version 0.0.25-alpha (July 10, 2025)
+- **Enhanced**: Improved padding and spacing options
+- **New**: Added layer variations for visual depth
+
+### Version 0.0.20-alpha (June 18, 2025)
+- **New**: Added header and footer slot support
+- **Enhanced**: Improved border and background options
+
+### Version 0.0.15-alpha (May 20, 2025)
+- **New**: Add Card Component (initial implementation)
+- **New**: Basic padding and border variations

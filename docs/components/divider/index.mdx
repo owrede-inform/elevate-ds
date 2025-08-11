@@ -1,0 +1,390 @@
+---
+title: Divider
+description: Dividers create visual separation between content sections. They help organize information hierarchy and improve content scanability through subtle visual boundaries.
+sidebar_position: 18
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+Dividers provide subtle visual separation that helps users understand content relationships and hierarchy. The ELEVATE Divider component helps designers and developers create consistent, accessible interfaces that organize information clearly without creating visual clutter.
+
+## Overview
+
+### When to Use Dividers
+- **Content sections**: Separate distinct topics or categories within a page
+- **List items**: Create visual breaks between related but separate list entries
+- **Form groups**: Organize form fields into logical sections
+- **Navigation menus**: Separate menu groups or categories
+- **Card content**: Divide different types of information within cards
+
+### When NOT to Use Dividers
+- **White space is sufficient**: Don't add dividers when spacing already creates clear separation
+- **Overuse**: Too many dividers create visual noise and reduce their effectiveness
+- **Primary navigation**: Use proper navigation components instead of divider-separated links
+- **Data tables**: Use proper table structure instead of dividers between data rows
+
+## Variations
+
+### Orientation Types
+
+**Horizontal Dividers** separate vertically stacked content sections and are the most common type.
+
+<ComponentShowcase
+  title="Horizontal Dividers"
+  description="Use horizontal dividers to separate vertically stacked content sections"
+  code={`<div style="max-width: 400px;">
+  <div style="padding: 1rem;">
+    <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">Personal Information</h3>
+    <p style="margin: 0; color: #6f6f6f;">Update your personal details and preferences.</p>
+  </div>
+  
+  <elvt-divider></elvt-divider>
+  
+  <div style="padding: 1rem;">
+    <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">Account Settings</h3>
+    <p style="margin: 0; color: #6f6f6f;">Manage your account security and privacy settings.</p>
+  </div>
+  
+  <elvt-divider></elvt-divider>
+  
+  <div style="padding: 1rem;">
+    <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">Notifications</h3>
+    <p style="margin: 0; color: #6f6f6f;">Choose how you receive updates and alerts.</p>
+  </div>
+</div>`}
+>
+  <div style={{maxWidth: '400px'}}>
+    <div style={{padding: '1rem'}}>
+      <h3 style={{margin: '0 0 0.5rem 0', fontSize: '1.25rem'}}>Personal Information</h3>
+      <p style={{margin: '0', color: '#6f6f6f'}}>Update your personal details and preferences.</p>
+    </div>
+    
+    <elvt-divider></elvt-divider>
+    
+    <div style={{padding: '1rem'}}>
+      <h3 style={{margin: '0 0 0.5rem 0', fontSize: '1.25rem'}}>Account Settings</h3>
+      <p style={{margin: '0', color: '#6f6f6f'}}>Manage your account security and privacy settings.</p>
+    </div>
+    
+    <elvt-divider></elvt-divider>
+    
+    <div style={{padding: '1rem'}}>
+      <h3 style={{margin: '0 0 0.5rem 0', fontSize: '1.25rem'}}>Notifications</h3>
+      <p style={{margin: '0', color: '#6f6f6f'}}>Choose how you receive updates and alerts.</p>
+    </div>
+  </div>
+</ComponentShowcase>
+
+**Vertical Dividers** separate horizontally arranged content, useful in navigation bars and toolbars.
+
+<ComponentShowcase
+  title="Vertical Dividers"
+  description="Use vertical dividers to separate horizontally arranged content"
+  code={`<div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 1px solid #e0e0e0; border-radius: 4px;">
+  <elvt-button size="small" tone="subtle">
+    <elvt-icon slot="prefix" icon="mdi:file"></elvt-icon>
+    New
+  </elvt-button>
+  
+  <elvt-divider orientation="vertical" style="height: 24px;"></elvt-divider>
+  
+  <elvt-button size="small" tone="subtle">
+    <elvt-icon slot="prefix" icon="mdi:content-save"></elvt-icon>
+    Save
+  </elvt-button>
+  
+  <elvt-button size="small" tone="subtle">
+    <elvt-icon slot="prefix" icon="mdi:printer"></elvt-icon>
+    Print
+  </elvt-button>
+  
+  <elvt-divider orientation="vertical" style="height: 24px;"></elvt-divider>
+  
+  <elvt-button size="small" tone="subtle">
+    <elvt-icon slot="prefix" icon="mdi:help-circle"></elvt-icon>
+    Help
+  </elvt-button>
+</div>`}
+>
+  <div style={{display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', border: '1px solid #e0e0e0', borderRadius: '4px'}}>
+    <elvt-button size="small" tone="subtle">
+      <elvt-icon slot="prefix" icon="mdi:file"></elvt-icon>
+      New
+    </elvt-button>
+    
+    <elvt-divider orientation="vertical" style={{height: '24px'}}></elvt-divider>
+    
+    <elvt-button size="small" tone="subtle">
+      <elvt-icon slot="prefix" icon="mdi:content-save"></elvt-icon>
+      Save
+    </elvt-button>
+    
+    <elvt-button size="small" tone="subtle">
+      <elvt-icon slot="prefix" icon="mdi:printer"></elvt-icon>
+      Print
+    </elvt-button>
+    
+    <elvt-divider orientation="vertical" style={{height: '24px'}}></elvt-divider>
+    
+    <elvt-button size="small" tone="subtle">
+      <elvt-icon slot="prefix" icon="mdi:help-circle"></elvt-icon>
+      Help
+    </elvt-button>
+  </div>
+</ComponentShowcase>
+
+### Visual Styles
+
+**Solid Line** provides clear, definitive separation between content sections.
+
+**Dashed Line** creates softer separation while maintaining visual distinction.
+
+**Dotted Line** offers subtle separation for closely related content groups.
+
+**Gradient Fade** provides gentle visual transition between content areas.
+
+### Content Integration
+
+**Plain Dividers** offer simple line separation without additional content.
+
+**Text Labels** include descriptive text within the divider for section identification.
+
+**Icon Integration** combines icons with dividers for enhanced visual communication.
+
+## Design Principles
+
+### Subtlety Principle
+**Dividers should organize without overwhelming.** They provide structure through subtle visual cues rather than prominent visual elements. Heavy or overly decorative dividers compete with content for user attention.
+
+### Semantic Purpose Principle  
+**Every divider should have a clear organizational reason.** Random or decorative dividers confuse information hierarchy. Each divider should represent a meaningful content boundary that helps users understand relationships.
+
+### Consistency Principle
+**Similar content separations should use similar divider treatments.** Inconsistent divider usage creates visual chaos and reduces the user's ability to predict interface patterns.
+
+### Proportional Hierarchy Principle
+**Divider visual weight should match the importance of the separation.** Major section breaks might use stronger dividers while minor separations use lighter treatments.
+
+## Best Practices
+
+### Using Appropriate Visual Weight
+
+**Why this matters:** Dividers that are too prominent draw attention away from content, while dividers that are too subtle fail to provide clear organization. The visual weight should match the level of separation needed.
+
+### Spacing and Alignment
+
+**Why this matters:** Inconsistent spacing around dividers creates visual imbalance and reduces their effectiveness as organizational tools. Proper spacing ensures dividers enhance rather than interrupt content flow.
+
+### Avoiding Overuse
+
+**Why this matters:** Too many dividers create visual noise and reduce their effectiveness. When everything is separated, nothing feels organized. Strategic use maintains their organizational value.
+
+## Implementation
+
+### Getting Started
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+```javascript
+// Import all components
+import '@inform-elevate/elevate-core-ui';
+
+// Or import specific components  
+import '@inform-elevate/elevate-core-ui/dist/components/divider/divider.js';
+```
+
+### Common Usage Patterns
+
+```html
+<!-- Basic horizontal divider -->
+<elvt-divider></elvt-divider>
+
+<!-- Vertical divider for inline content -->
+<elvt-divider orientation="vertical"></elvt-divider>
+
+<!-- Divider with custom styling -->
+<elvt-divider style="height: 2px; background-color: #0f62fe;"></elvt-divider>
+
+<!-- In menu contexts (used automatically in dropdowns) -->
+<elvt-dropdown>
+  <elvt-button slot="trigger" caret>Menu</elvt-button>
+  <elvt-menu-item>Option 1</elvt-menu-item>
+  <elvt-menu-item>Option 2</elvt-menu-item>
+  <elvt-divider></elvt-divider>
+  <elvt-menu-item>Option 3</elvt-menu-item>
+</elvt-dropdown>
+
+<!-- In card layouts -->
+<div class="card">
+  <div class="card-header">Header Content</div>
+  <elvt-divider></elvt-divider>
+  <div class="card-body">Body Content</div>
+</div>
+```
+
+### Key Properties
+
+| Property | Options | Description |
+|----------|---------|-------------|
+| `orientation` | `horizontal` (default), `vertical` | Direction of the divider line |
+| `style` | Standard CSS style properties | Apply custom styling to the divider element |
+
+**Usage Notes:**
+- The divider inherits styling from the current theme
+- Custom colors and thickness can be applied via CSS `style` attribute
+- Vertical dividers typically need explicit height styling
+- Spacing is managed by parent container layout
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-divider--docs).*
+
+## Interactive Examples
+
+### Live Divider in Different Contexts
+
+<ComponentShowcase
+  title="Dividers in Lists and Cards"
+  description="See how dividers work in various contexts like cards and navigation"
+  code={`<div style="max-width: 500px;">
+  <!-- Card with dividers -->
+  <div style="border: 1px solid #e0e0e0; border-radius: 8px; background: white; margin-bottom: 1.5rem;">
+    <div style="padding: 1rem;">
+      <h3 style="margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
+        <elvt-icon icon="mdi:account" style="color: #0f62fe;"></elvt-icon>
+        User Profile
+      </h3>
+      <p style="margin: 0; color: #6f6f6f; font-size: 0.875rem;">Manage your account information</p>
+    </div>
+    
+    <elvt-divider></elvt-divider>
+    
+    <div style="padding: 1rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+        <span style="font-weight: 500;">Email Notifications</span>
+        <elvt-badge variant="success">Enabled</elvt-badge>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-weight: 500;">Two-Factor Auth</span>
+        <elvt-badge>Disabled</elvt-badge>
+      </div>
+    </div>
+    
+    <elvt-divider></elvt-divider>
+    
+    <div style="padding: 1rem;">
+      <div style="display: flex; gap: 0.5rem;">
+        <elvt-button size="small" variant="primary">Save Changes</elvt-button>
+        <elvt-button size="small" tone="subtle">Reset</elvt-button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Navigation with vertical dividers -->
+  <div style="display: flex; align-items: center; gap: 1rem; padding: 0.75rem; background: #f4f4f4; border-radius: 8px;">
+    <elvt-button size="small" tone="subtle">Dashboard</elvt-button>
+    <elvt-divider orientation="vertical" style="height: 20px; background-color: #c6c6c6;"></elvt-divider>
+    <elvt-button size="small" tone="subtle">Reports</elvt-button>
+    <elvt-divider orientation="vertical" style="height: 20px; background-color: #c6c6c6;"></elvt-divider>
+    <elvt-button size="small" tone="subtle">Settings</elvt-button>
+  </div>
+</div>`}
+>
+  <div style={{maxWidth: '500px'}}>
+    {/* Card with dividers */}
+    <div style={{border: '1px solid #e0e0e0', borderRadius: '8px', background: 'white', marginBottom: '1.5rem'}}>
+      <div style={{padding: '1rem'}}>
+        <h3 style={{margin: '0 0 0.5rem 0', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+          <elvt-icon icon="mdi:account" style={{color: '#0f62fe'}}></elvt-icon>
+          User Profile
+        </h3>
+        <p style={{margin: '0', color: '#6f6f6f', fontSize: '0.875rem'}}>Manage your account information</p>
+      </div>
+      
+      <elvt-divider></elvt-divider>
+      
+      <div style={{padding: '1rem'}}>
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem'}}>
+          <span style={{fontWeight: '500'}}>Email Notifications</span>
+          <elvt-badge variant="success">Enabled</elvt-badge>
+        </div>
+        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+          <span style={{fontWeight: '500'}}>Two-Factor Auth</span>
+          <elvt-badge>Disabled</elvt-badge>
+        </div>
+      </div>
+      
+      <elvt-divider></elvt-divider>
+      
+      <div style={{padding: '1rem'}}>
+        <div style={{display: 'flex', gap: '0.5rem'}}>
+          <elvt-button size="small" variant="primary">Save Changes</elvt-button>
+          <elvt-button size="small" tone="subtle">Reset</elvt-button>
+        </div>
+      </div>
+    </div>
+    
+    {/* Navigation with vertical dividers */}
+    <div style={{display: 'flex', alignItems: 'center', gap: '1rem', padding: '0.75rem', background: '#f4f4f4', borderRadius: '8px'}}>
+      <elvt-button size="small" tone="subtle">Dashboard</elvt-button>
+      <elvt-divider orientation="vertical" style={{height: '20px', backgroundColor: '#c6c6c6'}}></elvt-divider>
+      <elvt-button size="small" tone="subtle">Reports</elvt-button>
+      <elvt-divider orientation="vertical" style={{height: '20px', backgroundColor: '#c6c6c6'}}></elvt-divider>
+      <elvt-button size="small" tone="subtle">Settings</elvt-button>
+    </div>
+  </div>
+</ComponentShowcase>
+
+## Accessibility
+
+### Essential Accessibility Practices
+
+**Semantic markup considerations:**
+- Dividers are primarily visual elements
+- Use appropriate ARIA roles when dividers have semantic meaning
+- Don't rely on dividers alone to convey important information structure
+
+**Screen reader behavior:**
+- Most dividers should be ignored by screen readers
+- Use `role="separator"` for dividers that have semantic meaning
+- Provide alternative structure cues through proper heading hierarchy
+
+**Focus management:**
+- Dividers typically should not receive keyboard focus
+- Interactive dividers (like collapsible sections) need proper focus handling
+- Ensure content before and after dividers has logical tab order
+
+**Visual accessibility:**
+- Ensure sufficient contrast for divider lines (3:1 minimum)
+- Don't rely solely on dividers for content organization
+- Provide additional visual or structural cues for important boundaries
+
+## Changelog
+
+### Version 0.0.26-alpha (July 16, 2025)
+- **New**: Divider component fully implemented and functional
+- **New**: Horizontal and vertical orientation support
+- **Enhanced**: Integration with Dropdown component for menu separation
+- **Enhanced**: Flexible styling through CSS properties
+- **Enhanced**: Theme-based default styling with customization options
+- Current version in active development
+
+### Divider Component Features
+- ✅ Basic horizontal dividers for content separation
+- ✅ Vertical dividers for inline content layouts
+- ✅ Integration with Dropdown and Menu components
+- ✅ Custom styling support via CSS properties
+- ✅ Theme-aware default styling
+- ✅ Comprehensive accessibility support
+
+### Available Components
+- `DividerComponent`: Main divider element with orientation support
+- Integration with `DropdownComponent` for menu separation
+- Works seamlessly in card layouts and content sections
+
+### Implementation Status
+- ✅ Core divider functionality operational
+- ✅ Orientation switching (horizontal/vertical) working properly
+- ✅ Custom styling and theming functional
+- ✅ Integration with other components working
+- ✅ Accessibility features implemented

@@ -1,0 +1,350 @@
+---
+title: Button Group
+description: Button Groups organize related actions together with consistent spacing and visual treatment. They provide clear action hierarchy and improved user experience.
+sidebar_position: 14
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+Button Groups combine multiple related buttons into a cohesive unit with consistent spacing, alignment, and visual treatment. The ELEVATE Button Group component helps designers and developers organize actions logically, create clear visual hierarchy, and reduce interface complexity while maintaining accessibility and usability standards.
+
+## Overview
+
+### When to Use Button Groups
+- **Related actions**: Buttons that perform similar or complementary functions
+- **Action sets**: Save/Cancel, Previous/Next, Accept/Decline pairs
+- **Toolbars**: Sets of tools or commands in applications
+- **Bulk actions**: Multiple operations that can be performed on selected content
+- **Workflow steps**: Sequential actions in a multi-step process
+- **Form actions**: Multiple submission or navigation options
+
+### When NOT to Use Button Groups
+- **Unrelated actions**: Buttons that serve completely different purposes
+- **Primary navigation**: Use appropriate navigation components instead
+- **Single actions**: Individual buttons don't need grouping treatment
+- **Complex forms**: Use proper form layout patterns with field grouping
+- **Selection options**: Use Radio buttons, Checkboxes, or Select components
+
+## Variations
+
+### Horizontal Button Groups
+
+Standard horizontal arrangement of buttons with consistent spacing for most use cases.
+
+<ComponentShowcase
+  title="Horizontal Button Group"
+  description="Standard horizontal arrangement of related action buttons"
+  code={`<elvt-button-group>
+  <elvt-button tone="primary">Save Changes</elvt-button>
+  <elvt-button>Cancel</elvt-button>
+  <elvt-button>Save Draft</elvt-button>
+</elvt-button-group>`}
+>
+  <elvt-button-group>
+    <elvt-button tone="primary">Save Changes</elvt-button>
+    <elvt-button>Cancel</elvt-button>
+    <elvt-button>Save Draft</elvt-button>
+  </elvt-button-group>
+</ComponentShowcase>
+
+### Vertical Button Groups
+
+Vertical stacking of buttons for narrow layouts, mobile interfaces, or sidebar actions.
+
+<ComponentShowcase
+  title="Vertical Button Group"
+  description="Vertical stacking of buttons for narrow layouts and mobile interfaces"
+  code={`<elvt-button-group orientation="vertical">
+  <elvt-button tone="primary">New Document</elvt-button>
+  <elvt-button>Open Document</elvt-button>
+  <elvt-button>Recent Files</elvt-button>
+  <elvt-button>Settings</elvt-button>
+</elvt-button-group>`}
+>
+  <elvt-button-group orientation="vertical">
+    <elvt-button tone="primary">New Document</elvt-button>
+    <elvt-button>Open Document</elvt-button>
+    <elvt-button>Recent Files</elvt-button>
+    <elvt-button>Settings</elvt-button>
+  </elvt-button-group>
+</ComponentShowcase>
+
+### Segmented Button Groups
+
+Connected buttons that appear as a single unit with shared borders, ideal for related options.
+
+<ComponentShowcase
+  title="Segmented Button Group"
+  description="Connected buttons appearing as a single unit for related options"
+  code={`<elvt-button-group variant="segmented">
+  <elvt-button>Day</elvt-button>
+  <elvt-button>Week</elvt-button>
+  <elvt-button>Month</elvt-button>
+  <elvt-button>Year</elvt-button>
+</elvt-button-group>`}
+>
+  <elvt-button-group variant="segmented">
+    <elvt-button>Day</elvt-button>
+    <elvt-button>Week</elvt-button>
+    <elvt-button>Month</elvt-button>
+    <elvt-button>Year</elvt-button>
+  </elvt-button-group>
+</ComponentShowcase>
+
+### Icon Button Groups
+
+Groups of icon-only buttons for compact toolbars and space-efficient action sets.
+
+<ComponentShowcase
+  title="Icon Button Group"
+  description="Compact toolbar with icon-only buttons for formatting actions"
+  code={`<elvt-button-group>
+  <elvt-button tone="subtle" title="Bold" aria-label="Bold">
+    <elvt-icon icon="mdi:format-bold"></elvt-icon>
+  </elvt-button>
+  <elvt-button tone="subtle" title="Italic" aria-label="Italic">
+    <elvt-icon icon="mdi:format-italic"></elvt-icon>
+  </elvt-button>
+  <elvt-button tone="subtle" title="Underline" aria-label="Underline">
+    <elvt-icon icon="mdi:format-underline"></elvt-icon>
+  </elvt-button>
+</elvt-button-group>`}
+>
+  <elvt-button-group>
+    <elvt-button tone="subtle" title="Bold" aria-label="Bold">
+      <elvt-icon icon="mdi:format-bold"></elvt-icon>
+    </elvt-button>
+    <elvt-button tone="subtle" title="Italic" aria-label="Italic">
+      <elvt-icon icon="mdi:format-italic"></elvt-icon>
+    </elvt-button>
+    <elvt-button tone="subtle" title="Underline" aria-label="Underline">
+      <elvt-icon icon="mdi:format-underline"></elvt-icon>
+    </elvt-button>
+  </elvt-button-group>
+</ComponentShowcase>
+
+## Design Principles
+
+Understanding these core principles will help you create button groups that enhance rather than complicate user interactions and decision-making.
+
+### Visual Hierarchy Principle
+**Button groups should have clear primary and secondary actions.** Users need to quickly identify the most important action within a group. Equal visual weight on all buttons creates decision paralysis and slows task completion.
+
+### Cognitive Grouping Principle  
+**Related actions should be visually and functionally grouped together.** Logical organization reduces cognitive load and helps users predict what actions are available. Random grouping confuses users and breaks workflow expectations.
+
+### Spatial Relationship Principle
+**Physical proximity should reflect functional relationship.** Buttons that work together should be close together, while destructive or opposing actions should have visual separation to prevent accidental activation.
+
+### Contextual Relevance Principle
+**All buttons in a group should be relevant to the current context.** Including unrelated actions in a group dilutes the purpose and forces users to evaluate irrelevant options, increasing interaction time and error rates.
+
+## Best Practices
+
+### Establishing Clear Action Hierarchy
+
+**Why this matters:** When multiple buttons in a group have equal visual weight, users can't quickly identify the primary action. This creates hesitation and increases the likelihood of selecting the wrong action, especially in high-stakes situations.
+
+:::tip Do
+Use clear visual hierarchy with one primary action per group
+
+Visual example showing primary button (solid blue), secondary button (outlined), and tertiary button (subtle gray)
+:::
+
+:::danger Don't
+Use multiple primary buttons that compete for attention
+
+Visual example showing three buttons all with the same solid blue styling
+:::
+
+### Organizing Logically Related Actions
+
+**Why this matters:** Grouping unrelated actions together confuses users about the purpose of each group and forces them to evaluate irrelevant options. Logical grouping accelerates task completion by presenting contextually relevant choices.
+
+:::tip Do
+Group related actions that work together in the same workflow
+
+Example: Copy, Cut, Paste (editing actions) / Undo, Redo (history actions)
+:::
+
+:::danger Don't
+Mix unrelated actions that serve different purposes
+
+Example: Copy, Settings, Help, Paste (mixing editing with navigation actions)
+:::
+
+## Implementation
+
+### Getting Started
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+### Basic Usage
+
+```html
+<elvt-button-group>
+  <elvt-button tone="primary">Save</elvt-button>
+  <elvt-button>Cancel</elvt-button>
+</elvt-button-group>
+```
+
+### Vertical Group
+
+```html
+<elvt-button-group orientation="vertical">
+  <elvt-button>Option 1</elvt-button>
+  <elvt-button>Option 2</elvt-button>
+  <elvt-button>Option 3</elvt-button>
+</elvt-button-group>
+```
+
+### Segmented Group
+
+```html
+<elvt-button-group variant="segmented">
+  <elvt-button>Day</elvt-button>
+  <elvt-button>Week</elvt-button>
+  <elvt-button>Month</elvt-button>
+</elvt-button-group>
+```
+
+### Icon Button Group
+
+```html
+<elvt-button-group>
+  <elvt-button tone="subtle" aria-label="Bold">
+    <elvt-icon icon="mdi:format-bold"></elvt-icon>
+  </elvt-button>
+  <elvt-button tone="subtle" aria-label="Italic">
+    <elvt-icon icon="mdi:format-italic"></elvt-icon>
+  </elvt-button>
+  <elvt-button tone="subtle" aria-label="Underline">
+    <elvt-icon icon="mdi:format-underline"></elvt-icon>
+  </elvt-button>
+</elvt-button-group>
+```
+
+### Key Properties
+
+The most commonly used properties for design and development:
+
+| Property | Options | Description |
+|----------|---------|-------------|
+| `orientation` | `horizontal` (default), `vertical` | Layout direction of the button group |
+| `variant` | `default`, `segmented`, `toolbar` | Visual treatment and connection style |
+| `spacing` | `small`, `medium` (default), `large` | Space between buttons in the group |
+| `alignment` | `start` (default), `center`, `end`, `stretch` | Button alignment within the group |
+| `wrap` | `true`, `false` (default) | Whether buttons can wrap to new lines |
+| `full-width` | `true`, `false` (default) | Whether group takes full container width |
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-buttons-button-group--docs).*
+
+## Interactive Examples
+
+### Live Button Group Playground
+
+Experience how button groups behave in realistic contexts. All examples use actual ELEVATE components.
+
+<ComponentShowcase
+  title="Form Actions Example"
+  description="Realistic form with button group for save, cancel, and draft actions"
+  code={`<div style="max-width: 600px; padding: 2rem; border: 1px solid #e0e0e0; border-radius: 8px;">
+  <h3 style="margin-top: 0;">Edit Profile</h3>
+  
+  <div style="margin-bottom: 1rem;">
+    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Name:</label>
+    <input type="text" value="John Doe" style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px;">
+  </div>
+  
+  <div style="margin-bottom: 2rem;">
+    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email:</label>
+    <input type="email" value="john@example.com" style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px;">
+  </div>
+  
+  <!-- Form Actions -->
+  <elvt-button-group style="justify-content: flex-end;">
+    <elvt-button onclick="alert('Changes discarded')">Cancel</elvt-button>
+    <elvt-button tone="subtle" onclick="alert('Draft saved')">Save Draft</elvt-button>
+    <elvt-button tone="primary" onclick="alert('Profile updated!')">Save Changes</elvt-button>
+  </elvt-button-group>
+</div>`}
+>
+  <div style={{maxWidth: '600px', padding: '2rem', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
+    <h3 style={{marginTop: 0}}>Edit Profile</h3>
+    
+    <div style={{marginBottom: '1rem'}}>
+      <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500'}}>Name:</label>
+      <input type="text" defaultValue="John Doe" style={{width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px'}} />
+    </div>
+    
+    <div style={{marginBottom: '2rem'}}>
+      <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500'}}>Email:</label>
+      <input type="email" defaultValue="john@example.com" style={{width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px'}} />
+    </div>
+    
+    <elvt-button-group style={{justifyContent: 'flex-end'}}>
+      <elvt-button onClick={() => alert('Changes discarded')}>Cancel</elvt-button>
+      <elvt-button tone="subtle" onClick={() => alert('Draft saved')}>Save Draft</elvt-button>
+      <elvt-button tone="primary" onClick={() => alert('Profile updated!')}>Save Changes</elvt-button>
+    </elvt-button-group>
+  </div>
+</ComponentShowcase>
+
+## Accessibility
+
+### Essential Accessibility Practices
+
+**Group semantics when needed:**
+```html
+<!-- Good: Semantic grouping for related controls -->
+<div role="group" aria-label="Text formatting">
+  <elvt-button-group>
+    <elvt-button aria-label="Bold">
+      <elvt-icon icon="mdi:format-bold"></elvt-icon>
+    </elvt-button>
+    <elvt-button aria-label="Italic">
+      <elvt-icon icon="mdi:format-italic"></elvt-icon>
+    </elvt-button>
+  </elvt-button-group>
+</div>
+
+<!-- Bad: Missing context for screen readers -->
+<elvt-button-group>
+  <elvt-button><elvt-icon icon="mdi:format-bold"></elvt-icon></elvt-button>
+  <elvt-button><elvt-icon icon="mdi:format-italic"></elvt-icon></elvt-button>
+</elvt-button-group>
+```
+
+**Keyboard navigation works automatically:**
+- Tab moves focus between buttons in the group
+- Arrow keys navigate between buttons in segmented groups
+- Enter and Space activate the focused button
+- Home and End move to first/last button in arrow key navigation
+
+**Icon-only buttons need labels:**
+- ✅ Always provide `aria-label` or `title` for icon-only buttons
+- ✅ Use descriptive labels that explain the action
+- ❌ Don't rely on icons alone for meaning
+
+**Ensure sufficient contrast:**
+- All button text and borders must meet 4.5:1 contrast ratio minimum
+- Focus indicators must be clearly visible
+- Disabled states should still be readable
+
+**Group identification:**
+- Use `role="group"` with `aria-label` for related button sets
+- Segmented groups use `role="radiogroup"` for single selection
+- Selected states use `aria-pressed` or `aria-selected`
+
+## Changelog
+
+### Version 0.0.26-alpha (July 16, 2025)
+- Current version in active development
+
+### Version 0.0.18-alpha (June 9, 2025)
+- **Fixed**: Fixed Usability Issues in Button and Button Group Stories
+
+### Version 0.0.4-alpha (March 28, 2025)
+- **New**: Add ButtonGroup Component (initial implementation)

@@ -1,0 +1,317 @@
+---
+title: Components
+description: ELEVATE Core UI components provide the building blocks for consistent, accessible user interfaces across all INFORM applications.
+sidebar_position: 4
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import { ElvtButton, ElvtInput, ElvtCard } from '@inform-elevate/elevate-core-ui/dist/react';
+
+# ELEVATE Components
+
+The ELEVATE Component Library provides a comprehensive set of accessible, consistent, and well-documented UI components for building modern web applications. Each component follows ELEVATE design principles and integrates seamlessly with the INFORM design system.
+
+## Component Categories
+
+### Form Components
+Essential components for data collection and user input with built-in validation and accessibility features.
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem', margin: '2rem 0'}}>
+  <ElvtCard>
+    <h4 style={{marginTop: 0}}>Input</h4>
+    <p>Text inputs for various data types with validation states and help text.</p>
+    <div style={{marginBottom: '1rem'}}>
+      <ElvtInput type="text" label="Example Input" placeholder="Enter text here" size="small" />
+    </div>
+    <ElvtButton tone="primary" size="small" href="/docs/components/input">View Input Docs</ElvtButton>
+  </ElvtCard>
+</div>
+
+### Action Components  
+Components that trigger actions and guide users through workflows with clear visual hierarchy.
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem', margin: '2rem 0'}}>
+  <ElvtCard>
+    <h4 style={{marginTop: 0}}>Button</h4>
+    <p>Primary interface for user actions with multiple tones and states for clear hierarchy.</p>
+    <div style={{display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap'}}>
+      <ElvtButton tone="primary" size="small">Primary</ElvtButton>
+      <ElvtButton size="small">Secondary</ElvtButton>
+      <ElvtButton tone="success" size="small">Success</ElvtButton>
+    </div>
+    <ElvtButton tone="primary" size="small" href="/docs/components/button">View Button Docs</ElvtButton>
+  </ElvtCard>
+</div>
+
+### Layout Components
+Flexible containers that organize content and create visual hierarchy in complex interfaces.
+
+<div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem', margin: '2rem 0'}}>
+  <ElvtCard>
+    <h4 style={{marginTop: 0}}>Card</h4>
+    <p>Versatile containers for grouping related content with multiple styling options.</p>
+    <div style={{marginBottom: '1rem'}}>
+      <ElvtCard padding="s" layer="elevated">
+        <div style={{fontSize: '0.875rem', color: '#666'}}>Example nested card content</div>
+      </ElvtCard>
+    </div>
+    <ElvtButton tone="primary" size="small" href="/docs/components/card">View Card Docs</ElvtButton>
+  </ElvtCard>
+</div>
+
+## Available Components
+
+The ELEVATE Component Library includes 35+ components organized into logical categories:
+
+### Form & Input Components
+- **Input** - Text inputs for various data types
+- **Select** - Dropdown selection components  
+- **Checkbox** - Binary choice selections
+- **Radio** - Single choice from multiple options
+- **Switch** - Toggle controls for settings
+- **Date Picker** - Calendar-based date selection
+- **Field** - Form field wrapper with validation
+
+### Action Components
+- **Button** - Primary action triggers
+- **Button Group** - Related button collections  
+- **Icon Button** - Compact icon-only actions
+- **Link** - Navigation and external links
+
+### Layout & Structure
+- **Card** - Content containers and grouping
+- **Divider** - Visual content separation
+- **Stack** - Flexible layout containers
+- **Grid** - Responsive grid layouts
+
+### Navigation Components
+- **Menu** - Application navigation menus
+- **Menu Item** - Individual navigation items
+- **Breadcrumb** - Hierarchical navigation
+- **Breadcrumb Item** - Individual breadcrumb links
+
+### Feedback & Status
+- **Notification** - System messages and alerts
+- **Progress** - Task completion indicators
+- **Badge** - Status indicators and counts
+- **Indicator** - Visual status signals
+- **Tooltip** - Contextual help and information
+
+### Data Display
+- **Table** - Structured data presentation
+- **Avatar** - User representation
+- **Icon** - Visual symbols and indicators
+- **Chip** - Compact information display
+- **Empty State** - No-content placeholders
+
+### Overlay Components
+- **Dialog** - Modal dialogs and confirmations
+- **Drawer** - Side panel overlays
+- **Lightbox** - Media viewing overlay
+- **Dropdown** - Contextual option lists
+
+### Specialized Components
+- **Application** - Root application wrapper
+- **Charts** - Data visualization components
+- **Expansion Panel** - Collapsible content sections
+- **Paginator** - Content pagination controls
+
+## Getting Started
+
+### Installation
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+### Basic Usage
+
+```javascript
+// Import all components
+import '@inform-elevate/elevate-core-ui';
+
+// Or import specific components
+import '@inform-elevate/elevate-core-ui/dist/components/button/button.js';
+import '@inform-elevate/elevate-core-ui/dist/components/input/input.js';
+```
+
+### HTML Usage
+
+```html
+<!-- Use ELEVATE components as web components -->
+<elvt-button tone="primary">Click me</elvt-button>
+
+<elvt-input 
+  type="email" 
+  label="Email Address" 
+  placeholder="user@example.com"
+  required>
+</elvt-input>
+
+<elvt-card padding="l">
+  <h3>Card Title</h3>
+  <p>Card content goes here.</p>
+  <elvt-button tone="primary">Action</elvt-button>
+</elvt-card>
+```
+
+### React Integration
+
+```jsx
+import { ElvtButton, ElvtInput, ElvtCard } from '@inform-elevate/elevate-core-ui/dist/react';
+
+function MyComponent() {
+  return (
+    <>
+      <ElvtButton tone="primary" onClick={handleClick}>
+        Click me
+      </ElvtButton>
+      
+      <ElvtInput 
+        type="email"
+        label="Email Address"
+        placeholder="user@example.com"
+        required
+      />
+      
+      <ElvtCard padding="l">
+        <h3>Card Title</h3>
+        <p>Card content goes here.</p>
+      </ElvtCard>
+    </>
+  );
+}
+```
+
+## Live Component Examples
+
+Explore interactive examples of ELEVATE components working together in realistic contexts.
+
+<ComponentShowcase
+  title="Component Combination Example"
+  description="See how ELEVATE components work together to create cohesive user interfaces."
+  code={`<elvt-card padding="l">
+  <h3>Sign Up Form</h3>
+  <p>Create your account to get started.</p>
+  
+  <div style="display: flex; flex-direction: column; gap: 1rem; margin: 1rem 0;">
+    <elvt-input 
+      type="text" 
+      label="Full Name" 
+      placeholder="Enter your full name"
+      required>
+    </elvt-input>
+    
+    <elvt-input 
+      type="email" 
+      label="Email Address" 
+      placeholder="user@example.com"
+      help-text="We'll never share your email address"
+      required>
+    </elvt-input>
+    
+    <elvt-input 
+      type="password" 
+      label="Password" 
+      placeholder="Create a strong password"
+      help-text="Must be at least 8 characters"
+      required>
+    </elvt-input>
+  </div>
+  
+  <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+    <elvt-button>Cancel</elvt-button>
+    <elvt-button tone="primary" type="submit">Create Account</elvt-button>
+  </div>
+</elvt-card>`}
+>
+  <div style={{maxWidth: '400px'}}>
+    <ElvtCard padding="l">
+      <h3 style={{marginTop: 0}}>Sign Up Form</h3>
+      <p>Create your account to get started.</p>
+      
+      <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', margin: '1rem 0'}}>
+        <ElvtInput 
+          type="text" 
+          label="Full Name" 
+          placeholder="Enter your full name"
+          required
+        />
+        
+        <ElvtInput 
+          type="email" 
+          label="Email Address" 
+          placeholder="user@example.com"
+          helpText="We'll never share your email address"
+          required
+        />
+        
+        <ElvtInput 
+          type="password" 
+          label="Password" 
+          placeholder="Create a strong password"
+          helpText="Must be at least 8 characters"
+          required
+        />
+      </div>
+      
+      <div style={{display: 'flex', gap: '0.5rem', justifyContent: 'flex-end'}}>
+        <ElvtButton>Cancel</ElvtButton>
+        <ElvtButton tone="primary" type="submit">Create Account</ElvtButton>
+      </div>
+    </ElvtCard>
+  </div>
+</ComponentShowcase>
+
+## Design System Integration
+
+ELEVATE components are built with design system principles at their core:
+
+### Design Tokens
+All components use ELEVATE design tokens for consistent:
+- **Colors** - Semantic color palette with light/dark themes
+- **Typography** - Type scales and font families  
+- **Spacing** - Consistent spacing units and padding options
+- **Borders** - Border radius, widths, and styles
+- **Shadows** - Elevation and depth treatments
+
+### Accessibility Standards
+Every component meets WCAG 2.1 AA standards:
+- **Keyboard Navigation** - Full keyboard accessibility
+- **Screen Reader Support** - Proper ARIA attributes and labels
+- **Color Contrast** - Sufficient contrast ratios for all text
+- **Focus Management** - Clear focus indicators and logical tab order
+
+### Responsive Design
+Components adapt to different screen sizes:
+- **Mobile-First** - Optimized touch targets and layouts
+- **Flexible Layouts** - Components that work in various containers
+- **Breakpoint Awareness** - Responsive behavior when appropriate
+
+## Documentation Standards
+
+Each component includes comprehensive documentation:
+- **Usage Guidelines** - When and how to use the component
+- **API Reference** - Complete property, event, and method documentation  
+- **Design Principles** - Underlying design philosophy and rationale
+- **Best Practices** - Recommended usage patterns with examples
+- **Accessibility** - Specific accessibility features and requirements
+- **Interactive Examples** - Live component demonstrations
+
+## Resources
+
+- **[Storybook Documentation](https://elevate-core-ui.inform-cloud.io)** - Complete API reference and interactive examples
+- **[Component Samples](/docs/component-samples)** - Quick examples and code snippets
+- **[Design Tokens](/docs/design-tokens)** - Design system foundation reference
+- **[Getting Started](/docs/get-started)** - Setup and installation guide
+- **[GitHub Repository](https://github.com/owrede-inform/elevate-ds)** - Source code and issue tracking
+
+---
+
+:::info Component Status
+Components marked with **✨ New** are recently added features. Components marked with **🔧 Updated** have recent improvements. Check individual component changelogs for detailed version history.
+:::
+
+:::tip Need Help?
+Can't find the component you need? Check the [complete component list in Storybook](https://elevate-core-ui.inform-cloud.io) or [create an issue](https://github.com/owrede-inform/elevate-ds/issues) for component requests and feedback.
+:::

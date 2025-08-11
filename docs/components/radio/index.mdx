@@ -1,0 +1,635 @@
+---
+title: Radio
+description: Radio components allow users to select one option from a set of mutually exclusive choices. The ELEVATE Radio component provides accessible single-selection functionality with consistent styling.
+sidebar_position: 6
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import { ElvtRadio, ElvtRadioGroup } from '@inform-elevate/elevate-core-ui/dist/react';
+
+# Radio
+
+Radio buttons enable users to select exactly one option from a group of mutually exclusive choices. The ELEVATE Radio component ensures accessible, consistent single-selection interfaces that integrate seamlessly with forms and the design system.
+
+## Overview
+
+### When to Use Radio Buttons
+- **Mutually exclusive choices**: When users must select exactly one option from a group
+- **Preference settings**: Setting default options or user preferences
+- **Configuration options**: Choosing between different configuration modes
+- **Survey responses**: Single-answer survey questions and forms
+- **Payment methods**: Selecting one payment option from available choices
+
+### When NOT to Use Radio Buttons
+- **Multiple selections**: Use checkboxes when users can select multiple options
+- **Binary choices**: Use switches or single checkboxes for simple on/off choices
+- **Many options**: Consider dropdowns or other components for large option sets
+- **Optional selection**: When no selection is a valid choice, consider different patterns
+
+## Variations
+
+### Basic Radio Types
+
+Standard Radio provides the fundamental single-selection interface pattern.
+
+<ComponentShowcase
+  title="Basic Radio Buttons"
+  description="Standard radio button group for mutually exclusive selections."
+  code={`<elvt-radio-group label="Choose your preferred contact method:" name="contact-method">
+  <elvt-radio value="email" checked>
+    Email
+    <span slot="description">Receive notifications via email</span>
+  </elvt-radio>
+  
+  <elvt-radio value="sms">
+    SMS
+    <span slot="description">Receive text message notifications</span>
+  </elvt-radio>
+  
+  <elvt-radio value="phone">
+    Phone Call
+    <span slot="description">Receive voice call notifications</span>
+  </elvt-radio>
+  
+  <elvt-radio value="mail" disabled>
+    Postal Mail
+    <span slot="description">Currently unavailable</span>
+  </elvt-radio>
+</elvt-radio-group>`}
+>
+  <div style={{padding: '1rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
+    <ElvtRadioGroup label="Choose your preferred contact method:" name="contact-method">
+      <ElvtRadio value="email" checked>
+        Email
+        <span slot="description">Receive notifications via email</span>
+      </ElvtRadio>
+      
+      <ElvtRadio value="sms">
+        SMS
+        <span slot="description">Receive text message notifications</span>
+      </ElvtRadio>
+      
+      <ElvtRadio value="phone">
+        Phone Call
+        <span slot="description">Receive voice call notifications</span>
+      </ElvtRadio>
+      
+      <ElvtRadio value="mail" disabled>
+        Postal Mail
+        <span slot="description">Currently unavailable</span>
+      </ElvtRadio>
+    </ElvtRadioGroup>
+  </div>
+</ComponentShowcase>
+
+### Inline Radio Groups
+
+Display options horizontally for compact layouts.
+
+<ComponentShowcase
+  title="Inline Radio Group Layout"
+  description="Horizontal radio button layout for compact forms."
+  code={`<elvt-radio-group label="Select your subscription plan:" name="plan" orientation="horizontal">
+  <elvt-radio value="basic">
+    Basic
+    <span slot="description">$9/month</span>
+  </elvt-radio>
+  
+  <elvt-radio value="pro" checked>
+    Pro
+    <span slot="description">$19/month</span>
+  </elvt-radio>
+  
+  <elvt-radio value="enterprise">
+    Enterprise
+    <span slot="description">$49/month</span>
+  </elvt-radio>
+</elvt-radio-group>`}
+>
+  <div style={{padding: '1rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
+    <ElvtRadioGroup label="Select your subscription plan:" name="plan" orientation="horizontal">
+      <ElvtRadio value="basic">
+        Basic
+        <span slot="description">$9/month</span>
+      </ElvtRadio>
+      
+      <ElvtRadio value="pro" checked>
+        Pro
+        <span slot="description">$19/month</span>
+      </ElvtRadio>
+      
+      <ElvtRadio value="enterprise">
+        Enterprise
+        <span slot="description">$49/month</span>
+      </ElvtRadio>
+    </ElvtRadioGroup>
+  </div>
+</ComponentShowcase>
+
+### Radio with Rich Content
+
+Support for complex option descriptions and additional context.
+
+<ComponentShowcase
+  title="Radio Buttons with Rich Content"
+  description="Radio options with detailed descriptions and additional context."
+  code={`<elvt-radio-group label="Choose your deployment environment:" name="environment">
+  <elvt-radio value="development">
+    <div style="display: flex; align-items: start; gap: 1rem;">
+      <div style="color: #007bff; font-size: 1.5rem; margin-top: 0.125rem;">💻</div>
+      <div>
+        <div style="font-weight: 500;">Development Environment</div>
+        <div style="font-size: 0.875rem; color: #6f6f6f; margin-top: 0.25rem;">
+          Perfect for testing and development work. Includes debugging tools and hot reload.
+        </div>
+        <div style="font-size: 0.75rem; color: #28a745; margin-top: 0.5rem;">
+          ✓ Fast deployment • ✓ Debug tools • ✓ Auto-refresh
+        </div>
+      </div>
+    </div>
+  </elvt-radio>
+  
+  <elvt-radio value="staging" checked>
+    <div style="display: flex; align-items: start; gap: 1rem;">
+      <div style="color: #ffc107; font-size: 1.5rem; margin-top: 0.125rem;">🖥️</div>
+      <div>
+        <div style="font-weight: 500;">Staging Environment</div>
+        <div style="font-size: 0.875rem; color: #6f6f6f; margin-top: 0.25rem;">
+          Production-like environment for final testing. Mirrors production configuration.
+        </div>
+        <div style="font-size: 0.75rem; color: #007bff; margin-top: 0.5rem;">
+          ✓ Production config • ✓ Performance testing • ✓ Integration tests
+        </div>
+      </div>
+    </div>
+  </elvt-radio>
+  
+  <elvt-radio value="production">
+    <div style="display: flex; align-items: start; gap: 1rem;">
+      <div style="color: #dc3545; font-size: 1.5rem; margin-top: 0.125rem;">☁️</div>
+      <div>
+        <div style="font-weight: 500;">Production Environment</div>
+        <div style="font-size: 0.875rem; color: #6f6f6f; margin-top: 0.25rem;">
+          Live production environment. Use with caution - affects real users.
+        </div>
+        <div style="font-size: 0.75rem; color: #dc3545; margin-top: 0.5rem;">
+          ⚠️ Live environment • ⚠️ Real users • ⚠️ Careful deployment
+        </div>
+      </div>
+    </div>
+  </elvt-radio>
+</elvt-radio-group>`}
+>
+  <div style={{padding: '1rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
+    <ElvtRadioGroup label="Choose your deployment environment:" name="environment">
+      <ElvtRadio value="development">
+        <div style={{display: 'flex', alignItems: 'start', gap: '1rem'}}>
+          <div style={{color: '#007bff', fontSize: '1.5rem', marginTop: '0.125rem'}}>💻</div>
+          <div>
+            <div style={{fontWeight: '500'}}>Development Environment</div>
+            <div style={{fontSize: '0.875rem', color: '#6f6f6f', marginTop: '0.25rem'}}>
+              Perfect for testing and development work. Includes debugging tools and hot reload.
+            </div>
+            <div style={{fontSize: '0.75rem', color: '#28a745', marginTop: '0.5rem'}}>
+              ✓ Fast deployment • ✓ Debug tools • ✓ Auto-refresh
+            </div>
+          </div>
+        </div>
+      </ElvtRadio>
+      
+      <ElvtRadio value="staging" checked>
+        <div style={{display: 'flex', alignItems: 'start', gap: '1rem'}}>
+          <div style={{color: '#ffc107', fontSize: '1.5rem', marginTop: '0.125rem'}}>🖥️</div>
+          <div>
+            <div style={{fontWeight: '500'}}>Staging Environment</div>
+            <div style={{fontSize: '0.875rem', color: '#6f6f6f', marginTop: '0.25rem'}}>
+              Production-like environment for final testing. Mirrors production configuration.
+            </div>
+            <div style={{fontSize: '0.75rem', color: '#007bff', marginTop: '0.5rem'}}>
+              ✓ Production config • ✓ Performance testing • ✓ Integration tests
+            </div>
+          </div>
+        </div>
+      </ElvtRadio>
+      
+      <ElvtRadio value="production">
+        <div style={{display: 'flex', alignItems: 'start', gap: '1rem'}}>
+          <div style={{color: '#dc3545', fontSize: '1.5rem', marginTop: '0.125rem'}}>☁️</div>
+          <div>
+            <div style={{fontWeight: '500'}}>Production Environment</div>
+            <div style={{fontSize: '0.875rem', color: '#6f6f6f', marginTop: '0.25rem'}}>
+              Live production environment. Use with caution - affects real users.
+            </div>
+            <div style={{fontSize: '0.75rem', color: '#dc3545', marginTop: '0.5rem'}}>
+              ⚠️ Live environment • ⚠️ Real users • ⚠️ Careful deployment
+            </div>
+          </div>
+        </div>
+      </ElvtRadio>
+    </ElvtRadioGroup>
+  </div>
+</ComponentShowcase>
+
+### Size Variations
+
+Different radio sizes accommodate various layout requirements and visual hierarchy.
+
+<ComponentShowcase
+  title="Radio Button Size Variants"
+  description="Three size variants for different contexts and design needs."
+  code={`<div style="display: flex; flex-direction: column; gap: 2rem;">
+  <div>
+    <h4 style="margin: 0 0 1rem 0;">Small Radio Buttons</h4>
+    <elvt-radio-group label="Small options:" name="small-options" size="small">
+      <elvt-radio value="option1" checked>Compact option one</elvt-radio>
+      <elvt-radio value="option2">Compact option two</elvt-radio>
+      <elvt-radio value="option3">Compact option three</elvt-radio>
+    </elvt-radio-group>
+  </div>
+  
+  <div>
+    <h4 style="margin: 0 0 1rem 0;">Medium Radio Buttons (Default)</h4>
+    <elvt-radio-group label="Standard options:" name="medium-options">
+      <elvt-radio value="option1" checked>Standard option one</elvt-radio>
+      <elvt-radio value="option2">Standard option two</elvt-radio>
+      <elvt-radio value="option3">Standard option three</elvt-radio>
+    </elvt-radio-group>
+  </div>
+  
+  <div>
+    <h4 style="margin: 0 0 1rem 0;">Large Radio Buttons</h4>
+    <elvt-radio-group label="Large options:" name="large-options" size="large">
+      <elvt-radio value="option1" checked>Prominent option one</elvt-radio>
+      <elvt-radio value="option2">Prominent option two</elvt-radio>
+      <elvt-radio value="option3">Prominent option three</elvt-radio>
+    </elvt-radio-group>
+  </div>
+</div>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
+    <div>
+      <h4 style={{margin: '0 0 1rem 0'}}>Small Radio Buttons</h4>
+      <ElvtRadioGroup label="Small options:" name="small-options" size="small">
+        <ElvtRadio value="option1" checked>Compact option one</ElvtRadio>
+        <ElvtRadio value="option2">Compact option two</ElvtRadio>
+        <ElvtRadio value="option3">Compact option three</ElvtRadio>
+      </ElvtRadioGroup>
+    </div>
+    
+    <div>
+      <h4 style={{margin: '0 0 1rem 0'}}>Medium Radio Buttons (Default)</h4>
+      <ElvtRadioGroup label="Standard options:" name="medium-options">
+        <ElvtRadio value="option1" checked>Standard option one</ElvtRadio>
+        <ElvtRadio value="option2">Standard option two</ElvtRadio>
+        <ElvtRadio value="option3">Standard option three</ElvtRadio>
+      </ElvtRadioGroup>
+    </div>
+    
+    <div>
+      <h4 style={{margin: '0 0 1rem 0'}}>Large Radio Buttons</h4>
+      <ElvtRadioGroup label="Large options:" name="large-options" size="large">
+        <ElvtRadio value="option1" checked>Prominent option one</ElvtRadio>
+        <ElvtRadio value="option2">Prominent option two</ElvtRadio>
+        <ElvtRadio value="option3">Prominent option three</ElvtRadio>
+      </ElvtRadioGroup>
+    </div>
+  </div>
+</ComponentShowcase>
+
+### Error and Validation States
+
+Radio with validation shows error states and validation feedback.
+
+<ComponentShowcase
+  title="Radio Button Validation States"
+  description="Radio groups with error and success validation states."
+  code={`<div style="display: flex; flex-direction: column; gap: 2rem; max-width: 400px;">
+  <div>
+    <elvt-radio-group label="Payment method (Required):" name="payment-error" required error="Please select a payment method">
+      <elvt-radio value="card">Credit Card</elvt-radio>
+      <elvt-radio value="paypal">PayPal</elvt-radio>
+      <elvt-radio value="bank">Bank Transfer</elvt-radio>
+    </elvt-radio-group>
+  </div>
+  
+  <div>
+    <elvt-radio-group label="Shipping method:" name="shipping-success" success="Valid selection">
+      <elvt-radio value="standard" checked>Standard Shipping</elvt-radio>
+      <elvt-radio value="express">Express Shipping</elvt-radio>
+      <elvt-radio value="overnight">Overnight Delivery</elvt-radio>
+    </elvt-radio-group>
+  </div>
+</div>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '400px'}}>
+    <div>
+      <ElvtRadioGroup label="Payment method (Required):" name="payment-error" required error="Please select a payment method">
+        <ElvtRadio value="card">Credit Card</ElvtRadio>
+        <ElvtRadio value="paypal">PayPal</ElvtRadio>
+        <ElvtRadio value="bank">Bank Transfer</ElvtRadio>
+      </ElvtRadioGroup>
+    </div>
+    
+    <div>
+      <ElvtRadioGroup label="Shipping method:" name="shipping-success" success="Valid selection">
+        <ElvtRadio value="standard" checked>Standard Shipping</ElvtRadio>
+        <ElvtRadio value="express">Express Shipping</ElvtRadio>
+        <ElvtRadio value="overnight">Overnight Delivery</ElvtRadio>
+      </ElvtRadioGroup>
+    </div>
+  </div>
+</ComponentShowcase>
+
+## Design Principles
+
+### Clarity Principle
+**Radio button options should be clearly labeled and mutually exclusive.** Ambiguous or overlapping options confuse users about which choice to make.
+
+### Grouping Principle
+**Related radio buttons should be visually grouped and properly labeled.** Clear grouping helps users understand the relationship between options.
+
+### Selection Principle
+**Exactly one option should be selectable within each radio group.** Breaking this fundamental rule creates unpredictable interface behavior.
+
+### Accessibility Principle
+**Radio groups must be keyboard accessible with proper focus management.** Screen readers need proper group labeling and option announcements.
+
+## Best Practices
+
+### Organizing Radio Options
+
+**Why this matters:** Logical organization helps users find their preferred choice quickly. Poor organization increases cognitive load and selection errors.
+
+:::tip Do: Organize options in logical order
+Present options in a meaningful sequence that helps users find their choice quickly.
+
+```html
+<elvt-radio-group label="Priority level:" name="priority">
+  <elvt-radio value="high">High Priority</elvt-radio>
+  <elvt-radio value="medium">Medium Priority</elvt-radio>
+  <elvt-radio value="low">Low Priority</elvt-radio>
+</elvt-radio-group>
+```
+:::
+
+:::danger Don't: Use random or confusing organization
+Avoid arbitrary ordering that makes options hard to find or compare.
+
+```html
+<!-- Avoid this -->
+<elvt-radio-group label="Size:" name="size">
+  <elvt-radio value="medium">Medium</elvt-radio>
+  <elvt-radio value="extra-large">Extra Large</elvt-radio>
+  <elvt-radio value="small">Small</elvt-radio>
+  <elvt-radio value="large">Large</elvt-radio>
+</elvt-radio-group>
+```
+:::
+
+### Writing Clear Option Labels
+
+**Why this matters:** Clear, distinct labels prevent user confusion and selection mistakes. Ambiguous labels lead to form abandonment and errors.
+
+:::tip Do: Use distinct, clear labels for each option
+Make labels specific and mutually exclusive so users understand their choices.
+
+```html
+<elvt-radio-group label="Delivery method:" name="delivery">
+  <elvt-radio value="standard">Standard Delivery (5-7 days)</elvt-radio>
+  <elvt-radio value="express">Express Delivery (2-3 days)</elvt-radio>
+  <elvt-radio value="overnight">Overnight Delivery (next day)</elvt-radio>
+</elvt-radio-group>
+```
+:::
+
+:::danger Don't: Use vague or overlapping labels
+Avoid generic labels that don't clearly differentiate the options.
+
+```html
+<!-- Avoid this -->
+<elvt-radio-group label="Shipping:" name="shipping">
+  <elvt-radio value="option1">Option 1</elvt-radio>
+  <elvt-radio value="option2">Option 2</elvt-radio>
+  <elvt-radio value="option3">Option 3</elvt-radio>
+</elvt-radio-group>
+```
+:::
+
+## Implementation
+
+### Getting Started
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+### Basic Usage
+
+```html
+<!-- Basic radio group -->
+<elvt-radio-group label="Contact preference:" name="contact">
+  <elvt-radio value="email" checked>Email</elvt-radio>
+  <elvt-radio value="phone">Phone</elvt-radio>
+  <elvt-radio value="sms">SMS</elvt-radio>
+</elvt-radio-group>
+
+<!-- Radio with descriptions -->
+<elvt-radio-group label="Plan selection:" name="plan">
+  <elvt-radio value="basic">
+    Basic Plan
+    <span slot="description">$9/month - Essential features</span>
+  </elvt-radio>
+  <elvt-radio value="pro">
+    Pro Plan
+    <span slot="description">$19/month - Advanced features</span>
+  </elvt-radio>
+</elvt-radio-group>
+
+<!-- Inline radio group -->
+<elvt-radio-group label="Size:" name="size" orientation="horizontal">
+  <elvt-radio value="small">Small</elvt-radio>
+  <elvt-radio value="medium" checked>Medium</elvt-radio>
+  <elvt-radio value="large">Large</elvt-radio>
+</elvt-radio-group>
+
+<!-- Radio with validation -->
+<elvt-radio-group label="Required selection:" name="required" required error="Please make a selection">
+  <elvt-radio value="option1">Option 1</elvt-radio>
+  <elvt-radio value="option2">Option 2</elvt-radio>
+</elvt-radio-group>
+```
+
+### Key Properties
+
+#### Radio Group Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `label` | String | Group label for accessibility |
+| `name` | String | Form field name for all radios in group |
+| `orientation` | `vertical` (default), `horizontal` | Layout orientation |
+| `size` | `small`, `medium` (default), `large` | Size variant |
+| `required` | Boolean | Marks group as required for validation |
+| `error` | String | Error message to display |
+| `success` | String | Success message to display |
+| `disabled` | Boolean | Disables entire radio group |
+
+#### Radio Button Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `value` | String | Value submitted when radio is selected |
+| `checked` | Boolean | Sets radio as selected by default |
+| `disabled` | Boolean | Disables individual radio button |
+| `name` | String | Form field name (usually set by radio-group) |
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-radio--docs).*
+
+## Form Integration Examples
+
+### User Preferences Form
+
+<ComponentShowcase
+  title="User Preferences Form with Radio Groups"
+  description="Multiple radio groups working together in a comprehensive settings form."
+  code={`<div style="max-width: 500px; padding: 2rem; background: white; border: 1px solid #e0e0e0; border-radius: 8px;">
+  <h3 style="margin: 0 0 2rem 0; color: #2d2d2d;">User Preferences</h3>
+  
+  <form style="display: flex; flex-direction: column; gap: 2rem;">
+    <elvt-radio-group label="Email notification frequency:" name="email-frequency">
+      <elvt-radio value="immediate" checked>
+        Immediate
+        <span slot="description">Get notified right away for all activities</span>
+      </elvt-radio>
+      
+      <elvt-radio value="daily">
+        Daily Digest
+        <span slot="description">Receive a summary once per day</span>
+      </elvt-radio>
+      
+      <elvt-radio value="weekly">
+        Weekly Summary
+        <span slot="description">Get a weekly roundup every Monday</span>
+      </elvt-radio>
+      
+      <elvt-radio value="never">
+        Never
+        <span slot="description">Don't send email notifications</span>
+      </elvt-radio>
+    </elvt-radio-group>
+    
+    <elvt-radio-group label="Theme preference:" name="theme" orientation="horizontal">
+      <elvt-radio value="light" checked>Light</elvt-radio>
+      <elvt-radio value="dark">Dark</elvt-radio>
+      <elvt-radio value="auto">Auto</elvt-radio>
+    </elvt-radio-group>
+    
+    <elvt-radio-group label="Language:" name="language">
+      <elvt-radio value="en" checked>🇺🇸 English</elvt-radio>
+      <elvt-radio value="es">🇪🇸 Español</elvt-radio>
+      <elvt-radio value="fr">🇫🇷 Français</elvt-radio>
+      <elvt-radio value="de">🇩🇪 Deutsch</elvt-radio>
+    </elvt-radio-group>
+    
+    <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1rem;">
+      <elvt-button type="button" tone="secondary">Reset</elvt-button>
+      <elvt-button type="submit" tone="primary">Save Preferences</elvt-button>
+    </div>
+  </form>
+</div>`}
+>
+  <div style={{maxWidth: '500px', padding: '2rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
+    <h3 style={{margin: '0 0 2rem 0', color: '#2d2d2d'}}>User Preferences</h3>
+    
+    <div style={{display: 'flex', flexDirection: 'column', gap: '2rem'}}>
+      <ElvtRadioGroup label="Email notification frequency:" name="email-frequency">
+        <ElvtRadio value="immediate" checked>
+          Immediate
+          <span slot="description">Get notified right away for all activities</span>
+        </ElvtRadio>
+        
+        <ElvtRadio value="daily">
+          Daily Digest
+          <span slot="description">Receive a summary once per day</span>
+        </ElvtRadio>
+        
+        <ElvtRadio value="weekly">
+          Weekly Summary
+          <span slot="description">Get a weekly roundup every Monday</span>
+        </ElvtRadio>
+        
+        <ElvtRadio value="never">
+          Never
+          <span slot="description">Don't send email notifications</span>
+        </ElvtRadio>
+      </ElvtRadioGroup>
+      
+      <ElvtRadioGroup label="Theme preference:" name="theme" orientation="horizontal">
+        <ElvtRadio value="light" checked>Light</ElvtRadio>
+        <ElvtRadio value="dark">Dark</ElvtRadio>
+        <ElvtRadio value="auto">Auto</ElvtRadio>
+      </ElvtRadioGroup>
+      
+      <ElvtRadioGroup label="Language:" name="language">
+        <ElvtRadio value="en" checked>🇺🇸 English</ElvtRadio>
+        <ElvtRadio value="es">🇪🇸 Español</ElvtRadio>
+        <ElvtRadio value="fr">🇫🇷 Français</ElvtRadio>
+        <ElvtRadio value="de">🇩🇪 Deutsch</ElvtRadio>
+      </ElvtRadioGroup>
+      
+      <div style={{display: 'flex', gap: '1rem', justifyContent: 'flex-end', marginTop: '1rem'}}>
+        <button style={{padding: '0.5rem 1rem', border: '1px solid #ccc', borderRadius: '4px', background: 'white', cursor: 'pointer'}}>Reset</button>
+        <button style={{padding: '0.5rem 1rem', border: 'none', borderRadius: '4px', background: '#0066cc', color: 'white', cursor: 'pointer'}}>Save Preferences</button>
+      </div>
+    </div>
+  </div>
+</ComponentShowcase>
+
+## Accessibility
+
+### Essential Accessibility Features
+
+**Proper grouping and labeling:**
+- Radio groups use fieldset/legend or appropriate ARIA labeling
+- Each radio button has a clear, descriptive label
+- Group labels clearly describe the choice being made
+- Related options are visually and semantically grouped
+
+**Keyboard accessibility:**
+- Arrow keys navigate between radio buttons within a group
+- Tab moves between radio groups and other form elements
+- Space key selects the focused radio button
+- Selected radio buttons are clearly indicated to keyboard users
+
+**Screen reader support:**
+- Radio group labels are properly announced
+- Individual radio labels are read when focused
+- Selection state changes are announced
+- Required status and validation messages are communicated
+
+**Clear visual design:**
+- Selected and unselected states are visually distinct
+- Focus indicators meet accessibility contrast requirements
+- Disabled states are clearly communicated visually
+- Radio buttons maintain usable size for motor accessibility
+
+## Changelog
+
+### Version 0.0.26-alpha (July 16, 2025)
+- Current version in active development
+
+### Version 0.0.23-alpha (June 27, 2025)
+- **Enhanced**: Improved radio group focus management
+- **New**: Added radio button size variants
+
+### Version 0.0.20-alpha (June 18, 2025)
+- **Enhanced**: Updated radio styling with design tokens
+- **Fixed**: Improved keyboard navigation between radio groups
+
+### Version 0.0.18-alpha (June 9, 2025)
+- **New**: Added radio group validation states
+- **Enhanced**: Better screen reader support
+
+### Version 0.0.15-alpha (May 20, 2025)
+- **New**: Add Radio Component (initial implementation)
+- **New**: Basic radio group functionality and styling

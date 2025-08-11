@@ -1,0 +1,435 @@
+---
+title: Button
+description: Buttons trigger actions and guide users through workflows. They provide clear affordances and communicate hierarchy through visual styling.
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import { ElvtButton, ElvtIcon } from '@inform-elevate/elevate-core-ui/dist/react';
+
+# Button
+
+Buttons are the primary interface for user actions in digital products. The ELEVATE Button component helps designers and developers create consistent, accessible interfaces that guide users through workflows with clear visual hierarchy and meaningful interactions.
+
+## Overview
+
+### When to Use Buttons
+- **Primary actions**: Sign up, submit, save, confirm, purchase
+- **Secondary actions**: Cancel, back, learn more, edit  
+- **Navigation**: Next step, continue, proceed to checkout
+- **Destructive actions**: Delete, remove, reset, archive
+
+### When NOT to Use Buttons
+- **Links**: Use Link component for navigation between pages or external sites
+- **Toggles**: Use Switch component for on/off states or settings
+- **Selection**: Use Checkbox or Radio for multiple choice selections
+- **Filters**: Use FilterButton or Chip components for content filtering
+
+## Variations
+
+### Tone Variations
+
+Each tone communicates a different type of action and creates visual hierarchy in your interface.
+
+<ComponentShowcase
+  title="Button Tones"
+  description="Different button tones for various use cases and semantic meaning."
+  code={`<div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+  <elvt-button tone="primary">Primary</elvt-button>
+  <elvt-button tone="neutral">Neutral</elvt-button>
+  <elvt-button tone="success">Success</elvt-button>
+  <elvt-button tone="warning">Warning</elvt-button>
+  <elvt-button tone="danger">Danger</elvt-button>
+  <elvt-button tone="subtle">Subtle</elvt-button>
+  <elvt-button tone="emphasized">Emphasized</elvt-button>
+</div>`}
+>
+  <div style={{display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap'}}>
+    <ElvtButton tone="primary">Primary</ElvtButton>
+    <ElvtButton tone="neutral">Neutral</ElvtButton>
+    <ElvtButton tone="success">Success</ElvtButton>
+    <ElvtButton tone="warning">Warning</ElvtButton>
+    <ElvtButton tone="danger">Danger</ElvtButton>
+    <ElvtButton tone="subtle">Subtle</ElvtButton>
+    <ElvtButton tone="emphasized">Emphasized</ElvtButton>
+  </div>
+</ComponentShowcase>
+
+### State Variations
+
+<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem'}}>
+
+<div>
+
+Buttons can be disabled when an action is temporarily unavailable.
+
+<ComponentShowcase
+  title="Disabled Button"
+  description="Buttons in disabled state cannot be interacted with."
+  code={`<elvt-button tone="primary" disabled>Disabled Button</elvt-button>`}
+>
+  <ElvtButton tone="primary" disabled>Disabled Button</ElvtButton>
+</ComponentShowcase>
+
+</div>
+
+<div>
+
+Selected state for buttons that toggle or represent current selection.
+
+<ComponentShowcase
+  title="Selected Button"
+  description="Buttons can show an active or selected state."
+  code={`<elvt-button tone="primary" selected>Selected Button</elvt-button>`}
+>
+  <ElvtButton tone="primary" selected>Selected Button</ElvtButton>
+</ComponentShowcase>
+
+</div>
+
+</div>
+
+### Icon Usage
+
+Buttons can include icons to enhance clarity and provide visual context. Icons should always support the button's purpose.
+
+#### Prefix Icons
+
+Icons before text help identify the action type or category.
+
+<ComponentShowcase
+  title="Buttons with Prefix Icons"
+  description="Icons placed before button text provide visual context for the action."
+  code={`<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+  <elvt-button tone="primary">
+    <elvt-icon slot="prefix" icon="mdi:plus"></elvt-icon>
+    Add Item
+  </elvt-button>
+  <elvt-button tone="success">
+    <elvt-icon slot="prefix" icon="mdi:download"></elvt-icon>
+    Download
+  </elvt-button>
+  <elvt-button tone="danger">
+    <elvt-icon slot="prefix" icon="mdi:delete"></elvt-icon>
+    Delete
+  </elvt-button>
+</div>`}
+>
+  <div style={{display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center'}}>
+    <ElvtButton tone="primary">
+      <ElvtIcon slot="prefix" icon="mdi:plus" />
+      Add Item
+    </ElvtButton>
+    <ElvtButton tone="success">
+      <ElvtIcon slot="prefix" icon="mdi:download" />
+      Download
+    </ElvtButton>
+    <ElvtButton tone="danger">
+      <ElvtIcon slot="prefix" icon="mdi:delete" />
+      Delete
+    </ElvtButton>
+  </div>
+</ComponentShowcase>
+
+#### Suffix Icons
+
+Icons after text suggest direction or outcome of the action.
+
+<ComponentShowcase
+  title="Buttons with Suffix Icons"
+  description="Icons placed after button text indicate direction or outcome."
+  code={`<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
+  <elvt-button tone="primary">
+    Continue
+    <elvt-icon slot="suffix" icon="mdi:chevron-right"></elvt-icon>
+  </elvt-button>
+  <elvt-button>
+    Open Link
+    <elvt-icon slot="suffix" icon="mdi:open-in-new"></elvt-icon>
+  </elvt-button>
+  <elvt-button tone="subtle">
+    Expand
+    <elvt-icon slot="suffix" icon="mdi:chevron-down"></elvt-icon>
+  </elvt-button>
+</div>`}
+>
+  <div style={{display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center'}}>
+    <ElvtButton tone="primary">
+      Continue
+      <ElvtIcon slot="suffix" icon="mdi:chevron-right" />
+    </ElvtButton>
+    <ElvtButton>
+      Open Link
+      <ElvtIcon slot="suffix" icon="mdi:open-in-new" />
+    </ElvtButton>
+    <ElvtButton tone="subtle">
+      Expand
+      <ElvtIcon slot="suffix" icon="mdi:chevron-down" />
+    </ElvtButton>
+  </div>
+</ComponentShowcase>
+
+#### Icon Only
+
+Icon-only buttons save space but require clear, universally understood icons and accessibility considerations.
+
+<ComponentShowcase
+  title="Icon-Only Buttons"
+  description="Buttons with only icons should have proper accessibility attributes."
+  code={`<div style="display: flex; gap: 0.75rem; align-items: center;">
+  <elvt-button tone="primary" title="Add new item" aria-label="Add new item">
+    <elvt-icon icon="mdi:plus"></elvt-icon>
+  </elvt-button>
+  <elvt-button title="Edit" aria-label="Edit">
+    <elvt-icon icon="mdi:pencil"></elvt-icon>
+  </elvt-button>
+  <elvt-button tone="danger" title="Delete" aria-label="Delete">
+    <elvt-icon icon="mdi:delete"></elvt-icon>
+  </elvt-button>
+  <elvt-button tone="subtle" title="More options" aria-label="More options">
+    <elvt-icon icon="mdi:dots-vertical"></elvt-icon>
+  </elvt-button>
+</div>`}
+>
+  <div style={{display: 'flex', gap: '0.75rem', alignItems: 'center'}}>
+    <ElvtButton tone="primary" title="Add new item" aria-label="Add new item">
+      <ElvtIcon icon="mdi:plus" />
+    </ElvtButton>
+    <ElvtButton title="Edit" aria-label="Edit">
+      <ElvtIcon icon="mdi:pencil" />
+    </ElvtButton>
+    <ElvtButton tone="danger" title="Delete" aria-label="Delete">
+      <ElvtIcon icon="mdi:delete" />
+    </ElvtButton>
+    <ElvtButton tone="subtle" title="More options" aria-label="More options">
+      <ElvtIcon icon="mdi:dots-vertical" />
+    </ElvtButton>
+  </div>
+</ComponentShowcase>
+
+### Size Variations
+
+<ComponentShowcase
+  title="Button Sizes"
+  description="Three button sizes available - small, medium (default), and large."
+  code={`<div style="display: flex; gap: 1rem; align-items: center;">
+  <elvt-button size="small">Small</elvt-button>
+  <elvt-button size="medium">Medium</elvt-button>
+  <elvt-button size="large">Large</elvt-button>
+</div>`}
+>
+  <div style={{display: 'flex', gap: '1rem', alignItems: 'center'}}>
+    <ElvtButton size="small">Small</ElvtButton>
+    <ElvtButton size="medium">Medium</ElvtButton>
+    <ElvtButton size="large">Large</ElvtButton>
+  </div>
+</ComponentShowcase>
+
+## Design Principles
+
+Understanding these core principles will help you make better design decisions and avoid interface patterns that confuse or frustrate users.
+
+### Visual Hierarchy Principle
+**Clear hierarchy guides user attention and reduces cognitive load.** Users should immediately understand which action is most important on any given screen. Competing visual weights create confusion and decision paralysis.
+
+### Semantic Communication Principle  
+**Visual design should match functional meaning.** Colors, shapes, and styling should intuitively communicate what type of action the button performs. Misleading visual cues break user expectations and decrease trust.
+
+### Cognitive Load Principle
+**Reduce the mental effort required to use your interface.** Button labels should be descriptive and action-oriented. Generic or vague labels force users to guess what will happen, increasing friction and mistakes.
+
+### Consistency Principle
+**Similar actions should look and behave similarly across your product.** Inconsistent button styling creates a fragmented experience and forces users to relearn patterns throughout your interface.
+
+## Best Practices
+
+### Establishing Clear Hierarchy
+
+**Why this matters:** When multiple buttons compete for attention with equal visual weight, users experience decision paralysis. They can't quickly identify the most important action, leading to hesitation and mistakes.
+
+:::tip Do: Use one primary button per page
+Use one primary button for the main action, with secondary buttons for supporting actions.
+
+```html
+<elvt-button tone="primary">Save Changes</elvt-button>
+<elvt-button>Cancel</elvt-button>
+```
+:::
+
+:::danger Don't: Use multiple primary buttons
+Don't use multiple primary buttons as it creates confusion about which action is most important.
+
+```html
+<!-- Avoid this -->
+<elvt-button tone="primary">Save Changes</elvt-button>
+<elvt-button tone="primary">Submit Form</elvt-button>
+```
+:::
+
+### Writing Effective Button Labels
+
+**Why this matters:** Vague button labels increase cognitive load and create uncertainty. Users hesitate when they can't predict what will happen after clicking. Clear, action-oriented labels build confidence and reduce interaction friction.
+
+:::tip Do: Use clear, action-oriented labels
+Use labels that describe what will happen when the button is clicked.
+
+```html
+<elvt-button tone="danger">Delete Account</elvt-button>
+<elvt-button tone="success">Confirm Order</elvt-button>
+<elvt-button>Save Draft</elvt-button>
+```
+:::
+
+:::danger Don't: Use vague or generic labels
+Avoid generic labels that don't describe the specific action.
+
+```html
+<!-- Avoid these -->
+<elvt-button tone="danger">OK</elvt-button>
+<elvt-button tone="success">Yes</elvt-button>
+<elvt-button>Click Here</elvt-button>
+```
+:::
+
+### Using Danger Tone Appropriately
+
+**Why this matters:** Overusing danger styling creates "alert fatigue" where users become desensitized to warnings. Misusing danger tone for reversible actions breaks the semantic meaning users expect, reducing trust and potentially causing accidental destructive actions.
+
+:::tip Do: Use danger tone for destructive actions
+Reserve danger tone for actions with clear, irreversible consequences.
+
+```html
+<elvt-button tone="danger">Delete 3 selected items</elvt-button>
+<elvt-button tone="danger">Remove user access</elvt-button>
+```
+:::
+
+:::danger Don't: Use danger tone for non-destructive actions
+Avoid using danger tone for reversible or non-destructive actions.
+
+```html
+<!-- Avoid these -->
+<elvt-button tone="danger">Log Out</elvt-button>
+<elvt-button tone="danger">Hide Notification</elvt-button>
+```
+:::
+
+## Implementation
+
+### Getting Started
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+```javascript
+// Import all components
+import '@inform-elevate/elevate-core-ui';
+
+// Or import specific components  
+import '@inform-elevate/elevate-core-ui/dist/components/button/button.js';
+```
+
+### Common Usage Patterns
+
+```html
+<!-- Primary action with secondary support -->
+<elvt-button tone="primary">Save Changes</elvt-button>
+<elvt-button>Cancel</elvt-button>
+
+<!-- Action with prefix icon -->
+<elvt-button tone="primary">
+  <elvt-icon slot="prefix" icon="mdi:plus"></elvt-icon>
+  Add Item
+</elvt-button>
+
+<!-- Navigation with suffix icon -->
+<elvt-button>
+  Continue
+  <elvt-icon slot="suffix" icon="mdi:chevron-right"></elvt-icon>
+</elvt-button>
+
+<!-- Destructive action -->
+<elvt-button tone="danger">Delete Account</elvt-button>
+
+<!-- Link button -->
+<elvt-button href="/dashboard">Go to Dashboard</elvt-button>
+
+<!-- Form submission -->
+<elvt-button type="submit" tone="primary">Submit Form</elvt-button>
+```
+
+### Key Properties
+
+| Property | Options | Description |
+|----------|---------|-------------|
+| `tone` | `neutral` (default), `primary`, `success`, `warning`, `danger`, `emphasized`, `subtle` | Visual style that communicates action type |
+| `size` | `small`, `medium` (default), `large` | Physical size of the button |  
+| `disabled` | `true`, `false` (default) | Whether the button can be interacted with |
+| `selected` | `true`, `false` (default) | Whether the button appears selected/active |
+| `href` | URL string | Makes button behave as a link |
+| `target` | `_blank`, `_parent`, `_self`, `_top` | Where to open the link (when href is set) |
+| `type` | `button` (default), `submit`, `reset` | Form behavior when used in forms |
+| `name` | String | Form field name when used in forms |
+| `value` | String | Form field value when used in forms |
+| `padding` | Padding string or object | Custom padding using design tokens |
+
+**Icon Slots:** Use `slot="prefix"` for icons before text, `slot="suffix"` for icons after text.
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-buttons-button--docs).*
+
+## Accessibility
+
+### Essential Accessibility Practices
+
+**Icon-only buttons require labels:**
+```html
+<!-- Good: Screen readers can announce the action -->
+<elvt-button aria-label="Delete item" title="Delete item">
+  <elvt-icon icon="mdi:delete"></elvt-icon>
+</elvt-button>
+
+<!-- Bad: Screen readers can't identify the action -->
+<elvt-button>
+  <elvt-icon icon="mdi:delete"></elvt-icon>
+</elvt-button>
+```
+
+**Use clear, descriptive labels:**
+- ✅ "Delete 3 selected items" 
+- ❌ "OK" or "Click here"
+
+**Ensure sufficient contrast:**
+- Button text must meet 4.5:1 contrast ratio minimum
+- Focus indicators must be clearly visible
+
+**Maintain touch target size:**
+- Minimum 44px × 44px for mobile interfaces
+- All button sizes meet this requirement by default
+
+**Keyboard behavior is built-in:**
+- Space and Enter activate buttons automatically
+- Tab navigation works without additional code
+
+## Changelog
+
+### Version 0.0.26-alpha (July 16, 2025)
+- Current version in active development
+
+### Version 0.0.25-alpha (July 10, 2025)
+- **Breaking**: Adjust Button Design, Remove Shoelace Button
+- **Enhanced**: Complete rewrite with custom styling
+
+### Version 0.0.22-alpha (June 25, 2025)
+- **New**: Add ButtonComponent.focus() method
+
+### Version 0.0.20-alpha (June 18, 2025)
+- **New**: Add "name" and "value" Attributes to Button
+- **Breaking**: Replace Severity with Tone
+
+### Version 0.0.18-alpha (June 9, 2025)
+- **Fixed**: Fixed Usability Issues in Button and Button Group Stories
+
+### Version 0.0.3-alpha (March 27, 2025)
+- **New**: Add Button Component (initial implementation)
+- **New**: Add Icon Button Component

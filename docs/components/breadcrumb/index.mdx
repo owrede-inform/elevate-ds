@@ -1,0 +1,320 @@
+---
+title: Breadcrumb
+description: Breadcrumbs show users their location within a site hierarchy and provide quick navigation to parent pages. They improve wayfinding and user orientation.
+sidebar_position: 12
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+Breadcrumbs are navigational aids that show users their current location within a website's hierarchy and provide quick navigation to parent pages. The ELEVATE Breadcrumb component helps designers and developers create consistent wayfinding patterns that reduce cognitive load and improve user orientation in complex information architectures.
+
+## Overview
+
+### When to Use Breadcrumbs
+- **Deep hierarchies**: Sites with 3+ levels of navigation structure
+- **Complex information architecture**: Multiple categories and subcategories
+- **User orientation**: When users need to understand their current location
+- **Quick navigation**: Allowing fast access to parent levels without browser back button
+- **E-commerce sites**: Product categories and detailed product pages
+- **Documentation sites**: Multi-level content organization
+
+### When NOT to Use Breadcrumbs
+- **Shallow sites**: Sites with only 1-2 navigation levels
+- **Linear workflows**: Step-by-step processes or wizards (use progress indicators)
+- **Single-page applications**: Without clear hierarchical structure
+- **Mobile-first designs**: Where horizontal space is extremely limited
+- **Homepage or landing pages**: Users haven't navigated through a hierarchy yet
+
+## Variations
+
+### Standard Breadcrumb
+
+Traditional hierarchical navigation showing the complete path from root to current page.
+
+<ComponentShowcase
+  title="Standard Breadcrumb Navigation"
+  description="Basic hierarchical breadcrumb showing navigation path"
+  code={`<elvt-breadcrumb>
+  <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/products">Products</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/products/electronics">Electronics</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item current>Laptops</elvt-breadcrumb-item>
+</elvt-breadcrumb>`}
+>
+  <elvt-breadcrumb>
+    <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item href="/products">Products</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item href="/products/electronics">Electronics</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item current>Laptops</elvt-breadcrumb-item>
+  </elvt-breadcrumb>
+</ComponentShowcase>
+
+### Breadcrumb with Icons
+
+Enhanced breadcrumb using icons to improve visual recognition and category identification.
+
+<ComponentShowcase
+  title="Breadcrumb with Icons"
+  description="Breadcrumb navigation enhanced with meaningful icons"
+  code={`<elvt-breadcrumb>
+  <elvt-breadcrumb-item href="/">
+    <elvt-icon slot="prefix" icon="mdi:home"></elvt-icon>
+    Home
+  </elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/dashboard">
+    <elvt-icon slot="prefix" icon="mdi:view-dashboard"></elvt-icon>
+    Dashboard
+  </elvt-breadcrumb-item>
+  <elvt-breadcrumb-item current>Settings</elvt-breadcrumb-item>
+</elvt-breadcrumb>`}
+>
+  <elvt-breadcrumb>
+    <elvt-breadcrumb-item href="/">
+      <elvt-icon slot="prefix" icon="mdi:home"></elvt-icon>
+      Home
+    </elvt-breadcrumb-item>
+    <elvt-breadcrumb-item href="/dashboard">
+      <elvt-icon slot="prefix" icon="mdi:view-dashboard"></elvt-icon>
+      Dashboard
+    </elvt-breadcrumb-item>
+    <elvt-breadcrumb-item current>Settings</elvt-breadcrumb-item>
+  </elvt-breadcrumb>
+</ComponentShowcase>
+
+### Compact Breadcrumb
+
+Condensed version that truncates middle levels for space-constrained layouts while maintaining context.
+
+<ComponentShowcase
+  title="Compact Breadcrumb with Truncation"
+  description="Space-efficient breadcrumb that truncates middle levels"
+  code={`<elvt-breadcrumb compact max-items="3">
+  <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/level1">Level 1</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/level2">Level 2</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/level3">Level 3</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item current>Current Page</elvt-breadcrumb-item>
+</elvt-breadcrumb>`}
+>
+  <elvt-breadcrumb compact max-items="3">
+    <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item href="/level1">Level 1</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item href="/level2">Level 2</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item href="/level3">Level 3</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item current>Current Page</elvt-breadcrumb-item>
+  </elvt-breadcrumb>
+</ComponentShowcase>
+
+## Design Principles
+
+Understanding these core principles will help you make better navigation decisions and avoid patterns that confuse users or create dead-end experiences.
+
+### Hierarchical Clarity Principle
+**Navigation should reflect the actual information architecture.** Breadcrumbs must accurately represent the site's structure and the user's path through it. Misleading or inconsistent hierarchy breaks user mental models and reduces navigation confidence.
+
+### Cognitive Load Reduction Principle  
+**Simplify wayfinding without overwhelming users.** Breadcrumbs should provide context without cluttering the interface. Too many levels or verbose labels increase cognitive burden and reduce scanning efficiency.
+
+### Consistency Principle
+**Similar pages should have similar breadcrumb patterns.** Consistent breadcrumb structure across similar content types helps users predict navigation behavior and builds interface familiarity.
+
+### Contextual Relevance Principle
+**Every breadcrumb level should be meaningful to users.** Technical or administrative hierarchy levels that don't help users understand their location should be omitted in favor of user-centric organization.
+
+## Best Practices
+
+### Creating Clear Information Hierarchy
+
+**Why this matters:** Inconsistent or confusing breadcrumb hierarchy creates disorientation and reduces user confidence in the navigation system. Users rely on breadcrumbs to understand where they are and how to get back to previous levels.
+
+:::tip Do
+Use logical, user-friendly hierarchy that matches user expectations
+
+Example: Home / Electronics / Laptops / MacBook Pro
+:::
+
+:::danger Don't
+Use technical or confusing hierarchy that doesn't help users
+
+Example: Home / Category_ID_42 / SKU_Group_A / Product_12345
+:::
+
+### Writing Effective Breadcrumb Labels
+
+**Why this matters:** Vague or overly long breadcrumb labels slow down scanning and force users to read every level to understand their location. Clear, concise labels enable quick visual scanning and immediate context recognition.
+
+:::tip Do
+Use concise, scannable labels that clearly identify each level
+
+Example: Support / Account / Password Reset
+:::
+
+:::danger Don't
+Use verbose labels that are hard to scan quickly
+
+Example: Customer Support Center / Account Management / Reset Your Password
+:::
+
+## Implementation
+
+### Installation
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+### Basic Usage
+
+```html
+<elvt-breadcrumb>
+  <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/products">Products</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/products/electronics">Electronics</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item current>Laptop</elvt-breadcrumb-item>
+</elvt-breadcrumb>
+```
+
+### With Icons
+
+```html
+<elvt-breadcrumb>
+  <elvt-breadcrumb-item href="/">
+    <elvt-icon name="home"></elvt-icon>
+    Home
+  </elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/dashboard">
+    <elvt-icon name="dashboard"></elvt-icon>
+    Dashboard
+  </elvt-breadcrumb-item>
+  <elvt-breadcrumb-item current>Settings</elvt-breadcrumb-item>
+</elvt-breadcrumb>
+```
+
+### Compact Version
+
+```html
+<elvt-breadcrumb compact max-items="3">
+  <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/level1">Level 1</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/level2">Level 2</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item href="/level3">Level 3</elvt-breadcrumb-item>
+  <elvt-breadcrumb-item current>Current Page</elvt-breadcrumb-item>
+</elvt-breadcrumb>
+```
+
+### Key Properties
+
+The most commonly used properties for design and development:
+
+| Property | Options | Description |
+|----------|---------|-------------|
+| `separator` | `string` (default: `/`) | Character or icon used between breadcrumb items |
+| `compact` | `true`, `false` (default) | Enable compact mode with truncation for long breadcrumbs |
+| `max-items` | Number (default: `5`) | Maximum visible items before truncation in compact mode |
+| `show-home` | `true` (default), `false` | Whether to always show home/root item |
+
+### Breadcrumb Item Properties
+
+| Property | Options | Description |
+|----------|---------|-------------|
+| `href` | URL string | Link destination for the breadcrumb item |
+| `current` | `true`, `false` (default) | Whether this represents the current page (non-clickable) |
+| `disabled` | `true`, `false` (default) | Whether the item appears disabled |
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-breadcrumb--docs).*
+
+## Interactive Examples
+
+### Live Breadcrumb Playground
+
+Experience how breadcrumbs behave in realistic contexts. All examples use actual ELEVATE components.
+
+<ComponentShowcase
+  title="E-commerce Navigation Example"
+  description="Real-world breadcrumb navigation in an e-commerce context"
+  code={`<div style="padding: 2rem; background: #f4f4f4; border-radius: 8px;">
+  <!-- Page Header -->
+  <elvt-breadcrumb style="margin-bottom: 1rem;">
+    <elvt-breadcrumb-item href="/">
+      <elvt-icon slot="prefix" icon="mdi:home"></elvt-icon>
+      Home
+    </elvt-breadcrumb-item>
+    <elvt-breadcrumb-item href="/shop">Shop</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item href="/shop/electronics">Electronics</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item href="/shop/electronics/computers">Computers</elvt-breadcrumb-item>
+    <elvt-breadcrumb-item current>Gaming Laptops</elvt-breadcrumb-item>
+  </elvt-breadcrumb>
+  
+  <!-- Page Content -->
+  <h1 style="margin: 0 0 0.5rem 0; font-size: 1.75rem;">Gaming Laptops</h1>
+  <p style="margin: 0; color: #6f6f6f;">High-performance laptops for gaming and creative work</p>
+</div>`}
+>
+  <div style={{padding: '2rem', background: '#f4f4f4', borderRadius: '8px'}}>
+    <elvt-breadcrumb style={{marginBottom: '1rem'}}>
+      <elvt-breadcrumb-item href="/">
+        <elvt-icon slot="prefix" icon="mdi:home"></elvt-icon>
+        Home
+      </elvt-breadcrumb-item>
+      <elvt-breadcrumb-item href="/shop">Shop</elvt-breadcrumb-item>
+      <elvt-breadcrumb-item href="/shop/electronics">Electronics</elvt-breadcrumb-item>
+      <elvt-breadcrumb-item href="/shop/electronics/computers">Computers</elvt-breadcrumb-item>
+      <elvt-breadcrumb-item current>Gaming Laptops</elvt-breadcrumb-item>
+    </elvt-breadcrumb>
+    
+    <h1 style={{margin: '0 0 0.5rem 0', fontSize: '1.75rem'}}>Gaming Laptops</h1>
+    <p style={{margin: 0, color: '#6f6f6f'}}>High-performance laptops for gaming and creative work</p>
+  </div>
+</ComponentShowcase>
+
+## Accessibility
+
+### Essential Accessibility Practices
+
+**Semantic structure is critical:**
+```html
+<!-- Good: Proper semantic structure -->
+<nav aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li><a href="/products">Products</a></li>
+    <li aria-current="page">Current Page</li>
+  </ol>
+</nav>
+
+<!-- Bad: Non-semantic structure -->
+<div>
+  <span>Home</span> / <span>Products</span> / <span>Current</span>
+</div>
+```
+
+**Current page identification:**
+- ✅ Use `aria-current="page"` for the current location
+- ✅ Make current page non-clickable
+- ❌ Don't rely only on visual styling to show current page
+
+**Keyboard navigation works automatically:**
+- Tab moves focus between clickable breadcrumb links
+- Enter and Space activate focused links
+- Screen readers announce breadcrumb as navigation landmark
+
+**Ensure sufficient contrast:**
+- All breadcrumb text must meet 4.5:1 contrast ratio minimum
+- Separators should be visible but not overwhelming
+- Focus indicators must be clearly visible
+
+**Provide meaningful labels:**
+- Use `aria-label="Breadcrumb"` or `aria-labelledby` for navigation
+- Ensure link text is descriptive out of context
+- Consider mobile screen reader users who may not see full hierarchy
+
+## Changelog
+
+### Version 0.0.26-alpha (July 16, 2025)
+- Current version in active development
+
+### Version 0.0.25-alpha (July 10, 2025)
+- **Enhanced**: Adjust Design for BreadcrumbItem
+
+### Version 0.0.2-alpha (March 19, 2025)
+- **New**: Add Breadcrumb and Breadcrumb Item Components (initial implementation)

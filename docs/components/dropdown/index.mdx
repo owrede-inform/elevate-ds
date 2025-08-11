@@ -1,0 +1,483 @@
+---
+title: Dropdown
+description: Dropdowns allow users to select from a list of options in a compact interface. They save screen space while providing access to multiple choices.
+sidebar_position: 20
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+Dropdowns provide efficient option selection within constrained interface space. The ELEVATE Dropdown component helps designers and developers create consistent, accessible selection experiences that work well across different contexts and device types.
+
+## Overview
+
+### When to Use Dropdowns
+- **Form selections**: Country, state, category, and type selections
+- **Filters and sorting**: Data table filters and sort options
+- **Settings menus**: Configuration options and preferences
+- **Action menus**: Context-specific actions and commands
+- **Navigation**: Secondary navigation and menu structures
+
+### When NOT to Use Dropdowns
+- **Two options**: Use radio buttons or toggle switches for binary choices
+- **Many options**: Consider autocomplete or search for 10+ options
+- **Always visible info**: Use visible text for frequently referenced information
+- **Primary navigation**: Use dedicated navigation components for main site sections
+
+## Variations
+
+### Basic Dropdown
+
+Standard dropdown for selecting one option from a list with clear visual feedback.
+
+<ComponentShowcase
+  title="Basic Dropdown Selection"
+  description="Standard dropdowns for form selections and option lists"
+  code={`<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 300px;">
+  <elvt-dropdown placement="bottom-start">
+    <elvt-button slot="trigger" caret>
+      Select Country
+    </elvt-button>
+    <elvt-menu-item value="us">United States</elvt-menu-item>
+    <elvt-menu-item value="ca">Canada</elvt-menu-item>
+    <elvt-menu-item value="uk">United Kingdom</elvt-menu-item>
+    <elvt-menu-item value="de">Germany</elvt-menu-item>
+    <elvt-menu-item value="fr">France</elvt-menu-item>
+  </elvt-dropdown>
+  
+  <elvt-dropdown placement="bottom-start">
+    <elvt-button slot="trigger" tone="subtle" caret>
+      Priority Level
+    </elvt-button>
+    <elvt-menu-item value="low">Low Priority</elvt-menu-item>
+    <elvt-menu-item value="medium">Medium Priority</elvt-menu-item>
+    <elvt-menu-item value="high">High Priority</elvt-menu-item>
+    <elvt-menu-item value="urgent">Urgent</elvt-menu-item>
+  </elvt-dropdown>
+</div>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '300px'}}>
+    <elvt-dropdown placement="bottom-start">
+      <elvt-button slot="trigger" caret>
+        Select Country
+      </elvt-button>
+      <elvt-menu-item value="us">United States</elvt-menu-item>
+      <elvt-menu-item value="ca">Canada</elvt-menu-item>
+      <elvt-menu-item value="uk">United Kingdom</elvt-menu-item>
+      <elvt-menu-item value="de">Germany</elvt-menu-item>
+      <elvt-menu-item value="fr">France</elvt-menu-item>
+    </elvt-dropdown>
+    
+    <elvt-dropdown placement="bottom-start">
+      <elvt-button slot="trigger" tone="subtle" caret>
+        Priority Level
+      </elvt-button>
+      <elvt-menu-item value="low">Low Priority</elvt-menu-item>
+      <elvt-menu-item value="medium">Medium Priority</elvt-menu-item>
+      <elvt-menu-item value="high">High Priority</elvt-menu-item>
+      <elvt-menu-item value="urgent">Urgent</elvt-menu-item>
+    </elvt-dropdown>
+  </div>
+</ComponentShowcase>
+
+### Action Dropdown
+
+Dropdown for presenting actions and commands with icons and clear labels.
+
+<ComponentShowcase
+  title="Action Dropdown Menu"
+  description="Action dropdowns for contextual menus and commands"
+  code={`<div style="display: flex; gap: 1rem;">
+  <elvt-dropdown placement="bottom-start">
+    <elvt-button slot="trigger" tone="subtle" caret>
+      <elvt-icon slot="prefix" icon="mdi:dots-vertical"></elvt-icon>
+      Actions
+    </elvt-button>
+    <elvt-menu-item>
+      <elvt-icon slot="prefix" icon="mdi:pencil"></elvt-icon>
+      Edit Item
+    </elvt-menu-item>
+    <elvt-menu-item>
+      <elvt-icon slot="prefix" icon="mdi:copy"></elvt-icon>
+      Duplicate
+    </elvt-menu-item>
+    <elvt-menu-item>
+      <elvt-icon slot="prefix" icon="mdi:share"></elvt-icon>
+      Share
+    </elvt-menu-item>
+    <elvt-divider></elvt-divider>
+    <elvt-menu-item type="danger">
+      <elvt-icon slot="prefix" icon="mdi:delete"></elvt-icon>
+      Delete
+    </elvt-menu-item>
+  </elvt-dropdown>
+  
+  <elvt-dropdown placement="bottom-start">
+    <elvt-button slot="trigger" size="small" tone="subtle">
+      <elvt-icon icon="mdi:dots-vertical"></elvt-icon>
+    </elvt-button>
+    <elvt-menu-item>View Details</elvt-menu-item>
+    <elvt-menu-item>Download</elvt-menu-item>
+    <elvt-menu-item>Export</elvt-menu-item>
+  </elvt-dropdown>
+</div>`}
+>
+  <div style={{display: 'flex', gap: '1rem'}}>
+    <elvt-dropdown placement="bottom-start">
+      <elvt-button slot="trigger" tone="subtle" caret>
+        <elvt-icon slot="prefix" icon="mdi:dots-vertical"></elvt-icon>
+        Actions
+      </elvt-button>
+      <elvt-menu-item>
+        <elvt-icon slot="prefix" icon="mdi:pencil"></elvt-icon>
+        Edit Item
+      </elvt-menu-item>
+      <elvt-menu-item>
+        <elvt-icon slot="prefix" icon="mdi:copy"></elvt-icon>
+        Duplicate
+      </elvt-menu-item>
+      <elvt-menu-item>
+        <elvt-icon slot="prefix" icon="mdi:share"></elvt-icon>
+        Share
+      </elvt-menu-item>
+      <elvt-divider></elvt-divider>
+      <elvt-menu-item type="danger">
+        <elvt-icon slot="prefix" icon="mdi:delete"></elvt-icon>
+        Delete
+      </elvt-menu-item>
+    </elvt-dropdown>
+    
+    <elvt-dropdown placement="bottom-start">
+      <elvt-button slot="trigger" size="small" tone="subtle">
+        <elvt-icon icon="mdi:dots-vertical"></elvt-icon>
+      </elvt-button>
+      <elvt-menu-item>View Details</elvt-menu-item>
+      <elvt-menu-item>Download</elvt-menu-item>
+      <elvt-menu-item>Export</elvt-menu-item>
+    </elvt-dropdown>
+  </div>
+</ComponentShowcase>
+
+### Content Types
+
+**Text Options** display simple text labels for straightforward selection.
+
+**Rich Content** includes icons, descriptions, or additional metadata with options.
+
+**Grouped Options** organize related choices under section headers.
+
+**Search and Filter** provide input fields to narrow down option lists.
+
+### Trigger Styles
+
+**Button Style** uses button appearance for action-oriented dropdowns.
+
+**Input Style** resembles form inputs for data entry contexts.
+
+**Link Style** appears as links for navigation-focused dropdowns.
+
+**Icon Only** uses just an icon trigger for compact interfaces.
+
+## Design Principles
+
+### Predictability Principle
+**Users should understand what will happen when they interact with dropdowns.** Clear trigger styling and consistent behavior patterns help users predict dropdown functionality without trial and error.
+
+### Efficiency Principle  
+**Minimize steps and cognitive load for common selections.** Frequently chosen options should be easy to find and select. Long scrolling or complex navigation defeats the space-saving purpose of dropdowns.
+
+### Clarity Principle
+**Selected states and available options should be immediately obvious.** Users need to understand current selections and see all available choices clearly. Ambiguous states create uncertainty and selection errors.
+
+### Responsive Adaptation Principle
+**Dropdowns should work effectively across different screen sizes and input methods.** Mobile touch interfaces have different requirements than desktop mouse interaction.
+
+## Best Practices
+
+### Organizing Options Logically
+
+**Why this matters:** Random or poorly organized option lists force users to scan through irrelevant choices. Logical organization reduces cognitive load and helps users find their desired selection quickly.
+
+### Handling Long Option Lists
+
+**Why this matters:** Dropdowns with many options become unwieldy and hard to navigate. Users get overwhelmed with too many choices and may struggle to find what they need.
+
+### Providing Clear Selection States
+
+**Why this matters:** Users need confirmation of their selections and ability to understand current dropdown state. Unclear selection feedback creates uncertainty about form completion and data entry.
+
+## Implementation
+
+### Getting Started
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+```javascript
+// Import all components
+import '@inform-elevate/elevate-core-ui';
+
+// Or import specific components  
+import '@inform-elevate/elevate-core-ui/dist/components/dropdown/dropdown.js';
+```
+
+### Common Usage Patterns
+
+```html
+<!-- Basic selection dropdown -->
+<elvt-dropdown placement="bottom-start">
+  <elvt-button slot="trigger" caret>
+    Select Country
+  </elvt-button>
+  <elvt-menu-item value="us">United States</elvt-menu-item>
+  <elvt-menu-item value="ca">Canada</elvt-menu-item>
+  <elvt-menu-item value="uk">United Kingdom</elvt-menu-item>
+</elvt-dropdown>
+
+<!-- Action dropdown menu -->
+<elvt-dropdown placement="bottom-start">
+  <elvt-button slot="trigger" tone="subtle" caret>
+    <elvt-icon slot="prefix" icon="mdi:dots-vertical"></elvt-icon>
+    Actions
+  </elvt-button>
+  <elvt-menu-item>
+    <elvt-icon slot="prefix" icon="mdi:pencil"></elvt-icon>
+    Edit Item
+  </elvt-menu-item>
+  <elvt-menu-item>
+    <elvt-icon slot="prefix" icon="mdi:copy"></elvt-icon>
+    Duplicate
+  </elvt-menu-item>
+  <elvt-divider></elvt-divider>
+  <elvt-menu-item type="danger">
+    <elvt-icon slot="prefix" icon="mdi:delete"></elvt-icon>
+    Delete
+  </elvt-menu-item>
+</elvt-dropdown>
+
+<!-- Compact icon-only dropdown -->
+<elvt-dropdown placement="bottom-start">
+  <elvt-button slot="trigger" size="small" tone="subtle">
+    <elvt-icon icon="mdi:dots-vertical"></elvt-icon>
+  </elvt-button>
+  <elvt-menu-item>View Details</elvt-menu-item>
+  <elvt-menu-item>Download</elvt-menu-item>
+  <elvt-menu-item>Export</elvt-menu-item>
+</elvt-dropdown>
+
+<!-- Dropdown with grouped items -->
+<elvt-dropdown placement="bottom-start">
+  <elvt-button slot="trigger" caret>
+    More Options
+  </elvt-button>
+  <elvt-menu-label>File Operations</elvt-menu-label>
+  <elvt-menu-item>
+    <elvt-icon slot="prefix" icon="mdi:file-plus"></elvt-icon>
+    New File
+  </elvt-menu-item>
+  <elvt-menu-item>
+    <elvt-icon slot="prefix" icon="mdi:folder-plus"></elvt-icon>
+    New Folder
+  </elvt-menu-item>
+  <elvt-divider></elvt-divider>
+  <elvt-menu-label>Settings</elvt-menu-label>
+  <elvt-menu-item>
+    <elvt-icon slot="prefix" icon="mdi:cog"></elvt-icon>
+    Preferences
+  </elvt-menu-item>
+</elvt-dropdown>
+```
+
+### Key Properties
+
+| Property | Options | Description |
+|----------|---------|-------------|
+| `placement` | `bottom-start` (default), `bottom-end`, `top-start`, `top-end` | Position of dropdown menu relative to trigger |
+| `disabled` | `true`, `false` (default) | Whether dropdown can be interacted with |
+| `open` | `true`, `false` (default) | Whether dropdown menu is currently open |
+| `distance` | Number | Distance between trigger and dropdown menu |
+| `skidding` | Number | Offset along the alignment axis |
+| `hoist` | `true`, `false` (default) | Render dropdown in document.body to avoid clipping |
+
+**Trigger Button Properties (when using `elvt-button` in trigger slot):**
+- `caret`: Add dropdown indicator arrow
+- `size`: `small`, `medium` (default), `large`  
+- `tone`: `primary`, `secondary`, `subtle`
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-dropdown--docs).*
+
+## Interactive Examples
+
+### Live Dropdown Demonstrations
+
+<ComponentShowcase
+  title="Contextual Action Dropdowns"
+  description="Real-world examples of contextual action dropdowns"
+  code={`<div style="display: flex; gap: 1rem; align-items: center;">
+  <!-- File actions dropdown -->
+  <elvt-dropdown placement="bottom-start">
+    <elvt-button slot="trigger" tone="subtle" caret>
+      File Actions
+    </elvt-button>
+    <elvt-menu-item>
+      <elvt-icon slot="prefix" icon="mdi:eye"></elvt-icon>
+      View
+    </elvt-menu-item>
+    <elvt-menu-item>
+      <elvt-icon slot="prefix" icon="mdi:download"></elvt-icon>
+      Download
+    </elvt-menu-item>
+    <elvt-menu-item>
+      <elvt-icon slot="prefix" icon="mdi:share"></elvt-icon>
+      Share
+    </elvt-menu-item>
+    <elvt-divider></elvt-divider>
+    <elvt-menu-item type="danger">
+      <elvt-icon slot="prefix" icon="mdi:delete"></elvt-icon>
+      Delete
+    </elvt-menu-item>
+  </elvt-dropdown>
+
+  <!-- Settings menu -->
+  <elvt-dropdown placement="bottom-start">
+    <elvt-button slot="trigger" size="small" tone="subtle">
+      <elvt-icon icon="mdi:cog"></elvt-icon>
+    </elvt-button>
+    <elvt-menu-label>Display</elvt-menu-label>
+    <elvt-menu-item>
+      <elvt-icon slot="prefix" icon="mdi:theme-light-dark"></elvt-icon>
+      Dark Mode
+    </elvt-menu-item>
+    <elvt-menu-item>
+      <elvt-icon slot="prefix" icon="mdi:format-size"></elvt-icon>
+      Text Size
+    </elvt-menu-item>
+    <elvt-divider></elvt-divider>
+    <elvt-menu-label>Account</elvt-menu-label>
+    <elvt-menu-item>
+      <elvt-icon slot="prefix" icon="mdi:account"></elvt-icon>
+      Profile
+    </elvt-menu-item>
+    <elvt-menu-item>
+      <elvt-icon slot="prefix" icon="mdi:logout"></elvt-icon>
+      Sign Out
+    </elvt-menu-item>
+  </elvt-dropdown>
+</div>`}
+>
+  <div style={{display: 'flex', gap: '1rem', alignItems: 'center'}}>
+    {/* File actions dropdown */}
+    <elvt-dropdown placement="bottom-start">
+      <elvt-button slot="trigger" tone="subtle" caret>
+        File Actions
+      </elvt-button>
+      <elvt-menu-item>
+        <elvt-icon slot="prefix" icon="mdi:eye"></elvt-icon>
+        View
+      </elvt-menu-item>
+      <elvt-menu-item>
+        <elvt-icon slot="prefix" icon="mdi:download"></elvt-icon>
+        Download
+      </elvt-menu-item>
+      <elvt-menu-item>
+        <elvt-icon slot="prefix" icon="mdi:share"></elvt-icon>
+        Share
+      </elvt-menu-item>
+      <elvt-divider></elvt-divider>
+      <elvt-menu-item type="danger">
+        <elvt-icon slot="prefix" icon="mdi:delete"></elvt-icon>
+        Delete
+      </elvt-menu-item>
+    </elvt-dropdown>
+
+    {/* Settings menu */}
+    <elvt-dropdown placement="bottom-start">
+      <elvt-button slot="trigger" size="small" tone="subtle">
+        <elvt-icon icon="mdi:cog"></elvt-icon>
+      </elvt-button>
+      <elvt-menu-label>Display</elvt-menu-label>
+      <elvt-menu-item>
+        <elvt-icon slot="prefix" icon="mdi:theme-light-dark"></elvt-icon>
+        Dark Mode
+      </elvt-menu-item>
+      <elvt-menu-item>
+        <elvt-icon slot="prefix" icon="mdi:format-size"></elvt-icon>
+        Text Size
+      </elvt-menu-item>
+      <elvt-divider></elvt-divider>
+      <elvt-menu-label>Account</elvt-menu-label>
+      <elvt-menu-item>
+        <elvt-icon slot="prefix" icon="mdi:account"></elvt-icon>
+        Profile
+      </elvt-menu-item>
+      <elvt-menu-item>
+        <elvt-icon slot="prefix" icon="mdi:logout"></elvt-icon>
+        Sign Out
+      </elvt-menu-item>
+    </elvt-dropdown>
+  </div>
+</ComponentShowcase>
+
+## Accessibility
+
+### Essential Accessibility Practices
+
+**Keyboard navigation support:**
+- Space/Enter opens dropdown menu
+- Arrow keys navigate through options
+- Escape closes dropdown menu
+- Tab moves to next form element
+
+**Screen reader compatibility:**
+- Use proper ARIA roles (combobox, listbox, option)
+- Announce current selection and available options
+- Provide labels and descriptions for dropdown purpose
+- Communicate expanded/collapsed states
+
+**Focus management:**
+- Clear focus indicators on trigger and options
+- Logical focus order through dropdown interface
+- Return focus to trigger when dropdown closes
+- Highlight selected options appropriately
+
+**Selection feedback:**
+- Announce selection changes to screen readers
+- Provide visual confirmation of selected options
+- Clear indication of multi-selection states
+- Error messages for validation failures
+
+## Changelog
+
+### Version 0.0.26-alpha (July 16, 2025)
+- **New**: Dropdown component fully implemented and functional
+- **New**: Menu items with icon support and type variants (danger)
+- **New**: Divider component for menu separation
+- **New**: Menu labels for grouping related options
+- **Enhanced**: Integration with Button component for trigger styling
+- **Enhanced**: Flexible placement options (bottom-start, bottom-end, top-start, top-end)
+- **Enhanced**: Comprehensive accessibility support with proper ARIA attributes
+- Current version in active development
+
+### Dropdown Component Features
+- ✅ Basic dropdown with trigger button and menu items
+- ✅ Icon integration with prefix slot support
+- ✅ Menu grouping with labels and dividers
+- ✅ Flexible placement and positioning options
+- ✅ Integration with ELEVATE Button component for trigger styling
+- ✅ Type variants for menu items (danger state)
+- ✅ Comprehensive accessibility features
+- ✅ Keyboard navigation support
+
+### Available Components
+- `DropdownComponent`: Main dropdown container with positioning
+- `MenuItemComponent`: Individual menu items with icon support
+- `DividerComponent`: Menu section separators
+- `MenuLabelComponent`: Group labels for menu organization
+- Integration with `ButtonComponent` for trigger elements
+
+### Implementation Status
+- ✅ Core dropdown functionality operational
+- ✅ Menu item interactions working properly
+- ✅ Icon integration functional
+- ✅ Accessibility features implemented
+- ✅ Component integration with Button and Icon components working

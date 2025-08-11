@@ -1,0 +1,463 @@
+---
+title: Icon
+description: Icons provide visual communication through recognizable symbols. They enhance usability by communicating concepts quickly and supporting text-based information.
+sidebar_position: 11
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+Icons create visual consistency and improve interface comprehension through universal symbols. The ELEVATE Icon component helps designers and developers create consistent, accessible interfaces that communicate effectively across language and cultural barriers.
+
+## Overview
+
+### When to Use Icons
+- **Action identification**: Buttons, menu items, and interactive elements
+- **Status indication**: Success, warning, error, and information states
+- **Navigation aids**: Wayfinding and section identification
+- **Content categorization**: Document types, content themes, and classifications
+- **Visual reinforcement**: Supporting text with recognizable symbols
+
+### When NOT to Use Icons
+- **Unclear concepts**: Avoid icons for abstract or ambiguous ideas
+- **Cultural specificity**: Don't use icons that may not translate across cultures
+- **Decoration only**: Icons should serve functional purposes, not just visual appeal
+- **Overcrowding**: Too many icons create visual noise and reduce effectiveness
+
+## Variations
+
+### Material Design Icons (MDI)
+
+The ELEVATE Icon component supports Material Design Icons with over 20 commonly used icons registered and working.
+
+<ComponentShowcase
+  title="Action Icons"
+  description="Icons for common user actions and interface controls"
+  code={`<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 1rem; text-align: center;">
+  <div>
+    <elvt-icon icon="mdi:plus" style="font-size: 24px; color: #161616;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Add</div>
+  </div>
+  <div>
+    <elvt-icon icon="mdi:delete" style="font-size: 24px; color: #da1e28;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Delete</div>
+  </div>
+  <div>
+    <elvt-icon icon="mdi:pencil" style="font-size: 24px; color: #161616;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Edit</div>
+  </div>
+  <div>
+    <elvt-icon icon="mdi:download" style="font-size: 24px; color: #161616;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Download</div>
+  </div>
+</div>`}
+>
+  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(80px, 1fr))', gap: '1rem', textAlign: 'center'}}>
+    <div>
+      <elvt-icon icon="mdi:plus" style={{fontSize: '24px', color: '#161616'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Add</div>
+    </div>
+    <div>
+      <elvt-icon icon="mdi:delete" style={{fontSize: '24px', color: '#da1e28'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Delete</div>
+    </div>
+    <div>
+      <elvt-icon icon="mdi:pencil" style={{fontSize: '24px', color: '#161616'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Edit</div>
+    </div>
+    <div>
+      <elvt-icon icon="mdi:download" style={{fontSize: '24px', color: '#161616'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Download</div>
+    </div>
+  </div>
+</ComponentShowcase>
+
+<ComponentShowcase
+  title="Navigation Icons"
+  description="Icons for navigation, movement, and wayfinding"
+  code={`<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 1rem; text-align: center;">
+  <div>
+    <elvt-icon icon="mdi:home" style="font-size: 24px; color: #161616;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Home</div>
+  </div>
+  <div>
+    <elvt-icon icon="mdi:chevron-left" style="font-size: 24px; color: #161616;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Back</div>
+  </div>
+  <div>
+    <elvt-icon icon="mdi:chevron-right" style="font-size: 24px; color: #161616;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Next</div>
+  </div>
+  <div>
+    <elvt-icon icon="mdi:menu" style="font-size: 24px; color: #161616;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Menu</div>
+  </div>
+</div>`}
+>
+  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(80px, 1fr))', gap: '1rem', textAlign: 'center'}}>
+    <div>
+      <elvt-icon icon="mdi:home" style={{fontSize: '24px', color: '#161616'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Home</div>
+    </div>
+    <div>
+      <elvt-icon icon="mdi:chevron-left" style={{fontSize: '24px', color: '#161616'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Back</div>
+    </div>
+    <div>
+      <elvt-icon icon="mdi:chevron-right" style={{fontSize: '24px', color: '#161616'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Next</div>
+    </div>
+    <div>
+      <elvt-icon icon="mdi:menu" style={{fontSize: '24px', color: '#161616'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Menu</div>
+    </div>
+  </div>
+</ComponentShowcase>
+
+<ComponentShowcase
+  title="Status and System Icons"
+  description="Icons for system states, notifications, and feedback"
+  code={`<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 1rem; text-align: center;">
+  <div>
+    <elvt-icon icon="mdi:check-circle" style="font-size: 24px; color: #24a148;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Success</div>
+  </div>
+  <div>
+    <elvt-icon icon="mdi:alert-circle" style="font-size: 24px; color: #f1c21b;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Warning</div>
+  </div>
+  <div>
+    <elvt-icon icon="mdi:close-circle" style="font-size: 24px; color: #da1e28;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Error</div>
+  </div>
+  <div>
+    <elvt-icon icon="mdi:magnify" style="font-size: 24px; color: #161616;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Search</div>
+  </div>
+</div>`}
+>
+  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(80px, 1fr))', gap: '1rem', textAlign: 'center'}}>
+    <div>
+      <elvt-icon icon="mdi:check-circle" style={{fontSize: '24px', color: '#24a148'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Success</div>
+    </div>
+    <div>
+      <elvt-icon icon="mdi:alert-circle" style={{fontSize: '24px', color: '#f1c21b'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Warning</div>
+    </div>
+    <div>
+      <elvt-icon icon="mdi:close-circle" style={{fontSize: '24px', color: '#da1e28'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Error</div>
+    </div>
+    <div>
+      <elvt-icon icon="mdi:magnify" style={{fontSize: '24px', color: '#161616'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Search</div>
+    </div>
+  </div>
+</ComponentShowcase>
+
+### Size Variations
+
+Icons can be sized using CSS font-size or by setting custom dimensions for different interface contexts.
+
+<ComponentShowcase
+  title="Icon Sizes"
+  description="Various icon sizes for different use cases and contexts"
+  code={`<div style="display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;">
+  <div style="text-align: center;">
+    <elvt-icon icon="mdi:settings" style="font-size: 16px; color: #161616;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Small (16px)</div>
+  </div>
+  <div style="text-align: center;">
+    <elvt-icon icon="mdi:settings" style="font-size: 24px; color: #161616;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Medium (24px)</div>
+  </div>
+  <div style="text-align: center;">
+    <elvt-icon icon="mdi:settings" style="font-size: 32px; color: #161616;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Large (32px)</div>
+  </div>
+  <div style="text-align: center;">
+    <elvt-icon icon="mdi:settings" style="font-size: 48px; color: #161616;"></elvt-icon>
+    <div style="font-size: 0.75rem; margin-top: 0.25rem;">Extra Large (48px)</div>
+  </div>
+</div>`}
+>
+  <div style={{display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap'}}>
+    <div style={{textAlign: 'center'}}>
+      <elvt-icon icon="mdi:settings" style={{fontSize: '16px', color: '#161616'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Small (16px)</div>
+    </div>
+    <div style={{textAlign: 'center'}}>
+      <elvt-icon icon="mdi:settings" style={{fontSize: '24px', color: '#161616'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Medium (24px)</div>
+    </div>
+    <div style={{textAlign: 'center'}}>
+      <elvt-icon icon="mdi:settings" style={{fontSize: '32px', color: '#161616'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Large (32px)</div>
+    </div>
+    <div style={{textAlign: 'center'}}>
+      <elvt-icon icon="mdi:settings" style={{fontSize: '48px', color: '#161616'}}></elvt-icon>
+      <div style={{fontSize: '0.75rem', marginTop: '0.25rem'}}>Extra Large (48px)</div>
+    </div>
+  </div>
+</ComponentShowcase>
+
+### Style Treatments
+
+**Outlined Icons** use strokes to define shapes, providing clean, minimal appearance.
+
+**Filled Icons** use solid shapes for greater visual weight and emphasis.
+
+**Two-Tone Icons** combine outlined and filled elements for visual hierarchy.
+
+## Design Principles
+
+### Recognition Principle
+**Icons should be immediately recognizable and universally understood.** Users should not have to guess what icons represent. Unclear or overly stylized icons create cognitive load and slow down task completion.
+
+### Consistency Principle  
+**Similar functions should use similar icons throughout the interface.** Inconsistent icon usage confuses users and reduces the efficiency benefits that icons provide.
+
+### Contextual Relevance Principle
+**Icons should enhance rather than replace clear communication.** Icons work best when they support text or have established conventions, not when they carry full communication responsibility.
+
+### Visual Hierarchy Principle
+**Icon size and treatment should reflect importance and interaction priority.** Primary actions might use larger or more prominent icons while secondary functions use smaller, subtler treatments.
+
+## Best Practices
+
+### Choosing Recognizable Icons
+
+**Why this matters:** Unfamiliar icons force users to learn new visual vocabulary, increasing cognitive load. Well-established icon conventions help users understand functionality instantly.
+
+### Pairing Icons with Text
+
+**Why this matters:** Icons alone can be ambiguous, especially for complex or abstract concepts. Text labels provide clarity and improve accessibility for all users.
+
+### Maintaining Visual Consistency
+
+**Why this matters:** Mixed icon styles create visual inconsistency that makes interfaces feel unprofessional and harder to scan. Consistent treatment improves overall design cohesion.
+
+## Implementation
+
+### Getting Started
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+```javascript
+// Import all components
+import '@inform-elevate/elevate-core-ui';
+
+// Or import specific components  
+import '@inform-elevate/elevate-core-ui/dist/components/icon/icon.js';
+```
+
+### Common Usage Patterns
+
+```html
+<!-- Basic Material Design Icons -->
+<elvt-icon icon="mdi:home"></elvt-icon>
+<elvt-icon icon="mdi:user"></elvt-icon>
+<elvt-icon icon="mdi:settings"></elvt-icon>
+
+<!-- Icons with CSS styling -->
+<elvt-icon icon="mdi:check-circle" style="color: #24a148; font-size: 20px;"></elvt-icon>
+<elvt-icon icon="mdi:alert-circle" style="color: #f1c21b; font-size: 20px;"></elvt-icon>
+<elvt-icon icon="mdi:close-circle" style="color: #da1e28; font-size: 20px;"></elvt-icon>
+
+<!-- Icons in buttons (using slots) -->
+<elvt-button tone="primary">
+  <elvt-icon slot="prefix" icon="mdi:plus"></elvt-icon>
+  Add Item
+</elvt-button>
+
+<elvt-button>
+  Continue
+  <elvt-icon slot="suffix" icon="mdi:chevron-right"></elvt-icon>
+</elvt-button>
+
+<!-- Standalone icons with accessibility -->
+<elvt-icon 
+  icon="mdi:delete" 
+  style="color: #da1e28; font-size: 24px; cursor: pointer;"
+  title="Delete item"
+  aria-label="Delete this item">
+</elvt-icon>
+
+<!-- Different sizes using CSS -->
+<elvt-icon icon="mdi:home" style="font-size: 16px;"></elvt-icon>
+<elvt-icon icon="mdi:home" style="font-size: 24px;"></elvt-icon>
+<elvt-icon icon="mdi:home" style="font-size: 32px;"></elvt-icon>
+<elvt-icon icon="mdi:home" style="font-size: 48px;"></elvt-icon>
+```
+
+### Available MDI Icons
+
+The following Material Design Icons are currently registered and available:
+
+**Action Icons:** `plus`, `delete`, `pencil`, `download`, `upload`, `copy`, `share`, `heart`, `heart-outline`
+
+**Navigation Icons:** `home`, `chevron-left`, `chevron-right`, `chevron-up`, `chevron-down`, `menu`, `close`, `arrow-left`, `arrow-right`
+
+**Status Icons:** `check`, `check-circle`, `alert-circle`, `close-circle`, `information`, `help-circle`
+
+**System Icons:** `settings`, `magnify`, `dots-vertical`, `open-in-new`, `web`
+
+### Key Properties
+
+| Property | Options | Description |
+|----------|---------|-------------|
+| `icon` | SVG path, encoded JSON, or URL | Icon data as SVG path string, JSON, or URL to icon resource |
+| `emblem` | SVG path, encoded JSON, or URL | Secondary icon displayed in lower right corner cutout |
+| `fill` | Hexadecimal color | Background color for the icon (e.g., `#ff0000`) |
+| `selected` | `true`, `false` (default) | Whether the icon appears in selected state |
+| `aspectRatio` | String | Aspect ratio for icon container (default: `1 / 1`) |
+| `image` | URL string | Alternative image source for icon |
+
+**Styling:** Icons are sized using CSS custom properties like `--icon-size` and `--icon-color`. Standard HTML attributes like `title`, `aria-label`, and `aria-hidden` can be used for accessibility.
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-icon--docs).*
+
+## Interactive Examples
+
+### Icon Usage in Context
+
+Experience how icons enhance real interface elements and improve usability.
+
+<ComponentShowcase
+  title="Icon Integration Examples"
+  description="Real-world examples showing how icons improve interface usability"
+  code={`<div style="display: flex; flex-direction: column; gap: 2rem; max-width: 500px;">
+  <!-- Search Interface -->
+  <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem; border: 1px solid #8d8d8d; border-radius: 4px;">
+    <elvt-icon icon="mdi:magnify" style="color: #6f6f6f; font-size: 20px;"></elvt-icon>
+    <input type="text" placeholder="Search products..." style="border: none; outline: none; flex: 1; font-size: 1rem;">
+    <elvt-icon icon="mdi:close" style="color: #8d8d8d; font-size: 18px; cursor: pointer;" title="Clear search"></elvt-icon>
+  </div>
+  
+  <!-- Action Buttons -->
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+    <button style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; border: none; background: #0066cc; color: white; border-radius: 4px; cursor: pointer;">
+      <elvt-icon icon="mdi:plus" style="font-size: 16px;"></elvt-icon>
+      <span>Add Item</span>
+    </button>
+    <button style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; border: 1px solid #8d8d8d; background: white; color: #161616; border-radius: 4px; cursor: pointer;">
+      <elvt-icon icon="mdi:download" style="font-size: 16px;"></elvt-icon>
+      <span>Export</span>
+    </button>
+    <button style="display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1rem; border: none; background: #da1e28; color: white; border-radius: 4px; cursor: pointer;">
+      <elvt-icon icon="mdi:delete" style="font-size: 16px;"></elvt-icon>
+      <span>Delete</span>
+    </button>
+  </div>
+  
+  <!-- Status Indicators -->
+  <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+    <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: #f0f8ff; border-radius: 4px;">
+      <elvt-icon icon="mdi:information" style="color: #0066cc; font-size: 16px;"></elvt-icon>
+      <span style="font-size: 0.875rem;">Your changes have been saved automatically</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: #f0f9f0; border-radius: 4px;">
+      <elvt-icon icon="mdi:check-circle" style="color: #24a148; font-size: 16px;"></elvt-icon>
+      <span style="font-size: 0.875rem;">Upload completed successfully</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: #fff9f0; border-radius: 4px;">
+      <elvt-icon icon="mdi:alert-circle" style="color: #f1c21b; font-size: 16px;"></elvt-icon>
+      <span style="font-size: 0.875rem;">Please review your settings before continuing</span>
+    </div>
+  </div>
+</div>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '2rem', maxWidth: '500px'}}>
+    <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem', border: '1px solid #8d8d8d', borderRadius: '4px'}}>
+      <elvt-icon icon="mdi:magnify" style={{color: '#6f6f6f', fontSize: '20px'}}></elvt-icon>
+      <input type="text" placeholder="Search products..." style={{border: 'none', outline: 'none', flex: 1, fontSize: '1rem'}} />
+      <elvt-icon icon="mdi:close" style={{color: '#8d8d8d', fontSize: '18px', cursor: 'pointer'}} title="Clear search"></elvt-icon>
+    </div>
+    
+    <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap'}}>
+      <button style={{display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1rem', border: 'none', background: '#0066cc', color: 'white', borderRadius: '4px', cursor: 'pointer'}}>
+        <elvt-icon icon="mdi:plus" style={{fontSize: '16px'}}></elvt-icon>
+        <span>Add Item</span>
+      </button>
+      <button style={{display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1rem', border: '1px solid #8d8d8d', background: 'white', color: '#161616', borderRadius: '4px', cursor: 'pointer'}}>
+        <elvt-icon icon="mdi:download" style={{fontSize: '16px'}}></elvt-icon>
+        <span>Export</span>
+      </button>
+      <button style={{display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1rem', border: 'none', background: '#da1e28', color: 'white', borderRadius: '4px', cursor: 'pointer'}}>
+        <elvt-icon icon="mdi:delete" style={{fontSize: '16px'}}></elvt-icon>
+        <span>Delete</span>
+      </button>
+    </div>
+    
+    <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
+      <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem', background: '#f0f8ff', borderRadius: '4px'}}>
+        <elvt-icon icon="mdi:information" style={{color: '#0066cc', fontSize: '16px'}}></elvt-icon>
+        <span style={{fontSize: '0.875rem'}}>Your changes have been saved automatically</span>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem', background: '#f0f9f0', borderRadius: '4px'}}>
+        <elvt-icon icon="mdi:check-circle" style={{color: '#24a148', fontSize: '16px'}}></elvt-icon>
+        <span style={{fontSize: '0.875rem'}}>Upload completed successfully</span>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem', background: '#fff9f0', borderRadius: '4px'}}>
+        <elvt-icon icon="mdi:alert-circle" style={{color: '#f1c21b', fontSize: '16px'}}></elvt-icon>
+        <span style={{fontSize: '0.875rem'}}>Please review your settings before continuing</span>
+      </div>
+    </div>
+  </div>
+</ComponentShowcase>
+
+## Accessibility
+
+### Essential Accessibility Practices
+
+**Provide alternative text:**
+```html
+<!-- Decorative icons (no screen reader announcement) -->
+<elvt-icon icon="mdi:star" aria-hidden="true"></elvt-icon>
+
+<!-- Functional icons (with meaning) -->
+<elvt-icon icon="mdi:delete" aria-label="Delete item"></elvt-icon>
+<elvt-icon icon="mdi:edit" title="Edit item"></elvt-icon>
+```
+
+**Don't rely solely on icons:**
+- Always provide text labels or context for important actions
+- Use icons to enhance, not replace, clear communication
+- Consider that icon meanings may not be universal
+
+**Interactive icon accessibility:**
+- Interactive icons need proper focus indicators
+- Use appropriate ARIA roles for clickable icons
+- Ensure adequate touch target size (44px minimum)
+- Provide keyboard interaction support
+
+**Color and contrast:**
+- Icons must meet 3:1 contrast ratio minimum
+- Don't use color alone to convey meaning
+- Ensure icons remain visible in high contrast mode
+
+## Changelog
+
+### Version 0.0.26-alpha (July 16, 2025)
+- **New**: Icon component fully implemented and functional
+- **New**: Material Design Icons integration with 20+ essential icons
+- **New**: Complete SVG rendering system with blob URL support
+- **New**: Automatic icon registry with MDI and ELEVATE icon support
+- **Enhanced**: CSS-based styling for flexible sizing and coloring
+- **Enhanced**: Full accessibility support with ARIA attributes
+- **Fixed**: Icon loading and display issues resolved
+
+### Available Icons
+- **Action Icons**: plus, delete, pencil, download, upload, copy, share, heart
+- **Navigation Icons**: home, chevron-left/right/up/down, menu, close, arrow-left/right  
+- **Status Icons**: check, check-circle, alert-circle, close-circle, information, help-circle
+- **System Icons**: settings, magnify, dots-vertical, open-in-new, web
+
+### Implementation Status
+- ✅ Component fully functional
+- ✅ Icons display correctly in all contexts
+- ✅ Integration with Button and other components working
+- ✅ Accessibility features implemented
+- ✅ CSS styling system operational

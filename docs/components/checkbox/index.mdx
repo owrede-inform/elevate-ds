@@ -1,0 +1,418 @@
+---
+title: Checkbox
+description: Checkboxes allow users to select one or more options from a set. They provide clear visual feedback and support various states for form interactions.
+sidebar_position: 5
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import { ElvtCheckbox } from '@inform-elevate/elevate-core-ui/dist/react';
+
+# Checkbox
+
+Checkboxes are form controls that allow users to select one or multiple options from a list. The ELEVATE Checkbox component helps designers and developers create consistent, accessible selection interfaces that clearly communicate state and provide inclusive interaction patterns for all users.
+
+## Overview
+
+### When to Use Checkboxes
+- **Multiple selections**: When users can choose several options from a list
+- **Optional settings**: Features that can be enabled or disabled independently
+- **Agreement confirmations**: Terms, conditions, privacy policies, consent forms
+- **Filter controls**: Narrowing down search results or content views
+- **Bulk actions**: Selecting multiple items for operations like delete or export
+- **Preference settings**: User customization options that can be combined
+
+### When NOT to Use Checkboxes
+- **Single selection**: Use Radio buttons for exclusive choices from a group
+- **Binary toggles**: Use Switch component for on/off states with immediate effect
+- **Primary actions**: Use Button component for main interactions and submissions
+- **Navigation choices**: Use appropriate navigation components for page transitions
+- **Complex selections**: Consider custom selection components for advanced scenarios
+
+## Variations
+
+### Standard Checkbox
+
+Basic checkbox for single option selection with clear labeling.
+
+<ComponentShowcase
+  title="Standard Checkbox Options"
+  description="Basic checkboxes for independent option selections."
+  code={`<div style="display: flex; flex-direction: column; gap: 1rem;">
+  <elvt-checkbox name="newsletter" value="subscribe">
+    Subscribe to newsletter
+  </elvt-checkbox>
+  <elvt-checkbox name="notifications" value="email" checked>
+    Email notifications
+  </elvt-checkbox>
+  <elvt-checkbox name="terms" value="accepted" required>
+    I agree to the terms and conditions *
+  </elvt-checkbox>
+</div>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+    <ElvtCheckbox name="newsletter" value="subscribe">
+      Subscribe to newsletter
+    </ElvtCheckbox>
+    <ElvtCheckbox name="notifications" value="email" checked>
+      Email notifications
+    </ElvtCheckbox>
+    <ElvtCheckbox name="terms" value="accepted" required>
+      I agree to the terms and conditions *
+    </ElvtCheckbox>
+  </div>
+</ComponentShowcase>
+
+### Indeterminate Checkbox
+
+Checkbox showing partial selection state for grouped options with mixed selections.
+
+<ComponentShowcase
+  title="Indeterminate Checkbox State"
+  description="Parent checkbox showing mixed selection state for child options."
+  code={`<div style="display: flex; flex-direction: column; gap: 0.75rem;">
+  <elvt-checkbox name="select-all" indeterminate>
+    Select all permissions
+  </elvt-checkbox>
+  <div style="margin-left: 2rem; display: flex; flex-direction: column; gap: 0.5rem;">
+    <elvt-checkbox name="permissions" value="read" checked>Read access</elvt-checkbox>
+    <elvt-checkbox name="permissions" value="write">Write access</elvt-checkbox>
+    <elvt-checkbox name="permissions" value="admin">Admin access</elvt-checkbox>
+  </div>
+</div>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
+    <ElvtCheckbox name="select-all" indeterminate>
+      Select all permissions
+    </ElvtCheckbox>
+    <div style={{marginLeft: '2rem', display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
+      <ElvtCheckbox name="permissions" value="read" checked>Read access</ElvtCheckbox>
+      <ElvtCheckbox name="permissions" value="write">Write access</ElvtCheckbox>
+      <ElvtCheckbox name="permissions" value="admin">Admin access</ElvtCheckbox>
+    </div>
+  </div>
+</ComponentShowcase>
+
+### Checkbox with Helper Text
+
+Checkbox with additional descriptive text for complex options requiring explanation.
+
+<ComponentShowcase
+  title="Checkbox with Helper Text"
+  description="Checkboxes with explanatory helper text for complex options."
+  code={`<div style="display: flex; flex-direction: column; gap: 1rem;">
+  <elvt-checkbox 
+    name="analytics" 
+    value="enabled"
+    helper-text="Help us improve by sharing anonymous usage data">
+    Enable analytics
+  </elvt-checkbox>
+  <elvt-checkbox 
+    name="marketing" 
+    value="consent"
+    helper-text="Receive promotional emails about new features and updates">
+    Marketing communications
+  </elvt-checkbox>
+</div>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+    <ElvtCheckbox 
+      name="analytics" 
+      value="enabled"
+      helperText="Help us improve by sharing anonymous usage data">
+      Enable analytics
+    </ElvtCheckbox>
+    <ElvtCheckbox 
+      name="marketing" 
+      value="consent"
+      helperText="Receive promotional emails about new features and updates">
+      Marketing communications
+    </ElvtCheckbox>
+  </div>
+</ComponentShowcase>
+
+## Design Principles
+
+Understanding these core principles will help you create checkbox interfaces that reduce user errors and improve form completion rates.
+
+### Clear State Communication Principle
+**Visual design should instantly communicate the current state.** Users should never have to guess whether a checkbox is checked, unchecked, or in an indeterminate state. Ambiguous visual states lead to form errors and user frustration.
+
+### Semantic Consistency Principle  
+**Similar checkbox behaviors should look and work similarly.** Consistent interaction patterns across your application help users build muscle memory and confidence in checkbox interactions.
+
+### Cognitive Load Reduction Principle
+**Checkbox labels and groupings should minimize mental effort.** Clear, descriptive labels and logical organization help users quickly understand their options without re-reading or analyzing content.
+
+### Inclusive Interaction Principle
+**Checkboxes must work for all interaction methods.** Mouse, keyboard, touch, and assistive technology users should have equivalent experiences with clear feedback and proper focus management.
+
+## Best Practices
+
+### Writing Clear, Actionable Labels
+
+**Why this matters:** Vague or confusing checkbox labels force users to guess what they're agreeing to or selecting. Clear labels reduce form abandonment and prevent user frustration with unexpected results.
+
+:::tip Do: Use clear, specific labels that describe exactly what users are selecting
+Write labels that clearly explain what happens when the checkbox is selected.
+
+```html
+<elvt-checkbox name="newsletter" value="subscribe">
+  Email me about new features and updates
+</elvt-checkbox>
+
+<elvt-checkbox name="session" value="remember">
+  Keep me signed in for 30 days
+</elvt-checkbox>
+```
+:::
+
+:::danger Don't: Use vague or confusing labels that require interpretation
+Avoid generic labels that don't help users understand what they're selecting.
+
+```html
+<!-- Avoid this -->
+<elvt-checkbox name="marketing">
+  Communications
+</elvt-checkbox>
+
+<elvt-checkbox name="persistence">
+  Remember settings
+</elvt-checkbox>
+```
+:::
+
+### Organizing Related Checkboxes
+
+**Why this matters:** Poor checkbox organization increases cognitive load and makes it difficult for users to understand their options. Logical grouping and clear hierarchy help users make informed decisions efficiently.
+
+:::tip Do: Group related options with clear headings and logical organization
+Use fieldsets and legends to group related checkboxes semantically.
+
+```html
+<fieldset>
+  <legend>Notification Preferences</legend>
+  <elvt-checkbox name="notifications" value="email">
+    Email notifications
+  </elvt-checkbox>
+  <elvt-checkbox name="notifications" value="sms">
+    SMS notifications
+  </elvt-checkbox>
+  <elvt-checkbox name="notifications" value="push">
+    Push notifications
+  </elvt-checkbox>
+</fieldset>
+```
+:::
+
+:::danger Don't: Mix unrelated options without clear organization
+Avoid grouping unrelated checkboxes together without semantic structure.
+
+```html
+<!-- Avoid this -->
+<div>
+  <elvt-checkbox name="notifications" value="email">Email notifications</elvt-checkbox>
+  <elvt-checkbox name="theme" value="dark">Dark mode</elvt-checkbox>
+  <elvt-checkbox name="terms" value="accepted">Terms and conditions</elvt-checkbox>
+</div>
+```
+:::
+
+## Implementation
+
+### Getting Started
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+### Basic Usage
+
+```html
+<elvt-checkbox 
+  name="newsletter" 
+  value="subscribe">
+  Subscribe to newsletter
+</elvt-checkbox>
+```
+
+### With Helper Text
+
+```html
+<elvt-checkbox 
+  name="notifications" 
+  value="email"
+  helper-text="Receive important updates via email">
+  Email notifications
+</elvt-checkbox>
+```
+
+### Indeterminate State
+
+```html
+<elvt-checkbox 
+  name="select-all" 
+  indeterminate="true">
+  Select all items
+</elvt-checkbox>
+```
+
+### Checkbox Group
+
+```html
+<elvt-checkbox-group 
+  label="Preferred contact methods"
+  name="contact">
+  <elvt-checkbox value="email">Email</elvt-checkbox>
+  <elvt-checkbox value="phone">Phone</elvt-checkbox>
+  <elvt-checkbox value="sms">SMS</elvt-checkbox>
+</elvt-checkbox-group>
+```
+
+### Key Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `checked` | Boolean | Whether the checkbox is checked |
+| `indeterminate` | Boolean | Whether checkbox shows mixed selection state |
+| `disabled` | Boolean | Whether the checkbox is disabled |
+| `required` | Boolean | Whether the checkbox is required for form submission |
+| `name` | String | Form field name for data submission |
+| `value` | String | Form field value when checked |
+| `helper-text` | String | Additional descriptive text displayed below label |
+| `error-message` | String | Error message to display for validation failures |
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-checkbox--docs).*
+
+## Form Integration Examples
+
+### User Preferences Form
+
+<ComponentShowcase
+  title="User Preferences Form"
+  description="Multiple checkbox groups working together in a comprehensive settings form."
+  code={`<form style="max-width: 500px; padding: 2rem; border: 1px solid #e0e0e0; border-radius: 8px;" onsubmit="event.preventDefault(); alert('Preferences saved!');">
+  <h3 style="margin-top: 0;">Account Preferences</h3>
+  
+  <fieldset style="border: none; padding: 0; margin: 0 0 1.5rem 0;">
+    <legend style="font-weight: 500; margin-bottom: 0.75rem;">Notifications</legend>
+    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+      <elvt-checkbox name="notifications" value="email" checked>
+        Email notifications
+      </elvt-checkbox>
+      <elvt-checkbox name="notifications" value="sms">
+        SMS notifications
+      </elvt-checkbox>
+      <elvt-checkbox name="notifications" value="push">
+        Push notifications
+      </elvt-checkbox>
+    </div>
+  </fieldset>
+  
+  <fieldset style="border: none; padding: 0; margin: 0 0 1.5rem 0;">
+    <legend style="font-weight: 500; margin-bottom: 0.75rem;">Privacy</legend>
+    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+      <elvt-checkbox name="privacy" value="analytics" helper-text="Help us improve by sharing anonymous usage data">
+        Enable analytics
+      </elvt-checkbox>
+      <elvt-checkbox name="privacy" value="marketing">
+        Marketing communications
+      </elvt-checkbox>
+    </div>
+  </fieldset>
+  
+  <elvt-button type="submit" tone="primary">Save Preferences</elvt-button>
+</form>`}
+>
+  <div style={{maxWidth: '500px', padding: '2rem', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
+    <h3 style={{marginTop: 0}}>Account Preferences</h3>
+    
+    <fieldset style={{border: 'none', padding: 0, margin: '0 0 1.5rem 0'}}>
+      <legend style={{fontWeight: '500', marginBottom: '0.75rem'}}>Notifications</legend>
+      <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
+        <ElvtCheckbox name="notifications" value="email" checked>
+          Email notifications
+        </ElvtCheckbox>
+        <ElvtCheckbox name="notifications" value="sms">
+          SMS notifications
+        </ElvtCheckbox>
+        <ElvtCheckbox name="notifications" value="push">
+          Push notifications
+        </ElvtCheckbox>
+      </div>
+    </fieldset>
+    
+    <fieldset style={{border: 'none', padding: 0, margin: '0 0 1.5rem 0'}}>
+      <legend style={{fontWeight: '500', marginBottom: '0.75rem'}}>Privacy</legend>
+      <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
+        <ElvtCheckbox name="privacy" value="analytics" helperText="Help us improve by sharing anonymous usage data">
+          Enable analytics
+        </ElvtCheckbox>
+        <ElvtCheckbox name="privacy" value="marketing">
+          Marketing communications
+        </ElvtCheckbox>
+      </div>
+    </fieldset>
+    
+    <button style={{padding: '0.5rem 1rem', border: 'none', borderRadius: '4px', background: '#0066cc', color: 'white', cursor: 'pointer'}}>
+      Save Preferences
+    </button>
+  </div>
+</ComponentShowcase>
+
+## Accessibility
+
+### Essential Accessibility Practices
+
+**Proper labeling is critical:**
+```html
+<!-- Good: Proper label association -->
+<elvt-checkbox name="terms" value="accepted" required>
+  I agree to the terms and conditions
+</elvt-checkbox>
+
+<!-- Bad: Missing or unclear labels -->
+<elvt-checkbox name="terms" value="accepted"></elvt-checkbox>
+```
+
+**Keyboard navigation works automatically:**
+- Space toggles checkbox state
+- Tab moves focus to the checkbox
+- Shift + Tab moves focus away from checkbox
+- Arrow keys navigate between checkboxes in groups
+
+**Screen reader support:**
+- Checkboxes announce their current state (checked/unchecked/mixed)
+- Labels are properly associated and announced
+- Required fields are identified to assistive technology
+- Error messages are announced when validation fails
+
+**Focus management:**
+- Clear focus indicators that meet WCAG contrast requirements
+- Focus remains on checkbox during state changes
+- Focus moves logically through checkbox groups
+
+**Group semantics when needed:**
+- Use proper `fieldset` and `legend` for checkbox groups
+- Related checkboxes are grouped semantically
+- Group labels provide context for the set of options
+
+## Changelog
+
+### Version 0.0.26-alpha (July 16, 2025)
+- **Enhanced**: Restyle Elevate Checkbox Component
+- Current version in active development
+
+### Version 0.0.23-alpha (June 27, 2025)
+- **New**: Add CheckboxComponent.focus() method
+
+### Version 0.0.20-alpha (June 18, 2025)
+- **Enhanced**: Add Elevate Switch and Update Checkbox
+
+### Version 0.0.18-alpha (June 9, 2025)
+- **Fixed**: Added hide-label Prop and Fixed Checkbox Usability Issues
+
+### Version 0.0.16-alpha (June 4, 2025)
+- **New**: Add Elevate Checkbox (major implementation)
+
+### Version 0.0.1-alpha (March 14, 2025)
+- **New**: Add Checkbox Component (initial implementation)

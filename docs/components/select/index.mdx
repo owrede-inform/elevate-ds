@@ -1,0 +1,536 @@
+---
+title: Select
+description: Select components allow users to choose from a list of options. They save space while providing clear choices and supporting search functionality for larger option sets.
+sidebar_position: 4
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import { ElvtSelect, ElvtOption } from '@inform-elevate/elevate-core-ui/dist/react';
+
+# Select
+
+Select components provide efficient option selection through dropdown interfaces that save screen space while offering clear choices. The ELEVATE Select component helps designers and developers create consistent, accessible selection interfaces that work well for both simple and complex option sets.
+
+## Overview
+
+### When to Use Select
+- **Limited screen space**: When radio buttons would take too much vertical space
+- **Many options**: Lists with 7+ options that need to be scannable
+- **Familiar patterns**: Standard form fields like country, state, category selection
+- **Optional selection**: When users don't need to see all options immediately
+- **Searchable content**: Large option lists that benefit from type-ahead filtering
+
+### When NOT to Use Select
+- **2-3 options**: Use Radio buttons for few mutually exclusive choices
+- **Multiple selection**: Use Checkbox groups for selecting multiple items
+- **Boolean choices**: Use Switch component for simple on/off states
+- **Primary actions**: Use Button component for actions that trigger processes
+- **Always visible options**: When users need to see all choices without interaction
+
+## Variations
+
+### Basic Select
+
+Standard dropdown selection for choosing one option from a list.
+
+<ComponentShowcase
+  title="Basic Select Options"
+  description="Standard dropdown selection with multiple options."
+  code={`<div style="max-width: 300px;">
+  <elvt-select name="country" placeholder="Select country">
+    <label slot="label">Country</label>
+    <elvt-option value="us">United States</elvt-option>
+    <elvt-option value="ca">Canada</elvt-option>
+    <elvt-option value="uk">United Kingdom</elvt-option>
+    <elvt-option value="de">Germany</elvt-option>
+    <elvt-option value="fr">France</elvt-option>
+  </elvt-select>
+</div>`}
+>
+  <div style={{maxWidth: '300px'}}>
+    <ElvtSelect name="country" placeholder="Select country">
+      <label slot="label">Country</label>
+      <ElvtOption value="us">United States</ElvtOption>
+      <ElvtOption value="ca">Canada</ElvtOption>
+      <ElvtOption value="uk">United Kingdom</ElvtOption>
+      <ElvtOption value="de">Germany</ElvtOption>
+      <ElvtOption value="fr">France</ElvtOption>
+    </ElvtSelect>
+  </div>
+</ComponentShowcase>
+
+### Select with Help Text
+
+Provide additional context and guidance for complex selection decisions.
+
+<ComponentShowcase
+  title="Select with Help Text"
+  description="Select dropdown with descriptive help text for user guidance."
+  code={`<div style="max-width: 300px;">
+  <elvt-select name="timezone" placeholder="Select timezone" help-text="Choose the timezone for your primary location">
+    <label slot="label">Timezone</label>
+    <elvt-option value="est">Eastern Standard Time (EST)</elvt-option>
+    <elvt-option value="cst">Central Standard Time (CST)</elvt-option>
+    <elvt-option value="mst">Mountain Standard Time (MST)</elvt-option>
+    <elvt-option value="pst">Pacific Standard Time (PST)</elvt-option>
+  </elvt-select>
+</div>`}
+>
+  <div style={{maxWidth: '300px'}}>
+    <ElvtSelect name="timezone" placeholder="Select timezone" helpText="Choose the timezone for your primary location">
+      <label slot="label">Timezone</label>
+      <ElvtOption value="est">Eastern Standard Time (EST)</ElvtOption>
+      <ElvtOption value="cst">Central Standard Time (CST)</ElvtOption>
+      <ElvtOption value="mst">Mountain Standard Time (MST)</ElvtOption>
+      <ElvtOption value="pst">Pacific Standard Time (PST)</ElvtOption>
+    </ElvtSelect>
+  </div>
+</ComponentShowcase>
+
+### Required Select
+
+Indicate required fields with proper validation states.
+
+<ComponentShowcase
+  title="Required Select Field"
+  description="Required select with validation indication."
+  code={`<div style="max-width: 300px;">
+  <elvt-select name="priority" placeholder="Choose priority level" required>
+    <label slot="label">Priority Level</label>
+    <elvt-option value="low">Low Priority</elvt-option>
+    <elvt-option value="medium">Medium Priority</elvt-option>
+    <elvt-option value="high">High Priority</elvt-option>
+    <elvt-option value="critical">Critical Priority</elvt-option>
+  </elvt-select>
+</div>`}
+>
+  <div style={{maxWidth: '300px'}}>
+    <ElvtSelect name="priority" placeholder="Choose priority level" required>
+      <label slot="label">Priority Level</label>
+      <ElvtOption value="low">Low Priority</ElvtOption>
+      <ElvtOption value="medium">Medium Priority</ElvtOption>
+      <ElvtOption value="high">High Priority</ElvtOption>
+      <ElvtOption value="critical">Critical Priority</ElvtOption>
+    </ElvtSelect>
+  </div>
+</ComponentShowcase>
+
+### Select States
+
+Different states to communicate interaction and validation status.
+
+<ComponentShowcase
+  title="Select States"
+  description="Various states for different interaction and validation scenarios."
+  code={`<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 300px;">
+  <elvt-select name="normal" placeholder="Select option">
+    <label slot="label">Normal State</label>
+    <elvt-option value="option1">Option 1</elvt-option>
+    <elvt-option value="option2">Option 2</elvt-option>
+  </elvt-select>
+  
+  <elvt-select name="disabled" placeholder="Select option" disabled>
+    <label slot="label">Disabled State</label>
+    <elvt-option value="option1">Option 1</elvt-option>
+    <elvt-option value="option2">Option 2</elvt-option>
+  </elvt-select>
+  
+  <elvt-select name="error" placeholder="Select option" invalid help-text="Please select a valid option">
+    <label slot="label">Error State</label>
+    <elvt-option value="option1">Option 1</elvt-option>
+    <elvt-option value="option2">Option 2</elvt-option>
+  </elvt-select>
+</div>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '300px'}}>
+    <ElvtSelect name="normal" placeholder="Select option">
+      <label slot="label">Normal State</label>
+      <ElvtOption value="option1">Option 1</ElvtOption>
+      <ElvtOption value="option2">Option 2</ElvtOption>
+    </ElvtSelect>
+    
+    <ElvtSelect name="disabled" placeholder="Select option" disabled>
+      <label slot="label">Disabled State</label>
+      <ElvtOption value="option1">Option 1</ElvtOption>
+      <ElvtOption value="option2">Option 2</ElvtOption>
+    </ElvtSelect>
+    
+    <ElvtSelect name="error" placeholder="Select option" helpText="Please select a valid option">
+      <label slot="label">Error State</label>
+      <ElvtOption value="option1">Option 1</ElvtOption>
+      <ElvtOption value="option2">Option 2</ElvtOption>
+    </ElvtSelect>
+  </div>
+</ComponentShowcase>
+
+### Select Sizes
+
+Different sizes for various layout contexts and visual hierarchies.
+
+<ComponentShowcase
+  title="Select Sizes"
+  description="Three select sizes for different contexts and design needs."
+  code={`<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 300px;">
+  <elvt-select name="small" placeholder="Select option" size="small">
+    <label slot="label">Small Select</label>
+    <elvt-option value="option1">Option 1</elvt-option>
+    <elvt-option value="option2">Option 2</elvt-option>
+  </elvt-select>
+  
+  <elvt-select name="medium" placeholder="Select option" size="medium">
+    <label slot="label">Medium Select</label>
+    <elvt-option value="option1">Option 1</elvt-option>
+    <elvt-option value="option2">Option 2</elvt-option>
+  </elvt-select>
+  
+  <elvt-select name="large" placeholder="Select option" size="large">
+    <label slot="label">Large Select</label>
+    <elvt-option value="option1">Option 1</elvt-option>
+    <elvt-option value="option2">Option 2</elvt-option>
+  </elvt-select>
+</div>`}
+>
+  <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '300px'}}>
+    <ElvtSelect name="small" placeholder="Select option" size="small">
+      <label slot="label">Small Select</label>
+      <ElvtOption value="option1">Option 1</ElvtOption>
+      <ElvtOption value="option2">Option 2</ElvtOption>
+    </ElvtSelect>
+    
+    <ElvtSelect name="medium" placeholder="Select option" size="medium">
+      <label slot="label">Medium Select</label>
+      <ElvtOption value="option1">Option 1</ElvtOption>
+      <ElvtOption value="option2">Option 2</ElvtOption>
+    </ElvtSelect>
+    
+    <ElvtSelect name="large" placeholder="Select option" size="large">
+      <label slot="label">Large Select</label>
+      <ElvtOption value="option1">Option 1</ElvtOption>
+      <ElvtOption value="option2">Option 2</ElvtOption>
+    </ElvtSelect>
+  </div>
+</ComponentShowcase>
+
+## Design Principles
+
+### Clarity Principle
+**Options must be clearly labeled and easy to understand.** Users should be able to quickly scan and identify the option they need without confusion or ambiguity about what each choice means.
+
+### Efficiency Principle
+**Selection should be quick and require minimal interaction.** The interface should help users find their desired option quickly, especially in large option lists through search, grouping, or logical ordering.
+
+### Predictability Principle
+**Selection behavior should be consistent and expected.** Users should understand how the select will behave based on common patterns and previous experience with similar interfaces.
+
+### Accessibility Principle
+**All users must be able to perceive, understand, and operate selections.** This includes keyboard navigation, screen reader support, proper labeling, and sufficient visual contrast.
+
+## Best Practices
+
+### Writing Effective Option Labels
+
+**Why this matters:** Unclear option labels force users to guess or spend time figuring out which option matches their intent, leading to errors and frustration.
+
+:::tip Do: Use clear, descriptive option text
+Write option labels that clearly describe what the user is selecting.
+
+```html
+<elvt-select name="shipping" placeholder="Choose shipping speed">
+  <label slot="label">Shipping Method</label>
+  <elvt-option value="standard">Standard (5-7 business days)</elvt-option>
+  <elvt-option value="express">Express (2-3 business days)</elvt-option>
+  <elvt-option value="overnight">Overnight (next business day)</elvt-option>
+</elvt-select>
+```
+:::
+
+:::danger Don't: Use vague or unclear option labels
+Avoid generic labels that don't help users understand their choices.
+
+```html
+<!-- Avoid this -->
+<elvt-select name="shipping" placeholder="Choose option">
+  <label slot="label">Shipping</label>
+  <elvt-option value="option1">Option 1</elvt-option>
+  <elvt-option value="option2">Option 2</elvt-option>
+  <elvt-option value="option3">Option 3</elvt-option>
+</elvt-select>
+```
+:::
+
+### Organizing Large Option Lists
+
+**Why this matters:** Long, unorganized lists become difficult to scan and slow down user task completion. Good organization helps users find options quickly.
+
+:::tip Do: Group related options logically
+Organize options in a way that makes sense to users and helps them find choices quickly.
+
+```html
+<elvt-select name="location" placeholder="Select location">
+  <label slot="label">Office Location</label>
+  <optgroup label="North America">
+    <elvt-option value="us-ny">New York, USA</elvt-option>
+    <elvt-option value="us-ca">San Francisco, USA</elvt-option>
+    <elvt-option value="ca-to">Toronto, Canada</elvt-option>
+  </optgroup>
+  <optgroup label="Europe">
+    <elvt-option value="uk-ln">London, UK</elvt-option>
+    <elvt-option value="de-be">Berlin, Germany</elvt-option>
+    <elvt-option value="fr-pa">Paris, France</elvt-option>
+  </optgroup>
+</elvt-select>
+```
+:::
+
+:::danger Don't: Present long lists without organization
+Avoid alphabetical-only sorting when logical grouping would be more helpful.
+
+```html
+<!-- Avoid this for location-based selections -->
+<elvt-select name="location" placeholder="Select location">
+  <label slot="label">Office Location</label>
+  <elvt-option value="de-be">Berlin, Germany</elvt-option>
+  <elvt-option value="uk-ln">London, UK</elvt-option>
+  <elvt-option value="us-ny">New York, USA</elvt-option>
+  <elvt-option value="fr-pa">Paris, France</elvt-option>
+  <elvt-option value="us-ca">San Francisco, USA</elvt-option>
+  <elvt-option value="ca-to">Toronto, Canada</elvt-option>
+</elvt-select>
+```
+:::
+
+### Providing Helpful Default States
+
+**Why this matters:** Good defaults reduce cognitive load and help users complete tasks faster. Poor defaults force users to make unnecessary decisions or selections.
+
+:::tip Do: Use meaningful placeholders and defaults
+Provide helpful placeholder text and select sensible defaults when appropriate.
+
+```html
+<elvt-select name="country" placeholder="Select your country" value="us">
+  <label slot="label">Country</label>
+  <elvt-option value="us">United States</elvt-option>
+  <elvt-option value="ca">Canada</elvt-option>
+  <elvt-option value="uk">United Kingdom</elvt-option>
+</elvt-select>
+```
+:::
+
+:::danger Don't: Use generic placeholders
+Avoid placeholders that don't help users understand what to select.
+
+```html
+<!-- Avoid this -->
+<elvt-select name="country" placeholder="Choose">
+  <label slot="label">Country</label>
+  <elvt-option value="us">United States</elvt-option>
+  <elvt-option value="ca">Canada</elvt-option>
+  <elvt-option value="uk">United Kingdom</elvt-option>
+</elvt-select>
+```
+:::
+
+## Implementation
+
+### Getting Started
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+```javascript
+// Import all components
+import '@inform-elevate/elevate-core-ui';
+
+// Or import specific components
+import '@inform-elevate/elevate-core-ui/dist/components/select/select.js';
+```
+
+### Common Usage Patterns
+
+```html
+<!-- Basic select -->
+<elvt-select name="category" placeholder="Choose category">
+  <label slot="label">Category</label>
+  <elvt-option value="tech">Technology</elvt-option>
+  <elvt-option value="design">Design</elvt-option>
+  <elvt-option value="business">Business</elvt-option>
+</elvt-select>
+
+<!-- Select with help text -->
+<elvt-select name="priority" placeholder="Select priority" help-text="This affects notification settings">
+  <label slot="label">Priority Level</label>
+  <elvt-option value="low">Low</elvt-option>
+  <elvt-option value="medium">Medium</elvt-option>
+  <elvt-option value="high">High</elvt-option>
+</elvt-select>
+
+<!-- Required select with validation -->
+<elvt-select name="country" required invalid help-text="Please select your country">
+  <label slot="label">Country</label>
+  <elvt-option value="us">United States</elvt-option>
+  <elvt-option value="ca">Canada</elvt-option>
+  <elvt-option value="uk">United Kingdom</elvt-option>
+</elvt-select>
+
+<!-- Select with grouped options -->
+<elvt-select name="timezone" placeholder="Select timezone">
+  <label slot="label">Timezone</label>
+  <optgroup label="US Timezones">
+    <elvt-option value="est">Eastern</elvt-option>
+    <elvt-option value="cst">Central</elvt-option>
+    <elvt-option value="pst">Pacific</elvt-option>
+  </optgroup>
+  <optgroup label="International">
+    <elvt-option value="gmt">GMT</elvt-option>
+    <elvt-option value="cet">CET</elvt-option>
+  </optgroup>
+</elvt-select>
+```
+
+### Key Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `name` | String | Form field name for submission |
+| `value` | String | Currently selected option value |
+| `placeholder` | String | Placeholder text when no option is selected |
+| `help-text` | String | Additional guidance or validation message |
+| `size` | `small`, `medium` (default), `large` | Visual size of the select |
+| `required` | Boolean | Whether selection is required |
+| `disabled` | Boolean | Whether the select is disabled |
+| `invalid` | Boolean | Shows error validation state |
+| `multiple` | Boolean | Allow multiple option selection |
+| `searchable` | Boolean | Enable type-ahead search in options |
+
+**Slots:** Use `slot="label"` for the select label.
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-forms-select--docs).*
+
+## Form Integration Examples
+
+### Settings Form with Selects
+
+<ComponentShowcase
+  title="Settings Form Example"
+  description="Multiple select components working together in a settings form."
+  code={`<form style="max-width: 400px; display: flex; flex-direction: column; gap: 1rem;">
+  <h3>User Preferences</h3>
+  
+  <elvt-select name="theme" placeholder="Choose theme" value="light">
+    <label slot="label">Theme</label>
+    <elvt-option value="light">Light Theme</elvt-option>
+    <elvt-option value="dark">Dark Theme</elvt-option>
+    <elvt-option value="auto">Auto (System)</elvt-option>
+  </elvt-select>
+  
+  <elvt-select name="language" placeholder="Select language" value="en">
+    <label slot="label">Language</label>
+    <elvt-option value="en">English</elvt-option>
+    <elvt-option value="es">Español</elvt-option>
+    <elvt-option value="fr">Français</elvt-option>
+    <elvt-option value="de">Deutsch</elvt-option>
+  </elvt-select>
+  
+  <elvt-select name="notifications" placeholder="Choose frequency" help-text="How often you receive email updates">
+    <label slot="label">Email Notifications</label>
+    <elvt-option value="immediate">Immediately</elvt-option>
+    <elvt-option value="daily">Daily Digest</elvt-option>
+    <elvt-option value="weekly">Weekly Summary</elvt-option>
+    <elvt-option value="never">Never</elvt-option>
+  </elvt-select>
+  
+  <div style="display: flex; gap: 0.5rem; justify-content: flex-end; margin-top: 1rem;">
+    <elvt-button>Cancel</elvt-button>
+    <elvt-button tone="primary" type="submit">Save Settings</elvt-button>
+  </div>
+</form>`}
+>
+  <div style={{maxWidth: '400px', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+    <h3 style={{margin: '0 0 1rem 0'}}>User Preferences</h3>
+    
+    <ElvtSelect name="theme" placeholder="Choose theme" value="light">
+      <label slot="label">Theme</label>
+      <ElvtOption value="light">Light Theme</ElvtOption>
+      <ElvtOption value="dark">Dark Theme</ElvtOption>
+      <ElvtOption value="auto">Auto (System)</ElvtOption>
+    </ElvtSelect>
+    
+    <ElvtSelect name="language" placeholder="Select language" value="en">
+      <label slot="label">Language</label>
+      <ElvtOption value="en">English</ElvtOption>
+      <ElvtOption value="es">Español</ElvtOption>
+      <ElvtOption value="fr">Français</ElvtOption>
+      <ElvtOption value="de">Deutsch</ElvtOption>
+    </ElvtSelect>
+    
+    <ElvtSelect name="notifications" placeholder="Choose frequency" helpText="How often you receive email updates">
+      <label slot="label">Email Notifications</label>
+      <ElvtOption value="immediate">Immediately</ElvtOption>
+      <ElvtOption value="daily">Daily Digest</ElvtOption>
+      <ElvtOption value="weekly">Weekly Summary</ElvtOption>
+      <ElvtOption value="never">Never</ElvtOption>
+    </ElvtSelect>
+    
+    <div style={{display: 'flex', gap: '0.5rem', justifyContent: 'flex-end', marginTop: '1rem'}}>
+      <button style={{padding: '0.5rem 1rem', border: '1px solid #ccc', borderRadius: '4px', background: 'white', cursor: 'pointer'}}>Cancel</button>
+      <button style={{padding: '0.5rem 1rem', border: 'none', borderRadius: '4px', background: '#0066cc', color: 'white', cursor: 'pointer'}}>Save Settings</button>
+    </div>
+  </div>
+</ComponentShowcase>
+
+## Accessibility
+
+### Essential Accessibility Practices
+
+**Labels are required:**
+```html
+<!-- Good: Always include labels -->
+<elvt-select name="category" placeholder="Choose category">
+  <label slot="label">Category</label>
+  <elvt-option value="tech">Technology</elvt-option>
+</elvt-select>
+
+<!-- Bad: Missing label -->
+<elvt-select name="category" placeholder="Choose category">
+  <elvt-option value="tech">Technology</elvt-option>
+</elvt-select>
+```
+
+**Keyboard navigation:**
+- **Arrow keys** navigate through options
+- **Enter** or **Space** selects the highlighted option
+- **Escape** closes the dropdown
+- **Tab** moves focus to the next element
+
+**Screen reader support:**
+- Labels are announced automatically
+- Selected values are communicated clearly
+- Help text is associated with the select
+- Options are properly announced during navigation
+
+**Visual accessibility:**
+- Sufficient color contrast for all text
+- Clear focus indicators
+- Consistent visual states for different interactions
+
+## Changelog
+
+### Version 0.0.26-alpha (July 16, 2025)
+- Current version in active development
+
+### Version 0.0.25-alpha (July 10, 2025)
+- **Enhanced**: Improved keyboard navigation
+- **New**: Added searchable select option
+
+### Version 0.0.22-alpha (June 25, 2025)
+- **New**: Added select size variations
+- **Enhanced**: Better option grouping support
+
+### Version 0.0.20-alpha (June 18, 2025)
+- **New**: Added validation state support
+- **Enhanced**: Improved accessibility features
+
+### Version 0.0.15-alpha (May 20, 2025)
+- **New**: Add Select Component (initial implementation)
+- **New**: Basic option selection and styling

@@ -1,0 +1,243 @@
+---
+title: Chip
+description: Chips represent small pieces of information, selections, or actions. They provide compact ways to display attributes, tags, or interactive elements.
+sidebar_position: 16
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+Chips are compact elements that help users manage selections, filters, and tags efficiently. The ELEVATE Chip component helps designers and developers create consistent, accessible interfaces for content organization and user interactions.
+
+## Overview
+
+### When to Use Chips
+- **Tags and labels**: Categorizing or labeling content for easy identification
+- **Active filters**: Showing applied search or content filters with remove options
+- **User selections**: Displaying chosen options from multi-select interactions  
+- **Compact actions**: Space-constrained interactive elements for secondary actions
+- **Status indicators**: Quick status communication with dismissible options
+
+### When NOT to Use Chips
+- **Primary actions**: Use Button component for main interactions users need to take
+- **Long text content**: Use appropriate text components for substantial information
+- **Complex information**: Use Card or other layout components for detailed data
+- **Navigation**: Use Link or navigation components for page transitions
+
+## Variations
+
+### Filter Chips
+
+Filter chips help users refine content with clear active/inactive states.
+
+<ComponentShowcase
+  title="Filter Chip Examples"
+  description="Use filter chips to show available and selected filters"
+  code={`<div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+  <elvt-chip variant="filter">All Items</elvt-chip>
+  <elvt-chip variant="filter" selected>Active Filter</elvt-chip>
+  <elvt-chip variant="filter">Another Filter</elvt-chip>
+  <elvt-chip variant="filter" selected>Selected Filter</elvt-chip>
+</div>`}
+>
+  <div style={{display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center'}}>
+    <elvt-chip variant="filter">All Items</elvt-chip>
+    <elvt-chip variant="filter" selected>Active Filter</elvt-chip>
+    <elvt-chip variant="filter">Another Filter</elvt-chip>
+    <elvt-chip variant="filter" selected>Selected Filter</elvt-chip>
+  </div>
+</ComponentShowcase>
+
+### Tag Chips
+
+Tag chips represent categories, labels, or user selections with dismissible options.
+
+<ComponentShowcase
+  title="Tag Chip Examples"
+  description="Use tag chips for removable labels and categories"
+  code={`<div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+  <elvt-chip dismissible>JavaScript</elvt-chip>
+  <elvt-chip dismissible>React</elvt-chip>
+  <elvt-chip dismissible>Design System</elvt-chip>
+  <elvt-chip dismissible color="primary">Featured</elvt-chip>
+</div>`}
+>
+  <div style={{display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center'}}>
+    <elvt-chip dismissible>JavaScript</elvt-chip>
+    <elvt-chip dismissible>React</elvt-chip>
+    <elvt-chip dismissible>Design System</elvt-chip>
+    <elvt-chip dismissible color="primary">Featured</elvt-chip>
+  </div>
+</ComponentShowcase>
+
+### Status Chips
+
+Status chips communicate states with semantic colors and clear labels.
+
+<ComponentShowcase
+  title="Status Chip Examples"
+  description="Use status chips to communicate states with semantic colors"
+  code={`<div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+  <elvt-chip color="success">Active</elvt-chip>
+  <elvt-chip color="warning">Pending</elvt-chip>
+  <elvt-chip color="error">Failed</elvt-chip>
+  <elvt-chip>Draft</elvt-chip>
+</div>`}
+>
+  <div style={{display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center'}}>
+    <elvt-chip color="success">Active</elvt-chip>
+    <elvt-chip color="warning">Pending</elvt-chip>
+    <elvt-chip color="error">Failed</elvt-chip>
+    <elvt-chip>Draft</elvt-chip>
+  </div>
+</ComponentShowcase>
+
+## Design Guidelines
+
+### When to Use
+- **Tags and labels**: Categorizing or labeling content
+- **Active filters**: Showing applied search or content filters  
+- **User selections**: Displaying chosen options or items
+- **Compact actions**: Space-constrained interactive elements
+- **Status indicators**: Quick status communication
+
+### When Not to Use
+- **Primary actions**: Use Button component for main interactions
+- **Long text content**: Use appropriate text components
+- **Complex information**: Use Card or other layout components
+- **Navigation**: Use proper navigation components
+
+### Content Guidelines
+- Keep text short and scannable (1-3 words ideal)
+- Use sentence case for better readability
+- Be descriptive but concise
+- Avoid technical jargon when possible
+- Consider internationalization for text content
+
+### Color and Styling
+- Use semantic colors for status chips
+- Maintain sufficient contrast for readability
+- Keep styling subtle to avoid visual clutter
+- Use consistent sizing within groups
+- Consider accessibility in color choice
+
+## Code Reference
+
+### Installation
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+### Basic Usage
+
+```html
+<elvt-chip>Design System</elvt-chip>
+<elvt-chip variant="outlined">Frontend</elvt-chip>
+<elvt-chip variant="filled">React</elvt-chip>
+```
+
+### Dismissible Chip
+
+```html
+<elvt-chip dismissible>
+  Removable Tag
+</elvt-chip>
+```
+
+### Filter Chip
+
+```html
+<elvt-chip 
+  variant="filter" 
+  selected="true">
+  Active Filter
+</elvt-chip>
+```
+
+### With Icon
+
+```html
+<elvt-chip>
+  <elvt-icon name="star"></elvt-icon>
+  Favorite
+</elvt-chip>
+```
+
+### Avatar Chip
+
+```html
+<elvt-chip>
+  <elvt-avatar size="small" src="/user.jpg" alt="John Doe"></elvt-avatar>
+  John Doe
+</elvt-chip>
+```
+
+### Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `variant` | `string` | `default` | Visual style: `default`, `outlined`, `filled`, `filter` |
+| `size` | `string` | `medium` | Chip size: `small`, `medium`, `large` |
+| `selected` | `boolean` | `false` | Whether the chip is selected (for filter/choice chips) |
+| `disabled` | `boolean` | `false` | Whether the chip is disabled |
+| `dismissible` | `boolean` | `false` | Whether the chip can be dismissed/removed |
+| `clickable` | `boolean` | `false` | Whether the chip is clickable |
+| `color` | `string` | `default` | Color variant: `default`, `primary`, `success`, `warning`, `error` |
+
+### Events
+
+| Event | Description |
+|-------|-------------|
+| `request-remove` | Fired when the removable chip's remove button is clicked |
+| `request-edit` | Fired when the editable chip's content area is clicked |
+
+## Accessibility
+
+### Keyboard Support
+- **Tab**: Moves focus to interactive chips
+- **Enter/Space**: Activates editable chips or removes removable chips when focused
+- **Delete/Backspace**: Removes chips when `removable` is enabled
+- **Arrow keys**: Navigate between chips in groups
+
+### Screen Reader Support
+- Chips announce their content and state clearly
+- Interactive chips have proper button or option semantics
+- Editable action is clearly described for editable chips
+- Removable action is clearly described for removable chips
+
+### Focus Management
+- Clear focus indicators on interactive chips
+- Focus moves logically through chip groups
+- Focus is managed appropriately when chips are removed
+- Initial focus placement follows expected patterns
+
+### ARIA Support
+- Uses appropriate roles (`button`, etc.) based on function
+- Editable chips announce their editable state clearly
+- Removable chips have accessible remove actions with custom labels
+- Groups use proper `role="group"` when needed
+
+### Best Practices
+- Provide clear, descriptive chip text
+- Ensure sufficient color contrast for all variants
+- Use semantic roles appropriate to chip function
+- Don't rely solely on color to convey information
+- Provide keyboard alternatives for all mouse interactions
+- Group related chips logically
+
+## Changelog
+
+### Version 0.0.26-alpha (July 16, 2025)
+- Current version in active development
+
+### Version 0.0.17-alpha (June 5, 2025)
+- **Enhanced**: Adjust/Revisit Chip Component Styles
+
+### Version 0.0.15-alpha (May 23, 2025)
+- **Fixed**: Update Design Tokens, Higher Contrast for Badges/Chips
+
+### Version 0.0.13-alpha (May 16, 2025)
+- **New**: Add Elevate Chip (major implementation)
+
+### Version 0.0.1-alpha (March 14, 2025)
+- **New**: Add Chip Component (initial implementation)
