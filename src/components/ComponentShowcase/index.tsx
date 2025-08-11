@@ -12,6 +12,8 @@ interface ComponentShowcaseProps {
   code?: string;
   language?: string;
   showFrameworkSwitcher?: boolean;
+  wrapLines?: boolean;
+  showCodeByDefault?: boolean;
 }
 
 export default function ComponentShowcase({
@@ -20,12 +22,15 @@ export default function ComponentShowcase({
   description,
   code,
   language = 'html',
-  showFrameworkSwitcher = true
+  showFrameworkSwitcher = true,
+  wrapLines = true,
+  showCodeByDefault = false
 }: ComponentShowcaseProps): JSX.Element {
   const previewRef = useRef<HTMLDivElement>(null);
   const { selectedFramework } = useFramework();
   const [transformedCode, setTransformedCode] = useState<string>('');
   const [componentNames, setComponentNames] = useState<string[]>([]);
+  const [showCode, setShowCode] = useState<boolean>(showCodeByDefault);
   
   // Transform code when framework or children change
   useEffect(() => {
@@ -82,11 +87,24 @@ export default function ComponentShowcase({
           {title && <h3 className={styles.title}>{title}</h3>}
           {description && <p className={styles.description}>{description}</p>}
         </div>
-        {showFrameworkSwitcher && (
-          <div className={styles.frameworkSwitcher}>
-            <FrameworkSwitcher size="small" />
-          </div>
-        )}
+        <div className={styles.headerControls}>
+          <button
+            className={styles.codeToggle}
+            onClick={() => setShowCode(!showCode)}
+            title={showCode ? 'Hide code' : 'Show code'}
+            aria-label={showCode ? 'Hide code' : 'Show code'}
+          >
+            {showCode ? (
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8 10.793 5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+              </svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M5.854 4.854a.5.5 0 1 0-.708-.708l-3.5 3.5a.5.5 0 0 0 0 .708l3.5 3.5a.5.5 0 0 0 .708-.708L2.707 8l3.147-3.146zm4.292 0a.5.5 0 0 1 .708-.708l3.5 3.5a.5.5 0 0 1 0 .708l-3.5 3.5a.5.5 0 0 1-.708-.708L13.293 8l-3.147-3.146z"/>
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
       
       <div className={styles.preview}>
@@ -95,9 +113,24 @@ export default function ComponentShowcase({
         </div>
       </div>
 
-      <CodeBlock language={getLanguage()} showLineNumbers={true}>
-        {displayCode}
-      </CodeBlock>
+      {showCode && (
+        <div className={styles.codeSection}>
+          <div className={styles.codeHeader}>
+            {showFrameworkSwitcher && (
+              <div className={styles.codeFrameworkSwitcher}>
+                <FrameworkSwitcher size="small" />
+              </div>
+            )}
+          </div>
+          <CodeBlock 
+            language={getLanguage()} 
+            showLineNumbers={true}
+            className={wrapLines ? styles.wrapLines : styles.noWrapLines}
+          >
+            {displayCode}
+          </CodeBlock>
+        </div>
+      )}
     </div>
   );
 }

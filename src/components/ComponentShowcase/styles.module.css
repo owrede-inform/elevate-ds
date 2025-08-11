@@ -18,9 +18,42 @@
   flex: 1;
 }
 
-.frameworkSwitcher {
+.headerControls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   flex-shrink: 0;
   margin-top: 0.25rem;
+}
+
+.codeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  background: var(--ifm-background-color);
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.codeToggle:hover {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-primary-lightest);
+}
+
+.codeToggle:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px var(--ifm-color-primary-lightest);
+}
+
+.codeToggle svg {
+  width: 16px;
+  height: 16px;
 }
 
 .title {
@@ -56,6 +89,38 @@
   justify-content: center;
   gap: var(--sl-spacing-medium, 1rem);
   flex-wrap: wrap;
+}
+
+.codeSection {
+  position: relative;
+  border-top: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
+}
+
+.codeHeader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  padding: var(--sl-spacing-medium, 1rem);
+}
+
+.codeFrameworkSwitcher {
+  background: var(--ifm-sidebar-background-color, var(--elvt-alias-layout-layer-elevated, #f8f9fb));
+  border: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
+  border-radius: 4px;
+  padding: 0.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Line wrapping control */
+.wrapLines :global(.prism-code) {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+}
+
+.noWrapLines :global(.prism-code) {
+  white-space: pre !important;
+  overflow-x: auto !important;
 }
 
 /* Clean CodeBlock styling within ComponentShowcase */
@@ -142,6 +207,32 @@
 [data-theme='dark'] .preview {
   background: var(--elvt-alias-layout-layer-appBackground, #111217);
   border-bottom-color: var(--elvt-primitives-color-gray-700, #4d5366);
+}
+
+[data-theme='dark'] .codeToggle {
+  background: var(--ifm-background-color);
+  border-color: var(--ifm-color-emphasis-400);
+  color: var(--ifm-font-color-base);
+}
+
+[data-theme='dark'] .codeToggle:hover {
+  border-color: var(--ifm-color-primary-light);
+  background: var(--ifm-color-primary-darkest);
+}
+
+[data-theme='dark'] .codeToggle:focus {
+  border-color: var(--ifm-color-primary-light);
+  box-shadow: 0 0 0 2px var(--ifm-color-primary-darkest);
+}
+
+[data-theme='dark'] .codeSection {
+  border-top-color: var(--elvt-primitives-color-gray-700, #4d5366);
+}
+
+[data-theme='dark'] .codeFrameworkSwitcher {
+  background: var(--ifm-sidebar-background-color, var(--elvt-primitives-color-gray-1000, #111217));
+  border-color: var(--elvt-primitives-color-gray-700, #4d5366);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Dark theme CodeBlock styling */
