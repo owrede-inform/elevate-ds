@@ -24,11 +24,11 @@
   border-bottom: none;
 }
 
-.header h3 {
+.header h4 {
   margin: 0;
   color: var(--ifm-heading-color);
-  font-weight: 600;
-  font-size: 1.5rem;
+  font-weight: 500;
+  font-size: 1.25rem;
   letter-spacing: -0.01em;
 }
 
@@ -105,7 +105,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem;
+  padding: 1rem;
+  min-height: 2rem;
   cursor: pointer;
   background: transparent;
   transition: all 0.2s ease;
@@ -118,18 +119,15 @@
 
 .versionInfo {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 1rem;
 }
 
 .versionNumber {
   margin: 0;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--ifm-heading-color);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
   letter-spacing: -0.01em;
 }
 
@@ -217,16 +215,17 @@
 }
 
 .changeIcon {
-  font-size: 1.125rem;
-  margin-top: 0.125rem;
+  font-size: 2.25rem;
+  margin-top: 0;
   opacity: 0.8;
+  line-height: 1;
 }
 
 .changeTitle {
   margin: 0;
   flex: 1;
   font-size: 0.95rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--ifm-heading-color);
   line-height: 1.4;
 }
@@ -247,12 +246,26 @@
   font-size: 0.8rem;
 }
 
+.commitLink,
+.issueLink {
+  display: inline-flex;
+  align-items: center;
+  background: var(--ifm-color-emphasis-200);
+  padding: 0.125rem 0.5rem;
+  border-radius: 6px;
+  height: 1rem;
+  font-size: 1rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 400;
+}
+
 .commitLink a,
 .issueLink a {
-  color: var(--ifm-color-primary);
+  color: var(--ifm-color-emphasis-700);
   text-decoration: none;
-  font-family: var(--ifm-font-family-monospace);
-  font-weight: 600;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .commitLink a:hover,
@@ -260,15 +273,18 @@
   text-decoration: underline;
 }
 
-/* Impact badges - Subtle Design */
+/* Impact badges - 1rem height */
 .impactBadge {
-  padding: 0.25rem 0.625rem;
-  border-radius: 10px;
+  padding: 0.125rem 0.5rem;
+  border-radius: 8px;
   font-size: 0.65rem;
   font-weight: 500;
   text-transform: none;
   letter-spacing: 0;
   opacity: 0.8;
+  height: 1rem;
+  display: inline-flex;
+  align-items: center;
 }
 
 .impactBadge.info {

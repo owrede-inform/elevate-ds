@@ -165,34 +165,11 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = ({
   return (
     <div className={`${styles.changelog} ${compactMode ? styles.compact : ''}`}>
       <div className={styles.header}>
-        <h3>Component Changelog</h3>
+        <h4>Changelog for {component}</h4>
         <div className={styles.versionBadge}>
           Current: v{changelogData.version}
         </div>
       </div>
-
-      {showMetadata && !compactMode && (
-        <div className={styles.metadata}>
-          <div className={styles.metadataGrid}>
-            <div className={styles.metadataItem}>
-              <strong>{changelogData.metadata.totalVersions}</strong>
-              <span>Versions</span>
-            </div>
-            <div className={styles.metadataItem}>
-              <strong>{changelogData.metadata.storyCount}</strong>
-              <span>Stories</span>
-            </div>
-            <div className={styles.metadataItem}>
-              <strong>{changelogData.metadata.testCount}</strong>
-              <span>Tests</span>
-            </div>
-            <div className={styles.metadataItem}>
-              <strong>{changelogData.metadata.fileCount}</strong>
-              <span>Files</span>
-            </div>
-          </div>
-        </div>
-      )}
 
       <div className={styles.versions}>
         {versionsToShow.map((versionEntry) => {
@@ -206,13 +183,11 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = ({
                 onClick={() => toggleVersionExpansion(versionEntry.version)}
               >
                 <div className={styles.versionInfo}>
-                  <h4 className={styles.versionNumber}>
-                    v{versionEntry.version}
-                    {hasBreakingChanges && (
-                      <span className={styles.breakingBadge}>Breaking</span>
-                    )}
-                  </h4>
+                  <h4 className={styles.versionNumber}>v{versionEntry.version}</h4>
                   <span className={styles.versionDate}>{versionEntry.date}</span>
+                  {hasBreakingChanges && (
+                    <span className={styles.breakingBadge}>Breaking</span>
+                  )}
                 </div>
                 <div className={styles.versionSummary}>
                   <span className={styles.changeCount}>
