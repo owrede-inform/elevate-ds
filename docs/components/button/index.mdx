@@ -5,7 +5,6 @@ sidebar_position: 1
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
-import { ElvtButton, ElvtIcon } from '@inform-elevate/elevate-core-ui/dist/react';
 
 # Button
 
@@ -31,7 +30,7 @@ Buttons are the primary interface for user actions in digital products. The ELEV
 
 Each tone communicates a different type of action and creates visual hierarchy in your interface.
 
-<ComponentShowcase
+<ComponentShowcase 
   title="Button Tones"
   description="Different button tones for various use cases and semantic meaning."
   code={`<div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
@@ -42,17 +41,16 @@ Each tone communicates a different type of action and creates visual hierarchy i
   <elvt-button tone="danger">Danger</elvt-button>
   <elvt-button tone="subtle">Subtle</elvt-button>
   <elvt-button tone="emphasized">Emphasized</elvt-button>
-</div>`}
->
-  <div style={{display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap'}}>
-    <ElvtButton tone="primary">Primary</ElvtButton>
-    <ElvtButton tone="neutral">Neutral</ElvtButton>
-    <ElvtButton tone="success">Success</ElvtButton>
-    <ElvtButton tone="warning">Warning</ElvtButton>
-    <ElvtButton tone="danger">Danger</ElvtButton>
-    <ElvtButton tone="subtle">Subtle</ElvtButton>
-    <ElvtButton tone="emphasized">Emphasized</ElvtButton>
-  </div>
+</div>`}>
+<div style={{display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap'}}>
+  <elvt-button tone="primary">Primary</elvt-button>
+  <elvt-button tone="neutral">Neutral</elvt-button>
+  <elvt-button tone="success">Success</elvt-button>
+  <elvt-button tone="warning">Warning</elvt-button>
+  <elvt-button tone="danger">Danger</elvt-button>
+  <elvt-button tone="subtle">Subtle</elvt-button>
+  <elvt-button tone="emphasized">Emphasized</elvt-button>
+</div>
 </ComponentShowcase>
 
 ### State Variations
@@ -63,12 +61,11 @@ Each tone communicates a different type of action and creates visual hierarchy i
 
 Buttons can be disabled when an action is temporarily unavailable.
 
-<ComponentShowcase
+<ComponentShowcase 
   title="Disabled Button"
   description="Buttons in disabled state cannot be interacted with."
-  code={`<elvt-button tone="primary" disabled>Disabled Button</elvt-button>`}
->
-  <ElvtButton tone="primary" disabled>Disabled Button</ElvtButton>
+  code={`<elvt-button tone="primary" disabled>Disabled Button</elvt-button>`}>
+<elvt-button tone="primary" disabled>Disabled Button</elvt-button>
 </ComponentShowcase>
 
 </div>
@@ -80,9 +77,8 @@ Selected state for buttons that toggle or represent current selection.
 <ComponentShowcase
   title="Selected Button"
   description="Buttons can show an active or selected state."
-  code={`<elvt-button tone="primary" selected>Selected Button</elvt-button>`}
->
-  <ElvtButton tone="primary" selected>Selected Button</ElvtButton>
+  code={`<elvt-button tone="primary" selected>Selected Button</elvt-button>`}>
+<elvt-button tone="primary" selected>Selected Button</elvt-button>
 </ComponentShowcase>
 
 </div>
@@ -97,7 +93,7 @@ Buttons can include icons to enhance clarity and provide visual context. Icons s
 
 Icons before text help identify the action type or category.
 
-<ComponentShowcase
+<ComponentShowcase 
   title="Buttons with Prefix Icons"
   description="Icons placed before button text provide visual context for the action."
   code={`<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
@@ -113,21 +109,20 @@ Icons before text help identify the action type or category.
     <elvt-icon slot="prefix" icon="mdi:delete"></elvt-icon>
     Delete
   </elvt-button>
-</div>`}
->
-  <div style={{display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center'}}>
-    <ElvtButton tone="primary">
-      <ElvtIcon slot="prefix" icon="mdi:plus" />
-      Add Item
-    </ElvtButton>
-    <ElvtButton tone="success">
-      <ElvtIcon slot="prefix" icon="mdi:download" />
-      Download
-    </ElvtButton>
-    <ElvtButton tone="danger">
-      <ElvtIcon slot="prefix" icon="mdi:delete" />
-      Delete
-    </ElvtButton>
+</div>`}>
+<div style={{display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center'}}>
+  <elvt-button tone="primary">
+    <elvt-icon slot="prefix" icon="mdi:plus"></elvt-icon>
+    Add Item
+  </elvt-button>
+  <elvt-button tone="success">
+    <elvt-icon slot="prefix" icon="mdi:download"></elvt-icon>
+    Download
+  </elvt-button>
+  <elvt-button tone="danger">
+    <elvt-icon slot="prefix" icon="mdi:delete"></elvt-icon>
+    Delete
+  </elvt-button>
   </div>
 </ComponentShowcase>
 
@@ -154,18 +149,18 @@ Icons after text suggest direction or outcome of the action.
 </div>`}
 >
   <div style={{display: 'flex', gap: '0.75rem', flexWrap: 'wrap', alignItems: 'center'}}>
-    <ElvtButton tone="primary">
+    <elvt-button tone="primary">
       Continue
-      <ElvtIcon slot="suffix" icon="mdi:chevron-right" />
-    </ElvtButton>
-    <ElvtButton>
+      <elvt-icon slot="suffix" icon="mdi:chevron-right"></elvt-icon>
+    </elvt-button>
+    <elvt-button>
       Open Link
-      <ElvtIcon slot="suffix" icon="mdi:open-in-new" />
-    </ElvtButton>
-    <ElvtButton tone="subtle">
+      <elvt-icon slot="suffix" icon="mdi:open-in-new"></elvt-icon>
+    </elvt-button>
+    <elvt-button tone="subtle">
       Expand
-      <ElvtIcon slot="suffix" icon="mdi:chevron-down" />
-    </ElvtButton>
+      <elvt-icon slot="suffix" icon="mdi:chevron-down"></elvt-icon>
+    </elvt-button>
   </div>
 </ComponentShowcase>
 
@@ -192,18 +187,18 @@ Icon-only buttons save space but require clear, universally understood icons and
 </div>`}
 >
   <div style={{display: 'flex', gap: '0.75rem', alignItems: 'center'}}>
-    <ElvtButton tone="primary" title="Add new item" aria-label="Add new item">
-      <ElvtIcon icon="mdi:plus" />
-    </ElvtButton>
-    <ElvtButton title="Edit" aria-label="Edit">
-      <ElvtIcon icon="mdi:pencil" />
-    </ElvtButton>
-    <ElvtButton tone="danger" title="Delete" aria-label="Delete">
-      <ElvtIcon icon="mdi:delete" />
-    </ElvtButton>
-    <ElvtButton tone="subtle" title="More options" aria-label="More options">
-      <ElvtIcon icon="mdi:dots-vertical" />
-    </ElvtButton>
+    <elvt-button tone="primary" title="Add new item" aria-label="Add new item">
+      <elvt-icon icon="mdi:plus"></elvt-icon>
+    </elvt-button>
+    <elvt-button title="Edit" aria-label="Edit">
+      <elvt-icon icon="mdi:pencil"></elvt-icon>
+    </elvt-button>
+    <elvt-button tone="danger" title="Delete" aria-label="Delete">
+      <elvt-icon icon="mdi:delete"></elvt-icon>
+    </elvt-button>
+    <elvt-button tone="subtle" title="More options" aria-label="More options">
+      <elvt-icon icon="mdi:dots-vertical"></elvt-icon>
+    </elvt-button>
   </div>
 </ComponentShowcase>
 
@@ -219,9 +214,9 @@ Icon-only buttons save space but require clear, universally understood icons and
 </div>`}
 >
   <div style={{display: 'flex', gap: '1rem', alignItems: 'center'}}>
-    <ElvtButton size="small">Small</ElvtButton>
-    <ElvtButton size="medium">Medium</ElvtButton>
-    <ElvtButton size="large">Large</ElvtButton>
+    <elvt-button size="small">Small</elvt-button>
+    <elvt-button size="medium">Medium</elvt-button>
+    <elvt-button size="large">Large</elvt-button>
   </div>
 </ComponentShowcase>
 
