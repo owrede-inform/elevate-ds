@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
@@ -46,32 +46,25 @@ const CustomHero: React.FC<CustomHeroProps> = ({
 }) => {
   const [selectedBackground, setSelectedBackground] = useState<string>('');
   const [imageLoaded, setImageLoaded] = useState<boolean>(false);
-  const [selectedImagePath, setSelectedImagePath] = useState<string>('');
 
-  // Generate base URL for the selected image path
+  // Select a random image path once on component creation
+  const randomIndex = Math.useMemo(() => Math.floor(Math.random() * backgroundImages.length), []);
+  const selectedImagePath = `${backgroundImageFolder}/${backgroundImages[randomIndex]}`;
   const fullImagePath = useBaseUrl(selectedImagePath);
 
   useEffect(() => {
-    // Select a random background image
-    const randomIndex = Math.floor(Math.random() * backgroundImages.length);
-    const selectedImage = `${backgroundImageFolder}/${backgroundImages[randomIndex]}`;
-    setSelectedImagePath(selectedImage);
-  }, [backgroundImageFolder, backgroundImages]);
-
-  useEffect(() => {
-    if (!selectedImagePath) return;
-    
-    setSelectedBackground(fullImagePath);
-    
-    // Preload the image
+    // Preload the selected image
     const img = new Image();
-    img.onload = () => setImageLoaded(true);
+    img.onload = () => {
+      setSelectedBackground(fullImagePath);
+      setImageLoaded(true);
+    };
     img.onerror = () => {
       console.warn(`Failed to load hero background: ${fullImagePath}`);
       setImageLoaded(true); // Still show content even if image fails
     };
     img.src = fullImagePath;
-  }, [fullImagePath, selectedImagePath]);
+  }, [fullImagePath]); // Only re-run if the image path changes
 
   const heroStyle = (selectedBackground && imageLoaded) ? {
     backgroundImage: `url(${selectedBackground})`,
