@@ -96,15 +96,15 @@
   border-top: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
 }
 
-.codeHeader {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 10;
-  padding: var(--sl-spacing-medium, 1rem);
+.codeWrapper {
+  position: relative;
 }
 
-.codeFrameworkSwitcher {
+.frameworkSelectorInline {
+  position: absolute;
+  top: 0.75rem;
+  right: 3.5rem;
+  z-index: 20;
   background: var(--ifm-sidebar-background-color, var(--elvt-alias-layout-layer-elevated, #f8f9fb));
   border: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
   border-radius: 4px;
@@ -229,7 +229,7 @@
   border-top-color: var(--elvt-primitives-color-gray-700, #4d5366);
 }
 
-[data-theme='dark'] .codeFrameworkSwitcher {
+[data-theme='dark'] .frameworkSelectorInline {
   background: var(--ifm-sidebar-background-color, var(--elvt-primitives-color-gray-1000, #111217));
   border-color: var(--elvt-primitives-color-gray-700, #4d5366);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);

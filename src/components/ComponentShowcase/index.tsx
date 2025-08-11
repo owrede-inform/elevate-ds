@@ -115,20 +115,20 @@ export default function ComponentShowcase({
 
       {showCode && (
         <div className={styles.codeSection}>
-          <div className={styles.codeHeader}>
+          <div className={styles.codeWrapper}>
             {showFrameworkSwitcher && (
-              <div className={styles.codeFrameworkSwitcher}>
+              <div className={styles.frameworkSelectorInline}>
                 <FrameworkSwitcher size="small" />
               </div>
             )}
+            <CodeBlock 
+              language={getLanguage()} 
+              showLineNumbers={true}
+              className={wrapLines ? styles.wrapLines : styles.noWrapLines}
+            >
+              {displayCode}
+            </CodeBlock>
           </div>
-          <CodeBlock 
-            language={getLanguage()} 
-            showLineNumbers={true}
-            className={wrapLines ? styles.wrapLines : styles.noWrapLines}
-          >
-            {displayCode}
-          </CodeBlock>
         </div>
       )}
     </div>
