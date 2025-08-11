@@ -5,6 +5,7 @@ sidebar_position: 15
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 # Indicator
 
@@ -229,10 +230,9 @@ npm install @inform-elevate/elevate-core-ui
 
 ## Changelog
 
-### Version 0.0.27-alpha (Current)
-- Current version with stable indicator functionality
-
-### Version 0.0.14-alpha
-- **New**: Added Indicator component (experimental)
-- **New**: Position variants and tone support
-- **New**: CSS custom properties for offset control
+<ComponentChangelog 
+  component="elvt-indicator" 
+  maxVersions={5}
+  showMetadata={true}
+  compactMode={false}
+/>

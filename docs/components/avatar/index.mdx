@@ -5,6 +5,7 @@ sidebar_position: 9
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
 import { ElvtAvatar } from '@inform-elevate/elevate-core-ui/dist/react';
 
 # Avatar
@@ -519,25 +520,9 @@ npm install @inform-elevate/elevate-core-ui
 
 ## Changelog
 
-### Version 0.0.26-alpha (July 16, 2025)
-- Current version in active development
-
-### Version 0.0.24-alpha (July 3, 2025)
-- **Enhanced**: Avatar styling and size consistency improvements
-- **New**: Added shape variants (circle, square, rounded)
-
-### Version 0.0.22-alpha (June 25, 2025)
-- **Enhanced**: Improved avatar accessibility features
-- **New**: Added fallback hierarchy support
-
-### Version 0.0.20-alpha (June 18, 2025)
-- **Enhanced**: Apply design tokens to Avatar component
-- **New**: Added avatar size variants (xsmall to xlarge)
-
-### Version 0.0.18-alpha (June 9, 2025)
-- **New**: Added Avatar component with image and initials support
-- **New**: Icon avatar support for system accounts
-
-### Version 0.0.15-alpha (May 20, 2025)
-- **New**: Add Avatar Component (initial implementation)
-- **New**: Basic avatar functionality with image support
+<ComponentChangelog 
+  component="elvt-avatar" 
+  maxVersions={5}
+  showMetadata={true}
+  compactMode={false}
+/>

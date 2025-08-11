@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple ComponentChangelog Test</title>
+</head>
+<body>
+    <h1>Simple ComponentChangelog Test</h1>
+    <div id="test-container">
+        <p>This is a basic test to see if we can access the changelog JSON file directly:</p>
+        
+        <button onclick="testFetch()">Test Fetch</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function testFetch() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Testing...';
+            
+            try {
+                console.log('Fetching changelog...');
+                const response = await fetch('/component-changelogs/elvt-button-changes.json');
+                console.log('Response:', response);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                console.log('Data:', data);
+                
+                resultDiv.innerHTML = `
+                    <h3>Success!</h3>
+                    <p><strong>Component:</strong> ${data.component}</p>
+                    <p><strong>Version:</strong> ${data.version}</p>
+                    <p><strong>Changelog entries:</strong> ${data.changelog.length}</p>
+                    <pre>${JSON.stringify(data, null, 2).substring(0, 500)}...</pre>
+                `;
+            } catch (error) {
+                console.error('Error:', error);
+                resultDiv.innerHTML = `
+                    <h3>Error!</h3>
+                    <p>${error.message}</p>
+                `;
+            }
+        }
+        
+        // Auto-test on load
+        window.addEventListener('load', testFetch);
+    </script>
+</body>
+</html>

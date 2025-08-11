@@ -5,6 +5,7 @@ sidebar_position: 17
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -807,13 +808,9 @@ See how dialogs handle form inputs and validation:
 
 ## Changelog
 
-### Version 0.0.26-alpha (July 16, 2025)
-- Current version in active development
-
-### Version 0.0.16-alpha (June 4, 2025)
-- **New**: Add Lightbox and Dialogs (initial implementation)
-- **New**: Basic modal dialog functionality with header, content, and actions
-- **New**: Size variations (small, medium, large, fullscreen)
-- **New**: Persistent dialog option for critical workflows
-- **New**: Built-in focus management and keyboard navigation
-- **New**: Automatic ARIA labeling and accessibility features
+<ComponentChangelog 
+  component="elvt-dialog" 
+  maxVersions={5}
+  showMetadata={true}
+  compactMode={false}
+/>

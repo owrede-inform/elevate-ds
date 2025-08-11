@@ -126,31 +126,31 @@ const config: Config = {
       },
       items: [
         {
-          to: '/docs/home',
+          to: 'docs/home',
           position: 'left',
           label: 'Home',
         },
         {
-          to: '/docs/guidelines',
+          to: 'docs/guidelines',
           position: 'left',
           label: 'Guidelines',
         },
         {
-          to: '/docs/components',
+          to: 'docs/components',
           position: 'left',
           label: 'Components',
         },
         {
-          to: '/docs/patterns',
+          to: 'docs/patterns',
           position: 'left',
           label: 'Patterns',
         },
         {
-          to: '/docs/design',
+          to: 'docs/design',
           position: 'left',
           label: 'Design',
         },
-        {to: '/blog', label: 'Updates', position: 'left'},
+        {to: 'blog', label: 'Updates', position: 'left'},
         {
           href: 'https://github.com/inform-elevate/',
           label: 'GitHub',
@@ -174,15 +174,15 @@ const config: Config = {
           items: [
             {
               label: 'Getting Started',
-              to: '/docs/home/overview',
+              to: 'docs/home/overview',
             },
             {
               label: 'Components',
-              to: '/docs/components',
+              to: 'docs/components',
             },
             {
               label: 'Design Tokens',
-              to: '/docs/design-tokens',
+              to: 'docs/design-tokens',
             },
           ],
         },
@@ -191,7 +191,7 @@ const config: Config = {
           items: [
             {
               label: 'Design Guidelines',
-              to: '/docs/guidelines',
+              to: 'docs/guidelines',
             },
             {
               label: 'Storybook',
@@ -212,7 +212,7 @@ const config: Config = {
           items: [
             {
               label: 'Release Notes',
-              to: '/blog',
+              to: 'blog',
             },
             {
               label: 'Changelog',

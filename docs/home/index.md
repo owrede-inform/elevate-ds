@@ -46,19 +46,19 @@ ELEVATE is more than just a component library. It's a complete design ecosystem 
   <div className="elvt-path-card elvt-path-card--primary">
     <h4>🚀 New Project</h4>
     <p>Starting fresh? Begin with our installation guide and build with ELEVATE from day one.</p>
-    <a href="/docs/home/installation">Start Installing →</a>
+    <a href="./installation">Start Installing →</a>
   </div>
   
   <div className="elvt-path-card elvt-path-card--success">
     <h4>📦 Existing Project</h4>
     <p>Migrating an existing application? Learn our adoption strategies and migration approaches.</p>
-    <a href="/docs/home/adoption">Plan Migration →</a>
+    <a href="./adoption">Plan Migration →</a>
   </div>
   
   <div className="elvt-path-card elvt-path-card--purple">
     <h4>🎨 Design First</h4>
     <p>Working on designs? Explore our design guidelines, tokens, and component patterns.</p>
-    <a href="/docs/guidelines">Explore Guidelines →</a>
+    <a href="../guidelines">Explore Guidelines →</a>
   </div>
 </div>
 

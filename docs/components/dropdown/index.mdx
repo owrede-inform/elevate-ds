@@ -5,6 +5,7 @@ sidebar_position: 20
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 Dropdowns provide efficient option selection within constrained interface space. The ELEVATE Dropdown component helps designers and developers create consistent, accessible selection experiences that work well across different contexts and device types.
 
@@ -448,36 +449,9 @@ import '@inform-elevate/elevate-core-ui/dist/components/dropdown/dropdown.js';
 
 ## Changelog
 
-### Version 0.0.26-alpha (July 16, 2025)
-- **New**: Dropdown component fully implemented and functional
-- **New**: Menu items with icon support and type variants (danger)
-- **New**: Divider component for menu separation
-- **New**: Menu labels for grouping related options
-- **Enhanced**: Integration with Button component for trigger styling
-- **Enhanced**: Flexible placement options (bottom-start, bottom-end, top-start, top-end)
-- **Enhanced**: Comprehensive accessibility support with proper ARIA attributes
-- Current version in active development
-
-### Dropdown Component Features
-- ✅ Basic dropdown with trigger button and menu items
-- ✅ Icon integration with prefix slot support
-- ✅ Menu grouping with labels and dividers
-- ✅ Flexible placement and positioning options
-- ✅ Integration with ELEVATE Button component for trigger styling
-- ✅ Type variants for menu items (danger state)
-- ✅ Comprehensive accessibility features
-- ✅ Keyboard navigation support
-
-### Available Components
-- `DropdownComponent`: Main dropdown container with positioning
-- `MenuItemComponent`: Individual menu items with icon support
-- `DividerComponent`: Menu section separators
-- `MenuLabelComponent`: Group labels for menu organization
-- Integration with `ButtonComponent` for trigger elements
-
-### Implementation Status
-- ✅ Core dropdown functionality operational
-- ✅ Menu item interactions working properly
-- ✅ Icon integration functional
-- ✅ Accessibility features implemented
-- ✅ Component integration with Button and Icon components working
+<ComponentChangelog 
+  component="elvt-dropdown" 
+  maxVersions={5}
+  showMetadata={true}
+  compactMode={false}
+/>

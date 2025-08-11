@@ -148,6 +148,37 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = ({
   }
 
   if (error) {
+    // Check if it's a 404 error (changelog file not found)
+    const isNotFound = error.includes('Changelog not found') || error.includes('404');
+    
+    if (isNotFound) {
+      return (
+        <div className={styles.noChangelog}>
+          <div className={styles.noChangelogIcon}>📝</div>
+          <h4>No Changelog Available</h4>
+          <p>
+            The changelog for <code>{component}</code> is not yet available. This could mean:
+          </p>
+          <ul>
+            <li>The component is still in development and hasn't been released yet</li>
+            <li>The component changelog hasn't been generated or updated</li>
+            <li>The component may be deprecated or replaced by another component</li>
+          </ul>
+          <p>
+            For the latest information about this component, please check the{' '}
+            <a 
+              href="https://github.com/inform-elevate/elevate-core-ui/releases"
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              ELEVATE Core UI releases
+            </a>{' '}
+            or contact the development team.
+          </p>
+        </div>
+      );
+    }
+    
     return (
       <div className={styles.error}>
         <p>⚠️ Could not load changelog for {component}</p>
@@ -182,14 +213,14 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = ({
                 className={styles.versionHeader}
                 onClick={() => toggleVersionExpansion(versionEntry.version)}
               >
-                <div className={styles.versionInfo}>
+                <div className={styles.versionLeft}>
                   <h4 className={styles.versionNumber}>v{versionEntry.version}</h4>
                   <span className={styles.versionDate}>{versionEntry.date}</span>
                   {hasBreakingChanges && (
                     <span className={styles.breakingBadge}>Breaking</span>
                   )}
                 </div>
-                <div className={styles.versionSummary}>
+                <div className={styles.versionRight}>
                   <span className={styles.changeCount}>
                     {versionEntry.changes.length} changes
                   </span>
@@ -207,11 +238,14 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = ({
                         <span className={styles.changeIcon}>
                           {getChangeTypeIcon(change.type)}
                         </span>
-                        <h5 className={styles.changeTitle}>{change.title}</h5>
-                        {getImpactBadge(change.impact)}
+                        <div className={styles.changeContent}>
+                          <div className={styles.changeTitleRow}>
+                            <h5 className={styles.changeTitle}>{change.title}</h5>
+                            {getImpactBadge(change.impact)}
+                          </div>
+                          <p className={styles.changeDescription}>{change.description}</p>
+                        </div>
                       </div>
-                      
-                      <p className={styles.changeDescription}>{change.description}</p>
                       
                       <div className={styles.changeFooter}>
                         <span className={styles.commitLink}>

@@ -5,6 +5,7 @@ sidebar_position: 2
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
 import { ElvtCard, ElvtButton } from '@inform-elevate/elevate-core-ui/dist/react';
 
 # Card
@@ -447,17 +448,9 @@ import '@inform-elevate/elevate-core-ui/dist/components/card/card.js';
 
 ## Changelog
 
-### Version 0.0.26-alpha (July 16, 2025)
-- Current version in active development
-
-### Version 0.0.25-alpha (July 10, 2025)
-- **Enhanced**: Improved padding and spacing options
-- **New**: Added layer variations for visual depth
-
-### Version 0.0.20-alpha (June 18, 2025)
-- **New**: Added header and footer slot support
-- **Enhanced**: Improved border and background options
-
-### Version 0.0.15-alpha (May 20, 2025)
-- **New**: Add Card Component (initial implementation)
-- **New**: Basic padding and border variations
+<ComponentChangelog 
+  component="elvt-card" 
+  maxVersions={5}
+  showMetadata={true}
+  compactMode={false}
+/>
