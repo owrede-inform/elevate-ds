@@ -30,6 +30,10 @@ export default function Root({ children }: { children: React.ReactNode }) {
       // Enhanced configuration approach
       const iconConfig = {
         resolver: (name: string) => {
+          if (!name || typeof name !== 'string') {
+            console.warn('Invalid icon name provided:', name);
+            return '';
+          }
           const iconName = name.replace('mdi:', '');
           const url = `https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/${iconName}.svg`;
           console.log(`Resolving icon ${name} to ${url}`);
@@ -74,6 +78,10 @@ export default function Root({ children }: { children: React.ReactNode }) {
 
       // Approach 3: Global fallback configuration
       (window as any).ElevateIconResolver = (name: string) => {
+        if (!name || typeof name !== 'string') {
+          console.warn('Invalid icon name provided to fallback resolver:', name);
+          return '';
+        }
         const iconName = name.replace('mdi:', '');
         return `https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/${iconName}.svg`;
       };
@@ -83,26 +91,25 @@ export default function Root({ children }: { children: React.ReactNode }) {
 
     // Configure icons when components are ready
     const initializeIcons = async () => {
-      // Wait for both elvt-icon and elvt-button to be defined
-      await Promise.all([
-        customElements.whenDefined('elvt-icon'),
-        customElements.whenDefined('elvt-button')
-      ]);
-      
-      // Additional delay to ensure components are fully initialized
-      setTimeout(() => {
-        configureIcons();
+      try {
+        // Wait for both elvt-icon and elvt-button to be defined
+        await Promise.all([
+          customElements.whenDefined('elvt-icon').catch(() => {}),
+          customElements.whenDefined('elvt-button').catch(() => {})
+        ]);
         
-        // Force refresh of existing icon elements
-        document.querySelectorAll('elvt-icon').forEach((icon: any) => {
-          const iconName = icon.getAttribute('icon');
-          if (iconName) {
-            // Trigger re-render by temporarily removing and re-adding the icon attribute
-            icon.removeAttribute('icon');
-            setTimeout(() => icon.setAttribute('icon', iconName), 10);
-          }
-        });
-      }, 250);
+        // Additional delay to ensure components are fully initialized
+        setTimeout(() => {
+          configureIcons();
+          
+          // Skip force refresh - let components initialize naturally
+          console.log('Icon configuration completed');
+        }, 250);
+      } catch (error) {
+        console.warn('Error initializing icons:', error);
+        // Still configure icons even if there's an error
+        configureIcons();
+      }
     };
 
     initializeIcons();
