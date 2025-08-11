@@ -480,60 +480,17 @@
   100% { transform: rotate(360deg); }
 }
 
-/* No changelog state */
+/* No changelog state - simple and minimal */
 .noChangelog {
-  padding: 2rem;
-  background: var(--ifm-color-secondary-lightest);
-  border: 1px solid var(--ifm-color-secondary-light);
-  border-radius: 12px;
-  color: var(--ifm-color-secondary-darkest);
+  padding: 1rem;
+  color: var(--ifm-color-emphasis-600);
+  font-style: italic;
   text-align: center;
-  margin: 2rem 0;
-}
-
-.noChangelogIcon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.noChangelog h4 {
-  margin: 0 0 1rem 0;
-  color: var(--ifm-heading-color);
-  font-weight: 600;
 }
 
 .noChangelog p {
-  margin: 1rem 0;
-  line-height: 1.6;
-  text-align: left;
-}
-
-.noChangelog ul {
-  text-align: left;
-  margin: 1rem 0;
-  padding-left: 1.5rem;
-}
-
-.noChangelog li {
-  margin-bottom: 0.5rem;
-  line-height: 1.5;
-}
-
-.noChangelog code {
-  background: var(--ifm-code-background);
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-  font-family: var(--ifm-font-family-monospace);
-}
-
-.noChangelog a {
-  color: var(--ifm-color-primary);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.noChangelog a:hover {
-  text-decoration: underline;
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 /* Error states */

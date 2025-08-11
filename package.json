@@ -17,7 +17,11 @@
     "sync-theme": "node sync-theme-package.js",
     "sync-theme-build": "node sync-theme-package.js --build",
     "sync-theme-watch": "node sync-theme-package.js --watch",
-    "validate-theme": "node sync-theme-package.js --build && echo 'Theme package validation complete'"
+    "validate-theme": "node sync-theme-package.js --build && echo 'Theme package validation complete'",
+    "changelog": "node scripts/changelog-cli.js",
+    "changelog:generate": "node scripts/generate-changelog.js",
+    "changelog:all": "node scripts/generate-changelog.js --all",
+    "changelog:component": "node scripts/generate-changelog.js --component"
   },
   "dependencies": {
     "@docusaurus/core": "3.8.1",

@@ -165,27 +165,7 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = ({
     if (isNotFound) {
       return (
         <div className={styles.noChangelog}>
-          <div className={styles.noChangelogIcon}>📝</div>
-          <h4>No Changelog Available</h4>
-          <p>
-            The changelog for <code>{component}</code> is not yet available. This could mean:
-          </p>
-          <ul>
-            <li>The component is still in development and hasn't been released yet</li>
-            <li>The component changelog hasn't been generated or updated</li>
-            <li>The component may be deprecated or replaced by another component</li>
-          </ul>
-          <p>
-            For the latest information about this component, please check the{' '}
-            <a 
-              href="https://github.com/inform-elevate/elevate-core-ui/releases"
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              ELEVATE Core UI releases
-            </a>{' '}
-            or contact the development team.
-          </p>
+          <p>No changelog entries for this component.</p>
         </div>
       );
     }
