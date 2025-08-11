@@ -1,0 +1,73 @@
+{
+  "component": "elvt-link",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.472Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Adjust Link Design (",
+          "description": "Adjust Link Design (",
+          "commit": "4eefa00",
+          "impact": "visual",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Set Default Link Color (",
+          "description": "Set Default Link Color (",
+          "commit": "e223f33",
+          "impact": "visual",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Consolidate and Improve Link Component (",
+          "description": "Consolidate and Improve Link Component (",
+          "commit": "3e64741",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Allow Strings for LinkTarget (Names) (",
+          "description": "Allow Strings for LinkTarget (Names) (",
+          "commit": "04b4780",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Link Function to Menu Item (",
+          "description": "Add Link Function to Menu Item (",
+          "commit": "d8b3f7e",
+          "issueNumber": 71,
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Implement Link Component (",
+          "description": "Implement Link Component (",
+          "commit": "b1bcf46",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "4eefa00"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "component": "elvt-indicator",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.462Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add Indicator Offset CSS Properties (",
+          "description": "Add Indicator Offset CSS Properties (",
+          "commit": "890b3f0",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Indicator Positions (",
+          "description": "Add Indicator Positions (",
+          "commit": "8ab9caf",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Indicator Component (Experimental) (",
+          "description": "Add Indicator Component (Experimental) (",
+          "commit": "db0bd06",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Show Content in Indeterminate Ring Progress Indicator (",
+          "description": "Show Content in Indeterminate Ring Progress Indicator (",
+          "commit": "d838764",
+          "issueNumber": 70,
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Progress Indicator Component (",
+          "description": "Add Progress Indicator Component (",
+          "commit": "71d1cfc",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "890b3f0"
+  }
+}

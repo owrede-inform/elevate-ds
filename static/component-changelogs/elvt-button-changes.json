@@ -1,129 +1,116 @@
 {
   "component": "elvt-button",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T17:07:12Z",
+  "lastUpdated": "2025-08-11T21:28:40.415Z",
   "changelog": [
     {
       "version": "0.0.28-alpha",
       "date": "2025-08-11",
-      "type": "patch",
+      "type": "minor",
       "changes": [
         {
           "type": "bug-fix",
-          "title": "Fix Button Group Pill Shape for Small / Medium Size",
-          "description": "Fixed button group pill shape rendering issues for small and medium sized buttons",
-          "commit": "e6e5701fb8ce71124f6af7a6b6a4a2b2e5e3ae05",
+          "title": "Fix Button Group Pill Shape for Small / Medium Size (",
+          "description": "Fix Button Group Pill Shape for Small / Medium Size (",
+          "commit": "e6e5701",
           "issueNumber": 235,
-          "impact": "visual",
+          "impact": "functionality",
           "breakingChange": false
         },
         {
-          "type": "bug-fix", 
-          "title": "Fix Button Group Separator Lines",
-          "description": "Resolved visual issues with separator lines in button groups",
-          "commit": "7de00fed2bebd4f618630fd4c04ca4be514a8920",
+          "type": "bug-fix",
+          "title": "Fix Button Group Separator Lines (",
+          "description": "Fix Button Group Separator Lines (",
+          "commit": "7de00fe",
           "issueNumber": 250,
-          "impact": "visual",
+          "impact": "functionality",
           "breakingChange": false
-        }
-      ]
-    },
-    {
-      "version": "0.0.27-alpha",
-      "date": "2025-08-08", 
-      "type": "minor",
-      "changes": [
+        },
         {
           "type": "breaking-change",
-          "title": "Adjust Button Design, Remove Shoelace Button",
-          "description": "Major design overhaul removing Shoelace Button dependency and implementing custom button styling",
-          "commit": "67a0e62e01b9591a16cf41b1d733e6db1cb944c5",
-          "impact": "design",
-          "breakingChange": true,
-          "migration": {
-            "description": "Update any custom CSS overrides targeting Shoelace button classes",
-            "before": "sl-button { /* custom styles */ }",
-            "after": "elvt-button { /* custom styles */ }"
-          }
+          "title": "Adjust Button Design, Remove Shoelace Button (",
+          "description": "Adjust Button Design, Remove Shoelace Button (",
+          "commit": "67a0e62",
+          "impact": "visual",
+          "breakingChange": true
         },
         {
           "type": "feature",
-          "title": "Add ButtonComponent.focus() method",
-          "description": "Added programmatic focus method for better accessibility and form control",
-          "commit": "a3ca8b32feafd29143bffa3876188545654f7f3e",
-          "impact": "api",
-          "breakingChange": false,
-          "apiAdditions": [
-            {
-              "method": "focus(options?: FocusOptions)",
-              "description": "Programmatically focus the button element"
-            }
-          ]
+          "title": "Add ButtonComponent.focus() (",
+          "description": "Add ButtonComponent.focus() (",
+          "commit": "a3ca8b3",
+          "impact": "functionality",
+          "breakingChange": false
         },
         {
           "type": "feature",
-          "title": "Add name and value attributes to Button",
-          "description": "Enhanced form integration with name and value attributes for better form data handling",
-          "commit": "ee50024ba0bec819c69a455c21d71e305475a50d",
+          "title": "Add \"name\" and \"value\" Attributes to Button (",
+          "description": "Add \"name\" and \"value\" Attributes to Button (",
+          "commit": "ee50024",
           "issueNumber": 160,
-          "impact": "api",
-          "breakingChange": false,
-          "apiAdditions": [
-            {
-              "property": "name?: string",
-              "description": "The name of the button when used in forms"
-            },
-            {
-              "property": "value?: string", 
-              "description": "The value of the button when used in forms"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "version": "0.0.26-alpha",
-      "date": "2025-07-16",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Connect Button and Form Fields to Form Ancestor",
-          "description": "Improved form integration allowing buttons to properly connect with parent form elements",
-          "commit": "741ff85e33f0f6cfb6652eef0791573ad9f3a879",
           "impact": "functionality",
           "breakingChange": false
         },
         {
           "type": "improvement",
-          "title": "Fixed Usability Issues in Button and Button Group Stories",
-          "description": "Enhanced Storybook documentation and testing scenarios for better developer experience",
-          "commit": "dea7d2d0603c25bd0f8a7e8f24cf535a8e089fd4",
-          "impact": "developer-experience",
+          "title": "Fixed Usability Issues in Button and Button Group Stories (",
+          "description": "Fixed Usability Issues in Button and Button Group Stories (",
+          "commit": "dea7d2d",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Connect Button and Form Fields to Form Ancestor (",
+          "description": "Connect Button and Form Fields to Form Ancestor (",
+          "commit": "741ff85",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Icon Button Severity (",
+          "description": "Add Icon Button Severity (",
+          "commit": "831f0b1",
+          "issueNumber": 82,
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add ButtonGroup Component (",
+          "description": "Add ButtonGroup Component (",
+          "commit": "4b1166b",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Button Component (",
+          "description": "Add Button Component (",
+          "commit": "c5be707",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Icon Button Component (",
+          "description": "Add Icon Button Component (",
+          "commit": "9603e54",
+          "impact": "functionality",
           "breakingChange": false
         }
       ]
     }
   ],
   "deprecations": [],
-  "upcomingChanges": [
-    {
-      "version": "0.1.0",
-      "plannedDate": "2025-09-01",
-      "description": "Stable release with finalized API",
-      "changes": [
-        "API stabilization",
-        "Performance optimizations", 
-        "Enhanced accessibility features"
-      ]
-    }
-  ],
+  "upcomingChanges": [],
   "metadata": {
-    "totalVersions": 3,
-    "firstVersion": "0.0.24-alpha",
-    "storyCount": 11,
-    "testCount": 3,
-    "fileCount": 4,
-    "lastCommit": "e6e5701fb8ce71124f6af7a6b6a4a2b2e5e3ae05"
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "e6e5701"
   }
 }

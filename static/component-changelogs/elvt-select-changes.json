@@ -1,0 +1,65 @@
+{
+  "component": "elvt-select",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.493Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "bug-fix",
+          "title": "Fix Value for Multiple Select (",
+          "description": "Fix Value for Multiple Select (",
+          "commit": "277dc05",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Table Selection (",
+          "description": "Add Table Selection (",
+          "commit": "bb8d2fe",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "bug-fix",
+          "title": "Improve Icon Component, Add Selected, Add Shape, Fix Size (",
+          "description": "Improve Icon Component, Add Selected, Add Shape, Fix Size (",
+          "commit": "58898ac",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Select Component, Refactor Field Label and Help Text (",
+          "description": "Add Select Component, Refactor Field Label and Help Text (",
+          "commit": "dfd142b",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add \"selected\" Menu Item (",
+          "description": "Add \"selected\" Menu Item (",
+          "commit": "823395e",
+          "issueNumber": 89,
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "277dc05"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "component": "elvt-divider",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.436Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add CSS Properties for Divider (",
+          "description": "Add CSS Properties for Divider (",
+          "commit": "cba49c9",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Slots to Divider Component (",
+          "description": "Add Slots to Divider Component (",
+          "commit": "7b5807b",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Allow Content in Divider (",
+          "description": "Allow Content in Divider (",
+          "commit": "74fcd2c",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Apply Size Tokens To Divider (",
+          "description": "Apply Size Tokens To Divider (",
+          "commit": "8ab9caf",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "breaking-change",
+          "title": "Refactor Divider, Implement Component Design, Remove Shoelace (",
+          "description": "Refactor Divider, Implement Component Design, Remove Shoelace (",
+          "commit": "53c8e82",
+          "impact": "visual",
+          "breakingChange": true
+        },
+        {
+          "type": "feature",
+          "title": "Add Divider Component (",
+          "description": "Add Divider Component (",
+          "commit": "d03f8c0",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "cba49c9"
+  }
+}

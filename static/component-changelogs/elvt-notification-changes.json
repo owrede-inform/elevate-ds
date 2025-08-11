@@ -1,0 +1,42 @@
+{
+  "component": "elvt-notification",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.480Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Display Notification with Duration (",
+          "description": "Display Notification with Duration (",
+          "commit": "e77604e",
+          "issueNumber": 133,
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Notification Component (",
+          "description": "Add Notification Component (",
+          "commit": "1e985d9",
+          "issueNumber": 78,
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "e77604e"
+  }
+}

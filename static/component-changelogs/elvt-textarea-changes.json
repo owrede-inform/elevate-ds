@@ -1,0 +1,40 @@
+{
+  "component": "elvt-textarea",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.516Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Display Error Message in Input and Textarea (",
+          "description": "Display Error Message in Input and Textarea (",
+          "commit": "e480bb5",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Textarea Component (",
+          "description": "Add Textarea Component (",
+          "commit": "52aa709",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "e480bb5"
+  }
+}

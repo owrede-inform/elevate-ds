@@ -1,0 +1,48 @@
+{
+  "component": "elvt-input",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.465Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Display Error Message in Input and Textarea (",
+          "description": "Display Error Message in Input and Textarea (",
+          "commit": "e480bb5",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Checkbox Value Is Updated in Input and Change (",
+          "description": "Checkbox Value Is Updated in Input and Change (",
+          "commit": "4a0540c",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Input Component (",
+          "description": "Add Input Component (",
+          "commit": "6e9964e",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "e480bb5"
+  }
+}

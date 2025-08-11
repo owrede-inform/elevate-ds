@@ -1,0 +1,80 @@
+{
+  "component": "elvt-radio",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.488Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Adjust Radio Styles (",
+          "description": "Adjust Radio Styles (",
+          "commit": "e4ccbe5",
+          "impact": "visual",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Radio Group Redesign (",
+          "description": "Radio Group Redesign (",
+          "commit": "bb6fd12",
+          "impact": "visual",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Update Radio Style and Add Reference Images (",
+          "description": "Update Radio Style and Add Reference Images (",
+          "commit": "a336c13",
+          "impact": "visual",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Elevate Radio (",
+          "description": "Add Elevate Radio (",
+          "commit": "09462ee",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Fixed Usability Issues in Radio Component (",
+          "description": "Fixed Usability Issues in Radio Component (",
+          "commit": "dea7d2d",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Radio Group Component (",
+          "description": "Add Radio Group Component (",
+          "commit": "8b62bcb",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Radio Component (",
+          "description": "Add Radio Component (",
+          "commit": "8979eb3",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "e4ccbe5"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "component": "elvt-field",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.449Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add Status Slot to Field (",
+          "description": "Add Status Slot to Field (",
+          "commit": "2a17ee3",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Field Component (",
+          "description": "Add Field Component (",
+          "commit": "890b3f0",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Group Mode to Field Component (",
+          "description": "Add Group Mode to Field Component (",
+          "commit": "1588138",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Use Fieldset / Legend for Group Field (",
+          "description": "Use Fieldset / Legend for Group Field (",
+          "commit": "95d1f70",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Form Fields Story (",
+          "description": "Add Form Fields Story (",
+          "commit": "ccb9b4a",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Select Component, Refactor Field Label and Help Text (",
+          "description": "Add Select Component, Refactor Field Label and Help Text (",
+          "commit": "dfd142b",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Connect Button and Form Fields to Form Ancestor (",
+          "description": "Connect Button and Form Fields to Form Ancestor (",
+          "commit": "741ff85",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "2a17ee3"
+  }
+}

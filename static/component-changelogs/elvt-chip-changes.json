@@ -1,0 +1,57 @@
+{
+  "component": "elvt-chip",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.429Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Adjust/Revisit Chip Component Styles (",
+          "description": "Adjust/Revisit Chip Component Styles (",
+          "commit": "ab68982",
+          "impact": "visual",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Update Design Tokens, Higher Contrast for Badges/Chips (",
+          "description": "Update Design Tokens, Higher Contrast for Badges/Chips (",
+          "commit": "bfba9a7",
+          "issueNumber": 115,
+          "impact": "visual",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Elevate Chip (",
+          "description": "Add Elevate Chip (",
+          "commit": "86a7027",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Chip Component (",
+          "description": "Add Chip Component (",
+          "commit": "a99a0bf",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "ab68982"
+  }
+}

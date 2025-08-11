@@ -1,0 +1,56 @@
+{
+  "component": "elvt-switch",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.500Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Style Elevate Switch Component (",
+          "description": "Style Elevate Switch Component (",
+          "commit": "a547458",
+          "impact": "visual",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add direction (RTL) support to Switch Component (",
+          "description": "Add direction (RTL) support to Switch Component (",
+          "commit": "bbc6898",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Elevate Switch and Update Checkbox (",
+          "description": "Add Elevate Switch and Update Checkbox (",
+          "commit": "dc0fd89",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Added hide-label Prop and Fixed Usability Issues in Switch Component (",
+          "description": "Added hide-label Prop and Fixed Usability Issues in Switch Component (",
+          "commit": "dea7d2d",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "a547458"
+  }
+}

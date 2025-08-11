@@ -1,0 +1,82 @@
+{
+  "component": "elvt-icon",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.458Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "**icon-registry:** Icon Resolver Functions can also return promises (",
+          "description": "**icon-registry:** Icon Resolver Functions can also return promises (",
+          "commit": "e599681",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Elevate Icon Package (",
+          "description": "Add Elevate Icon Package (",
+          "commit": "cb7aab2",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "bug-fix",
+          "title": "Improve Icon Component, Add Selected, Add Shape, Fix Size (",
+          "description": "Improve Icon Component, Add Selected, Add Shape, Fix Size (",
+          "commit": "58898ac",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Data-URL support to Icon Component (",
+          "description": "Add Data-URL support to Icon Component (",
+          "commit": "1fc6042",
+          "issueNumber": 119,
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Icon Button Severity (",
+          "description": "Add Icon Button Severity (",
+          "commit": "831f0b1",
+          "issueNumber": 82,
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Icon Button Component (",
+          "description": "Add Icon Button Component (",
+          "commit": "9603e54",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Icon Component (",
+          "description": "Add Icon Component (",
+          "commit": "e0b4982",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "e599681"
+  }
+}

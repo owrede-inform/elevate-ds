@@ -1,0 +1,40 @@
+{
+  "component": "elvt-application",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.393Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Use Component/Application Tokens for Default Background/Text (",
+          "description": "Use Component/Application Tokens for Default Background/Text (",
+          "commit": "1a09e08",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Application Component (",
+          "description": "Add Application Component (",
+          "commit": "b7983c6",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "1a09e08"
+  }
+}

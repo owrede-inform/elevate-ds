@@ -1,0 +1,89 @@
+{
+  "component": "elvt-table",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.510Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "bug-fix",
+          "title": "Fix PagedTableDataProvider with Indeterminate Result Length (",
+          "description": "Fix PagedTableDataProvider with Indeterminate Result Length (",
+          "commit": "580a919",
+          "issueNumber": 196,
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Table Component Dependencies (",
+          "description": "Add Table Component Dependencies (",
+          "commit": "d5f001a",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Export Table Data Provider Abstract Class (",
+          "description": "Export Table Data Provider Abstract Class (",
+          "commit": "1e4b88c",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Export Table Types (",
+          "description": "Export Table Types (",
+          "commit": "8ab9caf",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Export Table Types (",
+          "description": "Export Table Types (",
+          "commit": "8ab9caf",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Table Selection (",
+          "description": "Add Table Selection (",
+          "commit": "bb8d2fe",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "bug-fix",
+          "title": "Fix Table Types and Definitions (",
+          "description": "Fix Table Types and Definitions (",
+          "commit": "319ea23",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Basic Table Component (Incomplete, Experimental) (",
+          "description": "Add Basic Table Component (Incomplete, Experimental) (",
+          "commit": "bfc48c2",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "580a919"
+  }
+}

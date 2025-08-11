@@ -1,0 +1,90 @@
+{
+  "component": "elvt-badge",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.401Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add Badge Pulse Animation (",
+          "description": "Add Badge Pulse Animation (",
+          "commit": "a454f35",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Optional Badge Padding (",
+          "description": "Add Optional Badge Padding (",
+          "commit": "3e64741",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "bug-fix",
+          "title": "Fix Badge Minimum Width (Same as Height) (",
+          "description": "Fix Badge Minimum Width (Same as Height) (",
+          "commit": "a454f35",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Apply Tokens To Badge (",
+          "description": "Apply Tokens To Badge (",
+          "commit": "8ab9caf",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Console Generic Shape (Box|Pill), Badge is Pill by Default (",
+          "description": "Console Generic Shape (Box|Pill), Badge is Pill by Default (",
+          "commit": "4a99c1a",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Update Design Tokens, Higher Contrast for Badges/Chips (",
+          "description": "Update Design Tokens, Higher Contrast for Badges/Chips (",
+          "commit": "bfba9a7",
+          "issueNumber": 115,
+          "impact": "visual",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Elevate Badge (",
+          "description": "Elevate Badge (",
+          "commit": "ae027cf",
+          "issueNumber": 83,
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Badge Component (",
+          "description": "Add Badge Component (",
+          "commit": "85bfd71",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "a454f35"
+  }
+}

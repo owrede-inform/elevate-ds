@@ -1,0 +1,80 @@
+{
+  "component": "elvt-checkbox",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.424Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Restyle Elevate Checkbox Component (",
+          "description": "Restyle Elevate Checkbox Component (",
+          "commit": "8b96b35",
+          "impact": "visual",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add CheckboxComponent.focus() (",
+          "description": "Add CheckboxComponent.focus() (",
+          "commit": "1588138",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Elevate Switch and Update Checkbox (",
+          "description": "Add Elevate Switch and Update Checkbox (",
+          "commit": "dc0fd89",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Checkbox Value Is Updated in Input and Change (",
+          "description": "Checkbox Value Is Updated in Input and Change (",
+          "commit": "4a0540c",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Added hide-label Prop and Fixed Checkbox Usability Issues (",
+          "description": "Added hide-label Prop and Fixed Checkbox Usability Issues (",
+          "commit": "dea7d2d",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Elevate Checkbox (",
+          "description": "Add Elevate Checkbox (",
+          "commit": "87dd564",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Checkbox Component (",
+          "description": "Add Checkbox Component (",
+          "commit": "73f8824",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "8b96b35"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "component": "elvt-breadcrumb",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.405Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add RTL for BreadcrumbItem (",
+          "description": "Add RTL for BreadcrumbItem (",
+          "commit": "c0da45b",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "improvement",
+          "title": "Adjust Design for BreadcrumbItem (",
+          "description": "Adjust Design for BreadcrumbItem (",
+          "commit": "479d71f",
+          "impact": "visual",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Breadcrumb and Breadcrumb Item Components (",
+          "description": "Add Breadcrumb and Breadcrumb Item Components (",
+          "commit": "c95371e",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "c0da45b"
+  }
+}

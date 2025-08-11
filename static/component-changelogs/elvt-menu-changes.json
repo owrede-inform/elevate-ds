@@ -1,0 +1,76 @@
+{
+  "component": "elvt-menu",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.476Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "breaking-change",
+          "title": "Make Menu Item \"href\" Attribute Optional, Remove Log (",
+          "description": "Make Menu Item \"href\" Attribute Optional, Remove Log (",
+          "commit": "7577b72",
+          "impact": "functionality",
+          "breakingChange": true
+        },
+        {
+          "type": "feature",
+          "title": "Add \"selected\" Menu Item (",
+          "description": "Add \"selected\" Menu Item (",
+          "commit": "823395e",
+          "issueNumber": 89,
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "bug-fix",
+          "title": "Fix Menu \"shape\" Property (",
+          "description": "Fix Menu \"shape\" Property (",
+          "commit": "497830e",
+          "issueNumber": 91,
+          "impact": "api",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add \"inline\" Shape to Menu for Navigations (",
+          "description": "Add \"inline\" Shape to Menu for Navigations (",
+          "commit": "54a1313",
+          "issueNumber": 87,
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Link Function to Menu Item (",
+          "description": "Add Link Function to Menu Item (",
+          "commit": "d8b3f7e",
+          "issueNumber": 71,
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Menu and Dropdown Components (",
+          "description": "Add Menu and Dropdown Components (",
+          "commit": "38b1598",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "7577b72"
+  }
+}

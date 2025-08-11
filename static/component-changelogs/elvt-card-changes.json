@@ -1,0 +1,40 @@
+{
+  "component": "elvt-card",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.420Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add Card Border and Layer Properties (",
+          "description": "Add Card Border and Layer Properties (",
+          "commit": "a3ca8b3",
+          "impact": "functionality",
+          "breakingChange": false
+        },
+        {
+          "type": "feature",
+          "title": "Add Card Component (",
+          "description": "Add Card Component (",
+          "commit": "2db21e6",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "a3ca8b3"
+  }
+}

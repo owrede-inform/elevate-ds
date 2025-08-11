@@ -1,0 +1,32 @@
+{
+  "component": "elvt-dropdown",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-11T21:28:40.442Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add Menu and Dropdown Components (",
+          "description": "Add Menu and Dropdown Components (",
+          "commit": "38b1598",
+          "impact": "functionality",
+          "breakingChange": false
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 1,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "38b1598"
+  }
+}
