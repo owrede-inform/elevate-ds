@@ -11,19 +11,19 @@ export default function Home(): ReactNode {
   const heroActions = [
     { 
       label: 'Get Started', 
-      href: useBaseUrl('docs/home/overview'), 
+      href: useBaseUrl('/docs/home/overview'), 
       tone: 'primary' as const,
       size: 'large' as const
     },
     { 
       label: 'View Components', 
-      href: useBaseUrl('docs/components'), 
+      href: useBaseUrl('/docs/components'), 
       tone: 'neutral' as const,
       size: 'large' as const
     },
     { 
       label: 'Design Guidelines', 
-      href: useBaseUrl('docs/guidelines'), 
+      href: useBaseUrl('/docs/guidelines'), 
       tone: 'subtle' as const,
       size: 'large' as const
     }
