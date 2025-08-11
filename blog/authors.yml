@@ -23,3 +23,14 @@ slorber:
     linkedin: sebastienlorber
     github: slorber
     newsletter: https://thisweekinreact.com
+
+owrede:
+  name: Oliver Wrede
+  title: UX/UI Design Strategist, ELEVATE Design System Product Owner
+  url: https://linkedin.com/in/owrede
+  image_url: https://avatars.githubusercontent.com/u/193944072?v=4
+  page: true
+  socials:
+    x: owrede
+    linkedin: owrede
+    github: owrede-inform
