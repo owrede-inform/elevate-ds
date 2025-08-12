@@ -21,6 +21,7 @@ class GitHubChangelogGenerator {
     this.owner = 'inform-elevate';
     this.repo = 'elevate-core-ui';
     this.baseUrl = 'api.github.com';
+    this.logEntries = []; // Store log entries for current component
   }
 
   /**
@@ -146,74 +147,125 @@ class GitHubChangelogGenerator {
   }
 
   /**
+   * Add entry to log for debugging
+   */
+  addLogEntry(level, message, data = null) {
+    const timestamp = new Date().toISOString();
+    const entry = {
+      timestamp,
+      level,
+      message,
+      data
+    };
+    this.logEntries.push(entry);
+    
+    // Also console log for immediate feedback
+    const levelEmoji = {
+      'INFO': 'ℹ️',
+      'DEBUG': '🔍',
+      'EXCLUDE': '🚫',
+      'INCLUDE': '✅',
+      'UNCERTAIN': '⚠️',
+      'ERROR': '❌'
+    };
+    
+    if (level !== 'DEBUG' || process.env.DEBUG === 'true') {
+      console.log(`   ${levelEmoji[level] || '📝'} ${message}`);
+    }
+  }
+
+  /**
    * Check if a commit is relevant to the specific component
    */
   isCommitRelevant(commit, componentName) {
     const message = commit.message.toLowerCase();
     const componentShortName = componentName.replace('elvt-', '');
+    const commitSummary = commit.message.substring(0, 80);
+    
+    this.addLogEntry('DEBUG', `Evaluating commit: "${commitSummary}..."`, {
+      hash: commit.shortHash,
+      author: commit.author,
+      date: commit.date,
+      fullMessage: commit.message
+    });
     
     // EXCLUSION RULES - Skip these commits
     const exclusionPatterns = [
       // Infrastructure and tooling
-      /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/,
-      /github|ci\/cd|workflow|pipeline|automation/,
-      /build|deploy|release|publish|version/,
-      /docs|documentation|readme|changelog/,
-      /test|testing|jest|cypress|playwright/,
-      /deps|dependencies|package\.json|yarn|npm/,
+      { pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/, reason: 'Build tools/Linting' },
+      { pattern: /github|ci\/cd|workflow|pipeline|automation/, reason: 'CI/CD Infrastructure' },
+      { pattern: /build|deploy|release|publish|version/, reason: 'Build/Release' },
+      { pattern: /docs|documentation|readme|changelog/, reason: 'Documentation' },
+      { pattern: /test|testing|jest|cypress|playwright/, reason: 'Testing' },
+      { pattern: /deps|dependencies|package\.json|yarn|npm/, reason: 'Dependencies' },
       
       // Generic project changes
-      /update.*tokens?(?!\s+for\s+\w)/,  // "Update tokens" but not "Update tokens for badge"
-      /refactor(?!\s+\w*(?:button|badge|input))/,  // Generic refactoring
-      /consolidate(?!\s+\w*(?:button|badge|input))/,
-      /export.*enum|enum.*export/,
-      /severity.*mapping|mapping.*severity/,
+      { pattern: /update.*tokens?(?!\s+for\s+\w)/, reason: 'Generic token update' },
+      { pattern: /refactor(?!\s+\w*(?:button|badge|input))/, reason: 'Generic refactoring' },
+      { pattern: /consolidate(?!\s+\w*(?:button|badge|input))/, reason: 'Generic consolidation' },
+      { pattern: /export.*enum|enum.*export/, reason: 'Enum export' },
+      { pattern: /severity.*mapping|mapping.*severity/, reason: 'Severity mapping' },
       
       // Other components (if not specifically about this component)
-      /switch(?!\s+to|\s+from)/,  // "switch" not meaning the component
-      /table(?!\s+\w*component)/,
-      /form(?!\s+\w*component)/,
-      /link(?!\s+\w*component)/,
-      /icon(?!\s+\w*component)(?!\s+button)/,
+      { pattern: /switch(?!\s+to|\s+from)/, reason: 'Switch component' },
+      { pattern: /table(?!\s+\w*component)/, reason: 'Table component' },
+      { pattern: /form(?!\s+\w*component)/, reason: 'Form component' },
+      { pattern: /link(?!\s+\w*component)/, reason: 'Link component' },
+      { pattern: /icon(?!\s+\w*component)(?!\s+button)/, reason: 'Icon component' },
       
       // Cross-component changes that don't specifically affect this component
-      /consolidate.*severity/,
-      /export.*types?(?!\s+for\s+\w*(?:button|badge))/
+      { pattern: /consolidate.*severity/, reason: 'Cross-component severity' },
+      { pattern: /export.*types?(?!\s+for\s+\w*(?:button|badge))/, reason: 'Generic type export' }
     ];
     
     // Check for exclusion patterns
-    for (const pattern of exclusionPatterns) {
+    for (const { pattern, reason } of exclusionPatterns) {
       if (pattern.test(message)) {
-        console.log(`   🚫 Excluding: "${commit.message.substring(0, 80)}..." (Infrastructure/Tooling)`);
+        this.addLogEntry('EXCLUDE', `"${commitSummary}..." (${reason})`, {
+          hash: commit.shortHash,
+          reason,
+          pattern: pattern.toString()
+        });
         return false;
       }
     }
     
     // INCLUSION RULES - Must be relevant to this component
     const inclusionPatterns = [
-      // Direct component mentions
-      new RegExp(`\\b${componentName}\\b`, 'i'),
-      new RegExp(`\\b${componentShortName}\\b`, 'i'),
-      
-      // Component-specific patterns
-      new RegExp(`\\b${componentShortName}\\s+(component|group|wrapper)\\b`, 'i'),
-      new RegExp(`add\\s+${componentShortName}`, 'i'),
-      new RegExp(`${componentShortName}\\s+(fix|bug|issue)`, 'i'),
-      
-      // Specific to component features
-      componentName === 'elvt-button' ? /button.*group|group.*button|button.*pill|pill.*button/i : null,
-      componentName === 'elvt-badge' ? /badge.*pulse|pulse.*badge|badge.*animation/i : null,
-      componentName === 'elvt-input' ? /input.*validation|validation.*input|input.*field/i : null,
-    ].filter(Boolean);
+      { pattern: new RegExp(`\\b${componentName}\\b`, 'i'), reason: 'Direct component name' },
+      { pattern: new RegExp(`\\b${componentShortName}\\b`, 'i'), reason: 'Short component name' },
+      { pattern: new RegExp(`\\b${componentShortName}\\s+(component|group|wrapper)\\b`, 'i'), reason: 'Component reference' },
+      { pattern: new RegExp(`add\\s+${componentShortName}`, 'i'), reason: 'Component addition' },
+      { pattern: new RegExp(`${componentShortName}\\s+(fix|bug|issue)`, 'i'), reason: 'Component fix' },
+    ];
+    
+    // Add component-specific patterns
+    if (componentName === 'elvt-button') {
+      inclusionPatterns.push({ pattern: /button.*group|group.*button|button.*pill|pill.*button/i, reason: 'Button-specific feature' });
+    }
+    if (componentName === 'elvt-badge') {
+      inclusionPatterns.push({ pattern: /badge.*pulse|pulse.*badge|badge.*animation/i, reason: 'Badge-specific feature' });
+    }
+    if (componentName === 'elvt-input') {
+      inclusionPatterns.push({ pattern: /input.*validation|validation.*input|input.*field/i, reason: 'Input-specific feature' });
+    }
     
     // Check for inclusion patterns
-    for (const pattern of inclusionPatterns) {
+    for (const { pattern, reason } of inclusionPatterns) {
       if (pattern.test(message)) {
+        this.addLogEntry('INCLUDE', `"${commitSummary}..." (${reason})`, {
+          hash: commit.shortHash,
+          reason,
+          pattern: pattern.toString()
+        });
         return true;
       }
     }
     
-    console.log(`   ⚠️ Uncertain: "${commit.message.substring(0, 80)}..." (No clear component relevance)`);
+    this.addLogEntry('UNCERTAIN', `"${commitSummary}..." (No clear component relevance)`, {
+      hash: commit.shortHash,
+      reason: 'No matching patterns'
+    });
     return false; // Default to exclude if uncertain
   }
 
@@ -310,18 +362,25 @@ class GitHubChangelogGenerator {
    */
   async generateChangelog(componentName) {
     console.log(`\n📝 Generating GitHub-based changelog for ${componentName}...`);
+    
+    // Reset log entries for this component
+    this.logEntries = [];
+    this.addLogEntry('INFO', `Starting changelog generation for ${componentName}`);
 
     const allCommits = await this.getComponentCommits(componentName);
     
     if (allCommits.length === 0) {
+      this.addLogEntry('ERROR', `No commits found for ${componentName}`);
       throw new Error(`No commits found for ${componentName}. Component may not exist or repository may not be accessible.`);
     }
 
+    this.addLogEntry('INFO', `Found ${allCommits.length} total commits from GitHub API`);
     console.log(`\n🔍 Filtering commits for relevance to ${componentName}...`);
     
     // Filter commits for relevance to this specific component
     const relevantCommits = allCommits.filter(commit => this.isCommitRelevant(commit, componentName));
     
+    this.addLogEntry('INFO', `Filtered from ${allCommits.length} to ${relevantCommits.length} relevant commits`);
     console.log(`✅ Filtered from ${allCommits.length} to ${relevantCommits.length} relevant commits`);
     
     if (relevantCommits.length === 0) {
@@ -436,6 +495,127 @@ class GitHubChangelogGenerator {
     
     await fs.writeFile(changelogPath, jsonData, 'utf8');
     console.log(`✅ Saved to ${changelogPath}`);
+    
+    // Save log file for debugging
+    await this.saveLogFile(componentName, changelogDir);
+  }
+
+  /**
+   * Save debug log file alongside changelog
+   */
+  async saveLogFile(componentName, changelogDir) {
+    const logPath = path.join(changelogDir, `${componentName}-changes.log`);
+    
+    // Generate log content
+    const logLines = [
+      `# Changelog Generation Log for ${componentName}`,
+      `# Generated: ${new Date().toISOString()}`,
+      `# GitHub API: https://api.github.com/repos/${this.owner}/${this.repo}`,
+      '',
+      '## Summary',
+      `Total log entries: ${this.logEntries.length}`,
+      `Included commits: ${this.logEntries.filter(e => e.level === 'INCLUDE').length}`,
+      `Excluded commits: ${this.logEntries.filter(e => e.level === 'EXCLUDE').length}`,
+      `Uncertain commits: ${this.logEntries.filter(e => e.level === 'UNCERTAIN').length}`,
+      '',
+      '## Detailed Log',
+      ''
+    ];
+
+    // Add all log entries
+    this.logEntries.forEach(entry => {
+      logLines.push(`[${entry.timestamp}] ${entry.level}: ${entry.message}`);
+      if (entry.data && entry.level !== 'DEBUG') {
+        if (entry.data.hash) logLines.push(`  → Commit: ${entry.data.hash}`);
+        if (entry.data.author) logLines.push(`  → Author: ${entry.data.author}`);
+        if (entry.data.reason) logLines.push(`  → Reason: ${entry.data.reason}`);
+        if (entry.data.pattern) logLines.push(`  → Pattern: ${entry.data.pattern}`);
+      }
+      logLines.push('');
+    });
+
+    // Write log file
+    await fs.writeFile(logPath, logLines.join('\n'), 'utf8');
+    console.log(`📋 Debug log saved to ${logPath}`);
+  }
+
+  /**
+   * Get all available ELEVATE components
+   */
+  getAllComponents() {
+    // Extract components from the component map
+    const componentMap = {
+      'elvt-button': 'src/components/buttons/button',
+      'elvt-input': 'src/components/input',
+      'elvt-card': 'src/components/card',
+      'elvt-modal': 'src/components/modals/modal',
+      'elvt-select': 'src/components/select',
+      'elvt-checkbox': 'src/components/checkbox',
+      'elvt-radio': 'src/components/radios/radio',
+      'elvt-switch': 'src/components/switch',
+      'elvt-textarea': 'src/components/textarea',
+      'elvt-badge': 'src/components/badge',
+      'elvt-avatar': 'src/components/avatar',
+      'elvt-divider': 'src/components/divider',
+      'elvt-progress': 'src/components/progress',
+      'elvt-skeleton': 'src/components/skeleton',
+      'elvt-tooltip': 'src/components/tooltip',
+      'elvt-dropdown': 'src/components/dropdown',
+      'elvt-menu': 'src/components/menus/menu',
+      'elvt-tabs': 'src/components/tabs',
+      'elvt-table': 'src/components/tables/table',
+      'elvt-breadcrumb': 'src/components/breadcrumbs/breadcrumb',
+      'elvt-link': 'src/components/link',
+      'elvt-icon': 'src/components/icon'
+    };
+    
+    return Object.keys(componentMap);
+  }
+
+  /**
+   * Generate changelog for all components
+   */
+  async generateAllChangelogs(token = null) {
+    const components = this.getAllComponents();
+    console.log(`\n🚀 Generating changelogs for ${components.length} components...`);
+    
+    const results = {
+      success: [],
+      failed: []
+    };
+
+    for (let i = 0; i < components.length; i++) {
+      const component = components[i];
+      try {
+        console.log(`\n[${i + 1}/${components.length}] Processing ${component}...`);
+        const changelogData = await this.generateChangelog(component);
+        await this.saveChangelog(component, changelogData);
+        results.success.push(component);
+        
+        // Small delay to avoid hitting rate limits
+        if (i < components.length - 1) {
+          await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+        
+      } catch (error) {
+        console.error(`❌ Failed to generate changelog for ${component}: ${error.message}`);
+        results.failed.push({ component, error: error.message });
+      }
+    }
+
+    // Summary
+    console.log(`\n📊 Changelog generation complete!`);
+    console.log(`✅ Success: ${results.success.length} components`);
+    console.log(`❌ Failed: ${results.failed.length} components`);
+    
+    if (results.failed.length > 0) {
+      console.log(`\nFailed components:`);
+      results.failed.forEach(({ component, error }) => {
+        console.log(`  - ${component}: ${error}`);
+      });
+    }
+
+    return results;
   }
 }
 
@@ -448,28 +628,32 @@ async function main() {
 🌐 GitHub API-based ELEVATE Component Changelog Generator
 
 Usage:
-  node scripts/github-changelog.js --component <name> [--token <token>]
+  node scripts/github-changelog.js --component <name|all> [--token <token>]
 
 Options:
-  --component, -c <name>    Component name (e.g., elvt-button)
-  --token <token>          GitHub personal access token (optional)
-  --help, -h              Show this help
+  --component, -c <name|all>  Component name (e.g., elvt-button) or "all" for all components
+  --token <token>            GitHub personal access token (optional)
+  --help, -h                Show this help
 
 Examples:
   node scripts/github-changelog.js --component elvt-button
+  node scripts/github-changelog.js --component all
   node scripts/github-changelog.js --component elvt-input --token ghp_xxxx
 
 Features:
   ✅ Smart filtering - Excludes infrastructure/tooling commits
   ✅ Component relevance - Only includes commits specific to the component  
   ✅ Real GitHub data - Uses actual commit history from inform-elevate/elevate-core-ui
+  📋 Debug logging - Saves .log files alongside .json for debugging
   📊 Filtering stats - Shows filtered vs total commits in metadata
+  🚀 Bulk processing - Use "all" to process all 22 ELEVATE components
 
 Note: 
 - GitHub API has rate limits (60 requests/hour without token, 5000 with token)
 - Personal access token recommended for reliable access
 - Token can also be set via GITHUB_TOKEN environment variable
 - Smart filtering typically reduces commits by 70-80% for better accuracy
+- Debug logs saved as <component>-changes.log for troubleshooting
 `);
     return;
   }
@@ -478,17 +662,34 @@ Note:
   const token = getArgValue(args, '--token') || process.env.GITHUB_TOKEN;
 
   if (!component) {
-    console.error('❌ Please specify a component with --component');
+    console.error('❌ Please specify a component with --component or use "all" for all components');
+    console.error('   Example: --component elvt-button');
+    console.error('   Example: --component all');
     process.exit(1);
   }
 
   try {
     const generator = new GitHubChangelogGenerator(token);
-    const changelogData = await generator.generateChangelog(component);
-    await generator.saveChangelog(component, changelogData);
     
-    console.log('\n🎉 GitHub-based changelog generation completed!');
-    console.log(`📊 Generated changelog with ${changelogData.changelog.length} versions from GitHub API`);
+    if (component.toLowerCase() === 'all') {
+      // Process all components
+      console.log('🚀 Processing ALL ELEVATE components...');
+      const results = await generator.generateAllChangelogs();
+      
+      console.log('\n🎉 Bulk changelog generation completed!');
+      console.log(`✅ Successfully processed ${results.success.length} components`);
+      if (results.failed.length > 0) {
+        console.log(`❌ Failed to process ${results.failed.length} components`);
+      }
+      
+    } else {
+      // Process single component
+      const changelogData = await generator.generateChangelog(component);
+      await generator.saveChangelog(component, changelogData);
+      
+      console.log('\n🎉 GitHub-based changelog generation completed!');
+      console.log(`📊 Generated changelog with ${changelogData.changelog.length} versions from GitHub API`);
+    }
     
   } catch (error) {
     console.error('\n💥 Error:', error.message);
