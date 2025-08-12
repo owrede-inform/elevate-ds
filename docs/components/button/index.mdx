@@ -33,7 +33,8 @@ Each tone communicates a different type of action and creates visual hierarchy i
 
 <ComponentShowcase 
   title="Button Tones"
-  description="Different button tones for various use cases and semantic meaning.">
+  description="Different button tones for various use cases and semantic meaning."
+  code="variants.html">
 <elvt-stack direction="row" spacing="medium" align="center" wrap>
   <elvt-button tone="primary">Primary</elvt-button>
   <elvt-button tone="neutral">Neutral</elvt-button>
@@ -45,35 +46,43 @@ Each tone communicates a different type of action and creates visual hierarchy i
 </elvt-stack>
 </ComponentShowcase>
 
-### State Variations
+### Example from External File
 
-<div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem'}}>
-
-<div>
-
-Buttons can be disabled when an action is temporarily unavailable.
+This example demonstrates loading code from an external file for cleaner documentation:
 
 <ComponentShowcase 
-  title="Disabled Button"
-  description="Buttons in disabled state cannot be interacted with.">
-<elvt-button tone="primary" disabled>Disabled Button</elvt-button>
+  title="Buttons from External HTML File"
+  description="Code loaded from sample.html file in the same directory."
+  code="sample.html">
+<elvt-stack direction="row" spacing="medium" align="center" wrap>
+  <elvt-button tone="primary">
+    <elvt-icon slot="prefix" icon="mdi:plus"></elvt-icon>
+    Add Item
+  </elvt-button>
+  <elvt-button tone="success">
+    <elvt-icon slot="prefix" icon="mdi:download"></elvt-icon>
+    Download
+  </elvt-button>
+  <elvt-button tone="danger" disabled>
+    <elvt-icon slot="prefix" icon="mdi:delete"></elvt-icon>
+    Delete
+  </elvt-button>
+</elvt-stack>
 </ComponentShowcase>
 
-</div>
+### State Variations
 
-<div>
+Buttons can be disabled when an action is temporarily unavailable, or show a selected state for toggle functionality.
 
-Selected state for buttons that toggle or represent current selection.
-
-<ComponentShowcase
-  title="Selected Button"
-  description="Buttons can show an active or selected state.">
-<elvt-button tone="primary" selected>Selected Button</elvt-button>
+<ComponentShowcase 
+  title="Button States"
+  description="Buttons support disabled and selected states."
+  code="states.html">
+<elvt-stack direction="row" spacing="medium" align="center" wrap>
+  <elvt-button tone="primary" disabled>Disabled Button</elvt-button>
+  <elvt-button tone="primary" selected>Selected Button</elvt-button>
+</elvt-stack>
 </ComponentShowcase>
-
-</div>
-
-</div>
 
 ### Icon Usage
 
@@ -85,7 +94,8 @@ Icons before text help identify the action type or category.
 
 <ComponentShowcase 
   title="Buttons with Prefix Icons"
-  description="Icons placed before button text provide visual context for the action.">
+  description="Icons placed before button text provide visual context for the action."
+  code="icons-prefix.html">
 <elvt-stack direction="row" spacing="medium" align="center" wrap>
   <elvt-button tone="primary">
     <elvt-icon slot="prefix" icon="mdi:plus"></elvt-icon>
@@ -108,7 +118,8 @@ Icons after text suggest direction or outcome of the action.
 
 <ComponentShowcase
   title="Buttons with Suffix Icons"
-  description="Icons placed after button text indicate direction or outcome.">
+  description="Icons placed after button text indicate direction or outcome."
+  code="icons-suffix.html">
   <elvt-stack direction="row" spacing="medium" align="center" wrap>
     <elvt-button tone="primary">
       Continue
@@ -131,7 +142,8 @@ Icon-only buttons save space but require clear, universally understood icons and
 
 <ComponentShowcase
   title="Icon-Only Buttons"
-  description="Buttons with only icons should have proper accessibility attributes.">
+  description="Buttons with only icons should have proper accessibility attributes."
+  code="accessibility.html">
   <elvt-stack direction="row" spacing="medium" align="center">
     <elvt-button tone="primary" title="Add new item" aria-label="Add new item">
       <elvt-icon icon="mdi:plus"></elvt-icon>
@@ -152,7 +164,8 @@ Icon-only buttons save space but require clear, universally understood icons and
 
 <ComponentShowcase
   title="Button Sizes"
-  description="Three button sizes available - small, medium (default), and large.">
+  description="Three button sizes available - small, medium (default), and large."
+  code="sizes.html">
   <elvt-stack direction="row" spacing="large" align="center">
     <elvt-button size="small">Small</elvt-button>
     <elvt-button size="medium">Medium</elvt-button>

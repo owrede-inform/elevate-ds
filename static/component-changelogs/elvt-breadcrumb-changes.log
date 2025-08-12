@@ -1,0 +1,85 @@
+# Changelog Generation Log for elvt-breadcrumb
+# Generated: 2025-08-12T11:44:52.792Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 23
+Included commits: 1
+Excluded commits: 7
+Uncertain commits: 2
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-breadcrumb
+
+INFO: Found 10 total commits from GitHub API
+
+DEBUG: Evaluating commit: "fix: Change RTL Implementation for TabGroup..."
+
+UNCERTAIN: "fix: Change RTL Implementation for TabGroup..." (No clear component relevance)
+  → Commit: c0da45b
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "docs: Update Component Status..."
+
+EXCLUDE: "docs: Update Component Status..." (Documentation)
+  → Commit: 24cb112
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "feat: Adjust Design for BreadcrumbItem..."
+
+UNCERTAIN: "feat: Adjust Design for BreadcrumbItem..." (No clear component relevance)
+  → Commit: 479d71f
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
+
+EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+  → Commit: 0921993
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
+
+EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+  → Commit: 0b7f502
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "refactor: Flatten Components File Structure..."
+
+EXCLUDE: "refactor: Flatten Components File Structure..." (Generic refactoring)
+  → Commit: 36e7dd6
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "docs: Add Components Status Page..."
+
+EXCLUDE: "docs: Add Components Status Page..." (Documentation)
+  → Commit: daf000f
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "refactor: Consolidate Icons Used Internally..."
+
+EXCLUDE: "refactor: Consolidate Icons Used Internally..." (Generic refactoring)
+  → Commit: 65de8dc
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Add Breadcrumb and Breadcrumb Item Components..."
+
+INCLUDE: "feat: Add Breadcrumb and Breadcrumb Item Components..." (Short component name)
+  → Commit: c95371e
+  → Reason: Short component name
+  → Pattern: /\bbreadcrumb\b/i
+
+INFO: Filtered from 10 to 1 relevant commits

@@ -1,0 +1,57 @@
+# Changelog Generation Log for elvt-expansion-panel-group
+# Generated: 2025-08-12T11:45:06.537Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 15
+Included commits: 0
+Excluded commits: 4
+Uncertain commits: 2
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-expansion-panel-group
+
+INFO: Found 6 total commits from GitHub API
+
+DEBUG: Evaluating commit: "feat: Adjust Elevate Expansion Panel Design..."
+
+UNCERTAIN: "feat: Adjust Elevate Expansion Panel Design..." (No clear component relevance)
+  → Commit: 981f461
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
+
+EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+  → Commit: 0921993
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "fix: Make All Attribute Names "kebab-case"..."
+
+UNCERTAIN: "fix: Make All Attribute Names "kebab-case"..." (No clear component relevance)
+  → Commit: 4d0bee0
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
+
+EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+  → Commit: 0b7f502
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "refactor: Flatten Components File Structure..."
+
+EXCLUDE: "refactor: Flatten Components File Structure..." (Generic refactoring)
+  → Commit: 36e7dd6
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+INFO: Filtered from 6 to 0 relevant commits

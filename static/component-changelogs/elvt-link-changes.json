@@ -1,73 +1,48 @@
 {
   "component": "elvt-link",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.472Z",
+  "lastUpdated": "2025-08-12T11:45:19.417Z",
   "changelog": [
     {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
+      "version": "0.0.23-alpha",
+      "date": "2025-04-20",
       "type": "minor",
       "changes": [
         {
-          "type": "improvement",
-          "title": "Adjust Link Design (",
-          "description": "Adjust Link Design (",
-          "commit": "4eefa00",
-          "impact": "visual",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Set Default Link Color (",
-          "description": "Set Default Link Color (",
-          "commit": "e223f33",
-          "impact": "visual",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Consolidate and Improve Link Component (",
-          "description": "Consolidate and Improve Link Component (",
-          "commit": "3e64741",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Allow Strings for LinkTarget (Names) (",
-          "description": "Allow Strings for LinkTarget (Names) (",
-          "commit": "04b4780",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
           "type": "feature",
-          "title": "Add Link Function to Menu Item (",
-          "description": "Add Link Function to Menu Item (",
-          "commit": "d8b3f7e",
-          "issueNumber": 71,
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Implement Link Component (",
-          "description": "Implement Link Component (",
+          "title": "Implement Link Component",
+          "description": "Added implement link component",
           "commit": "b1bcf46",
           "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "marius-bronner",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/b1bcf46037b5797c7ea82970250f2cc76642968a"
         }
       ]
     }
   ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
     "totalVersions": 1,
-    "firstVersion": "0.0.28-alpha",
+    "firstVersion": "0.0.23-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "4eefa00"
+    "lastCommit": "b1bcf46037b5797c7ea82970250f2cc76642968a",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "1/12"
   }
 }

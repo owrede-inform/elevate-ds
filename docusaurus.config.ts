@@ -19,13 +19,13 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: process.env.NODE_ENV === 'production' 
+  url: process.env.DEPLOYMENT_ENV === 'github-pages'
     ? 'https://owrede-inform.github.io'
     : 'http://localhost:3000',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  // For local development, use '/' root path
-  baseUrl: process.env.NODE_ENV === 'production' 
+  // For local development, always use '/' root path
+  baseUrl: process.env.DEPLOYMENT_ENV === 'github-pages'
     ? '/elevate-ds/'
     : '/',
 
@@ -67,19 +67,7 @@ const config: Config = {
           showLastUpdateTime: false,
           showLastUpdateAuthor: false,
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Remove edit URL for now - can be added later when repo is set up
-          // editUrl: 'https://github.com/inform-elevate/elevate-ds/tree/main/',
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false, // Blog disabled - moved to sample-data
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -149,6 +137,11 @@ const config: Config = {
           to: 'docs/design',
           position: 'left',
           label: 'Design',
+        },
+        {
+          to: 'docs/ds',
+          position: 'left',
+          label: 'DS Components',
         },
         {to: 'blog', label: 'Updates', position: 'left'},
         {

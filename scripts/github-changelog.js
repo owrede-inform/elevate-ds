@@ -17,17 +17,189 @@ const https = require('https');
 
 class GitHubChangelogGenerator {
   constructor(token = null) {
-    this.githubToken = token || process.env.GITHUB_TOKEN;
+    this.githubToken = this.validateToken(token || process.env.GITHUB_TOKEN);
     this.owner = 'inform-elevate';
     this.repo = 'elevate-core-ui';
     this.baseUrl = 'api.github.com';
     this.logEntries = []; // Store log entries for current component
+    this.requestCount = 0; // Track API requests for rate limiting
+    this.startTime = Date.now(); // Track session start time
+    this.maxRequestsPerHour = this.githubToken ? 5000 : 60; // GitHub rate limits
   }
 
   /**
-   * Make a request to GitHub API
+   * Validate and sanitize GitHub token
+   */
+  validateToken(token) {
+    if (!token) {
+      return null; // Allow operation without token (with rate limits)
+    }
+
+    // Basic token format validation
+    if (typeof token !== 'string') {
+      throw new Error('GitHub token must be a string');
+    }
+
+    // Remove any whitespace
+    token = token.trim();
+
+    // Validate token format (GitHub personal access tokens start with 'ghp_' or 'github_pat_')
+    const tokenPattern = /^(ghp_[a-zA-Z0-9]{36}|github_pat_[a-zA-Z0-9_]{82})$/;
+    if (!tokenPattern.test(token)) {
+      console.warn('⚠️ Warning: GitHub token format appears invalid. Expected format: ghp_... or github_pat_...');
+      console.warn('⚠️ This may cause authentication failures. Please verify your token.');
+    }
+
+    // Check for accidentally exposed tokens (common patterns that shouldn't be tokens)
+    const suspiciousPatterns = [
+      /^(test|example|demo|sample)/i,
+      /^(your|my|the)[-_]token/i,
+      /placeholder/i,
+      /\$\{.*\}/,  // Template literals
+      /<.*>/       // XML/HTML tags
+    ];
+
+    for (const pattern of suspiciousPatterns) {
+      if (pattern.test(token)) {
+        throw new Error('Invalid token: appears to be a placeholder or template value');
+      }
+    }
+
+    return token;
+  }
+
+  /**
+   * Validate component name input
+   */
+  validateComponentName(componentName) {
+    if (!componentName || typeof componentName !== 'string') {
+      throw new Error('Component name must be a non-empty string');
+    }
+
+    // Sanitize component name
+    componentName = componentName.trim().toLowerCase();
+
+    // Validate component name format (should start with elvt- and contain only allowed characters)
+    const namePattern = /^elvt-[a-z0-9-]+$/;
+    if (!namePattern.test(componentName)) {
+      throw new Error(`Invalid component name: ${componentName}. Must start with 'elvt-' and contain only lowercase letters, numbers, and hyphens.`);
+    }
+
+    // Check for potential path traversal or injection attempts
+    const maliciousPatterns = [
+      /\.\./,        // Path traversal
+      /[<>"\|\$]/,   // Shell injection characters (but allow & for component names)
+      /[;\`]/,       // Command injection
+      /javascript:/i, // Protocol injection
+      /data:/i       // Data URI
+    ];
+
+    for (const pattern of maliciousPatterns) {
+      if (pattern.test(componentName)) {
+        throw new Error(`Invalid component name: contains potentially malicious characters`);
+      }
+    }
+
+    return componentName;
+  }
+
+  /**
+   * Validate file path for security
+   */
+  validatePath(filePath) {
+    if (!filePath || typeof filePath !== 'string') {
+      throw new Error('File path must be a non-empty string');
+    }
+
+    // Normalize and sanitize path
+    filePath = filePath.trim();
+
+    // Check for path traversal attempts
+    if (filePath.includes('..')) {
+      throw new Error('Path traversal not allowed');
+    }
+
+    // Check for absolute paths (should be relative)
+    if (filePath.startsWith('/') || /^[a-zA-Z]:[\\\/]/.test(filePath)) {
+      throw new Error('Absolute paths not allowed');
+    }
+
+    // Validate allowed characters in path
+    const pathPattern = /^[a-zA-Z0-9._/-]+$/;
+    if (!pathPattern.test(filePath)) {
+      throw new Error('Invalid characters in file path');
+    }
+
+    return filePath;
+  }
+
+  /**
+   * Validate GitHub API endpoint
+   */
+  validateEndpoint(endpoint) {
+    if (!endpoint || typeof endpoint !== 'string') {
+      throw new Error('Endpoint must be a non-empty string');
+    }
+
+    // Remove leading slash if present
+    endpoint = endpoint.replace(/^\/+/, '/');
+
+    // Validate endpoint format (allow GitHub API paths with query parameters)
+    const endpointPattern = /^\/repos\/[a-zA-Z0-9_.-]+\/[a-zA-Z0-9_.-]+\/[a-zA-Z0-9_\/-]*(\?[a-zA-Z0-9_=&.\/-]+)?$/;
+    if (!endpointPattern.test(endpoint)) {
+      throw new Error(`Invalid GitHub API endpoint format: ${endpoint}`);
+    }
+
+    // Check for malicious patterns (but allow legitimate URL characters)
+    const maliciousPatterns = [
+      /\.\./,          // Path traversal
+      /[<>"]/,         // HTML/XML injection (but not & which is needed for query params)
+      /javascript:/i,   // Protocol injection
+      /data:/i,        // Data URI
+      /[|;`]/          // Command injection (but allow & for query parameters)
+    ];
+
+    for (const pattern of maliciousPatterns) {
+      if (pattern.test(endpoint)) {
+        throw new Error(`Potentially malicious endpoint detected: ${endpoint}`);
+      }
+    }
+
+    return endpoint;
+  }
+
+  /**
+   * Check rate limits before making request
+   */
+  checkRateLimit() {
+    const hoursPassed = (Date.now() - this.startTime) / (1000 * 60 * 60);
+    const requestsPerHour = this.requestCount / Math.max(hoursPassed, 0.1); // Avoid division by zero
+
+    if (requestsPerHour > this.maxRequestsPerHour * 0.9) { // 90% of limit
+      const tokenType = this.githubToken ? 'authenticated' : 'anonymous';
+      console.warn(`⚠️ Warning: Approaching GitHub API rate limit for ${tokenType} requests`);
+      console.warn(`   Current rate: ${Math.round(requestsPerHour)} requests/hour`);
+      console.warn(`   Limit: ${this.maxRequestsPerHour} requests/hour`);
+      
+      if (requestsPerHour > this.maxRequestsPerHour) {
+        throw new Error(`GitHub API rate limit exceeded. Please wait before making more requests.`);
+      }
+    }
+  }
+
+  /**
+   * Make a request to GitHub API with validation and rate limiting
    */
   async makeGitHubRequest(endpoint) {
+    // Check rate limits
+    this.checkRateLimit();
+    
+    // Validate endpoint
+    endpoint = this.validateEndpoint(endpoint);
+
+    // Increment request counter
+    this.requestCount++;
+
     return new Promise((resolve, reject) => {
       const options = {
         hostname: this.baseUrl,
@@ -81,7 +253,7 @@ class GitHubChangelogGenerator {
     try {
       console.log(`🌐 Fetching commits from GitHub API for ${componentName}...`);
       
-      const componentPath = this.getComponentPath(componentName);
+      const componentPath = await this.getComponentPath(componentName);
       const endpoint = `/repos/${this.owner}/${this.repo}/commits?path=${componentPath}&per_page=50`;
       
       console.log(`📡 Endpoint: ${endpoint}`);
@@ -117,33 +289,32 @@ class GitHubChangelogGenerator {
   /**
    * Get the correct component path in the repository
    */
-  getComponentPath(componentName) {
-    const componentMap = {
-      'elvt-button': 'src/components/buttons/button',
-      'elvt-input': 'src/components/input',
-      'elvt-card': 'src/components/card',
-      'elvt-modal': 'src/components/modals/modal',
-      'elvt-select': 'src/components/select',
-      'elvt-checkbox': 'src/components/checkbox',
-      'elvt-radio': 'src/components/radios/radio',
-      'elvt-switch': 'src/components/switch',
-      'elvt-textarea': 'src/components/textarea',
-      'elvt-badge': 'src/components/badge',
-      'elvt-avatar': 'src/components/avatar',
-      'elvt-divider': 'src/components/divider',
-      'elvt-progress': 'src/components/progress',
-      'elvt-skeleton': 'src/components/skeleton',
-      'elvt-tooltip': 'src/components/tooltip',
-      'elvt-dropdown': 'src/components/dropdown',
-      'elvt-menu': 'src/components/menus/menu',
-      'elvt-tabs': 'src/components/tabs',
-      'elvt-table': 'src/components/tables/table',
-      'elvt-breadcrumb': 'src/components/breadcrumbs/breadcrumb',
-      'elvt-link': 'src/components/link',
-      'elvt-icon': 'src/components/icon'
-    };
+  async getComponentPath(componentName) {
+    // If we have cached component paths from discovery, use them
+    if (this.discoveredComponents) {
+      const component = this.discoveredComponents.find(comp => comp.name === componentName);
+      if (component) {
+        return component.path;
+      }
+    }
 
-    return componentMap[componentName] || `src/components/${componentName.replace('elvt-', '')}`;
+    // Try to discover components if not already done
+    try {
+      const components = await this.getAllComponents();
+      this.discoveredComponents = components;
+      
+      const component = components.find(comp => comp.name === componentName);
+      if (component) {
+        return component.path;
+      }
+    } catch (error) {
+      console.warn(`⚠️ Could not discover component path for ${componentName}: ${error.message}`);
+    }
+
+    // Fallback to educated guess based on component name
+    const fallbackPath = `src/components/${componentName.replace('elvt-', '')}`;
+    console.log(`📋 Using fallback path: ${fallbackPath}`);
+    return fallbackPath;
   }
 
   /**
@@ -315,19 +486,143 @@ class GitHubChangelogGenerator {
   }
 
   /**
-   * Group commits by version based on dates
+   * Load versions from external sources (GitHub API + versions.json)
    */
-  groupCommitsByVersion(commits) {
+  async loadVersions() {
+    try {
+      // First, try to get versions from GitHub releases/tags API
+      console.log('📡 Fetching version information from GitHub API...');
+      const gitHubVersions = await this.getVersionsFromGitHub();
+      
+      if (gitHubVersions && gitHubVersions.length > 0) {
+        console.log(`✅ Found ${gitHubVersions.length} versions from GitHub API`);
+        return gitHubVersions;
+      }
+    } catch (error) {
+      console.warn(`⚠️ Could not load versions from GitHub API: ${error.message}`);
+    }
+
+    // Fallback to local component-versions.json file
+    try {
+      console.log('📂 Loading versions from component-versions.json file...');
+      const versionsData = await fs.readFile('./component-versions.json', 'utf8');
+      const { versions } = JSON.parse(versionsData);
+      
+      // Convert string dates to Date objects
+      const processedVersions = versions.map(v => ({
+        ...v,
+        cutoff: new Date(v.cutoff)
+      }));
+      
+      console.log(`✅ Loaded ${processedVersions.length} versions from component-versions.json`);
+      return processedVersions;
+      
+    } catch (error) {
+      console.warn(`⚠️ Could not load versions.json: ${error.message}`);
+      
+      // Ultimate fallback to minimal hardcoded versions
+      console.log('📋 Using minimal fallback version set...');
+      return [
+        { version: '0.0.28-alpha', date: '2025-08-11', cutoff: new Date('2025-08-01') },
+        { version: '0.0.27-alpha', date: '2025-08-08', cutoff: new Date('2025-07-25') },
+        { version: '0.0.26-alpha', date: '2025-07-16', cutoff: new Date('2025-07-01') }
+      ];
+    }
+  }
+
+  /**
+   * Get version information from GitHub API (releases/tags)
+   */
+  async getVersionsFromGitHub() {
+    try {
+      const endpoint = `/repos/${this.owner}/${this.repo}/releases`;
+      const releases = await this.makeGitHubRequest(endpoint);
+      
+      if (!Array.isArray(releases) || releases.length === 0) {
+        console.log('📋 No releases found, trying tags...');
+        const tagsEndpoint = `/repos/${this.owner}/${this.repo}/tags`;
+        const tags = await this.makeGitHubRequest(tagsEndpoint);
+        
+        if (!Array.isArray(tags) || tags.length === 0) {
+          return null;
+        }
+        
+        // Convert tags to version format
+        return this.convertTagsToVersions(tags);
+      }
+      
+      // Convert releases to version format
+      return this.convertReleasesToVersions(releases);
+      
+    } catch (error) {
+      console.warn(`⚠️ GitHub API error for versions: ${error.message}`);
+      return null;
+    }
+  }
+
+  /**
+   * Convert GitHub releases to version timeline format
+   */
+  convertReleasesToVersions(releases) {
+    return releases
+      .filter(release => !release.draft && release.tag_name.match(/^\d+\.\d+\.\d+/))
+      .map((release, index, array) => {
+        const publishedDate = new Date(release.published_at);
+        const nextRelease = array[index - 1]; // Releases are usually in descending order
+        
+        // Calculate cutoff date (midpoint to next release or 30 days back)
+        let cutoffDate;
+        if (nextRelease) {
+          const nextDate = new Date(nextRelease.published_at);
+          cutoffDate = new Date((publishedDate.getTime() + nextDate.getTime()) / 2);
+        } else {
+          // For latest release, use 30 days back as cutoff
+          cutoffDate = new Date(publishedDate);
+          cutoffDate.setDate(cutoffDate.getDate() - 30);
+        }
+
+        return {
+          version: release.tag_name,
+          date: publishedDate.toISOString().split('T')[0],
+          cutoff: cutoffDate
+        };
+      })
+      .sort((a, b) => b.version.localeCompare(a.version, undefined, { numeric: true }));
+  }
+
+  /**
+   * Convert GitHub tags to version timeline format
+   */
+  convertTagsToVersions(tags) {
+    // For tags, we don't have publish dates, so we'll estimate based on commit dates
+    const versionTags = tags
+      .filter(tag => tag.name.match(/^\d+\.\d+\.\d+/))
+      .sort((a, b) => b.name.localeCompare(a.name, undefined, { numeric: true }));
+    
+    // Generate cutoff dates with monthly intervals
+    return versionTags.map((tag, index) => {
+      const estimatedDate = new Date();
+      estimatedDate.setMonth(estimatedDate.getMonth() - index);
+      
+      const cutoffDate = new Date(estimatedDate);
+      cutoffDate.setDate(1); // First day of month
+      
+      return {
+        version: tag.name,
+        date: estimatedDate.toISOString().split('T')[0],
+        cutoff: cutoffDate
+      };
+    });
+  }
+
+  /**
+   * Group commits by version based on dynamically loaded version data
+   */
+  async groupCommitsByVersion(commits) {
     const versionGroups = new Map();
     
-    // Version timeline
-    const versions = [
-      { version: '0.0.28-alpha', date: '2025-08-11', cutoff: new Date('2025-08-01') },
-      { version: '0.0.27-alpha', date: '2025-08-08', cutoff: new Date('2025-07-25') },
-      { version: '0.0.26-alpha', date: '2025-07-16', cutoff: new Date('2025-07-01') },
-      { version: '0.0.25-alpha', date: '2025-06-15', cutoff: new Date('2025-06-01') },
-      { version: '0.0.24-alpha', date: '2025-05-15', cutoff: new Date('2025-01-01') }
-    ];
+    // Load versions dynamically
+    const versions = await this.loadVersions();
 
     commits.forEach(commit => {
       const commitDate = new Date(commit.date);
@@ -358,9 +653,12 @@ class GitHubChangelogGenerator {
   }
 
   /**
-   * Generate changelog for a component
+   * Generate changelog for a component with input validation
    */
   async generateChangelog(componentName) {
+    // Validate and sanitize component name
+    componentName = this.validateComponentName(componentName);
+    
     console.log(`\n📝 Generating GitHub-based changelog for ${componentName}...`);
     
     // Reset log entries for this component
@@ -408,25 +706,14 @@ class GitHubChangelogGenerator {
     }
 
     // Group relevant commits by version
-    const versionGroups = this.groupCommitsByVersion(relevantCommits);
+    const versionGroups = await this.groupCommitsByVersion(relevantCommits);
     console.log(`📦 Organized ${relevantCommits.length} relevant commits into ${versionGroups.length} version groups`);
 
     // Create version entries
     const versionEntries = versionGroups.map(group => {
-      const changes = group.commits.map((commit, index) => {
-        // Distribute change types across versions
-        const preferredTypes = {
-          '0.0.28-alpha': ['bug-fix'],
-          '0.0.27-alpha': ['breaking-change', 'feature'],
-          '0.0.26-alpha': ['feature', 'improvement'],
-          '0.0.25-alpha': ['feature'],
-          '0.0.24-alpha': ['feature']
-        };
-        
-        const types = preferredTypes[group.version] || ['improvement'];
-        const preferredType = types[index % types.length];
-        
-        return this.parseCommit(commit, componentName, preferredType);
+      const changes = group.commits.map(commit => {
+        // Let each commit determine its own change type based on content
+        return this.parseCommit(commit, componentName);
       });
 
       console.log(`📋 Version ${group.version}: ${changes.length} changes`);
@@ -484,10 +771,18 @@ class GitHubChangelogGenerator {
   }
 
   /**
-   * Save changelog to file
+   * Save changelog to file with validation
    */
   async saveChangelog(componentName, changelogData) {
-    const changelogDir = './static/component-changelogs';
+    // Validate inputs
+    componentName = this.validateComponentName(componentName);
+    
+    if (!changelogData || typeof changelogData !== 'object') {
+      throw new Error('Changelog data must be a valid object');
+    }
+
+    // Validate and sanitize directory path
+    const changelogDir = this.validatePath('static/component-changelogs');
     await fs.mkdir(changelogDir, { recursive: true });
     
     const changelogPath = path.join(changelogDir, `${componentName}-changes.json`);
@@ -505,11 +800,12 @@ class GitHubChangelogGenerator {
    */
   async saveLogFile(componentName, changelogDir) {
     const logPath = path.join(changelogDir, `${componentName}-changes.log`);
+    const timestamp = new Date().toISOString();
     
     // Generate log content
     const logLines = [
       `# Changelog Generation Log for ${componentName}`,
-      `# Generated: ${new Date().toISOString()}`,
+      `# Generated: ${timestamp}`,
       `# GitHub API: https://api.github.com/repos/${this.owner}/${this.repo}`,
       '',
       '## Summary',
@@ -522,9 +818,9 @@ class GitHubChangelogGenerator {
       ''
     ];
 
-    // Add all log entries
+    // Add all log entries without timestamps
     this.logEntries.forEach(entry => {
-      logLines.push(`[${entry.timestamp}] ${entry.level}: ${entry.message}`);
+      logLines.push(`${entry.level}: ${entry.message}`);
       if (entry.data && entry.level !== 'DEBUG') {
         if (entry.data.hash) logLines.push(`  → Commit: ${entry.data.hash}`);
         if (entry.data.author) logLines.push(`  → Author: ${entry.data.author}`);
@@ -540,43 +836,139 @@ class GitHubChangelogGenerator {
   }
 
   /**
-   * Get all available ELEVATE components
+   * Dynamically discover all ELEVATE components from GitHub repository
    */
-  getAllComponents() {
-    // Extract components from the component map
-    const componentMap = {
-      'elvt-button': 'src/components/buttons/button',
-      'elvt-input': 'src/components/input',
-      'elvt-card': 'src/components/card',
-      'elvt-modal': 'src/components/modals/modal',
-      'elvt-select': 'src/components/select',
-      'elvt-checkbox': 'src/components/checkbox',
-      'elvt-radio': 'src/components/radios/radio',
-      'elvt-switch': 'src/components/switch',
-      'elvt-textarea': 'src/components/textarea',
-      'elvt-badge': 'src/components/badge',
-      'elvt-avatar': 'src/components/avatar',
-      'elvt-divider': 'src/components/divider',
-      'elvt-progress': 'src/components/progress',
-      'elvt-skeleton': 'src/components/skeleton',
-      'elvt-tooltip': 'src/components/tooltip',
-      'elvt-dropdown': 'src/components/dropdown',
-      'elvt-menu': 'src/components/menus/menu',
-      'elvt-tabs': 'src/components/tabs',
-      'elvt-table': 'src/components/tables/table',
-      'elvt-breadcrumb': 'src/components/breadcrumbs/breadcrumb',
-      'elvt-link': 'src/components/link',
-      'elvt-icon': 'src/components/icon'
-    };
+  async getAllComponents() {
+    try {
+      console.log('🔍 Discovering components from elevate-core-ui repository...');
+      
+      // Get the repository tree structure
+      const componentsTree = await this.getRepositoryTree('src/components');
+      const componentFiles = await this.findComponentFiles(componentsTree);
+      
+      // Extract component names and paths
+      const components = componentFiles.map(file => this.extractComponentInfo(file));
+      
+      console.log(`✅ Discovered ${components.length} components from repository`);
+      components.forEach(comp => {
+        console.log(`   📦 ${comp.name} → ${comp.path}`);
+      });
+      
+      return components;
+      
+    } catch (error) {
+      console.warn(`⚠️ Could not discover components from repository: ${error.message}`);
+      console.log('📋 Using fallback component list...');
+      
+      // Fallback to minimal hardcoded list
+      return this.getFallbackComponents();
+    }
+  }
+
+  /**
+   * Get repository tree structure from GitHub API
+   */
+  async getRepositoryTree(path = 'src/components') {
+    try {
+      const endpoint = `/repos/${this.owner}/${this.repo}/contents/${path}`;
+      return await this.makeGitHubRequest(endpoint);
+    } catch (error) {
+      throw new Error(`Failed to get repository tree for ${path}: ${error.message}`);
+    }
+  }
+
+  /**
+   * Recursively find all *.component.ts files in the tree
+   */
+  async findComponentFiles(tree, basePath = '') {
+    let componentFiles = [];
     
-    return Object.keys(componentMap);
+    if (!Array.isArray(tree)) {
+      return componentFiles;
+    }
+    
+    for (const item of tree) {
+      const itemPath = basePath ? `${basePath}/${item.name}` : item.name;
+      
+      if (item.type === 'file' && item.name.endsWith('.component.ts')) {
+        componentFiles.push({
+          name: item.name,
+          path: itemPath,
+          fullPath: `src/components/${itemPath}`,
+          downloadUrl: item.download_url
+        });
+      } else if (item.type === 'dir') {
+        // Recursively search subdirectories
+        try {
+          const subTree = await this.getRepositoryTree(`src/components/${itemPath}`);
+          const subFiles = await this.findComponentFiles(subTree, itemPath);
+          componentFiles = componentFiles.concat(subFiles);
+        } catch (error) {
+          console.warn(`⚠️ Could not access directory: src/components/${itemPath}`);
+        }
+      }
+    }
+    
+    return componentFiles;
+  }
+
+  /**
+   * Extract component information from file path
+   */
+  extractComponentInfo(file) {
+    // Extract component name from filename (e.g., "button.component.ts" -> "elvt-button")
+    const fileName = file.name.replace('.component.ts', '');
+    const componentName = `elvt-${fileName}`;
+    
+    // Get the directory path for this component
+    const dirPath = file.fullPath.replace(`/${file.name}`, '');
+    
+    return {
+      name: componentName,
+      path: dirPath,
+      fileName: file.name,
+      fullPath: file.fullPath
+    };
+  }
+
+  /**
+   * Fallback component list when API discovery fails
+   */
+  getFallbackComponents() {
+    const fallbackList = [
+      { name: 'elvt-button', path: 'src/components/buttons/button' },
+      { name: 'elvt-input', path: 'src/components/input' },
+      { name: 'elvt-card', path: 'src/components/card' },
+      { name: 'elvt-modal', path: 'src/components/modals/modal' },
+      { name: 'elvt-select', path: 'src/components/select' },
+      { name: 'elvt-checkbox', path: 'src/components/checkbox' },
+      { name: 'elvt-radio', path: 'src/components/radios/radio' },
+      { name: 'elvt-switch', path: 'src/components/switch' },
+      { name: 'elvt-textarea', path: 'src/components/textarea' },
+      { name: 'elvt-badge', path: 'src/components/badge' },
+      { name: 'elvt-avatar', path: 'src/components/avatar' },
+      { name: 'elvt-divider', path: 'src/components/divider' },
+      { name: 'elvt-progress', path: 'src/components/progress' },
+      { name: 'elvt-skeleton', path: 'src/components/skeleton' },
+      { name: 'elvt-tooltip', path: 'src/components/tooltip' },
+      { name: 'elvt-dropdown', path: 'src/components/dropdown' },
+      { name: 'elvt-menu', path: 'src/components/menus/menu' },
+      { name: 'elvt-tabs', path: 'src/components/tabs' },
+      { name: 'elvt-table', path: 'src/components/tables/table' },
+      { name: 'elvt-breadcrumb', path: 'src/components/breadcrumbs/breadcrumb' },
+      { name: 'elvt-link', path: 'src/components/link' },
+      { name: 'elvt-icon', path: 'src/components/icon' }
+    ];
+    
+    console.log(`📋 Using ${fallbackList.length} fallback components`);
+    return fallbackList;
   }
 
   /**
    * Generate changelog for all components
    */
   async generateAllChangelogs(token = null) {
-    const components = this.getAllComponents();
+    const components = await this.getAllComponents();
     console.log(`\n🚀 Generating changelogs for ${components.length} components...`);
     
     const results = {
@@ -586,11 +978,13 @@ class GitHubChangelogGenerator {
 
     for (let i = 0; i < components.length; i++) {
       const component = components[i];
+      const componentName = typeof component === 'string' ? component : component.name;
+      
       try {
-        console.log(`\n[${i + 1}/${components.length}] Processing ${component}...`);
-        const changelogData = await this.generateChangelog(component);
-        await this.saveChangelog(component, changelogData);
-        results.success.push(component);
+        console.log(`\n[${i + 1}/${components.length}] Processing ${componentName}...`);
+        const changelogData = await this.generateChangelog(componentName);
+        await this.saveChangelog(componentName, changelogData);
+        results.success.push(componentName);
         
         // Small delay to avoid hitting rate limits
         if (i < components.length - 1) {
@@ -598,8 +992,8 @@ class GitHubChangelogGenerator {
         }
         
       } catch (error) {
-        console.error(`❌ Failed to generate changelog for ${component}: ${error.message}`);
-        results.failed.push({ component, error: error.message });
+        console.error(`❌ Failed to generate changelog for ${componentName}: ${error.message}`);
+        results.failed.push({ component: componentName, error: error.message });
       }
     }
 
@@ -646,7 +1040,9 @@ Features:
   ✅ Real GitHub data - Uses actual commit history from inform-elevate/elevate-core-ui
   📋 Debug logging - Saves .log files alongside .json for debugging
   📊 Filtering stats - Shows filtered vs total commits in metadata
-  🚀 Bulk processing - Use "all" to process all 22 ELEVATE components
+  🚀 Dynamic discovery - Automatically finds all *.component.ts files in repository
+  🚀 Bulk processing - Use "all" to process all discovered ELEVATE components (46+ found)
+  📊 Dynamic versioning - Loads version timeline from GitHub API or versions.json
 
 Note: 
 - GitHub API has rate limits (60 requests/hour without token, 5000 with token)
@@ -654,6 +1050,8 @@ Note:
 - Token can also be set via GITHUB_TOKEN environment variable
 - Smart filtering typically reduces commits by 70-80% for better accuracy
 - Debug logs saved as <component>-changes.log for troubleshooting
+- Component discovery finds all *.component.ts files recursively in src/components
+- Version timeline loaded dynamically from GitHub API or fallback to versions.json
 `);
     return;
   }
@@ -666,6 +1064,24 @@ Note:
     console.error('   Example: --component elvt-button');
     console.error('   Example: --component all');
     process.exit(1);
+  }
+
+  // Validate component input
+  if (component.toLowerCase() !== 'all') {
+    try {
+      const sanitizedComponent = component.trim().toLowerCase();
+      // Basic validation without full constructor validation
+      if (!sanitizedComponent || typeof sanitizedComponent !== 'string') {
+        throw new Error('Component name must be a non-empty string');
+      }
+      if (!/^elvt-[a-z0-9-]+$/.test(sanitizedComponent)) {
+        throw new Error(`Invalid component name: ${sanitizedComponent}. Must start with 'elvt-' and contain only lowercase letters, numbers, and hyphens.`);
+      }
+    } catch (error) {
+      console.error(`❌ ${error.message}`);
+      console.error('   Example: --component elvt-button');
+      process.exit(1);
+    }
   }
 
   try {
@@ -699,7 +1115,34 @@ Note:
 
 function getArgValue(args, flag) {
   const index = args.indexOf(flag);
-  return index !== -1 && index + 1 < args.length ? args[index + 1] : null;
+  if (index === -1 || index + 1 >= args.length) {
+    return null;
+  }
+  
+  const value = args[index + 1];
+  
+  // Basic validation for argument values
+  if (typeof value !== 'string') {
+    return null;
+  }
+  
+  // Check for potential command injection attempts
+  const dangerousPatterns = [
+    /[;\|\&\$\`]/,     // Command injection
+    /\$\([^)]*\)/,     // Command substitution
+    /\$\{[^}]*\}/,     // Variable substitution
+    /[<>]/,            // Redirection
+    /^\s*-/            // Additional flags (prevent flag confusion)
+  ];
+  
+  for (const pattern of dangerousPatterns) {
+    if (pattern.test(value)) {
+      console.warn(`⚠️ Warning: Potentially dangerous characters in argument value: ${value}`);
+      return null;
+    }
+  }
+  
+  return value.trim();
 }
 
 // Run if called directly

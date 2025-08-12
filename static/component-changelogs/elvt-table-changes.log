@@ -1,0 +1,38 @@
+# Changelog Generation Log for elvt-table
+# Generated: 2025-08-12T11:45:47.771Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 9
+Included commits: 0
+Excluded commits: 3
+Uncertain commits: 0
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-table
+
+INFO: Found 3 total commits from GitHub API
+
+DEBUG: Evaluating commit: "fix: Fix PagedTableDataProvider with Indeterminate Result Length (#196)..."
+
+EXCLUDE: "fix: Fix PagedTableDataProvider with Indeterminate Result Length (#196)..." (Table component)
+  → Commit: 580a919
+  → Reason: Table component
+  → Pattern: /table(?!\s+\w*component)/
+
+DEBUG: Evaluating commit: "fix: Add Table Component Dependencies..."
+
+EXCLUDE: "fix: Add Table Component Dependencies..." (Dependencies)
+  → Commit: d5f001a
+  → Reason: Dependencies
+  → Pattern: /deps|dependencies|package\.json|yarn|npm/
+
+DEBUG: Evaluating commit: "feat: Add Table Selection..."
+
+EXCLUDE: "feat: Add Table Selection..." (Table component)
+  → Commit: bb8d2fe
+  → Reason: Table component
+  → Pattern: /table(?!\s+\w*component)/
+
+INFO: Filtered from 3 to 0 relevant commits

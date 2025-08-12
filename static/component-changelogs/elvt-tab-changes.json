@@ -1,137 +1,48 @@
 {
   "component": "elvt-tab",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.505Z",
+  "lastUpdated": "2025-08-12T11:45:52.296Z",
   "changelog": [
     {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
+      "version": "0.0.26-alpha",
+      "date": "2025-07-16",
       "type": "minor",
       "changes": [
         {
-          "type": "improvement",
-          "title": "Adjust Padding for TabPanel (",
-          "description": "Adjust Padding for TabPanel (",
-          "commit": "a6b498d",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Change RTL Implementation for TabGroup (",
-          "description": "Change RTL Implementation for TabGroup (",
-          "commit": "c0da45b",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Handle Setting ActiveTab in TabGroup Correctly (",
-          "description": "Handle Setting ActiveTab in TabGroup Correctly (",
-          "commit": "25495d0",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Adjust Implementation and Add Tests for Tab, TabPanel and Tabgroup (",
-          "description": "Adjust Implementation and Add Tests for Tab, TabPanel and Tabgroup (",
-          "commit": "1eba9c8",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Adjust Tab, TabPanel and TabGroup Design (",
-          "description": "Adjust Tab, TabPanel and TabGroup Design (",
+          "type": "feature",
+          "title": "Adjust Tab, TabPanel and TabGroup Design",
+          "description": "Added adjust tab, tabpanel and tabgroup design",
           "commit": "1eba9c8",
           "impact": "visual",
-          "breakingChange": false
-        },
-        {
-          "type": "bug-fix",
-          "title": "Fix PagedTableDataProvider with Indeterminate Result Length (",
-          "description": "Fix PagedTableDataProvider with Indeterminate Result Length (",
-          "commit": "580a919",
-          "issueNumber": 196,
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Table Component Dependencies (",
-          "description": "Add Table Component Dependencies (",
-          "commit": "d5f001a",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Export Table Data Provider Abstract Class (",
-          "description": "Export Table Data Provider Abstract Class (",
-          "commit": "1e4b88c",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Export Table Types (",
-          "description": "Export Table Types (",
-          "commit": "8ab9caf",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Export Table Types (",
-          "description": "Export Table Types (",
-          "commit": "8ab9caf",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Table Selection (",
-          "description": "Add Table Selection (",
-          "commit": "bb8d2fe",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "bug-fix",
-          "title": "Fix Table Types and Definitions (",
-          "description": "Fix Table Types and Definitions (",
-          "commit": "319ea23",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Basic Table Component (Incomplete, Experimental) (",
-          "description": "Add Basic Table Component (Incomplete, Experimental) (",
-          "commit": "bfc48c2",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Tab Components (",
-          "description": "Add Tab Components (",
-          "commit": "08d1ca0",
-          "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "nwester-inform",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/1eba9c89335aecc947099a2f8cfb90b0b13c3dce"
         }
       ]
     }
   ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
     "totalVersions": 1,
-    "firstVersion": "0.0.28-alpha",
+    "firstVersion": "0.0.26-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "a6b498d"
+    "lastCommit": "1eba9c89335aecc947099a2f8cfb90b0b13c3dce",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "1/7"
   }
 }

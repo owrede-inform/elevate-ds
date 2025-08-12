@@ -33,7 +33,8 @@ Clickable breadcrumb item that navigates to a parent page in the hierarchy.
 <ComponentShowcase
   title="Standard Breadcrumb Link Items"
   description="Clickable breadcrumb items for navigation to parent pages"
-  code={`<elvt-breadcrumb>
+  code={`<elvt-breadcrumb
+  code="standard-breadcrumb-link-items.html">
   <elvt-breadcrumb-item href="/dashboard">Dashboard</elvt-breadcrumb-item>
   <elvt-breadcrumb-item href="/settings">Settings</elvt-breadcrumb-item>
   <elvt-breadcrumb-item href="/settings/account">Account</elvt-breadcrumb-item>
@@ -53,7 +54,8 @@ Non-clickable item representing the current page location, visually distinct but
 <ComponentShowcase
   title="Current Page Breadcrumb Item"
   description="Non-clickable item indicating the current page location"
-  code={`<elvt-breadcrumb>
+  code={`<elvt-breadcrumb
+  code="current-page-breadcrumb-item.html">
   <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
   <elvt-breadcrumb-item href="/products">Products</elvt-breadcrumb-item>
   <elvt-breadcrumb-item current>MacBook Pro</elvt-breadcrumb-item>
@@ -73,7 +75,8 @@ Breadcrumb items with icons to improve visual recognition and category identific
 <ComponentShowcase
   title="Breadcrumb Items with Icons"
   description="Enhanced breadcrumb items with meaningful icons for better recognition"
-  code={`<elvt-breadcrumb>
+  code={`<elvt-breadcrumb
+  code="breadcrumb-items-with-icons.html">
   <elvt-breadcrumb-item href="/">
     <elvt-icon slot="prefix" icon="mdi:home"></elvt-icon>
     Home
@@ -105,7 +108,8 @@ Non-interactive items that appear disabled but remain visible for context.
 <ComponentShowcase
   title="Disabled Breadcrumb Items"
   description="Non-interactive breadcrumb items that provide context without navigation"
-  code={`<elvt-breadcrumb>
+  code={`<elvt-breadcrumb
+  code="disabled-breadcrumb-items.html">
   <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
   <elvt-breadcrumb-item disabled>Restricted Section</elvt-breadcrumb-item>
   <elvt-breadcrumb-item current>Current Page</elvt-breadcrumb-item>
@@ -246,7 +250,8 @@ Experience how breadcrumb items behave in realistic contexts. All examples use a
 <ComponentShowcase
   title="Documentation Site Navigation"
   description="Realistic breadcrumb navigation for a documentation website"
-  code={`<div style="padding: 2rem; background: #f8f9fa; border-radius: 8px;">
+  code={`<div style="padding: 2rem; background: #f8f9fa; border-radius: 8px;"
+  code="documentation-site-navigation.html">
   <!-- Documentation Navigation Example -->
   <elvt-breadcrumb style="margin-bottom: 1.5rem;">
     <elvt-breadcrumb-item href="/docs">

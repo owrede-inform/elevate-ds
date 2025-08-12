@@ -1,0 +1,19 @@
+{
+  "component": "elvt-mutation-observer",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-12T11:45:24.029Z",
+  "changelog": [],
+  "deprecations": [],
+  "upcomingChanges": [],
+  "metadata": {
+    "totalVersions": 0,
+    "firstVersion": "0.0.28-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "0/6"
+  }
+}

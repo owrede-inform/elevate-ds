@@ -1,0 +1,25 @@
+<elvt-stack direction="column" spacing="medium" style={{maxWidth: '400px'}}>
+  <elvt-input 
+    type="email" 
+    label="Valid Email" 
+    value="user@example.com"
+    valid
+    help-text="Email format is correct">
+  </elvt-input>
+
+  <elvt-input 
+    type="email" 
+    label="Invalid Email" 
+    value="invalid-email"
+    invalid
+    help-text="Please enter a valid email address">
+  </elvt-input>
+
+  <elvt-input 
+    type="text" 
+    label="Warning State" 
+    value="potential-issue"
+    warning
+    help-text="This value might cause issues">
+  </elvt-input>
+</elvt-stack>

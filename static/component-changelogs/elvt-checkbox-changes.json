@@ -1,80 +1,65 @@
 {
   "component": "elvt-checkbox",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.424Z",
+  "lastUpdated": "2025-08-12T11:44:59.495Z",
   "changelog": [
     {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
+      "version": "0.0.26-alpha",
+      "date": "2025-07-16",
       "type": "minor",
       "changes": [
         {
-          "type": "improvement",
-          "title": "Restyle Elevate Checkbox Component (",
-          "description": "Restyle Elevate Checkbox Component (",
+          "type": "feature",
+          "title": " feat: Restyle Elevate Checkbox Component",
+          "description": "Added  feat: restyle elevate checkbox component",
           "commit": "8b96b35",
           "impact": "visual",
-          "breakingChange": false
-        },
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8b96b358c63ad618364a6fc77df5f9e4a00d5146"
+        }
+      ]
+    },
+    {
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
+      "type": "minor",
+      "changes": [
         {
           "type": "feature",
-          "title": "Add CheckboxComponent.focus() (",
-          "description": "Add CheckboxComponent.focus() (",
-          "commit": "1588138",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Elevate Switch and Update Checkbox (",
-          "description": "Add Elevate Switch and Update Checkbox (",
-          "commit": "dc0fd89",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Checkbox Value Is Updated in Input and Change (",
-          "description": "Checkbox Value Is Updated in Input and Change (",
-          "commit": "4a0540c",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Added hide-label Prop and Fixed Checkbox Usability Issues (",
-          "description": "Added hide-label Prop and Fixed Checkbox Usability Issues (",
+          "title": "Added hide-label Prop and Fixed Checkbox Usability Issues",
+          "description": "Added added hide-label prop and fixed checkbox usability issues",
           "commit": "dea7d2d",
           "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Elevate Checkbox (",
-          "description": "Add Elevate Checkbox (",
-          "commit": "87dd564",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Checkbox Component (",
-          "description": "Add Checkbox Component (",
-          "commit": "73f8824",
-          "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/dea7d2d0603c25bd0f8a7e8f24cf535a8e089fd4"
         }
       ]
     }
   ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
-    "totalVersions": 1,
-    "firstVersion": "0.0.28-alpha",
+    "totalVersions": 2,
+    "firstVersion": "0.0.25-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "8b96b35"
+    "lastCommit": "8b96b358c63ad618364a6fc77df5f9e4a00d5146",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "2/17"
   }
 }

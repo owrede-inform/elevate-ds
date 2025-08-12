@@ -1,0 +1,24 @@
+# Changelog Generation Log for elvt-popup
+# Generated: 2025-08-12T11:45:29.589Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 5
+Included commits: 1
+Excluded commits: 0
+Uncertain commits: 0
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-popup
+
+INFO: Found 1 total commits from GitHub API
+
+DEBUG: Evaluating commit: "feat: Add Popup Component..."
+
+INCLUDE: "feat: Add Popup Component..." (Short component name)
+  → Commit: c4191c7
+  → Reason: Short component name
+  → Pattern: /\bpopup\b/i
+
+INFO: Filtered from 1 to 1 relevant commits

@@ -1,41 +1,19 @@
 {
   "component": "elvt-toolbar",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.521Z",
-  "changelog": [
-    {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Add Layer Property To Toolbar, Use Alias/Layout Tokens (",
-          "description": "Add Layer Property To Toolbar, Use Alias/Layout Tokens (",
-          "commit": "1a09e08",
-          "impact": "api",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Vertical Toolbar (",
-          "description": "Add Vertical Toolbar (",
-          "commit": "a715c85",
-          "issueNumber": 79,
-          "impact": "functionality",
-          "breakingChange": false
-        }
-      ]
-    }
-  ],
+  "lastUpdated": "2025-08-12T11:45:55.420Z",
+  "changelog": [],
   "deprecations": [],
   "upcomingChanges": [],
   "metadata": {
-    "totalVersions": 1,
+    "totalVersions": 0,
     "firstVersion": "0.0.28-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "1a09e08"
+    "lastCommit": "",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "0/6"
   }
 }

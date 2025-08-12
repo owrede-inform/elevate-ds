@@ -1,40 +1,58 @@
 {
   "component": "elvt-lightbox",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.469Z",
+  "lastUpdated": "2025-08-12T11:45:17.619Z",
   "changelog": [
     {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
       "type": "minor",
       "changes": [
         {
           "type": "bug-fix",
-          "title": "Fix Lightbox Story Accessibility Contrast (",
-          "description": "Fix Lightbox Story Accessibility Contrast (",
+          "title": "Fix Lightbox Story Accessibility Contrast",
+          "description": "Fixed fix lightbox story accessibility contrast",
           "commit": "9fad04b",
           "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/9fad04bf490f8b1ae3a07b598cf378b23adb3139"
         },
         {
           "type": "feature",
-          "title": "Add Lightbox and Dialogs (",
-          "description": "Add Lightbox and Dialogs (",
+          "title": "Add Lightbox and Dialogs",
+          "description": "Added add lightbox and dialogs",
           "commit": "37d6740",
           "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/37d6740931bada368f6af9c6ab3bc01dd12a7d4c"
         }
       ]
     }
   ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
     "totalVersions": 1,
-    "firstVersion": "0.0.28-alpha",
+    "firstVersion": "0.0.25-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "9fad04b"
+    "lastCommit": "9fad04bf490f8b1ae3a07b598cf378b23adb3139",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "2/4"
   }
 }

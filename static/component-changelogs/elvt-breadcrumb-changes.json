@@ -1,48 +1,48 @@
 {
   "component": "elvt-breadcrumb",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.405Z",
+  "lastUpdated": "2025-08-12T11:44:52.789Z",
   "changelog": [
     {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
+      "version": "0.0.22-alpha",
+      "date": "2025-03-25",
       "type": "minor",
       "changes": [
         {
           "type": "feature",
-          "title": "Add RTL for BreadcrumbItem (",
-          "description": "Add RTL for BreadcrumbItem (",
-          "commit": "c0da45b",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Adjust Design for BreadcrumbItem (",
-          "description": "Adjust Design for BreadcrumbItem (",
-          "commit": "479d71f",
-          "impact": "visual",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Breadcrumb and Breadcrumb Item Components (",
-          "description": "Add Breadcrumb and Breadcrumb Item Components (",
+          "title": "Add Breadcrumb and Breadcrumb Item Components",
+          "description": "Added add breadcrumb and breadcrumb item components",
           "commit": "c95371e",
           "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c95371e9ecf51789b6a57455ffba39863940e1ea"
         }
       ]
     }
   ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
     "totalVersions": 1,
-    "firstVersion": "0.0.28-alpha",
+    "firstVersion": "0.0.22-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "c0da45b"
+    "lastCommit": "c95371e9ecf51789b6a57455ffba39863940e1ea",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "1/10"
   }
 }

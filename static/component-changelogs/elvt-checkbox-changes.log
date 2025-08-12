@@ -1,0 +1,133 @@
+# Changelog Generation Log for elvt-checkbox
+# Generated: 2025-08-12T11:44:59.497Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 37
+Included commits: 2
+Excluded commits: 12
+Uncertain commits: 3
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-checkbox
+
+INFO: Found 17 total commits from GitHub API
+
+DEBUG: Evaluating commit: " feat: Restyle Elevate Checkbox Component..."
+
+INCLUDE: " feat: Restyle Elevate Checkbox Component..." (Short component name)
+  → Commit: 8b96b35
+  → Reason: Short component name
+  → Pattern: /\bcheckbox\b/i
+
+DEBUG: Evaluating commit: "Chore/update design tokens 0.13.1..."
+
+EXCLUDE: "Chore/update design tokens 0.13.1..." (Generic token update)
+  → Commit: 3ea7125
+  → Reason: Generic token update
+  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+
+DEBUG: Evaluating commit: "feat: Add Multi-Column Direction to Stack Component..."
+
+UNCERTAIN: "feat: Add Multi-Column Direction to Stack Component..." (No clear component relevance)
+  → Commit: 573e50e
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Rename ComponentSize to Size ..."
+
+EXCLUDE: "refactor: Rename ComponentSize to Size ..." (Generic refactoring)
+  → Commit: ab26ae6
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Style Elevate Switch Component..."
+
+EXCLUDE: "feat: Style Elevate Switch Component..." (Switch component)
+  → Commit: a547458
+  → Reason: Switch component
+  → Pattern: /switch(?!\s+to|\s+from)/
+
+DEBUG: Evaluating commit: "feat: Add Group Mode to Field Component..."
+
+UNCERTAIN: "feat: Add Group Mode to Field Component..." (No clear component relevance)
+  → Commit: 1588138
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "feat: Add Field Component..."
+
+UNCERTAIN: "feat: Add Field Component..." (No clear component relevance)
+  → Commit: 890b3f0
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "fix: Export Table Types..."
+
+EXCLUDE: "fix: Export Table Types..." (Table component)
+  → Commit: 8ab9caf
+  → Reason: Table component
+  → Pattern: /table(?!\s+\w*component)/
+
+DEBUG: Evaluating commit: "feat: Add Table Selection..."
+
+EXCLUDE: "feat: Add Table Selection..." (Table component)
+  → Commit: bb8d2fe
+  → Reason: Table component
+  → Pattern: /table(?!\s+\w*component)/
+
+DEBUG: Evaluating commit: "feat: Add Elevate Switch and Update Checkbox..."
+
+EXCLUDE: "feat: Add Elevate Switch and Update Checkbox..." (Switch component)
+  → Commit: dc0fd89
+  → Reason: Switch component
+  → Pattern: /switch(?!\s+to|\s+from)/
+
+DEBUG: Evaluating commit: "feat: Make Libraries External for NPM Package..."
+
+EXCLUDE: "feat: Make Libraries External for NPM Package..." (Dependencies)
+  → Commit: 4a0540c
+  → Reason: Dependencies
+  → Pattern: /deps|dependencies|package\.json|yarn|npm/
+
+DEBUG: Evaluating commit: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..."
+
+INCLUDE: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..." (Short component name)
+  → Commit: dea7d2d
+  → Reason: Short component name
+  → Pattern: /\bcheckbox\b/i
+
+DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
+
+EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+  → Commit: 0921993
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "fix: Update Design Tokens Package and Fix Tokens..."
+
+EXCLUDE: "fix: Update Design Tokens Package and Fix Tokens..." (Generic token update)
+  → Commit: 0ea3b49
+  → Reason: Generic token update
+  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+
+DEBUG: Evaluating commit: "feat(refactor): Replace Variant Attributes with Shape..."
+
+EXCLUDE: "feat(refactor): Replace Variant Attributes with Shape..." (Generic refactoring)
+  → Commit: c20d569
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Attach Form Control Internals (#127)..."
+
+EXCLUDE: "feat: Attach Form Control Internals (#127)..." (Form component)
+  → Commit: 95b8bff
+  → Reason: Form component
+  → Pattern: /form(?!\s+\w*component)/
+
+INFO: Filtered from 17 to 2 relevant commits

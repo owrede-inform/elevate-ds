@@ -1,116 +1,119 @@
 {
   "component": "elvt-button",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.415Z",
+  "lastUpdated": "2025-08-12T11:44:56.033Z",
   "changelog": [
     {
       "version": "0.0.28-alpha",
       "date": "2025-08-11",
-      "type": "minor",
+      "type": "patch",
       "changes": [
         {
           "type": "bug-fix",
-          "title": "Fix Button Group Pill Shape for Small / Medium Size (",
-          "description": "Fix Button Group Pill Shape for Small / Medium Size (",
-          "commit": "e6e5701",
-          "issueNumber": 235,
+          "title": "Fix Button Group Separator Lines (#250)",
+          "description": "Fixed fix button group separator lines (#250)",
+          "commit": "7de00fe",
           "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/7de00fed2bebd4f618630fd4c04ca4be514a8920"
         },
         {
           "type": "bug-fix",
-          "title": "Fix Button Group Separator Lines (",
-          "description": "Fix Button Group Separator Lines (",
-          "commit": "7de00fe",
-          "issueNumber": 250,
+          "title": "Fix Button Group Pill Shape for Small / Medium Size",
+          "description": "Fixed fix button group pill shape for small / medium size",
+          "commit": "e6e5701",
           "impact": "functionality",
-          "breakingChange": false
-        },
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/e6e5701fb8ce71124f6af7a6b6a4a2b2e5e3ae05"
+        }
+      ]
+    },
+    {
+      "version": "0.0.26-alpha",
+      "date": "2025-07-16",
+      "type": "minor",
+      "changes": [
         {
-          "type": "breaking-change",
-          "title": "Adjust Button Design, Remove Shoelace Button (",
-          "description": "Adjust Button Design, Remove Shoelace Button (",
+          "type": "feature",
+          "title": "Adjust Button Design, Remove Shoelace Button",
+          "description": "Added adjust button design, remove shoelace button",
           "commit": "67a0e62",
           "impact": "visual",
-          "breakingChange": true
-        },
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/67a0e62e01b9591a16cf41b1d733e6db1cb944c5"
+        }
+      ]
+    },
+    {
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
+      "type": "minor",
+      "changes": [
         {
           "type": "feature",
-          "title": "Add ButtonComponent.focus() (",
-          "description": "Add ButtonComponent.focus() (",
-          "commit": "a3ca8b3",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add \"name\" and \"value\" Attributes to Button (",
-          "description": "Add \"name\" and \"value\" Attributes to Button (",
+          "title": "Add \"name\" and \"value\" Attributes to Button",
+          "description": "Added add \"name\" and \"value\" attributes to button",
           "commit": "ee50024",
-          "issueNumber": 160,
           "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Fixed Usability Issues in Button and Button Group Stories (",
-          "description": "Fixed Usability Issues in Button and Button Group Stories (",
-          "commit": "dea7d2d",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Connect Button and Form Fields to Form Ancestor (",
-          "description": "Connect Button and Form Fields to Form Ancestor (",
-          "commit": "741ff85",
-          "impact": "functionality",
-          "breakingChange": false
-        },
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ee50024ba0bec819c69a455c21d71e305475a50d"
+        }
+      ]
+    },
+    {
+      "version": "0.0.22-alpha",
+      "date": "2025-03-25",
+      "type": "minor",
+      "changes": [
         {
           "type": "feature",
-          "title": "Add Icon Button Severity (",
-          "description": "Add Icon Button Severity (",
-          "commit": "831f0b1",
-          "issueNumber": 82,
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add ButtonGroup Component (",
-          "description": "Add ButtonGroup Component (",
+          "title": "Add ButtonGroup Component",
+          "description": "Added add buttongroup component",
           "commit": "4b1166b",
           "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "github-actions[bot]",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4b1166b301f4ac11d0a3a3ab6417526a77727e13"
         },
         {
           "type": "feature",
-          "title": "Add Button Component (",
-          "description": "Add Button Component (",
-          "commit": "c5be707",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Icon Button Component (",
-          "description": "Add Icon Button Component (",
+          "title": "Add Icon Button Component",
+          "description": "Added add icon button component",
           "commit": "9603e54",
           "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/9603e54a6527386f7df135340bc454e4cf5b5322"
         }
       ]
     }
   ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
-    "totalVersions": 1,
-    "firstVersion": "0.0.28-alpha",
+    "totalVersions": 4,
+    "firstVersion": "0.0.22-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "e6e5701"
+    "lastCommit": "7de00fed2bebd4f618630fd4c04ca4be514a8920",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "6/27"
   }
 }

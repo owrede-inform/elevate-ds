@@ -1,7 +1,7 @@
 {
   "component": "elvt-radio",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.488Z",
+  "lastUpdated": "2025-08-12T11:45:34.707Z",
   "changelog": [
     {
       "version": "0.0.28-alpha",
@@ -9,72 +9,74 @@
       "type": "minor",
       "changes": [
         {
-          "type": "improvement",
-          "title": "Adjust Radio Styles (",
-          "description": "Adjust Radio Styles (",
-          "commit": "e4ccbe5",
-          "impact": "visual",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Radio Group Redesign (",
-          "description": "Radio Group Redesign (",
-          "commit": "bb6fd12",
-          "impact": "visual",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Update Radio Style and Add Reference Images (",
-          "description": "Update Radio Style and Add Reference Images (",
+          "type": "feature",
+          "title": "Update Radio Style and Add Reference Images",
+          "description": "Added update radio style and add reference images",
           "commit": "a336c13",
           "impact": "visual",
-          "breakingChange": false
-        },
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/a336c13a98267440ae6f7776a6f19fb1488f1a7b"
+        }
+      ]
+    },
+    {
+      "version": "0.0.27-alpha",
+      "date": "2025-08-08",
+      "type": "minor",
+      "changes": [
         {
           "type": "feature",
-          "title": "Add Elevate Radio (",
-          "description": "Add Elevate Radio (",
+          "title": "Adjust Radio Styles",
+          "description": "Added adjust radio styles",
+          "commit": "e4ccbe5",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/e4ccbe50c916be0209e59cd3b191a161b4f73f76"
+        }
+      ]
+    },
+    {
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add Elevate Radio",
+          "description": "Added add elevate radio",
           "commit": "09462ee",
           "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Fixed Usability Issues in Radio Component (",
-          "description": "Fixed Usability Issues in Radio Component (",
-          "commit": "dea7d2d",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Radio Group Component (",
-          "description": "Add Radio Group Component (",
-          "commit": "8b62bcb",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Radio Component (",
-          "description": "Add Radio Component (",
-          "commit": "8979eb3",
-          "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/09462ee3a1d29ea22e2fdeb21aa3f8f1426a7cc6"
         }
       ]
     }
   ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
-    "totalVersions": 1,
-    "firstVersion": "0.0.28-alpha",
+    "totalVersions": 3,
+    "firstVersion": "0.0.25-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "e4ccbe5"
+    "lastCommit": "a336c13a98267440ae6f7776a6f19fb1488f1a7b",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "3/12"
   }
 }

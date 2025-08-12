@@ -1,0 +1,60 @@
+<div style={{background: 'white', padding: '2rem', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
+  <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem'}}>
+    <h3 style={{margin: 0, fontSize: '1.25rem'}}>Market Share</h3>
+    <div style={{display: 'flex', gap: '0.5rem'}}>
+      <elvt-button size="small" tone="subtle">
+        <elvt-icon slot="prefix" icon="mdi:calendar"></elvt-icon>
+        Q4 2024
+      </elvt-button>
+    </div>
+  </div>
+
+  <div style={{display: 'flex', gap: '2rem', alignItems: 'center'}}>
+    <div style={{position: 'relative', width: '200px', height: '200px'}}>
+      <svg width="200" height="200" viewBox="0 0 42 42" style={{transform: 'rotate(-90deg)'}}>
+        <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#e0e0e0" strokeWidth="3"></circle>
+        <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#007bff" strokeWidth="3" strokeDasharray="45 55" strokeDashoffset="0"></circle>
+        <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#28a745" strokeWidth="3" strokeDasharray="30 70" strokeDashoffset="-45"></circle>
+        <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#ffc107" strokeWidth="3" strokeDasharray="25 75" strokeDashoffset="-75"></circle>
+      </svg>
+
+      <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center'}}>
+        <div style={{fontSize: '1.5rem', fontWeight: '600', color: '#161616'}}>1.2M</div>
+        <div style={{fontSize: '0.875rem', color: '#6f6f6f'}}>Total Users</div>
+      </div>
+    </div>
+
+    <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+      <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
+        <div style={{width: '16px', height: '16px', background: '#007bff', borderRadius: '2px'}}></div>
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+          <span style={{fontWeight: '500', color: '#161616'}}>Mobile</span>
+          <span style={{fontSize: '0.875rem', color: '#6f6f6f'}}>540K users (45%)</span>
+        </div>
+      </div>
+
+      <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
+        <div style={{width: '16px', height: '16px', background: '#28a745', borderRadius: '2px'}}></div>
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+          <span style={{fontWeight: '500', color: '#161616'}}>Desktop</span>
+          <span style={{fontSize: '0.875rem', color: '#6f6f6f'}}>360K users (30%)</span>
+        </div>
+      </div>
+
+      <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
+        <div style={{width: '16px', height: '16px', background: '#ffc107', borderRadius: '2px'}}></div>
+        <div style={{display: 'flex', flexDirection: 'column'}}>
+          <span style={{fontWeight: '500', color: '#161616'}}>Tablet</span>
+          <span style={{fontSize: '0.875rem', color: '#6f6f6f'}}>300K users (25%)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style={{marginTop: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', background: '#f8f9fa', padding: '1rem', borderRadius: '4px'}}>
+    <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+      <elvt-icon icon="mdi:trending-up" style={{color: '#28a745', fontSize: '1rem'}}></elvt-icon>
+      <span style={{fontSize: '0.875rem', color: '#6f6f6f'}}>Mobile usage up 12% this quarter</span>
+    </div>
+  </div>
+</div>

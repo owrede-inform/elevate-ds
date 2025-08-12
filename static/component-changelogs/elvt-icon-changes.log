@@ -1,0 +1,224 @@
+# Changelog Generation Log for elvt-icon
+# Generated: 2025-08-12T11:45:12.584Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 63
+Included commits: 3
+Excluded commits: 24
+Uncertain commits: 3
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-icon
+
+INFO: Found 30 total commits from GitHub API
+
+DEBUG: Evaluating commit: "feat(icon-registry): Icon Resolver Functions can also return promises..."
+
+EXCLUDE: "feat(icon-registry): Icon Resolver Functions can also return promises..." (Icon component)
+  → Commit: e599681
+  → Reason: Icon component
+  → Pattern: /icon(?!\s+\w*component)(?!\s+button)/
+
+DEBUG: Evaluating commit: "test: Replace Image for Avatar/Icon Tests..."
+
+EXCLUDE: "test: Replace Image for Avatar/Icon Tests..." (Testing)
+  → Commit: 650f904
+  → Reason: Testing
+  → Pattern: /test|testing|jest|cypress|playwright/
+
+DEBUG: Evaluating commit: "docs: Update Component Status..."
+
+EXCLUDE: "docs: Update Component Status..." (Documentation)
+  → Commit: 24cb112
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "docs: Add Missing Application Default Slot (#208)..."
+
+EXCLUDE: "docs: Add Missing Application Default Slot (#208)..." (Documentation)
+  → Commit: d9536f0
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "build(feat): Add VRT with Firefox and Webkit..."
+
+EXCLUDE: "build(feat): Add VRT with Firefox and Webkit..." (Build/Release)
+  → Commit: 21b8034
+  → Reason: Build/Release
+  → Pattern: /build|deploy|release|publish|version/
+
+DEBUG: Evaluating commit: "feat: Adjust Button Design, Remove Shoelace Button..."
+
+UNCERTAIN: "feat: Adjust Button Design, Remove Shoelace Button..." (No clear component relevance)
+  → Commit: 67a0e62
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "fix: Export Table Types..."
+
+EXCLUDE: "fix: Export Table Types..." (Table component)
+  → Commit: 8ab9caf
+  → Reason: Table component
+  → Pattern: /table(?!\s+\w*component)/
+
+DEBUG: Evaluating commit: "refactor!: Replace Severity with Tone..."
+
+EXCLUDE: "refactor!: Replace Severity with Tone..." (Generic refactoring)
+  → Commit: 0d82a85
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Make Libraries External for NPM Package..."
+
+EXCLUDE: "feat: Make Libraries External for NPM Package..." (Dependencies)
+  → Commit: 4a0540c
+  → Reason: Dependencies
+  → Pattern: /deps|dependencies|package\.json|yarn|npm/
+
+DEBUG: Evaluating commit: "feat: Add Autoloader..."
+
+UNCERTAIN: "feat: Add Autoloader..." (No clear component relevance)
+  → Commit: 8d557b0
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "docs: Separate Framework Docs and Add Demo Links..."
+
+EXCLUDE: "docs: Separate Framework Docs and Add Demo Links..." (Documentation)
+  → Commit: d53cb3a
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
+
+EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+  → Commit: 0921993
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat: Add Elevate Icon Package..."
+
+EXCLUDE: "feat: Add Elevate Icon Package..." (Icon component)
+  → Commit: cb7aab2
+  → Reason: Icon component
+  → Pattern: /icon(?!\s+\w*component)(?!\s+button)/
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat: Improve Icon Component, Add Selected, Add Shape, Fix Size..."
+
+INCLUDE: "feat: Improve Icon Component, Add Selected, Add Shape, Fix Size..." (Short component name)
+  → Commit: 58898ac
+  → Reason: Short component name
+  → Pattern: /\bicon\b/i
+
+DEBUG: Evaluating commit: "test: Remove Nucleo Icon Story..."
+
+EXCLUDE: "test: Remove Nucleo Icon Story..." (Testing)
+  → Commit: 55512ce
+  → Reason: Testing
+  → Pattern: /test|testing|jest|cypress|playwright/
+
+DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
+
+EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+  → Commit: 0b7f502
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Add Data-URL support to Icon Component (#119)..."
+
+INCLUDE: "feat: Add Data-URL support to Icon Component (#119)..." (Short component name)
+  → Commit: 1fc6042
+  → Reason: Short component name
+  → Pattern: /\bicon\b/i
+
+DEBUG: Evaluating commit: "refactor: Flatten Components File Structure..."
+
+EXCLUDE: "refactor: Flatten Components File Structure..." (Generic refactoring)
+  → Commit: 36e7dd6
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Add Avatar Component..."
+
+UNCERTAIN: "feat: Add Avatar Component..." (No clear component relevance)
+  → Commit: 57814cd
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "docs: Cleanup Component Status Badges..."
+
+EXCLUDE: "docs: Cleanup Component Status Badges..." (Documentation)
+  → Commit: dcef6f9
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "refactor: Add ESLint with Recommend Configuration, Fix Errors..."
+
+EXCLUDE: "refactor: Add ESLint with Recommend Configuration, Fix Errors..." (Build tools/Linting)
+  → Commit: 579ce40
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat: Add Mask Image Mode To Icon Component..."
+
+INCLUDE: "feat: Add Mask Image Mode To Icon Component..." (Short component name)
+  → Commit: 0079cea
+  → Reason: Short component name
+  → Pattern: /\bicon\b/i
+
+DEBUG: Evaluating commit: "feat: Add Custom Icon Component And Replace Shoelace Icon..."
+
+EXCLUDE: "feat: Add Custom Icon Component And Replace Shoelace Icon..." (Icon component)
+  → Commit: 29874ca
+  → Reason: Icon component
+  → Pattern: /icon(?!\s+\w*component)(?!\s+button)/
+
+DEBUG: Evaluating commit: "fix: Fix Syntax To Match Stricter Build Configuration..."
+
+EXCLUDE: "fix: Fix Syntax To Match Stricter Build Configuration..." (Build/Release)
+  → Commit: b23bf33
+  → Reason: Build/Release
+  → Pattern: /build|deploy|release|publish|version/
+
+DEBUG: Evaluating commit: "build: Add TSC Task to Generate Declaration Files..."
+
+EXCLUDE: "build: Add TSC Task to Generate Declaration Files..." (Build/Release)
+  → Commit: e69a97d
+  → Reason: Build/Release
+  → Pattern: /build|deploy|release|publish|version/
+
+DEBUG: Evaluating commit: "feat: Improve Docs Page Styling, Add Properties and Events..."
+
+EXCLUDE: "feat: Improve Docs Page Styling, Add Properties and Events..." (Documentation)
+  → Commit: bf519b8
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "build: Add Prettier and Husky..."
+
+EXCLUDE: "build: Add Prettier and Husky..." (Build tools/Linting)
+  → Commit: 3e6f150
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat: Add Documentation Template..."
+
+EXCLUDE: "feat: Add Documentation Template..." (Documentation)
+  → Commit: af05be8
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "feat: Add Bootstrap With Storybook, Tests And Coverage..."
+
+EXCLUDE: "feat: Add Bootstrap With Storybook, Tests And Coverage..." (Build tools/Linting)
+  → Commit: c7ed953
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+INFO: Filtered from 30 to 3 relevant commits

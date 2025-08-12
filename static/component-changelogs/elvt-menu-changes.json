@@ -1,76 +1,58 @@
 {
   "component": "elvt-menu",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.476Z",
+  "lastUpdated": "2025-08-12T11:45:22.675Z",
   "changelog": [
     {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
+      "version": "0.0.24-alpha",
+      "date": "2025-05-15",
       "type": "minor",
       "changes": [
         {
-          "type": "breaking-change",
-          "title": "Make Menu Item \"href\" Attribute Optional, Remove Log (",
-          "description": "Make Menu Item \"href\" Attribute Optional, Remove Log (",
-          "commit": "7577b72",
-          "impact": "functionality",
-          "breakingChange": true
-        },
-        {
-          "type": "feature",
-          "title": "Add \"selected\" Menu Item (",
-          "description": "Add \"selected\" Menu Item (",
-          "commit": "823395e",
-          "issueNumber": 89,
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
           "type": "bug-fix",
-          "title": "Fix Menu \"shape\" Property (",
-          "description": "Fix Menu \"shape\" Property (",
+          "title": "Fix Menu \"shape\" Property (#91)",
+          "description": "Fixed fix menu \"shape\" property (#91)",
           "commit": "497830e",
-          "issueNumber": 91,
-          "impact": "api",
-          "breakingChange": false
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/497830ebb860ce67bd80e9173cea342d55562a0f"
         },
         {
           "type": "feature",
-          "title": "Add \"inline\" Shape to Menu for Navigations (",
-          "description": "Add \"inline\" Shape to Menu for Navigations (",
+          "title": "Add \"inline\" Shape to Menu for Navigations (#87)",
+          "description": "Added add \"inline\" shape to menu for navigations (#87)",
           "commit": "54a1313",
-          "issueNumber": 87,
           "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Link Function to Menu Item (",
-          "description": "Add Link Function to Menu Item (",
-          "commit": "d8b3f7e",
-          "issueNumber": 71,
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Menu and Dropdown Components (",
-          "description": "Add Menu and Dropdown Components (",
-          "commit": "38b1598",
-          "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/54a13135011e52eb78f7367867e2d83b66e853fa"
         }
       ]
     }
   ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
     "totalVersions": 1,
-    "firstVersion": "0.0.28-alpha",
+    "firstVersion": "0.0.24-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "7577b72"
+    "lastCommit": "497830ebb860ce67bd80e9173cea342d55562a0f",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "2/10"
   }
 }

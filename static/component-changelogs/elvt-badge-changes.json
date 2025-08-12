@@ -1,90 +1,109 @@
 {
   "component": "elvt-badge",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.401Z",
+  "lastUpdated": "2025-08-12T11:44:49.310Z",
   "changelog": [
     {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
       "type": "minor",
       "changes": [
         {
           "type": "feature",
-          "title": "Add Badge Pulse Animation (",
-          "description": "Add Badge Pulse Animation (",
+          "title": "Add Badge Pulse Animation",
+          "description": "Added add badge pulse animation",
           "commit": "a454f35",
           "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/a454f355f7208284aec17e4acfd3d4e7e9718877"
         },
         {
           "type": "feature",
-          "title": "Add Optional Badge Padding (",
-          "description": "Add Optional Badge Padding (",
-          "commit": "3e64741",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "bug-fix",
-          "title": "Fix Badge Minimum Width (Same as Height) (",
-          "description": "Fix Badge Minimum Width (Same as Height) (",
-          "commit": "a454f35",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Apply Tokens To Badge (",
-          "description": "Apply Tokens To Badge (",
-          "commit": "8ab9caf",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Console Generic Shape (Box|Pill), Badge is Pill by Default (",
-          "description": "Console Generic Shape (Box|Pill), Badge is Pill by Default (",
+          "title": "Console Generic Shape (Box|Pill), Badge is Pill by Default",
+          "description": "Added console generic shape (box|pill), badge is pill by default",
           "commit": "4a99c1a",
           "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Update Design Tokens, Higher Contrast for Badges/Chips (",
-          "description": "Update Design Tokens, Higher Contrast for Badges/Chips (",
-          "commit": "bfba9a7",
-          "issueNumber": 115,
-          "impact": "visual",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Elevate Badge (",
-          "description": "Elevate Badge (",
-          "commit": "ae027cf",
-          "issueNumber": 83,
-          "impact": "functionality",
-          "breakingChange": false
-        },
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4a99c1a613b0f20abbcf6c7dfe6158ec0d7cb64d"
+        }
+      ]
+    },
+    {
+      "version": "0.0.24-alpha",
+      "date": "2025-05-15",
+      "type": "minor",
+      "changes": [
         {
           "type": "feature",
-          "title": "Add Badge Component (",
-          "description": "Add Badge Component (",
-          "commit": "85bfd71",
+          "title": "Elevate Badge (#83)",
+          "description": "Added elevate badge (#83)",
+          "commit": "ae027cf",
           "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ae027cf4db95ad1e2138f88bd055c7f31daf1b38"
+        }
+      ]
+    },
+    {
+      "version": "0.0.22-alpha",
+      "date": "2025-03-25",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Refac: Add Shape Enum for both chip and badge",
+          "description": "Added refac: add shape enum for both chip and badge",
+          "commit": "102fd05",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "paolainform",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/102fd0586910f78411f3402b4610ab045f1c26f3"
+        }
+      ]
+    },
+    {
+      "version": "0.0.21-alpha",
+      "date": "2025-02-28",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add Badge Wrapper Component",
+          "description": "Added add badge wrapper component",
+          "commit": "868fd7d",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "paolainform",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/868fd7db6f91a19cc5c3636df888849998b1bb0e"
         }
       ]
     }
   ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
-    "totalVersions": 1,
-    "firstVersion": "0.0.28-alpha",
+    "totalVersions": 4,
+    "firstVersion": "0.0.21-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "a454f35"
+    "lastCommit": "a454f355f7208284aec17e4acfd3d4e7e9718877",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "5/22"
   }
 }

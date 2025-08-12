@@ -1,0 +1,23 @@
+<div style={{padding: '1rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
+  <elvt-radio-group label="Choose your preferred contact method:" name="contact-method">
+    <elvt-radio value="email" checked>
+      Email
+      <span slot="description">Receive notifications via email</span>
+    </elvt-radio>
+
+    <elvt-radio value="sms">
+      SMS
+      <span slot="description">Receive text message notifications</span>
+    </elvt-radio>
+
+    <elvt-radio value="phone">
+      Phone Call
+      <span slot="description">Receive voice call notifications</span>
+    </elvt-radio>
+
+    <elvt-radio value="mail" disabled>
+      Postal Mail
+      <span slot="description">Currently unavailable</span>
+    </elvt-radio>
+  </elvt-radio-group>
+</div>

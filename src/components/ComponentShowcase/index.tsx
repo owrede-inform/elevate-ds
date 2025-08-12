@@ -8,7 +8,7 @@ interface ComponentShowcaseProps {
   children: React.ReactNode;
   title?: string;
   description?: string;
-  code?: string;
+  code?: string; // Can be inline code or file path
   language?: string;
   showFrameworkSwitcher?: boolean;
   wrapLines?: boolean;
@@ -30,12 +30,86 @@ export default function ComponentShowcase({
   const [transformedCode, setTransformedCode] = useState<string>('');
   const [componentNames, setComponentNames] = useState<string[]>([]);
   const [showCode, setShowCode] = useState<boolean>(showCodeByDefault);
+  const [loadedFileContent, setLoadedFileContent] = useState<string>('');
+  const [isLoadingFile, setIsLoadingFile] = useState<boolean>(false);
+  const [fileLoadError, setFileLoadError] = useState<string>('');
   
-  // Transform code when framework or children change
+  // Helper function to check if code parameter is a file path
+  const isFilePath = (codeParam: string): boolean => {
+    // Check if it has a file extension and doesn't contain newlines (indicating inline code)
+    return /\.(ts|tsx|js|jsx|html|css|scss|md|mdx)$/i.test(codeParam) && !codeParam.includes('\n');
+  };
+
+  // Load file content if code parameter is a file path
   useEffect(() => {
-    if (code) {
-      // Use provided code as-is
-      setTransformedCode(code);
+    if (!code || !isFilePath(code)) {
+      setLoadedFileContent('');
+      setIsLoadingFile(false);
+      setFileLoadError('');
+      return;
+    }
+
+    const loadFileContent = async () => {
+      setIsLoadingFile(true);
+      setFileLoadError('');
+      
+      try {
+        // Get the current document's directory path
+        // In Docusaurus, we can use the global docusaurus context
+        const currentPath = window.location.pathname;
+        
+        // Extract directory from current path (e.g., /docs/components/button/ -> components/button)
+        const pathParts = currentPath.split('/').filter(part => part);
+        const docsIndex = pathParts.indexOf('docs');
+        const relativePath = docsIndex >= 0 ? pathParts.slice(docsIndex + 1) : [];
+        
+        // Build the file path: if code has path separators, use as-is, otherwise same directory
+        let filePath;
+        if (code.includes('/') || code.includes('\\')) {
+          // Code contains path, use relative to docs root
+          filePath = `/docs/${code}`;
+        } else {
+          // No path, use same directory as current document
+          filePath = `/docs/${relativePath.join('/')}/${code}`;
+        }
+        
+        // Fetch the file content
+        const response = await fetch(filePath);
+        
+        if (!response.ok) {
+          throw new Error(`Failed to load file: ${filePath} (${response.status} ${response.statusText})`);
+        }
+        
+        const content = await response.text();
+        setLoadedFileContent(content);
+      } catch (error) {
+        console.error('Error loading file:', error);
+        setFileLoadError(`Failed to load file: ${code}. ${error.message}`);
+        setLoadedFileContent('');
+      } finally {
+        setIsLoadingFile(false);
+      }
+    };
+
+    loadFileContent();
+  }, [code]);
+
+  // Transform code when framework, children, or loaded file content change
+  useEffect(() => {
+    // Determine the source code to use
+    let sourceCode = '';
+    
+    if (code && isFilePath(code)) {
+      // Use loaded file content
+      sourceCode = loadedFileContent;
+    } else if (code) {
+      // Use provided inline code
+      sourceCode = code;
+    }
+    
+    if (sourceCode) {
+      // Use the source code as-is
+      setTransformedCode(sourceCode);
       return;
     }
     
@@ -51,10 +125,34 @@ export default function ComponentShowcase({
       console.error('Error transforming code:', error);
       setTransformedCode('// Error generating code');
     }
-  }, [children, selectedFramework, code]);
+  }, [children, selectedFramework, code, loadedFileContent]);
   
   // Get the appropriate language for syntax highlighting
   const getLanguage = () => {
+    // If code is a file path, infer language from extension
+    if (code && isFilePath(code)) {
+      const extension = code.split('.').pop()?.toLowerCase();
+      switch (extension) {
+        case 'ts':
+        case 'tsx':
+          return 'tsx';
+        case 'js':
+        case 'jsx':
+          return 'jsx';
+        case 'html':
+          return 'html';
+        case 'css':
+          return 'css';
+        case 'scss':
+          return 'scss';
+        case 'md':
+        case 'mdx':
+          return 'markdown';
+        default:
+          return 'text';
+      }
+    }
+    
     if (language !== 'html') return language;
     
     switch (selectedFramework) {
@@ -119,13 +217,27 @@ export default function ComponentShowcase({
       {/* Source code block - only shown when toggled */}
       {showCode && (
         <div className={styles.codeSection}>
-          <CodeDisplay
-            code={displayCode}
-            language={getLanguage()}
-            showLineNumbers={true}
-            showFrameworkSwitcher={showFrameworkSwitcher}
-            wrapLines={wrapLines}
-          />
+          {isLoadingFile && (
+            <div className={styles.loadingState}>
+              <p>Loading code file...</p>
+            </div>
+          )}
+          {fileLoadError && (
+            <div className={styles.errorState}>
+              <p style={{ color: 'var(--ifm-color-danger)' }}>
+                {fileLoadError}
+              </p>
+            </div>
+          )}
+          {!isLoadingFile && !fileLoadError && (
+            <CodeDisplay
+              code={displayCode}
+              language={getLanguage()}
+              showLineNumbers={true}
+              showFrameworkSwitcher={showFrameworkSwitcher && !code}
+              wrapLines={wrapLines}
+            />
+          )}
         </div>
       )}
     </div>

@@ -1,0 +1,111 @@
+# Changelog Generation Log for elvt-switch
+# Generated: 2025-08-12T11:45:42.318Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 31
+Included commits: 0
+Excluded commits: 10
+Uncertain commits: 4
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-switch
+
+INFO: Found 14 total commits from GitHub API
+
+DEBUG: Evaluating commit: "docs: Update Component Status..."
+
+EXCLUDE: "docs: Update Component Status..." (Documentation)
+  → Commit: 24cb112
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "chore(build): Update Design Tokens..."
+
+EXCLUDE: "chore(build): Update Design Tokens..." (Build/Release)
+  → Commit: 4037d3c
+  → Reason: Build/Release
+  → Pattern: /build|deploy|release|publish|version/
+
+DEBUG: Evaluating commit: "feat: Support Form Reset and Basic Validation (Required)..."
+
+EXCLUDE: "feat: Support Form Reset and Basic Validation (Required)..." (Form component)
+  → Commit: 44dc64e
+  → Reason: Form component
+  → Pattern: /form(?!\s+\w*component)/
+
+DEBUG: Evaluating commit: "feat: Add Multi-Column Direction to Stack Component..."
+
+UNCERTAIN: "feat: Add Multi-Column Direction to Stack Component..." (No clear component relevance)
+  → Commit: 573e50e
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Rename ComponentSize to Size ..."
+
+EXCLUDE: "refactor: Rename ComponentSize to Size ..." (Generic refactoring)
+  → Commit: ab26ae6
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Style Elevate Switch Component..."
+
+EXCLUDE: "feat: Style Elevate Switch Component..." (Switch component)
+  → Commit: a547458
+  → Reason: Switch component
+  → Pattern: /switch(?!\s+to|\s+from)/
+
+DEBUG: Evaluating commit: "feat: Add Field Component..."
+
+UNCERTAIN: "feat: Add Field Component..." (No clear component relevance)
+  → Commit: 890b3f0
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "feat: Add direction (RTL) support to Switch Component..."
+
+EXCLUDE: "feat: Add direction (RTL) support to Switch Component..." (Switch component)
+  → Commit: bbc6898
+  → Reason: Switch component
+  → Pattern: /switch(?!\s+to|\s+from)/
+
+DEBUG: Evaluating commit: "feat: Add Elevate Switch and Update Checkbox..."
+
+EXCLUDE: "feat: Add Elevate Switch and Update Checkbox..." (Switch component)
+  → Commit: dc0fd89
+  → Reason: Switch component
+  → Pattern: /switch(?!\s+to|\s+from)/
+
+DEBUG: Evaluating commit: "feat: Add Autoloader..."
+
+UNCERTAIN: "feat: Add Autoloader..." (No clear component relevance)
+  → Commit: 8d557b0
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..."
+
+UNCERTAIN: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..." (No clear component relevance)
+  → Commit: dea7d2d
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
+
+EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+  → Commit: 0921993
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat: Attach Form Control Internals (#127)..."
+
+EXCLUDE: "feat: Attach Form Control Internals (#127)..." (Form component)
+  → Commit: 95b8bff
+  → Reason: Form component
+  → Pattern: /form(?!\s+\w*component)/
+
+INFO: Filtered from 14 to 0 relevant commits

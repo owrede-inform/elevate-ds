@@ -28,7 +28,17 @@
       "mcp__figma__get_variable_defs",
       "Bash(copy:*)",
       "Bash(npm view:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(node:*)",
+      "Bash(git log:*)",
+      "WebFetch(domain:elevate-core-ui.inform-cloud.io)",
+      "WebFetch(domain:github.com)",
+      "Bash(npm run versions:list:*)",
+      "Bash(npx docusaurus swizzle:*)",
+      "Bash(mv:*)",
+      "Bash(npm run typecheck:*)",
+      "Bash(del \"C:\\Users\\owrede\\WebstormProjects\\elevate-ds\\docs\\components\\color-ramp\\index.mdx\")",
+      "Bash(echo:*)"
     ],
     "deny": []
   }

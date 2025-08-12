@@ -1,40 +1,48 @@
 {
   "component": "elvt-card",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.420Z",
+  "lastUpdated": "2025-08-12T11:44:57.717Z",
   "changelog": [
     {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
       "type": "minor",
       "changes": [
         {
           "type": "feature",
-          "title": "Add Card Border and Layer Properties (",
-          "description": "Add Card Border and Layer Properties (",
+          "title": "Add Card Border and Layer Properties",
+          "description": "Added add card border and layer properties",
           "commit": "a3ca8b3",
           "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Card Component (",
-          "description": "Add Card Component (",
-          "commit": "2db21e6",
-          "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/a3ca8b32feafd29143bffa3876188545654f7f3e"
         }
       ]
     }
   ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
     "totalVersions": 1,
-    "firstVersion": "0.0.28-alpha",
+    "firstVersion": "0.0.25-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "a3ca8b3"
+    "lastCommit": "a3ca8b32feafd29143bffa3876188545654f7f3e",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "1/6"
   }
 }

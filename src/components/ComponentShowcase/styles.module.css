@@ -95,6 +95,27 @@
   position: relative;
 }
 
+.loadingState,
+.errorState {
+  padding: var(--sl-spacing-large, 1.25rem);
+  text-align: center;
+}
+
+.loadingState p {
+  margin: 0;
+  color: var(--ifm-color-emphasis-600);
+  font-style: italic;
+}
+
+.errorState p {
+  margin: 0;
+  color: var(--ifm-color-danger);
+  background: var(--ifm-alert-background-color);
+  padding: var(--sl-spacing-medium, 1rem);
+  border-radius: var(--sl-border-radius-medium, 0.25rem);
+  border-left: 4px solid var(--ifm-color-danger);
+}
+
 /* Code section now uses custom CodeDisplay component */
 
 

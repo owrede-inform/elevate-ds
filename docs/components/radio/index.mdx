@@ -34,7 +34,8 @@ Standard Radio provides the fundamental single-selection interface pattern.
 
 <ComponentShowcase
   title="Basic Radio Buttons"
-  description="Standard radio button group for mutually exclusive selections.">
+  description="Standard radio button group for mutually exclusive selections."
+  code="basic-radio-buttons.html">
 <div style={{padding: '1rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
   <elvt-radio-group label="Choose your preferred contact method:" name="contact-method">
     <elvt-radio value="email" checked>
@@ -66,7 +67,8 @@ Display options horizontally for compact layouts.
 
 <ComponentShowcase
   title="Inline Radio Group Layout"
-  description="Horizontal radio button layout for compact forms.">
+  description="Horizontal radio button layout for compact forms."
+  code="inline-radio-group-layout.html">
 <div style={{padding: '1rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
   <elvt-radio-group label="Select your subscription plan:" name="plan" orientation="horizontal">
     <elvt-radio value="basic">
@@ -93,7 +95,8 @@ Support for complex option descriptions and additional context.
 
 <ComponentShowcase
   title="Radio Buttons with Rich Content"
-  description="Radio options with detailed descriptions and additional context.">
+  description="Radio options with detailed descriptions and additional context."
+  code="radio-buttons-with-rich-content.html">
 <div style={{padding: '1rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
   <elvt-radio-group label="Choose your deployment environment:" name="environment">
     <elvt-radio value="development">
@@ -151,7 +154,8 @@ Different radio sizes accommodate various layout requirements and visual hierarc
 <ComponentShowcase
   title="Radio Button Size Variants"
   description="Three size variants for different contexts and design needs."
-  code={`<div style="display: flex; flex-direction: column; gap: 2rem;">
+  code={`<div style="display: flex; flex-direction: column; gap: 2rem;"
+  code="radio-button-size-variants.html">
   <div>
     <h4 style="margin: 0 0 1rem 0;">Small Radio Buttons</h4>
     <elvt-radio-group label="Small options:" name="small-options" size="small">
@@ -217,7 +221,8 @@ Radio with validation shows error states and validation feedback.
 <ComponentShowcase
   title="Radio Button Validation States"
   description="Radio groups with error and success validation states."
-  code={`<div style="display: flex; flex-direction: column; gap: 2rem; max-width: 400px;">
+  code={`<div style="display: flex; flex-direction: column; gap: 2rem; max-width: 400px;"
+  code="radio-button-validation-states.html">
   <div>
     <elvt-radio-group label="Payment method (Required):" name="payment-error" required error="Please select a payment method">
       <elvt-radio value="card">Credit Card</elvt-radio>
@@ -406,7 +411,8 @@ npm install @inform-elevate/elevate-core-ui
 <ComponentShowcase
   title="User Preferences Form with Radio Groups"
   description="Multiple radio groups working together in a comprehensive settings form."
-  code={`<div style="max-width: 500px; padding: 2rem; background: white; border: 1px solid #e0e0e0; border-radius: 8px;">
+  code={`<div style="max-width: 500px; padding: 2rem; background: white; border: 1px solid #e0e0e0; border-radius: 8px;"
+  code="user-preferences-form-with-radio-groups.html">
   <h3 style="margin: 0 0 2rem 0; color: #2d2d2d;">User Preferences</h3>
   
   <form style="display: flex; flex-direction: column; gap: 2rem;">

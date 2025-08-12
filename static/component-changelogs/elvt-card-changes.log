@@ -1,0 +1,58 @@
+# Changelog Generation Log for elvt-card
+# Generated: 2025-08-12T11:44:57.719Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 15
+Included commits: 1
+Excluded commits: 4
+Uncertain commits: 1
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-card
+
+INFO: Found 6 total commits from GitHub API
+
+DEBUG: Evaluating commit: "feat: Add Card Border and Layer Properties..."
+
+INCLUDE: "feat: Add Card Border and Layer Properties..." (Short component name)
+  → Commit: a3ca8b3
+  → Reason: Short component name
+  → Pattern: /\bcard\b/i
+
+DEBUG: Evaluating commit: "feat: Console Generic Shape (Box|Pill), Badge is Pill by Default..."
+
+UNCERTAIN: "feat: Console Generic Shape (Box|Pill), Badge is Pill by Default..." (No clear component relevance)
+  → Commit: 4a99c1a
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
+
+EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+  → Commit: 0921993
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
+
+EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+  → Commit: 0b7f502
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "refactor: Flatten Components File Structure..."
+
+EXCLUDE: "refactor: Flatten Components File Structure..." (Generic refactoring)
+  → Commit: 36e7dd6
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+INFO: Filtered from 6 to 1 relevant commits

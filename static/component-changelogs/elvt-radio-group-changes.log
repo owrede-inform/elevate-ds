@@ -1,0 +1,76 @@
+# Changelog Generation Log for elvt-radio-group
+# Generated: 2025-08-12T11:45:32.908Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 21
+Included commits: 0
+Excluded commits: 5
+Uncertain commits: 4
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-radio-group
+
+INFO: Found 9 total commits from GitHub API
+
+DEBUG: Evaluating commit: "feat: Add Form Control Validators..."
+
+EXCLUDE: "feat: Add Form Control Validators..." (Form component)
+  → Commit: 81c9c90
+  → Reason: Form component
+  → Pattern: /form(?!\s+\w*component)/
+
+DEBUG: Evaluating commit: "feat: Radio Group Redesign..."
+
+UNCERTAIN: "feat: Radio Group Redesign..." (No clear component relevance)
+  → Commit: bb6fd12
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "feat: Adjust Radio Styles..."
+
+UNCERTAIN: "feat: Adjust Radio Styles..." (No clear component relevance)
+  → Commit: e4ccbe5
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "feat: Add Multi-Column Direction to Stack Component..."
+
+UNCERTAIN: "feat: Add Multi-Column Direction to Stack Component..." (No clear component relevance)
+  → Commit: 573e50e
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Rename ComponentSize to Size ..."
+
+EXCLUDE: "refactor: Rename ComponentSize to Size ..." (Generic refactoring)
+  → Commit: ab26ae6
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Add Field Component..."
+
+UNCERTAIN: "feat: Add Field Component..." (No clear component relevance)
+  → Commit: 890b3f0
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
+
+EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+  → Commit: 0921993
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat: Attach Form Control Internals (#127)..."
+
+EXCLUDE: "feat: Attach Form Control Internals (#127)..." (Form component)
+  → Commit: 95b8bff
+  → Reason: Form component
+  → Pattern: /form(?!\s+\w*component)/
+
+INFO: Filtered from 9 to 0 relevant commits

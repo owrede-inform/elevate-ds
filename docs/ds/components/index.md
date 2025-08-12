@@ -1,0 +1,58 @@
+# DS Components
+
+Custom React components built specifically for the ELEVATE Design System documentation site.
+
+## Component Library
+
+### Design Token Visualization
+
+#### [ColorRamp](./colorramp/)
+Dynamic color token display component with pattern matching and custom templates.
+
+**Key Features:**
+- Pattern-based token selection (`*primitives-blue*`)
+- Multiple sorting methods (semantic, brightness, alphabetic, hue)
+- Custom micro-templating system
+- Responsive layouts and grouping options
+
+**Use Cases:**
+- Color palette documentation
+- Design token exploration
+- Style guide generation
+- Accessibility color analysis
+
+---
+
+## Component Development
+
+### Adding New Components
+
+1. **Create Component**: Add to `/src/components/ComponentName/`
+2. **Documentation**: Create `/docs/ds/components/componentname/`
+3. **Examples**: Include interactive examples in documentation
+4. **Sidebar**: Update `sidebars.ts` to include new component
+
+### Documentation Standards
+
+Each DS component documentation should include:
+
+- **Purpose**: Clear explanation of what the component does
+- **API Reference**: Complete props and configuration options
+- **Examples**: Multiple usage scenarios with live previews
+- **Templates**: If applicable, show custom template examples
+- **Best Practices**: Guidelines for effective usage
+
+### Component Guidelines
+
+- **React + TypeScript**: All components must use TypeScript
+- **CSS Modules**: Use CSS modules for styling
+- **ELEVATE Theming**: Integrate with ELEVATE design tokens
+- **Responsive**: Support mobile and desktop layouts
+- **Accessible**: Follow WCAG accessibility guidelines
+- **Documented**: Provide comprehensive usage documentation
+
+---
+
+**Available Components:** 1 component
+**Documentation Coverage:** 100%
+**Last Updated:** August 2025

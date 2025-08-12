@@ -1,49 +1,65 @@
 {
   "component": "elvt-progress",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.485Z",
+  "lastUpdated": "2025-08-12T11:45:31.510Z",
   "changelog": [
     {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
       "type": "minor",
       "changes": [
         {
           "type": "feature",
-          "title": "Add Progress Arc Shape and Dynamic Size (",
-          "description": "Add Progress Arc Shape and Dynamic Size (",
+          "title": "Add Progress Arc Shape and Dynamic Size",
+          "description": "Added add progress arc shape and dynamic size",
           "commit": "e8fd149",
           "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Show Content in Indeterminate Ring Progress Indicator (",
-          "description": "Show Content in Indeterminate Ring Progress Indicator (",
-          "commit": "d838764",
-          "issueNumber": 70,
-          "impact": "functionality",
-          "breakingChange": false
-        },
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/e8fd1493fcc9a16c8bb6c0f5c87ee8c677b12909"
+        }
+      ]
+    },
+    {
+      "version": "0.0.23-alpha",
+      "date": "2025-04-20",
+      "type": "minor",
+      "changes": [
         {
           "type": "feature",
-          "title": "Add Progress Indicator Component (",
-          "description": "Add Progress Indicator Component (",
-          "commit": "71d1cfc",
+          "title": "Show Content in Indeterminate Ring Progress Indicator (#70)",
+          "description": "Added show content in indeterminate ring progress indicator (#70)",
+          "commit": "d838764",
           "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/d83876474c1d2239e4e583bf9fd3ecf6a3334d1a"
         }
       ]
     }
   ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
-    "totalVersions": 1,
-    "firstVersion": "0.0.28-alpha",
+    "totalVersions": 2,
+    "firstVersion": "0.0.23-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "e8fd149"
+    "lastCommit": "e8fd1493fcc9a16c8bb6c0f5c87ee8c677b12909",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "2/13"
   }
 }

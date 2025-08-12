@@ -33,8 +33,9 @@ Different input types provide specific keyboard layouts and validation on mobile
 
 <ComponentShowcase
   title="Input Types"
-  description="Various input types for different data collection needs.">
-<elvt-stack direction="column" spacing="medium" style="max-width: 400px">
+  description="Various input types for different data collection needs."
+  code="input-types.html">
+<elvt-stack direction="column" spacing="medium" style={{maxWidth: '400px'}}>
   <elvt-input 
     type="text" 
     label="Full Name" 
@@ -73,8 +74,9 @@ Inputs can display various states to communicate status and guide user interacti
 
 <ComponentShowcase
   title="Input States"
-  description="Different states communicate validation status and interaction feedback.">
-<elvt-stack direction="column" spacing="medium" style="max-width: 400px">
+  description="Different states communicate validation status and interaction feedback."
+  code="input-states.html">
+<elvt-stack direction="column" spacing="medium" style={{maxWidth: '400px'}}>
   <elvt-input 
     type="text" 
     label="Default State" 
@@ -110,8 +112,9 @@ Clear validation feedback helps users understand and correct input errors.
 
 <ComponentShowcase
   title="Validation States"
-  description="Visual feedback for validation status with helpful messages.">
-<elvt-stack direction="column" spacing="medium" style="max-width: 400px">
+  description="Visual feedback for validation status with helpful messages."
+  code="validation-states.html">
+<elvt-stack direction="column" spacing="medium" style={{maxWidth: '400px'}}>
   <elvt-input 
     type="email" 
     label="Valid Email" 
@@ -144,8 +147,9 @@ Different sizes accommodate various layout contexts and design hierarchies.
 
 <ComponentShowcase
   title="Input Sizes"
-  description="Three input sizes for different contexts and visual hierarchies.">
-<elvt-stack direction="column" spacing="medium" style="max-width: 400px">
+  description="Three input sizes for different contexts and visual hierarchies."
+  code="input-sizes.html">
+<elvt-stack direction="column" spacing="medium" style={{maxWidth: '400px'}}>
   <elvt-input 
     type="text" 
     label="Small Input" 
@@ -175,8 +179,9 @@ Proper labeling and help text improve usability and accessibility.
 
 <ComponentShowcase
   title="Labels and Help Text"
-  description="Effective labeling and help text patterns for better user guidance.">
-<elvt-stack direction="column" spacing="medium" style="max-width: 400px">
+  description="Effective labeling and help text patterns for better user guidance."
+  code="labels-and-help-text.html">
+<elvt-stack direction="column" spacing="medium" style={{maxWidth: '400px'}}>
   <elvt-input 
     type="text" 
     label="Company Name" 
@@ -394,8 +399,9 @@ import '@inform-elevate/elevate-core-ui/dist/components/input/input.js';
 
 <ComponentShowcase
   title="Complete Contact Form"
-  description="A realistic contact form showing input components in context.">
-<form style="max-width: 400px">
+  description="A realistic contact form showing input components in context."
+  code="complete-contact-form.html">
+<form style={{maxWidth: '400px'}}>
   <elvt-stack direction="column" spacing="medium">
   <h3>Contact Us</h3>
   
@@ -426,7 +432,7 @@ import '@inform-elevate/elevate-core-ui/dist/components/input/input.js';
     placeholder="Your company name">
   </elvt-input>
   
-  <elvt-stack direction="row" spacing="small" justify="end" style="margin-top: 1rem">
+  <elvt-stack direction="row" spacing="small" justify="end" style={{marginTop: '1rem'}}>
     <elvt-button>Cancel</elvt-button>
     <elvt-button tone="primary" type="submit">Send Message</elvt-button>
   </elvt-stack>

@@ -1,0 +1,45 @@
+# Changelog Generation Log for elvt-lightbox
+# Generated: 2025-08-12T11:45:17.636Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 11
+Included commits: 2
+Excluded commits: 2
+Uncertain commits: 0
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-lightbox
+
+INFO: Found 4 total commits from GitHub API
+
+DEBUG: Evaluating commit: "fix: Fix Lightbox Story Accessibility Contrast..."
+
+INCLUDE: "fix: Fix Lightbox Story Accessibility Contrast..." (Short component name)
+  → Commit: 9fad04b
+  → Reason: Short component name
+  → Pattern: /\blightbox\b/i
+
+DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
+
+EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+  → Commit: 0921993
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat: Add Lightbox and Dialogs..."
+
+INCLUDE: "feat: Add Lightbox and Dialogs..." (Short component name)
+  → Commit: 37d6740
+  → Reason: Short component name
+  → Pattern: /\blightbox\b/i
+
+INFO: Filtered from 4 to 2 relevant commits

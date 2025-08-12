@@ -33,27 +33,8 @@ Dividers provide subtle visual separation that helps users understand content re
 <ComponentShowcase
   title="Horizontal Dividers"
   description="Use horizontal dividers to separate vertically stacked content sections"
-  code={`<div style="max-width: 400px;">
-  <div style="padding: 1rem;">
-    <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">Personal Information</h3>
-    <p style="margin: 0; color: #6f6f6f;">Update your personal details and preferences.</p>
-  </div>
-  
-  <elvt-divider></elvt-divider>
-  
-  <div style="padding: 1rem;">
-    <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">Account Settings</h3>
-    <p style="margin: 0; color: #6f6f6f;">Manage your account security and privacy settings.</p>
-  </div>
-  
-  <elvt-divider></elvt-divider>
-  
-  <div style="padding: 1rem;">
-    <h3 style="margin: 0 0 0.5rem 0; font-size: 1.25rem;">Notifications</h3>
-    <p style="margin: 0; color: #6f6f6f;">Choose how you receive updates and alerts.</p>
-  </div>
-</div>`}
->
+
+  code="horizontal-dividers.html">
   <div style={{maxWidth: '400px'}}>
     <div style={{padding: '1rem'}}>
       <h3 style={{margin: '0 0 0.5rem 0', fontSize: '1.25rem'}}>Personal Information</h3>
@@ -81,32 +62,8 @@ Dividers provide subtle visual separation that helps users understand content re
 <ComponentShowcase
   title="Vertical Dividers"
   description="Use vertical dividers to separate horizontally arranged content"
-  code={`<div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; border: 1px solid #e0e0e0; border-radius: 4px;">
-  <elvt-button size="small" tone="subtle">
-    <elvt-icon slot="prefix" icon="mdi:file"></elvt-icon>
-    New
-  </elvt-button>
-  
-  <elvt-divider orientation="vertical" style="height: 24px;"></elvt-divider>
-  
-  <elvt-button size="small" tone="subtle">
-    <elvt-icon slot="prefix" icon="mdi:content-save"></elvt-icon>
-    Save
-  </elvt-button>
-  
-  <elvt-button size="small" tone="subtle">
-    <elvt-icon slot="prefix" icon="mdi:printer"></elvt-icon>
-    Print
-  </elvt-button>
-  
-  <elvt-divider orientation="vertical" style="height: 24px;"></elvt-divider>
-  
-  <elvt-button size="small" tone="subtle">
-    <elvt-icon slot="prefix" icon="mdi:help-circle"></elvt-icon>
-    Help
-  </elvt-button>
-</div>`}
->
+
+  code="vertical-dividers.html">
   <elvt-stack direction="row" align="center" spacing="medium" style={{padding: '1rem', border: '1px solid #e0e0e0', borderRadius: '4px'}}>
     <elvt-button size="small" tone="subtle">
       <elvt-icon slot="prefix" icon="mdi:file"></elvt-icon>
@@ -247,50 +204,8 @@ import '@inform-elevate/elevate-core-ui/dist/components/divider/divider.js';
 <ComponentShowcase
   title="Dividers in Lists and Cards"
   description="See how dividers work in various contexts like cards and navigation"
-  code={`<div style="max-width: 500px;">
-  <!-- Card with dividers -->
-  <div style="border: 1px solid #e0e0e0; border-radius: 8px; background: white; margin-bottom: 1.5rem;">
-    <div style="padding: 1rem;">
-      <h3 style="margin: 0 0 0.5rem 0; display: flex; align-items: center; gap: 0.5rem;">
-        <elvt-icon icon="mdi:account" style="color: #0f62fe;"></elvt-icon>
-        User Profile
-      </h3>
-      <p style="margin: 0; color: #6f6f6f; font-size: 0.875rem;">Manage your account information</p>
-    </div>
-    
-    <elvt-divider></elvt-divider>
-    
-    <div style="padding: 1rem;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-        <span style="font-weight: 500;">Email Notifications</span>
-        <elvt-badge variant="success">Enabled</elvt-badge>
-      </div>
-      <div style="display: flex; justify-content: space-between; align-items: center;">
-        <span style="font-weight: 500;">Two-Factor Auth</span>
-        <elvt-badge>Disabled</elvt-badge>
-      </div>
-    </div>
-    
-    <elvt-divider></elvt-divider>
-    
-    <div style="padding: 1rem;">
-      <div style="display: flex; gap: 0.5rem;">
-        <elvt-button size="small" variant="primary">Save Changes</elvt-button>
-        <elvt-button size="small" tone="subtle">Reset</elvt-button>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Navigation with vertical dividers -->
-  <div style="display: flex; align-items: center; gap: 1rem; padding: 0.75rem; background: #f4f4f4; border-radius: 8px;">
-    <elvt-button size="small" tone="subtle">Dashboard</elvt-button>
-    <elvt-divider orientation="vertical" style="height: 20px; background-color: #c6c6c6;"></elvt-divider>
-    <elvt-button size="small" tone="subtle">Reports</elvt-button>
-    <elvt-divider orientation="vertical" style="height: 20px; background-color: #c6c6c6;"></elvt-divider>
-    <elvt-button size="small" tone="subtle">Settings</elvt-button>
-  </div>
-</div>`}
->
+
+  code="dividers-in-lists-and-cards.html">
   <div style={{maxWidth: '500px'}}>
     {/* Card with dividers */}
     <div style={{border: '1px solid #e0e0e0', borderRadius: '8px', background: 'white', marginBottom: '1.5rem'}}>

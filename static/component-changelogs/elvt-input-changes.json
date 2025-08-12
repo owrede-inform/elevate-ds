@@ -1,48 +1,48 @@
 {
   "component": "elvt-input",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.465Z",
+  "lastUpdated": "2025-08-12T11:45:15.763Z",
   "changelog": [
     {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
+      "version": "0.0.26-alpha",
+      "date": "2025-07-16",
       "type": "minor",
       "changes": [
         {
-          "type": "improvement",
-          "title": "Display Error Message in Input and Textarea (",
-          "description": "Display Error Message in Input and Textarea (",
+          "type": "feature",
+          "title": "Display Error Message in Input and Textarea",
+          "description": "Added display error message in input and textarea",
           "commit": "e480bb5",
           "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Checkbox Value Is Updated in Input and Change (",
-          "description": "Checkbox Value Is Updated in Input and Change (",
-          "commit": "4a0540c",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Input Component (",
-          "description": "Add Input Component (",
-          "commit": "6e9964e",
-          "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/e480bb51c5beda9d73d2afe4a4f29010d75f8d94"
         }
       ]
     }
   ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
     "totalVersions": 1,
-    "firstVersion": "0.0.28-alpha",
+    "firstVersion": "0.0.26-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "e480bb5"
+    "lastCommit": "e480bb51c5beda9d73d2afe4a4f29010d75f8d94",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "1/11"
   }
 }

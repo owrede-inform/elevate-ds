@@ -1,0 +1,59 @@
+# Changelog Generation Log for elvt-table-row
+# Generated: 2025-08-12T11:45:46.461Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 15
+Included commits: 0
+Excluded commits: 6
+Uncertain commits: 0
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-table-row
+
+INFO: Found 6 total commits from GitHub API
+
+DEBUG: Evaluating commit: "docs: Update Component Status..."
+
+EXCLUDE: "docs: Update Component Status..." (Documentation)
+  → Commit: 24cb112
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "fix: Fix PagedTableDataProvider with Indeterminate Result Length (#196)..."
+
+EXCLUDE: "fix: Fix PagedTableDataProvider with Indeterminate Result Length (#196)..." (Table component)
+  → Commit: 580a919
+  → Reason: Table component
+  → Pattern: /table(?!\s+\w*component)/
+
+DEBUG: Evaluating commit: "chore: Update Design Tokens..."
+
+EXCLUDE: "chore: Update Design Tokens..." (Generic token update)
+  → Commit: 89c6926
+  → Reason: Generic token update
+  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+
+DEBUG: Evaluating commit: "fix: Add Table Component Dependencies..."
+
+EXCLUDE: "fix: Add Table Component Dependencies..." (Dependencies)
+  → Commit: d5f001a
+  → Reason: Dependencies
+  → Pattern: /deps|dependencies|package\.json|yarn|npm/
+
+DEBUG: Evaluating commit: "fix: Export Table Types..."
+
+EXCLUDE: "fix: Export Table Types..." (Table component)
+  → Commit: 8ab9caf
+  → Reason: Table component
+  → Pattern: /table(?!\s+\w*component)/
+
+DEBUG: Evaluating commit: "feat: Add Table Selection..."
+
+EXCLUDE: "feat: Add Table Selection..." (Table component)
+  → Commit: bb8d2fe
+  → Reason: Table component
+  → Pattern: /table(?!\s+\w*component)/
+
+INFO: Filtered from 6 to 0 relevant commits

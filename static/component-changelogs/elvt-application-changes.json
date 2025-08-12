@@ -1,40 +1,48 @@
 {
   "component": "elvt-application",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.393Z",
+  "lastUpdated": "2025-08-12T11:44:46.076Z",
   "changelog": [
     {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
+      "version": "0.0.24-alpha",
+      "date": "2025-05-15",
       "type": "minor",
       "changes": [
         {
-          "type": "improvement",
-          "title": "Use Component/Application Tokens for Default Background/Text (",
-          "description": "Use Component/Application Tokens for Default Background/Text (",
+          "type": "feature",
+          "title": "Use Component/Application Tokens for Default Background/Text",
+          "description": "Added use component/application tokens for default background/text",
           "commit": "1a09e08",
           "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "feature",
-          "title": "Add Application Component (",
-          "description": "Add Application Component (",
-          "commit": "b7983c6",
-          "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/1a09e084df5d43bd479996d38108c2c476e20344"
         }
       ]
     }
   ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
     "totalVersions": 1,
-    "firstVersion": "0.0.28-alpha",
+    "firstVersion": "0.0.24-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "1a09e08"
+    "lastCommit": "1a09e084df5d43bd479996d38108c2c476e20344",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "1/8"
   }
 }

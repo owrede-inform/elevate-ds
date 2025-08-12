@@ -167,3 +167,4 @@ import DesignTokenTable from '@site/src/components/DesignTokenTable';
 **🔍 STEP 4**: Only then implement the component with correct properties and structure
 
 This process prevents API misuse and ensures accurate component implementation.
+- When creating pages in /docs always provide a URL to click (usually the server should run on localhost:3000)

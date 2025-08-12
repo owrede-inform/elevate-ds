@@ -36,12 +36,8 @@ Simple content container for grouping related information with default styling.
 <ComponentShowcase
   title="Basic Card Example"
   description="Simple card with text content and action button."
-  code={`<elvt-card>
-  <h3>Project Status</h3>
-  <p>Your project is currently in development phase. Next milestone: Beta testing scheduled for next week.</p>
-  <elvt-button tone="primary" size="medium">View Details</elvt-button>
-</elvt-card>`}
->
+
+  code="basic-card-example.html">
   <div style={{maxWidth: '400px'}}>
     <ElvtCard>
       <h3 style={{marginTop: 0}}>Project Status</h3>
@@ -58,20 +54,8 @@ Structured card layout with dedicated header and footer areas for organized cont
 <ComponentShowcase
   title="Card with Header and Footer"
   description="Card with structured header and footer sections for better content organization."
-  code={`<elvt-card>
-  <div slot="header">
-    <h3>Monthly Report</h3>
-    <elvt-button tone="subtle" size="small">Download</elvt-button>
-  </div>
-  
-  <p>Performance metrics show a 15% increase in user engagement this month. Key highlights include improved conversion rates and reduced bounce time.</p>
-  
-  <div slot="footer">
-    <elvt-button tone="primary">View Full Report</elvt-button>
-    <elvt-button>Share Report</elvt-button>
-  </div>
-</elvt-card>`}
->
+
+  code="card-with-header-and-footer.html">
   <div style={{maxWidth: '400px'}}>
     <ElvtCard>
       <div slot="header" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
@@ -96,23 +80,8 @@ Different border treatments for various design contexts and integration needs.
 <ComponentShowcase
   title="Card Border Variations"
   description="Different border styles for various design contexts."
-  code={`<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-  <elvt-card border="all">
-    <h4>All Borders</h4>
-    <p>Complete border treatment (default)</p>
-  </elvt-card>
-  
-  <elvt-card border="rounded">
-    <h4>Rounded Only</h4>
-    <p>Rounded corners without borders</p>
-  </elvt-card>
-  
-  <elvt-card border="none">
-    <h4>No Borders</h4>
-    <p>Seamless integration design</p>
-  </elvt-card>
-</div>`}
->
+
+  code="card-border-variations.html">
   <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem'}}>
     <ElvtCard border="all">
       <h4 style={{marginTop: 0}}>All Borders</h4>
@@ -138,28 +107,8 @@ Visual depth treatments for different card prominence and context needs.
 <ComponentShowcase
   title="Card Layer Variations"
   description="Different visual depth treatments for various contexts."
-  code={`<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; padding: 1rem; background: #f4f4f4;">
-  <elvt-card layer="default">
-    <h4>Default</h4>
-    <p>Standard appearance</p>
-  </elvt-card>
-  
-  <elvt-card layer="elevated">
-    <h4>Elevated</h4>
-    <p>Raised with shadow</p>
-  </elvt-card>
-  
-  <elvt-card layer="overlay">
-    <h4>Overlay</h4>
-    <p>Designed for overlays</p>
-  </elvt-card>
-  
-  <elvt-card layer="sunken">
-    <h4>Sunken</h4>
-    <p>Inset appearance</p>
-  </elvt-card>
-</div>`}
->
+
+  code="card-layer-variations.html">
   <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', padding: '1rem', background: '#f4f4f4', borderRadius: '8px'}}>
     <ElvtCard layer="default">
       <h4 style={{marginTop: 0}}>Default</h4>
@@ -188,23 +137,8 @@ Visual depth treatments for different card prominence and context needs.
 <ComponentShowcase
   title="Card Padding Options"
   description="Different padding sizes for various content needs."
-  code={`<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-  <elvt-card padding="s">
-    <h4>Small Padding</h4>
-    <p>Compact layout for dense information.</p>
-  </elvt-card>
-  
-  <elvt-card padding="m">
-    <h4>Medium Padding</h4>
-    <p>Balanced spacing for most use cases.</p>
-  </elvt-card>
-  
-  <elvt-card padding="l">
-    <h4>Large Padding</h4>
-    <p>Generous spacing for prominent content.</p>
-  </elvt-card>
-</div>`}
->
+
+  code="card-padding-options.html">
   <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem'}}>
     <ElvtCard padding="s">
       <h4 style={{marginTop: 0}}>Small Padding</h4>
@@ -382,26 +316,8 @@ import '@inform-elevate/elevate-core-ui/dist/components/card/card.js';
 <ComponentShowcase
   title="Card Grid Layout"
   description="Common card grid pattern for dashboards and content listings."
-  code={`<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-  <elvt-card>
-    <h4>Feature A</h4>
-    <p>Description of feature A with key benefits.</p>
-    <elvt-button tone="primary">Learn More</elvt-button>
-  </elvt-card>
-  
-  <elvt-card>
-    <h4>Feature B</h4>
-    <p>Description of feature B with key benefits.</p>
-    <elvt-button tone="success">Get Started</elvt-button>
-  </elvt-card>
-  
-  <elvt-card>
-    <h4>Feature C</h4>
-    <p>Description of feature C with key benefits.</p>
-    <elvt-button tone="warning">View Details</elvt-button>
-  </elvt-card>
-</div>`}
->
+
+  code="card-grid-layout.html">
   <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem'}}>
     <ElvtCard>
       <h4 style={{marginTop: 0}}>Feature A</h4>

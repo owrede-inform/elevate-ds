@@ -1,0 +1,72 @@
+# Changelog Generation Log for elvt-application
+# Generated: 2025-08-12T11:44:46.081Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 19
+Included commits: 1
+Excluded commits: 6
+Uncertain commits: 1
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-application
+
+INFO: Found 8 total commits from GitHub API
+
+DEBUG: Evaluating commit: "docs: Add Missing Application Default Slot (#208)..."
+
+EXCLUDE: "docs: Add Missing Application Default Slot (#208)..." (Documentation)
+  → Commit: d9536f0
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
+
+EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+  → Commit: 0921993
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat: Add Lightbox and Dialogs..."
+
+UNCERTAIN: "feat: Add Lightbox and Dialogs..." (No clear component relevance)
+  → Commit: 37d6740
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
+
+EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+  → Commit: 0b7f502
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Use Component/Application Tokens for Default Background/Text..."
+
+INCLUDE: "feat: Use Component/Application Tokens for Default Background/Text..." (Short component name)
+  → Commit: 1a09e08
+  → Reason: Short component name
+  → Pattern: /\bapplication\b/i
+
+DEBUG: Evaluating commit: "docs: Fix Documentation Errors from Component Structure Changes (#113)..."
+
+EXCLUDE: "docs: Fix Documentation Errors from Component Structure Changes (#113)..." (Documentation)
+  → Commit: ae9938b
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "refactor: Flatten Components File Structure..."
+
+EXCLUDE: "refactor: Flatten Components File Structure..." (Generic refactoring)
+  → Commit: 36e7dd6
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+INFO: Filtered from 8 to 1 relevant commits

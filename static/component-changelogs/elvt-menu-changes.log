@@ -1,0 +1,86 @@
+# Changelog Generation Log for elvt-menu
+# Generated: 2025-08-12T11:45:22.678Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 23
+Included commits: 2
+Excluded commits: 7
+Uncertain commits: 1
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-menu
+
+INFO: Found 10 total commits from GitHub API
+
+DEBUG: Evaluating commit: "refactor!: Replace Severity with Tone..."
+
+EXCLUDE: "refactor!: Replace Severity with Tone..." (Generic refactoring)
+  → Commit: 0d82a85
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Add Autoloader..."
+
+UNCERTAIN: "feat: Add Autoloader..." (No clear component relevance)
+  → Commit: 8d557b0
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
+
+EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+  → Commit: 0921993
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
+
+EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+  → Commit: 0b7f502
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "docs: Add Components Status Page..."
+
+EXCLUDE: "docs: Add Components Status Page..." (Documentation)
+  → Commit: daf000f
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "fix: Fix Menu "shape" Property (#91)..."
+
+INCLUDE: "fix: Fix Menu "shape" Property (#91)..." (Short component name)
+  → Commit: 497830e
+  → Reason: Short component name
+  → Pattern: /\bmenu\b/i
+
+DEBUG: Evaluating commit: "feat: Add "inline" Shape to Menu for Navigations (#87)..."
+
+INCLUDE: "feat: Add "inline" Shape to Menu for Navigations (#87)..." (Short component name)
+  → Commit: 54a1313
+  → Reason: Short component name
+  → Pattern: /\bmenu\b/i
+
+DEBUG: Evaluating commit: "refactor: Improve Menu Item..."
+
+EXCLUDE: "refactor: Improve Menu Item..." (Generic refactoring)
+  → Commit: c52fca7
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "refactor: Move Menu/Dropdown Components Into a Subdirectory..."
+
+EXCLUDE: "refactor: Move Menu/Dropdown Components Into a Subdirectory..." (Generic refactoring)
+  → Commit: e74ccc4
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+INFO: Filtered from 10 to 2 relevant commits

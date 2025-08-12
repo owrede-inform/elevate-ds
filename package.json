@@ -7,8 +7,9 @@
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
+    "build:github": "cross-env DEPLOYMENT_ENV=github-pages docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
+    "deploy": "cross-env DEPLOYMENT_ENV=github-pages docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
@@ -21,7 +22,12 @@
     "changelog": "node scripts/changelog-cli.js",
     "changelog:generate": "node scripts/generate-changelog.js",
     "changelog:all": "node scripts/generate-changelog.js --all",
-    "changelog:component": "node scripts/generate-changelog.js --component"
+    "changelog:component": "node scripts/generate-changelog.js --component",
+    "changelog:github": "node scripts/github-changelog.js --component",
+    "changelog:github-token": "node scripts/github-changelog.js --component",
+    "versions:list": "node scripts/update-versions.js --list",
+    "versions:add": "node scripts/update-versions.js --add-version",
+    "versions:regen": "node scripts/update-versions.js --regen-cutoffs"
   },
   "dependencies": {
     "@docusaurus/core": "3.8.1",
@@ -39,6 +45,7 @@
     "@docusaurus/tsconfig": "3.8.1",
     "@docusaurus/types": "3.8.1",
     "chokidar": "^4.0.3",
+    "cross-env": "^10.0.0",
     "playwright": "^1.54.2",
     "typescript": "~5.6.2"
   },

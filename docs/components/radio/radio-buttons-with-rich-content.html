@@ -1,0 +1,48 @@
+<div style={{padding: '1rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
+  <elvt-radio-group label="Choose your deployment environment:" name="environment">
+    <elvt-radio value="development">
+      <div style={{display: 'flex', alignItems: 'start', gap: '1rem'}}>
+        <div style={{color: '#007bff', fontSize: '1.5rem', marginTop: '0.125rem'}}>💻</div>
+        <div>
+          <div style={{fontWeight: '500'}}>Development Environment</div>
+          <div style={{fontSize: '0.875rem', color: '#6f6f6f', marginTop: '0.25rem'}}>
+            Perfect for testing and development work. Includes debugging tools and hot reload.
+          </div>
+          <div style={{fontSize: '0.75rem', color: '#28a745', marginTop: '0.5rem'}}>
+            ✓ Fast deployment • ✓ Debug tools • ✓ Auto-refresh
+          </div>
+        </div>
+      </div>
+    </elvt-radio>
+
+    <elvt-radio value="staging" checked>
+      <div style={{display: 'flex', alignItems: 'start', gap: '1rem'}}>
+        <div style={{color: '#ffc107', fontSize: '1.5rem', marginTop: '0.125rem'}}>🖥️</div>
+        <div>
+          <div style={{fontWeight: '500'}}>Staging Environment</div>
+          <div style={{fontSize: '0.875rem', color: '#6f6f6f', marginTop: '0.25rem'}}>
+            Production-like environment for final testing. Mirrors production configuration.
+          </div>
+          <div style={{fontSize: '0.75rem', color: '#007bff', marginTop: '0.5rem'}}>
+            ✓ Production config • ✓ Performance testing • ✓ Integration tests
+          </div>
+        </div>
+      </div>
+    </elvt-radio>
+
+    <elvt-radio value="production">
+      <div style={{display: 'flex', alignItems: 'start', gap: '1rem'}}>
+        <div style={{color: '#dc3545', fontSize: '1.5rem', marginTop: '0.125rem'}}>☁️</div>
+        <div>
+          <div style={{fontWeight: '500'}}>Production Environment</div>
+          <div style={{fontSize: '0.875rem', color: '#6f6f6f', marginTop: '0.25rem'}}>
+            Live production environment. Use with caution - affects real users.
+          </div>
+          <div style={{fontSize: '0.75rem', color: '#dc3545', marginTop: '0.5rem'}}>
+            ⚠️ Live environment • ⚠️ Real users • ⚠️ Careful deployment
+          </div>
+        </div>
+      </div>
+    </elvt-radio>
+  </elvt-radio-group>
+</div>

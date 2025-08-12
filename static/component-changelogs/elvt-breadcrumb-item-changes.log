@@ -1,0 +1,77 @@
+# Changelog Generation Log for elvt-breadcrumb-item
+# Generated: 2025-08-12T11:44:50.630Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 21
+Included commits: 0
+Excluded commits: 6
+Uncertain commits: 3
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-breadcrumb-item
+
+INFO: Found 9 total commits from GitHub API
+
+DEBUG: Evaluating commit: "chore: Update Design Tokens..."
+
+EXCLUDE: "chore: Update Design Tokens..." (Generic token update)
+  → Commit: 3692cba
+  → Reason: Generic token update
+  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+
+DEBUG: Evaluating commit: "fix: Change RTL Implementation for TabGroup..."
+
+UNCERTAIN: "fix: Change RTL Implementation for TabGroup..." (No clear component relevance)
+  → Commit: c0da45b
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "Chore/update design tokens 0.13.1..."
+
+EXCLUDE: "Chore/update design tokens 0.13.1..." (Generic token update)
+  → Commit: 3ea7125
+  → Reason: Generic token update
+  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+
+DEBUG: Evaluating commit: "docs: Update Component Status..."
+
+EXCLUDE: "docs: Update Component Status..." (Documentation)
+  → Commit: 24cb112
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "feat: Adjust Design for BreadcrumbItem..."
+
+UNCERTAIN: "feat: Adjust Design for BreadcrumbItem..." (No clear component relevance)
+  → Commit: 479d71f
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
+
+EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+  → Commit: 0b7f502
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "docs: Add Components Status Page..."
+
+EXCLUDE: "docs: Add Components Status Page..." (Documentation)
+  → Commit: daf000f
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "feat: Add Breadcrumb and Breadcrumb Item Components..."
+
+UNCERTAIN: "feat: Add Breadcrumb and Breadcrumb Item Components..." (No clear component relevance)
+  → Commit: c95371e
+  → Reason: No matching patterns
+
+INFO: Filtered from 9 to 0 relevant commits

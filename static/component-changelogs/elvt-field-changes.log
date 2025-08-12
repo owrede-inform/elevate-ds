@@ -1,0 +1,30 @@
+# Changelog Generation Log for elvt-field
+# Generated: 2025-08-12T11:45:09.232Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 7
+Included commits: 0
+Excluded commits: 1
+Uncertain commits: 1
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-field
+
+INFO: Found 2 total commits from GitHub API
+
+DEBUG: Evaluating commit: "feat: Support Form Reset and Basic Validation (Required)..."
+
+EXCLUDE: "feat: Support Form Reset and Basic Validation (Required)..." (Form component)
+  → Commit: 44dc64e
+  → Reason: Form component
+  → Pattern: /form(?!\s+\w*component)/
+
+DEBUG: Evaluating commit: "feat: Add Multi-Column Direction to Stack Component..."
+
+UNCERTAIN: "feat: Add Multi-Column Direction to Stack Component..." (No clear component relevance)
+  → Commit: 573e50e
+  → Reason: No matching patterns
+
+INFO: Filtered from 2 to 0 relevant commits

@@ -1,0 +1,199 @@
+# Changelog Generation Log for elvt-button
+# Generated: 2025-08-12T11:44:56.037Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 57
+Included commits: 6
+Excluded commits: 14
+Uncertain commits: 7
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-button
+
+INFO: Found 27 total commits from GitHub API
+
+DEBUG: Evaluating commit: "fix: Fix Button Group Separator Lines (#250)..."
+
+INCLUDE: "fix: Fix Button Group Separator Lines (#250)..." (Short component name)
+  → Commit: 7de00fe
+  → Reason: Short component name
+  → Pattern: /\bbutton\b/i
+
+DEBUG: Evaluating commit: "fix: Fix Button Group Pill Shape for Small / Medium Size..."
+
+INCLUDE: "fix: Fix Button Group Pill Shape for Small / Medium Size..." (Short component name)
+  → Commit: e6e5701
+  → Reason: Short component name
+  → Pattern: /\bbutton\b/i
+
+DEBUG: Evaluating commit: "docs: Update Component Status..."
+
+EXCLUDE: "docs: Update Component Status..." (Documentation)
+  → Commit: 24cb112
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "feat: Adjust Button Design, Remove Shoelace Button..."
+
+INCLUDE: "feat: Adjust Button Design, Remove Shoelace Button..." (Short component name)
+  → Commit: 67a0e62
+  → Reason: Short component name
+  → Pattern: /\bbutton\b/i
+
+DEBUG: Evaluating commit: "feat: Add Multi-Column Direction to Stack Component..."
+
+UNCERTAIN: "feat: Add Multi-Column Direction to Stack Component..." (No clear component relevance)
+  → Commit: 573e50e
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Rename ComponentSize to Size ..."
+
+EXCLUDE: "refactor: Rename ComponentSize to Size ..." (Generic refactoring)
+  → Commit: ab26ae6
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Add Field Component..."
+
+UNCERTAIN: "feat: Add Field Component..." (No clear component relevance)
+  → Commit: 890b3f0
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "feat: Add Card Border and Layer Properties..."
+
+UNCERTAIN: "feat: Add Card Border and Layer Properties..." (No clear component relevance)
+  → Commit: a3ca8b3
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "feat: Add "name" and "value" Attributes to Button..."
+
+INCLUDE: "feat: Add "name" and "value" Attributes to Button..." (Short component name)
+  → Commit: ee50024
+  → Reason: Short component name
+  → Pattern: /\bbutton\b/i
+
+DEBUG: Evaluating commit: "refactor!: Replace Severity with Tone..."
+
+EXCLUDE: "refactor!: Replace Severity with Tone..." (Generic refactoring)
+  → Commit: 0d82a85
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Add Autoloader..."
+
+UNCERTAIN: "feat: Add Autoloader..." (No clear component relevance)
+  → Commit: 8d557b0
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..."
+
+UNCERTAIN: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..." (No clear component relevance)
+  → Commit: dea7d2d
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
+
+EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+  → Commit: 0921993
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat(refactor): Replace Variant Attributes with Shape..."
+
+EXCLUDE: "feat(refactor): Replace Variant Attributes with Shape..." (Generic refactoring)
+  → Commit: c20d569
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Attach Form Control Internals (#127)..."
+
+EXCLUDE: "feat: Attach Form Control Internals (#127)..." (Form component)
+  → Commit: 95b8bff
+  → Reason: Form component
+  → Pattern: /form(?!\s+\w*component)/
+
+DEBUG: Evaluating commit: "feat: Improve Icon Component, Add Selected, Add Shape, Fix Size..."
+
+UNCERTAIN: "feat: Improve Icon Component, Add Selected, Add Shape, Fix Size..." (No clear component relevance)
+  → Commit: 58898ac
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
+
+EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+  → Commit: 0b7f502
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "refactor: Make Selected a Boolean Attribute..."
+
+EXCLUDE: "refactor: Make Selected a Boolean Attribute..." (Generic refactoring)
+  → Commit: 6fdc6cc
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "fix: Connect Button and Form Fields to Form Ancestor..."
+
+EXCLUDE: "fix: Connect Button and Form Fields to Form Ancestor..." (Form component)
+  → Commit: 741ff85
+  → Reason: Form component
+  → Pattern: /form(?!\s+\w*component)/
+
+DEBUG: Evaluating commit: "docs: Add Components Status Page..."
+
+EXCLUDE: "docs: Add Components Status Page..." (Documentation)
+  → Commit: daf000f
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "feat: Improve React Compatibility (#73)..."
+
+UNCERTAIN: "feat: Improve React Compatibility (#73)..." (No clear component relevance)
+  → Commit: f0cd5c4
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "feat: Add Link Function to Menu Item (#71)..."
+
+EXCLUDE: "feat: Add Link Function to Menu Item (#71)..." (Link component)
+  → Commit: d8b3f7e
+  → Reason: Link component
+  → Pattern: /link(?!\s+\w*component)/
+
+DEBUG: Evaluating commit: "docs: Document Severity and Refactor ButtonSeverity..."
+
+EXCLUDE: "docs: Document Severity and Refactor ButtonSeverity..." (Documentation)
+  → Commit: fa7f552
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "feat: Add ButtonGroup Component..."
+
+INCLUDE: "feat: Add ButtonGroup Component..." (Component addition)
+  → Commit: 4b1166b
+  → Reason: Component addition
+  → Pattern: /add\s+button/i
+
+DEBUG: Evaluating commit: "feat: Add Icon Button Component..."
+
+INCLUDE: "feat: Add Icon Button Component..." (Short component name)
+  → Commit: 9603e54
+  → Reason: Short component name
+  → Pattern: /\bbutton\b/i
+
+DEBUG: Evaluating commit: "Merge feat/Add-Icon-Component into main..."
+
+EXCLUDE: "Merge feat/Add-Icon-Component into main..." (Icon component)
+  → Commit: 113a65e
+  → Reason: Icon component
+  → Pattern: /icon(?!\s+\w*component)(?!\s+button)/
+
+INFO: Filtered from 27 to 6 relevant commits

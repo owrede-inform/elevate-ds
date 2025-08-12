@@ -1,32 +1,19 @@
 {
   "component": "elvt-tooltip",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.524Z",
-  "changelog": [
-    {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Add Tooltip and Visually Hidden Components (",
-          "description": "Add Tooltip and Visually Hidden Components (",
-          "commit": "9e8957b",
-          "impact": "functionality",
-          "breakingChange": false
-        }
-      ]
-    }
-  ],
+  "lastUpdated": "2025-08-12T11:45:56.746Z",
+  "changelog": [],
   "deprecations": [],
   "upcomingChanges": [],
   "metadata": {
-    "totalVersions": 1,
+    "totalVersions": 0,
     "firstVersion": "0.0.28-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "9e8957b"
+    "lastCommit": "",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "0/5"
   }
 }

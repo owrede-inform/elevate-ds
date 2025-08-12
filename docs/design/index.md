@@ -1,10 +1,10 @@
 ---
-title: Design Foundations
+title: Design Foundation
 description: Visual design foundations including colors, typography, spacing, and layout systems for ELEVATE Design System
 sidebar_position: 1
 ---
 
-# Design Foundations
+# Design Foundation
 
 Design foundations provide the visual language and systematic approach to creating consistent, beautiful interfaces. These foundational elements ensure cohesive experiences across all INFORM products and applications.
 

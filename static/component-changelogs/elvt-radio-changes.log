@@ -1,0 +1,99 @@
+# Changelog Generation Log for elvt-radio
+# Generated: 2025-08-12T11:45:34.709Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 27
+Included commits: 3
+Excluded commits: 7
+Uncertain commits: 2
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-radio
+
+INFO: Found 12 total commits from GitHub API
+
+DEBUG: Evaluating commit: "chore: Update Dependencies and Design Tokens..."
+
+EXCLUDE: "chore: Update Dependencies and Design Tokens..." (Dependencies)
+  → Commit: 907aee4
+  → Reason: Dependencies
+  → Pattern: /deps|dependencies|package\.json|yarn|npm/
+
+DEBUG: Evaluating commit: "fix: Update Radio Style and Add Reference Images..."
+
+INCLUDE: "fix: Update Radio Style and Add Reference Images..." (Short component name)
+  → Commit: a336c13
+  → Reason: Short component name
+  → Pattern: /\bradio\b/i
+
+DEBUG: Evaluating commit: "feat: Adjust Radio Styles..."
+
+INCLUDE: "feat: Adjust Radio Styles..." (Short component name)
+  → Commit: e4ccbe5
+  → Reason: Short component name
+  → Pattern: /\bradio\b/i
+
+DEBUG: Evaluating commit: "refactor: Rename ComponentSize to Size ..."
+
+EXCLUDE: "refactor: Rename ComponentSize to Size ..." (Generic refactoring)
+  → Commit: ab26ae6
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Style Elevate Switch Component..."
+
+EXCLUDE: "feat: Style Elevate Switch Component..." (Switch component)
+  → Commit: a547458
+  → Reason: Switch component
+  → Pattern: /switch(?!\s+to|\s+from)/
+
+DEBUG: Evaluating commit: "feat: Add Elevate Radio..."
+
+INCLUDE: "feat: Add Elevate Radio..." (Short component name)
+  → Commit: 09462ee
+  → Reason: Short component name
+  → Pattern: /\bradio\b/i
+
+DEBUG: Evaluating commit: "fix: Export Table Types..."
+
+EXCLUDE: "fix: Export Table Types..." (Table component)
+  → Commit: 8ab9caf
+  → Reason: Table component
+  → Pattern: /table(?!\s+\w*component)/
+
+DEBUG: Evaluating commit: "feat: Add Autoloader..."
+
+UNCERTAIN: "feat: Add Autoloader..." (No clear component relevance)
+  → Commit: 8d557b0
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..."
+
+UNCERTAIN: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..." (No clear component relevance)
+  → Commit: dea7d2d
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
+
+EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+  → Commit: 0921993
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat: Attach Form Control Internals (#127)..."
+
+EXCLUDE: "feat: Attach Form Control Internals (#127)..." (Form component)
+  → Commit: 95b8bff
+  → Reason: Form component
+  → Pattern: /form(?!\s+\w*component)/
+
+INFO: Filtered from 12 to 3 relevant commits

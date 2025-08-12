@@ -1,0 +1,63 @@
+<div style={{maxWidth: '500px', padding: '2rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
+  <h3 style={{margin: '0 0 1.5rem 0'}}>Book Your Event</h3>
+
+  <div style={{display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
+    <div>
+      <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Event Type</label>
+      <select style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem'}}>
+        <option>Wedding</option>
+        <option>Corporate Event</option>
+        <option>Birthday Party</option>
+        <option>Conference</option>
+      </select>
+    </div>
+
+    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem'}}>
+      <div>
+        <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Start Date</label>
+        <input 
+          type="date" 
+          min="2025-08-10"
+          required
+          style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem'}}
+        />
+      </div>
+
+      <div>
+        <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>End Date</label>
+        <input 
+          type="date" 
+          min="2025-08-10"
+          style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem'}}
+        />
+        <p style={{margin: '0.5rem 0 0 0', fontSize: '0.75rem', color: '#6f6f6f'}}>Optional for single-day events</p>
+      </div>
+    </div>
+
+    <div>
+      <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Preferred Time</label>
+      <select style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem'}}>
+        <option>Morning (9:00 AM - 12:00 PM)</option>
+        <option>Afternoon (12:00 PM - 5:00 PM)</option>
+        <option>Evening (5:00 PM - 10:00 PM)</option>
+        <option>All Day</option>
+      </select>
+    </div>
+
+    <div>
+      <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Guest Count</label>
+      <input 
+        type="number" 
+        min="1" 
+        max="500" 
+        placeholder="Number of guests"
+        style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem'}}
+      />
+    </div>
+
+    <div style={{display: 'flex', gap: '0.5rem', justifyContent: 'flex-end', marginTop: '1rem'}}>
+      <button type="button" style={{padding: '0.75rem 1.5rem', border: '1px solid #ccc', borderRadius: '4px', background: 'white', cursor: 'pointer'}}>Clear</button>
+      <button type="submit" style={{padding: '0.75rem 1.5rem', border: 'none', borderRadius: '4px', background: '#0066cc', color: 'white', cursor: 'pointer'}}>Book Event</button>
+    </div>
+  </div>
+</div>

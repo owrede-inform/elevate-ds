@@ -1,0 +1,105 @@
+# Changelog Generation Log for elvt-dropdown
+# Generated: 2025-08-12T11:45:05.120Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 29
+Included commits: 1
+Excluded commits: 9
+Uncertain commits: 3
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-dropdown
+
+INFO: Found 13 total commits from GitHub API
+
+DEBUG: Evaluating commit: "feat: Add Autoloader..."
+
+UNCERTAIN: "feat: Add Autoloader..." (No clear component relevance)
+  → Commit: 8d557b0
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
+
+EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+  → Commit: 0921993
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "fix: Make All Attribute Names "kebab-case"..."
+
+UNCERTAIN: "fix: Make All Attribute Names "kebab-case"..." (No clear component relevance)
+  → Commit: 4d0bee0
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
+
+EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+  → Commit: 0b7f502
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "refactor: Flatten Components File Structure..."
+
+EXCLUDE: "refactor: Flatten Components File Structure..." (Generic refactoring)
+  → Commit: 36e7dd6
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "refactor: Move Menu/Dropdown Components Into a Subdirectory..."
+
+EXCLUDE: "refactor: Move Menu/Dropdown Components Into a Subdirectory..." (Generic refactoring)
+  → Commit: e74ccc4
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Add Icon Button Component..."
+
+UNCERTAIN: "feat: Add Icon Button Component..." (No clear component relevance)
+  → Commit: 9603e54
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "build: Separate CLI Tools and Storybook Addons into own Repositories/Packages..."
+
+EXCLUDE: "build: Separate CLI Tools and Storybook Addons into own Repositories/Packages..." (Build tools/Linting)
+  → Commit: d95c89b
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "docs: Resize Menu / DropDown Stories..."
+
+EXCLUDE: "docs: Resize Menu / DropDown Stories..." (Documentation)
+  → Commit: a9369e7
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "build: Add Visual Regression Tests..."
+
+EXCLUDE: "build: Add Visual Regression Tests..." (Build/Release)
+  → Commit: 44f7f10
+  → Reason: Build/Release
+  → Pattern: /build|deploy|release|publish|version/
+
+DEBUG: Evaluating commit: "refactor: Replace "any" and Fix Calls..."
+
+EXCLUDE: "refactor: Replace "any" and Fix Calls..." (Generic refactoring)
+  → Commit: 53d7f51
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Add Menu and Dropdown Components..."
+
+INCLUDE: "feat: Add Menu and Dropdown Components..." (Short component name)
+  → Commit: c1d9346
+  → Reason: Short component name
+  → Pattern: /\bdropdown\b/i
+
+INFO: Filtered from 13 to 1 relevant commits

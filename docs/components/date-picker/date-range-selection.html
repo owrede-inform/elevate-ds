@@ -1,0 +1,27 @@
+<div style={{maxWidth: '500px', padding: '1.5rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
+  <h3 style={{margin: '0 0 1rem 0'}}>Select Travel Dates</h3>
+
+  <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem'}}>
+    <div>
+      <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Check-in Date</label>
+      <input 
+        type="date" 
+        min="2025-08-10"
+        style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem', background: 'white'}}
+      />
+    </div>
+
+    <div>
+      <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Check-out Date</label>
+      <input 
+        type="date" 
+        min="2025-08-11"
+        style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem', background: 'white'}}
+      />
+    </div>
+  </div>
+
+  <div style={{marginTop: '1rem', padding: '1rem', background: '#f8f9fa', borderRadius: '4px', fontSize: '0.875rem'}}>
+    <strong>Duration:</strong> Please select both dates to see duration and pricing
+  </div>
+</div>

@@ -1,72 +1,75 @@
 {
   "component": "elvt-divider",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-11T21:28:40.436Z",
+  "lastUpdated": "2025-08-12T11:45:03.263Z",
   "changelog": [
     {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
+      "version": "0.0.26-alpha",
+      "date": "2025-07-16",
       "type": "minor",
       "changes": [
         {
           "type": "feature",
-          "title": "Add CSS Properties for Divider (",
-          "description": "Add CSS Properties for Divider (",
+          "title": "Add CSS Properties for Divider",
+          "description": "Added add css properties for divider",
           "commit": "cba49c9",
           "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/cba49c9113047a4e36626539fdb76da47935b770"
         },
         {
           "type": "feature",
-          "title": "Add Slots to Divider Component (",
-          "description": "Add Slots to Divider Component (",
+          "title": "Add Slots to Divider Component",
+          "description": "Added add slots to divider component",
           "commit": "7b5807b",
           "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Allow Content in Divider (",
-          "description": "Allow Content in Divider (",
-          "commit": "74fcd2c",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "improvement",
-          "title": "Apply Size Tokens To Divider (",
-          "description": "Apply Size Tokens To Divider (",
-          "commit": "8ab9caf",
-          "impact": "functionality",
-          "breakingChange": false
-        },
-        {
-          "type": "breaking-change",
-          "title": "Refactor Divider, Implement Component Design, Remove Shoelace (",
-          "description": "Refactor Divider, Implement Component Design, Remove Shoelace (",
-          "commit": "53c8e82",
-          "impact": "visual",
-          "breakingChange": true
-        },
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/7b5807bf8b9198e0b2a29110a18cdebd27f732a5"
+        }
+      ]
+    },
+    {
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
+      "type": "minor",
+      "changes": [
         {
           "type": "feature",
-          "title": "Add Divider Component (",
-          "description": "Add Divider Component (",
-          "commit": "d03f8c0",
+          "title": "Allow Content in Divider",
+          "description": "Added allow content in divider",
+          "commit": "74fcd2c",
           "impact": "functionality",
-          "breakingChange": false
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/74fcd2c4e62398ffd5d9c6cf108e1519c0b25757"
         }
       ]
     }
   ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
-    "totalVersions": 1,
-    "firstVersion": "0.0.28-alpha",
+    "totalVersions": 2,
+    "firstVersion": "0.0.25-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "cba49c9"
+    "lastCommit": "cba49c9113047a4e36626539fdb76da47935b770",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "3/14"
   }
 }

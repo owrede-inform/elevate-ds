@@ -38,48 +38,39 @@ Avatars displaying profile photos or uploaded images.
 <ComponentShowcase
   title="Image Avatars"
   description="Avatars with profile images in different sizes."
-  code={`<div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-  <elvt-avatar 
-    src="https://via.placeholder.com/40x40/4285f4/ffffff?text=JD"
-    alt="John Doe"
-    size="small">
-  </elvt-avatar>
-  
-  <elvt-avatar 
-    src="https://via.placeholder.com/48x48/34a853/ffffff?text=SM"
-    alt="Sarah Miller"
-    size="medium">
-  </elvt-avatar>
-  
-  <elvt-avatar 
-    src="https://via.placeholder.com/64x64/ea4335/ffffff?text=MJ"
-    alt="Mike Johnson"
-    size="large">
-  </elvt-avatar>
-  
-  <elvt-avatar 
-    src="https://via.placeholder.com/80x80/fbbc04/000000?text=EW"
-    alt="Emily Wilson"
-    size="xlarge">
-  </elvt-avatar>
-</div>`}
->
+  code="image-avatars.html">
   <elvt-stack direction="row" spacing="medium" align="center" wrap>
-    <div style={{width: '32px', height: '32px', borderRadius: '50%', background: '#4285f4', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '12px', fontWeight: '500'}}>
-      JD
-    </div>
+    <elvt-avatar 
+      initials="JD"
+      background-color="#4285f4"
+      text-color="white"
+      size="small"
+      alt="John Doe">
+    </elvt-avatar>
     
-    <div style={{width: '40px', height: '40px', borderRadius: '50%', background: '#34a853', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px', fontWeight: '500'}}>
-      SM
-    </div>
+    <elvt-avatar 
+      initials="SM"
+      background-color="#34a853"
+      text-color="white"
+      size="medium"
+      alt="Sarah Miller">
+    </elvt-avatar>
     
-    <div style={{width: '48px', height: '48px', borderRadius: '50%', background: '#ea4335', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '16px', fontWeight: '500'}}>
-      MJ
-    </div>
+    <elvt-avatar 
+      initials="MJ"
+      background-color="#ea4335"
+      text-color="white"
+      size="large"
+      alt="Mike Johnson">
+    </elvt-avatar>
     
-    <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#fbbc04', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#000', fontSize: '18px', fontWeight: '500'}}>
-      EW
-    </div>
+    <elvt-avatar 
+      initials="EW"
+      background-color="#fbbc04"
+      text-color="#000"
+      size="xlarge"
+      alt="Emily Wong">
+    </elvt-avatar>
   </elvt-stack>
 </ComponentShowcase>
 
@@ -90,47 +81,40 @@ Avatars displaying user initials when no image is available.
 <ComponentShowcase
   title="Initial Avatars"
   description="Avatars showing user initials with various background colors."
-  code={`<div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-  <elvt-avatar 
-    initials="AB"
-    background-color="#1f2937"
-    size="small">
-  </elvt-avatar>
-  
-  <elvt-avatar 
-    initials="CD"
-    background-color="#059669"
-    size="medium">
-  </elvt-avatar>
-  
-  <elvt-avatar 
-    initials="EF"
-    background-color="#dc2626"
-    size="large">
-  </elvt-avatar>
-  
-  <elvt-avatar 
-    initials="GH"
-    background-color="#7c3aed">
-  </elvt-avatar>
-</div>`}
->
+
+  code="initial-avatars.html">
   <elvt-stack direction="row" spacing="medium" align="center" wrap>
-    <div style={{width: '32px', height: '32px', borderRadius: '50%', background: '#1f2937', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '12px', fontWeight: '500'}}>
-      AB
-    </div>
+    <elvt-avatar 
+      initials="AB"
+      background-color="#1f2937"
+      text-color="white"
+      size="small"
+      alt="Alex Brown">
+    </elvt-avatar>
     
-    <div style={{width: '40px', height: '40px', borderRadius: '50%', background: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px', fontWeight: '500'}}>
-      CD
-    </div>
+    <elvt-avatar 
+      initials="CD"
+      background-color="#059669"
+      text-color="white"
+      size="medium"
+      alt="Chris Davis">
+    </elvt-avatar>
     
-    <div style={{width: '48px', height: '48px', borderRadius: '50%', background: '#dc2626', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '16px', fontWeight: '500'}}>
-      EF
-    </div>
+    <elvt-avatar 
+      initials="EF"
+      background-color="#dc2626"
+      text-color="white"
+      size="large"
+      alt="Emma Foster">
+    </elvt-avatar>
     
-    <div style={{width: '56px', height: '56px', borderRadius: '50%', background: '#7c3aed', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '18px', fontWeight: '500'}}>
-      GH
-    </div>
+    <elvt-avatar 
+      initials="GH"
+      background-color="#7c3aed"
+      text-color="white"
+      size="xlarge"
+      alt="George Harris">
+    </elvt-avatar>
   </elvt-stack>
 </ComponentShowcase>
 
@@ -141,46 +125,40 @@ Avatars using icons for system accounts or placeholder states.
 <ComponentShowcase
   title="Icon Avatars"
   description="Avatars with icons for system accounts and default states."
-  code={`<div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-  <elvt-avatar 
-    icon="user"
-    background-color="#6b7280"
-    size="small">
-  </elvt-avatar>
-  
-  <elvt-avatar 
-    icon="group"
-    background-color="#3b82f6">
-  </elvt-avatar>
-  
-  <elvt-avatar 
-    icon="building"
-    background-color="#f59e0b"
-    size="large">
-  </elvt-avatar>
-  
-  <elvt-avatar 
-    icon="robot"
-    background-color="#8b5cf6">
-  </elvt-avatar>
-</div>`}
->
+
+  code="icon-avatars.html">
   <elvt-stack direction="row" spacing="medium" align="center" wrap>
-    <div style={{width: '32px', height: '32px', borderRadius: '50%', background: '#6b7280', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px'}}>
-      👤
-    </div>
+    <elvt-avatar 
+      icon="user"
+      background-color="#6b7280"
+      text-color="white"
+      size="small"
+      alt="Generic User">
+    </elvt-avatar>
     
-    <div style={{width: '40px', height: '40px', borderRadius: '50%', background: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '16px'}}>
-      👥
-    </div>
+    <elvt-avatar 
+      icon="users"
+      background-color="#3b82f6"
+      text-color="white"
+      size="medium"
+      alt="Team Account">
+    </elvt-avatar>
     
-    <div style={{width: '48px', height: '48px', borderRadius: '50%', background: '#f59e0b', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '18px'}}>
-      🏢
-    </div>
+    <elvt-avatar 
+      icon="building"
+      background-color="#f59e0b"
+      text-color="white"
+      size="large"
+      alt="Organization Account">
+    </elvt-avatar>
     
-    <div style={{width: '56px', height: '56px', borderRadius: '50%', background: '#8b5cf6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '20px'}}>
-      🤖
-    </div>
+    <elvt-avatar 
+      icon="robot"
+      background-color="#8b5cf6"
+      text-color="white"
+      size="xlarge"
+      alt="Bot Account">
+    </elvt-avatar>
   </elvt-stack>
 </ComponentShowcase>
 
@@ -191,86 +169,61 @@ Different avatar sizes for various interface contexts.
 <ComponentShowcase
   title="Avatar Size Variations"
   description="Five standard avatar sizes for different interface contexts."
-  code={`<div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-    <elvt-avatar 
-      initials="XS"
-      background-color="#6366f1"
-      size="xsmall">
-    </elvt-avatar>
-    <span style="font-size: 0.75rem; color: #6b7280;">XS (24px)</span>
-  </div>
-  
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-    <elvt-avatar 
-      initials="SM"
-      background-color="#8b5cf6"
-      size="small">
-    </elvt-avatar>
-    <span style="font-size: 0.75rem; color: #6b7280;">Small (32px)</span>
-  </div>
-  
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-    <elvt-avatar 
-      initials="MD"
-      background-color="#ec4899"
-      size="medium">
-    </elvt-avatar>
-    <span style="font-size: 0.75rem; color: #6b7280;">Medium (40px)</span>
-  </div>
-  
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-    <elvt-avatar 
-      initials="LG"
-      background-color="#f59e0b"
-      size="large">
-    </elvt-avatar>
-    <span style="font-size: 0.75rem; color: #6b7280;">Large (48px)</span>
-  </div>
-  
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-    <elvt-avatar 
-      initials="XL"
-      background-color="#10b981"
-      size="xlarge">
-    </elvt-avatar>
-    <span style="font-size: 0.75rem; color: #6b7280;">XL (64px)</span>
-  </div>
-</div>`}
->
+
+  code="avatar-size-variations.html">
   <elvt-stack direction="row" spacing="large" align="center" wrap>
     <elvt-stack direction="column" spacing="small" align="center">
-      <div style={{width: '24px', height: '24px', borderRadius: '50%', background: '#6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '10px', fontWeight: '500'}}>
-        XS
-      </div>
+      <elvt-avatar 
+        initials="XS"
+        background-color="#6366f1"
+        text-color="white"
+        size="xsmall"
+        alt="Extra Small Avatar">
+      </elvt-avatar>
       <span style={{fontSize: '0.75rem', color: '#6b7280'}}>XS (24px)</span>
     </elvt-stack>
     
     <elvt-stack direction="column" spacing="small" align="center">
-      <div style={{width: '32px', height: '32px', borderRadius: '50%', background: '#8b5cf6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '12px', fontWeight: '500'}}>
-        SM
-      </div>
+      <elvt-avatar 
+        initials="SM"
+        background-color="#8b5cf6"
+        text-color="white"
+        size="small"
+        alt="Small Avatar">
+      </elvt-avatar>
       <span style={{fontSize: '0.75rem', color: '#6b7280'}}>Small (32px)</span>
     </elvt-stack>
     
     <elvt-stack direction="column" spacing="small" align="center">
-      <div style={{width: '40px', height: '40px', borderRadius: '50%', background: '#ec4899', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px', fontWeight: '500'}}>
-        MD
-      </div>
+      <elvt-avatar 
+        initials="MD"
+        background-color="#ec4899"
+        text-color="white"
+        size="medium"
+        alt="Medium Avatar">
+      </elvt-avatar>
       <span style={{fontSize: '0.75rem', color: '#6b7280'}}>Medium (40px)</span>
     </elvt-stack>
     
     <elvt-stack direction="column" spacing="small" align="center">
-      <div style={{width: '48px', height: '48px', borderRadius: '50%', background: '#f59e0b', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '16px', fontWeight: '500'}}>
-        LG
-      </div>
+      <elvt-avatar 
+        initials="LG"
+        background-color="#f59e0b"
+        text-color="white"
+        size="large"
+        alt="Large Avatar">
+      </elvt-avatar>
       <span style={{fontSize: '0.75rem', color: '#6b7280'}}>Large (48px)</span>
     </elvt-stack>
     
     <elvt-stack direction="column" spacing="small" align="center">
-      <div style={{width: '64px', height: '64px', borderRadius: '50%', background: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '18px', fontWeight: '500'}}>
-        XL
-      </div>
+      <elvt-avatar 
+        initials="XL"
+        background-color="#10b981"
+        text-color="white"
+        size="xlarge"
+        alt="Extra Large Avatar">
+      </elvt-avatar>
       <span style={{fontSize: '0.75rem', color: '#6b7280'}}>XL (64px)</span>
     </elvt-stack>
   </elvt-stack>
@@ -413,47 +366,8 @@ npm install @inform-elevate/elevate-core-ui
 <ComponentShowcase
   title="User List with Avatars"
   description="Common pattern showing avatars in user lists and team member displays."
-  code={`<div style="max-width: 400px; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
-  <div style="padding: 1rem; background: #f8f9fa; border-bottom: 1px solid #e0e0e0;">
-    <h3 style="margin: 0; font-size: 1rem;">Team Members</h3>
-  </div>
-  
-  <div style="display: flex; flex-direction: column;">
-    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; border-bottom: 1px solid #f0f0f0;">
-      <div style="width: 40px; height: 40px; borderRadius: '50%', background: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px', fontWeight: '500'">
-        JD
-      </div>
-      <div style="flex: 1;">
-        <div style="font-weight: 500; font-size: 0.875rem;">John Doe</div>
-        <div style="color: #6b7280; font-size: 0.75rem;">Lead Developer</div>
-      </div>
-      <div style="font-size: 0.75rem; color: #10b981;">● Online</div>
-    </div>
-    
-    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem; border-bottom: 1px solid #f0f0f0;">
-      <div style="width: 40px; height: 40px; borderRadius: '50%', background: '#ec4899', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px', fontWeight: '500'">
-        SM
-      </div>
-      <div style="flex: 1;">
-        <div style="font-weight: 500; font-size: 0.875rem;">Sarah Miller</div>
-        <div style="color: #6b7280; font-size: 0.75rem;">UX Designer</div>
-      </div>
-      <div style="font-size: 0.75rem; color: #f59e0b;">● Away</div>
-    </div>
-    
-    <div style="display: flex; align-items: center; gap: 0.75rem; padding: 1rem;">
-      <div style="width: 40px; height: 40px; borderRadius: '50%', background: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px', fontWeight: '500'">
-        MJ
-      </div>
-      <div style="flex: 1;">
-        <div style="font-weight: 500; font-size: 0.875rem;">Mike Johnson</div>
-        <div style="color: #6b7280; font-size: 0.75rem;">Product Manager</div>
-      </div>
-      <div style="font-size: 0.75rem; color: #6b7280;">● Offline</div>
-    </div>
-  </div>
-</div>`}
->
+
+  code="user-list-with-avatars.html">
   <div style={{maxWidth: '400px', border: '1px solid #e0e0e0', borderRadius: '8px', overflow: 'hidden'}}>
     <div style={{padding: '1rem', background: '#f8f9fa', borderBottom: '1px solid #e0e0e0'}}>
       <h3 style={{margin: 0, fontSize: '1rem'}}>Team Members</h3>
@@ -461,9 +375,13 @@ npm install @inform-elevate/elevate-core-ui
     
     <div style={{display: 'flex', flexDirection: 'column'}}>
       <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem', borderBottom: '1px solid #f0f0f0'}}>
-        <div style={{width: '40px', height: '40px', borderRadius: '50%', background: '#3b82f6', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px', fontWeight: '500'}}>
-          JD
-        </div>
+        <elvt-avatar 
+          initials="JD"
+          background-color="#3b82f6"
+          text-color="white"
+          size="medium"
+          alt="John Doe">
+        </elvt-avatar>
         <div style={{flex: 1}}>
           <div style={{fontWeight: '500', fontSize: '0.875rem'}}>John Doe</div>
           <div style={{color: '#6b7280', fontSize: '0.75rem'}}>Lead Developer</div>
@@ -472,9 +390,13 @@ npm install @inform-elevate/elevate-core-ui
       </div>
       
       <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem', borderBottom: '1px solid #f0f0f0'}}>
-        <div style={{width: '40px', height: '40px', borderRadius: '50%', background: '#ec4899', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px', fontWeight: '500'}}>
-          SM
-        </div>
+        <elvt-avatar 
+          initials="SM"
+          background-color="#ec4899"
+          text-color="white"
+          size="medium"
+          alt="Sarah Miller">
+        </elvt-avatar>
         <div style={{flex: 1}}>
           <div style={{fontWeight: '500', fontSize: '0.875rem'}}>Sarah Miller</div>
           <div style={{color: '#6b7280', fontSize: '0.75rem'}}>UX Designer</div>
@@ -483,9 +405,13 @@ npm install @inform-elevate/elevate-core-ui
       </div>
       
       <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem'}}>
-        <div style={{width: '40px', height: '40px', borderRadius: '50%', background: '#10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '14px', fontWeight: '500'}}>
-          MJ
-        </div>
+        <elvt-avatar 
+          initials="MJ"
+          background-color="#10b981"
+          text-color="white"
+          size="medium"
+          alt="Mike Johnson">
+        </elvt-avatar>
         <div style={{flex: 1}}>
           <div style={{fontWeight: '500', fontSize: '0.875rem'}}>Mike Johnson</div>
           <div style={{color: '#6b7280', fontSize: '0.75rem'}}>Product Manager</div>
@@ -522,7 +448,7 @@ npm install @inform-elevate/elevate-core-ui
 
 <ComponentChangelog 
   component="elvt-avatar" 
-  maxVersions={5}
+  maxVersions={10}
   showMetadata={true}
   compactMode={false}
 />

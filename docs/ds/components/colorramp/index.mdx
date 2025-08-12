@@ -1,0 +1,513 @@
+---
+title: ColorRamp
+description: Dynamic color token display component for ELEVATE design system documentation
+sidebar_label: ColorRamp
+---
+
+import ColorRamp from '@site/src/components/ColorRamp';
+
+# ColorRamp Component
+
+A powerful documentation site component for dynamically displaying ELEVATE design system color tokens using flexible pattern matching and customizable templates.
+
+:::info Documentation Site Component
+This is a custom component built specifically for this documentation site. It is **not** part of the ELEVATE Core UI library.
+:::
+
+## Overview
+
+The ColorRamp component automatically discovers and displays color tokens from the ELEVATE design system based on selector patterns. Perfect for creating dynamic color documentation, style guides, and design token exploration tools.
+
+**Key Features:**
+- 🎯 **Smart Pattern Matching** - Use wildcards and flexible selectors
+- 🔄 **Multiple Sorting Methods** - Semantic, brightness, alphabetic, and hue sorting
+- 🎨 **Custom Templates** - Create your own display layouts
+- 📱 **Responsive Design** - Works on all screen sizes
+- 🚀 **Dynamic Discovery** - Automatically finds tokens in CSS
+
+## Basic Usage
+
+### Simple Color Ramp
+
+<ColorRamp 
+  selector="primitives-color-blue-*"
+  title="Blue Color Scale"
+/>
+
+```tsx
+<ColorRamp 
+  selector="primitives-color-blue-*"
+  title="Blue Color Scale"
+/>
+```
+
+### Horizontal Layout
+
+<ColorRamp 
+  selector="primitives-color-*-500"
+  title="Base Colors"
+  orientation="horizontal"
+  template="compact"
+/>
+
+```tsx
+<ColorRamp 
+  selector="primitives-color-*-500"
+  title="Base Colors"
+  orientation="horizontal"
+  template="compact"
+/>
+```
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Required | Description |
+|------|------|---------|----------|-------------|
+| `selector` | `string` | - | ✅ | Pattern to match color tokens (supports wildcards) |
+| `title` | `string` | - | ❌ | Display title for the color ramp |
+| `template` | `'default' \| 'compact' \| 'detailed' \| 'custom' \| 'simple' \| 'badge' \| 'card' \| 'table-row' \| 'accessibility' \| 'swatch-grid'` | `'default'` | ❌ | Display template |
+| `customTemplate` | `string` | - | ❌ | Custom HTML template (when template='custom') |
+| `showVariableName` | `boolean` | `true` | ❌ | Show CSS variable names |
+| `showHexValue` | `boolean` | `false` | ❌ | Show hex/rgb color values |
+| `showDescription` | `boolean` | `false` | ❌ | Show generated token descriptions |
+| `orientation` | `'horizontal' \| 'vertical'` | `'vertical'` | ❌ | Layout direction |
+| `size` | `'small' \| 'medium' \| 'large'` | `'medium'` | ❌ | Token display size |
+| `columns` | `number` | - | ❌ | Override grid column count |
+| `sortBy` | `'semantic' \| 'brightness' \| 'alphabetic' \| 'hue'` | `'semantic'` | ❌ | Sorting method |
+| `groupBy` | `'color' \| 'scale' \| 'none'` | `'none'` | ❌ | Grouping strategy |
+| `includeShades` | `number[]` | - | ❌ | Only show specific shade numbers |
+| `excludeShades` | `number[]` | - | ❌ | Exclude specific shade numbers |
+
+### Selector Patterns
+
+The `selector` prop supports flexible pattern matching:
+
+| Pattern | Matches | Example |
+|---------|---------|---------|
+| `primitives-color-blue-*` | All blue primitives | blue-50, blue-100, blue-500, etc. |
+| `primitives-color-*-500` | All 500-weight colors | blue-500, red-500, green-500, etc. |
+| `*-color-*` | All color tokens | Any color from any category |
+| `component-button-*` | Button-specific colors | button-fill, button-text, etc. |
+
+## Sorting Methods
+
+### Semantic Sort (Default)
+
+<ColorRamp 
+  selector="primitives-color-green-*"
+  title="Green Colors - Semantic Sort"
+  sortBy="semantic"
+  template="compact"
+  includeShades={[100, 300, 500, 700, 900]}
+/>
+
+```tsx
+<ColorRamp 
+  selector="primitives-color-green-*"
+  sortBy="semantic"  // Groups by color, then shade (50→1000)
+/>
+```
+
+### Brightness Sort
+
+<ColorRamp 
+  selector="primitives-color-blue-*"
+  title="Blue Colors - Brightness Sort"
+  sortBy="brightness"
+  template="compact"
+  includeShades={[100, 300, 500, 700, 900]}
+/>
+
+```tsx
+<ColorRamp 
+  selector="primitives-color-blue-*"
+  sortBy="brightness"  // Light to dark by perceived brightness
+/>
+```
+
+### Alphabetic Sort
+
+<ColorRamp 
+  selector="primitives-color-gray-*"
+  title="Gray Colors - Alphabetic Sort"
+  sortBy="alphabetic"
+  template="compact"
+  includeShades={[100, 300, 500, 700, 900]}
+/>
+
+```tsx
+<ColorRamp 
+  selector="primitives-color-gray-*"
+  sortBy="alphabetic"  // Pure CSS variable name sorting
+/>
+```
+
+## Templates
+
+### Default Template
+Standard card layout showing color swatch and token information.
+
+<ColorRamp 
+  selector="primitives-color-red-*"
+  title="Default Template"
+  template="default"
+  includeShades={[200, 400, 600]}
+/>
+
+### Compact Template
+Space-efficient horizontal layout perfect for inline documentation.
+
+<ColorRamp 
+  selector="primitives-color-red-*"
+  title="Compact Template"
+  template="compact"
+  includeShades={[200, 400, 600]}
+/>
+
+### Detailed Template
+Comprehensive view with all available information.
+
+<ColorRamp 
+  selector="primitives-color-red-*"
+  title="Detailed Template"
+  template="detailed"
+  showHexValue={true}
+  showDescription={true}
+  includeShades={[200, 400, 600]}
+/>
+
+## Predefined Templates
+
+Choose from ready-to-use templates stored as reusable files:
+
+### Simple Template
+Minimal display with just the color swatch and shade number.
+
+<ColorRamp 
+  selector="primitives-color-blue-*"
+  title="Simple Template"
+  template="simple"
+  includeShades={[200, 400, 600, 800]}
+/>
+
+```tsx
+<ColorRamp template="simple" selector="primitives-color-blue-*" />
+```
+
+### Badge Template
+Inline badge-style display perfect for lists and inline documentation.
+
+<ColorRamp 
+  selector="primitives-color-*-500"
+  title="Badge Template"
+  template="badge"
+/>
+
+```tsx
+<ColorRamp template="badge" selector="primitives-color-*-500" />
+```
+
+### Card Template
+Detailed card layout with comprehensive token information.
+
+<ColorRamp 
+  selector="primitives-color-green-*"
+  title="Card Template"
+  template="card"
+  includeShades={[300, 500, 700]}
+/>
+
+```tsx
+<ColorRamp template="card" selector="primitives-color-green-*" />
+```
+
+### Accessibility Template
+Focus on contrast and accessibility information.
+
+<ColorRamp 
+  selector="primitives-color-gray-*"
+  title="Accessibility Template"
+  template="accessibility"
+  includeShades={[200, 400, 600, 800]}
+/>
+
+```tsx
+<ColorRamp template="accessibility" selector="primitives-color-gray-*" />
+```
+
+### Swatch Grid Template
+Clean grid layout showing just colors and shade numbers.
+
+<ColorRamp 
+  selector="primitives-color-purple-*"
+  title="Swatch Grid Template"
+  template="swatch-grid"
+  includeShades={[100, 300, 500, 700, 900]}
+/>
+
+```tsx
+<ColorRamp template="swatch-grid" selector="primitives-color-purple-*" />
+```
+
+### Table Row Template
+For creating color token tables (requires custom table wrapper).
+
+<div style={{overflowX: 'auto'}}>
+  <table style={{width: '100%', borderCollapse: 'collapse'}}>
+    <thead>
+      <tr style={{background: '#f8f9fa', borderBottom: '2px solid #dee2e6'}}>
+        <th style={{textAlign: 'left', padding: '0.75rem'}}>Color</th>
+        <th style={{textAlign: 'left', padding: '0.75rem'}}>Name</th>
+        <th style={{textAlign: 'left', padding: '0.75rem'}}>Variable</th>
+        <th style={{textAlign: 'left', padding: '0.75rem'}}>Value</th>
+        <th style={{textAlign: 'left', padding: '0.75rem'}}>Brightness</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ColorRamp 
+        selector="primitives-color-gray-*"
+        template="table-row"
+        includeShades={[200, 400, 600, 800]}
+      />
+    </tbody>
+  </table>
+</div>
+
+```tsx
+<table>
+  <thead>
+    <tr><th>Color</th><th>Name</th><th>Variable</th><th>Value</th><th>Brightness</th></tr>
+  </thead>
+  <tbody>
+    <ColorRamp template="table-row" selector="primitives-color-gray-*" />
+  </tbody>
+</table>
+```
+
+## Custom Templates
+
+Create your own display layouts using HTML templates with variable substitution.
+
+<ColorRamp 
+  selector="primitives-color-red-*"
+  title="Custom Template Example"
+  template="custom"
+  includeShades={[200, 400, 600, 800]}
+  customTemplate={`
+    <div class="color-swatch"></div>
+    <div class="token-info">
+      <div class="token-name">{{name}}</div>
+      <div class="brightness-indicator">Brightness: {{brightness}}</div>
+      <div class="shade-number">Shade: {{shade}}</div>
+    </div>
+  `}
+/>
+
+```tsx
+<ColorRamp 
+  template="custom"
+  customTemplate={`
+    <div class="color-swatch"></div>
+    <div class="token-info">
+      <div class="token-name">{{name}}</div>
+      <div class="brightness-indicator">Brightness: {{brightness}}</div>
+    </div>
+  `}
+/>
+```
+
+### Template Variables
+
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `{{name}}` | Human-readable token name | `"Primitives Color Blue 500"` |
+| `{{variable}}` | CSS variable name | `"--elvt-primitives-color-blue-500"` |
+| `{{value}}` | Color value | `"rgb(0, 114, 255)"` |
+| `{{description}}` | Generated description | `"blue primitive color - medium shade (500)"` |
+| `{{brightness}}` | Brightness value (0-255) | `114` |
+| `{{shade}}` | Shade number | `500` |
+| `{{colorName}}` | Color family name | `"blue"` |
+| `{{index}}` | Token position | `0`, `1`, `2`... |
+
+### Pre-styled CSS Classes
+
+| Class | Purpose |
+|-------|---------|
+| `.color-swatch` | Color preview using `--token-color` |
+| `.token-info` | Information container |
+| `.token-name` | Token display name |
+| `.token-variable` | CSS variable name |
+| `.token-value` | Color value |
+| `.brightness-indicator` | Brightness information |
+| `.shade-number` | Shade number |
+
+## Grouping Options
+
+### Group by Color Family
+
+<ColorRamp 
+  selector="primitives-color-*-*"
+  title="Grouped by Color"
+  groupBy="color"
+  template="compact"
+  includeShades={[200, 500, 800]}
+/>
+
+```tsx
+<ColorRamp 
+  selector="primitives-color-*-*"
+  groupBy="color"
+  includeShades={[200, 500, 800]}
+/>
+```
+
+### Group by Scale
+
+<ColorRamp 
+  selector="primitives-color-*-*"
+  title="Grouped by Scale"
+  groupBy="scale"
+  template="compact"
+  includeShades={[100, 500, 900]}
+/>
+
+```tsx
+<ColorRamp 
+  selector="primitives-color-*-*"
+  groupBy="scale"  // Light, Base, Dark
+  includeShades={[100, 500, 900]}
+/>
+```
+
+## Advanced Examples
+
+### Accessibility Analysis
+
+<ColorRamp 
+  selector="primitives-color-gray-*"
+  title="Gray Scale - Accessibility Analysis"
+  template="custom"
+  showHexValue={true}
+  customTemplate={`
+    <div class="color-swatch"></div>
+    <div class="token-info">
+      <div class="token-name">{{name}}</div>
+      <div class="token-value">{{value}}</div>
+      <div class="brightness-indicator">
+        Brightness: {{brightness}}/255
+        ${parseInt('{{brightness}}') > 127 ? '(Light - Use dark text)' : '(Dark - Use light text)'}
+      </div>
+    </div>
+  `}
+/>
+
+### Developer Reference
+
+<ColorRamp 
+  selector="primitives-color-blue-*"
+  title="Blue Tokens - Developer Reference"
+  template="custom"
+  includeShades={[100, 300, 500, 700, 900]}
+  customTemplate={`
+    <div style="display: flex; align-items: center; gap: 1rem; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 6px;">
+      <div class="color-swatch" style="width: 48px; height: 48px; border-radius: 6px; flex-shrink: 0;"></div>
+      <div style="flex: 1;">
+        <div style="font-weight: 600; margin-bottom: 0.25rem;">{{colorName}}-{{shade}}</div>
+        <code class="token-variable" style="display: block; margin-bottom: 0.25rem;">{{variable}}</code>
+        <code class="token-value">{{value}}</code>
+      </div>
+    </div>
+  `}
+/>
+
+## Usage Guidelines
+
+### Best Practices
+
+1. **Start Broad**: Use `*-color-*` to explore available tokens
+2. **Filter Progressive**: Add specific patterns to narrow results
+3. **Choose Appropriate Sorting**: Use semantic for documentation, brightness for accessibility
+4. **Group for Clarity**: Group by color family when showing multiple colors
+5. **Custom Templates**: Create custom layouts for specific use cases
+
+### Common Patterns
+
+```tsx
+// Explore all available colors
+<ColorRamp selector="*-color-*" />
+
+// Document a specific color family
+<ColorRamp selector="primitives-color-blue-*" sortBy="semantic" />
+
+// Show base colors only
+<ColorRamp selector="primitives-color-*-500" orientation="horizontal" />
+
+// Accessibility analysis
+<ColorRamp selector="primitives-color-gray-*" sortBy="brightness" />
+
+// Component-specific colors
+<ColorRamp selector="component-button-*" showDescription={true} />
+```
+
+## Implementation Details
+
+The ColorRamp component:
+
+1. **Scans CSS Properties**: Dynamically reads all `--elvt-*` custom properties
+2. **Pattern Matching**: Uses regex to match selector patterns against property names  
+3. **Color Detection**: Identifies color values (rgb, hsl, hex) and filters non-colors
+4. **Smart Sorting**: Applies semantic understanding of design token naming conventions
+5. **Template Engine**: Processes custom templates with variable substitution
+6. **Responsive Layout**: Adapts to container width with CSS Grid
+
+Perfect for design system documentation, component showcases, and interactive color exploration!
+
+## Template Management
+
+### Template File Structure
+```
+src/components/ColorRamp/
+├── index.tsx              # Main component
+├── styles.module.css      # Component styles  
+└── templates/             # Template files (for reference)
+    ├── simple.html        # Minimal template
+    ├── badge.html         # Badge-style template
+    ├── card.html          # Detailed card template
+    ├── table-row.html     # Table row template
+    ├── accessibility.html # Accessibility-focused template
+    └── swatch-grid.html   # Grid layout template
+```
+
+### Adding New Templates
+
+To add a new predefined template:
+
+1. **Create Template HTML**: Add your template to `/src/components/ColorRamp/templates/new-template.html`
+2. **Add to Registry**: Update the `templateRegistry` in `index.tsx`:
+   ```typescript
+   const templateRegistry: Record<string, string> = {
+     // ... existing templates
+     'new-template': `<div>Your HTML template with {{variables}}</div>`,
+   };
+   ```
+3. **Update TypeScript**: Add the template name to the `ColorRampProps` interface:
+   ```typescript
+   template?: 'default' | 'compact' | 'detailed' | 'custom' | 'simple' | 'badge' | 'card' | 'table-row' | 'accessibility' | 'swatch-grid' | 'new-template';
+   ```
+4. **Document**: Add examples to this documentation page
+
+### Template Guidelines
+
+- **Use Variables**: Include relevant `{{variable}}` placeholders
+- **CSS Classes**: Leverage pre-styled classes like `.color-swatch`, `.token-info`
+- **Responsive**: Ensure templates work on mobile devices
+- **Semantic HTML**: Use proper HTML structure for accessibility
+- **Test**: Verify with different color sets and grouping options
+
+---
+
+**Component Location**: `/src/components/ColorRamp/`  
+**Templates**: `/src/components/ColorRamp/templates/`  
+**Documentation**: You're viewing it! Visit [http://localhost:3000/docs/ds/components/colorramp](http://localhost:3000/docs/ds/components/colorramp)

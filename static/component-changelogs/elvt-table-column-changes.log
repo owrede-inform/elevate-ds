@@ -1,0 +1,45 @@
+# Changelog Generation Log for elvt-table-column
+# Generated: 2025-08-12T11:45:45.075Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 11
+Included commits: 0
+Excluded commits: 4
+Uncertain commits: 0
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-table-column
+
+INFO: Found 4 total commits from GitHub API
+
+DEBUG: Evaluating commit: "docs: Update Component Status..."
+
+EXCLUDE: "docs: Update Component Status..." (Documentation)
+  → Commit: 24cb112
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "chore: Update Design Tokens..."
+
+EXCLUDE: "chore: Update Design Tokens..." (Generic token update)
+  → Commit: 89c6926
+  → Reason: Generic token update
+  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+
+DEBUG: Evaluating commit: "fix: Export Table Types..."
+
+EXCLUDE: "fix: Export Table Types..." (Table component)
+  → Commit: 8ab9caf
+  → Reason: Table component
+  → Pattern: /table(?!\s+\w*component)/
+
+DEBUG: Evaluating commit: "feat: Add Table Selection..."
+
+EXCLUDE: "feat: Add Table Selection..." (Table component)
+  → Commit: bb8d2fe
+  → Reason: Table component
+  → Pattern: /table(?!\s+\w*component)/
+
+INFO: Filtered from 4 to 0 relevant commits

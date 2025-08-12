@@ -1,0 +1,75 @@
+{
+  "component": "elvt-stack",
+  "version": "0.0.28-alpha",
+  "lastUpdated": "2025-08-12T11:45:40.954Z",
+  "changelog": [
+    {
+      "version": "0.0.26-alpha",
+      "date": "2025-07-16",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "bug-fix",
+          "title": "Increase Default Overlap Indent for Stack, Cleanup Stack Stories",
+          "description": "Fixed increase default overlap indent for stack, cleanup stack stories",
+          "commit": "9c25302",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/9c253020efaea6e75b68e0c4d1e0246ee54622fb"
+        },
+        {
+          "type": "feature",
+          "title": "Add Overlap Direction to Stack Component",
+          "description": "Added add overlap direction to stack component",
+          "commit": "f3bb7ba",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/f3bb7ba97e4c4c28433e23ca32737889df35a189"
+        }
+      ]
+    },
+    {
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add Multi-Column Direction to Stack Component",
+          "description": "Added add multi-column direction to stack component",
+          "commit": "573e50e",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/573e50e909bdf1f3ca177ab6a118aad6e75c2f2e"
+        }
+      ]
+    }
+  ],
+  "deprecations": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
+  "metadata": {
+    "totalVersions": 2,
+    "firstVersion": "0.0.25-alpha",
+    "storyCount": 0,
+    "testCount": 0,
+    "fileCount": 0,
+    "lastCommit": "9c253020efaea6e75b68e0c4d1e0246ee54622fb",
+    "source": "GitHub API",
+    "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
+    "filteredCommits": "3/10"
+  }
+}

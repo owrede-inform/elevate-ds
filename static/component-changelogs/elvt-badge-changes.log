@@ -1,0 +1,170 @@
+# Changelog Generation Log for elvt-badge
+# Generated: 2025-08-12T11:44:49.312Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 47
+Included commits: 5
+Excluded commits: 16
+Uncertain commits: 1
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-badge
+
+INFO: Found 22 total commits from GitHub API
+
+DEBUG: Evaluating commit: "chore: Update Design Tokens..."
+
+EXCLUDE: "chore: Update Design Tokens..." (Generic token update)
+  → Commit: 3692cba
+  → Reason: Generic token update
+  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+
+DEBUG: Evaluating commit: "docs: Update Component Status..."
+
+EXCLUDE: "docs: Update Component Status..." (Documentation)
+  → Commit: 24cb112
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "feat: Style Elevate Switch Component..."
+
+EXCLUDE: "feat: Style Elevate Switch Component..." (Switch component)
+  → Commit: a547458
+  → Reason: Switch component
+  → Pattern: /switch(?!\s+to|\s+from)/
+
+DEBUG: Evaluating commit: "feat: Consolidate and Improve Link Component..."
+
+EXCLUDE: "feat: Consolidate and Improve Link Component..." (Generic consolidation)
+  → Commit: 3e64741
+  → Reason: Generic consolidation
+  → Pattern: /consolidate(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "feat: Add Badge Pulse Animation..."
+
+INCLUDE: "feat: Add Badge Pulse Animation..." (Short component name)
+  → Commit: a454f35
+  → Reason: Short component name
+  → Pattern: /\bbadge\b/i
+
+DEBUG: Evaluating commit: "fix: Export Table Types..."
+
+EXCLUDE: "fix: Export Table Types..." (Table component)
+  → Commit: 8ab9caf
+  → Reason: Table component
+  → Pattern: /table(?!\s+\w*component)/
+
+DEBUG: Evaluating commit: "feat: Console Generic Shape (Box|Pill), Badge is Pill by Default..."
+
+INCLUDE: "feat: Console Generic Shape (Box|Pill), Badge is Pill by Default..." (Short component name)
+  → Commit: 4a99c1a
+  → Reason: Short component name
+  → Pattern: /\bbadge\b/i
+
+DEBUG: Evaluating commit: "refactor!: Replace Severity with Tone..."
+
+EXCLUDE: "refactor!: Replace Severity with Tone..." (Generic refactoring)
+  → Commit: 0d82a85
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
+
+EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+  → Commit: 0921993
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "fix: Update Design Tokens Package and Fix Tokens..."
+
+EXCLUDE: "fix: Update Design Tokens Package and Fix Tokens..." (Generic token update)
+  → Commit: 0ea3b49
+  → Reason: Generic token update
+  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+
+DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
+
+EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+  → Commit: 0b7f502
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "fix: Update Design Tokens, Higher Contrast for Badges/Chips (#115)..."
+
+EXCLUDE: "fix: Update Design Tokens, Higher Contrast for Badges/Chips (#115)..." (Generic token update)
+  → Commit: bfba9a7
+  → Reason: Generic token update
+  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+
+DEBUG: Evaluating commit: "docs: Add Components Status Page..."
+
+EXCLUDE: "docs: Add Components Status Page..." (Documentation)
+  → Commit: daf000f
+  → Reason: Documentation
+  → Pattern: /docs|documentation|readme|changelog/
+
+DEBUG: Evaluating commit: "feat: Elevate Badge (#83)..."
+
+INCLUDE: "feat: Elevate Badge (#83)..." (Short component name)
+  → Commit: ae027cf
+  → Reason: Short component name
+  → Pattern: /\bbadge\b/i
+
+DEBUG: Evaluating commit: "build: Separate CLI Tools and Storybook Addons into own Repositories/Packages..."
+
+EXCLUDE: "build: Separate CLI Tools and Storybook Addons into own Repositories/Packages..." (Build tools/Linting)
+  → Commit: d95c89b
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "refac: Add Shape Enum for both chip and badge..."
+
+INCLUDE: "refac: Add Shape Enum for both chip and badge..." (Short component name)
+  → Commit: 102fd05
+  → Reason: Short component name
+  → Pattern: /\bbadge\b/i
+
+DEBUG: Evaluating commit: "refactor: Consolidate Severity To Variant Mapping..."
+
+EXCLUDE: "refactor: Consolidate Severity To Variant Mapping..." (Generic refactoring)
+  → Commit: 61b6eed
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "refactor: Consolidate and Export Severity Enum..."
+
+EXCLUDE: "refactor: Consolidate and Export Severity Enum..." (Generic refactoring)
+  → Commit: ea1ad10
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "refactor: Consolidate and Export Severity Enum..."
+
+EXCLUDE: "refactor: Consolidate and Export Severity Enum..." (Generic refactoring)
+  → Commit: 51b5cb5
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "fix: Update Annotation and Extensions for Consistency..."
+
+UNCERTAIN: "fix: Update Annotation and Extensions for Consistency..." (No clear component relevance)
+  → Commit: 5e60aef
+  → Reason: No matching patterns
+
+DEBUG: Evaluating commit: "feat: Add Badge Wrapper Component..."
+
+INCLUDE: "feat: Add Badge Wrapper Component..." (Short component name)
+  → Commit: 868fd7d
+  → Reason: Short component name
+  → Pattern: /\bbadge\b/i
+
+INFO: Filtered from 22 to 5 relevant commits

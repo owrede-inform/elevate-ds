@@ -1,0 +1,146 @@
+{
+  "versions": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "cutoff": "2025-08-01"
+    },
+    {
+      "version": "0.0.27-alpha",
+      "date": "2025-08-08",
+      "cutoff": "2025-07-25"
+    },
+    {
+      "version": "0.0.26-alpha",
+      "date": "2025-07-16",
+      "cutoff": "2025-07-01"
+    },
+    {
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
+      "cutoff": "2025-06-01"
+    },
+    {
+      "version": "0.0.24-alpha",
+      "date": "2025-05-15",
+      "cutoff": "2025-05-01"
+    },
+    {
+      "version": "0.0.23-alpha",
+      "date": "2025-04-20",
+      "cutoff": "2025-04-01"
+    },
+    {
+      "version": "0.0.22-alpha",
+      "date": "2025-03-25",
+      "cutoff": "2025-03-01"
+    },
+    {
+      "version": "0.0.21-alpha",
+      "date": "2025-02-28",
+      "cutoff": "2025-02-01"
+    },
+    {
+      "version": "0.0.20-alpha",
+      "date": "2025-01-30",
+      "cutoff": "2025-01-01"
+    },
+    {
+      "version": "0.0.19-alpha",
+      "date": "2024-12-20",
+      "cutoff": "2024-12-01"
+    },
+    {
+      "version": "0.0.18-alpha",
+      "date": "2024-11-25",
+      "cutoff": "2024-11-01"
+    },
+    {
+      "version": "0.0.17-alpha",
+      "date": "2024-10-30",
+      "cutoff": "2024-10-01"
+    },
+    {
+      "version": "0.0.16-alpha",
+      "date": "2024-09-25",
+      "cutoff": "2024-09-01"
+    },
+    {
+      "version": "0.0.15-alpha",
+      "date": "2024-08-30",
+      "cutoff": "2024-08-01"
+    },
+    {
+      "version": "0.0.14-alpha",
+      "date": "2024-07-25",
+      "cutoff": "2024-07-01"
+    },
+    {
+      "version": "0.0.13-alpha",
+      "date": "2024-06-30",
+      "cutoff": "2024-06-01"
+    },
+    {
+      "version": "0.0.12-alpha",
+      "date": "2024-05-25",
+      "cutoff": "2024-05-01"
+    },
+    {
+      "version": "0.0.11-alpha",
+      "date": "2024-04-30",
+      "cutoff": "2024-04-01"
+    },
+    {
+      "version": "0.0.10-alpha",
+      "date": "2024-03-25",
+      "cutoff": "2024-03-01"
+    },
+    {
+      "version": "0.0.9-alpha",
+      "date": "2024-02-28",
+      "cutoff": "2024-02-01"
+    },
+    {
+      "version": "0.0.8-alpha",
+      "date": "2024-01-30",
+      "cutoff": "2024-01-01"
+    },
+    {
+      "version": "0.0.7-alpha",
+      "date": "2023-12-20",
+      "cutoff": "2023-12-01"
+    },
+    {
+      "version": "0.0.6-alpha",
+      "date": "2023-11-25",
+      "cutoff": "2023-11-01"
+    },
+    {
+      "version": "0.0.5-alpha",
+      "date": "2023-10-30",
+      "cutoff": "2023-10-01"
+    },
+    {
+      "version": "0.0.4-alpha",
+      "date": "2023-09-25",
+      "cutoff": "2023-09-01"
+    },
+    {
+      "version": "0.0.3-alpha",
+      "date": "2023-08-30",
+      "cutoff": "2023-08-01"
+    },
+    {
+      "version": "0.0.2-alpha",
+      "date": "2023-07-25",
+      "cutoff": "2023-07-01"
+    },
+    {
+      "version": "0.0.1-alpha",
+      "date": "2023-06-30",
+      "cutoff": "2023-01-01"
+    }
+  ],
+  "defaultCutoffInterval": "monthly",
+  "description": "Version timeline for ELEVATE Core UI components. Versions are determined by release dates and commit cutoff periods."
+}

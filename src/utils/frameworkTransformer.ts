@@ -150,7 +150,7 @@ function parseReactElement(element: unknown): any {
   
   // Handle React elements
   if (typeof type === 'string') {
-    const children = props?.children;
+    const children = (props as any)?.children;
     const parsedChildren = Array.isArray(children) 
       ? children.map(parseReactElement).filter(Boolean)
       : children ? [parseReactElement(children)].filter(Boolean) : [];
@@ -335,8 +335,8 @@ export function extractComponentNames(children: React.ReactNode): string[] {
       }
       
       // Recursively check children
-      if (child.props && 'children' in child.props) {
-        components.push(...extractComponentNames(child.props.children));
+      if (child.props && 'children' in (child.props as object)) {
+        components.push(...extractComponentNames((child.props as any).children));
       }
     }
   });

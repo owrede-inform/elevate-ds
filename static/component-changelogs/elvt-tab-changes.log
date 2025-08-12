@@ -1,0 +1,66 @@
+# Changelog Generation Log for elvt-tab
+# Generated: 2025-08-12T11:45:52.301Z
+# GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
+
+## Summary
+Total log entries: 17
+Included commits: 1
+Excluded commits: 6
+Uncertain commits: 0
+
+## Detailed Log
+
+INFO: Starting changelog generation for elvt-tab
+
+INFO: Found 7 total commits from GitHub API
+
+DEBUG: Evaluating commit: "chore: Update Design Tokens..."
+
+EXCLUDE: "chore: Update Design Tokens..." (Generic token update)
+  → Commit: 08e28c8
+  → Reason: Generic token update
+  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+
+DEBUG: Evaluating commit: "chore: Update Dependencies and Design Tokens..."
+
+EXCLUDE: "chore: Update Dependencies and Design Tokens..." (Dependencies)
+  → Commit: 907aee4
+  → Reason: Dependencies
+  → Pattern: /deps|dependencies|package\.json|yarn|npm/
+
+DEBUG: Evaluating commit: "feat: Adjust Tab, TabPanel and TabGroup Design..."
+
+INCLUDE: "feat: Adjust Tab, TabPanel and TabGroup Design..." (Short component name)
+  → Commit: 1eba9c8
+  → Reason: Short component name
+  → Pattern: /\btab\b/i
+
+DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
+
+EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+  → Commit: 0921993
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
+
+EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+  → Commit: c983425
+  → Reason: Build tools/Linting
+  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+
+DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
+
+EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+  → Commit: 0b7f502
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+DEBUG: Evaluating commit: "refactor: Flatten Components File Structure..."
+
+EXCLUDE: "refactor: Flatten Components File Structure..." (Generic refactoring)
+  → Commit: 36e7dd6
+  → Reason: Generic refactoring
+  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+
+INFO: Filtered from 7 to 1 relevant commits
