@@ -11,7 +11,7 @@ interface ColorToken {
 interface ColorRampProps {
   selector: string;
   title?: string;
-  template?: 'default' | 'compact' | 'detailed' | 'custom' | 'simple' | 'badge' | 'card' | 'table-row' | 'accessibility' | 'swatch-grid';
+  template?: string; // Now accepts any template name with fallback to default
   customTemplate?: string;
   showVariableName?: boolean;
   showHexValue?: boolean;
@@ -212,8 +212,12 @@ const sortTokens = (tokens: ColorToken[], sortBy: string): ColorToken[] => {
   }
 };
 
-// Template registry - predefined templates from HTML files
+// Dynamic template registry with fallback to default
 const templateRegistry: Record<string, string> = {
+  'default': `<div style="display: flex; align-items: center; gap: 0.5rem;">
+  <div class="color-swatch" style="width: 2rem; height: 2rem; border-radius: 50%; flex-shrink: 0;"></div>
+</div>`,
+
   'simple': `<div class="color-swatch" title="{{name}}"></div>
 <div class="token-info">
   <strong>{{shade}}</strong>
@@ -261,6 +265,11 @@ const templateRegistry: Record<string, string> = {
   <div class="color-swatch" style="width: 60px; height: 60px; border-radius: 8px; margin: 0 auto 8px;"></div>
   <div style="font-size: 0.8em;">{{shade}}</div>
 </div>`,
+};
+
+// Template lookup function with fallback
+const getTemplate = (templateName: string): string => {
+  return templateRegistry[templateName] || templateRegistry['default'];
 };
 
 // Micro-template engine with variable substitution
@@ -311,18 +320,14 @@ const renderTemplate = (
   template: string, 
   props: ColorRampProps
 ): JSX.Element => {
-  // Check if it's a predefined template from the registry
-  if (templateRegistry[template]) {
-    return renderCustomTemplate(tokens, templateRegistry[template], props);
-  }
-  
-  // Handle custom template
+  // Handle custom template first
   if (template === 'custom' && props.customTemplate) {
     return renderCustomTemplate(tokens, props.customTemplate, props);
   }
-
-  // Fall back to built-in templates
-  return <div className={styles.defaultTemplate}>{renderDefaultTemplate(tokens, props)}</div>;
+  
+  // Get template from registry (with automatic fallback to default)
+  const templateHtml = getTemplate(template);
+  return renderCustomTemplate(tokens, templateHtml, props);
 };
 
 const renderDefaultTemplate = (tokens: ColorToken[], props: ColorRampProps): JSX.Element[] => {
@@ -464,15 +469,14 @@ const ColorRamp: React.FC<ColorRampProps> = ({
               <h4 className={styles.groupTitle}>{groupName}</h4>
             )}
             <div className={styles.groupTokens}>
-              {template === 'custom' ? 
-                renderTemplate(groupTokens, customTemplate || '', props as ColorRampProps) :
-                renderDefaultTemplate(groupTokens, { 
-                  showVariableName, 
-                  showHexValue, 
-                  showDescription, 
-                  size 
-                } as ColorRampProps)
-              }
+              {renderTemplate(groupTokens, template, { 
+                customTemplate,
+                showVariableName, 
+                showHexValue, 
+                showDescription, 
+                size,
+                template
+              } as ColorRampProps)}
             </div>
           </div>
         ))}
