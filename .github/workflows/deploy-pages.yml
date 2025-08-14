@@ -47,7 +47,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.ELEVATE_DS2 }}
 
       - name: Build Docusaurus site
-        run: npm run build
+        run: npm run build:github
         env:
           NODE_ENV: production
           NODE_OPTIONS: "--max-old-space-size=4096"
