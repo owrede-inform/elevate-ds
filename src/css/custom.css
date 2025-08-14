@@ -487,8 +487,16 @@ a[href^="http"]::after,
 
 /* Hide main navbar menu below 1180px and keep it hidden */
 @media screen and (max-width: 1180px) {
-  .navbar__items--left .navbar__item:not(.navbar__toggle) {
+  /* Hide all left navigation items except the hamburger menu */
+  .navbar__items--left .navbar__item:not(.navbar__toggle),
+  .navbar__items--left .navbar__link,
+  .navbar__items .navbar__item:not(.navbar__toggle):not(.dropdown) {
     display: none !important;
+  }
+  
+  /* Keep the hamburger menu visible */
+  .navbar__toggle {
+    display: flex !important;
   }
 }
 
@@ -500,6 +508,22 @@ a[href^="http"]::after,
   /* Hide "Design System" text on mobile, keep only "ELEVATE" */
   .navbar__title {
     visibility: visible;
+  }
+}
+
+/* Hide INFORM logo in mobile off-canvas menu */
+.navbar-sidebar .navbar__brand .navbar__logo-container,
+.navbar-sidebar__backdrop .navbar__brand .navbar__logo-container,
+[class*="navbarSidebar"] .navbar__brand .navbar__logo-container,
+.menu .navbar__brand .navbar__logo-container {
+  display: none !important;
+}
+
+/* Also hide the logo from any mobile menu variants */
+@media screen and (max-width: 1180px) {
+  .navbar-sidebar .navbar__logo-container,
+  [class*="mobile"] .navbar__logo-container {
+    display: none !important;
   }
 }
 
@@ -1184,6 +1208,11 @@ main *:not(.doc-header-section) {
 /* Increase bottom margin of H1 by 3.5rem */
 .theme-doc-markdown h1:first-child {
   margin-bottom: calc(var(--ifm-h1-margin-bottom, 1rem) + 3.5rem) !important;
+}
+
+/* Hide /docs/ds navbar item */
+.navbar__link[href="/docs/ds"] {
+  display: none !important;
 }
 
 

@@ -47,8 +47,12 @@
       "Bash(where claude)",
       "Bash(dir:*)",
       "WebSearch",
-      "Bash(npm search:*)"
+      "Bash(npm search:*)",
+      "Bash(git commit:*)",
+      "Bash(findstr:*)",
+      "Bash(move:*)"
     ],
-    "deny": []
+    "deny": [],
+    "defaultMode": "acceptEdits"
   }
 }
