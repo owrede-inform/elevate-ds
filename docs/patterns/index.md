@@ -1,5 +1,5 @@
 ---
-title: Patterns
+title: Overview
 description: Common UI patterns, templates, and interaction designs for building consistent user experiences with ELEVATE
 sidebar_position: 1
 ---
