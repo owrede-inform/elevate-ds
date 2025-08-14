@@ -108,8 +108,14 @@ link:
 2. **Remove files safely** - Delete files without crashes or manual cleanup
 3. **Zero maintenance** - No more updating sidebars.ts manually  
 4. **Graceful handling** - Missing files don't break the build
-5. **Flexible ordering** - Use `sidebar_position` to control order
+5. **Intelligent sorting** - Index files first, then alphabetical order
 6. **Custom labels** - Use `sidebar_label` to customize names
+
+### 🎯 Smart Sorting Behavior:
+Our custom sidebar generator provides intelligent sorting:
+1. **Index files first** - `index.mdx`, `index.md`, `index.tsx`, `index.ts`, `index.js` (in that order)
+2. **Alphabetical sorting** - All other files sorted alphabetically by label
+3. **No configuration needed** - Works automatically for all directories
 
 ### ⚠️ What you LOSE:
 1. **Explicit control** - Less granular control over exact sidebar structure

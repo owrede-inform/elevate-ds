@@ -66,6 +66,8 @@ const config: Config = {
           // Configure sidebar behavior for multiple sidebars
           showLastUpdateTime: false,
           showLastUpdateAuthor: false,
+          // Custom sidebar generator for intelligent sorting
+          sidebarItemsGenerator: require('./sidebarGenerator').customSidebarItemsGenerator,
         },
         blog: false, // Blog disabled - moved to sample-data
         theme: {
