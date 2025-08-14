@@ -64,8 +64,21 @@ function sortSidebarItems(items) {
       return isIndexFile(a.id) ? -1 : 1;
     }
     
-    // Both are docs - apply index-first then alphabetical sorting
+    // Both are docs - check for manual sidebar_position first
     if (a.type === 'doc' && b.type === 'doc') {
+      const aPos = a.customProps?.sidebar_position;
+      const bPos = b.customProps?.sidebar_position;
+      
+      // If both have manual positions, sort by position
+      if (aPos !== undefined && bPos !== undefined) {
+        return aPos - bPos;
+      }
+      
+      // If only one has manual position, it takes precedence
+      if (aPos !== undefined && bPos === undefined) return -1;
+      if (aPos === undefined && bPos !== undefined) return 1;
+      
+      // Neither have manual positions - apply automatic sorting
       const aIsIndex = isIndexFile(a.id);
       const bIsIndex = isIndexFile(b.id);
       
