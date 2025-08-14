@@ -62,25 +62,73 @@ const extractColorTokens = (selectorString: string, excludeString?: string): Col
   const selectors = parseSelectors(selectorString);
   const excludePatterns = excludeString ? parseSelectors(excludeString) : [];
   
-  // Get all CSS custom properties from root
+  // Get computed styles from document root
   const computedStyle = getComputedStyle(document.documentElement);
   
-  // Get all CSS custom properties
-  const allCssVars = Array.from(document.styleSheets)
-    .flatMap(sheet => {
+  // Get all available CSS custom properties from computed styles
+  // This is more reliable than parsing stylesheets which might not be accessible
+  const allCssVars = new Set<string>();
+  
+  // Method 1: Read from computed styles of document element
+  for (let i = 0; i < computedStyle.length; i++) {
+    const prop = computedStyle.item(i);
+    if (prop.startsWith('--elvt-')) {
+      allCssVars.add(prop);
+    }
+  }
+  
+  // Method 2: Check for commonly expected ELEVATE token patterns
+  // This helps when computed styles don't expose all properties
+  const commonPatterns = [
+    'primitives-color-blue-', 'primitives-color-red-', 'primitives-color-green-', 
+    'primitives-color-yellow-', 'primitives-color-purple-', 'primitives-color-gray-',
+    'primitives-color-orange-', 'primitives-color-black', 'primitives-color-white',
+    'alias-color-', 'component-'
+  ];
+  
+  const commonShades = ['50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950', '1000'];
+  
+  commonPatterns.forEach(pattern => {
+    if (pattern.endsWith('-')) {
+      // Pattern with shades
+      commonShades.forEach(shade => {
+        const variable = `--elvt-${pattern}${shade}`;
+        const value = computedStyle.getPropertyValue(variable);
+        if (value && value.trim()) {
+          allCssVars.add(variable);
+        }
+      });
+    } else {
+      // Single color pattern (like black, white)
+      const variable = `--elvt-${pattern}`;
+      const value = computedStyle.getPropertyValue(variable);
+      if (value && value.trim()) {
+        allCssVars.add(variable);
+      }
+    }
+  });
+  
+  // Method 3: Try to parse from stylesheets (if accessible)
+  try {
+    Array.from(document.styleSheets).forEach(sheet => {
       try {
-        return Array.from(sheet.cssRules);
-      } catch {
-        return [];
+        Array.from(sheet.cssRules).forEach(rule => {
+          if (rule instanceof CSSStyleRule) {
+            Array.from(rule.style).forEach(prop => {
+              if (prop.startsWith('--elvt-')) {
+                allCssVars.add(prop);
+              }
+            });
+          }
+        });
+      } catch (e) {
+        // Ignore CORS errors or other stylesheet access issues
+        console.debug('Could not access stylesheet:', e);
       }
-    })
-    .flatMap(rule => {
-      if (rule instanceof CSSStyleRule) {
-        return Array.from(rule.style);
-      }
-      return [];
-    })
-    .filter(prop => prop.startsWith('--elvt-'));
+    });
+  } catch (e) {
+    console.debug('Could not access stylesheets:', e);
+  }
 
   // Match tokens against all selectors
   const matchedVars = new Set<string>();
@@ -95,7 +143,7 @@ const extractColorTokens = (selectorString: string, excludeString?: string): Col
     const regex = new RegExp(`^--elvt-${pattern}$`, 'i');
     
     // Add matching properties to set
-    allCssVars
+    Array.from(allCssVars)
       .filter(prop => regex.test(prop))
       .forEach(prop => matchedVars.add(prop));
   });
@@ -107,6 +155,11 @@ const extractColorTokens = (selectorString: string, excludeString?: string): Col
   
   uniqueVars.forEach(variable => {
     const value = computedStyle.getPropertyValue(variable).trim();
+    
+    // Debug log to see what values we're getting
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`ColorRamp token: ${variable} = "${value}"`);
+    }
     
     // Only include color values (rgb, hsl, hex, or color names)
     if (value && (
@@ -126,6 +179,11 @@ const extractColorTokens = (selectorString: string, excludeString?: string): Col
         value,
         description: generateDescription(variable, value)
       });
+    } else if (!value) {
+      // Log missing values for debugging
+      if (process.env.NODE_ENV === 'development') {
+        console.warn(`ColorRamp: No value found for ${variable}`);
+      }
     }
   });
 
@@ -452,6 +510,36 @@ const ColorRamp: React.FC<ColorRampProps> = ({
   ...props
 }) => {
   const tokens = useMemo(() => {
+    // Small delay to ensure ELEVATE CSS is fully loaded
+    const ensureElevateLoaded = () => {
+      const testTokens = [
+        '--elvt-primitives-color-blue-500',
+        '--elvt-primitives-color-gray-500',
+        '--elvt-primitives-color-green-500'
+      ];
+      
+      const computedStyle = getComputedStyle(document.documentElement);
+      const loadedCount = testTokens.filter(token => 
+        computedStyle.getPropertyValue(token).trim()
+      ).length;
+      
+      if (process.env.NODE_ENV === 'development') {
+        console.log(`ColorRamp: ELEVATE tokens loaded: ${loadedCount}/${testTokens.length}`);
+      }
+      
+      return loadedCount > 0;
+    };
+    
+    // Check if ELEVATE is loaded, if not, try again after a short delay
+    if (!ensureElevateLoaded()) {
+      setTimeout(() => {
+        // Force re-render by updating a dummy state if needed
+        if (process.env.NODE_ENV === 'development') {
+          console.warn('ColorRamp: ELEVATE tokens not found, retrying...');
+        }
+      }, 100);
+    }
+    
     let extractedTokens = extractColorTokens(selector, props.exclude);
     
     // Filter by include/exclude shades
@@ -469,6 +557,10 @@ const ColorRamp: React.FC<ColorRampProps> = ({
     
     // Sort tokens using the new sorting system
     extractedTokens = sortTokens(extractedTokens, sortBy);
+    
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`ColorRamp: Found ${extractedTokens.length} tokens for selector "${selector}"`);
+    }
     
     return extractedTokens;
   }, [selector, props.exclude, includeShades, excludeShades, sortBy]);
