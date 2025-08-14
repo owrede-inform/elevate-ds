@@ -1,4 +1,9 @@
-# Documentation Site (DS) Components
+---
+title: Documentation Components
+unlisted: true
+---
+
+# Documentation Components
 
 This section documents custom components, tools, and utilities built specifically for this ELEVATE Design System documentation site. These are **not** part of the ELEVATE Core UI library, but are custom React components created to enhance the documentation experience.
 
