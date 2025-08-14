@@ -493,15 +493,18 @@ a[href^="http"]::after,
   }
 }
 
-/* Hide main navbar menu only when sidebar is hidden (matches Docusaurus breakpoint) */
-@media screen and (max-width: 996px) {
+/* Hide main navbar menu between tablet and desktop breakpoints */
+@media screen and (max-width: 1179px) {
   /* Hide all left navigation items except the hamburger menu */
   .navbar__items--left .navbar__item:not(.navbar__toggle),
   .navbar__items--left .navbar__link,
   .navbar__items .navbar__item:not(.navbar__toggle):not(.dropdown) {
     display: none !important;
   }
-  
+}
+
+/* Show hamburger menu only when sidebar is hidden (matches Docusaurus breakpoint) */
+@media screen and (max-width: 996px) {
   /* Keep the hamburger menu visible */
   .navbar__toggle {
     display: flex !important;
