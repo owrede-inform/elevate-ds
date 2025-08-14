@@ -1,0 +1,7 @@
+label: Design
+position: 5
+collapsible: true
+collapsed: false
+link:
+  type: doc
+  id: design/index

@@ -88,16 +88,17 @@ sidebar_position: 1    # Controls order (lower = earlier)
 Your content here...
 ```
 
-### Step 3: Use _category_.json for directory metadata (optional)
+### Step 3: Use _category_.yml for directory metadata (optional)
 
-Create `docs/patterns/_category_.json`:
-```json
-{
-  "label": "Patterns",
-  "position": 4,
-  "collapsible": true,
-  "collapsed": false
-}
+Create `docs/patterns/_category_.yml`:
+```yaml
+label: Patterns
+position: 4
+collapsible: true
+collapsed: false
+link:
+  type: doc
+  id: patterns/index
 ```
 
 ## Benefits of Autogeneration
