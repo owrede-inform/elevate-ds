@@ -22,7 +22,8 @@ node_modules
 
 # Code Tools
 .claude
-CLAUDE.md
+!.claude/docs/
+!CLAUDE.md
 PACKAGE-DEPENDENCY-GUIDE.md
 THEME-DEVELOPMENT.md
 THEME.md
