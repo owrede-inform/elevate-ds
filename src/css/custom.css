@@ -214,7 +214,7 @@
   border-left: 4px solid var(--ifm-color-primary-lightest);
 }
 
-/* Code blocks - Roboto Mono with 0.85rem font size */
+/* Code blocks - Roboto Mono with 0.85rem font size and proper wrapping */
 .theme-code-block,
 .prism-code,
 pre,
@@ -224,6 +224,14 @@ code[class*="language-"],
 pre[class*="language-"] {
   font-family: "RobotoMono", "Roboto Mono", Consolas, "Liberation Mono", Menlo, monospace !important;
   font-size: 0.85rem !important;
+  /* Enable word wrapping for better mobile experience */
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  /* Ensure horizontal scrolling doesn't break layout */
+  overflow-x: auto !important;
+  max-width: 100% !important;
 }
 
 /* Inline code */
@@ -1214,6 +1222,36 @@ main *:not(.doc-header-section) {
 .navbar__link[href="/docs/ds"],
 .navbar__link[href="/elevate-ds/docs/ds"] {
   display: none !important;
+}
+
+/* Enhanced code block responsiveness for mobile devices */
+@media screen and (max-width: 768px) {
+  .theme-code-block,
+  .prism-code,
+  pre,
+  .markdown pre,
+  .theme-doc-markdown pre,
+  code[class*="language-"],
+  pre[class*="language-"] {
+    /* More aggressive wrapping on mobile */
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+    overflow-wrap: anywhere !important;
+    /* Reduce padding on mobile for more content space */
+    padding: 0.75rem !important;
+    /* Ensure code blocks don't overflow containers */
+    max-width: calc(100vw - 2rem) !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Ensure code containers don't overflow */
+  .theme-code-block-highlighted-line,
+  .code-block-error-line,
+  .code-block-added-line,
+  .code-block-removed-line {
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+  }
 }
 
 
