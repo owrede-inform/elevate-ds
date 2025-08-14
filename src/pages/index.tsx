@@ -11,14 +11,14 @@ export default function Home(): ReactNode {
   const heroActions = [
     { 
       label: 'Get Started', 
-      href: useBaseUrl('/docs/home/overview'), 
+      href: useBaseUrl('/docs/home'), 
       tone: 'primary' as const,
       size: 'large' as const
     },
     { 
       label: 'View Components', 
       href: useBaseUrl('/docs/components'), 
-      tone: 'neutral' as const,
+      tone: 'subtle' as const,
       size: 'large' as const
     },
     { 

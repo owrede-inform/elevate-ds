@@ -46,9 +46,9 @@
 
 /* ELEVATE button styling integration */
 .buttons elvt-button {
-  --elvt-button-height: var(--sl-input-height-large, 3.125rem);
-  --elvt-button-font-size: var(--elvt-type-alias-default-content-m-font-size, 1rem);
-  --elvt-button-padding: var(--sl-spacing-medium, 1rem) var(--sl-spacing-x-large, 1.75rem);
+  /* Note: ELEVATE buttons use internal component tokens that aren't exposed as --elvt-components-button-* */
+  /* The component handles its own styling through internal design tokens */
+  min-width: 140px;
 }
 
 /* Responsive design */
