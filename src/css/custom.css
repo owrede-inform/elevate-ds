@@ -1210,8 +1210,9 @@ main *:not(.doc-header-section) {
   margin-bottom: calc(var(--ifm-h1-margin-bottom, 1rem) + 3.5rem) !important;
 }
 
-/* Hide /docs/ds navbar item */
-.navbar__link[href="/docs/ds"] {
+/* Hide /docs/ds navbar item (works for both local and GitHub Pages) */
+.navbar__link[href="/docs/ds"],
+.navbar__link[href="/elevate-ds/docs/ds"] {
   display: none !important;
 }
 
