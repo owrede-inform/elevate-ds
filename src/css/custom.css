@@ -1207,8 +1207,8 @@ main .theme-doc-markdown,
   background-color: transparent !important;
 }
 
-/* Target all elements within the header area specifically */
-main *:not(.doc-header-section) {
+/* Target all elements within the header area specifically, but exclude color swatches */
+main *:not(.doc-header-section):not(.color-swatch) {
   background: transparent !important;
   background-color: transparent !important;
 }
