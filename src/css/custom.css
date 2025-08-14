@@ -493,8 +493,8 @@ a[href^="http"]::after,
   }
 }
 
-/* Hide main navbar menu below 1180px and keep it hidden */
-@media screen and (max-width: 1180px) {
+/* Hide main navbar menu only when sidebar is hidden (matches Docusaurus breakpoint) */
+@media screen and (max-width: 996px) {
   /* Hide all left navigation items except the hamburger menu */
   .navbar__items--left .navbar__item:not(.navbar__toggle),
   .navbar__items--left .navbar__link,
@@ -528,7 +528,7 @@ a[href^="http"]::after,
 }
 
 /* Also hide the logo from any mobile menu variants */
-@media screen and (max-width: 1180px) {
+@media screen and (max-width: 996px) {
   .navbar-sidebar .navbar__logo-container,
   [class*="mobile"] .navbar__logo-container {
     display: none !important;
