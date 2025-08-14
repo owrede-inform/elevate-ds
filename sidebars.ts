@@ -119,6 +119,7 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'patterns/index',
+        'patterns/appshell',
         'patterns/card-layouts',
         'patterns/data-tables', 
         'patterns/primary-navigation',
