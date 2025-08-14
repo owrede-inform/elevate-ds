@@ -88,10 +88,10 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/elevate-social-card.jpg',
     
-    // Table of contents configuration
+    // Table of contents configuration - Disabled to use custom TocLinks component
     tableOfContents: {
-      minHeadingLevel: 2,
-      maxHeadingLevel: 2,
+      minHeadingLevel: 6,
+      maxHeadingLevel: 6,
     },
     
     // Theme metadata
@@ -143,7 +143,6 @@ const config: Config = {
           position: 'left',
           label: 'DS Components',
         },
-        {to: 'blog', label: 'Updates', position: 'left'},
         {
           href: 'https://github.com/inform-elevate/',
           label: 'GitHub',

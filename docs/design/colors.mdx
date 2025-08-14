@@ -4,6 +4,8 @@ description: Comprehensive color palette including brand colors, semantic colors
 sidebar_position: 2
 ---
 
+import ColorRamp from '@site/src/components/ColorRamp';
+
 # Color System
 
 The ELEVATE color system provides a comprehensive palette designed for accessibility, consistency, and brand expression. Our systematic approach ensures beautiful, functional interfaces across all INFORM products.
@@ -22,26 +24,11 @@ The ELEVATE color system provides a comprehensive palette designed for accessibi
 - **Neutral Colors** - For text, backgrounds, and interface structure
 - **Brand Colors** - For logos, marketing, and brand moments
 
-## Primary Color Palette
+## Primary Color
 
-### INFORM Blue
-Our primary brand color, used for key actions and brand expression.
+<ColorRamp template="default-with-title" title="Blue" selector="primitives-color-blue-*" />
 
-```css
-/* Primary Blue Scale */
---elvt-primitives-color-blue-50: #eff6ff;   /* Light backgrounds */
---elvt-primitives-color-blue-100: #dbeafe;  /* Subtle highlights */
---elvt-primitives-color-blue-200: #bfdbfe;  /* Disabled states */
---elvt-primitives-color-blue-300: #93c5fd;  /* Borders, accents */
---elvt-primitives-color-blue-400: #60a5fa;  /* Secondary actions */
---elvt-primitives-color-blue-500: #0072ff;  /* Primary brand */
---elvt-primitives-color-blue-600: #0b5cdf;  /* Hover states */
---elvt-primitives-color-blue-700: #1b50a6;  /* Active states */
---elvt-primitives-color-blue-800: #234275;  /* Text on light */
---elvt-primitives-color-blue-900: #1e3a5f;  /* Dark text */
-```
-
-### Usage Examples
+#### Usage Examples
 - **Primary Actions** - Blue 500 for buttons, links, CTAs
 - **Hover States** - Blue 600 for interactive feedback
 - **Focus States** - Blue 500 for accessibility indicators
@@ -49,72 +36,21 @@ Our primary brand color, used for key actions and brand expression.
 
 ## Semantic Color Palette
 
+### Neutral Colors
+<ColorRamp template="default-with-title" title="Gray" selector="primitives-color-gray-*" exclude="primitives-color-gray-0" />
+Used for elements that do not need to grab attention or convey a certain information.
+
 ### Success Colors
+<ColorRamp template="default" title="Green" selector="primitives-color-green-*" />
 Used for positive feedback, confirmations, and successful states.
 
-```css
-/* Success Green Scale */
---elvt-primitives-color-green-50: #f0fdf4;   /* Success backgrounds */
---elvt-primitives-color-green-100: #dcfce7;  /* Light success */
---elvt-primitives-color-green-500: #22c55e;  /* Success actions */
---elvt-primitives-color-green-600: #16a34a;  /* Success hover */
---elvt-primitives-color-green-700: #15803d;  /* Success active */
-```
-
 ### Warning Colors
+<ColorRamp template="default" title="Orange" selector="primitives-color-orange-*" />
 For cautions, important notices, and attention-grabbing elements.
 
-```css
-/* Warning Orange Scale */
---elvt-primitives-color-orange-50: #fff7ed;   /* Warning backgrounds */
---elvt-primitives-color-orange-100: #ffedd5;  /* Light warnings */
---elvt-primitives-color-orange-500: #f97316;  /* Warning actions */
---elvt-primitives-color-orange-600: #ea580c;  /* Warning hover */
---elvt-primitives-color-orange-700: #c2410c;  /* Warning active */
-```
-
 ### Error Colors
+<ColorRamp template="default" title="Orange" selector="primitives-color-red-*" />
 For errors, destructive actions, and critical alerts.
-
-```css
-/* Error Red Scale */
---elvt-primitives-color-red-50: #fef2f2;     /* Error backgrounds */
---elvt-primitives-color-red-100: #fee2e2;    /* Light errors */
---elvt-primitives-color-red-500: #ef4444;    /* Error actions */
---elvt-primitives-color-red-600: #dc2626;    /* Error hover */
---elvt-primitives-color-red-700: #b91c1c;    /* Error active */
-```
-
-### Information Colors
-For informational messages, tips, and neutral communication.
-
-```css
-/* Info Blue Scale (lighter than primary) */
---elvt-primitives-color-sky-50: #f0f9ff;     /* Info backgrounds */
---elvt-primitives-color-sky-100: #e0f2fe;    /* Light info */
---elvt-primitives-color-sky-500: #0ea5e9;    /* Info actions */
---elvt-primitives-color-sky-600: #0284c7;    /* Info hover */
---elvt-primitives-color-sky-700: #0369a1;    /* Info active */
-```
-
-## Neutral Color Palette
-
-### Gray Scale
-Primary neutral colors for text, backgrounds, and interface elements.
-
-```css
-/* Neutral Gray Scale */
---elvt-primitives-color-gray-50: #f9fafb;    /* Lightest backgrounds */
---elvt-primitives-color-gray-100: #f3f4f6;   /* Light backgrounds */
---elvt-primitives-color-gray-200: #e5e7eb;   /* Subtle borders */
---elvt-primitives-color-gray-300: #d1d5db;   /* Light borders */
---elvt-primitives-color-gray-400: #9ca3af;   /* Placeholder text */
---elvt-primitives-color-gray-500: #6b7280;   /* Secondary text */
---elvt-primitives-color-gray-600: #4b5563;   /* Primary text (light) */
---elvt-primitives-color-gray-700: #374151;   /* Headings */
---elvt-primitives-color-gray-800: #1f2937;   /* Dark text */
---elvt-primitives-color-gray-900: #111827;   /* Darkest text */
-```
 
 ### Pure Colors
 Absolute black and white for maximum contrast and special cases.

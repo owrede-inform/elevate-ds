@@ -1,8 +1,25 @@
 {
   "component": "elvt-progress",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-12T11:45:31.510Z",
+  "lastUpdated": "2025-08-13T18:14:58.310Z",
   "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Adjust Progress Design",
+          "description": "Added adjust progress design",
+          "commit": "bc93eb0",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "nwester-inform",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/bc93eb027a439b664423671d018cce5813751242"
+        }
+      ]
+    },
     {
       "version": "0.0.25-alpha",
       "date": "2025-06-15",
@@ -52,14 +69,14 @@
     }
   ],
   "metadata": {
-    "totalVersions": 2,
+    "totalVersions": 3,
     "firstVersion": "0.0.23-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "e8fd1493fcc9a16c8bb6c0f5c87ee8c677b12909",
+    "lastCommit": "bc93eb027a439b664423671d018cce5813751242",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "2/13"
+    "filteredCommits": "3/14"
   }
 }

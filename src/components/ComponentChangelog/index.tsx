@@ -112,8 +112,8 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = ({
 
   const getChangeTypeIcon = (type: ChangelogEntry['type']) => {
     switch (type) {
-      case 'feature': return '✨';
-      case 'bug-fix': return '🐛';
+      case 'feature': return '➕';
+      case 'bug-fix': return '🪲';
       case 'breaking-change': return '💥';
       case 'improvement': return '🔧';
       case 'deprecation': return '⚠️';
@@ -231,7 +231,6 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = ({
                       
                       <div className={styles.changeContent}>
                         <h5 className={styles.changeTitle}>{change.title}</h5>
-                        <p className={styles.changeDescription}>{change.description}</p>
                         
                         <div className={styles.changeFooter}>
                           <span className={styles.commitLink}>

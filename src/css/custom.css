@@ -483,11 +483,12 @@ a[href^="http"]::after,
   .navbar__title {
     font-size: 1rem;
   }
-  
-  /* Hide navbar items on mobile (they'll show in mobile menu instead) */
-  .navbar__items--left .navbar__item:not(.navbar__toggle),
-  .navbar__items--right .navbar__item:not(.navbar__toggle):not([class*="colorModeToggle"]) {
-    display: none;
+}
+
+/* Hide main navbar menu below 1180px and keep it hidden */
+@media screen and (max-width: 1180px) {
+  .navbar__items--left .navbar__item:not(.navbar__toggle) {
+    display: none !important;
   }
 }
 
@@ -1050,6 +1051,78 @@ elvt-card h1, elvt-card h2, elvt-card h3, elvt-card h4, elvt-card h5, elvt-card 
   line-height: 1.4;
 }
 
+/* Hide the Docusaurus TOC column completely */
+.theme-doc-toc-desktop,
+.table-of-contents,
+.theme-doc-toc-mobile,
+[class*="tableOfContents"],
+[class*="tocCollapsible"] {
+  display: none !important;
+}
+
+/* Hide the entire TOC column div */
+.col.col--3:has([class*="tableOfContents"]),
+.col.col--3:has(.theme-doc-toc-desktop),
+.row > .col:last-child:has([class*="tableOfContents"]) {
+  display: none !important;
+}
+
+/* Alternative selector for browsers that don't support :has() */
+.row > .col:last-child {
+  display: none !important;
+}
+
+/* Show the last column only if it doesn't contain TOC */
+.row > .col:last-child:not(:has([class*="tableOfContents"])):not(:has(.theme-doc-toc-desktop)) {
+  display: block !important;
+}
+
+/* Fallback: Hide col--3 specifically */
+.col--3 {
+  display: none !important;
+}
+
+/* Expand the main content column to take full width */
+.row > .col:first-child,
+.row > .col:not(:last-child) {
+  flex: 1 !important;
+  max-width: 100% !important;
+}
+
+/* Expand the main content area to use the full width */
+.main-wrapper .container {
+  max-width: none !important;
+}
+
+.main-wrapper .row {
+  --ifm-col-width: 100% !important;
+}
+
+/* Ensure the content area takes full width without TOC */
+.theme-doc-markdown {
+  max-width: none !important;
+}
+
+/* Remove the TOC column grid layout */
+@media (min-width: 997px) {
+  .theme-doc-markdown.markdown {
+    max-width: none !important;
+    width: 100% !important;
+  }
+  
+  /* Target the row div - remove max-width and add left margin */
+  .row {
+    max-width: none !important;
+    margin-left: 3rem !important;
+  }
+  
+  /* Remove TOC spacing calculations */
+  .theme-doc-markdown {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
 /* Specific fixes for different heading levels in ELEVATE cards */
 elvt-card h1 { font-size: 1.75rem; }
 elvt-card h2 { font-size: 1.5rem; }
@@ -1058,11 +1131,59 @@ elvt-card h4 { font-size: 1.125rem; }
 elvt-card h5 { font-size: 1rem; }
 elvt-card h6 { font-size: 0.875rem; }
 
-/* Clean responsive navigation - hide main navbar items below 1180px until burger menu appears */
-@media (max-width: 1180px) and (min-width: 768px) {
-  /* Hide left-side navigation items using correct Docusaurus class structure */
-  .navbar__items:not(.navbar__items--right) .navbar__item {
-    display: none;
-  }
+/* Header customizations removed - back to Docusaurus default */
+
+/* Visual header background - behind main element, spans full width */
+main {
+  position: relative;
+  z-index: 1;
 }
+
+main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 12rem; /* Fixed height for header area */
+  background: var(--ifm-color-emphasis-100);
+  z-index: -1;
+}
+
+[data-theme='dark'] main::before {
+  background: var(--elvt-primitives-color-gray-800, #3d4253);
+}
+
+/* Remove ALL background fills from content area so header background shows through */
+.theme-doc-markdown,
+.theme-doc-markdown.markdown,
+article,
+.theme-doc-breadcrumbs,
+.container,
+.row,
+.col,
+.col > div,
+main > div,
+main > .container,
+main > .row,
+main .theme-doc-markdown,
+.main-wrapper,
+.theme-doc-sidebar-container + div,
+[class*="docMainContainer"],
+[class*="docItemWrapper"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Target all elements within the header area specifically */
+main *:not(.doc-header-section) {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Increase bottom margin of H1 by 3.5rem */
+.theme-doc-markdown h1:first-child {
+  margin-bottom: calc(var(--ifm-h1-margin-bottom, 1rem) + 3.5rem) !important;
+}
+
 

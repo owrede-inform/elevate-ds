@@ -1,8 +1,25 @@
 {
   "component": "elvt-paginator",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-12T11:45:27.798Z",
+  "lastUpdated": "2025-08-13T18:14:54.702Z",
   "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Adjust Paginator Design",
+          "description": "Added adjust paginator design",
+          "commit": "16fd609",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "nwester-inform",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/16fd6095aaa7369497201297e1e01b1396cebc56"
+        }
+      ]
+    },
     {
       "version": "0.0.23-alpha",
       "date": "2025-04-20",
@@ -35,14 +52,14 @@
     }
   ],
   "metadata": {
-    "totalVersions": 1,
+    "totalVersions": 2,
     "firstVersion": "0.0.23-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "f2bed935cb7afaeb11224c3f05563820c8c4b98a",
+    "lastCommit": "16fd6095aaa7369497201297e1e01b1396cebc56",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "1/15"
+    "filteredCommits": "2/16"
   }
 }

@@ -256,12 +256,14 @@
 }
 
 /* Custom template utility classes */
-.customTemplateItem .color-swatch {
+.customTemplateItem .color-swatch,
+.color-swatch {
   background-color: var(--token-color);
   display: block;
   width: 100%;
   height: 4rem;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--sl-border-radius-small, 0.1875rem);
 }
 
 .customTemplateItem .token-info {

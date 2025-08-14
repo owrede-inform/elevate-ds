@@ -1,10 +1,10 @@
 # Changelog Generation Log for elvt-paginator
-# Generated: 2025-08-12T11:45:27.801Z
+# Generated: 2025-08-13T18:14:54.705Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
-Total log entries: 33
-Included commits: 1
+Total log entries: 35
+Included commits: 2
 Excluded commits: 9
 Uncertain commits: 5
 
@@ -12,7 +12,14 @@ Uncertain commits: 5
 
 INFO: Starting changelog generation for elvt-paginator
 
-INFO: Found 15 total commits from GitHub API
+INFO: Found 16 total commits from GitHub API
+
+DEBUG: Evaluating commit: "feat: Adjust Paginator Design..."
+
+INCLUDE: "feat: Adjust Paginator Design..." (Short component name)
+  → Commit: 16fd609
+  → Reason: Short component name
+  → Pattern: /\bpaginator\b/i
 
 DEBUG: Evaluating commit: "feat: Support Form Reset and Basic Validation (Required)..."
 
@@ -114,4 +121,4 @@ INCLUDE: "Add Paginator Component (#53)..." (Short component name)
   → Reason: Short component name
   → Pattern: /\bpaginator\b/i
 
-INFO: Filtered from 15 to 1 relevant commits
+INFO: Filtered from 16 to 2 relevant commits

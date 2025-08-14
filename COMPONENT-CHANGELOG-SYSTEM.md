@@ -14,13 +14,13 @@ The changelog system consists of three main components:
 
 ### Quick Setup
 
-1. **Run the generation script** (from elevate-core-ui repository):
+1. **Run the generation script** (from elevate-ds repository):
 ```powershell
 # One-time setup
-.\generate-component-changelog-json.ps1 -ElevateCoreUIPath "." -ElevateDocsPath "C:\path\to\elevate-ds"
+.\scripts\generate-component-changelog-json.ps1 -ElevateCoreUIPath "C:\path\to\elevate-core-ui" -ElevateDocsPath "."
 
 # Regular updates (on release)
-.\generate-component-changelog-json.ps1 -ElevateCoreUIPath "." -ElevateDocsPath "C:\path\to\elevate-ds" -UpdateExisting
+.\scripts\generate-component-changelog-json.ps1 -ElevateCoreUIPath "C:\path\to\elevate-core-ui" -ElevateDocsPath "." -UpdateExisting
 ```
 
 2. **The script generates JSON files** in the static directory:
@@ -101,7 +101,7 @@ jobs:
       
       - name: Generate Component Changelogs
         run: |
-          .\generate-component-changelog-json.ps1 `
+          .\scripts\generate-component-changelog-json.ps1 `
             -ElevateCoreUIPath "." `
             -ElevateDocsPath "${{ secrets.ELEVATE_DOCS_PATH }}" `
             -UpdateExisting
@@ -177,7 +177,7 @@ Component documentation content...
 ELEVATE Core UI Repository
 ├── src/components/button/...
 ├── CHANGELOG.md (global)
-├── generate-component-changelog-json.ps1 ✅
+├── scripts/generate-component-changelog-json.ps1 ✅
 └── Git History
 
     ↓ (Automated Script)

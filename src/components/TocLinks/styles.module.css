@@ -1,0 +1,93 @@
+/* TocLinks Component Styles */
+.tocColumns {
+  columns: 2;
+  column-gap: 2rem;
+  column-fill: balance;
+  margin: 2rem 0;
+  max-width: 36.25rem;
+}
+
+.tocLink {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.375rem 0;
+  color: var(--ifm-color-content);
+  text-decoration: none;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  border-radius: 4px;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.tocIcon {
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+  font-size: 1.25rem;
+  color: var(--ifm-color-emphasis-600);
+  transition: color 0.2s ease;
+}
+
+.tocText {
+  flex: 1;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.tocLink:hover {
+  color: var(--ifm-link-color);
+  text-decoration: none;
+  background: var(--ifm-color-emphasis-100);
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.tocLink:hover .tocIcon {
+  color: var(--ifm-link-color);
+}
+
+.tocLink:active {
+  color: var(--ifm-color-primary-dark);
+}
+
+/* Dark theme support */
+
+[data-theme='dark'] .tocLink {
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
+}
+
+[data-theme='dark'] .tocIcon {
+  color: var(--elvt-alias-content-text-secondary, #a3aab4);
+}
+
+[data-theme='dark'] .tocLink:hover {
+  color: var(--elvt-primitives-color-blue-300, #5facff);
+  background: var(--elvt-primitives-color-gray-800, #3d4253);
+}
+
+[data-theme='dark'] .tocLink:hover .tocIcon {
+  color: var(--elvt-primitives-color-blue-300, #5facff);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tocColumns {
+    columns: 1;
+  }
+  
+  .tocContainer {
+    margin: 1.5rem 0;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tocLink {
+    font-size: 0.85rem;
+    padding: 0.375rem 0;
+  }
+}

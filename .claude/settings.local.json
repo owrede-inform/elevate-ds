@@ -38,7 +38,16 @@
       "Bash(mv:*)",
       "Bash(npm run typecheck:*)",
       "Bash(del \"C:\\Users\\owrede\\WebstormProjects\\elevate-ds\\docs\\components\\color-ramp\\index.mdx\")",
-      "Bash(echo:*)"
+      "Bash(echo:*)",
+      "Bash(del \"C:\\Users\\owrede\\WebstormProjects\\elevate-ds\\src\\components\\ColorRamp\\html.d.ts\")",
+      "Bash(del \"C:\\Users\\owrede\\WebstormProjects\\elevate-ds\\src\\components\\ColorRamp\\templates\\*.html\")",
+      "Bash(del *.html)",
+      "Bash(npm run swizzle:*)",
+      "WebFetch(domain:www.figma.com)",
+      "Bash(where claude)",
+      "Bash(dir:*)",
+      "WebSearch",
+      "Bash(npm search:*)"
     ],
     "deny": []
   }

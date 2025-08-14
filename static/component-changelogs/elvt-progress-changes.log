@@ -1,10 +1,10 @@
 # Changelog Generation Log for elvt-progress
-# Generated: 2025-08-12T11:45:31.512Z
+# Generated: 2025-08-13T18:14:58.313Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
-Total log entries: 29
-Included commits: 2
+Total log entries: 31
+Included commits: 3
 Excluded commits: 6
 Uncertain commits: 5
 
@@ -12,7 +12,14 @@ Uncertain commits: 5
 
 INFO: Starting changelog generation for elvt-progress
 
-INFO: Found 13 total commits from GitHub API
+INFO: Found 14 total commits from GitHub API
+
+DEBUG: Evaluating commit: "feat: Adjust Progress Design..."
+
+INCLUDE: "feat: Adjust Progress Design..." (Short component name)
+  → Commit: bc93eb0
+  → Reason: Short component name
+  → Pattern: /\bprogress\b/i
 
 DEBUG: Evaluating commit: "feat: Adjust Button Design, Remove Shoelace Button..."
 
@@ -100,4 +107,4 @@ UNCERTAIN: "feat: Skeleton Component Wrapper (#65)..." (No clear component relev
   → Commit: 1cd3fc7
   → Reason: No matching patterns
 
-INFO: Filtered from 13 to 2 relevant commits
+INFO: Filtered from 14 to 3 relevant commits

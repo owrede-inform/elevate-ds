@@ -105,7 +105,7 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  padding: 0.5rem;
+  padding: 0.75rem;
   min-height: 1rem;
   cursor: pointer;
   background: var(--ifm-color-emphasis-50);
@@ -186,7 +186,7 @@
 
 /* Changes - Clean List Without Separators */
 .changes {
-  padding: 1.5rem;
+  padding: 0rem;
   background: var(--ifm-background-surface-color);
 }
 
@@ -194,7 +194,7 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 1rem;
-  padding: 1.5rem;
+  padding: 0.75rem;
   margin-bottom: 0;
   border-left: none;
   background: transparent;
@@ -204,7 +204,7 @@
 }
 
 .change:last-child {
-  padding-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
 }
 
 /* Change type colors */
@@ -226,7 +226,7 @@
 
 /* Left column - Icon */
 .changeIcon {
-  font-size: 2.25rem;
+  font-size: 1.25rem;
   margin-top: 0;
   opacity: 0.8;
   line-height: 1;

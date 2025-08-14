@@ -50,18 +50,33 @@ const CONFIG = {
     'chore': 'improvement'
   },
   
-  // Impact type mappings
+  // Impact type mappings (expanded)
   impactTypes: {
     'api': 'api',
     'visual': 'visual', 
     'ui': 'visual',
-    'design': 'design',
+    'design': 'visual',
+    'style': 'visual',
+    'styling': 'visual',
+    'theme': 'visual',
+    'color': 'visual',
+    'layout': 'visual',
     'perf': 'performance',
     'performance': 'performance',
+    'optimize': 'performance',
+    'optimization': 'performance',
+    'speed': 'performance',
+    'memory': 'performance',
+    'cache': 'performance',
     'a11y': 'functionality',
     'accessibility': 'functionality',
+    'accessible': 'functionality',
     'dx': 'developer-experience',
-    'dev': 'developer-experience'
+    'dev': 'developer-experience',
+    'typescript': 'developer-experience',
+    'types': 'developer-experience',
+    'docs': 'developer-experience',
+    'documentation': 'developer-experience'
   }
 };
 
@@ -393,7 +408,7 @@ class ChangelogGenerator {
   }
 
   /**
-   * Parse commit message to extract change information
+   * Parse commit message to extract change information with enhanced detection
    */
   parseCommitMessage(commit, componentName, preferredTypes = []) {
     const message = commit.message.toLowerCase();
@@ -406,39 +421,18 @@ class ChangelogGenerator {
     if (preferredTypes.length > 0) {
       changeType = preferredTypes[Math.floor(Math.random() * preferredTypes.length)];
     } else {
-      // Fallback to pattern matching
-      for (const [pattern, type] of Object.entries(CONFIG.changeTypes)) {
-        if (message.includes(pattern) || message.startsWith(pattern + ':') || message.startsWith(pattern + '(')) {
-          changeType = type;
-          break;
-        }
-      }
+      // Enhanced pattern matching with more comprehensive detection
+      changeType = this.detectChangeType(message, originalMessage);
     }
     
-    // Check for breaking changes
-    const isBreaking = changeType === 'breaking-change' || 
-                      message.includes('breaking') || 
-                      message.includes('break:') || 
-                      message.includes('!:') ||
-                      message.includes('major:');
-    
-    if (isBreaking) {
+    // Enhanced breaking changes detection
+    const breakingInfo = this.detectBreakingChanges(message, originalMessage, componentName);
+    if (breakingInfo.isBreaking) {
       changeType = 'breaking-change';
     }
     
-    // Extract impact type
-    let impact = 'functionality';
-    for (const [pattern, impactType] of Object.entries(CONFIG.impactTypes)) {
-      if (message.includes(pattern)) {
-        impact = impactType;
-        break;
-      }
-    }
-    
-    // Visual impact for design/UI related changes
-    if (changeType === 'breaking-change' && componentName.includes('button')) {
-      impact = 'design';
-    }
+    // Enhanced impact detection with API change analysis
+    const impactInfo = this.detectImpactType(message, originalMessage, componentName);
     
     // Extract issue number
     const issueMatch = originalMessage.match(/#(\d+)/);
@@ -454,9 +448,225 @@ class ChangelogGenerator {
       description,
       commit: commit.hash,
       issueNumber,
-      impact,
-      breakingChange: isBreaking
+      impact: impactInfo.impact,
+      breakingChange: breakingInfo.isBreaking,
+      apiChange: impactInfo.isApiChange,
+      breakingReason: breakingInfo.reason,
+      apiChangeType: impactInfo.apiChangeType
     };
+  }
+
+  /**
+   * Enhanced change type detection with semantic analysis
+   */
+  detectChangeType(message, originalMessage) {
+    // Breaking change patterns
+    const breakingPatterns = [
+      /breaking[\s:]|break[\s:]|major[\s:]|\!\s*:/i,
+      /remove[ds]?\s+(?:property|prop|attribute|method|function|api|support)/i,
+      /chang[ed]?\s+(?:api|interface|signature|behavior)/i,
+      /replac[ed]?\s+(?:with|by)/i,
+      /deprecat[ed]?\s+(?:and\s+)?remove[ds]?/i
+    ];
+    
+    // Feature patterns
+    const featurePatterns = [
+      /^(?:feat|feature)[\s\(:]|add[s]?\s|new\s|implement[s]?\s|introduc[ed]?\s/i,
+      /creat[ed]?\s+(?:new\s+)?(?:component|method|property|feature)/i
+    ];
+    
+    // Bug fix patterns  
+    const bugfixPatterns = [
+      /^(?:fix|bug)[\s\(:]|fix[ed]?\s|resolv[ed]?\s|correct[ed]?\s/i,
+      /patch[ed]?\s|repair[ed]?\s|address[ed]?\s/i
+    ];
+    
+    // Performance patterns
+    const perfPatterns = [
+      /^(?:perf|performance)[\s\(:]|optim[iz]?[ed]?\s|improv[ed]?\s+performance/i,
+      /faster|slower|speed|cache|memory|efficient/i
+    ];
+    
+    // Refactor patterns
+    const refactorPatterns = [
+      /^(?:refactor|refact)[\s\(:]|restructur[ed]?\s|reorganiz[ed]?\s/i,
+      /clean[ed]?\s+up|simplif[iy][ed]?/i
+    ];
+    
+    for (const pattern of breakingPatterns) {
+      if (pattern.test(originalMessage)) return 'breaking-change';
+    }
+    
+    for (const pattern of featurePatterns) {
+      if (pattern.test(originalMessage)) return 'feature';
+    }
+    
+    for (const pattern of bugfixPatterns) {
+      if (pattern.test(originalMessage)) return 'bug-fix';
+    }
+    
+    for (const pattern of perfPatterns) {
+      if (pattern.test(originalMessage)) return 'improvement';
+    }
+    
+    for (const pattern of refactorPatterns) {
+      if (pattern.test(originalMessage)) return 'improvement';
+    }
+    
+    // Fallback to original pattern matching
+    for (const [pattern, type] of Object.entries(CONFIG.changeTypes)) {
+      if (message.includes(pattern) || message.startsWith(pattern + ':') || message.startsWith(pattern + '(')) {
+        return type;
+      }
+    }
+    
+    return 'improvement';
+  }
+
+  /**
+   * Enhanced breaking changes detection with specific reasons
+   */
+  detectBreakingChanges(message, originalMessage, componentName) {
+    const breakingPatterns = [
+      {
+        pattern: /breaking[\s:]|break[\s:]|major[\s:]|\!\s*:/i,
+        reason: 'Explicitly marked as breaking change'
+      },
+      {
+        pattern: /remove[ds]?\s+(?:property|prop|attribute|method|function|api)/i,
+        reason: 'Removed API property or method'
+      },
+      {
+        pattern: /chang[ed]?\s+(?:api|interface|signature|default\s+value)/i,
+        reason: 'Changed API interface or method signature'
+      },
+      {
+        pattern: /replac[ed]?\s+(?:with|by)(?!\s+(?:fix|bug|patch))/i,
+        reason: 'Replaced existing functionality'
+      },
+      {
+        pattern: /deprecat[ed]?\s+(?:and\s+)?remove[ds]?/i,
+        reason: 'Deprecated and removed feature'
+      },
+      {
+        pattern: /no\s+longer\s+support[s]?/i,
+        reason: 'Removed support for feature'
+      },
+      {
+        pattern: /incompatible\s+(?:with|change)/i,
+        reason: 'Incompatible change introduced'
+      },
+      {
+        pattern: /\bv?\d+\.\d+\.\d+\s+migration|migrat[ed]?\s+(?:to|from)/i,
+        reason: 'Migration required'
+      }
+    ];
+    
+    for (const {pattern, reason} of breakingPatterns) {
+      if (pattern.test(originalMessage)) {
+        return { isBreaking: true, reason };
+      }
+    }
+    
+    return { isBreaking: false, reason: null };
+  }
+
+  /**
+   * Enhanced impact detection with API change analysis
+   */
+  detectImpactType(message, originalMessage, componentName) {
+    // API change patterns
+    const apiChangePatterns = [
+      {
+        pattern: /(?:add[s]?|new)\s+(?:property|prop|attribute|method|function|api|parameter|param)/i,
+        type: 'addition',
+        impact: 'api'
+      },
+      {
+        pattern: /(?:remove[ds]?|delet[ed]?)\s+(?:property|prop|attribute|method|function|api|parameter|param)/i,
+        type: 'removal',
+        impact: 'api'
+      },
+      {
+        pattern: /(?:chang[ed]?|modif[iy][ed]?|updat[ed]?)\s+(?:property|prop|attribute|method|function|api|parameter|param|signature)/i,
+        type: 'modification',
+        impact: 'api'
+      },
+      {
+        pattern: /(?:renam[ed]?)\s+(?:property|prop|attribute|method|function|parameter|param)/i,
+        type: 'rename',
+        impact: 'api'
+      },
+      {
+        pattern: /(?:deprecat[ed]?)\s+(?:property|prop|attribute|method|function|api)/i,
+        type: 'deprecation',
+        impact: 'api'
+      }
+    ];
+    
+    // Visual/design patterns
+    const visualPatterns = [
+      /(?:design|style|styling|theme|color|font|layout|spacing|margin|padding)/i,
+      /(?:visual|appearance|look|ui|user\s+interface)/i,
+      /(?:css|scss|sass|style[ds]?)/i
+    ];
+    
+    // Performance patterns
+    const performancePatterns = [
+      /(?:performance|perf|optim[iz][ed]?|faster|slower|speed|cache|memory|efficient)/i,
+      /(?:render|load|bundle|size|weight)/i
+    ];
+    
+    // Accessibility patterns
+    const a11yPatterns = [
+      /(?:accessibility|a11y|screen\s+reader|keyboard|focus|aria|wcag)/i,
+      /(?:accessible|usable|inclusive)/i
+    ];
+    
+    // Developer experience patterns
+    const dxPatterns = [
+      /(?:dx|developer\s+experience|dev\s+experience|typescript|types|intellisense)/i,
+      /(?:documentation|docs|example|story|storybook)/i
+    ];
+    
+    // Check for API changes first
+    for (const {pattern, type, impact} of apiChangePatterns) {
+      if (pattern.test(originalMessage)) {
+        return {
+          impact,
+          isApiChange: true,
+          apiChangeType: type
+        };
+      }
+    }
+    
+    // Check other impact types
+    if (visualPatterns.some(pattern => pattern.test(originalMessage))) {
+      return { impact: 'visual', isApiChange: false, apiChangeType: null };
+    }
+    
+    if (performancePatterns.some(pattern => pattern.test(originalMessage))) {
+      return { impact: 'performance', isApiChange: false, apiChangeType: null };
+    }
+    
+    if (a11yPatterns.some(pattern => pattern.test(originalMessage))) {
+      return { impact: 'functionality', isApiChange: false, apiChangeType: 'accessibility' };
+    }
+    
+    if (dxPatterns.some(pattern => pattern.test(originalMessage))) {
+      return { impact: 'developer-experience', isApiChange: false, apiChangeType: null };
+    }
+    
+    // Fallback to original impact detection
+    let impact = 'functionality';
+    for (const [pattern, impactType] of Object.entries(CONFIG.impactTypes)) {
+      if (message.includes(pattern)) {
+        impact = impactType;
+        break;
+      }
+    }
+    
+    return { impact, isApiChange: false, apiChangeType: null };
   }
 
   /**
@@ -581,6 +791,18 @@ class ChangelogGenerator {
         .filter(change => change.title && change.title.length > 10); // Filter out trivial commits
       
       console.log(`   📋 Version ${group.version}: ${changes.length} changes`);
+      
+      // Log breaking changes and API changes for debugging
+      const breakingChanges = changes.filter(c => c.breakingChange);
+      const apiChanges = changes.filter(c => c.apiChange);
+      if (breakingChanges.length > 0) {
+        console.log(`      🚨 ${breakingChanges.length} breaking changes detected`);
+        breakingChanges.forEach(c => console.log(`         - ${c.title} (${c.breakingReason})`));
+      }
+      if (apiChanges.length > 0) {
+        console.log(`      🔧 ${apiChanges.length} API changes detected`);
+        apiChanges.forEach(c => console.log(`         - ${c.title} (${c.apiChangeType})`));
+      }
       
       const versionType = this.determineVersionType(changes);
       
