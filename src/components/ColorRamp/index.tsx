@@ -440,8 +440,8 @@ const renderCustomTemplate = (tokens: ColorToken[], template: TemplateModule, pr
     itemHtml = itemHtml.replace(/var\(--token-color\)/g, token.value);
     itemHtml = itemHtml.replace(/\{\{color\}\}/g, token.value);
     
-    // Also set CSS custom property as fallback
-    return `<div style="--token-color: ${token.value};">${itemHtml}</div>`;
+    // Return the processed template directly without wrapper
+    return itemHtml;
   }).join('\n');
   
   // Template variables for container (title, selector, count, etc.)
