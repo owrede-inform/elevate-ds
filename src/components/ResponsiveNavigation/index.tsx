@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { useLocation } from '@docusaurus/router';
 import styles from './styles.module.css';
 
 interface NavigationItem {
@@ -16,6 +17,7 @@ interface NavigationItem {
  */
 const ResponsiveNavigation: React.FC = () => {
   const { siteConfig } = useDocusaurusContext();
+  const location = useLocation();
   const [isVisible, setIsVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState<NavigationItem | null>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -27,6 +29,7 @@ const ResponsiveNavigation: React.FC = () => {
     { label: 'Components', to: '/docs/components/' },
     { label: 'Patterns', to: '/docs/patterns/' },
     { label: 'Design', to: '/docs/design/' },
+    { label: 'DS', to: '/docs/ds/' },
   ];
 
   // Check if we're in the responsive breakpoint
@@ -48,14 +51,32 @@ const ResponsiveNavigation: React.FC = () => {
     return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
-  // Set default selected item based on current path
+  // Update selected item based on current path whenever location changes
   useEffect(() => {
-    const currentPath = window.location.pathname;
-    const currentItem = navigationItems.find(item => 
-      currentPath.startsWith(item.to)
-    );
-    setSelectedItem(currentItem || navigationItems[0]);
-  }, []);
+    const currentPath = location.pathname;
+    
+    // Find the best matching navigation item
+    const currentItem = navigationItems.find(item => {
+      // Handle exact matches and path prefixes
+      return currentPath === item.to || currentPath.startsWith(item.to);
+    });
+    
+    // Fallback: if no exact match, try to match the first segment after /docs/
+    if (!currentItem) {
+      const pathSegments = currentPath.split('/').filter(Boolean);
+      if (pathSegments.length >= 2 && pathSegments[0] === 'docs') {
+        const firstSegment = pathSegments[1];
+        const fallbackItem = navigationItems.find(item => 
+          item.to.includes(`/docs/${firstSegment}/`)
+        );
+        setSelectedItem(fallbackItem || navigationItems[0]);
+      } else {
+        setSelectedItem(navigationItems[0]);
+      }
+    } else {
+      setSelectedItem(currentItem);
+    }
+  }, [location.pathname, navigationItems]);
 
   const handleItemClick = (item: NavigationItem) => {
     setSelectedItem(item);
