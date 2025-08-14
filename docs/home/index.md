@@ -151,13 +151,13 @@ ELEVATE thrives on community contributions. Whether you're fixing bugs, improvin
 ## Ready to Get Started?
 
 <div className="elvt-action-buttons">
-  <a href="/docs/home/installation" className="elvt-button-primary">
+  <a href="./installation" className="elvt-button-primary">
     Install ELEVATE
   </a>
-  <a href="/docs/components" className="elvt-button-secondary">
+  <a href="../components" className="elvt-button-secondary">
     Browse Components
   </a>
-  <a href="/docs/home/support" className="elvt-button-tertiary">
+  <a href="./support" className="elvt-button-tertiary">
     Get Help
   </a>
 </div>

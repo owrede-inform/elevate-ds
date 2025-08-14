@@ -186,7 +186,7 @@ Content must be robust enough for various assistive technologies.
 
 ```html
 <!-- Accessible link examples -->
-<a href="/docs/components/button">Button Component Documentation</a>
+<a href="../components/button">Button Component Documentation</a>
 <a href="report.pdf" aria-describedby="file-info">Annual Report</a>
 <span id="file-info" class="sr-only">(PDF, 2.3 MB)</span>
 ```
