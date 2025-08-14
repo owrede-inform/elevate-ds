@@ -433,9 +433,14 @@ const renderCustomTemplate = (tokens: ColorToken[], template: TemplateModule, pr
       contrast: calculateContrastToWhite(token.value)
     };
     
-    const itemHtml = parseTemplate(item, variables);
+    // Replace {{color}} and {{token-color}} placeholders directly in the template
+    let itemHtml = parseTemplate(item, variables);
     
-    // Wrap each item with its own CSS variable
+    // Replace color placeholders with actual values
+    itemHtml = itemHtml.replace(/var\(--token-color\)/g, token.value);
+    itemHtml = itemHtml.replace(/\{\{color\}\}/g, token.value);
+    
+    // Also set CSS custom property as fallback
     return `<div style="--token-color: ${token.value};">${itemHtml}</div>`;
   }).join('\n');
   
