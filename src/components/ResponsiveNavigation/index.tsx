@@ -9,6 +9,16 @@ interface NavigationItem {
   to: string;
 }
 
+// Navigation items matching the sidebar structure (moved outside component to prevent re-creation)
+const NAVIGATION_ITEMS: NavigationItem[] = [
+  { label: 'Home', to: '/docs/home/' },
+  { label: 'Guidelines', to: '/docs/guidelines/' },
+  { label: 'Components', to: '/docs/components/' },
+  { label: 'Patterns', to: '/docs/patterns/' },
+  { label: 'Design', to: '/docs/design/' },
+  { label: 'DS', to: '/docs/ds/' },
+];
+
 /**
  * Responsive Navigation Dropdown
  * 
@@ -21,16 +31,6 @@ const ResponsiveNavigation: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState<NavigationItem | null>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  // Navigation items matching the sidebar structure
-  const navigationItems: NavigationItem[] = [
-    { label: 'Home', to: '/docs/home/' },
-    { label: 'Guidelines', to: '/docs/guidelines/' },
-    { label: 'Components', to: '/docs/components/' },
-    { label: 'Patterns', to: '/docs/patterns/' },
-    { label: 'Design', to: '/docs/design/' },
-    { label: 'DS', to: '/docs/ds/' },
-  ];
 
   // Check if we're in the responsive breakpoint
   useEffect(() => {
@@ -56,7 +56,7 @@ const ResponsiveNavigation: React.FC = () => {
     const currentPath = location.pathname;
     
     // Find the best matching navigation item
-    const currentItem = navigationItems.find(item => {
+    const currentItem = NAVIGATION_ITEMS.find(item => {
       // Handle exact matches and path prefixes
       return currentPath === item.to || currentPath.startsWith(item.to);
     });
@@ -66,17 +66,17 @@ const ResponsiveNavigation: React.FC = () => {
       const pathSegments = currentPath.split('/').filter(Boolean);
       if (pathSegments.length >= 2 && pathSegments[0] === 'docs') {
         const firstSegment = pathSegments[1];
-        const fallbackItem = navigationItems.find(item => 
+        const fallbackItem = NAVIGATION_ITEMS.find(item => 
           item.to.includes(`/docs/${firstSegment}/`)
         );
-        setSelectedItem(fallbackItem || navigationItems[0]);
+        setSelectedItem(fallbackItem || NAVIGATION_ITEMS[0]);
       } else {
-        setSelectedItem(navigationItems[0]);
+        setSelectedItem(NAVIGATION_ITEMS[0]);
       }
     } else {
       setSelectedItem(currentItem);
     }
-  }, [location.pathname, navigationItems]);
+  }, [location.pathname]);
 
   const handleItemClick = (item: NavigationItem) => {
     setSelectedItem(item);
@@ -131,7 +131,7 @@ const ResponsiveNavigation: React.FC = () => {
         
         {isDropdownOpen && (
           <div className={styles.dropdownMenu}>
-            {navigationItems.map((item) => (
+            {NAVIGATION_ITEMS.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}

@@ -12,7 +12,11 @@ declare global {
   }
 }
 
-// Import ELEVATE web components and core styles only
+// Import Shoelace styles and icon setup (required peer dependency)
+import '@shoelace-style/shoelace/dist/themes/light.css';
+import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
+
+// Import ELEVATE web components and core styles
 import '@inform-elevate/elevate-core-ui';
 import '@inform-elevate/elevate-core-ui/dist/elevate.css';
 // Import light theme as default - dark theme handled via CSS overrides
@@ -23,6 +27,9 @@ import { FrameworkProvider } from '../contexts/FrameworkContext';
 
 export default function Root({ children }: { children: React.ReactNode }) {
   useEffect(() => {
+    // Set Shoelace base path for icons and assets
+    setBasePath('/node_modules/@shoelace-style/shoelace/dist/');
+    
     // Configure icon library for ELEVATE components
     const configureIcons = () => {
       if (typeof window === 'undefined') return;

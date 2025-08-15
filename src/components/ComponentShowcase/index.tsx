@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useFramework } from '../../contexts/FrameworkContext';
-import { transformToFramework, getFrameworkImports, extractComponentNames } from '../../utils/frameworkTransformer';
+import { transformToFramework, getFrameworkImports, extractComponentNames, transformWebComponentCode, extractComponentNamesFromCode } from '../../utils/frameworkTransformer';
 import CodeDisplay from '../CodeDisplay';
 import styles from './styles.module.css';
 
@@ -26,7 +26,7 @@ export default function ComponentShowcase({
   showCodeByDefault = false
 }: ComponentShowcaseProps): JSX.Element {
   const previewRef = useRef<HTMLDivElement>(null);
-  const { selectedFramework, setSelectedFramework } = useFramework();
+  const { selectedFramework } = useFramework();
   const [transformedCode, setTransformedCode] = useState<string>('');
   const [componentNames, setComponentNames] = useState<string[]>([]);
   const [showCode, setShowCode] = useState<boolean>(showCodeByDefault);
@@ -36,7 +36,6 @@ export default function ComponentShowcase({
   
   // Helper function to check if code parameter is a file path
   const isFilePath = (codeParam: string): boolean => {
-    // Check if it has a file extension and doesn't contain newlines (indicating inline code)
     return /\.(ts|tsx|js|jsx|html|css|scss|md|mdx)$/i.test(codeParam) && !codeParam.includes('\n');
   };
 
@@ -54,28 +53,19 @@ export default function ComponentShowcase({
       setFileLoadError('');
       
       try {
-        // Get the current document's directory path
-        // In Docusaurus, we can use the global docusaurus context
         const currentPath = window.location.pathname;
-        
-        // Extract directory from current path (e.g., /docs/components/button/ -> components/button)
         const pathParts = currentPath.split('/').filter(part => part);
         const docsIndex = pathParts.indexOf('docs');
         const relativePath = docsIndex >= 0 ? pathParts.slice(docsIndex + 1) : [];
         
-        // Build the file path: if code has path separators, use as-is, otherwise same directory
         let filePath;
         if (code.includes('/') || code.includes('\\')) {
-          // Code contains path, use relative to docs root
           filePath = `/docs/${code}`;
         } else {
-          // No path, use same directory as current document
           filePath = `/docs/${relativePath.join('/')}/${code}`;
         }
         
-        // Fetch the file content
         const response = await fetch(filePath);
-        
         if (!response.ok) {
           throw new Error(`Failed to load file: ${filePath} (${response.status} ${response.statusText})`);
         }
@@ -84,7 +74,7 @@ export default function ComponentShowcase({
         setLoadedFileContent(content);
       } catch (error) {
         console.error('Error loading file:', error);
-        setFileLoadError(`Failed to load file: ${code}. ${error.message}`);
+        setFileLoadError(`Failed to load file: ${code}. ${(error as Error).message}`);
         setLoadedFileContent('');
       } finally {
         setIsLoadingFile(false);
@@ -94,42 +84,45 @@ export default function ComponentShowcase({
     loadFileContent();
   }, [code]);
 
-  // Transform code when framework, children, or loaded file content change
+  // Transform code when framework changes
   useEffect(() => {
-    // Determine the source code to use
-    let sourceCode = '';
-    
     if (code && isFilePath(code)) {
-      // Use loaded file content
-      sourceCode = loadedFileContent;
-    } else if (code) {
-      // Use provided inline code
-      sourceCode = code;
-    }
-    
-    if (sourceCode) {
-      // Use the source code as-is
-      setTransformedCode(sourceCode);
+      // Use loaded file content as-is
+      setTransformedCode(loadedFileContent);
+      setComponentNames([]);
       return;
     }
     
+    if (code) {
+      // Transform provided inline code
+      try {
+        const transformed = transformWebComponentCode(code, selectedFramework);
+        setTransformedCode(transformed);
+        const names = extractComponentNamesFromCode(code);
+        setComponentNames(names);
+      } catch (error) {
+        console.error('Error transforming provided code:', error);
+        setTransformedCode(code);
+        setComponentNames([]);
+      }
+      return;
+    }
+    
+    // Transform children to selected framework - only when framework changes
     try {
-      // Extract component names for imports
       const names = extractComponentNames(children);
       setComponentNames(names);
-      
-      // Transform children to selected framework
       const transformed = transformToFramework(children, selectedFramework);
       setTransformedCode(transformed);
     } catch (error) {
       console.error('Error transforming code:', error);
       setTransformedCode('// Error generating code');
+      setComponentNames([]);
     }
-  }, [children, selectedFramework, code, loadedFileContent]);
+  }, [selectedFramework, code, loadedFileContent]);
   
   // Get the appropriate language for syntax highlighting
   const getLanguage = () => {
-    // If code is a file path, infer language from extension
     if (code && isFilePath(code)) {
       const extension = code.split('.').pop()?.toLowerCase();
       switch (extension) {
@@ -176,8 +169,6 @@ export default function ComponentShowcase({
   const displayCode = imports 
     ? `${imports}\n\n${transformedCode}` 
     : transformedCode;
-
-  // No complex DOM manipulation needed with our custom CodeDisplay component
 
   return (
     <div className={`${styles.componentShowcase} componentShowcase`}>
@@ -234,7 +225,7 @@ export default function ComponentShowcase({
               code={displayCode}
               language={getLanguage()}
               showLineNumbers={true}
-              showFrameworkSwitcher={showFrameworkSwitcher && !code}
+              showFrameworkSwitcher={showFrameworkSwitcher}
               wrapLines={wrapLines}
             />
           )}
