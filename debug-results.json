@@ -1,0 +1,169 @@
+{
+  "light": {
+    "documentTokens": {
+      "--elvt-alias-layout-border-default": "rgb(190, 195, 205)",
+      "--elvt-alias-layout-border-prominent": "rgb(163, 170, 180)",
+      "--elvt-alias-layout-layer-default": "rgb(255, 255, 255)",
+      "--elvt-alias-layout-layer-elevated": "rgb(243, 244, 247)",
+      "--elvt-alias-layout-layer-overlay": "rgb(255, 255, 255)"
+    },
+    "cardStates": [
+      {
+        "id": "default-card",
+        "layer": "default",
+        "classes": [
+          "elvt-theme-light"
+        ],
+        "computedStyles": {
+          "borderColor": "rgb(61, 66, 83)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderWidth": "0px",
+          "borderStyle": "none"
+        },
+        "customProperties": {
+          "borderColor": "",
+          "fill": "",
+          "borderRadius": ""
+        }
+      },
+      {
+        "id": "elevated-card",
+        "layer": "elevated",
+        "classes": [
+          "elvt-theme-light"
+        ],
+        "computedStyles": {
+          "borderColor": "rgb(61, 66, 83)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderWidth": "0px",
+          "borderStyle": "none"
+        },
+        "customProperties": {
+          "borderColor": "",
+          "fill": "",
+          "borderRadius": ""
+        }
+      },
+      {
+        "id": "overlay-card",
+        "layer": "overlay",
+        "classes": [
+          "elvt-theme-light"
+        ],
+        "computedStyles": {
+          "borderColor": "rgb(61, 66, 83)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderWidth": "0px",
+          "borderStyle": "none"
+        },
+        "customProperties": {
+          "borderColor": "",
+          "fill": "",
+          "borderRadius": ""
+        }
+      },
+      {
+        "id": "sunken-card",
+        "layer": "sunken",
+        "classes": [
+          "elvt-theme-light"
+        ],
+        "computedStyles": {
+          "borderColor": "rgb(61, 66, 83)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderWidth": "0px",
+          "borderStyle": "none"
+        },
+        "customProperties": {
+          "borderColor": "",
+          "fill": "",
+          "borderRadius": ""
+        }
+      }
+    ]
+  },
+  "dark": {
+    "documentTokens": {
+      "--elvt-alias-layout-border-default": "rgb(190, 195, 205)",
+      "--elvt-alias-layout-border-prominent": "rgb(163, 170, 180)",
+      "--elvt-alias-layout-layer-default": "rgb(255, 255, 255)",
+      "--elvt-alias-layout-layer-elevated": "rgb(243, 244, 247)",
+      "--elvt-alias-layout-layer-overlay": "rgb(255, 255, 255)"
+    },
+    "cardStates": [
+      {
+        "id": "default-card",
+        "layer": "default",
+        "classes": [
+          "elvt-theme-dark"
+        ],
+        "computedStyles": {
+          "borderColor": "rgb(61, 66, 83)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderWidth": "0px",
+          "borderStyle": "none"
+        },
+        "customProperties": {
+          "borderColor": "",
+          "fill": "",
+          "borderRadius": ""
+        }
+      },
+      {
+        "id": "elevated-card",
+        "layer": "elevated",
+        "classes": [
+          "elvt-theme-dark"
+        ],
+        "computedStyles": {
+          "borderColor": "rgb(61, 66, 83)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderWidth": "0px",
+          "borderStyle": "none"
+        },
+        "customProperties": {
+          "borderColor": "",
+          "fill": "",
+          "borderRadius": ""
+        }
+      },
+      {
+        "id": "overlay-card",
+        "layer": "overlay",
+        "classes": [
+          "elvt-theme-dark"
+        ],
+        "computedStyles": {
+          "borderColor": "rgb(61, 66, 83)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderWidth": "0px",
+          "borderStyle": "none"
+        },
+        "customProperties": {
+          "borderColor": "",
+          "fill": "",
+          "borderRadius": ""
+        }
+      },
+      {
+        "id": "sunken-card",
+        "layer": "sunken",
+        "classes": [
+          "elvt-theme-dark"
+        ],
+        "computedStyles": {
+          "borderColor": "rgb(61, 66, 83)",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderWidth": "0px",
+          "borderStyle": "none"
+        },
+        "customProperties": {
+          "borderColor": "",
+          "fill": "",
+          "borderRadius": ""
+        }
+      }
+    ]
+  },
+  "timestamp": "2025-08-15T22:04:39.383Z"
+}

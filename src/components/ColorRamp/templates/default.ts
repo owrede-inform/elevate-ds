@@ -5,11 +5,11 @@ export const container = `
 `;
 
 export const item = `
-  <div style="display: flex; align-items: center; gap: 0.5rem;">
+  <div style="display: flex; align-items: center; gap: 1rem;">
   <elvt-tooltip content="{{hex}} (Contrast: 1:{{contrast}})">
     <div 
       class="color-swatch" 
-      style="width: 3.5rem; height: 3.5rem;
+      style="width: 6rem; height: 6rem;
       flex-shrink: 0; 
       background-color: var(--token-color); 
       border-radius: 9999px; 

@@ -4,10 +4,6 @@ description: Avatars represent users or entities with profile images, initials, 
 sidebar_position: 9
 ---
 
-import ComponentShowcase from '@site/src/components/ComponentShowcase';
-import ComponentChangelog from '@site/src/components/ComponentChangelog';
-import TocLinks from '@site/src/components/TocLinks';
-import { ElvtAvatar } from '@inform-elevate/elevate-core-ui/dist/react';
 
 # Avatar
 
@@ -41,41 +37,8 @@ Avatars displaying profile photos or uploaded images.
 <ComponentShowcase
   title="Image Avatars"
   description="Avatars with profile images in different sizes."
-  code="image-avatars.html">
-  <elvt-stack direction="row" spacing="medium" align="center" wrap>
-    <elvt-avatar 
-      initials="JD"
-      background-color="#4285f4"
-      text-color="white"
-      size="small"
-      alt="John Doe">
-    </elvt-avatar>
-    
-    <elvt-avatar 
-      initials="SM"
-      background-color="#34a853"
-      text-color="white"
-      size="medium"
-      alt="Sarah Miller">
-    </elvt-avatar>
-    
-    <elvt-avatar 
-      initials="MJ"
-      background-color="#ea4335"
-      text-color="white"
-      size="large"
-      alt="Mike Johnson">
-    </elvt-avatar>
-    
-    <elvt-avatar 
-      initials="EW"
-      background-color="#fbbc04"
-      text-color="#000"
-      size="xlarge"
-      alt="Emily Wong">
-    </elvt-avatar>
-  </elvt-stack>
-</ComponentShowcase>
+  code="code-examples/image-avatars.html"
+/>
 
 ### Initial Avatars
 
@@ -84,42 +47,8 @@ Avatars displaying user initials when no image is available.
 <ComponentShowcase
   title="Initial Avatars"
   description="Avatars showing user initials with various background colors."
-
-  code="initial-avatars.html">
-  <elvt-stack direction="row" spacing="medium" align="center" wrap>
-    <elvt-avatar 
-      initials="AB"
-      background-color="#1f2937"
-      text-color="white"
-      size="small"
-      alt="Alex Brown">
-    </elvt-avatar>
-    
-    <elvt-avatar 
-      initials="CD"
-      background-color="#059669"
-      text-color="white"
-      size="medium"
-      alt="Chris Davis">
-    </elvt-avatar>
-    
-    <elvt-avatar 
-      initials="EF"
-      background-color="#dc2626"
-      text-color="white"
-      size="large"
-      alt="Emma Foster">
-    </elvt-avatar>
-    
-    <elvt-avatar 
-      initials="GH"
-      background-color="#7c3aed"
-      text-color="white"
-      size="xlarge"
-      alt="George Harris">
-    </elvt-avatar>
-  </elvt-stack>
-</ComponentShowcase>
+  code="code-examples/initial-avatars.html"
+/>
 
 ### Icon Avatars
 
@@ -128,42 +57,8 @@ Avatars using icons for system accounts or placeholder states.
 <ComponentShowcase
   title="Icon Avatars"
   description="Avatars with icons for system accounts and default states."
-
-  code="icon-avatars.html">
-  <elvt-stack direction="row" spacing="medium" align="center" wrap>
-    <elvt-avatar 
-      icon="user"
-      background-color="#6b7280"
-      text-color="white"
-      size="small"
-      alt="Generic User">
-    </elvt-avatar>
-    
-    <elvt-avatar 
-      icon="users"
-      background-color="#3b82f6"
-      text-color="white"
-      size="medium"
-      alt="Team Account">
-    </elvt-avatar>
-    
-    <elvt-avatar 
-      icon="building"
-      background-color="#f59e0b"
-      text-color="white"
-      size="large"
-      alt="Organization Account">
-    </elvt-avatar>
-    
-    <elvt-avatar 
-      icon="robot"
-      background-color="#8b5cf6"
-      text-color="white"
-      size="xlarge"
-      alt="Bot Account">
-    </elvt-avatar>
-  </elvt-stack>
-</ComponentShowcase>
+  code="code-examples/icon-avatars.html"
+/>
 
 ### Avatar Sizes
 
@@ -172,65 +67,8 @@ Different avatar sizes for various interface contexts.
 <ComponentShowcase
   title="Avatar Size Variations"
   description="Five standard avatar sizes for different interface contexts."
-
-  code="avatar-size-variations.html">
-  <elvt-stack direction="row" spacing="large" align="center" wrap>
-    <elvt-stack direction="column" spacing="small" align="center">
-      <elvt-avatar 
-        initials="XS"
-        background-color="#6366f1"
-        text-color="white"
-        size="xsmall"
-        alt="Extra Small Avatar">
-      </elvt-avatar>
-      <span style={{fontSize: '0.75rem', color: '#6b7280'}}>XS (24px)</span>
-    </elvt-stack>
-    
-    <elvt-stack direction="column" spacing="small" align="center">
-      <elvt-avatar 
-        initials="SM"
-        background-color="#8b5cf6"
-        text-color="white"
-        size="small"
-        alt="Small Avatar">
-      </elvt-avatar>
-      <span style={{fontSize: '0.75rem', color: '#6b7280'}}>Small (32px)</span>
-    </elvt-stack>
-    
-    <elvt-stack direction="column" spacing="small" align="center">
-      <elvt-avatar 
-        initials="MD"
-        background-color="#ec4899"
-        text-color="white"
-        size="medium"
-        alt="Medium Avatar">
-      </elvt-avatar>
-      <span style={{fontSize: '0.75rem', color: '#6b7280'}}>Medium (40px)</span>
-    </elvt-stack>
-    
-    <elvt-stack direction="column" spacing="small" align="center">
-      <elvt-avatar 
-        initials="LG"
-        background-color="#f59e0b"
-        text-color="white"
-        size="large"
-        alt="Large Avatar">
-      </elvt-avatar>
-      <span style={{fontSize: '0.75rem', color: '#6b7280'}}>Large (48px)</span>
-    </elvt-stack>
-    
-    <elvt-stack direction="column" spacing="small" align="center">
-      <elvt-avatar 
-        initials="XL"
-        background-color="#10b981"
-        text-color="white"
-        size="xlarge"
-        alt="Extra Large Avatar">
-      </elvt-avatar>
-      <span style={{fontSize: '0.75rem', color: '#6b7280'}}>XL (64px)</span>
-    </elvt-stack>
-  </elvt-stack>
-</ComponentShowcase>
+  code="code-examples/avatar-size-variations.html"
+/>
 
 ## Design Principles
 
@@ -369,61 +207,8 @@ npm install @inform-elevate/elevate-core-ui
 <ComponentShowcase
   title="User List with Avatars"
   description="Common pattern showing avatars in user lists and team member displays."
-
-  code="user-list-with-avatars.html">
-  <div style={{maxWidth: '400px', border: '1px solid #e0e0e0', borderRadius: '8px', overflow: 'hidden'}}>
-    <div style={{padding: '1rem', background: '#f8f9fa', borderBottom: '1px solid #e0e0e0'}}>
-      <h3 style={{margin: 0, fontSize: '1rem'}}>Team Members</h3>
-    </div>
-    
-    <div style={{display: 'flex', flexDirection: 'column'}}>
-      <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem', borderBottom: '1px solid #f0f0f0'}}>
-        <elvt-avatar 
-          initials="JD"
-          background-color="#3b82f6"
-          text-color="white"
-          size="medium"
-          alt="John Doe">
-        </elvt-avatar>
-        <div style={{flex: 1}}>
-          <div style={{fontWeight: '500', fontSize: '0.875rem'}}>John Doe</div>
-          <div style={{color: '#6b7280', fontSize: '0.75rem'}}>Lead Developer</div>
-        </div>
-        <div style={{fontSize: '0.75rem', color: '#10b981'}}>● Online</div>
-      </div>
-      
-      <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem', borderBottom: '1px solid #f0f0f0'}}>
-        <elvt-avatar 
-          initials="SM"
-          background-color="#ec4899"
-          text-color="white"
-          size="medium"
-          alt="Sarah Miller">
-        </elvt-avatar>
-        <div style={{flex: 1}}>
-          <div style={{fontWeight: '500', fontSize: '0.875rem'}}>Sarah Miller</div>
-          <div style={{color: '#6b7280', fontSize: '0.75rem'}}>UX Designer</div>
-        </div>
-        <div style={{fontSize: '0.75rem', color: '#f59e0b'}}>● Away</div>
-      </div>
-      
-      <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '1rem'}}>
-        <elvt-avatar 
-          initials="MJ"
-          background-color="#10b981"
-          text-color="white"
-          size="medium"
-          alt="Mike Johnson">
-        </elvt-avatar>
-        <div style={{flex: 1}}>
-          <div style={{fontWeight: '500', fontSize: '0.875rem'}}>Mike Johnson</div>
-          <div style={{color: '#6b7280', fontSize: '0.75rem'}}>Product Manager</div>
-        </div>
-        <div style={{fontSize: '0.75rem', color: '#6b7280'}}>● Offline</div>
-      </div>
-    </div>
-  </div>
-</ComponentShowcase>
+  code="code-examples/user-list-with-avatars.html"
+/>
 
 ## Accessibility
 

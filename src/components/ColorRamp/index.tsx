@@ -157,9 +157,9 @@ const extractColorTokens = (selectorString: string, excludeString?: string): Col
     const value = computedStyle.getPropertyValue(variable).trim();
     
     // Debug log to see what values we're getting
-    if (process.env.NODE_ENV === 'development') {
-      console.log(`ColorRamp token: ${variable} = "${value}"`);
-    }
+    //if (process.env.NODE_ENV === 'development') {
+    //  console.log(`ColorRamp token: ${variable} = "${value}"`);
+    //}
     
     // Only include color values (rgb, hsl, hex, or color names)
     if (value && (
@@ -171,7 +171,8 @@ const extractColorTokens = (selectorString: string, excludeString?: string): Col
       const name = variable
         .replace('--elvt-', '')
         .replace(/-/g, ' ')
-        .replace(/\b\w/g, l => l.toUpperCase());
+        .replace(/\b\w/g, l => l.toUpperCase())
+        .replace(/^Primitives Color /, '');
       
       tokens.push({
         name,

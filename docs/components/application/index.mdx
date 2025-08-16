@@ -5,10 +5,14 @@ sidebar_position: 1
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import TocLinks from '@site/src/components/TocLinks';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 # Application
 
 The Application component serves as the root wrapper for ELEVATE applications, providing essential setup including theme context, global styles, CSS custom properties, and foundational configuration.
+
+<TocLinks />
 
 ## When to Use
 
@@ -22,48 +26,16 @@ The Application component serves as the root wrapper for ELEVATE applications, p
 <ComponentShowcase
   title="Basic Application Setup"
   description="The Application component wraps your entire app to provide ELEVATE theming and styles."
-  code={`<elvt-application
-  code="basic-application-setup.html">
-  <div>
-    <h1>My ELEVATE App</h1>
-    <elvt-button tone="primary">Get Started</elvt-button>
-  </div>
-</elvt-application>`}
->
-  <div style={{padding: '1rem', border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '8px'}}>
-    <h3>My ELEVATE App</h3>
-    <p>Application wrapper provides theme context and global styles.</p>
-  </div>
-</ComponentShowcase>
+  code="basic-application-setup.html"
+/>
 
 ## Theme Integration
 
 <ComponentShowcase
   title="Theme-aware Components"
   description="Components inside Application automatically inherit ELEVATE theming."
-  code={`<elvt-application theme="light"
-  code="theme-aware-components.html">
-  <elvt-card padding="l">
-    <h3>Themed Content</h3>
-    <p>This card uses ELEVATE design tokens automatically.</p>
-    <elvt-button tone="primary">Primary Action</elvt-button>
-    <elvt-button>Secondary Action</elvt-button>
-  </elvt-card>
-</elvt-application>`}
->
-  <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-default)', borderRadius: '8px'}}>
-    <h4>Themed Content</h4>
-    <p>This content uses ELEVATE design tokens automatically.</p>
-    <div style={{display: 'flex', gap: '0.5rem'}}>
-      <button style={{padding: '0.5rem 1rem', background: 'var(--elvt-primitives-color-blue-500)', color: 'white', border: 'none', borderRadius: '4px'}}>
-        Primary Action
-      </button>
-      <button style={{padding: '0.5rem 1rem', background: 'transparent', border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '4px'}}>
-        Secondary Action
-      </button>
-    </div>
-  </div>
-</ComponentShowcase>
+  code="theme-aware-components.html"
+/>
 
 ## Properties
 
@@ -209,3 +181,7 @@ The Application component automatically applies ELEVATE design tokens as CSS cus
 :::info Global Setup
 Only use one Application component per app, typically at the root level. It provides global context and styles that should wrap your entire application.
 :::
+
+## Changelog
+
+<ComponentChangelog component="elvt-application" />

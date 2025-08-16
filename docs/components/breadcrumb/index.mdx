@@ -4,9 +4,6 @@ description: Breadcrumbs show users their location within a site hierarchy and p
 sidebar_position: 12
 ---
 
-import ComponentShowcase from '@site/src/components/ComponentShowcase';
-import ComponentChangelog from '@site/src/components/ComponentChangelog';
-import TocLinks from '@site/src/components/TocLinks';
 
 # Breadcrumb
 
@@ -40,21 +37,7 @@ Traditional hierarchical navigation showing the complete path from root to curre
 <ComponentShowcase
   title="Standard Breadcrumb Navigation"
   description="Basic hierarchical breadcrumb showing navigation path"
-  code={`<elvt-breadcrumb
-  code="standard-breadcrumb-navigation.html">
-  <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
-  <elvt-breadcrumb-item href="/products">Products</elvt-breadcrumb-item>
-  <elvt-breadcrumb-item href="/products/electronics">Electronics</elvt-breadcrumb-item>
-  <elvt-breadcrumb-item current>Laptops</elvt-breadcrumb-item>
-</elvt-breadcrumb>`}
->
-  <elvt-breadcrumb>
-    <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item href="/products">Products</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item href="/products/electronics">Electronics</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item current>Laptops</elvt-breadcrumb-item>
-  </elvt-breadcrumb>
-</ComponentShowcase>
+  code="code-examples/standard-breadcrumb-navigation.html" />
 
 ### Breadcrumb with Icons
 
@@ -63,31 +46,7 @@ Enhanced breadcrumb using icons to improve visual recognition and category ident
 <ComponentShowcase
   title="Breadcrumb with Icons"
   description="Breadcrumb navigation enhanced with meaningful icons"
-  code={`<elvt-breadcrumb
-  code="breadcrumb-with-icons.html">
-  <elvt-breadcrumb-item href="/">
-    <elvt-icon slot="prefix" icon="mdi:home"></elvt-icon>
-    Home
-  </elvt-breadcrumb-item>
-  <elvt-breadcrumb-item href="/dashboard">
-    <elvt-icon slot="prefix" icon="mdi:view-dashboard"></elvt-icon>
-    Dashboard
-  </elvt-breadcrumb-item>
-  <elvt-breadcrumb-item current>Settings</elvt-breadcrumb-item>
-</elvt-breadcrumb>`}
->
-  <elvt-breadcrumb>
-    <elvt-breadcrumb-item href="/">
-      <elvt-icon slot="prefix" icon="mdi:home"></elvt-icon>
-      Home
-    </elvt-breadcrumb-item>
-    <elvt-breadcrumb-item href="/dashboard">
-      <elvt-icon slot="prefix" icon="mdi:view-dashboard"></elvt-icon>
-      Dashboard
-    </elvt-breadcrumb-item>
-    <elvt-breadcrumb-item current>Settings</elvt-breadcrumb-item>
-  </elvt-breadcrumb>
-</ComponentShowcase>
+  code="code-examples/breadcrumb-with-icons.html" />
 
 ### Compact Breadcrumb
 
@@ -96,23 +55,7 @@ Condensed version that truncates middle levels for space-constrained layouts whi
 <ComponentShowcase
   title="Compact Breadcrumb with Truncation"
   description="Space-efficient breadcrumb that truncates middle levels"
-  code={`<elvt-breadcrumb compact max-items="3"
-  code="compact-breadcrumb-with-truncation.html">
-  <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
-  <elvt-breadcrumb-item href="/level1">Level 1</elvt-breadcrumb-item>
-  <elvt-breadcrumb-item href="/level2">Level 2</elvt-breadcrumb-item>
-  <elvt-breadcrumb-item href="/level3">Level 3</elvt-breadcrumb-item>
-  <elvt-breadcrumb-item current>Current Page</elvt-breadcrumb-item>
-</elvt-breadcrumb>`}
->
-  <elvt-breadcrumb compact max-items="3">
-    <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item href="/level1">Level 1</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item href="/level2">Level 2</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item href="/level3">Level 3</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item current>Current Page</elvt-breadcrumb-item>
-  </elvt-breadcrumb>
-</ComponentShowcase>
+  code="code-examples/compact-breadcrumb-with-truncation.html" />
 
 ## Design Principles
 
@@ -241,41 +184,7 @@ Experience how breadcrumbs behave in realistic contexts. All examples use actual
 <ComponentShowcase
   title="E-commerce Navigation Example"
   description="Real-world breadcrumb navigation in an e-commerce context"
-  code={`<div style="padding: 2rem; background: #f4f4f4; border-radius: 8px;"
-  code="e-commerce-navigation-example.html">
-  <!-- Page Header -->
-  <elvt-breadcrumb style="margin-bottom: 1rem;">
-    <elvt-breadcrumb-item href="/">
-      <elvt-icon slot="prefix" icon="mdi:home"></elvt-icon>
-      Home
-    </elvt-breadcrumb-item>
-    <elvt-breadcrumb-item href="/shop">Shop</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item href="/shop/electronics">Electronics</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item href="/shop/electronics/computers">Computers</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item current>Gaming Laptops</elvt-breadcrumb-item>
-  </elvt-breadcrumb>
-  
-  <!-- Page Content -->
-  <h1 style="margin: 0 0 0.5rem 0; font-size: 1.75rem;">Gaming Laptops</h1>
-  <p style="margin: 0; color: #6f6f6f;">High-performance laptops for gaming and creative work</p>
-</div>`}
->
-  <div style={{padding: '2rem', background: '#f4f4f4', borderRadius: '8px'}}>
-    <elvt-breadcrumb style={{marginBottom: '1rem'}}>
-      <elvt-breadcrumb-item href="/">
-        <elvt-icon slot="prefix" icon="mdi:home"></elvt-icon>
-        Home
-      </elvt-breadcrumb-item>
-      <elvt-breadcrumb-item href="/shop">Shop</elvt-breadcrumb-item>
-      <elvt-breadcrumb-item href="/shop/electronics">Electronics</elvt-breadcrumb-item>
-      <elvt-breadcrumb-item href="/shop/electronics/computers">Computers</elvt-breadcrumb-item>
-      <elvt-breadcrumb-item current>Gaming Laptops</elvt-breadcrumb-item>
-    </elvt-breadcrumb>
-    
-    <h1 style={{margin: '0 0 0.5rem 0', fontSize: '1.75rem'}}>Gaming Laptops</h1>
-    <p style={{margin: 0, color: '#6f6f6f'}}>High-performance laptops for gaming and creative work</p>
-  </div>
-</ComponentShowcase>
+  code="code-examples/e-commerce-navigation-example.html" />
 
 ## Accessibility
 

@@ -1,0 +1,827 @@
+---
+title: Dialog
+description: Dialogs present important information or require user decisions. They overlay the main interface and focus attention on critical tasks or messages.
+sidebar_position: 17
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
+import TocLinks from '@site/src/components/TocLinks';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Dialog
+
+Dialogs are modal windows that interrupt the user's workflow to present important information, gather input, or require decisions. The ELEVATE Dialog component provides accessible, responsive modal interactions for all INFORM applications.
+
+<TocLinks />
+
+## Overview
+
+### When to Use Dialogs
+- **Critical decisions**: Destructive actions, important confirmations
+- **Required input**: Essential information needed to continue
+- **Error handling**: Critical errors that need immediate attention
+- **Complex forms**: Multi-step processes or detailed data entry
+- **Content preview**: Quick view of detailed information
+
+### When NOT to Use Dialogs
+- **Simple notifications**: Use Toast or Notification components
+- **Non-critical information**: Use inline messaging or cards
+- **Primary navigation**: Use appropriate navigation patterns
+- **Frequent interactions**: Consider inline editing or side panels
+
+## Variations
+
+### Dialog Types
+
+Each dialog type serves a specific purpose and provides appropriate user experience patterns.
+
+<Tabs>
+<TabItem value="alert" label="Alert & Confirmation">
+
+**Alert dialogs** present important information that users must acknowledge.
+**Confirmation dialogs** request user approval for critical actions.
+
+<ComponentShowcase
+  title="Alert and Confirmation Dialogs"
+  description="Alert and confirmation dialogs for important user interactions"
+  code={`<div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;"
+  code="alert-and-confirmation-dialogs.html">
+  <elvt-button onclick="document.getElementById('alert-dialog').open = true">Show Alert</elvt-button>
+  <elvt-button onclick="document.getElementById('confirm-dialog').open = true">Show Confirmation</elvt-button>
+</div>
+
+<elvt-dialog id="alert-dialog">
+  <elvt-dialog-header>
+    <h2>System Update Available</h2>
+  </elvt-dialog-header>
+  <elvt-dialog-content>
+    <p>A new version of the system is available. Please restart the application to apply updates.</p>
+  </elvt-dialog-content>
+  <elvt-dialog-actions>
+    <elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false">OK</elvt-button>
+  </elvt-dialog-actions>
+</elvt-dialog>
+
+<elvt-dialog id="confirm-dialog">
+  <elvt-dialog-header>
+    <h2>Delete Project</h2>
+  </elvt-dialog-header>
+  <elvt-dialog-content>
+    <p>Are you sure you want to delete this project? This action cannot be undone.</p>
+  </elvt-dialog-content>
+  <elvt-dialog-actions>
+    <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>
+    <elvt-button tone="danger" onclick="this.closest('elvt-dialog').open = false; alert('Project deleted!')">Delete</elvt-button>
+  </elvt-dialog-actions>
+</elvt-dialog>`}
+>
+  <elvt-stack direction="row" spacing="medium" align="center" wrap>
+    <elvt-button onclick="document.getElementById('alert-dialog').open = true">Show Alert</elvt-button>
+    <elvt-button onclick="document.getElementById('confirm-dialog').open = true">Show Confirmation</elvt-button>
+  </elvt-stack>
+
+  <elvt-dialog id="alert-dialog">
+    <elvt-dialog-header>
+      <h2>System Update Available</h2>
+    </elvt-dialog-header>
+    <elvt-dialog-content>
+      <p>A new version of the system is available. Please restart the application to apply updates.</p>
+    </elvt-dialog-content>
+    <elvt-dialog-actions>
+      <elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false">OK</elvt-button>
+    </elvt-dialog-actions>
+  </elvt-dialog>
+
+  <elvt-dialog id="confirm-dialog">
+    <elvt-dialog-header>
+      <h2>Delete Project</h2>
+    </elvt-dialog-header>
+    <elvt-dialog-content>
+      <p>Are you sure you want to delete this project? This action cannot be undone.</p>
+    </elvt-dialog-content>
+    <elvt-dialog-actions>
+      <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>
+      <elvt-button tone="danger" onclick="this.closest('elvt-dialog').open = false; alert('Project deleted!')">Delete</elvt-button>
+    </elvt-dialog-actions>
+  </elvt-dialog>
+</ComponentShowcase>
+
+</TabItem>
+
+<TabItem value="form" label="Form & Input">
+
+**Form dialogs** contain input fields for data collection or editing.
+**Input dialogs** focus on single pieces of information gathering.
+
+<ComponentShowcase
+  title="Form and Input Dialogs"
+  description="Form and input dialogs for data collection"
+  code={`<div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;"
+  code="form-and-input-dialogs.html">
+  <elvt-button onclick="document.getElementById('form-dialog').open = true">Edit Profile</elvt-button>
+  <elvt-button onclick="document.getElementById('input-dialog').open = true">Rename Item</elvt-button>
+</div>
+
+<elvt-dialog id="form-dialog" size="medium">
+  <elvt-dialog-header>
+    <h2>Edit Profile</h2>
+  </elvt-dialog-header>
+  <elvt-dialog-content>
+    <div style="display: flex; flex-direction: column; gap: 1rem;">
+      <elvt-input label="Full Name" value="John Doe"></elvt-input>
+      <elvt-input label="Email" type="email" value="john@example.com"></elvt-input>
+      <elvt-textarea label="Bio" placeholder="Tell us about yourself"></elvt-textarea>
+    </div>
+  </elvt-dialog-content>
+  <elvt-dialog-actions>
+    <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>
+    <elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false; alert('Profile updated!')">Save Changes</elvt-button>
+  </elvt-dialog-actions>
+</elvt-dialog>
+
+<elvt-dialog id="input-dialog">
+  <elvt-dialog-header>
+    <h2>Rename Item</h2>
+  </elvt-dialog-header>
+  <elvt-dialog-content>
+    <elvt-input label="Item Name" value="Current Name" autofocus></elvt-input>
+  </elvt-dialog-content>
+  <elvt-dialog-actions>
+    <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>
+    <elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false; alert('Item renamed!')">Rename</elvt-button>
+  </elvt-dialog-actions>
+</elvt-dialog>`}
+>
+  <elvt-stack direction="row" spacing="medium" align="center" wrap>
+    <elvt-button onclick="document.getElementById('form-dialog').open = true">Edit Profile</elvt-button>
+    <elvt-button onclick="document.getElementById('input-dialog').open = true">Rename Item</elvt-button>
+  </elvt-stack>
+
+  <elvt-dialog id="form-dialog" size="medium">
+    <elvt-dialog-header>
+      <h2>Edit Profile</h2>
+    </elvt-dialog-header>
+    <elvt-dialog-content>
+      <elvt-stack direction="column" spacing="medium">
+        <elvt-input label="Full Name" value="John Doe"></elvt-input>
+        <elvt-input label="Email" type="email" value="john@example.com"></elvt-input>
+        <elvt-textarea label="Bio" placeholder="Tell us about yourself"></elvt-textarea>
+      </elvt-stack>
+    </elvt-dialog-content>
+    <elvt-dialog-actions>
+      <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>
+      <elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false; alert('Profile updated!')">Save Changes</elvt-button>
+    </elvt-dialog-actions>
+  </elvt-dialog>
+
+  <elvt-dialog id="input-dialog">
+    <elvt-dialog-header>
+      <h2>Rename Item</h2>
+    </elvt-dialog-header>
+    <elvt-dialog-content>
+      <elvt-input label="Item Name" value="Current Name" autofocus></elvt-input>
+    </elvt-dialog-content>
+    <elvt-dialog-actions>
+      <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>
+      <elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false; alert('Item renamed!')">Rename</elvt-button>
+    </elvt-dialog-actions>
+  </elvt-dialog>
+</ComponentShowcase>
+
+</TabItem>
+
+<TabItem value="loading" label="Loading & Progress">
+
+**Loading dialogs** show progress for long operations.
+**Progress dialogs** provide detailed feedback on multi-step processes.
+
+<ComponentShowcase
+  title="Loading and Progress Dialogs"
+  description="Loading and progress dialogs for long-running operations"
+  code={`<div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;"
+  code="loading-and-progress-dialogs.html">
+  <elvt-button onclick="document.getElementById('loading-dialog').open = true">Start Process</elvt-button>
+</div>
+
+<elvt-dialog id="loading-dialog" persistent>
+  <elvt-dialog-header>
+    <h2>Processing Request</h2>
+  </elvt-dialog-header>
+  <elvt-dialog-content>
+    <div style="text-align: center; padding: 2rem;">
+      <div style="margin-bottom: 1rem;">Please wait while we process your request...</div>
+      <div style="background: #e0e0e0; border-radius: 8px; height: 8px; overflow: hidden;">
+        <div style="background: #0066cc; height: 100%; width: 65%; border-radius: 8px; transition: width 0.3s ease;"></div>
+      </div>
+      <div style="margin-top: 0.5rem; font-size: 0.875rem; color: #6f6f6f;">65% complete</div>
+    </div>
+  </elvt-dialog-content>
+  <elvt-dialog-actions>
+    <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>
+  </elvt-dialog-actions>
+</elvt-dialog>`}
+>
+  <elvt-stack direction="row" spacing="medium" align="center" wrap>
+    <elvt-button onclick="document.getElementById('loading-dialog').open = true">Start Process</elvt-button>
+  </elvt-stack>
+
+  <elvt-dialog id="loading-dialog" persistent>
+    <elvt-dialog-header>
+      <h2>Processing Request</h2>
+    </elvt-dialog-header>
+    <elvt-dialog-content>
+      <div style={{textAlign: 'center', padding: '2rem'}}>
+        <div style={{marginBottom: '1rem'}}>Please wait while we process your request...</div>
+        <div style={{background: '#e0e0e0', borderRadius: '8px', height: '8px', overflow: 'hidden'}}>
+          <div style={{background: '#0066cc', height: '100%', width: '65%', borderRadius: '8px', transition: 'width 0.3s ease'}}></div>
+        </div>
+        <div style={{marginTop: '0.5rem', fontSize: '0.875rem', color: '#6f6f6f'}}>65% complete</div>
+      </div>
+    </elvt-dialog-content>
+    <elvt-dialog-actions>
+      <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>
+    </elvt-dialog-actions>
+  </elvt-dialog>
+</ComponentShowcase>
+
+</TabItem>
+
+</Tabs>
+
+### Size Variations
+
+<ComponentShowcase
+  title="Dialog Sizes"
+  description="Different dialog sizes for various content types"
+  code={`<div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;"
+  code="dialog-sizes.html">
+  <elvt-button onclick="document.getElementById('small-dialog').open = true">Small Dialog</elvt-button>
+  <elvt-button onclick="document.getElementById('medium-dialog').open = true">Medium Dialog</elvt-button>
+  <elvt-button onclick="document.getElementById('large-dialog').open = true">Large Dialog</elvt-button>
+  <elvt-button onclick="document.getElementById('fullscreen-dialog').open = true">Fullscreen Dialog</elvt-button>
+</div>
+
+<elvt-dialog id="small-dialog" size="small">
+  <elvt-dialog-header><h3>Small Dialog</h3></elvt-dialog-header>
+  <elvt-dialog-content><p>This is a small dialog for brief interactions.</p></elvt-dialog-content>
+  <elvt-dialog-actions><elvt-button onclick="this.closest('elvt-dialog').open = false">Close</elvt-button></elvt-dialog-actions>
+</elvt-dialog>
+
+<elvt-dialog id="medium-dialog" size="medium">
+  <elvt-dialog-header><h3>Medium Dialog</h3></elvt-dialog-header>
+  <elvt-dialog-content><p>This is a medium dialog for standard forms and content.</p></elvt-dialog-content>
+  <elvt-dialog-actions><elvt-button onclick="this.closest('elvt-dialog').open = false">Close</elvt-button></elvt-dialog-actions>
+</elvt-dialog>
+
+<elvt-dialog id="large-dialog" size="large">
+  <elvt-dialog-header><h3>Large Dialog</h3></elvt-dialog-header>
+  <elvt-dialog-content><p>This is a large dialog for complex content and detailed forms.</p></elvt-dialog-content>
+  <elvt-dialog-actions><elvt-button onclick="this.closest('elvt-dialog').open = false">Close</elvt-button></elvt-dialog-actions>
+</elvt-dialog>
+
+<elvt-dialog id="fullscreen-dialog" full-screen="true">
+  <elvt-dialog-header>
+    <h1>Fullscreen Dialog</h1>
+    <elvt-button slot="close" onclick="this.closest('elvt-dialog').open = false">
+      <elvt-icon icon="mdi:close"></elvt-icon>
+    </elvt-button>
+  </elvt-dialog-header>
+  <elvt-dialog-content><p>This is a fullscreen dialog for complex workflows and detailed interfaces.</p></elvt-dialog-content>
+  <elvt-dialog-actions><elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false">Done</elvt-button></elvt-dialog-actions>
+</elvt-dialog>`}
+>
+  <elvt-stack direction="row" spacing="medium" align="center" wrap>
+    <elvt-button onclick="document.getElementById('small-dialog').open = true">Small Dialog</elvt-button>
+    <elvt-button onclick="document.getElementById('medium-dialog').open = true">Medium Dialog</elvt-button>
+    <elvt-button onclick="document.getElementById('large-dialog').open = true">Large Dialog</elvt-button>
+    <elvt-button onclick="document.getElementById('fullscreen-dialog').open = true">Fullscreen Dialog</elvt-button>
+  </elvt-stack>
+
+  <elvt-dialog id="small-dialog" size="small">
+    <elvt-dialog-header><h3>Small Dialog</h3></elvt-dialog-header>
+    <elvt-dialog-content><p>This is a small dialog for brief interactions.</p></elvt-dialog-content>
+    <elvt-dialog-actions><elvt-button onclick="this.closest('elvt-dialog').open = false">Close</elvt-button></elvt-dialog-actions>
+  </elvt-dialog>
+
+  <elvt-dialog id="medium-dialog" size="medium">
+    <elvt-dialog-header><h3>Medium Dialog</h3></elvt-dialog-header>
+    <elvt-dialog-content><p>This is a medium dialog for standard forms and content.</p></elvt-dialog-content>
+    <elvt-dialog-actions><elvt-button onclick="this.closest('elvt-dialog').open = false">Close</elvt-button></elvt-dialog-actions>
+  </elvt-dialog>
+
+  <elvt-dialog id="large-dialog" size="large">
+    <elvt-dialog-header><h3>Large Dialog</h3></elvt-dialog-header>
+    <elvt-dialog-content><p>This is a large dialog for complex content and detailed forms.</p></elvt-dialog-content>
+    <elvt-dialog-actions><elvt-button onclick="this.closest('elvt-dialog').open = false">Close</elvt-button></elvt-dialog-actions>
+  </elvt-dialog>
+
+  <elvt-dialog id="fullscreen-dialog" full-screen="true">
+    <elvt-dialog-header>
+      <h1>Fullscreen Dialog</h1>
+      <elvt-button slot="close" onclick="this.closest('elvt-dialog').open = false">
+        <elvt-icon icon="mdi:close"></elvt-icon>
+      </elvt-button>
+    </elvt-dialog-header>
+    <elvt-dialog-content><p>This is a fullscreen dialog for complex workflows and detailed interfaces.</p></elvt-dialog-content>
+    <elvt-dialog-actions><elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false">Done</elvt-button></elvt-dialog-actions>
+  </elvt-dialog>
+</ComponentShowcase>
+
+## Design Principles
+
+Understanding these core principles will help you make better design decisions and avoid interface patterns that confuse or frustrate users.
+
+### Interruption Management Principle
+**Dialogs should interrupt workflow only when absolutely necessary.** Overusing dialogs creates friction and trains users to dismiss them without reading. Reserve dialogs for truly important decisions or required input.
+
+### Focus Containment Principle  
+**User attention should be fully contained within the dialog.** The background should be obscured and interaction blocked to prevent confusion. Users need clear entry and exit points from the modal state.
+
+### Progressive Disclosure Principle
+**Complex information should be revealed gradually.** Long forms or detailed content in dialogs creates overwhelming experiences. Break complex interactions into manageable steps or consider alternative patterns.
+
+### Clear Intent Principle
+**Every dialog should have a clear purpose and outcome.** Users should understand why the dialog appeared and what they need to do. Ambiguous dialogs create anxiety and decision paralysis.
+
+## Best Practices
+
+### Writing Effective Dialog Content
+
+**Why this matters:** Unclear dialog content forces users to guess what will happen, creating anxiety and potential for mistakes. Well-written content builds confidence and reduces cognitive load.
+
+:::tip Do: Use clear, specific titles and action-oriented button labels
+
+**Delete 3 selected items**
+
+This action will permanently remove the selected items and cannot be undone. Are you sure you want to continue?
+
+[Keep Items] [Delete Items]
+:::
+
+:::danger Don't: Use vague titles or generic button labels  
+
+**Confirm Action**
+
+Are you sure you want to do this?
+
+[No] [Yes]
+:::
+
+### Managing Dialog Complexity
+
+**Why this matters:** Complex dialogs overwhelm users and increase abandonment rates. Breaking down complex interactions into simpler steps or alternative patterns improves completion rates and user satisfaction.
+
+:::tip Do: Keep dialogs focused on a single task or decision
+
+**Add Team Member**
+
+Email: [john@example.com]
+Role: [Editor ▼]
+
+[Cancel] [Add Member]
+:::
+
+:::danger Don't: Cram multiple complex tasks into one dialog
+
+**Project Settings**
+
+Name: [___] Description: [___]
+Category: [▼] Privacy: [▼]
+☑ Read ☑ Write ☑ Admin
+
+[Cancel] [Save]
+:::
+
+### Establishing Button Hierarchy
+
+**Why this matters:** Unclear button hierarchy forces users to read and analyze all options before acting. Clear hierarchy guides users to the intended action and reduces decision time.
+
+:::tip Do: Use clear visual hierarchy with primary and secondary buttons
+
+**Save Changes**
+
+You have unsaved changes. What would you like to do?
+
+[Discard] [**Save Changes**]
+:::
+
+:::danger Don't: Make all buttons look equally important
+
+**Save Changes**
+
+You have unsaved changes. What would you like to do?
+
+[**Discard**] [**Save Changes**]
+:::
+
+## Implementation
+
+### Installation
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+### Basic Usage
+
+```html
+<elvt-dialog open="true">
+  <elvt-dialog-header>
+    <h2>Confirm Action</h2>
+  </elvt-dialog-header>
+  <elvt-dialog-content>
+    <p>Are you sure you want to delete this item? This action cannot be undone.</p>
+  </elvt-dialog-content>
+  <elvt-dialog-actions>
+    <elvt-button variant="secondary">Cancel</elvt-button>
+    <elvt-button variant="danger">Delete</elvt-button>
+  </elvt-dialog-actions>
+</elvt-dialog>
+```
+
+### Form Dialog
+
+```html
+<elvt-dialog open="true" size="medium">
+  <elvt-dialog-header>
+    <h2>Edit Profile</h2>
+  </elvt-dialog-header>
+  <elvt-dialog-content>
+    <elvt-input label="Full Name" value="John Doe"></elvt-input>
+    <elvt-input label="Email" type="email" value="john@example.com"></elvt-input>
+    <elvt-textarea label="Bio" placeholder="Tell us about yourself"></elvt-textarea>
+  </elvt-dialog-content>
+  <elvt-dialog-actions>
+    <elvt-button variant="secondary">Cancel</elvt-button>
+    <elvt-button variant="primary">Save Changes</elvt-button>
+  </elvt-dialog-actions>
+</elvt-dialog>
+```
+
+### Full Screen Dialog
+
+```html
+<elvt-dialog open="true" full-screen="true">
+  <elvt-dialog-header>
+    <h1>Create New Project</h1>
+    <elvt-button variant="ghost" slot="close">
+      <elvt-icon name="close"></elvt-icon>
+    </elvt-button>
+  </elvt-dialog-header>
+  <elvt-dialog-content>
+    <!-- Complex form content -->
+  </elvt-dialog-content>
+  <elvt-dialog-actions>
+    <elvt-button variant="secondary">Save Draft</elvt-button>
+    <elvt-button variant="primary">Create Project</elvt-button>
+  </elvt-dialog-actions>
+</elvt-dialog>
+```
+
+### Key Properties
+
+The most commonly used properties for design and development:
+
+| Property | Options | Description |
+|----------|---------|-------------|
+| `open` | `true`, `false` (default) | Whether the dialog is visible |
+| `size` | `small`, `medium` (default), `large`, `xl` | Dialog width and height |
+| `full-screen` | `true`, `false` (default) | Whether dialog fills entire viewport |
+| `persistent` | `true`, `false` (default) | Whether dialog can be closed by clicking overlay |
+| `modal` | `true` (default), `false` | Whether dialog blocks background interaction |
+
+**Dialog Structure:** Use `elvt-dialog-header`, `elvt-dialog-content`, and `elvt-dialog-actions` for consistent layout.
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-dialog--docs).*
+
+## Interactive Examples
+
+### Live Dialog Playground
+
+Experience how dialogs behave in realistic contexts. All examples use actual ELEVATE components.
+
+<Tabs>
+
+<TabItem value="actions" label="User Actions">
+
+Test dialogs in common user workflow scenarios:
+
+<ComponentShowcase
+  title="User Action Dialogs"
+  description="Test dialogs in common user workflow scenarios"
+  code={`<div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;"
+  code="user-action-dialogs.html">
+  <elvt-button onclick="document.getElementById('logout-dialog').open = true">Sign Out</elvt-button>
+  <elvt-button onclick="document.getElementById('delete-dialog').open = true">Delete Account</elvt-button>
+  <elvt-button onclick="document.getElementById('upgrade-dialog').open = true">Upgrade Plan</elvt-button>
+</div>
+
+<elvt-dialog id="logout-dialog">
+  <elvt-dialog-header>
+    <h2>Sign Out</h2>
+  </elvt-dialog-header>
+  <elvt-dialog-content>
+    <p>Are you sure you want to sign out? Any unsaved changes will be lost.</p>
+  </elvt-dialog-content>
+  <elvt-dialog-actions>
+    <elvt-button onclick="this.closest('elvt-dialog').open = false">Stay Signed In</elvt-button>
+    <elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false; alert('Signed out successfully!')">Sign Out</elvt-button>
+  </elvt-dialog-actions>
+</elvt-dialog>
+
+<elvt-dialog id="delete-dialog">
+  <elvt-dialog-header>
+    <h2>Delete Account</h2>
+  </elvt-dialog-header>
+  <elvt-dialog-content>
+    <p>This action will permanently delete your account and all associated data. This cannot be undone.</p>
+    <p>Type <strong>DELETE</strong> to confirm:</p>
+    <elvt-input id="delete-confirm" placeholder="Type DELETE to confirm"></elvt-input>
+  </elvt-dialog-content>
+  <elvt-dialog-actions>
+    <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>
+    <elvt-button tone="danger" onclick="const input = document.getElementById('delete-confirm'); if(input.value === 'DELETE') { this.closest('elvt-dialog').open = false; alert('Account deleted!'); } else { alert('Please type DELETE to confirm'); }">Delete Account</elvt-button>
+  </elvt-dialog-actions>
+</elvt-dialog>
+
+<elvt-dialog id="upgrade-dialog" size="medium">
+  <elvt-dialog-header>
+    <h2>Upgrade to Premium</h2>
+  </elvt-dialog-header>
+  <elvt-dialog-content>
+    <div style={{textAlign: 'center', padding: '1rem'}}>
+      <h3>Premium Features</h3>
+      <ul style={{textAlign: 'left', margin: '1rem 0'}}>
+        <li>Unlimited projects</li>
+        <li>Advanced analytics</li>
+        <li>Priority support</li>
+        <li>Team collaboration</li>
+      </ul>
+      <div style={{fontSize: '2rem', fontWeight: 'bold', color: '#0066cc'}}>$19/month</div>
+    </div>
+  </elvt-dialog-content>
+  <elvt-dialog-actions>
+    <elvt-button onclick="this.closest('elvt-dialog').open = false">Maybe Later</elvt-button>
+    <elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false; alert('Redirecting to payment...')">Upgrade Now</elvt-button>
+  </elvt-dialog-actions>
+</elvt-dialog>`}
+>
+  <elvt-stack direction="row" spacing="medium" align="center" wrap>
+    <elvt-button onclick="document.getElementById('logout-dialog').open = true">Sign Out</elvt-button>
+    <elvt-button onclick="document.getElementById('delete-dialog').open = true">Delete Account</elvt-button>
+    <elvt-button onclick="document.getElementById('upgrade-dialog').open = true">Upgrade Plan</elvt-button>
+  </elvt-stack>
+
+  <elvt-dialog id="logout-dialog">
+    <elvt-dialog-header>
+      <h2>Sign Out</h2>
+    </elvt-dialog-header>
+    <elvt-dialog-content>
+      <p>Are you sure you want to sign out? Any unsaved changes will be lost.</p>
+    </elvt-dialog-content>
+    <elvt-dialog-actions>
+      <elvt-button onclick="this.closest('elvt-dialog').open = false">Stay Signed In</elvt-button>
+      <elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false; alert('Signed out successfully!')">Sign Out</elvt-button>
+    </elvt-dialog-actions>
+  </elvt-dialog>
+
+  <elvt-dialog id="delete-dialog">
+    <elvt-dialog-header>
+      <h2>Delete Account</h2>
+    </elvt-dialog-header>
+    <elvt-dialog-content>
+      <p>This action will permanently delete your account and all associated data. This cannot be undone.</p>
+      <p>Type <strong>DELETE</strong> to confirm:</p>
+      <elvt-input id="delete-confirm" placeholder="Type DELETE to confirm"></elvt-input>
+    </elvt-dialog-content>
+    <elvt-dialog-actions>
+      <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>
+      <elvt-button tone="danger" onclick="const input = document.getElementById('delete-confirm'); if(input.value === 'DELETE') { this.closest('elvt-dialog').open = false; alert('Account deleted!'); } else { alert('Please type DELETE to confirm'); }">Delete Account</elvt-button>
+    </elvt-dialog-actions>
+  </elvt-dialog>
+
+  <elvt-dialog id="upgrade-dialog" size="medium">
+    <elvt-dialog-header>
+      <h2>Upgrade to Premium</h2>
+    </elvt-dialog-header>
+    <elvt-dialog-content>
+      <div style={{textAlign: 'center', padding: '1rem'}}>
+        <h3>Premium Features</h3>
+        <ul style={{textAlign: 'left', margin: '1rem 0'}}>
+          <li>Unlimited projects</li>
+          <li>Advanced analytics</li>
+          <li>Priority support</li>
+          <li>Team collaboration</li>
+        </ul>
+        <div style={{fontSize: '2rem', fontWeight: 'bold', color: '#0066cc'}}>$19/month</div>
+      </div>
+    </elvt-dialog-content>
+    <elvt-dialog-actions>
+      <elvt-button onclick="this.closest('elvt-dialog').open = false">Maybe Later</elvt-button>
+      <elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false; alert('Redirecting to payment...')">Upgrade Now</elvt-button>
+    </elvt-dialog-actions>
+  </elvt-dialog>
+</ComponentShowcase>
+
+</TabItem>
+
+<TabItem value="data" label="Data Entry">
+
+See how dialogs handle form inputs and validation:
+
+<ComponentShowcase
+  title="Data Entry Dialogs"
+  description="See how dialogs handle form inputs and validation"
+  code={`<div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;"
+  code="data-entry-dialogs.html">
+  <elvt-button onclick="document.getElementById('contact-dialog').open = true">Add Contact</elvt-button>
+  <elvt-button onclick="document.getElementById('settings-dialog').open = true">Edit Settings</elvt-button>
+</div>
+
+<elvt-dialog id="contact-dialog" size="medium">
+  <elvt-dialog-header>
+    <h2>Add New Contact</h2>
+  </elvt-dialog-header>
+  <elvt-dialog-content>
+    <form id="contact-form" style="display: flex; flex-direction: column; gap: 1rem;">
+      <elvt-input label="First Name" required></elvt-input>
+      <elvt-input label="Last Name" required></elvt-input>
+      <elvt-input label="Email" type="email" required></elvt-input>
+      <elvt-input label="Phone" type="tel"></elvt-input>
+      <elvt-select label="Category">
+        <option value="work">Work</option>
+        <option value="personal">Personal</option>
+        <option value="family">Family</option>
+      </elvt-select>
+    </form>
+  </elvt-dialog-content>
+  <elvt-dialog-actions>
+    <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>
+    <elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false; alert('Contact added successfully!')">Add Contact</elvt-button>
+  </elvt-dialog-actions>
+</elvt-dialog>
+
+<elvt-dialog id="settings-dialog" size="large">
+  <elvt-dialog-header>
+    <h2>Account Settings</h2>
+  </elvt-dialog-header>
+  <elvt-dialog-content>
+    <div style="display: flex; flex-direction: column; gap: 2rem;">
+      <section>
+        <h3>Profile Information</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <elvt-input label="Display Name" value="John Doe"></elvt-input>
+          <elvt-input label="Email" value="john@example.com"></elvt-input>
+        </div>
+      </section>
+      <section>
+        <h3>Preferences</h3>
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+          <label style="display: flex; align-items: center; gap: 0.5rem;">
+            <input type="checkbox" checked /> Email notifications
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.5rem;">
+            <input type="checkbox" /> SMS notifications
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.5rem;">
+            <input type="checkbox" checked /> Marketing emails
+          </label>
+        </div>
+      </section>
+    </div>
+  </elvt-dialog-content>
+  <elvt-dialog-actions>
+    <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>
+    <elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false; alert('Settings saved successfully!')">Save Changes</elvt-button>
+  </elvt-dialog-actions>
+</elvt-dialog>`}
+>
+  <elvt-stack direction="row" spacing="medium" align="center" wrap>
+    <elvt-button onclick="document.getElementById('contact-dialog').open = true">Add Contact</elvt-button>
+    <elvt-button onclick="document.getElementById('settings-dialog').open = true">Edit Settings</elvt-button>
+  </elvt-stack>
+
+  <elvt-dialog id="contact-dialog" size="medium">
+    <elvt-dialog-header>
+      <h2>Add New Contact</h2>
+    </elvt-dialog-header>
+    <elvt-dialog-content>
+      <form id="contact-form">
+        <elvt-stack direction="column" spacing="medium">
+        <elvt-input label="First Name" required></elvt-input>
+        <elvt-input label="Last Name" required></elvt-input>
+        <elvt-input label="Email" type="email" required></elvt-input>
+        <elvt-input label="Phone" type="tel"></elvt-input>
+        <elvt-select label="Category">
+          <option value="work">Work</option>
+          <option value="personal">Personal</option>
+          <option value="family">Family</option>
+        </elvt-select>
+        </elvt-stack>
+      </form>
+    </elvt-dialog-content>
+    <elvt-dialog-actions>
+      <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>
+      <elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false; alert('Contact added successfully!')">Add Contact</elvt-button>
+    </elvt-dialog-actions>
+  </elvt-dialog>
+
+  <elvt-dialog id="settings-dialog" size="large">
+    <elvt-dialog-header>
+      <h2>Account Settings</h2>
+    </elvt-dialog-header>
+    <elvt-dialog-content>
+      <elvt-stack direction="column" spacing="large">
+        <section>
+          <h3>Profile Information</h3>
+          <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem'}}>
+            <elvt-input label="Display Name" value="John Doe"></elvt-input>
+            <elvt-input label="Email" value="john@example.com"></elvt-input>
+          </div>
+        </section>
+        <section>
+          <h3>Preferences</h3>
+          <elvt-stack direction="column" spacing="small">
+            <label style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+              <input type="checkbox" defaultChecked /> Email notifications
+            </label>
+            <label style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+              <input type="checkbox" /> SMS notifications
+            </label>
+            <label style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+              <input type="checkbox" defaultChecked /> Marketing emails
+            </label>
+          </elvt-stack>
+        </section>
+      </elvt-stack>
+    </elvt-dialog-content>
+    <elvt-dialog-actions>
+      <elvt-button onclick="this.closest('elvt-dialog').open = false">Cancel</elvt-button>
+      <elvt-button tone="primary" onclick="this.closest('elvt-dialog').open = false; alert('Settings saved successfully!')">Save Changes</elvt-button>
+    </elvt-dialog-actions>
+  </elvt-dialog>
+</ComponentShowcase>
+
+</TabItem>
+
+</Tabs>
+
+## Accessibility
+
+### Essential Accessibility Practices
+
+**Focus management is automatic:**
+```html
+<!-- Good: Focus moves to dialog and is trapped -->  
+<elvt-dialog open="true">
+  <elvt-dialog-header>
+    <h2>Dialog Title</h2> <!-- Receives initial focus -->
+  </elvt-dialog-header>
+  <elvt-dialog-content>
+    <p>Dialog content</p>
+  </elvt-dialog-content>
+  <elvt-dialog-actions>
+    <elvt-button>Cancel</elvt-button>
+    <elvt-button tone="primary">Confirm</elvt-button>
+  </elvt-dialog-actions>
+</elvt-dialog>
+```
+
+**Provide descriptive titles:**
+- ✅ "Delete 3 selected items" 
+- ⛔️ "Confirm" or "Dialog"
+
+**Use appropriate dialog roles:**
+- Alert dialogs: `role="alertdialog"` (automatically applied)
+- Standard dialogs: `role="dialog"` (automatically applied)
+- Form dialogs: Use proper form labels and structure
+
+**Keyboard behavior is built-in:**
+- Escape key closes dialog (unless `persistent="true"`)
+- Tab navigation is trapped within dialog
+- Focus returns to trigger element when closed
+
+**Screen reader announcements:**
+- Dialog title is announced when opened
+- Content changes are communicated appropriately
+- Error states in forms are announced
+
+### Critical Requirements
+
+- Always provide clear, descriptive dialog titles
+- Ensure all interactive elements are keyboard accessible
+- Don't nest dialogs (avoid opening dialogs from other dialogs)
+- Provide escape mechanisms (close button or cancel action)
+- Use semantic HTML structure within dialog content
+- Test with screen readers and keyboard-only navigation
+
+## Changelog
+
+<ComponentChangelog 
+  component="elvt-dialog" 
+  maxVersions={5}
+  showMetadata={true}
+  compactMode={false}
+/>

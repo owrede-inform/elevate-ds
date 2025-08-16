@@ -4,9 +4,6 @@ description: Buttons trigger actions and guide users through workflows. They pro
 sidebar_position: 1
 ---
 
-import ComponentShowcase from '@site/src/components/ComponentShowcase';
-import ComponentChangelog from '@site/src/components/ComponentChangelog';
-import TocLinks from '@site/src/components/TocLinks';
 
 # Button
 
@@ -36,17 +33,9 @@ Each tone communicates a different type of action and creates visual hierarchy i
 
 <ComponentShowcase 
   title="Button Tones"
-  description="Different button tones for various use cases and semantic meaning.">
-<elvt-stack direction="row" spacing="medium" align="center" wrap>
-  <elvt-button tone="primary">Primary</elvt-button>
-  <elvt-button tone="neutral">Neutral</elvt-button>
-  <elvt-button tone="success">Success</elvt-button>
-  <elvt-button tone="warning">Warning</elvt-button>
-  <elvt-button tone="danger">Danger</elvt-button>
-  <elvt-button tone="subtle">Subtle</elvt-button>
-  <elvt-button tone="emphasized">Emphasized</elvt-button>
-</elvt-stack>
-</ComponentShowcase>
+  description="Different button tones for various use cases and semantic meaning."
+  code="button-tone-variations.html" />
+
 
 ### Example from External File
 
@@ -54,22 +43,9 @@ This example demonstrates loading code from an external file for cleaner documen
 
 <ComponentShowcase 
   title="Button Example"
-  description="Buttons with icons and different states.">
-<elvt-stack direction="row" spacing="medium" align="center" wrap>
-  <elvt-button tone="primary">
-    <elvt-icon slot="prefix" icon="mdi:plus"></elvt-icon>
-    Add Item
-  </elvt-button>
-  <elvt-button tone="success">
-    <elvt-icon slot="prefix" icon="mdi:download"></elvt-icon>
-    Download
-  </elvt-button>
-  <elvt-button tone="danger" disabled>
-    <elvt-icon slot="prefix" icon="mdi:delete"></elvt-icon>
-    Delete
-  </elvt-button>
-</elvt-stack>
-</ComponentShowcase>
+  description="Buttons with icons and different states."
+  code="buttons-with-icons-different-states.html" />
+
 
 ### State Variations
 
@@ -77,12 +53,8 @@ Buttons can be disabled when an action is temporarily unavailable, or show a sel
 
 <ComponentShowcase 
   title="Button States"
-  description="Buttons support disabled and selected states.">
-<elvt-stack direction="row" spacing="medium" align="center" wrap>
-  <elvt-button tone="primary" disabled>Disabled Button</elvt-button>
-  <elvt-button tone="primary" selected>Selected Button</elvt-button>
-</elvt-stack>
-</ComponentShowcase>
+  description="Buttons support disabled and selected states."
+  code="button-states.html" />
 
 ### Icon Usage
 
@@ -94,22 +66,8 @@ Icons before text help identify the action type or category.
 
 <ComponentShowcase 
   title="Buttons with Prefix Icons"
-  description="Icons placed before button text provide visual context for the action.">
-<elvt-stack direction="row" spacing="medium" align="center" wrap>
-  <elvt-button tone="primary">
-    <elvt-icon slot="prefix" icon="mdi:plus"></elvt-icon>
-    Add Item
-  </elvt-button>
-  <elvt-button tone="success">
-    <elvt-icon slot="prefix" icon="mdi:download"></elvt-icon>
-    Download
-  </elvt-button>
-  <elvt-button tone="danger">
-    <elvt-icon slot="prefix" icon="mdi:delete"></elvt-icon>
-    Delete
-  </elvt-button>
-</elvt-stack>
-</ComponentShowcase>
+  description="Icons placed before button text provide visual context for the action."
+  code="buttons-with-prefix-icons.html" />
 
 #### Suffix Icons
 
@@ -117,22 +75,8 @@ Icons after text suggest direction or outcome of the action.
 
 <ComponentShowcase
   title="Buttons with Suffix Icons"
-  description="Icons placed after button text indicate direction or outcome.">
-  <elvt-stack direction="row" spacing="medium" align="center" wrap>
-    <elvt-button tone="primary">
-      Continue
-      <elvt-icon slot="suffix" icon="mdi:chevron-right"></elvt-icon>
-    </elvt-button>
-    <elvt-button>
-      Open Link
-      <elvt-icon slot="suffix" icon="mdi:open-in-new"></elvt-icon>
-    </elvt-button>
-    <elvt-button tone="subtle">
-      Expand
-      <elvt-icon slot="suffix" icon="mdi:chevron-down"></elvt-icon>
-    </elvt-button>
-  </elvt-stack>
-</ComponentShowcase>
+  description="Icons placed after button text indicate direction or outcome."
+  code="buttons-with-suffix-icons.html" />
 
 #### Icon Only
 
@@ -140,34 +84,16 @@ Icon-only buttons save space but require clear, universally understood icons and
 
 <ComponentShowcase
   title="Icon-Only Buttons"
-  description="Buttons with only icons should have proper accessibility attributes.">
-  <elvt-stack direction="row" spacing="medium" align="center">
-    <elvt-button tone="primary" title="Add new item" aria-label="Add new item">
-      <elvt-icon icon="mdi:plus"></elvt-icon>
-    </elvt-button>
-    <elvt-button title="Edit" aria-label="Edit">
-      <elvt-icon icon="mdi:pencil"></elvt-icon>
-    </elvt-button>
-    <elvt-button tone="danger" title="Delete" aria-label="Delete">
-      <elvt-icon icon="mdi:delete"></elvt-icon>
-    </elvt-button>
-    <elvt-button tone="subtle" title="More options" aria-label="More options">
-      <elvt-icon icon="mdi:dots-vertical"></elvt-icon>
-    </elvt-button>
-  </elvt-stack>
-</ComponentShowcase>
+  description="Buttons with only icons should have proper accessibility attributes."
+  code="icon-only-buttons.html" />
 
 ### Size Variations
 
 <ComponentShowcase
   title="Button Sizes"
-  description="Three button sizes available - small, medium (default), and large.">
-  <elvt-stack direction="row" spacing="large" align="center">
-    <elvt-button size="small">Small</elvt-button>
-    <elvt-button size="medium">Medium</elvt-button>
-    <elvt-button size="large">Large</elvt-button>
-  </elvt-stack>
-</ComponentShowcase>
+  description="Three button sizes available - small, medium (default), and large."
+  code="buttons-sizes.html" />
+
 
 ## Design Principles
 

@@ -37,39 +37,8 @@ Different input types provide specific keyboard layouts and validation on mobile
 <ComponentShowcase
   title="Input Types"
   description="Various input types for different data collection needs."
-  code="input-types.html">
-<elvt-stack direction="column" spacing="medium" style={{maxWidth: '400px'}}>
-  <elvt-input 
-    type="text" 
-    label="Full Name" 
-    placeholder="Enter your full name">
-  </elvt-input>
-  
-  <elvt-input 
-    type="email" 
-    label="Email Address" 
-    placeholder="user@example.com">
-  </elvt-input>
-  
-  <elvt-input 
-    type="password" 
-    label="Password" 
-    placeholder="Enter password">
-  </elvt-input>
-  
-  <elvt-input 
-    type="tel" 
-    label="Phone Number" 
-    placeholder="+1 (555) 123-4567">
-  </elvt-input>
-  
-  <elvt-input 
-    type="url" 
-    label="Website" 
-    placeholder="https://example.com">
-  </elvt-input>
-</elvt-stack>
-</ComponentShowcase>
+  code="input-types.html"
+/>
 
 ### Input States
 
@@ -78,36 +47,8 @@ Inputs can display various states to communicate status and guide user interacti
 <ComponentShowcase
   title="Input States"
   description="Different states communicate validation status and interaction feedback."
-  code="input-states.html">
-<elvt-stack direction="column" spacing="medium" style={{maxWidth: '400px'}}>
-  <elvt-input 
-    type="text" 
-    label="Default State" 
-    placeholder="Normal input field">
-  </elvt-input>
-  
-  <elvt-input 
-    type="text" 
-    label="Required Field" 
-    placeholder="This field is required"
-    required>
-  </elvt-input>
-  
-  <elvt-input 
-    type="text" 
-    label="Disabled Input" 
-    placeholder="Cannot be edited"
-    disabled>
-  </elvt-input>
-  
-  <elvt-input 
-    type="text" 
-    label="Read-Only Input" 
-    value="Cannot be modified"
-    readonly>
-  </elvt-input>
-</elvt-stack>
-</ComponentShowcase>
+  code="input-states.html"
+/>
 
 ### Validation States
 
@@ -116,33 +57,8 @@ Clear validation feedback helps users understand and correct input errors.
 <ComponentShowcase
   title="Validation States"
   description="Visual feedback for validation status with helpful messages."
-  code="validation-states.html">
-<elvt-stack direction="column" spacing="medium" style={{maxWidth: '400px'}}>
-  <elvt-input 
-    type="email" 
-    label="Valid Email" 
-    value="user@example.com"
-    valid
-    help-text="Email format is correct">
-  </elvt-input>
-  
-  <elvt-input 
-    type="email" 
-    label="Invalid Email" 
-    value="invalid-email"
-    invalid
-    help-text="Please enter a valid email address">
-  </elvt-input>
-  
-  <elvt-input 
-    type="text" 
-    label="Warning State" 
-    value="potential-issue"
-    warning
-    help-text="This value might cause issues">
-  </elvt-input>
-</elvt-stack>
-</ComponentShowcase>
+  code="validation-states.html"
+/>
 
 ### Input Sizes
 
@@ -151,30 +67,8 @@ Different sizes accommodate various layout contexts and design hierarchies.
 <ComponentShowcase
   title="Input Sizes"
   description="Three input sizes for different contexts and visual hierarchies."
-  code="input-sizes.html">
-<elvt-stack direction="column" spacing="medium" style={{maxWidth: '400px'}}>
-  <elvt-input 
-    type="text" 
-    label="Small Input" 
-    placeholder="Small size input"
-    size="small">
-  </elvt-input>
-  
-  <elvt-input 
-    type="text" 
-    label="Medium Input" 
-    placeholder="Medium size input (default)"
-    size="medium">
-  </elvt-input>
-  
-  <elvt-input 
-    type="text" 
-    label="Large Input" 
-    placeholder="Large size input"
-    size="large">
-  </elvt-input>
-</elvt-stack>
-</ComponentShowcase>
+  code="input-sizes.html"
+/>
 
 ### Help Text and Labels
 
@@ -183,31 +77,8 @@ Proper labeling and help text improve usability and accessibility.
 <ComponentShowcase
   title="Labels and Help Text"
   description="Effective labeling and help text patterns for better user guidance."
-  code="labels-and-help-text.html">
-<elvt-stack direction="column" spacing="medium" style={{maxWidth: '400px'}}>
-  <elvt-input 
-    type="text" 
-    label="Company Name" 
-    placeholder="Enter your company name"
-    help-text="This will appear on your invoices and receipts">
-  </elvt-input>
-  
-  <elvt-input 
-    type="password" 
-    label="New Password" 
-    placeholder="Create a strong password"
-    help-text="Must be at least 8 characters with numbers and symbols"
-    required>
-  </elvt-input>
-  
-  <elvt-input 
-    type="text" 
-    label="Optional Field" 
-    placeholder="This field is optional"
-    help-text="You can skip this field and add it later in settings">
-  </elvt-input>
-</elvt-stack>
-</ComponentShowcase>
+  code="labels-and-help-text.html"
+/>
 
 ## Design Principles
 
@@ -403,45 +274,8 @@ import '@inform-elevate/elevate-core-ui/dist/components/input/input.js';
 <ComponentShowcase
   title="Complete Contact Form"
   description="A realistic contact form showing input components in context."
-  code="complete-contact-form.html">
-<form style={{maxWidth: '400px'}}>
-  <elvt-stack direction="column" spacing="medium">
-  <h3>Contact Us</h3>
-  
-  <elvt-input 
-    type="text" 
-    label="Full Name" 
-    placeholder="Enter your full name"
-    required>
-  </elvt-input>
-  
-  <elvt-input 
-    type="email" 
-    label="Email Address" 
-    placeholder="user@example.com"
-    help-text="We'll respond within 24 hours"
-    required>
-  </elvt-input>
-  
-  <elvt-input 
-    type="tel" 
-    label="Phone Number (Optional)" 
-    placeholder="+1 (555) 123-4567">
-  </elvt-input>
-  
-  <elvt-input 
-    type="text" 
-    label="Company" 
-    placeholder="Your company name">
-  </elvt-input>
-  
-  <elvt-stack direction="row" spacing="small" justify="end" style={{marginTop: '1rem'}}>
-    <elvt-button>Cancel</elvt-button>
-    <elvt-button tone="primary" type="submit">Send Message</elvt-button>
-  </elvt-stack>
-  </elvt-stack>
-</form>
-</ComponentShowcase>
+  code="complete-contact-form.html"
+/>
 
 ## Accessibility
 

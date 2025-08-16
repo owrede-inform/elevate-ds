@@ -6,9 +6,10 @@
  * Copyright © 2025 INFORM GmbH
  */
 
-/* Import ELEVATE Core UI styles and light theme only */
+/* Import ELEVATE Core UI styles and themes */
 @import '@inform-elevate/elevate-core-ui/dist/elevate.css';
 @import '@inform-elevate/elevate-core-ui/dist/themes/light.css';
+@import '@inform-elevate/elevate-core-ui/dist/themes/dark.css';
 
 /* Import ELEVATE theme override CSS for CSS-only approach */
 @import './elevate-theme-override.css';
@@ -742,24 +743,103 @@ article {
   border: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
 }
 
-/* Tables in documentation */
-[data-theme='dark'] .markdown table {
+/* ========================================
+   UNIFIED TABLE STYLING (Markdown & Components)
+   ======================================== */
+
+/* Base table styling - applies to all Markdown tables */
+.markdown table,
+.theme-doc-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--ifm-font-size-sm);
+  margin: 1rem 0;
+  border: none; /* Remove top border */
+}
+
+/* Table headers - consistent styling for light/dark mode */
+.markdown thead tr,
+.theme-doc-markdown thead tr {
+  background: var(--ifm-table-head-background);
+  border-bottom: 2px solid var(--ifm-table-border-color);
+  border-top: none; /* Remove top border */
+}
+
+.markdown th,
+.theme-doc-markdown th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: var(--ifm-font-weight-semibold);
+  color: var(--ifm-table-head-color);
+  border: none; /* Remove vertical borders */
+}
+
+/* Table body rows - only bottom borders */
+.markdown tbody tr,
+.theme-doc-markdown tbody tr {
+  border-bottom: 1px solid var(--ifm-table-border-color);
+}
+
+.markdown td,
+.theme-doc-markdown td {
+  padding: 0.75rem 1rem;
+  border: none; /* Remove vertical borders */
+  color: var(--ifm-table-cell-color);
+  vertical-align: middle;
+}
+
+/* Code elements in tables - consistent styling */
+.markdown td code,
+.theme-doc-markdown td code,
+.markdown th code,
+.theme-doc-markdown th code {
+  font-size: 0.875rem;
+  background: var(--ifm-code-background);
+  color: var(--ifm-code-color);
+  padding: 0.125rem 0.25rem;
+  border-radius: 3px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+/* Dark theme table styling */
+[data-theme='dark'] .markdown table,
+[data-theme='dark'] .theme-doc-markdown table {
   border-color: var(--elvt-alias-layout-border-muted, #4d5366);
 }
 
-[data-theme='dark'] .markdown thead tr {
-  background: var(--elvt-primitives-color-gray-800, #3d4253);
-  border-bottom-color: var(--elvt-alias-layout-border-muted, #4d5366);
+[data-theme='dark'] .markdown thead tr,
+[data-theme='dark'] .theme-doc-markdown thead tr {
+  background: var(--ifm-table-head-background);
+  border-bottom-color: var(--ifm-table-border-color);
 }
 
-[data-theme='dark'] .markdown tbody tr {
-  border-bottom-color: var(--elvt-alias-layout-border-muted, #4d5366);
+[data-theme='dark'] .markdown tbody tr,
+[data-theme='dark'] .theme-doc-markdown tbody tr {
+  border-bottom-color: var(--ifm-table-border-color);
 }
 
 [data-theme='dark'] .markdown td,
-[data-theme='dark'] .markdown th {
-  border-color: var(--elvt-alias-layout-border-muted, #4d5366);
+[data-theme='dark'] .markdown th,
+[data-theme='dark'] .theme-doc-markdown td,
+[data-theme='dark'] .theme-doc-markdown th {
+  border: none;
   color: var(--elvt-alias-content-text-default, #d5d9e1);
+}
+
+/* Ensure table theme variables are defined */
+:root {
+  --ifm-table-head-background: var(--elvt-primitives-color-gray-100, #d5d9e1);
+  --ifm-table-head-color: var(--elvt-alias-content-text-primary, #3d4253);
+  --ifm-table-border-color: var(--elvt-primitives-color-gray-300, #a3aab4);
+  --ifm-table-cell-color: var(--elvt-alias-content-text-primary, #3d4253);
+}
+
+[data-theme='dark'] {
+  --ifm-table-head-background: var(--elvt-primitives-color-gray-700, #4d5366);
+  --ifm-table-head-color: var(--elvt-alias-content-text-default, #d5d9e1);
+  --ifm-table-border-color: var(--elvt-alias-layout-border-muted, #4d5366);
+  --ifm-table-cell-color: var(--elvt-alias-content-text-default, #d5d9e1);
 }
 
 /* Admonitions (note, tip, warning, etc.) */
@@ -1168,53 +1248,7 @@ elvt-card h6 { font-size: 0.875rem; }
 
 /* Header customizations removed - back to Docusaurus default */
 
-/* Visual header background - behind main element, spans full width */
-main {
-  position: relative;
-  z-index: 1;
-}
-
-main::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 12rem; /* Fixed height for header area */
-  background: var(--ifm-color-emphasis-200);
-  z-index: -1;
-}
-
-[data-theme='dark'] main::before {
-  background: var(--elvt-primitives-color-gray-900, #1f2937);
-}
-
-/* Remove ALL background fills from content area so header background shows through */
-.theme-doc-markdown,
-.theme-doc-markdown.markdown,
-article,
-.theme-doc-breadcrumbs,
-.container,
-.row,
-.col,
-.col > div,
-main > div,
-main > .container,
-main > .row,
-main .theme-doc-markdown,
-.main-wrapper,
-.theme-doc-sidebar-container + div,
-[class*="docMainContainer"],
-[class*="docItemWrapper"] {
-  background: transparent !important;
-  background-color: transparent !important;
-}
-
-/* Target all elements within the header area specifically, but exclude color swatches */
-main *:not(.doc-header-section):not(.color-swatch) {
-  background: transparent !important;
-  background-color: transparent !important;
-}
+/* Header background system removed - prioritizing correct ELEVATE component rendering */
 
 /* Increase bottom margin of H1 by 3.5rem */
 .theme-doc-markdown h1:first-child {

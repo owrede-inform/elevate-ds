@@ -5,10 +5,14 @@ sidebar_position: 1
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import TocLinks from '@site/src/components/TocLinks';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 # Tooltip
 
 Tooltip component provides contextual information that appears on hover or focus, offering additional details, help text, or explanations without cluttering the interface.
+
+<TocLinks />
 
 ## When to Use
 
@@ -22,60 +26,8 @@ Tooltip component provides contextual information that appears on hover or focus
 <ComponentShowcase
   title="Basic Tooltips"
   description="Hover over elements to see tooltip information."
-
-  code="basic-tooltips.html">
-  <div style={{display: 'flex', gap: '1rem', alignItems: 'center'}}>
-    <div style={{position: 'relative'}}>
-      <button 
-        style={{
-          padding: '0.75rem 1.5rem',
-          background: 'var(--elvt-primitives-color-blue-500)',
-          color: 'white',
-          border: 'none',
-          borderRadius: '6px',
-          cursor: 'pointer'
-        }}
-        title="Save your current work"
-      >
-        Save
-      </button>
-    </div>
-    
-    <div style={{position: 'relative'}}>
-      <button 
-        style={{
-          padding: '0.75rem 1.5rem',
-          background: 'var(--elvt-primitives-color-red-500)',
-          color: 'white',
-          border: 'none',
-          borderRadius: '6px',
-          cursor: 'pointer'
-        }}
-        title="This action cannot be undone"
-      >
-        Delete
-      </button>
-    </div>
-    
-    <div style={{position: 'relative'}}>
-      <button 
-        style={{
-          padding: '0.5rem',
-          background: 'transparent',
-          border: '1px solid var(--elvt-alias-layout-border-muted)',
-          borderRadius: '6px',
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-        title="Download as PDF"
-      >
-        ⬇️
-      </button>
-    </div>
-  </div>
-</ComponentShowcase>
+  code="basic-tooltips.html"
+/>
 
 ## Resources
 
@@ -92,3 +44,7 @@ Tooltips automatically include proper ARIA attributes for screen readers. Keep t
 :::info Timing
 Tooltips appear after a short delay on hover and disappear when the cursor moves away or focus is lost.
 :::
+
+## Changelog
+
+<ComponentChangelog component="elvt-tooltip" />

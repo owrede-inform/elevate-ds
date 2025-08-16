@@ -5,9 +5,12 @@ sidebar_position: 13
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import TocLinks from '@site/src/components/TocLinks';
 import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 Breadcrumb Items are the individual elements that make up breadcrumb navigation. The ELEVATE Breadcrumb Item component helps designers and developers create consistent styling and behavior for each level in the navigation hierarchy, supporting various states and interaction patterns that enhance wayfinding experiences.
+
+<TocLinks />
 
 ## Overview
 
@@ -33,19 +36,7 @@ Clickable breadcrumb item that navigates to a parent page in the hierarchy.
 <ComponentShowcase
   title="Standard Breadcrumb Link Items"
   description="Clickable breadcrumb items for navigation to parent pages"
-  code={`<elvt-breadcrumb
-  code="standard-breadcrumb-link-items.html">
-  <elvt-breadcrumb-item href="/dashboard">Dashboard</elvt-breadcrumb-item>
-  <elvt-breadcrumb-item href="/settings">Settings</elvt-breadcrumb-item>
-  <elvt-breadcrumb-item href="/settings/account">Account</elvt-breadcrumb-item>
-</elvt-breadcrumb>`}
->
-  <elvt-breadcrumb>
-    <elvt-breadcrumb-item href="/dashboard">Dashboard</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item href="/settings">Settings</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item href="/settings/account">Account</elvt-breadcrumb-item>
-  </elvt-breadcrumb>
-</ComponentShowcase>
+  code="code-examples/standard-breadcrumb-link-items.html" />
 
 ### Current Page Item
 
@@ -54,19 +45,7 @@ Non-clickable item representing the current page location, visually distinct but
 <ComponentShowcase
   title="Current Page Breadcrumb Item"
   description="Non-clickable item indicating the current page location"
-  code={`<elvt-breadcrumb
-  code="current-page-breadcrumb-item.html">
-  <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
-  <elvt-breadcrumb-item href="/products">Products</elvt-breadcrumb-item>
-  <elvt-breadcrumb-item current>MacBook Pro</elvt-breadcrumb-item>
-</elvt-breadcrumb>`}
->
-  <elvt-breadcrumb>
-    <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item href="/products">Products</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item current>MacBook Pro</elvt-breadcrumb-item>
-  </elvt-breadcrumb>
-</ComponentShowcase>
+  code="code-examples/current-page-breadcrumb-item.html" />
 
 ### Icon-Enhanced Items
 
@@ -75,31 +54,7 @@ Breadcrumb items with icons to improve visual recognition and category identific
 <ComponentShowcase
   title="Breadcrumb Items with Icons"
   description="Enhanced breadcrumb items with meaningful icons for better recognition"
-  code={`<elvt-breadcrumb
-  code="breadcrumb-items-with-icons.html">
-  <elvt-breadcrumb-item href="/">
-    <elvt-icon slot="prefix" icon="mdi:home"></elvt-icon>
-    Home
-  </elvt-breadcrumb-item>
-  <elvt-breadcrumb-item href="/admin">
-    <elvt-icon slot="prefix" icon="mdi:cog"></elvt-icon>
-    Admin
-  </elvt-breadcrumb-item>
-  <elvt-breadcrumb-item current>User Management</elvt-breadcrumb-item>
-</elvt-breadcrumb>`}
->
-  <elvt-breadcrumb>
-    <elvt-breadcrumb-item href="/">
-      <elvt-icon slot="prefix" icon="mdi:home"></elvt-icon>
-      Home
-    </elvt-breadcrumb-item>
-    <elvt-breadcrumb-item href="/admin">
-      <elvt-icon slot="prefix" icon="mdi:cog"></elvt-icon>
-      Admin
-    </elvt-breadcrumb-item>
-    <elvt-breadcrumb-item current>User Management</elvt-breadcrumb-item>
-  </elvt-breadcrumb>
-</ComponentShowcase>
+  code="code-examples/breadcrumb-items-with-icons.html" />
 
 ### Disabled Items
 
@@ -108,19 +63,7 @@ Non-interactive items that appear disabled but remain visible for context.
 <ComponentShowcase
   title="Disabled Breadcrumb Items"
   description="Non-interactive breadcrumb items that provide context without navigation"
-  code={`<elvt-breadcrumb
-  code="disabled-breadcrumb-items.html">
-  <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
-  <elvt-breadcrumb-item disabled>Restricted Section</elvt-breadcrumb-item>
-  <elvt-breadcrumb-item current>Current Page</elvt-breadcrumb-item>
-</elvt-breadcrumb>`}
->
-  <elvt-breadcrumb>
-    <elvt-breadcrumb-item href="/">Home</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item disabled>Restricted Section</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item current>Current Page</elvt-breadcrumb-item>
-  </elvt-breadcrumb>
-</ComponentShowcase>
+  code="code-examples/disabled-breadcrumb-items.html" />
 
 ## Design Principles
 
@@ -250,39 +193,7 @@ Experience how breadcrumb items behave in realistic contexts. All examples use a
 <ComponentShowcase
   title="Documentation Site Navigation"
   description="Realistic breadcrumb navigation for a documentation website"
-  code={`<div style="padding: 2rem; background: #f8f9fa; border-radius: 8px;"
-  code="documentation-site-navigation.html">
-  <!-- Documentation Navigation Example -->
-  <elvt-breadcrumb style="margin-bottom: 1.5rem;">
-    <elvt-breadcrumb-item href="/docs">
-      <elvt-icon slot="prefix" icon="mdi:book-open-page-variant"></elvt-icon>
-      Documentation
-    </elvt-breadcrumb-item>
-    <elvt-breadcrumb-item href="../">Components</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item href="../forms">Forms</elvt-breadcrumb-item>
-    <elvt-breadcrumb-item current>Input Field</elvt-breadcrumb-item>
-  </elvt-breadcrumb>
-  
-  <!-- Page Header -->
-  <h1 style="margin: 0 0 0.5rem 0; font-size: 1.75rem; color: #161616;">Input Field</h1>
-  <p style="margin: 0; color: #6f6f6f;">Form component for text input with validation and accessibility features</p>
-</div>`}
->
-  <div style={{padding: '2rem', background: '#f8f9fa', borderRadius: '8px'}}>
-    <elvt-breadcrumb style={{marginBottom: '1.5rem'}}>
-      <elvt-breadcrumb-item href="/docs">
-        <elvt-icon slot="prefix" icon="mdi:book-open-page-variant"></elvt-icon>
-        Documentation
-      </elvt-breadcrumb-item>
-      <elvt-breadcrumb-item href="../">Components</elvt-breadcrumb-item>
-      <elvt-breadcrumb-item href="../forms">Forms</elvt-breadcrumb-item>
-      <elvt-breadcrumb-item current>Input Field</elvt-breadcrumb-item>
-    </elvt-breadcrumb>
-    
-    <h1 style={{margin: '0 0 0.5rem 0', fontSize: '1.75rem', color: '#161616'}}>Input Field</h1>
-    <p style={{margin: 0, color: '#6f6f6f'}}>Form component for text input with validation and accessibility features</p>
-  </div>
-</ComponentShowcase>
+  code="code-examples/documentation-site-navigation.html" />
 
 ## Accessibility
 

@@ -4,10 +4,10 @@ description: Button Groups organize related actions together with consistent spa
 sidebar_position: 14
 ---
 
-import ComponentShowcase from '@site/src/components/ComponentShowcase';
-import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 Button Groups combine multiple related buttons into a cohesive unit with consistent spacing, alignment, and visual treatment. The ELEVATE Button Group component helps designers and developers organize actions logically, create clear visual hierarchy, and reduce interface complexity while maintaining accessibility and usability standards.
+
+<TocLinks />
 
 ## Overview
 
@@ -35,42 +35,16 @@ Standard horizontal arrangement of buttons with consistent spacing for most use 
 <ComponentShowcase
   title="Horizontal Button Group"
   description="Standard horizontal arrangement of related action buttons"
-  code={`<elvt-button-group
-  code="horizontal-button-group.html">
-  <elvt-button tone="primary">Save Changes</elvt-button>
-  <elvt-button>Cancel</elvt-button>
-  <elvt-button>Save Draft</elvt-button>
-</elvt-button-group>`}
->
-  <elvt-button-group>
-    <elvt-button tone="primary">Save Changes</elvt-button>
-    <elvt-button>Cancel</elvt-button>
-    <elvt-button>Save Draft</elvt-button>
-  </elvt-button-group>
-</ComponentShowcase>
+  code="horizontal-button-group.html" />
 
-### Vertical Button Groups
+### Overview
 
-Vertical stacking of buttons for narrow layouts, mobile interfaces, or sidebar actions.
+Different tones...
 
 <ComponentShowcase
-  title="Vertical Button Group"
-  description="Vertical stacking of buttons for narrow layouts and mobile interfaces"
-  code={`<elvt-button-group orientation="vertical"
-  code="vertical-button-group.html">
-  <elvt-button tone="primary">New Document</elvt-button>
-  <elvt-button>Open Document</elvt-button>
-  <elvt-button>Recent Files</elvt-button>
-  <elvt-button>Settings</elvt-button>
-</elvt-button-group>`}
->
-  <elvt-button-group orientation="vertical">
-    <elvt-button tone="primary">New Document</elvt-button>
-    <elvt-button>Open Document</elvt-button>
-    <elvt-button>Recent Files</elvt-button>
-    <elvt-button>Settings</elvt-button>
-  </elvt-button-group>
-</ComponentShowcase>
+  title="Overview over different tones"
+  description="Differently toned buttons in button groups"
+  code="button-group-overview.html" />
 
 ### Segmented Button Groups
 
@@ -79,21 +53,7 @@ Connected buttons that appear as a single unit with shared borders, ideal for re
 <ComponentShowcase
   title="Segmented Button Group"
   description="Connected buttons appearing as a single unit for related options"
-  code={`<elvt-button-group variant="segmented"
-  code="segmented-button-group.html">
-  <elvt-button>Day</elvt-button>
-  <elvt-button>Week</elvt-button>
-  <elvt-button>Month</elvt-button>
-  <elvt-button>Year</elvt-button>
-</elvt-button-group>`}
->
-  <elvt-button-group variant="segmented">
-    <elvt-button>Day</elvt-button>
-    <elvt-button>Week</elvt-button>
-    <elvt-button>Month</elvt-button>
-    <elvt-button>Year</elvt-button>
-  </elvt-button-group>
-</ComponentShowcase>
+  code="segmented-button-group.html" />
 
 ### Icon Button Groups
 
@@ -102,31 +62,7 @@ Groups of icon-only buttons for compact toolbars and space-efficient action sets
 <ComponentShowcase
   title="Icon Button Group"
   description="Compact toolbar with icon-only buttons for formatting actions"
-  code={`<elvt-button-group
-  code="icon-button-group.html">
-  <elvt-button tone="subtle" title="Bold" aria-label="Bold">
-    <elvt-icon icon="mdi:format-bold"></elvt-icon>
-  </elvt-button>
-  <elvt-button tone="subtle" title="Italic" aria-label="Italic">
-    <elvt-icon icon="mdi:format-italic"></elvt-icon>
-  </elvt-button>
-  <elvt-button tone="subtle" title="Underline" aria-label="Underline">
-    <elvt-icon icon="mdi:format-underline"></elvt-icon>
-  </elvt-button>
-</elvt-button-group>`}
->
-  <elvt-button-group>
-    <elvt-button tone="subtle" title="Bold" aria-label="Bold">
-      <elvt-icon icon="mdi:format-bold"></elvt-icon>
-    </elvt-button>
-    <elvt-button tone="subtle" title="Italic" aria-label="Italic">
-      <elvt-icon icon="mdi:format-italic"></elvt-icon>
-    </elvt-button>
-    <elvt-button tone="subtle" title="Underline" aria-label="Underline">
-      <elvt-icon icon="mdi:format-underline"></elvt-icon>
-    </elvt-button>
-  </elvt-button-group>
-</ComponentShowcase>
+  code="icon-button-group.html" />
 
 ## Design Principles
 
@@ -255,48 +191,7 @@ Experience how button groups behave in realistic contexts. All examples use actu
 <ComponentShowcase
   title="Form Actions Example"
   description="Realistic form with button group for save, cancel, and draft actions"
-  code={`<div style="max-width: 600px; padding: 2rem; border: 1px solid #e0e0e0; border-radius: 8px;"
-  code="form-actions-example.html">
-  <h3 style="margin-top: 0;">Edit Profile</h3>
-  
-  <div style="margin-bottom: 1rem;">
-    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Name:</label>
-    <input type="text" value="John Doe" style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px;">
-  </div>
-  
-  <div style="margin-bottom: 2rem;">
-    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email:</label>
-    <input type="email" value="john@example.com" style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 4px;">
-  </div>
-  
-  <!-- Form Actions -->
-  <elvt-button-group style="justify-content: flex-end;">
-    <elvt-button onclick="alert('Changes discarded')">Cancel</elvt-button>
-    <elvt-button tone="subtle" onclick="alert('Draft saved')">Save Draft</elvt-button>
-    <elvt-button tone="primary" onclick="alert('Profile updated!')">Save Changes</elvt-button>
-  </elvt-button-group>
-</div>`}
->
-  <div style={{maxWidth: '600px', padding: '2rem', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
-    <h3 style={{marginTop: 0}}>Edit Profile</h3>
-    
-    <div style={{marginBottom: '1rem'}}>
-      <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500'}}>Name:</label>
-      <input type="text" defaultValue="John Doe" style={{width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px'}} />
-    </div>
-    
-    <div style={{marginBottom: '2rem'}}>
-      <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500'}}>Email:</label>
-      <input type="email" defaultValue="john@example.com" style={{width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px'}} />
-    </div>
-    
-    <elvt-button-group style={{justifyContent: 'flex-end'}}>
-      <elvt-button onClick={() => alert('Changes discarded')}>Cancel</elvt-button>
-      <elvt-button tone="subtle" onClick={() => alert('Draft saved')}>Save Draft</elvt-button>
-      <elvt-button tone="primary" onClick={() => alert('Profile updated!')}>Save Changes</elvt-button>
-    </elvt-button-group>
-  </div>
-</ComponentShowcase>
+  code="form-actions-example.html" />
 
 ## Accessibility
 

@@ -5,10 +5,14 @@ sidebar_position: 1
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import TocLinks from '@site/src/components/TocLinks';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 # Field
 
 Field is a wrapper component that provides consistent labeling, validation states, help text, and error handling for form inputs. It ensures all form fields follow ELEVATE design patterns and accessibility standards.
+
+<TocLinks />
 
 ## When to Use
 
@@ -22,25 +26,8 @@ Field is a wrapper component that provides consistent labeling, validation state
 <ComponentShowcase
   title="Basic Field"
   description="Field wrapper with label and input component."
-
-  code="basic-field.html">
-  <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem', maxWidth: '300px'}}>
-    <label style={{fontWeight: '500', fontSize: '0.875rem', color: 'var(--elvt-alias-content-text-primary)'}}>
-      Email Address <span style={{color: 'var(--elvt-primitives-color-red-500)'}}>*</span>
-    </label>
-    <input 
-      type="email" 
-      placeholder="user@example.com"
-      style={{
-        padding: '0.75rem',
-        border: '1px solid var(--elvt-alias-layout-border-muted)',
-        borderRadius: '6px',
-        fontSize: '0.875rem',
-        fontFamily: 'inherit'
-      }}
-    />
-  </div>
-</ComponentShowcase>
+  code="basic-field.html"
+/>
 
 ## Resources
 
@@ -57,3 +44,7 @@ Use the Field component consistently across your application to ensure all form 
 :::info Accessibility
 The Field component automatically handles many accessibility requirements like label association and error announcements. Always provide meaningful labels and error messages.
 :::
+
+## Changelog
+
+<ComponentChangelog component="elvt-field" />

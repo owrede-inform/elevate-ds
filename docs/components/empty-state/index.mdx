@@ -5,10 +5,14 @@ sidebar_position: 1
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import TocLinks from '@site/src/components/TocLinks';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 # Empty State
 
 Empty State components provide helpful placeholders when no content, data, or search results are available. They guide users with clear messaging and actionable next steps to improve the user experience during empty scenarios.
+
+<TocLinks />
 
 ## When to Use
 
@@ -22,78 +26,24 @@ Empty State components provide helpful placeholders when no content, data, or se
 <ComponentShowcase
   title="Basic Empty State"
   description="Simple empty state with icon, message, and call-to-action."
-  code={`<elvt-empty-state
-  icon="inbox"
-  title="No messages yet"
-  description="When you receive messages, they'll appear here."
-  action-text="Check settings"
-  action-href="/settings"
-  code="basic-empty-state.html">
-</elvt-empty-state>`}
->
-  <div style={{padding: '3rem', textAlign: 'center', background: 'var(--elvt-alias-layout-layer-elevated)', borderRadius: '8px', border: '1px solid var(--elvt-alias-layout-border-muted)'}}>
-    <div style={{fontSize: '3rem', marginBottom: '1rem', opacity: '0.5'}}>📥</div>
-    <h3 style={{margin: '0 0 0.5rem 0', color: 'var(--elvt-alias-content-text-primary)'}}>No messages yet</h3>
-    <p style={{margin: '0 0 1.5rem 0', color: 'var(--elvt-alias-content-text-secondary)'}}>
-      When you receive messages, they'll appear here.
-    </p>
-    <button style={{padding: '0.75rem 1.5rem', background: 'var(--elvt-primitives-color-blue-500)', color: 'white', border: 'none', borderRadius: '6px'}}>
-      Check settings
-    </button>
-  </div>
-</ComponentShowcase>
+  code="basic-empty-state.html"
+/>
 
 ## Search Results
 
 <ComponentShowcase
   title="Search Empty State"
   description="Empty state specifically for when search queries return no results."
-  code={`<elvt-empty-state
-  icon="search"
-  title="No results found"
-  description="Try adjusting your search terms or filters."
-  action-text="Clear filters"
-  variant="search"
-  code="search-empty-state.html">
-</elvt-empty-state>`}
->
-  <div style={{padding: '3rem', textAlign: 'center', background: 'var(--elvt-alias-layout-layer-elevated)', borderRadius: '8px', border: '1px solid var(--elvt-alias-layout-border-muted)'}}>
-    <div style={{fontSize: '3rem', marginBottom: '1rem', opacity: '0.5'}}>🔍</div>
-    <h3 style={{margin: '0 0 0.5rem 0', color: 'var(--elvt-alias-content-text-primary)'}}>No results found</h3>
-    <p style={{margin: '0 0 1.5rem 0', color: 'var(--elvt-alias-content-text-secondary)'}}>
-      Try adjusting your search terms or filters.
-    </p>
-    <button style={{padding: '0.75rem 1.5rem', background: 'transparent', color: 'var(--elvt-primitives-color-blue-500)', border: '1px solid var(--elvt-primitives-color-blue-500)', borderRadius: '6px'}}>
-      Clear filters
-    </button>
-  </div>
-</ComponentShowcase>
+  code="search-empty-state.html"
+/>
 
 ## First Time Experience
 
 <ComponentShowcase
   title="First Time User"
   description="Welcoming empty state for new users with onboarding guidance."
-  code={`<elvt-empty-state
-  icon="star"
-  title="Welcome to your dashboard!"
-  description="Start by creating your first project to see analytics and insights."
-  action-text="Create project"
-  variant="welcome"
-  code="first-time-user.html">
-</elvt-empty-state>`}
->
-  <div style={{padding: '3rem', textAlign: 'center', background: 'var(--elvt-alias-layout-layer-elevated)', borderRadius: '8px', border: '1px solid var(--elvt-alias-layout-border-muted)'}}>
-    <div style={{fontSize: '3rem', marginBottom: '1rem', opacity: '0.7'}}>⭐</div>
-    <h3 style={{margin: '0 0 0.5rem 0', color: 'var(--elvt-alias-content-text-primary)'}}>Welcome to your dashboard!</h3>
-    <p style={{margin: '0 0 1.5rem 0', color: 'var(--elvt-alias-content-text-secondary)'}}>
-      Start by creating your first project to see analytics and insights.
-    </p>
-    <button style={{padding: '0.75rem 1.5rem', background: 'var(--elvt-primitives-color-blue-500)', color: 'white', border: 'none', borderRadius: '6px'}}>
-      Create project
-    </button>
-  </div>
-</ComponentShowcase>
+  code="first-time-user.html"
+/>
 
 ## Properties
 
@@ -260,3 +210,7 @@ Write empty state content that explains what happened and provides clear next st
 :::info Error Recovery
 For error-related empty states, include recovery actions like "Try again" or "Contact support" to help users move forward.
 :::
+
+## Changelog
+
+<ComponentChangelog component="elvt-empty-state" />

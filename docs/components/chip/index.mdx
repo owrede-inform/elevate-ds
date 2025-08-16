@@ -5,9 +5,12 @@ sidebar_position: 16
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import TocLinks from '@site/src/components/TocLinks';
 import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 Chips are compact elements that help users manage selections, filters, and tags efficiently. The ELEVATE Chip component helps designers and developers create consistent, accessible interfaces for content organization and user interactions.
+
+<TocLinks />
 
 ## Overview
 
@@ -33,21 +36,8 @@ Filter chips help users refine content with clear active/inactive states.
 <ComponentShowcase
   title="Filter Chip Examples"
   description="Use filter chips to show available and selected filters"
-  code={`<div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;"
-  code="filter-chip-examples.html">
-  <elvt-chip variant="filter">All Items</elvt-chip>
-  <elvt-chip variant="filter" selected>Active Filter</elvt-chip>
-  <elvt-chip variant="filter">Another Filter</elvt-chip>
-  <elvt-chip variant="filter" selected>Selected Filter</elvt-chip>
-</div>`}
->
-  <elvt-stack direction="row" spacing="small" align="center" wrap>
-    <elvt-chip variant="filter">All Items</elvt-chip>
-    <elvt-chip variant="filter" selected>Active Filter</elvt-chip>
-    <elvt-chip variant="filter">Another Filter</elvt-chip>
-    <elvt-chip variant="filter" selected>Selected Filter</elvt-chip>
-  </elvt-stack>
-</ComponentShowcase>
+  code="filter-chip-examples.html"
+/>
 
 ### Tag Chips
 
@@ -56,21 +46,8 @@ Tag chips represent categories, labels, or user selections with dismissible opti
 <ComponentShowcase
   title="Tag Chip Examples"
   description="Use tag chips for removable labels and categories"
-  code={`<div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;"
-  code="tag-chip-examples.html">
-  <elvt-chip dismissible>JavaScript</elvt-chip>
-  <elvt-chip dismissible>React</elvt-chip>
-  <elvt-chip dismissible>Design System</elvt-chip>
-  <elvt-chip dismissible color="primary">Featured</elvt-chip>
-</div>`}
->
-  <elvt-stack direction="row" spacing="small" align="center" wrap>
-    <elvt-chip dismissible>JavaScript</elvt-chip>
-    <elvt-chip dismissible>React</elvt-chip>
-    <elvt-chip dismissible>Design System</elvt-chip>
-    <elvt-chip dismissible color="primary">Featured</elvt-chip>
-  </elvt-stack>
-</ComponentShowcase>
+  code="tag-chip-examples.html"
+/>
 
 ### Status Chips
 
@@ -79,21 +56,8 @@ Status chips communicate states with semantic colors and clear labels.
 <ComponentShowcase
   title="Status Chip Examples"
   description="Use status chips to communicate states with semantic colors"
-  code={`<div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;"
-  code="status-chip-examples.html">
-  <elvt-chip color="success">Active</elvt-chip>
-  <elvt-chip color="warning">Pending</elvt-chip>
-  <elvt-chip color="error">Failed</elvt-chip>
-  <elvt-chip>Draft</elvt-chip>
-</div>`}
->
-  <elvt-stack direction="row" spacing="small" align="center" wrap>
-    <elvt-chip color="success">Active</elvt-chip>
-    <elvt-chip color="warning">Pending</elvt-chip>
-    <elvt-chip color="error">Failed</elvt-chip>
-    <elvt-chip>Draft</elvt-chip>
-  </elvt-stack>
-</ComponentShowcase>
+  code="status-chip-examples.html"
+/>
 
 ## Design Guidelines
 

@@ -7,7 +7,6 @@ sidebar_position: 2
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
 import ComponentChangelog from '@site/src/components/ComponentChangelog';
 import TocLinks from '@site/src/components/TocLinks';
-import { ElvtCard, ElvtButton } from '@inform-elevate/elevate-core-ui/dist/react';
 
 # Card
 
@@ -39,16 +38,8 @@ Simple content container for grouping related information with default styling.
 <ComponentShowcase
   title="Basic Card Example"
   description="Simple card with text content and action button."
-
-  code="basic-card-example.html">
-  <div style={{maxWidth: '400px'}}>
-    <ElvtCard>
-      <h3 style={{marginTop: 0}}>Project Status</h3>
-      <p>Your project is currently in development phase. Next milestone: Beta testing scheduled for next week.</p>
-      <ElvtButton tone="primary" size="medium">View Details</ElvtButton>
-    </ElvtCard>
-  </div>
-</ComponentShowcase>
+  code="basic-card-sample.html"
+/>
 
 ### Card with Header and Footer
 
@@ -57,24 +48,8 @@ Structured card layout with dedicated header and footer areas for organized cont
 <ComponentShowcase
   title="Card with Header and Footer"
   description="Card with structured header and footer sections for better content organization."
-
-  code="card-with-header-and-footer.html">
-  <div style={{maxWidth: '400px'}}>
-    <ElvtCard>
-      <div slot="header" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-        <h3 style={{margin: 0}}>Monthly Report</h3>
-        <ElvtButton tone="subtle" size="small">Download</ElvtButton>
-      </div>
-      
-      <p>Performance metrics show a 15% increase in user engagement this month. Key highlights include improved conversion rates and reduced bounce time.</p>
-      
-      <div slot="footer" style={{display: 'flex', gap: '0.5rem', justifyContent: 'flex-end'}}>
-        <ElvtButton tone="primary">View Full Report</ElvtButton>
-        <ElvtButton>Share Report</ElvtButton>
-      </div>
-    </ElvtCard>
-  </div>
-</ComponentShowcase>
+  code="card-with-header-and-footer.html"
+/>
 
 ### Border Variations
 
@@ -83,25 +58,8 @@ Different border treatments for various design contexts and integration needs.
 <ComponentShowcase
   title="Card Border Variations"
   description="Different border styles for various design contexts."
-
-  code="card-border-variations.html">
-  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem'}}>
-    <ElvtCard border="all">
-      <h4 style={{marginTop: 0}}>All Borders</h4>
-      <p>Complete border treatment (default)</p>
-    </ElvtCard>
-    
-    <ElvtCard border="rounded">
-      <h4 style={{marginTop: 0}}>Rounded Only</h4>
-      <p>Rounded corners without borders</p>
-    </ElvtCard>
-    
-    <ElvtCard border="none">
-      <h4 style={{marginTop: 0}}>No Borders</h4>
-      <p>Seamless integration design</p>
-    </ElvtCard>
-  </div>
-</ComponentShowcase>
+  code="card-border-variations.html"
+/>
 
 ### Layer Variations
 
@@ -110,55 +68,16 @@ Visual depth treatments for different card prominence and context needs.
 <ComponentShowcase
   title="Card Layer Variations"
   description="Different visual depth treatments for various contexts."
-
-  code="card-layer-variations.html">
-  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', padding: '1rem', background: '#f4f4f4', borderRadius: '8px'}}>
-    <ElvtCard layer="default">
-      <h4 style={{marginTop: 0}}>Default</h4>
-      <p>Standard appearance</p>
-    </ElvtCard>
-    
-    <ElvtCard layer="elevated">
-      <h4 style={{marginTop: 0}}>Elevated</h4>
-      <p>Raised with shadow</p>
-    </ElvtCard>
-    
-    <ElvtCard layer="overlay">
-      <h4 style={{marginTop: 0}}>Overlay</h4>
-      <p>Designed for overlays</p>
-    </ElvtCard>
-    
-    <ElvtCard layer="sunken">
-      <h4 style={{marginTop: 0}}>Sunken</h4>
-      <p>Inset appearance</p>
-    </ElvtCard>
-  </div>
-</ComponentShowcase>
+  code="card-layer-variations.html"
+/>
 
 ### Padding Variations
 
 <ComponentShowcase
   title="Card Padding Options"
   description="Different padding sizes for various content needs."
-
-  code="card-padding-options.html">
-  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem'}}>
-    <ElvtCard padding="s">
-      <h4 style={{marginTop: 0}}>Small Padding</h4>
-      <p>Compact layout for dense information.</p>
-    </ElvtCard>
-    
-    <ElvtCard padding="m">
-      <h4 style={{marginTop: 0}}>Medium Padding</h4>
-      <p>Balanced spacing for most use cases.</p>
-    </ElvtCard>
-    
-    <ElvtCard padding="l">
-      <h4 style={{marginTop: 0}}>Large Padding</h4>
-      <p>Generous spacing for prominent content.</p>
-    </ElvtCard>
-  </div>
-</ComponentShowcase>
+  code="card-padding-options.html"
+/>
 
 ## Design Principles
 
@@ -319,28 +238,8 @@ import '@inform-elevate/elevate-core-ui/dist/components/card/card.js';
 <ComponentShowcase
   title="Card Grid Layout"
   description="Common card grid pattern for dashboards and content listings."
-
-  code="card-grid-layout.html">
-  <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem'}}>
-    <ElvtCard>
-      <h4 style={{marginTop: 0}}>Feature A</h4>
-      <p>Description of feature A with key benefits.</p>
-      <ElvtButton tone="primary">Learn More</ElvtButton>
-    </ElvtCard>
-    
-    <ElvtCard>
-      <h4 style={{marginTop: 0}}>Feature B</h4>
-      <p>Description of feature B with key benefits.</p>
-      <ElvtButton tone="success">Get Started</ElvtButton>
-    </ElvtCard>
-    
-    <ElvtCard>
-      <h4 style={{marginTop: 0}}>Feature C</h4>
-      <p>Description of feature C with key benefits.</p>
-      <ElvtButton tone="warning">View Details</ElvtButton>
-    </ElvtCard>
-  </div>
-</ComponentShowcase>
+  code="card-grid-layout.html"
+/>
 
 ## Accessibility
 

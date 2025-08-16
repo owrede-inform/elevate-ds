@@ -5,6 +5,7 @@ sidebar_position: 15
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import TocLinks from '@site/src/components/TocLinks';
 import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 :::info Component Status: Planned
@@ -12,6 +13,8 @@ The ELEVATE Charts component is currently in planning and development phase. Thi
 :::
 
 Charts transform raw data into visual insights that users can quickly understand and act upon. The planned ELEVATE Charts component will help designers and developers create consistent, accessible data visualizations that communicate information clearly and support data-driven decision making.
+
+<TocLinks />
 
 ## Overview
 
@@ -37,213 +40,21 @@ Charts transform raw data into visual insights that users can quickly understand
 <ComponentShowcase
   title="Line Chart Pattern"
   description="Time-series data visualization showing revenue trends over time"
-
-  code="line-chart-pattern.html">
-  <div style={{background: 'white', padding: '2rem', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
-    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem'}}>
-      <h3 style={{margin: 0, fontSize: '1.25rem'}}>Revenue Trend</h3>
-      <div style={{display: 'flex', gap: '1rem', alignItems: 'center', fontSize: '0.875rem'}}>
-        <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-          <div style={{width: '12px', height: '2px', background: '#007bff'}}></div>
-          <span>2024 Revenue</span>
-        </div>
-        <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-          <div style={{width: '12px', height: '2px', background: '#28a745'}}></div>
-          <span>2025 Revenue</span>
-        </div>
-      </div>
-    </div>
-    
-    <div style={{position: 'relative', height: '200px', border: '1px solid #e0e0e0', borderRadius: '4px', background: '#f8f9fa'}}>
-      <div style={{position: 'absolute', left: '-30px', top: 0, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontSize: '0.75rem', color: '#6f6f6f'}}>
-        <span>$100K</span>
-        <span>$75K</span>
-        <span>$50K</span>
-        <span>$25K</span>
-        <span>$0</span>
-      </div>
-      
-      <svg style={{width: '100%', height: '100%'}} viewBox="0 0 300 150">
-        <defs>
-          <pattern id="grid" width="60" height="30" patternUnits="userSpaceOnUse">
-            <path d="M 60 0 L 0 0 0 30" fill="none" stroke="#e0e0e0" strokeWidth="0.5"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#grid)" />
-        
-        <polyline fill="none" stroke="#007bff" strokeWidth="2" points="20,120 80,100 140,80 200,90 260,70"/>
-        <polyline fill="none" stroke="#28a745" strokeWidth="2" points="20,110 80,85 140,60 200,50 260,40"/>
-        
-        <circle cx="20" cy="120" r="3" fill="#007bff"/>
-        <circle cx="80" cy="100" r="3" fill="#007bff"/>
-        <circle cx="140" cy="80" r="3" fill="#007bff"/>
-        <circle cx="200" cy="90" r="3" fill="#007bff"/>
-        <circle cx="260" cy="70" r="3" fill="#007bff"/>
-        
-        <circle cx="20" cy="110" r="3" fill="#28a745"/>
-        <circle cx="80" cy="85" r="3" fill="#28a745"/>
-        <circle cx="140" cy="60" r="3" fill="#28a745"/>
-        <circle cx="200" cy="50" r="3" fill="#28a745"/>
-        <circle cx="260" cy="40" r="3" fill="#28a745"/>
-      </svg>
-      
-      <div style={{display: 'flex', justifyContent: 'space-between', marginTop: '0.5rem', padding: '0 20px', fontSize: '0.75rem', color: '#6f6f6f'}}>
-        <span>Jan</span>
-        <span>Feb</span>
-        <span>Mar</span>
-        <span>Apr</span>
-        <span>May</span>
-      </div>
-    </div>
-    
-    <div style={{marginTop: '1rem', display: 'flex', justifyContent: 'center', gap: '2rem'}}>
-      <div style={{textAlign: 'center'}}>
-        <div style={{fontSize: '1.5rem', fontWeight: '600', color: '#28a745'}}>+15%</div>
-        <div style={{fontSize: '0.875rem', color: '#6f6f6f'}}>Growth</div>
-      </div>
-      <div style={{textAlign: 'center'}}>
-        <div style={{fontSize: '1.5rem', fontWeight: '600', color: '#161616'}}>$87K</div>
-        <div style={{fontSize: '0.875rem', color: '#6f6f6f'}}>Current</div>
-      </div>
-    </div>
-  </div>
-</ComponentShowcase>
+  code="code-examples/line-chart-pattern.html" />
 
 **Bar Charts** compare discrete categories or values, perfect for rankings and comparisons.
 
 <ComponentShowcase
   title="Bar Chart Pattern"
   description="Categorical data comparison showing sales performance by region"
-
-  code="bar-chart-pattern.html">
-  <div style={{background: 'white', padding: '2rem', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
-    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem'}}>
-      <h3 style={{margin: 0, fontSize: '1.25rem'}}>Sales by Region</h3>
-      <elvt-button size="small" tone="subtle">
-        <elvt-icon slot="prefix" icon="mdi:download"></elvt-icon>
-        Export
-      </elvt-button>
-    </div>
-    
-    <div style={{position: 'relative'}}>
-      <div style={{position: 'absolute', left: '-40px', top: 0, height: '250px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontSize: '0.75rem', color: '#6f6f6f'}}>
-        <span>$500K</span>
-        <span>$400K</span>
-        <span>$300K</span>
-        <span>$200K</span>
-        <span>$100K</span>
-        <span>$0</span>
-      </div>
-      
-      <div style={{display: 'flex', alignItems: 'end', justifyContent: 'space-around', height: '250px', borderBottom: '1px solid #e0e0e0', padding: '0 20px', gap: '1rem'}}>
-        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1}}>
-          <div style={{background: 'linear-gradient(to top, #007bff, #4dabf7)', width: '100%', maxWidth: '60px', height: '200px', borderRadius: '4px 4px 0 0', display: 'flex', alignItems: 'end', justifyContent: 'center', color: 'white', fontSize: '0.875rem', fontWeight: '500', paddingBottom: '8px'}}>
-            $420K
-          </div>
-          <div style={{marginTop: '0.5rem', fontSize: '0.875rem', color: '#161616', textAlign: 'center'}}>North America</div>
-        </div>
-        
-        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1}}>
-          <div style={{background: 'linear-gradient(to top, #28a745, #5cb85c)', width: '100%', maxWidth: '60px', height: '160px', borderRadius: '4px 4px 0 0', display: 'flex', alignItems: 'end', justifyContent: 'center', color: 'white', fontSize: '0.875rem', fontWeight: '500', paddingBottom: '8px'}}>
-            $340K
-          </div>
-          <div style={{marginTop: '0.5rem', fontSize: '0.875rem', color: '#161616', textAlign: 'center'}}>Europe</div>
-        </div>
-        
-        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1}}>
-          <div style={{background: 'linear-gradient(to top, #ffc107, #ffd54f)', width: '100%', maxWidth: '60px', height: '120px', borderRadius: '4px 4px 0 0', display: 'flex', alignItems: 'end', justifyContent: 'center', color: '#161616', fontSize: '0.875rem', fontWeight: '500', paddingBottom: '8px'}}>
-            $250K
-          </div>
-          <div style={{marginTop: '0.5rem', fontSize: '0.875rem', color: '#161616', textAlign: 'center'}}>Asia Pacific</div>
-        </div>
-        
-        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', flex: 1}}>
-          <div style={{background: 'linear-gradient(to top, #6f42c1, #9c6cdb)', width: '100%', maxWidth: '60px', height: '80px', borderRadius: '4px 4px 0 0', display: 'flex', alignItems: 'end', justifyContent: 'center', color: 'white', fontSize: '0.875rem', fontWeight: '500', paddingBottom: '8px'}}>
-            $180K
-          </div>
-          <div style={{marginTop: '0.5rem', fontSize: '0.875rem', color: '#161616', textAlign: 'center'}}>Latin America</div>
-        </div>
-      </div>
-    </div>
-    
-    <div style={{marginTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#f8f9fa', padding: '1rem', borderRadius: '4px'}}>
-      <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-        <elvt-icon icon="mdi:trending-up" style={{color: '#28a745', fontSize: '1.25rem'}}></elvt-icon>
-        <span style={{fontSize: '0.875rem', color: '#6f6f6f'}}>Best performer: North America</span>
-      </div>
-      <div style={{fontSize: '1.25rem', fontWeight: '600', color: '#161616'}}>$1.19M Total</div>
-    </div>
-  </div>
-</ComponentShowcase>
+  code="code-examples/bar-chart-pattern.html" />
 
 **Donut Charts** display part-to-whole relationships with center space for key metrics.
 
 <ComponentShowcase
   title="Donut Chart Pattern"
   description="Part-to-whole visualization showing user distribution across device types"
-
-  code="donut-chart-pattern.html">
-  <div style={{background: 'white', padding: '2rem', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
-    <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem'}}>
-      <h3 style={{margin: 0, fontSize: '1.25rem'}}>Market Share</h3>
-      <div style={{display: 'flex', gap: '0.5rem'}}>
-        <elvt-button size="small" tone="subtle">
-          <elvt-icon slot="prefix" icon="mdi:calendar"></elvt-icon>
-          Q4 2024
-        </elvt-button>
-      </div>
-    </div>
-    
-    <div style={{display: 'flex', gap: '2rem', alignItems: 'center'}}>
-      <div style={{position: 'relative', width: '200px', height: '200px'}}>
-        <svg width="200" height="200" viewBox="0 0 42 42" style={{transform: 'rotate(-90deg)'}}>
-          <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#e0e0e0" strokeWidth="3"></circle>
-          <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#007bff" strokeWidth="3" strokeDasharray="45 55" strokeDashoffset="0"></circle>
-          <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#28a745" strokeWidth="3" strokeDasharray="30 70" strokeDashoffset="-45"></circle>
-          <circle cx="21" cy="21" r="15.915" fill="transparent" stroke="#ffc107" strokeWidth="3" strokeDasharray="25 75" strokeDashoffset="-75"></circle>
-        </svg>
-        
-        <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center'}}>
-          <div style={{fontSize: '1.5rem', fontWeight: '600', color: '#161616'}}>1.2M</div>
-          <div style={{fontSize: '0.875rem', color: '#6f6f6f'}}>Total Users</div>
-        </div>
-      </div>
-      
-      <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-        <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
-          <div style={{width: '16px', height: '16px', background: '#007bff', borderRadius: '2px'}}></div>
-          <div style={{display: 'flex', flexDirection: 'column'}}>
-            <span style={{fontWeight: '500', color: '#161616'}}>Mobile</span>
-            <span style={{fontSize: '0.875rem', color: '#6f6f6f'}}>540K users (45%)</span>
-          </div>
-        </div>
-        
-        <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
-          <div style={{width: '16px', height: '16px', background: '#28a745', borderRadius: '2px'}}></div>
-          <div style={{display: 'flex', flexDirection: 'column'}}>
-            <span style={{fontWeight: '500', color: '#161616'}}>Desktop</span>
-            <span style={{fontSize: '0.875rem', color: '#6f6f6f'}}>360K users (30%)</span>
-          </div>
-        </div>
-        
-        <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
-          <div style={{width: '16px', height: '16px', background: '#ffc107', borderRadius: '2px'}}></div>
-          <div style={{display: 'flex', flexDirection: 'column'}}>
-            <span style={{fontWeight: '500', color: '#161616'}}>Tablet</span>
-            <span style={{fontSize: '0.875rem', color: '#6f6f6f'}}>300K users (25%)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div style={{marginTop: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', background: '#f8f9fa', padding: '1rem', borderRadius: '4px'}}>
-      <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-        <elvt-icon icon="mdi:trending-up" style={{color: '#28a745', fontSize: '1rem'}}></elvt-icon>
-        <span style={{fontSize: '0.875rem', color: '#6f6f6f'}}>Mobile usage up 12% this quarter</span>
-      </div>
-    </div>
-  </div>
-</ComponentShowcase>
+  code="code-examples/donut-chart-pattern.html" />
 
 **Area Charts** combine line chart benefits with filled areas to show volume and trends.
 
@@ -360,78 +171,7 @@ Components commonly used to create chart interfaces:
 <ComponentShowcase
   title="Analytics Dashboard with Multiple Charts"
   description="Comprehensive dashboard layout with multiple chart types and KPI metrics"
-
-  code="analytics-dashboard-with-multiple-charts.html">
-  <div style={{background: '#f4f4f4', padding: '2rem', borderRadius: '8px'}}>
-    <div style={{display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '2rem', marginBottom: '2rem'}}>
-      <div style={{background: 'white', padding: '2rem', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
-        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem'}}>
-          <h3 style={{margin: 0, fontSize: '1.25rem'}}>Performance Overview</h3>
-          <div style={{display: 'flex', gap: '0.5rem'}}>
-            <elvt-button size="small" tone="subtle">
-              <elvt-icon slot="prefix" icon="mdi:calendar"></elvt-icon>
-              Last 30 days
-            </elvt-button>
-            <elvt-button size="small" tone="subtle">
-              <elvt-icon icon="mdi:dots-vertical"></elvt-icon>
-            </elvt-button>
-          </div>
-        </div>
-        
-        <div style={{position: 'relative', height: '200px', border: '1px solid #e0e0e0', borderRadius: '4px', background: '#f8f9fa'}}>
-          <svg style={{width: '100%', height: '100%'}} viewBox="0 0 400 150">
-            <defs>
-              <pattern id="dashboard-grid" width="50" height="25" patternUnits="userSpaceOnUse">
-                <path d="M 50 0 L 0 0 0 25" fill="none" stroke="#e0e0e0" strokeWidth="0.5"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#dashboard-grid)" />
-            
-            <polyline fill="none" stroke="#007bff" strokeWidth="2.5" points="20,100 70,80 120,60 170,70 220,50 270,40 320,30 370,25"/>
-            <polyline fill="none" stroke="#28a745" strokeWidth="2.5" points="20,120 70,110 120,95 170,100 220,85 270,75 320,70 370,65"/>
-            <polyline fill="none" stroke="#ffc107" strokeWidth="2.5" points="20,110 70,105 120,85 170,90 220,75 270,65 320,55 370,45"/>
-            
-            <circle cx="370" cy="25" r="4" fill="#007bff"/>
-            <circle cx="370" cy="65" r="4" fill="#28a745"/>
-            <circle cx="370" cy="45" r="4" fill="#ffc107"/>
-          </svg>
-        </div>
-        
-        <div style={{display: 'flex', gap: '2rem', marginTop: '1rem', justifyContent: 'center'}}>
-          <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-            <div style={{width: '12px', height: '3px', background: '#007bff', borderRadius: '2px'}}></div>
-            <span style={{fontSize: '0.875rem'}}>Revenue</span>
-            <span style={{fontSize: '0.875rem', fontWeight: '600', color: '#28a745'}}>+24%</span>
-          </div>
-          <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-            <div style={{width: '12px', height: '3px', background: '#28a745', borderRadius: '2px'}}></div>
-            <span style={{fontSize: '0.875rem'}}>Users</span>
-            <span style={{fontSize: '0.875rem', fontWeight: '600', color: '#28a745'}}>+18%</span>
-          </div>
-          <div style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-            <div style={{width: '12px', height: '3px', background: '#ffc107', borderRadius: '2px'}}></div>
-            <span style={{fontSize: '0.875rem'}}>Sessions</span>
-            <span style={{fontSize: '0.875rem', fontWeight: '600', color: '#28a745'}}>+32%</span>
-          </div>
-        </div>
-      </div>
-      
-      <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-        <div style={{background: 'white', padding: '1.5rem', border: '1px solid #e0e0e0', borderRadius: '8px', textAlign: 'center'}}>
-          <div style={{display: 'flex', justifyContent: 'center', marginBottom: '0.75rem'}}>
-            <elvt-icon icon="mdi:currency-usd" style={{fontSize: '2rem', color: '#007bff'}}></elvt-icon>
-          </div>
-          <div style={{fontSize: '1.75rem', fontWeight: '600', color: '#161616'}}>$142K</div>
-          <div style={{fontSize: '0.875rem', color: '#6f6f6f', margin: '0.25rem 0'}}>Total Revenue</div>
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem', fontSize: '0.875rem', color: '#28a745'}}>
-            <elvt-icon icon="mdi:trending-up" style={{fontSize: '1rem'}}></elvt-icon>
-            +24%
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</ComponentShowcase>
+  code="code-examples/analytics-dashboard-with-multiple-charts.html" />
 
 ## Accessibility
 
@@ -471,3 +211,7 @@ The elvt-charts component is planned for a future release. Current implementatio
 
 Stay tuned for updates on the development timeline.
 :::
+
+## Changelog
+
+<ComponentChangelog component="elvt-charts" />

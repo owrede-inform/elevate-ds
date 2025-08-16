@@ -1,0 +1,32 @@
+<form style="max-width: 500px; padding: 2rem; border: 1px solid #e0e0e0; border-radius: 8px;">
+  <h3 style="margin-top: 0;">Account Preferences</h3>
+  
+  <fieldset style="border: none; padding: 0; margin: 0 0 1.5rem 0;">
+    <legend style="font-weight: 500; margin-bottom: 0.75rem;">Notifications</legend>
+    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+      <elvt-checkbox name="notifications" value="email" checked>
+        Email notifications
+      </elvt-checkbox>
+      <elvt-checkbox name="notifications" value="sms">
+        SMS notifications
+      </elvt-checkbox>
+      <elvt-checkbox name="notifications" value="push">
+        Push notifications
+      </elvt-checkbox>
+    </div>
+  </fieldset>
+  
+  <fieldset style="border: none; padding: 0; margin: 0 0 1.5rem 0;">
+    <legend style="font-weight: 500; margin-bottom: 0.75rem;">Privacy</legend>
+    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+      <elvt-checkbox name="privacy" value="analytics" helper-text="Help us improve by sharing anonymous usage data">
+        Enable analytics
+      </elvt-checkbox>
+      <elvt-checkbox name="privacy" value="marketing">
+        Marketing communications
+      </elvt-checkbox>
+    </div>
+  </fieldset>
+  
+  <elvt-button type="submit" tone="primary">Save Preferences</elvt-button>
+</form>

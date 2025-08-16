@@ -5,11 +5,14 @@ sidebar_position: 8
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import TocLinks from '@site/src/components/TocLinks';
 import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 # Date Picker
 
 Date Picker simplifies date selection for users while ensuring proper formatting and validation. The ELEVATE Date Picker component helps designers and developers create consistent, accessible date input experiences that work across different locales and use cases.
+
+<TocLinks />
 
 ## Overview
 
@@ -35,33 +38,8 @@ Date input field with calendar popup for easy selection.
 <ComponentShowcase
   title="Date Input Field"
   description="Basic date picker with text input and calendar popup."
-
-  code="date-input-field.html">
-  <div style={{maxWidth: '400px', display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
-    <div>
-      <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Event Date</label>
-      <div style={{position: 'relative'}}>
-        <input 
-          type="date" 
-          style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem', background: 'white'}}
-        />
-      </div>
-      <p style={{margin: '0.5rem 0 0 0', fontSize: '0.75rem', color: '#6f6f6f'}}>Format: MM/DD/YYYY</p>
-    </div>
-    
-    <div>
-      <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Birth Date</label>
-      <div style={{position: 'relative'}}>
-        <input 
-          type="date" 
-          max="2007-01-01" 
-          style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem', background: 'white'}}
-        />
-      </div>
-      <p style={{margin: '0.5rem 0 0 0', fontSize: '0.75rem', color: '#6f6f6f'}}>Must be 18 years or older</p>
-    </div>
-  </div>
-</ComponentShowcase>
+  code="date-input-field.html"
+/>
 
 ### Date Range Selection
 
@@ -70,36 +48,8 @@ Select date ranges for bookings, filtering, or event duration.
 <ComponentShowcase
   title="Date Range Selection"
   description="Date range picker for selecting start and end dates."
-
-  code="date-range-selection.html">
-  <div style={{maxWidth: '500px', padding: '1.5rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
-    <h3 style={{margin: '0 0 1rem 0'}}>Select Travel Dates</h3>
-    
-    <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem'}}>
-      <div>
-        <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Check-in Date</label>
-        <input 
-          type="date" 
-          min="2025-08-10"
-          style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem', background: 'white'}}
-        />
-      </div>
-      
-      <div>
-        <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Check-out Date</label>
-        <input 
-          type="date" 
-          min="2025-08-11"
-          style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem', background: 'white'}}
-        />
-      </div>
-    </div>
-    
-    <div style={{marginTop: '1rem', padding: '1rem', background: '#f8f9fa', borderRadius: '4px', fontSize: '0.875rem'}}>
-      <strong>Duration:</strong> Please select both dates to see duration and pricing
-    </div>
-  </div>
-</ComponentShowcase>
+  code="date-range-selection.html"
+/>
 
 ### Validation States
 
@@ -108,40 +58,8 @@ Date pickers with validation feedback and error handling.
 <ComponentShowcase
   title="Date Picker Validation"
   description="Date pickers with validation states and error messages."
-
-  code="date-picker-validation.html">
-  <div style={{maxWidth: '400px', display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
-    <div>
-      <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Required Date *</label>
-      <input 
-        type="date" 
-        required
-        style={{width: '100%', padding: '0.75rem', border: '2px solid #dc3545', borderRadius: '4px', fontSize: '0.875rem', background: 'white'}}
-      />
-      <p style={{margin: '0.5rem 0 0 0', fontSize: '0.75rem', color: '#dc3545'}}>Please select a date</p>
-    </div>
-    
-    <div>
-      <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Valid Date</label>
-      <input 
-        type="date" 
-        defaultValue="2025-08-15"
-        style={{width: '100%', padding: '0.75rem', border: '2px solid #28a745', borderRadius: '4px', fontSize: '0.875rem', background: 'white'}}
-      />
-      <p style={{margin: '0.5rem 0 0 0', fontSize: '0.75rem', color: '#28a745'}}>✓ Valid date selected</p>
-    </div>
-    
-    <div>
-      <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Disabled Date</label>
-      <input 
-        type="date" 
-        disabled
-        style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem', background: '#f8f9fa', color: '#6c757d'}}
-      />
-      <p style={{margin: '0.5rem 0 0 0', fontSize: '0.75rem', color: '#6f6f6f'}}>Date selection is currently disabled</p>
-    </div>
-  </div>
-</ComponentShowcase>
+  code="date-picker-validation.html"
+/>
 
 ## Design Principles
 
@@ -286,72 +204,8 @@ npm install @inform-elevate/elevate-core-ui
 <ComponentShowcase
   title="Event Booking Form"
   description="Complete booking form with date selection and validation."
-
-  code="event-booking-form.html">
-  <div style={{maxWidth: '500px', padding: '2rem', background: 'white', border: '1px solid #e0e0e0', borderRadius: '8px'}}>
-    <h3 style={{margin: '0 0 1.5rem 0'}}>Book Your Event</h3>
-    
-    <div style={{display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
-      <div>
-        <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Event Type</label>
-        <select style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem'}}>
-          <option>Wedding</option>
-          <option>Corporate Event</option>
-          <option>Birthday Party</option>
-          <option>Conference</option>
-        </select>
-      </div>
-      
-      <div style={{display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem'}}>
-        <div>
-          <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Start Date</label>
-          <input 
-            type="date" 
-            min="2025-08-10"
-            required
-            style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem'}}
-          />
-        </div>
-        
-        <div>
-          <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>End Date</label>
-          <input 
-            type="date" 
-            min="2025-08-10"
-            style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem'}}
-          />
-          <p style={{margin: '0.5rem 0 0 0', fontSize: '0.75rem', color: '#6f6f6f'}}>Optional for single-day events</p>
-        </div>
-      </div>
-      
-      <div>
-        <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Preferred Time</label>
-        <select style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem'}}>
-          <option>Morning (9:00 AM - 12:00 PM)</option>
-          <option>Afternoon (12:00 PM - 5:00 PM)</option>
-          <option>Evening (5:00 PM - 10:00 PM)</option>
-          <option>All Day</option>
-        </select>
-      </div>
-      
-      <div>
-        <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Guest Count</label>
-        <input 
-          type="number" 
-          min="1" 
-          max="500" 
-          placeholder="Number of guests"
-          style={{width: '100%', padding: '0.75rem', border: '1px solid #e0e0e0', borderRadius: '4px', fontSize: '0.875rem'}}
-        />
-      </div>
-      
-      <div style={{display: 'flex', gap: '0.5rem', justifyContent: 'flex-end', marginTop: '1rem'}}>
-        <button type="button" style={{padding: '0.75rem 1.5rem', border: '1px solid #ccc', borderRadius: '4px', background: 'white', cursor: 'pointer'}}>Clear</button>
-        <button type="submit" style={{padding: '0.75rem 1.5rem', border: 'none', borderRadius: '4px', background: '#0066cc', color: 'white', cursor: 'pointer'}}>Book Event</button>
-      </div>
-    </div>
-  </div>
-</ComponentShowcase>
+  code="event-booking-form.html"
+/>
 
 ## Accessibility
 

@@ -50,7 +50,18 @@
       "Bash(npm search:*)",
       "Bash(git commit:*)",
       "Bash(findstr:*)",
-      "Bash(move:*)"
+      "Bash(move:*)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:owrede-inform.github.io)",
+      "Bash(timeout:*)",
+      "Bash(npm run serve:*)",
+      "Bash(grep:*)",
+      "Bash(git rm:*)",
+      "Bash(npm ls:*)",
+      "Bash(npm start:*)",
+      "Bash(find:*)",
+      "Bash(del:*)",
+      "WebFetch(domain:localhost)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

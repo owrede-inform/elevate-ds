@@ -5,11 +5,14 @@ sidebar_position: 15
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import TocLinks from '@site/src/components/TocLinks';
 import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 # Indicator
 
 Indicators are small notification overlays that attach to other components to show counts, alerts, or status information. The ELEVATE Indicator component helps create accessible, attention-grabbing notifications without overwhelming the interface.
+
+<TocLinks />
 
 ## Overview
 
@@ -34,41 +37,8 @@ Indicators displaying numeric values using badges for enhanced styling.
 <ComponentShowcase
   title="Count Indicators with Badges"
   description="Numeric indicators using elvt-badge in the indicator slot for better styling control."
-  code={`<elvt-stack direction="row" gap="l" wrap
-  code="count-indicators-with-badges.html">
-  <elvt-indicator>
-    <elvt-badge slot="indicator" size="small" tone="danger" shape="box">42</elvt-badge>
-    <elvt-button tone="neutral">Messages</elvt-button>
-  </elvt-indicator>
-  
-  <elvt-indicator>
-    <elvt-badge slot="indicator" size="small" tone="primary" shape="pill">12</elvt-badge>
-    <elvt-button tone="neutral">Notifications</elvt-button>
-  </elvt-indicator>
-  
-  <elvt-indicator>
-    <elvt-badge slot="indicator" size="small" tone="warning" shape="box">99+</elvt-badge>
-    <elvt-button tone="neutral">Alerts</elvt-button>
-  </elvt-indicator>
-</elvt-stack>`}
->
-  <elvt-stack direction="row" gap="l" wrap>
-    <elvt-indicator>
-      <elvt-badge slot="indicator" size="small" tone="danger" shape="box">42</elvt-badge>
-      <elvt-button tone="neutral">Messages</elvt-button>
-    </elvt-indicator>
-    
-    <elvt-indicator>
-      <elvt-badge slot="indicator" size="small" tone="primary" shape="pill">12</elvt-badge>
-      <elvt-button tone="neutral">Notifications</elvt-button>
-    </elvt-indicator>
-    
-    <elvt-indicator>
-      <elvt-badge slot="indicator" size="small" tone="warning" shape="box">99+</elvt-badge>
-      <elvt-button tone="neutral">Alerts</elvt-button>
-    </elvt-indicator>
-  </elvt-stack>
-</ComponentShowcase>
+  code="count-indicators-with-badges.html"
+/>
 
 ### Status Indicators
 
@@ -77,35 +47,8 @@ Indicators showing status or alert states without text.
 <ComponentShowcase
   title="Status Indicators"
   description="Status indicators for online/offline, active/inactive states."
-  code={`<elvt-stack direction="row" gap="l" wrap
-  code="status-indicators.html">
-  <elvt-indicator tone="success" position="bottom-end">
-    <elvt-button tone="neutral">User Online</elvt-button>
-  </elvt-indicator>
-  
-  <elvt-indicator tone="warning" position="top-start">
-    <elvt-button tone="neutral">Pending Review</elvt-button>
-  </elvt-indicator>
-  
-  <elvt-indicator tone="danger" position="top-end">
-    <elvt-button tone="neutral">Error State</elvt-button>
-  </elvt-indicator>
-</elvt-stack>`}
->
-  <elvt-stack direction="row" gap="l" wrap>
-    <elvt-indicator tone="success" position="bottom-end">
-      <elvt-button tone="neutral">User Online</elvt-button>
-    </elvt-indicator>
-    
-    <elvt-indicator tone="warning" position="top-start">
-      <elvt-button tone="neutral">Pending Review</elvt-button>
-    </elvt-indicator>
-    
-    <elvt-indicator tone="danger" position="top-end">
-      <elvt-button tone="neutral">Error State</elvt-button>
-    </elvt-indicator>
-  </elvt-stack>
-</ComponentShowcase>
+  code="status-indicators.html"
+/>
 
 ## Design Principles
 

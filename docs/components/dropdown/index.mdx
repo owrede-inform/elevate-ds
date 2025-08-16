@@ -5,9 +5,12 @@ sidebar_position: 20
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import TocLinks from '@site/src/components/TocLinks';
 import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 Dropdowns provide efficient option selection within constrained interface space. The ELEVATE Dropdown component helps designers and developers create consistent, accessible selection experiences that work well across different contexts and device types.
+
+<TocLinks />
 
 ## Overview
 
@@ -33,53 +36,8 @@ Standard dropdown for selecting one option from a list with clear visual feedbac
 <ComponentShowcase
   title="Basic Dropdown Selection"
   description="Standard dropdowns for form selections and option lists"
-  code={`<div style="display: flex; flex-direction: column; gap: 1rem; max-width: 300px;"
-  code="basic-dropdown-selection.html">
-  <elvt-dropdown placement="bottom-start">
-    <elvt-button slot="trigger" caret>
-      Select Country
-    </elvt-button>
-    <elvt-menu-item value="us">United States</elvt-menu-item>
-    <elvt-menu-item value="ca">Canada</elvt-menu-item>
-    <elvt-menu-item value="uk">United Kingdom</elvt-menu-item>
-    <elvt-menu-item value="de">Germany</elvt-menu-item>
-    <elvt-menu-item value="fr">France</elvt-menu-item>
-  </elvt-dropdown>
-  
-  <elvt-dropdown placement="bottom-start">
-    <elvt-button slot="trigger" tone="subtle" caret>
-      Priority Level
-    </elvt-button>
-    <elvt-menu-item value="low">Low Priority</elvt-menu-item>
-    <elvt-menu-item value="medium">Medium Priority</elvt-menu-item>
-    <elvt-menu-item value="high">High Priority</elvt-menu-item>
-    <elvt-menu-item value="urgent">Urgent</elvt-menu-item>
-  </elvt-dropdown>
-</div>`}
->
-  <div style={{display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '300px'}}>
-    <elvt-dropdown placement="bottom-start">
-      <elvt-button slot="trigger" caret>
-        Select Country
-      </elvt-button>
-      <elvt-menu-item value="us">United States</elvt-menu-item>
-      <elvt-menu-item value="ca">Canada</elvt-menu-item>
-      <elvt-menu-item value="uk">United Kingdom</elvt-menu-item>
-      <elvt-menu-item value="de">Germany</elvt-menu-item>
-      <elvt-menu-item value="fr">France</elvt-menu-item>
-    </elvt-dropdown>
-    
-    <elvt-dropdown placement="bottom-start">
-      <elvt-button slot="trigger" tone="subtle" caret>
-        Priority Level
-      </elvt-button>
-      <elvt-menu-item value="low">Low Priority</elvt-menu-item>
-      <elvt-menu-item value="medium">Medium Priority</elvt-menu-item>
-      <elvt-menu-item value="high">High Priority</elvt-menu-item>
-      <elvt-menu-item value="urgent">Urgent</elvt-menu-item>
-    </elvt-dropdown>
-  </div>
-</ComponentShowcase>
+  code="basic-dropdown-selection.html"
+/>
 
 ### Action Dropdown
 
@@ -88,77 +46,8 @@ Dropdown for presenting actions and commands with icons and clear labels.
 <ComponentShowcase
   title="Action Dropdown Menu"
   description="Action dropdowns for contextual menus and commands"
-  code={`<div style="display: flex; gap: 1rem;"
-  code="action-dropdown-menu.html">
-  <elvt-dropdown placement="bottom-start">
-    <elvt-button slot="trigger" tone="subtle" caret>
-      <elvt-icon slot="prefix" icon="mdi:dots-vertical"></elvt-icon>
-      Actions
-    </elvt-button>
-    <elvt-menu-item>
-      <elvt-icon slot="prefix" icon="mdi:pencil"></elvt-icon>
-      Edit Item
-    </elvt-menu-item>
-    <elvt-menu-item>
-      <elvt-icon slot="prefix" icon="mdi:copy"></elvt-icon>
-      Duplicate
-    </elvt-menu-item>
-    <elvt-menu-item>
-      <elvt-icon slot="prefix" icon="mdi:share"></elvt-icon>
-      Share
-    </elvt-menu-item>
-    <elvt-divider></elvt-divider>
-    <elvt-menu-item type="danger">
-      <elvt-icon slot="prefix" icon="mdi:delete"></elvt-icon>
-      Delete
-    </elvt-menu-item>
-  </elvt-dropdown>
-  
-  <elvt-dropdown placement="bottom-start">
-    <elvt-button slot="trigger" size="small" tone="subtle">
-      <elvt-icon icon="mdi:dots-vertical"></elvt-icon>
-    </elvt-button>
-    <elvt-menu-item>View Details</elvt-menu-item>
-    <elvt-menu-item>Download</elvt-menu-item>
-    <elvt-menu-item>Export</elvt-menu-item>
-  </elvt-dropdown>
-</div>`}
->
-  <div style={{display: 'flex', gap: '1rem'}}>
-    <elvt-dropdown placement="bottom-start">
-      <elvt-button slot="trigger" tone="subtle" caret>
-        <elvt-icon slot="prefix" icon="mdi:dots-vertical"></elvt-icon>
-        Actions
-      </elvt-button>
-      <elvt-menu-item>
-        <elvt-icon slot="prefix" icon="mdi:pencil"></elvt-icon>
-        Edit Item
-      </elvt-menu-item>
-      <elvt-menu-item>
-        <elvt-icon slot="prefix" icon="mdi:copy"></elvt-icon>
-        Duplicate
-      </elvt-menu-item>
-      <elvt-menu-item>
-        <elvt-icon slot="prefix" icon="mdi:share"></elvt-icon>
-        Share
-      </elvt-menu-item>
-      <elvt-divider></elvt-divider>
-      <elvt-menu-item type="danger">
-        <elvt-icon slot="prefix" icon="mdi:delete"></elvt-icon>
-        Delete
-      </elvt-menu-item>
-    </elvt-dropdown>
-    
-    <elvt-dropdown placement="bottom-start">
-      <elvt-button slot="trigger" size="small" tone="subtle">
-        <elvt-icon icon="mdi:dots-vertical"></elvt-icon>
-      </elvt-button>
-      <elvt-menu-item>View Details</elvt-menu-item>
-      <elvt-menu-item>Download</elvt-menu-item>
-      <elvt-menu-item>Export</elvt-menu-item>
-    </elvt-dropdown>
-  </div>
-</ComponentShowcase>
+  code="action-dropdown-menu.html"
+/>
 
 ### Content Types
 
@@ -316,111 +205,8 @@ import '@inform-elevate/elevate-core-ui/dist/components/dropdown/dropdown.js';
 <ComponentShowcase
   title="Contextual Action Dropdowns"
   description="Real-world examples of contextual action dropdowns"
-  code={`<div style="display: flex; gap: 1rem; align-items: center;"
-  code="contextual-action-dropdowns.html">
-  <!-- File actions dropdown -->
-  <elvt-dropdown placement="bottom-start">
-    <elvt-button slot="trigger" tone="subtle" caret>
-      File Actions
-    </elvt-button>
-    <elvt-menu-item>
-      <elvt-icon slot="prefix" icon="mdi:eye"></elvt-icon>
-      View
-    </elvt-menu-item>
-    <elvt-menu-item>
-      <elvt-icon slot="prefix" icon="mdi:download"></elvt-icon>
-      Download
-    </elvt-menu-item>
-    <elvt-menu-item>
-      <elvt-icon slot="prefix" icon="mdi:share"></elvt-icon>
-      Share
-    </elvt-menu-item>
-    <elvt-divider></elvt-divider>
-    <elvt-menu-item type="danger">
-      <elvt-icon slot="prefix" icon="mdi:delete"></elvt-icon>
-      Delete
-    </elvt-menu-item>
-  </elvt-dropdown>
-
-  <!-- Settings menu -->
-  <elvt-dropdown placement="bottom-start">
-    <elvt-button slot="trigger" size="small" tone="subtle">
-      <elvt-icon icon="mdi:cog"></elvt-icon>
-    </elvt-button>
-    <elvt-menu-label>Display</elvt-menu-label>
-    <elvt-menu-item>
-      <elvt-icon slot="prefix" icon="mdi:theme-light-dark"></elvt-icon>
-      Dark Mode
-    </elvt-menu-item>
-    <elvt-menu-item>
-      <elvt-icon slot="prefix" icon="mdi:format-size"></elvt-icon>
-      Text Size
-    </elvt-menu-item>
-    <elvt-divider></elvt-divider>
-    <elvt-menu-label>Account</elvt-menu-label>
-    <elvt-menu-item>
-      <elvt-icon slot="prefix" icon="mdi:account"></elvt-icon>
-      Profile
-    </elvt-menu-item>
-    <elvt-menu-item>
-      <elvt-icon slot="prefix" icon="mdi:logout"></elvt-icon>
-      Sign Out
-    </elvt-menu-item>
-  </elvt-dropdown>
-</div>`}
->
-  <div style={{display: 'flex', gap: '1rem', alignItems: 'center'}}>
-    {/* File actions dropdown */}
-    <elvt-dropdown placement="bottom-start">
-      <elvt-button slot="trigger" tone="subtle" caret>
-        File Actions
-      </elvt-button>
-      <elvt-menu-item>
-        <elvt-icon slot="prefix" icon="mdi:eye"></elvt-icon>
-        View
-      </elvt-menu-item>
-      <elvt-menu-item>
-        <elvt-icon slot="prefix" icon="mdi:download"></elvt-icon>
-        Download
-      </elvt-menu-item>
-      <elvt-menu-item>
-        <elvt-icon slot="prefix" icon="mdi:share"></elvt-icon>
-        Share
-      </elvt-menu-item>
-      <elvt-divider></elvt-divider>
-      <elvt-menu-item type="danger">
-        <elvt-icon slot="prefix" icon="mdi:delete"></elvt-icon>
-        Delete
-      </elvt-menu-item>
-    </elvt-dropdown>
-
-    {/* Settings menu */}
-    <elvt-dropdown placement="bottom-start">
-      <elvt-button slot="trigger" size="small" tone="subtle">
-        <elvt-icon icon="mdi:cog"></elvt-icon>
-      </elvt-button>
-      <elvt-menu-label>Display</elvt-menu-label>
-      <elvt-menu-item>
-        <elvt-icon slot="prefix" icon="mdi:theme-light-dark"></elvt-icon>
-        Dark Mode
-      </elvt-menu-item>
-      <elvt-menu-item>
-        <elvt-icon slot="prefix" icon="mdi:format-size"></elvt-icon>
-        Text Size
-      </elvt-menu-item>
-      <elvt-divider></elvt-divider>
-      <elvt-menu-label>Account</elvt-menu-label>
-      <elvt-menu-item>
-        <elvt-icon slot="prefix" icon="mdi:account"></elvt-icon>
-        Profile
-      </elvt-menu-item>
-      <elvt-menu-item>
-        <elvt-icon slot="prefix" icon="mdi:logout"></elvt-icon>
-        Sign Out
-      </elvt-menu-item>
-    </elvt-dropdown>
-  </div>
-</ComponentShowcase>
+  code="contextual-action-dropdowns.html"
+/>
 
 ## Accessibility
 

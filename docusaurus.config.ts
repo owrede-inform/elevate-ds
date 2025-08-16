@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'ELEVATE Design System',
-  tagline: 'A comprehensive design system built for modern web applications by INFORM GmbH',
+  tagline: 'A comprehensive design system built for modern web applications of INFORM GmbH',
   favicon: 'img/favicon.ico',
   
   // INFORM GmbH metadata
@@ -47,7 +47,46 @@ const config: Config = {
 
   plugins: [
     // 'docusaurus-plugin-code-preview', // Temporarily disabled due to compatibility issue
+    function(context, options) {
+      return {
+        name: 'code-examples-plugin',
+        configureWebpack(config, isServer, utils) {
+          return {
+            devServer: {
+              setupMiddlewares: (middlewares, devServer) => {
+                // Add middleware to serve code-examples folders as raw files
+                devServer.app.get(/^\/docs\/.*\/code-examples\/.*/, (req, res, next) => {
+                  const path = require('path');
+                  const fs = require('fs');
+                  
+                  // Extract path from URL
+                  const urlPath = req.url;
+                  const match = urlPath.match(/^\/docs\/(.*?)\/code-examples\/(.*)$/);
+                  
+                  if (match) {
+                    const componentPath = match[1];
+                    const fileName = match[2];
+                    const filePath = path.join(context.siteDir, 'docs', componentPath, 'code-examples', fileName);
+                    
+                    if (fs.existsSync(filePath)) {
+                      const content = fs.readFileSync(filePath, 'utf8');
+                      res.setHeader('Content-Type', 'text/html');
+                      res.setHeader('Cache-Control', 'no-cache');
+                      res.send(content);
+                      return;
+                    }
+                  }
+                  next();
+                });
+                return middlewares;
+              }
+            }
+          };
+        }
+      };
+    }
   ],
+
 
   presets: [
     [
@@ -68,6 +107,8 @@ const config: Config = {
           showLastUpdateAuthor: false,
           // Custom sidebar generator for intelligent sorting
           sidebarItemsGenerator: require('./sidebarGenerator').customSidebarItemsGenerator,
+          // Exclude code-examples from being processed as docs
+          exclude: ['**/code-examples/**'],
         },
         blog: false, // Blog disabled - moved to sample-data
         theme: {
@@ -121,6 +162,11 @@ const config: Config = {
           label: 'Home',
         },
         {
+          to: 'docs/design',
+          position: 'left',
+          label: 'Design',
+        },
+        {
           to: 'docs/guidelines',
           position: 'left',
           label: 'Guidelines',
@@ -134,11 +180,6 @@ const config: Config = {
           to: 'docs/patterns',
           position: 'left',
           label: 'Patterns',
-        },
-        {
-          to: 'docs/design',
-          position: 'left',
-          label: 'Design',
         },
         {
           to: 'docs/ds',

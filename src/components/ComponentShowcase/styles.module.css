@@ -3,7 +3,7 @@
   border: 1px solid var(--elvt-primitives-color-gray-200, #bec3cd);
   border-radius: var(--sl-border-radius-large, 0.5rem);
   overflow: hidden;
-  background: var(--ifm-sidebar-background-color, var(--elvt-alias-layout-layer-elevated, #f8f9fb));
+  background: var(--elvt-alias-layout-layer-elevated, #f8f9fb);
 }
 
 .header {
@@ -61,13 +61,13 @@
   font-family: var(--elvt-type-alias-default-title-m-font-family, "Inter");
   font-size: var(--elvt-type-alias-default-title-m-font-size, 1.25rem);
   font-weight: var(--elvt-type-alias-default-title-m-font-weight, 600);
-  color: var(--elvt-primitives-color-gray-800, #3d4253);
+  color: var(--elvt-alias-content-text-default, var(--elvt-primitives-color-gray-800, #3d4253));
   background: transparent;
 }
 
 .description {
   margin: 0 0 var(--sl-spacing-medium, 1rem) 0;
-  color: var(--elvt-primitives-color-gray-600, #5d6679);
+  color: var(--elvt-alias-content-text-muted, var(--elvt-primitives-color-gray-600, #5d6679));
   font-size: var(--elvt-type-alias-default-content-m-font-size, 1rem);
   line-height: var(--elvt-type-alias-default-content-m-line-height, 1.5);
   background: transparent;
@@ -126,20 +126,20 @@
 
 /* Dark theme support */
 [data-theme='dark'] .componentShowcase {
-  background: var(--ifm-sidebar-background-color, var(--elvt-primitives-color-gray-1000, #111217));
+  background: var(--elvt-alias-layout-layer-elevated, var(--elvt-primitives-color-gray-1000, #111217));
   border-color: var(--elvt-primitives-color-gray-700, #4d5366);
 }
 
 [data-theme='dark'] .title {
-  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+  color: var(--elvt-alias-content-text-default, var(--elvt-primitives-color-gray-100, #d5d9e1));
 }
 
 [data-theme='dark'] .description {
-  color: var(--elvt-primitives-color-gray-300, #a3aab4);
+  color: var(--elvt-alias-content-text-muted, var(--elvt-primitives-color-gray-300, #a3aab4));
 }
 
 [data-theme='dark'] .preview {
-  background: var(--elvt-alias-layout-layer-appBackground, #111217);
+  background: var(--elvt-alias-layout-layer-appBackground, var(--elvt-primitives-color-black, #111217));
   border-bottom-color: var(--elvt-primitives-color-gray-700, #4d5366);
 }
 

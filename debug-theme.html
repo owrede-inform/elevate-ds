@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELEVATE Theme Debug</title>
+    
+    <!-- Load ELEVATE CSS -->
+    <link rel="stylesheet" href="./node_modules/@inform-elevate/elevate-core-ui/dist/elevate.css">
+    <link rel="stylesheet" href="./node_modules/@inform-elevate/elevate-core-ui/dist/themes/light.css">
+    <link rel="stylesheet" href="./node_modules/@inform-elevate/elevate-core-ui/dist/themes/dark.css">
+    <link rel="stylesheet" href="./src/css/elevate-theme-override.css">
+    
+    <style>
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 2rem;
+            background: var(--elvt-alias-layout-layer-appBackground, #f3f4f7);
+            color: var(--elvt-alias-content-text-default, #3d4253);
+        }
+        
+        .debug-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        
+        .theme-toggle {
+            margin: 1rem 0;
+        }
+        
+        button {
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+        }
+        
+        .dark-mode {
+            background: var(--elvt-alias-layout-layer-appBackground, #111217);
+            color: var(--elvt-alias-content-text-default, #d5d9e1);
+        }
+        
+        .dark-mode button {
+            background: var(--elvt-alias-layout-layer-elevated, #2f3240);
+            color: var(--elvt-alias-content-text-default, #d5d9e1);
+            border-color: var(--elvt-alias-layout-border-muted, #4d5366);
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .debug-info {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.875rem;
+            margin: 1rem 0;
+        }
+        
+        .dark-mode .debug-info {
+            background: #2d3748;
+            color: #e2e8f0;
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <h1>ELEVATE Theme Debug Test</h1>
+    
+    <div class="theme-toggle">
+        <button onclick="toggleTheme()">Toggle Dark/Light Theme</button>
+        <button onclick="inspectTokens()">Inspect CSS Tokens</button>
+        <button onclick="inspectComponents()">Inspect Components</button>
+    </div>
+    
+    <div class="debug-info" id="debug-output">
+        Theme: Light Mode<br>
+        Click buttons above to inspect tokens and components
+    </div>
+    
+    <div class="debug-section">
+        <h2>ELEVATE Card Variations Test</h2>
+        <div class="card-container">
+            <elvt-card id="default-card" padding="m">
+                <h3>Default Layer</h3>
+                <p>This is a default card with normal layer.</p>
+            </elvt-card>
+            
+            <elvt-card id="elevated-card" layer="elevated" padding="m">
+                <h3>Elevated Layer</h3>
+                <p>This card should have elevated background.</p>
+            </elvt-card>
+            
+            <elvt-card id="overlay-card" layer="overlay" padding="m">
+                <h3>Overlay Layer</h3>
+                <p>This card should have overlay background.</p>
+            </elvt-card>
+            
+            <elvt-card id="sunken-card" layer="sunken" padding="m">
+                <h3>Sunken Layer</h3>
+                <p>This card should have sunken background and prominent border.</p>
+            </elvt-card>
+        </div>
+    </div>
+    
+    <script type="module">
+        try {
+            // Import ELEVATE components
+            console.log('Loading ELEVATE components...');
+            await import('./node_modules/@inform-elevate/elevate-core-ui/dist/index.js');
+            
+            // Wait for components to load
+            console.log('Waiting for elvt-card definition...');
+            await customElements.whenDefined('elvt-card');
+            console.log('elvt-card loaded successfully!');
+        } catch (error) {
+            console.error('Error loading ELEVATE components:', error);
+            window.lastError = error.message;
+        }
+        
+        // Functions
+        window.applyThemeToComponents = function() {
+            const isDark = document.body.getAttribute('data-theme') === 'dark';
+            const themeClass = isDark ? 'elvt-theme-dark' : 'elvt-theme-light';
+            
+            const components = document.querySelectorAll('elvt-card');
+            components.forEach(component => {
+                component.classList.remove('elvt-theme-light', 'elvt-theme-dark');
+                component.classList.add(themeClass);
+            });
+            
+            console.log(`Applied ${themeClass} to ${components.length} components`);
+        };
+        
+        window.toggleTheme = function() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            body.setAttribute('data-theme', newTheme);
+            body.classList.toggle('dark-mode', newTheme === 'dark');
+            
+            applyThemeToComponents();
+            updateDebugInfo(`Theme: ${newTheme} Mode`);
+        };
+        
+        window.inspectTokens = function() {
+            const style = getComputedStyle(document.documentElement);
+            const tokens = [
+                '--elvt-alias-layout-border-default',
+                '--elvt-alias-layout-border-prominent',
+                '--elvt-alias-layout-layer-default',
+                '--elvt-alias-layout-layer-elevated',
+                '--elvt-alias-layout-layer-overlay',
+                '--elvt-alias-layout-layer-sunken'
+            ];
+            
+            let output = 'CSS Custom Properties (document level):\n';
+            tokens.forEach(token => {
+                const value = style.getPropertyValue(token).trim();
+                output += `${token}: ${value || 'NOT DEFINED'}\n`;
+            });
+            
+            updateDebugInfo(output);
+        };
+        
+        window.inspectComponents = function() {
+            const cards = document.querySelectorAll('elvt-card');
+            let output = 'Component Inspection:\n\n';
+            
+            cards.forEach((card, index) => {
+                const id = card.id || `card-${index}`;
+                const layer = card.getAttribute('layer') || 'default';
+                const classes = Array.from(card.classList).join(', ');
+                
+                // Try to get computed styles from shadow root
+                let shadowStyles = 'Unable to access shadow DOM styles';
+                try {
+                    if (card.shadowRoot) {
+                        const shadowStyle = getComputedStyle(card);
+                        shadowStyles = `
+                        border-color: ${shadowStyle.getPropertyValue('border-color')}
+                        background-color: ${shadowStyle.getPropertyValue('background-color')}
+                        --border-color: ${shadowStyle.getPropertyValue('--border-color')}
+                        --fill: ${shadowStyle.getPropertyValue('--fill')}`;
+                    }
+                } catch (e) {
+                    shadowStyles = `Error accessing styles: ${e.message}`;
+                }
+                
+                output += `${id} (layer="${layer}"):\n`;
+                output += `  Classes: ${classes}\n`;
+                output += `  Computed styles:${shadowStyles}\n\n`;
+            });
+            
+            updateDebugInfo(output);
+        };
+        
+        function updateDebugInfo(text) {
+            document.getElementById('debug-output').innerHTML = text.replace(/\n/g, '<br>');
+        }
+        
+        // Initial inspection
+        setTimeout(() => {
+            inspectTokens();
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -39,18 +39,8 @@ Standard dropdown selection for choosing one option from a list.
 <ComponentShowcase
   title="Basic Select Options"
   description="Standard dropdown selection with multiple options."
-  code="basic-select-options.html">
-<div style={{maxWidth: '300px'}}>
-  <elvt-select name="country" placeholder="Select country">
-    <label slot="label">Country</label>
-    <elvt-option value="us">United States</elvt-option>
-    <elvt-option value="ca">Canada</elvt-option>
-    <elvt-option value="uk">United Kingdom</elvt-option>
-    <elvt-option value="de">Germany</elvt-option>
-    <elvt-option value="fr">France</elvt-option>
-  </elvt-select>
-</div>
-</ComponentShowcase>
+  code="basic-select-options.html"
+/>
 
 ### Select with Help Text
 
@@ -59,17 +49,8 @@ Provide additional context and guidance for complex selection decisions.
 <ComponentShowcase
   title="Select with Help Text"
   description="Select dropdown with descriptive help text for user guidance."
-  code="select-with-help-text.html">
-<div style={{maxWidth: '300px'}}>
-  <elvt-select name="timezone" placeholder="Select timezone" help-text="Choose the timezone for your primary location">
-    <label slot="label">Timezone</label>
-    <elvt-option value="est">Eastern Standard Time (EST)</elvt-option>
-    <elvt-option value="cst">Central Standard Time (CST)</elvt-option>
-    <elvt-option value="mst">Mountain Standard Time (MST)</elvt-option>
-    <elvt-option value="pst">Pacific Standard Time (PST)</elvt-option>
-  </elvt-select>
-</div>
-</ComponentShowcase>
+  code="select-with-help-text.html"
+/>
 
 ### Required Select
 
@@ -78,17 +59,8 @@ Indicate required fields with proper validation states.
 <ComponentShowcase
   title="Required Select Field"
   description="Required select with validation indication."
-  code="required-select-field.html">
-<div style={{maxWidth: '300px'}}>
-  <elvt-select name="priority" placeholder="Choose priority level" required>
-    <label slot="label">Priority Level</label>
-    <elvt-option value="low">Low Priority</elvt-option>
-    <elvt-option value="medium">Medium Priority</elvt-option>
-    <elvt-option value="high">High Priority</elvt-option>
-    <elvt-option value="critical">Critical Priority</elvt-option>
-  </elvt-select>
-</div>
-</ComponentShowcase>
+  code="required-select-field.html"
+/>
 
 ### Select States
 
@@ -97,27 +69,8 @@ Different states to communicate interaction and validation status.
 <ComponentShowcase
   title="Select States"
   description="Various states for different interaction and validation scenarios."
-  code="select-states.html">
-<div style={{display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '300px'}}>
-  <elvt-select name="normal" placeholder="Select option">
-    <label slot="label">Normal State</label>
-    <elvt-option value="option1">Option 1</elvt-option>
-    <elvt-option value="option2">Option 2</elvt-option>
-  </elvt-select>
-  
-  <elvt-select name="disabled" placeholder="Select option" disabled>
-    <label slot="label">Disabled State</label>
-    <elvt-option value="option1">Option 1</elvt-option>
-    <elvt-option value="option2">Option 2</elvt-option>
-  </elvt-select>
-  
-  <elvt-select name="error" placeholder="Select option" invalid help-text="Please select a valid option">
-    <label slot="label">Error State</label>
-    <elvt-option value="option1">Option 1</elvt-option>
-    <elvt-option value="option2">Option 2</elvt-option>
-  </elvt-select>
-</div>
-</ComponentShowcase>
+  code="select-states.html"
+/>
 
 ### Select Sizes
 
@@ -126,27 +79,8 @@ Different sizes for various layout contexts and visual hierarchies.
 <ComponentShowcase
   title="Select Sizes"
   description="Three select sizes for different contexts and design needs."
-  code="select-sizes.html">
-<div style={{display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '300px'}}>
-  <elvt-select name="small" placeholder="Select option" size="small">
-    <label slot="label">Small Select</label>
-    <elvt-option value="option1">Option 1</elvt-option>
-    <elvt-option value="option2">Option 2</elvt-option>
-  </elvt-select>
-  
-  <elvt-select name="medium" placeholder="Select option" size="medium">
-    <label slot="label">Medium Select</label>
-    <elvt-option value="option1">Option 1</elvt-option>
-    <elvt-option value="option2">Option 2</elvt-option>
-  </elvt-select>
-  
-  <elvt-select name="large" placeholder="Select option" size="large">
-    <label slot="label">Large Select</label>
-    <elvt-option value="option1">Option 1</elvt-option>
-    <elvt-option value="option2">Option 2</elvt-option>
-  </elvt-select>
-</div>
-</ComponentShowcase>
+  code="select-sizes.html"
+/>
 
 ## Design Principles
 
@@ -351,39 +285,8 @@ import '@inform-elevate/elevate-core-ui/dist/components/select/select.js';
 <ComponentShowcase
   title="Settings Form Example"
   description="Multiple select components working together in a settings form."
-  code="settings-form-example.html">
-<form style={{maxWidth: '400px', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-  <h3>User Preferences</h3>
-  
-  <elvt-select name="theme" placeholder="Choose theme" value="light">
-    <label slot="label">Theme</label>
-    <elvt-option value="light">Light Theme</elvt-option>
-    <elvt-option value="dark">Dark Theme</elvt-option>
-    <elvt-option value="auto">Auto (System)</elvt-option>
-  </elvt-select>
-  
-  <elvt-select name="language" placeholder="Select language" value="en">
-    <label slot="label">Language</label>
-    <elvt-option value="en">English</elvt-option>
-    <elvt-option value="es">Español</elvt-option>
-    <elvt-option value="fr">Français</elvt-option>
-    <elvt-option value="de">Deutsch</elvt-option>
-  </elvt-select>
-  
-  <elvt-select name="notifications" placeholder="Choose frequency" help-text="How often you receive email updates">
-    <label slot="label">Email Notifications</label>
-    <elvt-option value="immediate">Immediately</elvt-option>
-    <elvt-option value="daily">Daily Digest</elvt-option>
-    <elvt-option value="weekly">Weekly Summary</elvt-option>
-    <elvt-option value="never">Never</elvt-option>
-  </elvt-select>
-  
-  <div style={{display: 'flex', gap: '0.5rem', justifyContent: 'flex-end', marginTop: '1rem'}}>
-    <elvt-button>Cancel</elvt-button>
-    <elvt-button tone="primary" type="submit">Save Settings</elvt-button>
-  </div>
-</form>
-</ComponentShowcase>
+  code="settings-form-example.html"
+/>
 
 ## Accessibility
 

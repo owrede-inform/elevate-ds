@@ -18,6 +18,7 @@
     "sync-theme": "node scripts/sync-theme-package.js",
     "sync-theme-build": "node scripts/sync-theme-package.js --build",
     "sync-theme-watch": "node scripts/sync-theme-package.js --watch",
+    "copy-code-examples": "node scripts/copy-code-examples.js",
     "validate-theme": "node scripts/sync-theme-package.js --build && echo 'Theme package validation complete'",
     "changelog": "node scripts/changelog-cli.js",
     "changelog:generate": "node scripts/generate-changelog.js",

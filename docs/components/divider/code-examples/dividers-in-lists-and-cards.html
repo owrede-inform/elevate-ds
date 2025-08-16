@@ -1,0 +1,43 @@
+<div style="max-Width: 500px;">
+  {/* Card with dividers */}
+  <div style="border: 1px solid #e0e0e0; border-Radius: 8px; background: white; margin-Bottom: 1.5rem;">
+    <div style="padding: 1rem;">
+      <h3 style="margin: 0 0 0.5rem 0; display: flex; align-Items: center; gap: 0.5rem;">
+        <elvt-icon icon="mdi:account" style="color: #0f62fe;"></elvt-icon>
+        User Profile
+      </h3>
+      <p style="margin: 0; color: #6f6f6f; font-Size: 0.875rem;">Manage your account information</p>
+    </div>
+
+    <elvt-divider></elvt-divider>
+
+    <div style="padding: 1rem;">
+      <div style="display: flex; justify-Content: space-between; align-Items: center; margin-Bottom: 0.75rem;">
+        <span style="font-Weight: 500;">Email Notifications</span>
+        <elvt-badge variant="success">Enabled</elvt-badge>
+      </div>
+      <div style="display: flex; justify-Content: space-between; align-Items: center;">
+        <span style="font-Weight: 500;">Two-Factor Auth</span>
+        <elvt-badge>Disabled</elvt-badge>
+      </div>
+    </div>
+
+    <elvt-divider></elvt-divider>
+
+    <div style="padding: 1rem;">
+      <elvt-stack direction="row" spacing="small">
+        <elvt-button size="small" variant="primary">Save Changes</elvt-button>
+        <elvt-button size="small" tone="subtle">Reset</elvt-button>
+      </elvt-stack>
+    </div>
+  </div>
+
+  {/* Navigation with vertical dividers */}
+  <elvt-stack direction="row" align="center" spacing="medium" style="padding: 0.75rem; background: #f4f4f4; border-Radius: 8px;">
+    <elvt-button size="small" tone="subtle">Dashboard</elvt-button>
+    <elvt-divider orientation="vertical" style="height: 20px; background-Color: #c6c6c6;"></elvt-divider>
+    <elvt-button size="small" tone="subtle">Reports</elvt-button>
+    <elvt-divider orientation="vertical" style="height: 20px; background-Color: #c6c6c6;"></elvt-divider>
+    <elvt-button size="small" tone="subtle">Settings</elvt-button>
+  </elvt-stack>
+</div>

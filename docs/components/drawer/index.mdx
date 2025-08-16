@@ -5,9 +5,12 @@ sidebar_position: 19
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import TocLinks from '@site/src/components/TocLinks';
 import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 Drawers expand interface real estate without navigating away from the current context. The ELEVATE Drawer component helps designers and developers create consistent, accessible overlay experiences that provide additional functionality while maintaining user focus and orientation.
+
+<TocLinks />
 
 ## Overview
 
@@ -33,111 +36,16 @@ Drawers expand interface real estate without navigating away from the current co
 <ComponentShowcase
   title="Left Navigation Drawer Pattern"
   description="Navigation drawer pattern sliding from the left for primary navigation"
-
-  code="left-navigation-drawer-pattern.html">
-  <div style={{position: 'relative', height: '400px', border: '1px solid #e0e0e0', borderRadius: '8px', overflow: 'hidden', background: '#f4f4f4'}}>
-    {/* Main Content Area */}
-    <div style={{display: 'flex', height: '100%'}}>
-      {/* Simulated Left Drawer */}
-      <div style={{width: '280px', background: 'white', borderRight: '1px solid #e0e0e0', padding: '1rem', display: 'flex', flexDirection: 'column'}}>
-        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', paddingBottom: '1rem', borderBottom: '1px solid #e0e0e0'}}>
-          <h3 style={{margin: '0', fontSize: '1.125rem'}}>Navigation</h3>
-          <elvt-button size="small" tone="subtle">
-            <elvt-icon icon="mdi:close"></elvt-icon>
-          </elvt-button>
-        </div>
-        
-        <nav style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
-          <elvt-button align="left" size="medium" tone="subtle">
-            <elvt-icon slot="prefix" icon="mdi:view-dashboard"></elvt-icon>
-            Dashboard
-          </elvt-button>
-          <elvt-button align="left" size="medium" tone="subtle">
-            <elvt-icon slot="prefix" icon="mdi:chart-line"></elvt-icon>
-            Analytics
-          </elvt-button>
-          <elvt-button align="left" size="medium" tone="subtle">
-            <elvt-icon slot="prefix" icon="mdi:account-group"></elvt-icon>
-            Team
-          </elvt-button>
-          <elvt-button align="left" size="medium" tone="subtle">
-            <elvt-icon slot="prefix" icon="mdi:cog"></elvt-icon>
-            Settings
-          </elvt-button>
-        </nav>
-      </div>
-      
-      {/* Main Content */}
-      <div style={{flex: 1, padding: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-        <div style={{textAlign: 'center'}}>
-          <h4 style={{margin: '0 0 0.5rem 0'}}>Main Content Area</h4>
-          <p style={{margin: '0', color: '#6f6f6f'}}>Content remains accessible while drawer is open</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</ComponentShowcase>
+  code="left-navigation-drawer-pattern.html"
+/>
 
 **Right Drawer** slides in from the right edge, ideal for secondary content and supplementary information.
 
 <ComponentShowcase
   title="Right Filter Drawer Pattern"
   description="Filter drawer pattern sliding from the right for secondary content"
-
-  code="right-filter-drawer-pattern.html">
-  <div style={{position: 'relative', height: '400px', border: '1px solid #e0e0e0', borderRadius: '8px', overflow: 'hidden', background: '#f4f4f4'}}>
-    <div style={{display: 'flex', height: '100%'}}>
-      {/* Main Content */}
-      <div style={{flex: 1, padding: '2rem'}}>
-        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem'}}>
-          <h3 style={{margin: '0'}}>Product List</h3>
-          <elvt-button size="small">
-            <elvt-icon slot="prefix" icon="mdi:filter"></elvt-icon>
-            Filters
-          </elvt-button>
-        </div>
-        <div style={{textAlign: 'center', paddingTop: '4rem'}}>
-          <elvt-icon icon="mdi:package-variant" style={{fontSize: '3rem', color: '#6f6f6f', marginBottom: '1rem'}}></elvt-icon>
-          <p style={{margin: '0', color: '#6f6f6f'}}>Product results would appear here</p>
-        </div>
-      </div>
-      
-      {/* Simulated Right Drawer */}
-      <div style={{width: '300px', background: 'white', borderLeft: '1px solid #e0e0e0', padding: '1rem', display: 'flex', flexDirection: 'column'}}>
-        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', paddingBottom: '1rem', borderBottom: '1px solid #e0e0e0'}}>
-          <h4 style={{margin: '0', fontSize: '1.125rem'}}>Filter Products</h4>
-          <elvt-button size="small" tone="subtle">
-            <elvt-icon icon="mdi:close"></elvt-icon>
-          </elvt-button>
-        </div>
-        
-        <div style={{display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
-          <div>
-            <label style={{display: 'block', marginBottom: '0.5rem', fontWeight: '500', fontSize: '0.875rem'}}>Category</label>
-            <div style={{display: 'flex', gap: '0.25rem', flexWrap: 'wrap'}}>
-              <elvt-chip dismissible>Electronics</elvt-chip>
-              <elvt-chip dismissible>Books</elvt-chip>
-            </div>
-          </div>
-          
-          <div>
-            <label style={{display: 'block', marginBottom: '0.75rem', fontWeight: '500', fontSize: '0.875rem'}}>Price Range</label>
-            <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
-              <elvt-checkbox>Under $25</elvt-checkbox>
-              <elvt-checkbox checked>$25 - $100</elvt-checkbox>
-              <elvt-checkbox>Over $100</elvt-checkbox>
-            </div>
-          </div>
-          
-          <div style={{marginTop: 'auto', paddingTop: '1rem', borderTop: '1px solid #e0e0e0', display: 'flex', gap: '0.5rem'}}>
-            <elvt-button tone="primary" size="small">Apply Filters</elvt-button>
-            <elvt-button tone="subtle" size="small">Clear All</elvt-button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</ComponentShowcase>
+  code="right-filter-drawer-pattern.html"
+/>
 
 **Bottom Drawer** slides up from the bottom, perfect for mobile interfaces and contextual actions.
 
@@ -343,139 +251,16 @@ Components commonly used to create drawer patterns:
 <ComponentShowcase
   title="Mobile Bottom Drawer Pattern"
   description="Bottom drawer pattern optimized for mobile interfaces"
-
-  code="mobile-bottom-drawer-pattern.html">
-  <div style={{position: 'relative', height: '500px', border: '1px solid #e0e0e0', borderRadius: '8px', overflow: 'hidden', background: '#f4f4f4'}}>
-    {/* Simulated Mobile Interface */}
-    <div style={{width: '375px', margin: '0 auto', height: '100%', background: 'white', position: 'relative'}}>
-      {/* Top Bar */}
-      <div style={{padding: '1rem', borderBottom: '1px solid #e0e0e0', background: 'white'}}>
-        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-          <h3 style={{margin: '0', fontSize: '1.125rem'}}>Mobile App</h3>
-          <elvt-button size="small" tone="subtle">
-            <elvt-icon icon="mdi:menu"></elvt-icon>
-          </elvt-button>
-        </div>
-      </div>
-      
-      {/* Main Content */}
-      <div style={{flex: 1, padding: '2rem', textAlign: 'center', paddingTop: '4rem'}}>
-        <elvt-icon icon="mdi:cellphone" style={{fontSize: '3rem', color: '#6f6f6f', marginBottom: '1rem'}}></elvt-icon>
-        <p style={{margin: '0', color: '#6f6f6f'}}>Main app content</p>
-      </div>
-      
-      {/* Bottom Drawer */}
-      <div style={{position: 'absolute', bottom: '0', left: '0', right: '0', background: 'white', borderTop: '1px solid #e0e0e0', borderRadius: '12px 12px 0 0', padding: '1rem'}}>
-        <div style={{display: 'flex', justifyContent: 'center', marginBottom: '1rem'}}>
-          <div style={{width: '40px', height: '4px', background: '#e0e0e0', borderRadius: '2px'}}></div>
-        </div>
-        
-        <h4 style={{margin: '0 0 1rem 0', fontSize: '1.125rem', textAlign: 'center'}}>Quick Actions</h4>
-        
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem'}}>
-          <elvt-button align="center" tone="subtle" style={{flexDirection: 'column', height: '80px'}}>
-            <elvt-icon icon="mdi:camera" style={{fontSize: '1.5rem', marginBottom: '0.25rem'}}></elvt-icon>
-            <span style={{fontSize: '0.75rem'}}>Camera</span>
-          </elvt-button>
-          
-          <elvt-button align="center" tone="subtle" style={{flexDirection: 'column', height: '80px'}}>
-            <elvt-icon icon="mdi:file-document" style={{fontSize: '1.5rem', marginBottom: '0.25rem'}}></elvt-icon>
-            <span style={{fontSize: '0.75rem'}}>Documents</span>
-          </elvt-button>
-          
-          <elvt-button align="center" tone="subtle" style={{flexDirection: 'column', height: '80px'}}>
-            <elvt-icon icon="mdi:share" style={{fontSize: '1.5rem', marginBottom: '0.25rem'}}></elvt-icon>
-            <span style={{fontSize: '0.75rem'}}>Share</span>
-          </elvt-button>
-        </div>
-      </div>
-    </div>
-  </div>
-</ComponentShowcase>
+  code="mobile-bottom-drawer-pattern.html"
+/>
 
 ### Settings Drawer Pattern
 
 <ComponentShowcase
   title="Settings Drawer Pattern"
   description="Settings drawer pattern for configuration and preferences"
-
-  code="settings-drawer-pattern.html">
-  <div style={{position: 'relative', height: '450px', border: '1px solid #e0e0e0', borderRadius: '8px', overflow: 'hidden', background: '#f4f4f4'}}>
-    <div style={{display: 'flex', height: '100%'}}>
-      {/* Main Content */}
-      <div style={{flex: 1, padding: '2rem'}}>
-        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem'}}>
-          <h3 style={{margin: '0'}}>Dashboard</h3>
-          <elvt-button size="small" tone="subtle">
-            <elvt-icon slot="prefix" icon="mdi:cog"></elvt-icon>
-            Settings
-          </elvt-button>
-        </div>
-        
-        <div style={{display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem'}}>
-          <div style={{background: 'white', padding: '1.5rem', borderRadius: '8px', border: '1px solid #e0e0e0'}}>
-            <h4 style={{margin: '0 0 0.5rem 0'}}>Active Users</h4>
-            <div style={{fontSize: '2rem', fontWeight: '600', color: '#161616'}}>1,234</div>
-          </div>
-          <div style={{background: 'white', padding: '1.5rem', borderRadius: '8px', border: '1px solid #e0e0e0'}}>
-            <h4 style={{margin: '0 0 0.5rem 0'}}>Revenue</h4>
-            <div style={{fontSize: '2rem', fontWeight: '600', color: '#161616'}}>$45,678</div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Settings Drawer */}
-      <div style={{width: '320px', background: 'white', borderLeft: '1px solid #e0e0e0', display: 'flex', flexDirection: 'column'}}>
-        <div style={{padding: '1rem', borderBottom: '1px solid #e0e0e0'}}>
-          <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-            <h4 style={{margin: '0', fontSize: '1.125rem'}}>Settings</h4>
-            <elvt-button size="small" tone="subtle">
-              <elvt-icon icon="mdi:close"></elvt-icon>
-            </elvt-button>
-          </div>
-        </div>
-        
-        <div style={{flex: 1, padding: '1rem', display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
-          <div>
-            <h5 style={{margin: '0 0 0.75rem 0', fontSize: '0.875rem', fontWeight: '600', textTransform: 'uppercase', color: '#6f6f6f'}}>Notifications</h5>
-            <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-              <elvt-switch checked>
-                <label slot="label">Email notifications</label>
-                <span slot="help-text">Receive email alerts</span>
-              </elvt-switch>
-              <elvt-switch>
-                <label slot="label">Push notifications</label>
-                <span slot="help-text">Browser notifications</span>
-              </elvt-switch>
-              <elvt-switch checked>
-                <label slot="label">SMS alerts</label>
-                <span slot="help-text">Text message alerts</span>
-              </elvt-switch>
-            </div>
-          </div>
-          
-          <div>
-            <h5 style={{margin: '0 0 0.75rem 0', fontSize: '0.875rem', fontWeight: '600', textTransform: 'uppercase', color: '#6f6f6f'}}>Preferences</h5>
-            <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-              <elvt-switch>
-                <label slot="label">Dark mode</label>
-                <span slot="help-text">Use dark theme</span>
-              </elvt-switch>
-              <elvt-switch checked>
-                <label slot="label">Auto-save</label>
-                <span slot="help-text">Save changes automatically</span>
-              </elvt-switch>
-            </div>
-          </div>
-          
-          <div style={{marginTop: 'auto', borderTop: '1px solid #e0e0e0', paddingTop: '1rem'}}>
-            <elvt-button tone="primary" style={{width: '100%'}}>Save Changes</elvt-button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</ComponentShowcase>
+  code="settings-drawer-pattern.html"
+/>
 
 ## Accessibility
 

@@ -134,7 +134,12 @@ function transformComponentName(name: string, framework: string): string {
  */
 function parseReactElement(element: unknown): any {
   if (typeof element === 'string' || typeof element === 'number') {
-    return { type: 'text', content: String(element) };
+    const content = String(element);
+    // Skip whitespace-only text nodes during parsing
+    if (!content.trim()) {
+      return null;
+    }
+    return { type: 'text', content };
   }
   
   if (!element || typeof element !== 'object') {
@@ -148,6 +153,17 @@ function parseReactElement(element: unknown): any {
   
   const { type, props } = element;
   
+  // Debug log for troubleshooting (removed to prevent infinite loops)
+  // if (process.env.NODE_ENV === 'development') {
+  //   console.log('Parsing React element:', {
+  //     typeOf: typeof type,
+  //     typeName: typeof type === 'function' ? type.name : type,
+  //     hasProps: !!props,
+  //     hasChildren: !!(props as any)?.children,
+  //     childrenContent: (props as any)?.children
+  //   });
+  // }
+  
   // Handle React elements
   if (typeof type === 'string') {
     const children = (props as any)?.children;
@@ -158,6 +174,22 @@ function parseReactElement(element: unknown): any {
     return {
       type: 'element',
       tagName: type,
+      attributes: Object.entries(props || {})
+        .filter(([key]) => key !== 'children')
+        .reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {}),
+      children: parsedChildren
+    };
+  } else if (typeof type === 'function') {
+    // Handle React component functions (like ElvtButton)
+    const componentName = type.name || type.displayName || 'UnknownComponent';
+    const children = (props as any)?.children;
+    const parsedChildren = Array.isArray(children) 
+      ? children.map(parseReactElement).filter(Boolean)
+      : children ? [parseReactElement(children)].filter(Boolean) : [];
+    
+    return {
+      type: 'element',
+      tagName: componentName,
       attributes: Object.entries(props || {})
         .filter(([key]) => key !== 'children')
         .reduce((acc, [key, value]) => ({ ...acc, [key]: value }), {}),
@@ -178,10 +210,21 @@ function generateFrameworkCode(element: any, framework: string, indent = 0): str
   const spacing = '  '.repeat(indent);
   
   if (element.type === 'text') {
-    return element.content.trim();
+    const trimmedContent = element.content.trim();
+    // Skip whitespace-only text nodes (common between JSX elements)
+    if (!trimmedContent) {
+      return '';
+    }
+    return trimmedContent;
   }
   
   if (element.type === 'element') {
+    // Special handling for paragraph tags that only contain text (common in MDX)
+    if (element.tagName === 'p' && element.children?.length === 1 && element.children[0]?.type === 'text') {
+      // Extract text content from unwrapped paragraphs
+      return element.children[0].content.trim();
+    }
+    
     const tagName = element.tagName.startsWith('elvt-') || element.tagName.startsWith('Elvt')
       ? transformComponentName(element.tagName, framework)
       : element.tagName;
@@ -192,12 +235,20 @@ function generateFrameworkCode(element: any, framework: string, indent = 0): str
         // Special handling for style attribute
         if (key === 'style') {
           if (framework === 'react') {
-            // Convert string style to object for React
-            const styleObj = typeof value === 'string' ? convertStyleToObject(value) : value;
-            const styleObjStr = JSON.stringify(styleObj, null, 0)
-              .replace(/"/g, "'")
-              .replace(/'/g, '"');
-            return `style={${styleObjStr}}`;
+            // For React, keep style as object notation
+            if (typeof value === 'object' && value !== null) {
+              const styleEntries = Object.entries(value)
+                .map(([prop, val]) => `${prop}: '${val}'`)
+                .join(', ');
+              return `style={{ ${styleEntries} }}`;
+            } else if (typeof value === 'string') {
+              // Convert CSS string to object notation
+              const styleObj = convertStyleToObject(value);
+              const styleEntries = Object.entries(styleObj)
+                .map(([prop, val]) => `${prop}: '${val}'`)
+                .join(', ');
+              return `style={{ ${styleEntries} }}`;
+            }
           } else {
             // Convert object style to string for other frameworks
             const styleStr = convertStyleToString(value);
@@ -241,12 +292,22 @@ function generateFrameworkCode(element: any, framework: string, indent = 0): str
       .map((child: any) => {
         if (child.type === 'text') {
           const text = child.content.trim();
+          // Only include non-empty text content, and don't add extra spacing
           return text ? `${spacing}  ${text}` : '';
         }
         return generateFrameworkCode(child, framework, indent + 1);
       })
-      .filter(Boolean)
+      .filter(Boolean) // Remove empty strings
       .join('\n');
+    
+    // Debug log for troubleshooting (removed to prevent infinite loops)
+    // if (process.env.NODE_ENV === 'development') {
+    //   console.log(`Generating code for ${tagName}:`, {
+    //     hasChildren,
+    //     childrenCount: children.length,
+    //     childrenCode: childrenCode.substring(0, 100) + (childrenCode.length > 100 ? '...' : '')
+    //   });
+    // }
     
     const closeTag = `${spacing}</${tagName}>`;
     
@@ -256,20 +317,36 @@ function generateFrameworkCode(element: any, framework: string, indent = 0): str
   return '';
 }
 
+// Cache for parsed elements to prevent unnecessary re-parsing
+const parseCache = new WeakMap<React.ReactElement, any>();
+
 /**
  * Main transformer function - converts React children to framework-specific code
  */
 export function transformToFramework(children: React.ReactNode, framework: string): string {
   try {
     // Parse the React children structure
-    const parsedElements = React.Children.toArray(children)
-      .map(parseReactElement)
+    const childrenArray = React.Children.toArray(children);
+    
+    // Use cached parsing when possible to reduce computation
+    const parsedElements = childrenArray
+      .map(child => {
+        if (React.isValidElement(child) && parseCache.has(child)) {
+          return parseCache.get(child);
+        }
+        const parsed = parseReactElement(child);
+        if (React.isValidElement(child) && parsed) {
+          parseCache.set(child, parsed);
+        }
+        return parsed;
+      })
       .filter(Boolean);
     
     // Generate code for the target framework
     const code = parsedElements
       .map(element => generateFrameworkCode(element, framework))
-      .join('\n\n');
+      .filter(Boolean) // Remove empty results
+      .join('\n');
     
     return code.trim();
   } catch (error) {
@@ -312,9 +389,9 @@ import { ElevatePlugin } from '@inform-elevate/elevate-core-ui/vue';
 import { ${uniqueComponents.join(', ')} } from '@inform-elevate/elevate-core-ui/svelte';`;
     
     case 'html':
-      return `<!-- Include via CDN -->
-<script type="module" src="https://unpkg.com/@inform-elevate/elevate-core-ui@latest/dist/elevate-core-ui/elevate-core-ui.esm.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/@inform-elevate/elevate-core-ui@latest/dist/elevate-core-ui/elevate-core-ui.css">`;
+      return `<!-- Include in your build process -->
+<script type="module" src="./dist/elevate-core-ui.js"></script>
+<link rel="stylesheet" href="./dist/elevate.css">`;
     
     default:
       return '// Framework not supported';
@@ -329,8 +406,18 @@ export function extractComponentNames(children: React.ReactNode): string[] {
   
   React.Children.forEach(children, (child) => {
     if (React.isValidElement(child)) {
-      const tagName = child.type as string;
-      if (tagName?.startsWith('elvt-') || tagName?.startsWith('Elvt')) {
+      let tagName: string = '';
+      
+      // Handle different component types
+      if (typeof child.type === 'string') {
+        // DOM element or string-based component
+        tagName = child.type;
+      } else if (typeof child.type === 'function') {
+        // React component function - get the name from the function
+        tagName = child.type.name || child.type.displayName || '';
+      }
+      
+      if (tagName && (tagName.startsWith('elvt-') || tagName.startsWith('Elvt'))) {
         components.push(tagName);
       }
       
@@ -340,6 +427,75 @@ export function extractComponentNames(children: React.ReactNode): string[] {
       }
     }
   });
+  
+  return [...new Set(components)]; // Remove duplicates
+}
+
+/**
+ * Transform web component code to different frameworks
+ */
+export function transformWebComponentCode(code: string, framework: string): string {
+  if (framework === 'webcomponent' || framework === 'html') {
+    return code; // Return as-is for web components and HTML
+  }
+  
+  try {
+    const config = FRAMEWORK_CONFIGS[framework];
+    if (!config) return code;
+    
+    let transformedCode = code;
+    
+    // Transform component names
+    transformedCode = transformedCode.replace(/<elvt-([a-zA-Z0-9-]+)/g, (match, componentName) => {
+      const newName = transformComponentName(`elvt-${componentName}`, framework);
+      return `<${newName}`;
+    });
+    
+    transformedCode = transformedCode.replace(/<\/elvt-([a-zA-Z0-9-]+)>/g, (match, componentName) => {
+      const newName = transformComponentName(`elvt-${componentName}`, framework);
+      return `</${newName}>`;
+    });
+    
+    // Transform attributes for React (kebab-case to camelCase)
+    if (framework === 'react') {
+      // Transform style attributes from CSS string to object notation
+      transformedCode = transformedCode.replace(/style="([^"]+)"/g, (match, styleValue) => {
+        const styleObj = convertStyleToObject(styleValue);
+        const styleEntries = Object.entries(styleObj)
+          .map(([prop, val]) => `${prop}: '${val}'`)
+          .join(', ');
+        return `style={{ ${styleEntries} }}`;
+      });
+      
+      // Transform kebab-case attributes to camelCase
+      transformedCode = transformedCode.replace(/([a-z]+)-([a-z])/g, (match, first, second) => {
+        return first + second.charAt(0).toUpperCase() + second.slice(1);
+      });
+    }
+    
+    return transformedCode;
+  } catch (error) {
+    console.error('Error transforming web component code:', error);
+    return code; // Return original on error
+  }
+}
+
+/**
+ * Extract component names from web component code string
+ */
+export function extractComponentNamesFromCode(code: string): string[] {
+  const components: string[] = [];
+  const regex = /<(elvt-[a-zA-Z0-9-]+)/g;
+  let match;
+  
+  while ((match = regex.exec(code)) !== null) {
+    const componentName = match[1];
+    if (componentName.startsWith('elvt-')) {
+      // Convert to React component name format
+      const reactName = transformComponentName(componentName, 'react');
+      components.push(reactName);
+    }
+  }
   
   return [...new Set(components)]; // Remove duplicates
 }

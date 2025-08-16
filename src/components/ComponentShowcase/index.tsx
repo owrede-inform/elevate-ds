@@ -5,7 +5,7 @@ import CodeDisplay from '../CodeDisplay';
 import styles from './styles.module.css';
 
 interface ComponentShowcaseProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   title?: string;
   description?: string;
   code?: string; // Can be inline code or file path
@@ -33,6 +33,39 @@ export default function ComponentShowcase({
   const [loadedFileContent, setLoadedFileContent] = useState<string>('');
   const [isLoadingFile, setIsLoadingFile] = useState<boolean>(false);
   const [fileLoadError, setFileLoadError] = useState<string>('');
+  const [sanitizedFileContent, setSanitizedFileContent] = useState<string>('');
+  
+  // Sanitize HTML content for preview and code display
+  const sanitizeHTMLForPreview = (html: string): string => {
+    // Remove HTML comments
+    let sanitized = html.replace(/<!--[\s\S]*?-->/g, '');
+    
+    // Remove DOCTYPE and html/head/body tags if present
+    sanitized = sanitized.replace(/<!DOCTYPE[^>]*>/gi, '');
+    sanitized = sanitized.replace(/<\/?(?:html|head|body)[^>]*>/gi, '');
+    
+    // Remove extra whitespace, newlines, and tabs for preview
+    sanitized = sanitized.replace(/\s+/g, ' ');
+    sanitized = sanitized.replace(/>\s+</g, '><');
+    sanitized = sanitized.trim();
+    
+    return sanitized;
+  };
+  
+  // Sanitize HTML content for code display (preserves formatting)
+  const sanitizeHTMLForCode = (html: string): string => {
+    // Remove HTML comments
+    let sanitized = html.replace(/<!--[\s\S]*?-->/g, '');
+    
+    // Remove DOCTYPE and html/head/body tags if present
+    sanitized = sanitized.replace(/<!DOCTYPE[^>]*>/gi, '');
+    sanitized = sanitized.replace(/<\/?(?:html|head|body)[^>]*>/gi, '');
+    
+    // Just trim whitespace at start/end, preserve internal formatting
+    sanitized = sanitized.trim();
+    
+    return sanitized;
+  };
   
   // Helper function to check if code parameter is a file path
   const isFilePath = (codeParam: string): boolean => {
@@ -43,6 +76,7 @@ export default function ComponentShowcase({
   useEffect(() => {
     if (!code || !isFilePath(code)) {
       setLoadedFileContent('');
+      setSanitizedFileContent('');
       setIsLoadingFile(false);
       setFileLoadError('');
       return;
@@ -58,24 +92,54 @@ export default function ComponentShowcase({
         const docsIndex = pathParts.indexOf('docs');
         const relativePath = docsIndex >= 0 ? pathParts.slice(docsIndex + 1) : [];
         
-        let filePath;
+        let filePaths = [];
+        
         if (code.includes('/') || code.includes('\\')) {
-          filePath = `/docs/${code}`;
+          // If code contains path separators, use it as-is
+          filePaths.push(`/${code}`);
         } else {
-          filePath = `/docs/${relativePath.join('/')}/${code}`;
+          // Try local docs folder first (raw files via our middleware)
+          const localPath = relativePath.length > 0 
+            ? `/docs/${relativePath.join('/')}/code-examples/${code}`
+            : `/code-examples/${code}`;
+          filePaths.push(localPath);
+          
+          // Fallback to static folder if exists
+          const componentName = relativePath.length > 0 ? relativePath[relativePath.length - 1] : '';
+          filePaths.push(`/code-examples/${componentName}/${code}`);
+          filePaths.push(`/code-examples/${code}`);
         }
         
-        const response = await fetch(filePath);
-        if (!response.ok) {
-          throw new Error(`Failed to load file: ${filePath} (${response.status} ${response.statusText})`);
+        let content = '';
+        let successfulPath = '';
+        
+        // Try each path until one succeeds
+        for (const filePath of filePaths) {
+          try {
+            const response = await fetch(filePath);
+            if (response.ok) {
+              content = await response.text();
+              successfulPath = filePath;
+              break;
+            }
+          } catch (fetchError) {
+            // Continue to next path
+            continue;
+          }
         }
         
-        const content = await response.text();
+        if (!content) {
+          throw new Error(`Failed to load file: ${code}. Tried paths: ${filePaths.join(', ')}`);
+        }
+        
+        const sanitizedForPreview = sanitizeHTMLForPreview(content);
         setLoadedFileContent(content);
+        setSanitizedFileContent(sanitizedForPreview);
       } catch (error) {
         console.error('Error loading file:', error);
         setFileLoadError(`Failed to load file: ${code}. ${(error as Error).message}`);
         setLoadedFileContent('');
+        setSanitizedFileContent('');
       } finally {
         setIsLoadingFile(false);
       }
@@ -87,8 +151,9 @@ export default function ComponentShowcase({
   // Transform code when framework changes
   useEffect(() => {
     if (code && isFilePath(code)) {
-      // Use loaded file content as-is
-      setTransformedCode(loadedFileContent);
+      // Use sanitized file content for code display (no DOCTYPE, html/head/body tags, preserves formatting)
+      const sanitizedForCode = sanitizeHTMLForCode(loadedFileContent);
+      setTransformedCode(sanitizedForCode);
       setComponentNames([]);
       return;
     }
@@ -201,7 +266,11 @@ export default function ComponentShowcase({
       {/* Preview area */}
       <div className={styles.preview}>
         <div className={styles.previewContent} ref={previewRef}>
-          {children}
+          {sanitizedFileContent ? (
+            <div dangerouslySetInnerHTML={{ __html: sanitizedFileContent }} />
+          ) : (
+            children
+          )}
         </div>
       </div>
 

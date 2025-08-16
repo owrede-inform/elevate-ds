@@ -1,0 +1,411 @@
+---
+title: ComponentShowcase
+description: Interactive component preview and code display for ELEVATE design system documentation
+sidebar_label: ComponentShowcase
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import TocLinks from '@site/src/components/TocLinks';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
+
+# ComponentShowcase
+
+A powerful documentation component that creates interactive previews of ELEVATE components with automatic code generation and multi-framework support.
+
+:::info Documentation Site Component
+This is a custom component built specifically for this documentation site. It is **not** part of the ELEVATE Core UI library.
+:::
+
+<TocLinks />
+
+## Overview
+
+The ComponentShowcase component provides an elegant way to display ELEVATE components with live previews and corresponding source code. It shows React components in the preview while displaying web component syntax in the code examples that transforms to different frameworks.
+
+**Key Features:**
+- 🎯 **Live Preview** - Interactive component demonstration
+- 🔄 **Multi-Framework Support** - React, Vue, Angular, HTML, and Web Components
+- 📁 **File Loading** - Load code examples from external files
+- 💻 **Code Generation** - Automatic code generation from JSX children
+- 🎨 **Customizable Display** - Flexible styling and layout options
+- 📱 **Responsive Design** - Works on all screen sizes
+
+## Basic Usage
+
+:::tip Usage Pattern
+- **Primary**: Use web components (`<elvt-button>`) directly as children
+- **Auto-transformation**: Code automatically transforms to selected framework
+- **Optional code prop**: Override with custom code examples when needed
+
+This approach provides both working previews and accurate multi-framework code generation.
+:::
+
+### Simple Component Preview
+
+<ComponentShowcase
+  title="Basic Button"
+  description="A simple primary button component">
+<elvt-button tone="primary" size="medium">Click me</elvt-button>
+</ComponentShowcase>
+
+```tsx
+<ComponentShowcase
+  title="Basic Button"
+  description="A simple primary button component">
+<elvt-button tone="primary" size="medium">Click me</elvt-button>
+</ComponentShowcase>
+```
+
+### Card Component Example
+
+<ComponentShowcase
+  title="Basic Card"
+  description="Simple card container with content">
+<elvt-card padding="s">
+  <h3 slot="header">Welcome</h3>
+  <p>This is a basic ELEVATE card component with some content inside.</p>
+  <elvt-button tone="primary" size="medium" slot="footer">Learn More</elvt-button>
+</elvt-card>
+</ComponentShowcase>
+
+```tsx
+<ComponentShowcase
+  title="Basic Card"
+  description="Simple card container with content">
+<elvt-card padding="s">
+  <h3 slot="header">Welcome</h3>
+  <p>This is a basic ELEVATE card component with some content inside.</p>
+  <elvt-button tone="primary" size="medium" slot="footer">Learn More</elvt-button>
+</elvt-card>
+</ComponentShowcase>
+```
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Required | Description |
+|------|------|---------|----------|-------------|
+| `children` | `React.ReactNode` | - | ✅ | Web components to showcase in the preview |
+| `title` | `string` | - | ❌ | Display title for the showcase |
+| `description` | `string` | - | ❌ | Description text below the title |
+| `code` | `string` | - | ❌ | Inline code or file path to display |
+| `language` | `string` | `'html'` | ❌ | Syntax highlighting language |
+| `showFrameworkSwitcher` | `boolean` | `true` | ❌ | Show framework selection dropdown |
+| `wrapLines` | `boolean` | `true` | ❌ | Enable line wrapping in code display |
+| `showCodeByDefault` | `boolean` | `false` | ❌ | Show code section expanded by default |
+
+### Framework Support
+
+The component automatically transforms JSX code to different frameworks:
+
+| Framework | Output | Import Generation |
+|-----------|--------|-------------------|
+| `react` | JSX with React patterns | React component imports |
+| `vue` | Vue 3 template syntax | Vue component imports |
+| `angular` | Angular template syntax | Angular component imports |
+| `html` | Custom element usage | Script tag includes |
+| `webcomponent` | Web component syntax | Module imports |
+
+## Advanced Usage
+
+### Multiple Components
+
+<ComponentShowcase
+  title="Button Group"
+  description="Multiple buttons with different tones"
+>
+  <elvt-stack direction="row" gap="s" wrap>
+    <elvt-button tone="primary" size="medium">Primary</elvt-button>
+    <elvt-button tone="neutral" size="medium">Neutral</elvt-button>
+    <elvt-button tone="success" size="medium">Success</elvt-button>
+    <elvt-button tone="warning" size="medium">Warning</elvt-button>
+  </elvt-stack>
+</ComponentShowcase>
+
+```tsx
+<ComponentShowcase
+  title="Button Group"
+  description="Multiple buttons with different tones"
+>
+  <elvt-stack direction="row" gap="s" wrap>
+    <elvt-button tone="primary" size="medium">Primary</elvt-button>
+    <elvt-button tone="neutral" size="medium">Neutral</elvt-button>
+    <elvt-button tone="success" size="medium">Success</elvt-button>
+    <elvt-button tone="warning" size="medium">Warning</elvt-button>
+  </elvt-stack>
+</ComponentShowcase>
+```
+
+### Card with Multiple Components
+
+<ComponentShowcase
+  title="Dashboard Card"
+  description="Card containing multiple buttons and content"
+>
+  <elvt-card padding="s">
+    <h3 slot="header">Project Dashboard</h3>
+    <p>Manage your project settings and view analytics.</p>
+    <elvt-stack direction="row" gap="s" slot="footer">
+      <elvt-button tone="primary" size="medium">View Analytics</elvt-button>
+      <elvt-button tone="neutral" size="medium">Settings</elvt-button>
+      <elvt-button tone="warning" size="medium">Export</elvt-button>
+    </elvt-stack>
+  </elvt-card>
+</ComponentShowcase>
+
+```tsx
+<ComponentShowcase
+  title="Dashboard Card"
+  description="Card containing multiple buttons and content"
+>
+  <elvt-card style={{ maxWidth: '400px' }}>
+    <h3 slot="header">Project Dashboard</h3>
+    <p>Manage your project settings and view analytics.</p>
+    <elvt-stack direction="row" gap="s" style={{ marginTop: '16px' }} slot="footer">
+      <elvt-button tone="primary" size="medium">View Analytics</elvt-button>
+      <elvt-button tone="neutral" size="medium">Settings</elvt-button>
+      <elvt-button tone="warning" size="medium">Export</elvt-button>
+    </elvt-stack>
+  </elvt-card>
+</ComponentShowcase>
+```
+
+## Custom Code Examples
+
+### Inline Code
+
+<ComponentShowcase
+  title="Custom Code Example"
+  description="Showcase with custom inline code"
+  language="html"
+  showFrameworkSwitcher={false}
+>
+  <elvt-button tone="primary" size="large">Custom Button</elvt-button>
+</ComponentShowcase>
+
+```tsx
+<ComponentShowcase
+  title="Custom Code Example"
+  description="Showcase with custom inline code"
+  language="html"
+  showFrameworkSwitcher={false}
+>
+  <elvt-button tone="primary" size="large">
+    Custom Button
+  </elvt-button>
+</ComponentShowcase>
+```
+
+### External File Loading
+
+<ComponentShowcase
+  title="File-based Example"
+  description="Loading code from an external file"
+  showCodeByDefault={true}
+>
+  <elvt-button tone="neutral" size="medium">From File</elvt-button>
+</ComponentShowcase>
+
+```tsx
+<ComponentShowcase
+  title="File-based Example"
+  description="Loading code from an external file"
+  showCodeByDefault={true}
+>
+  <elvt-button tone="neutral" size="medium">
+    From File
+  </elvt-button>
+</ComponentShowcase>
+```
+
+## Configuration Options
+
+### Show Code by Default
+
+<ComponentShowcase
+  title="Always Visible Code"
+  description="Code section expanded by default"
+  showCodeByDefault={true}
+>
+  <elvt-button tone="primary" size="small">Small Button</elvt-button>
+</ComponentShowcase>
+
+### Disable Framework Switcher
+
+<ComponentShowcase
+  title="Fixed Framework"
+  description="No framework switching available"
+  showFrameworkSwitcher={false}
+>
+  <elvt-button tone="neutral" size="medium">Fixed Code</elvt-button>
+</ComponentShowcase>
+
+### Custom Language
+
+<ComponentShowcase
+  title="TypeScript Example"
+  description="Custom language for syntax highlighting"
+  language="typescript"
+>
+  <elvt-button tone="primary" size="medium">TypeScript</elvt-button>
+</ComponentShowcase>
+
+## Framework Code Generation
+
+The ComponentShowcase automatically generates framework-specific code based on the JSX children. Here's how different frameworks are handled:
+
+### React Output
+```tsx
+import { ElvtButton } from '@inform-elevate/elevate-core-ui/dist/react';
+
+<ElvtButton tone="primary" size="medium">
+  Click me
+</ElvtButton>
+```
+
+### Vue Output
+```vue
+<template>
+  <elvt-button tone="primary" size="medium">
+    Click me
+  </elvt-button>
+</template>
+
+<script setup>
+import '@inform-elevate/elevate-core-ui';
+</script>
+```
+
+### Angular Output
+```typescript
+// Component template
+<elvt-button tone="primary" size="medium">
+  Click me
+</elvt-button>
+
+// Module imports
+import '@inform-elevate/elevate-core-ui';
+```
+
+### HTML Output
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <script type="module" src="https://unpkg.com/@inform-elevate/elevate-core-ui"></script>
+</head>
+<body>
+  <elvt-button tone="primary" size="medium">
+    Click me
+  </elvt-button>
+</body>
+</html>
+```
+
+## File Loading System
+
+### Supported File Types
+
+The component can load and display various file types:
+
+| Extension | Language | Use Case |
+|-----------|----------|----------|
+| `.tsx`, `.ts` | TypeScript | React components and type definitions |
+| `.jsx`, `.js` | JavaScript | JavaScript components and modules |
+| `.html` | HTML | HTML templates and examples |
+| `.css`, `.scss` | CSS/SCSS | Stylesheets and styling examples |
+| `.md`, `.mdx` | Markdown | Documentation and content files |
+
+### File Path Resolution
+
+File paths are resolved relative to the current document:
+
+```tsx
+// If current page is /docs/components/button/
+code="example.tsx"           // Loads from /docs/components/button/example.tsx
+code="examples/demo.tsx"     // Loads from /docs/components/button/examples/demo.tsx
+code="../shared/utils.ts"    // Loads from /docs/components/shared/utils.ts
+```
+
+### Loading States
+
+The component handles loading states gracefully:
+
+- **Loading**: Shows "Loading code file..." message
+- **Error**: Displays error message with file path and details
+- **Success**: Renders the loaded code with syntax highlighting
+
+## Best Practices
+
+### Component Documentation
+
+1. **Clear Titles**: Use descriptive titles that explain the component's purpose
+2. **Helpful Descriptions**: Provide context about when and how to use the component
+3. **Progressive Examples**: Start simple, then show more complex usage
+4. **Real Use Cases**: Show practical examples that developers will actually use
+
+### Code Examples
+
+1. **Clean JSX**: Use proper formatting and indentation in children
+2. **Meaningful Props**: Use realistic prop values that demonstrate the component
+3. **Complete Examples**: Include all necessary props for a working example
+4. **Error Handling**: Consider edge cases and error states
+
+### File Organization
+
+1. **Consistent Structure**: Keep example files organized in logical directories
+2. **Descriptive Names**: Use clear, descriptive filenames for examples
+3. **Documentation**: Include comments in complex example files
+4. **Version Control**: Track example files alongside documentation
+
+## Component Structure
+
+The ComponentShowcase is built with several key parts:
+
+1. **Header Section**: Title, description, and code toggle button
+2. **Preview Area**: Live component demonstration with ELEVATE styling
+3. **Code Section**: Collapsible code display with framework switching
+4. **Framework Context**: Integration with global framework selection
+
+### Styling System
+
+The component uses CSS modules for styling:
+
+- **`.componentShowcase`** - Main container with theme integration
+- **`.header`** - Title and controls section
+- **`.preview`** - Live component preview area with ELEVATE theme
+- **`.codeSection`** - Collapsible code display area
+
+### Integration Points
+
+- **Framework Context**: Connects to global framework selection
+- **Code Transformer**: Converts JSX to different framework syntaxes
+- **Theme System**: Inherits ELEVATE design tokens and theming
+- **Docusaurus**: Integrates with Docusaurus build and routing system
+
+## Usage Guidelines
+
+### When to Use ComponentShowcase
+
+✅ **Good Use Cases:**
+- Documenting ELEVATE components with live examples
+- Showing component variations and prop combinations
+- Creating interactive component galleries
+- Demonstrating component usage patterns
+
+❌ **Avoid For:**
+- Non-component code examples (use CodeBlock instead)
+- Static documentation without interactivity
+- Performance-critical pages (adds framework transformation overhead)
+
+### Performance Considerations
+
+- **Code Transformation**: Happens client-side, may impact initial render
+- **File Loading**: Async loading adds network requests
+- **Framework Context**: Subscribes to global state changes
+- **Large Examples**: Consider splitting complex examples into separate pages
+
+## Changelog
+
+<ComponentChangelog component="ComponentShowcase" />

@@ -40,19 +40,8 @@ Basic checkbox for single option selection with clear labeling.
 <ComponentShowcase
   title="Standard Checkbox Options"
   description="Basic checkboxes for independent option selections."
-  code="standard-checkbox-options.html">
-<div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-  <elvt-checkbox name="newsletter" value="subscribe">
-    Subscribe to newsletter
-  </elvt-checkbox>
-  <elvt-checkbox name="notifications" value="email" checked>
-    Email notifications
-  </elvt-checkbox>
-  <elvt-checkbox name="terms" value="accepted" required>
-    I agree to the terms and conditions *
-  </elvt-checkbox>
-</div>
-</ComponentShowcase>
+  code="standard-checkbox-options.html"
+/>
 
 ### Indeterminate Checkbox
 
@@ -61,18 +50,8 @@ Checkbox showing partial selection state for grouped options with mixed selectio
 <ComponentShowcase
   title="Indeterminate Checkbox State"
   description="Parent checkbox showing mixed selection state for child options."
-  code="indeterminate-checkbox-state.html">
-<div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
-  <elvt-checkbox name="select-all" indeterminate>
-    Select all permissions
-  </elvt-checkbox>
-  <div style={{marginLeft: '2rem', display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
-    <elvt-checkbox name="permissions" value="read" checked>Read access</elvt-checkbox>
-    <elvt-checkbox name="permissions" value="write">Write access</elvt-checkbox>
-    <elvt-checkbox name="permissions" value="admin">Admin access</elvt-checkbox>
-  </div>
-</div>
-</ComponentShowcase>
+  code="indeterminate-checkbox-state.html"
+/>
 
 ### Checkbox with Helper Text
 
@@ -81,22 +60,8 @@ Checkbox with additional descriptive text for complex options requiring explanat
 <ComponentShowcase
   title="Checkbox with Helper Text"
   description="Checkboxes with explanatory helper text for complex options."
-  code="checkbox-with-helper-text.html">
-<div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-  <elvt-checkbox 
-    name="analytics" 
-    value="enabled"
-    helper-text="Help us improve by sharing anonymous usage data">
-    Enable analytics
-  </elvt-checkbox>
-  <elvt-checkbox 
-    name="marketing" 
-    value="consent"
-    helper-text="Receive promotional emails about new features and updates">
-    Marketing communications
-  </elvt-checkbox>
-</div>
-</ComponentShowcase>
+  code="checkbox-with-helper-text.html"
+/>
 
 ## Design Principles
 
@@ -258,40 +223,8 @@ npm install @inform-elevate/elevate-core-ui
 <ComponentShowcase
   title="User Preferences Form"
   description="Multiple checkbox groups working together in a comprehensive settings form."
-  code="user-preferences-form.html">
-<form style={{maxWidth: '500px', padding: '2rem', border: '1px solid #e0e0e0', borderRadius: '8px'}} onSubmit={(e) => {e.preventDefault(); alert('Preferences saved!');}}>
-  <h3 style={{marginTop: 0}}>Account Preferences</h3>
-  
-  <fieldset style={{border: 'none', padding: 0, margin: '0 0 1.5rem 0'}}>
-    <legend style={{fontWeight: '500', marginBottom: '0.75rem'}}>Notifications</legend>
-    <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
-      <elvt-checkbox name="notifications" value="email" checked>
-        Email notifications
-      </elvt-checkbox>
-      <elvt-checkbox name="notifications" value="sms">
-        SMS notifications
-      </elvt-checkbox>
-      <elvt-checkbox name="notifications" value="push">
-        Push notifications
-      </elvt-checkbox>
-    </div>
-  </fieldset>
-  
-  <fieldset style={{border: 'none', padding: 0, margin: '0 0 1.5rem 0'}}>
-    <legend style={{fontWeight: '500', marginBottom: '0.75rem'}}>Privacy</legend>
-    <div style={{display: 'flex', flexDirection: 'column', gap: '0.75rem'}}>
-      <elvt-checkbox name="privacy" value="analytics" helper-text="Help us improve by sharing anonymous usage data">
-        Enable analytics
-      </elvt-checkbox>
-      <elvt-checkbox name="privacy" value="marketing">
-        Marketing communications
-      </elvt-checkbox>
-    </div>
-  </fieldset>
-  
-  <elvt-button type="submit" tone="primary">Save Preferences</elvt-button>
-</form>
-</ComponentShowcase>
+  code="user-preferences-form.html"
+/>
 
 ## Accessibility
 

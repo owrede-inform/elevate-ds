@@ -5,10 +5,14 @@ sidebar_position: 1
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import TocLinks from '@site/src/components/TocLinks';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 # Expansion Panel
 
 Expansion Panels provide collapsible content sections that help organize and manage information density. They allow users to show and hide detailed content on demand, making interfaces more scannable and less overwhelming.
+
+<TocLinks />
 
 ## When to Use
 
@@ -22,169 +26,24 @@ Expansion Panels provide collapsible content sections that help organize and man
 <ComponentShowcase
   title="Basic Expansion Panel"
   description="Simple expansion panel with header and collapsible content."
-  code={`<elvt-expansion-panel
-  code="basic-expansion-panel.html">
-  <span slot="header">Account Settings</span>
-  <div slot="content">
-    <p>Configure your account preferences, notification settings, and privacy options.</p>
-    <elvt-button tone="primary" size="small">Update Settings</elvt-button>
-  </div>
-</elvt-expansion-panel>`}
->
-  <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '8px', overflow: 'hidden'}}>
-    <details>
-      <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer', borderBottom: '1px solid var(--elvt-alias-layout-border-muted)'}}>
-        <strong>Account Settings</strong>
-      </summary>
-      <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-default)'}}>
-        <p>Configure your account preferences, notification settings, and privacy options.</p>
-        <button style={{padding: '0.5rem 1rem', background: 'var(--elvt-primitives-color-blue-500)', color: 'white', border: 'none', borderRadius: '4px', fontSize: '0.875rem'}}>
-          Update Settings
-        </button>
-      </div>
-    </details>
-  </div>
-</ComponentShowcase>
+  code="basic-expansion-panel.html"
+/>
 
 ## With Icon and Description
 
 <ComponentShowcase
   title="Enhanced Expansion Panel"
   description="Expansion panel with icon, description, and structured content."
-  code={`<elvt-expansion-panel icon="shield"
-  code="enhanced-expansion-panel.html">
-  <span slot="header">Security & Privacy</span>
-  <span slot="description">Manage your security settings and privacy preferences</span>
-  <div slot="content">
-    <div style="display: flex; flex-direction: column; gap: 1rem;">
-      <div>
-        <h4>Two-Factor Authentication</h4>
-        <p>Add an extra layer of security to your account.</p>
-        <elvt-switch label="Enable 2FA"></elvt-switch>
-      </div>
-      <div>
-        <h4>Privacy Settings</h4>
-        <p>Control who can see your information and activity.</p>
-        <elvt-select label="Profile Visibility" value="private">
-          <option value="public">Public</option>
-          <option value="private">Private</option>
-        </elvt-select>
-      </div>
-    </div>
-  </div>
-</elvt-expansion-panel>`}
->
-  <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '8px', overflow: 'hidden'}}>
-    <details>
-      <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer', borderBottom: '1px solid var(--elvt-alias-layout-border-muted)'}}>
-        <div style={{display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
-          <span style={{fontSize: '1.25rem'}}>🛡️</span>
-          <div>
-            <div><strong>Security & Privacy</strong></div>
-            <div style={{fontSize: '0.875rem', color: 'var(--elvt-alias-content-text-secondary)', marginTop: '0.25rem'}}>
-              Manage your security settings and privacy preferences
-            </div>
-          </div>
-        </div>
-      </summary>
-      <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-default)'}}>
-        <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-          <div>
-            <h4 style={{margin: '0 0 0.5rem 0'}}>Two-Factor Authentication</h4>
-            <p style={{margin: '0 0 0.5rem 0', fontSize: '0.875rem', color: 'var(--elvt-alias-content-text-secondary)'}}>
-              Add an extra layer of security to your account.
-            </p>
-            <label style={{display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem'}}>
-              <input type="checkbox" /> Enable 2FA
-            </label>
-          </div>
-          <div>
-            <h4 style={{margin: '0 0 0.5rem 0'}}>Privacy Settings</h4>
-            <p style={{margin: '0 0 0.5rem 0', fontSize: '0.875rem', color: 'var(--elvt-alias-content-text-secondary)'}}>
-              Control who can see your information and activity.
-            </p>
-            <select style={{padding: '0.5rem', border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '4px'}}>
-              <option>Public</option>
-              <option selected>Private</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    </details>
-  </div>
-</ComponentShowcase>
+  code="enhanced-expansion-panel.html"
+/>
 
 ## Multiple Panels
 
 <ComponentShowcase
   title="Multiple Expansion Panels"
   description="Multiple expansion panels can be used together for organized content sections."
-  code={`<div
-  code="multiple-expansion-panels.html">
-  <elvt-expansion-panel>
-    <span slot="header">General Information</span>
-    <div slot="content">
-      <p>Basic details about your account and profile.</p>
-    </div>
-  </elvt-expansion-panel>
-  
-  <elvt-expansion-panel expanded>
-    <span slot="header">Notifications</span>
-    <span slot="description">Email, push, and in-app notification preferences</span>
-    <div slot="content">
-      <p>Configure how and when you receive notifications.</p>
-    </div>
-  </elvt-expansion-panel>
-  
-  <elvt-expansion-panel disabled>
-    <span slot="header">Billing (Premium Only)</span>
-    <span slot="description">Upgrade to access billing features</span>
-    <div slot="content">
-      <p>Billing information and payment methods.</p>
-    </div>
-  </elvt-expansion-panel>
-</div>`}
->
-  <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem'}}>
-    <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '8px', overflow: 'hidden'}}>
-      <details>
-        <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer'}}>
-          <strong>General Information</strong>
-        </summary>
-        <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-default)', borderTop: '1px solid var(--elvt-alias-layout-border-muted)'}}>
-          <p>Basic details about your account and profile.</p>
-        </div>
-      </details>
-    </div>
-    
-    <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '8px', overflow: 'hidden'}}>
-      <details open>
-        <summary style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'pointer'}}>
-          <div>
-            <div><strong>Notifications</strong></div>
-            <div style={{fontSize: '0.875rem', color: 'var(--elvt-alias-content-text-secondary)', marginTop: '0.25rem'}}>
-              Email, push, and in-app notification preferences
-            </div>
-          </div>
-        </summary>
-        <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-default)', borderTop: '1px solid var(--elvt-alias-layout-border-muted)'}}>
-          <p>Configure how and when you receive notifications.</p>
-        </div>
-      </details>
-    </div>
-    
-    <div style={{border: '1px solid var(--elvt-alias-layout-border-muted)', borderRadius: '8px', overflow: 'hidden', opacity: '0.6'}}>
-      <div style={{padding: '1rem', background: 'var(--elvt-alias-layout-layer-elevated)', cursor: 'not-allowed'}}>
-        <div>
-          <div><strong>Billing (Premium Only)</strong></div>
-          <div style={{fontSize: '0.875rem', color: 'var(--elvt-alias-content-text-secondary)', marginTop: '0.25rem'}}>
-            Upgrade to access billing features
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</ComponentShowcase>
+  code="multiple-expansion-panels.html"
+/>
 
 ## Properties
 
@@ -388,3 +247,7 @@ For panels containing heavy content, consider lazy loading the content only when
 :::info Grouping
 Use multiple expansion panels together to create organized sections, but avoid nesting panels too deeply as it can become confusing for users.
 :::
+
+## Changelog
+
+<ComponentChangelog component="elvt-expansion-panel" />
