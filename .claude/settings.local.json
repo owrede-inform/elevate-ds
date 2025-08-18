@@ -74,7 +74,8 @@
       "Bash(start debug-table-css.html)",
       "Bash(start chrome \"http://localhost:3000/docs/components/\")",
       "Bash(start chrome \"file:///C:/Users/owrede/WebstormProjects/elevate-ds/debug-table-css.html\")",
-      "Bash(gh workflow:*)"
+      "Bash(gh workflow:*)",
+      "Bash(gh run:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits",

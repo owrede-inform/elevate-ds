@@ -10,72 +10,76 @@ Stay up to date with the latest ELEVATE Design System releases, including new co
 
 ## Current Version
 
-### v0.0.27-alpha (Latest)
-*Released: January 2025*
+### v0.0.28-alpha (Latest)
+*Released: August 11, 2025*
 
 **✨ New Features**
-- Enhanced dialog component with new size variants
-- Improved avatar component with better accessibility
-- New chart components for data visualization
-- Updated design tokens with expanded color palette
-
-**🔧 Improvements**
-- Better TypeScript support across all components
-- Performance optimizations for large component trees
-- Enhanced documentation with interactive examples
-- Improved mobile responsiveness
+- **Icon Registry Enhancement**: Icon resolver functions can now return promises for asynchronous icon loading
+- Better support for dynamic icon resolution and loading patterns
 
 **🐛 Bug Fixes**
-- Fixed focus management in dialog components
-- Resolved spacing inconsistencies in form layouts
-- Corrected dark theme color contrast issues
-- Fixed accessibility issues with screen readers
+- Fixed value handling for multiple select components
+- Improved form control value management and validation
 
 **📦 Package Updates**
 ```bash
-npm install @inform-elevate/elevate-core-ui@0.0.27-alpha
+npm install @inform-elevate/elevate-core-ui@0.0.28-alpha
 ```
 
 ## Release History
 
+### v0.0.27-alpha
+*Released: August 8, 2025*
+
+**✨ New Features**
+- **Form Control Validators**: Added comprehensive form validation system
+- **Expansion Panel Design**: Updated visual design with improved user experience
+- **Link Component**: Enhanced link styling and accessibility features  
+- **Radio Components**: Complete redesign of radio buttons and radio groups with improved styling
+- **Enhanced Components**: Improvements across button groups, tabs, and breadcrumbs
+
+**🐛 Bug Fixes**
+- Added RTL (Right-to-Left) support for breadcrumb items and tab groups
+- Fixed button group pill shapes for small and medium sizes
+- Resolved separator line issues in button groups
+- Improved tab group active tab handling and panel padding
+- Updated dependency management and security vulnerabilities
+
 ### v0.0.26-alpha
-*Released: December 2024*
+*Released: July 16, 2025*
 
-**New Components**
-- Date picker with calendar interface
-- Enhanced switch component with animations
-- Breadcrumb navigation component
+**✨ New Features**
+- **Tab System Overhaul**: Complete redesign and implementation of Tab, TabPanel, and TabGroup components with comprehensive testing
+- **Form Validation**: Enhanced form controls with support for additional validators and error message display
+- **Checkbox Redesign**: Complete visual and functional redesign of checkbox component
 
-**Improvements**
-- Better tree-shaking support for smaller bundles
-- Updated Storybook documentation
-- Improved component prop validation
+**🐛 Bug Fixes**
+- Fixed form control validation for undefined values
+- Resolved build system issues with RollUp version compatibility
 
 ### v0.0.25-alpha
-*Released: November 2024*
+*Released: July 10, 2025*
 
-**New Components**
-- Badge component with status indicators
-- Chip component for tags and filters
-- Enhanced button group component
+**✨ New Features**
+- **Button System**: Complete button redesign replacing Shoelace button implementation
+- **Breadcrumb Items**: Enhanced design and styling improvements
+- **Divider Component**: Added CSS custom properties for better customization
 
-**Theme Updates**
-- New elevation tokens for consistent shadows
-- Improved dark theme color palette
-- Better high-contrast mode support
+**🐛 Bug Fixes**
+- Improved Stack component with increased default overlap indent
+- Fixed link color defaults for better accessibility
 
 ### v0.0.24-alpha
-*Released: October 2024*
+*Released: July 1, 2025*
 
-**New Components**
-- Icon component with Material Design Icons
-- Divider component for content separation
-- Enhanced card component with new variants
+**✨ New Features**
+- **Stack Component**: Added multi-column direction and overlap direction support
+- **Divider Enhancement**: Added content slots and improved customization
+- **Field Component**: Added status slot for better form field management
+- **Form System**: Introduced form reset functionality and basic validation (required fields)
 
-**Developer Experience**
-- VS Code extension for component snippets
-- Improved TypeScript definitions
-- Better error messages and warnings
+**🐛 Bug Fixes**
+- Fixed PagedTableDataProvider handling of indeterminate result lengths
 
 ## Version Strategy
 
@@ -109,6 +113,32 @@ ELEVATE follows [semantic versioning](https://semver.org/) principles:
 
 ## Migration Guides
 
+### Upgrading from v0.0.27 to v0.0.28
+
+#### Breaking Changes
+None in this release.
+
+#### New Features Available
+```tsx
+// Enhanced icon registry with promise support
+const iconResolver = async (name: string) => {
+  const iconData = await fetchIcon(name);
+  return iconData;
+};
+
+// Improved multiple select value handling
+<ElvtSelect multiple value={selectedValues}>
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+</ElvtSelect>
+```
+
+#### Recommended Updates
+1. Update package version: `npm install @inform-elevate/elevate-core-ui@0.0.28-alpha`
+2. Test multiple select implementations if you use them
+3. Consider adopting asynchronous icon loading for better performance
+4. No breaking changes expected for existing implementations
+
 ### Upgrading from v0.0.26 to v0.0.27
 
 #### Breaking Changes
@@ -116,40 +146,31 @@ None in this release.
 
 #### New Features Available
 ```tsx
-// New dialog size variants
-<ElvtDialog size="small">Small dialog</ElvtDialog>
-<ElvtDialog size="medium">Medium dialog</ElvtDialog>
-<ElvtDialog size="large">Large dialog</ElvtDialog>
-
-// Enhanced avatar with new props
-<ElvtAvatar 
-  size="xlarge" 
-  showStatus={true}
-  statusColor="success"
+// Enhanced form validation
+<ElvtInput 
+  required 
+  validators={[customValidator]}
+  error-message="Custom error message"
 />
 
-// New chart components
-<ElvtChart type="bar" data={chartData} />
+// Redesigned radio components
+<ElvtRadioGroup name="options">
+  <ElvtRadio value="option1">Option 1</ElvtRadio>
+  <ElvtRadio value="option2">Option 2</ElvtRadio>
+</ElvtRadioGroup>
+
+// Enhanced expansion panels
+<ElvtExpansionPanel>
+  <span slot="summary">Panel Title</span>
+  Panel content with improved design
+</ElvtExpansionPanel>
 ```
 
 #### Recommended Updates
-1. Update package version: `npm install @inform-elevate/elevate-core-ui@latest`
-2. Review new component documentation
-3. Consider adopting new features in upcoming sprints
-4. Test existing implementations (no breaking changes expected)
-
-### Upgrading from v0.0.25 to v0.0.26
-
-#### Component Changes
-- **Date Picker**: New component requires additional CSS import
-- **Switch**: Enhanced animations may affect custom styling
-- **Breadcrumb**: New component for navigation hierarchies
-
-#### Required Actions
-```css
-/* Add to your CSS imports */
-@import '@inform-elevate/elevate-core-ui/dist/components/datepicker/datepicker.css';
-```
+1. Update package version: `npm install @inform-elevate/elevate-core-ui@0.0.27-alpha`
+2. Review radio button and expansion panel styling changes
+3. Take advantage of new form validation features
+4. Test RTL support if applicable to your application
 
 ## Roadmap
 

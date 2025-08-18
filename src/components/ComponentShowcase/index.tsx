@@ -98,13 +98,13 @@ export default function ComponentShowcase({
           // If code contains path separators, use it as-is
           filePaths.push(`/${code}`);
         } else {
-          // Try local docs folder first (raw files via our middleware)
-          const localPath = relativePath.length > 0 
+          // Primary path: static folder with full docs path structure (prioritize this for all HTML files)
+          const staticPath = relativePath.length > 0 
             ? `/docs/${relativePath.join('/')}/code-examples/${code}`
-            : `/code-examples/${code}`;
-          filePaths.push(localPath);
+            : `/docs/components/code-examples/${code}`;
+          filePaths.push(staticPath);
           
-          // Fallback to static folder if exists
+          // Secondary paths for legacy support
           const componentName = relativePath.length > 0 ? relativePath[relativePath.length - 1] : '';
           filePaths.push(`/code-examples/${componentName}/${code}`);
           filePaths.push(`/code-examples/${code}`);

@@ -1,0 +1,37 @@
+<form style="max-width: 400px;">
+  <div style="display: flex; flex-direction: column; gap: 1rem;">
+    <h3>Contact Us</h3>
+
+    <elvt-input 
+      type="text" 
+      label="Full Name" 
+      placeholder="Enter your full name"
+      required>
+    </elvt-input>
+
+    <elvt-input 
+      type="email" 
+      label="Email Address" 
+      placeholder="user@example.com"
+      help-text="We'll respond within 24 hours"
+      required>
+    </elvt-input>
+
+    <elvt-input 
+      type="tel" 
+      label="Phone Number (Optional)" 
+      placeholder="+1 (555) 123-4567">
+    </elvt-input>
+
+    <elvt-input 
+      type="text" 
+      label="Company" 
+      placeholder="Your company name">
+    </elvt-input>
+
+    <div style="display: flex; gap: 0.5rem; justify-content: flex-end; margin-top: 1rem;">
+      <elvt-button>Cancel</elvt-button>
+      <elvt-button tone="primary" type="submit">Send Message</elvt-button>
+    </div>
+  </div>
+</form>
