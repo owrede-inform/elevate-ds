@@ -14,6 +14,13 @@
 /* Import ELEVATE theme override CSS for CSS-only approach */
 @import './elevate-theme-override.css';
 
+/* ELEVATE Icon Integration - Allow component to work naturally */
+elvt-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* ELEVATE Design System Integration with Alias Tokens */
 :root {
   /* ELEVATE Brand Colors using Alias Tokens */
@@ -25,13 +32,33 @@
   --ifm-color-primary-lighter: var(--elvt-primitives-color-blue-300, #5facff);
   --ifm-color-primary-lightest: var(--elvt-primitives-color-blue-200, #90c6ff);
 
-  /* ELEVATE Typography System - Alias Tokens */
-  --ifm-font-family-base: var(--elvt-type-alias-default-content-m-font-family, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif);
-  --ifm-font-family-monospace: var(--sl-font-mono, "RobotoMono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace);
-  
-  /* Use default Docusaurus typography scale - no overrides */
+  /* ELEVATE Table Border Colors - Global CSS custom properties */
+  --elvt-component-table-column-border-color-default: var(--elvt-primitives-color-gray-300, #a3aab4);
+  --elvt-alias-layout-border-default: var(--elvt-primitives-color-gray-300, #a3aab4);
+  --elvt-alias-layout-border-muted: var(--elvt-primitives-color-gray-300, #a3aab4);
 
-  /* Use default Docusaurus line heights - no overrides */
+  /* ELEVATE Typography System - Complete Token Integration */
+  
+  /* Base Typography - Content tokens for body text */
+  --ifm-font-family-base: var(--elvt-type-alias-default-content-m-font-family, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif);
+  --ifm-font-size-base: var(--elvt-type-alias-default-content-m-font-size, 1rem);
+  --ifm-line-height-base: var(--elvt-type-alias-default-content-m-line-height, 1.6);
+  
+  /* Monospace Typography - ELEVATE primitives only */
+  --ifm-font-family-monospace: var(--elvt-primitives-font-family-mono, "RobotoMono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace);
+  
+  /* Heading Hierarchy - ELEVATE TypeAlias tokens following proper scale hierarchy */
+  /* Display > Headline > Section > Content > Caption (Label scale excluded as it duplicates Content) */
+  /* TAKE FULL CONTROL: Define typography variables directly */
+  --ifm-h1-font-size: 3.75rem !important;  /* Display M - Page titles, hero headers */
+  --ifm-h2-font-size: 3.25rem !important;  /* Headline M - Section titles */
+  --ifm-h3-font-size: 1.5rem !important;   /* Section M - Subsection titles */
+  --ifm-h4-font-size: 1.25rem !important;  /* Section S - Minor subsections */
+  --ifm-h5-font-size: 1rem !important;     /* Content M - Regular text, descriptions */
+  --ifm-h6-font-size: 0.75rem !important;  /* Caption - Fine print, captions */
+  
+  /* Code Typography - Caption size for smaller code text */
+  --ifm-code-font-size: var(--elvt-type-alias-default-caption-font-size, 0.75rem);
 
   /* ELEVATE Layout System - Alias Tokens */
   
@@ -84,7 +111,6 @@
   --ifm-dropdown-shadow: var(--sl-shadow-large, 0 2px 8px hsl(240 3.8% 46.1% / 12%));
 
   /* Code Styling with ELEVATE Tokens */
-  --ifm-code-font-size: var(--elvt-type-measures-caption-size-m, 0.875rem);
   --ifm-code-background: var(--elvt-primitives-color-gray-100, #d5d9e1);
   --ifm-pre-background: var(--elvt-alias-layout-layer-elevated, #f8f9fb);
   --docusaurus-highlighted-code-line-bg: var(--elvt-alias-layout-backdrop, rgba(0, 0, 0, 0.1));
@@ -118,11 +144,11 @@
   --ifm-sidebar-background-color: var(--elvt-primitives-color-gray-1000, #111217);
   --ifm-navbar-background-color: var(--elvt-primitives-color-black, #000000);
 
-  /* Dark Border Colors - Unified using layout/border/muted */
-  --ifm-border-color: var(--elvt-alias-layout-border-muted, #4d5366);
-  --ifm-border-color-light: var(--elvt-alias-layout-border-muted, #4d5366);
-  --ifm-border-color-prominent: var(--elvt-alias-layout-border-muted, #4d5366);
-  --ifm-border-color-accent: var(--elvt-alias-layout-border-muted, #4d5366);
+  /* Dark Border Colors - Using ELEVATE alias tokens */
+  --ifm-border-color: var(--elvt-alias-layout-border-default);
+  --ifm-border-color-light: var(--elvt-alias-layout-border-default);
+  --ifm-border-color-prominent: var(--elvt-alias-layout-border-default);
+  --ifm-border-color-accent: var(--elvt-alias-layout-border-default);
 
   /* ELEVATE Dark Text Colors - Using alias tokens for consistent brighter text */
   --ifm-color-content: var(--elvt-alias-content-text-default, #d5d9e1);
@@ -138,6 +164,28 @@
 }
 
 /* Typography - Proper vertical rhythm and spacing for content headings */
+/* NUCLEAR OPTION: Force correct typography with maximum specificity */
+h1,
+h1.anchor,
+.anchor h1,
+.markdown h1,
+.theme-doc-markdown h1,
+article h1,
+main h1 {
+  font-size: 3.75rem !important; /* Force H1 to correct size */
+}
+
+h2,
+h2.anchor,
+.anchor h2,
+h2.anchorWithStickyNavbar_LWe7,
+.markdown h2,
+.theme-doc-markdown h2,
+article h2,
+main h2 {
+  font-size: 3.25rem !important; /* Force H2 to correct size */
+}
+
 .markdown h1,
 .theme-doc-markdown h1 {
   margin-top: 2rem;
@@ -323,7 +371,7 @@ code:not([class*="language-"]) {
 /* Dark theme navbar - Using black for header */
 [data-theme='dark'] .navbar {
   background: var(--elvt-primitives-color-black, #000000);
-  border-bottom: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
+  border-bottom: 1px solid var(--elvt-alias-layout-border-default);
 }
 
 [data-theme='dark'] .navbar__title {
@@ -351,7 +399,7 @@ code:not([class*="language-"]) {
 }
 
 [data-theme='dark'] .footer {
-  border-top: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
+  border-top: 1px solid var(--elvt-alias-layout-border-default);
 }
 
 /* Footer logo - ensure proper display in both modes */
@@ -618,7 +666,7 @@ elvt-button::part(label) {
 
 [data-theme='dark'] .theme-doc-sidebar-container {
   background: var(--elvt-primitives-color-gray-1000, #111217);
-  border-right: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
+  border-right: 1px solid var(--elvt-alias-layout-border-default);
 }
 
 /* Apply sidebar width reduction only on desktop */
@@ -721,7 +769,7 @@ article {
 [data-theme='dark'] .theme-doc-markdown .markdown .component-showcase,
 [data-theme='dark'] .theme-doc-markdown .markdown .design-token-table {
   background: var(--elvt-primitives-color-gray-950, #1f212b) !important;
-  border: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
+  border: 1px solid var(--elvt-alias-layout-border-default);
 }
 
 /* Code blocks in documentation - Using gray-1000 for contrast */
@@ -740,7 +788,7 @@ article {
 [data-theme='dark'] code {
   background: var(--elvt-primitives-color-gray-800, #3d4253) !important;
   color: var(--elvt-alias-content-text-default, #d5d9e1);
-  border: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
+  border: 1px solid var(--elvt-alias-layout-border-default);
 }
 
 /* ========================================
@@ -805,7 +853,7 @@ article {
 /* Dark theme table styling */
 [data-theme='dark'] .markdown table,
 [data-theme='dark'] .theme-doc-markdown table {
-  border-color: var(--elvt-alias-layout-border-muted, #4d5366);
+  border-color: var(--elvt-alias-layout-border-default);
 }
 
 [data-theme='dark'] .markdown thead tr,
@@ -838,7 +886,7 @@ article {
 [data-theme='dark'] {
   --ifm-table-head-background: var(--elvt-primitives-color-gray-700, #4d5366);
   --ifm-table-head-color: var(--elvt-alias-content-text-default, #d5d9e1);
-  --ifm-table-border-color: var(--elvt-alias-layout-border-muted, #4d5366);
+  --ifm-table-border-color: var(--elvt-alias-layout-border-default);
   --ifm-table-cell-color: var(--elvt-alias-content-text-default, #d5d9e1);
 }
 
@@ -909,7 +957,7 @@ article {
 /* Search */
 [data-theme='dark'] .navbar__search-input {
   background: var(--elvt-primitives-color-gray-800, #3d4253);
-  border: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
+  border: 1px solid var(--elvt-alias-layout-border-default);
   color: var(--elvt-primitives-color-gray-100, #d5d9e1);
 }
 
@@ -927,7 +975,7 @@ article {
 }
 
 [data-theme='dark'] .pagination-nav__link {
-  border-color: var(--elvt-alias-layout-border-muted, #4d5366);
+  border-color: var(--elvt-alias-layout-border-default);
   background: var(--elvt-primitives-color-gray-900, #2f3240);
 }
 
