@@ -1,7 +1,7 @@
 {
   "component": "elvt-icon",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:51:05.277Z",
+  "lastUpdated": "2025-08-18T20:23:46.221Z",
   "changelog": [
     {
       "version": "0.0.28-alpha",
@@ -31,97 +31,10 @@
       ]
     },
     {
-      "version": "0.0.26-alpha",
-      "date": "2025-07-16",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "improvement",
-          "title": "Update Component Status",
-          "description": "Improved update component status",
-          "commit": "24cb112",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/24cb112848411ae6c3067465cb15e538f445d1fd"
-        },
-        {
-          "type": "feature",
-          "title": "Add Missing Application Default Slot (#208)",
-          "description": "Added add missing application default slot (#208)",
-          "commit": "d9536f0",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/d9536f063f6866ca05a4fe65abd2732a67e42d87"
-        },
-        {
-          "type": "feature",
-          "title": "Build(feat): Add VRT with Firefox and Webkit",
-          "description": "Added build(feat): add vrt with firefox and webkit",
-          "commit": "21b8034",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/21b8034c1eacbe0a69e02c56f212d5ad5981da9f"
-        },
-        {
-          "type": "feature",
-          "title": "Adjust Button Design, Remove Shoelace Button",
-          "description": "Added adjust button design, remove shoelace button",
-          "commit": "67a0e62",
-          "impact": "visual",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/67a0e62e01b9591a16cf41b1d733e6db1cb944c5"
-        }
-      ]
-    },
-    {
       "version": "0.0.25-alpha",
       "date": "2025-06-15",
       "type": "minor",
       "changes": [
-        {
-          "type": "bug-fix",
-          "title": "Export Table Types",
-          "description": "Fixed export table types",
-          "commit": "8ab9caf",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8ab9caf9e846abde3a599c94fda0966254850a95"
-        },
-        {
-          "type": "feature",
-          "title": "Make Libraries External for NPM Package",
-          "description": "Added make libraries external for npm package",
-          "commit": "4a0540c",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4a0540cd438f7c70843f6619076c2c51b6054f21"
-        },
-        {
-          "type": "feature",
-          "title": "Add Autoloader",
-          "description": "Added add autoloader",
-          "commit": "8d557b0",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8d557b0972abf0e251a7d4a90e6c057e827f0d62"
-        },
-        {
-          "type": "feature",
-          "title": "Separate Framework Docs and Add Demo Links",
-          "description": "Added separate framework docs and add demo links",
-          "commit": "d53cb3a",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/d53cb3a9fc6714b6422e76c6088ccdfcfd824b1a"
-        },
         {
           "type": "feature",
           "title": "Add Elevate Icon Package",
@@ -131,16 +44,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/cb7aab2317f68166c0b21501cb6ff574d962bc1e"
-        },
-        {
-          "type": "feature",
-          "title": "Update to Storybook 9",
-          "description": "Added update to storybook 9",
-          "commit": "c983425",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
         }
       ]
     },
@@ -188,16 +91,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/1fc6042bd76b0d3e77be94508497e1ec88fd4447"
-        },
-        {
-          "type": "improvement",
-          "title": "Flatten Components File Structure",
-          "description": "Improved flatten components file structure",
-          "commit": "36e7dd6",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/36e7dd6caa9db3201f3783f10f7e86e47f12a6c5"
         }
       ]
     },
@@ -206,36 +99,6 @@
       "date": "2025-02-28",
       "type": "minor",
       "changes": [
-        {
-          "type": "feature",
-          "title": "Add Avatar Component",
-          "description": "Added add avatar component",
-          "commit": "57814cd",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/57814cd9681d8d98c9eff3969425ff1d40185599"
-        },
-        {
-          "type": "improvement",
-          "title": "Cleanup Component Status Badges",
-          "description": "Improved cleanup component status badges",
-          "commit": "dcef6f9",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/dcef6f955a92e5ca33414696b2ffcce1a969faa0"
-        },
-        {
-          "type": "feature",
-          "title": "Add ESLint with Recommend Configuration, Fix Errors",
-          "description": "Added add eslint with recommend configuration, fix errors",
-          "commit": "579ce40",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/579ce409fe8f7f3e0ff65e24e773d43b67820019"
-        },
         {
           "type": "feature",
           "title": "Add Mask Image Mode To Icon Component",
@@ -255,66 +118,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/29874caefc7c56f608546b9846201967eb79d7ad"
-        },
-        {
-          "type": "bug-fix",
-          "title": "Fix Syntax To Match Stricter Build Configuration",
-          "description": "Fixed fix syntax to match stricter build configuration",
-          "commit": "b23bf33",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/b23bf335b283290fe2cd0abae89a755922a1d476"
-        },
-        {
-          "type": "feature",
-          "title": "Build: Add TSC Task to Generate Declaration Files",
-          "description": "Added build: add tsc task to generate declaration files",
-          "commit": "e69a97d",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/e69a97df485ba9ba4011c7e1dc9343851efd1051"
-        },
-        {
-          "type": "improvement",
-          "title": "Improve Docs Page Styling, Add Properties and Events",
-          "description": "Improved improve docs page styling, add properties and events",
-          "commit": "bf519b8",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/bf519b83902b49c19d7408d52c67a1048ba56ca9"
-        },
-        {
-          "type": "feature",
-          "title": "Build: Add Prettier and Husky",
-          "description": "Added build: add prettier and husky",
-          "commit": "3e6f150",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/3e6f150c49865aa09c9d6e5e426690d202ea8b58"
-        },
-        {
-          "type": "feature",
-          "title": "Add Documentation Template",
-          "description": "Added add documentation template",
-          "commit": "af05be8",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/af05be80f573404564a25511eb17795dd38af621"
-        },
-        {
-          "type": "feature",
-          "title": "Add Bootstrap With Storybook, Tests And Coverage",
-          "description": "Added add bootstrap with storybook, tests and coverage",
-          "commit": "c7ed953",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c7ed953215bab6b5f58a6255ef4e6c6e9d3985f1"
         }
       ]
     }
@@ -333,7 +136,7 @@
     }
   ],
   "metadata": {
-    "totalVersions": 5,
+    "totalVersions": 4,
     "firstVersion": "0.0.21-alpha",
     "storyCount": 0,
     "testCount": 0,
@@ -341,6 +144,6 @@
     "lastCommit": "e5996811035aacd7b6eec4e390aad9e1212cffb4",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "28/30"
+    "filteredCommits": "9/30"
   }
 }

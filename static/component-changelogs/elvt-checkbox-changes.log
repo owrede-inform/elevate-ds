@@ -1,12 +1,12 @@
 # Changelog Generation Log for elvt-checkbox
-# Generated: 2025-08-16T20:50:49.825Z
+# Generated: 2025-08-18T20:23:31.667Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 37
-Included commits: 16
+Included commits: 3
 Excluded commits: 0
-Uncertain commits: 1
+Uncertain commits: 14
 
 ## Detailed Log
 
@@ -23,59 +23,51 @@ INCLUDE: " feat: Restyle Elevate Checkbox Component..." (Short component name)
 
 DEBUG: Evaluating commit: "Chore/update design tokens 0.13.1..."
 
-INCLUDE: "Chore/update design tokens 0.13.1..." (Design/Visual changes)
+UNCERTAIN: "Chore/update design tokens 0.13.1..." (No clear component relevance)
   → Commit: 3ea7125
-  → Reason: Design/Visual changes
-  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Add Multi-Column Direction to Stack Component..."
 
-INCLUDE: "feat: Add Multi-Column Direction to Stack Component..." (New features)
+UNCERTAIN: "feat: Add Multi-Column Direction to Stack Component..." (No clear component relevance)
   → Commit: 573e50e
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "refactor: Rename ComponentSize to Size ..."
 
-INCLUDE: "refactor: Rename ComponentSize to Size ..." (Component-related)
+UNCERTAIN: "refactor: Rename ComponentSize to Size ..." (No clear component relevance)
   → Commit: ab26ae6
-  → Reason: Component-related
-  → Pattern: /component|web.component|custom.element/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Style Elevate Switch Component..."
 
-INCLUDE: "feat: Style Elevate Switch Component..." (Design/Visual changes)
+UNCERTAIN: "feat: Style Elevate Switch Component..." (No clear component relevance)
   → Commit: a547458
-  → Reason: Design/Visual changes
-  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Add Group Mode to Field Component..."
 
-INCLUDE: "feat: Add Group Mode to Field Component..." (New features)
+UNCERTAIN: "feat: Add Group Mode to Field Component..." (No clear component relevance)
   → Commit: 1588138
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Add Field Component..."
 
-INCLUDE: "feat: Add Field Component..." (New features)
+UNCERTAIN: "feat: Add Field Component..." (No clear component relevance)
   → Commit: 890b3f0
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "fix: Export Table Types..."
 
-INCLUDE: "fix: Export Table Types..." (Bug fixes)
+UNCERTAIN: "fix: Export Table Types..." (No clear component relevance)
   → Commit: 8ab9caf
-  → Reason: Bug fixes
-  → Pattern: /^fix|^bug|resolve|correct|patch/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Add Table Selection..."
 
-INCLUDE: "feat: Add Table Selection..." (New features)
+UNCERTAIN: "feat: Add Table Selection..." (No clear component relevance)
   → Commit: bb8d2fe
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Add Elevate Switch and Update Checkbox..."
 
@@ -86,10 +78,9 @@ INCLUDE: "feat: Add Elevate Switch and Update Checkbox..." (Short component name
 
 DEBUG: Evaluating commit: "feat: Make Libraries External for NPM Package..."
 
-INCLUDE: "feat: Make Libraries External for NPM Package..." (New features)
+UNCERTAIN: "feat: Make Libraries External for NPM Package..." (No clear component relevance)
   → Commit: 4a0540c
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..."
 
@@ -106,30 +97,26 @@ UNCERTAIN: "refactor: Change the "arrowParens" in Prettier to "always" (#138)...
 
 DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
 
-INCLUDE: "feat(build): Update to Storybook 9..." (New features)
+UNCERTAIN: "feat(build): Update to Storybook 9..." (No clear component relevance)
   → Commit: c983425
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "fix: Update Design Tokens Package and Fix Tokens..."
 
-INCLUDE: "fix: Update Design Tokens Package and Fix Tokens..." (Design/Visual changes)
+UNCERTAIN: "fix: Update Design Tokens Package and Fix Tokens..." (No clear component relevance)
   → Commit: 0ea3b49
-  → Reason: Design/Visual changes
-  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat(refactor): Replace Variant Attributes with Shape..."
 
-INCLUDE: "feat(refactor): Replace Variant Attributes with Shape..." (New features)
+UNCERTAIN: "feat(refactor): Replace Variant Attributes with Shape..." (No clear component relevance)
   → Commit: c20d569
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Attach Form Control Internals (#127)..."
 
-INCLUDE: "feat: Attach Form Control Internals (#127)..." (New features)
+UNCERTAIN: "feat: Attach Form Control Internals (#127)..." (No clear component relevance)
   → Commit: 95b8bff
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
-INFO: Filtered from 17 to 16 relevant commits
+INFO: Filtered from 17 to 3 relevant commits

@@ -1,7 +1,7 @@
 {
   "component": "elvt-lightbox",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:51:10.679Z",
+  "lastUpdated": "2025-08-18T20:23:52.049Z",
   "changelog": [
     {
       "version": "0.0.25-alpha",
@@ -17,16 +17,6 @@
           "breakingChange": false,
           "author": "pberckey",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/9fad04bf490f8b1ae3a07b598cf378b23adb3139"
-        },
-        {
-          "type": "feature",
-          "title": "Update to Storybook 9",
-          "description": "Added update to storybook 9",
-          "commit": "c983425",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
         },
         {
           "type": "feature",
@@ -63,6 +53,6 @@
     "lastCommit": "9fad04bf490f8b1ae3a07b598cf378b23adb3139",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "3/4"
+    "filteredCommits": "2/4"
   }
 }

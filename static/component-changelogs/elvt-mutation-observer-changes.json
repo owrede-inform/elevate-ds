@@ -1,56 +1,12 @@
 {
   "component": "elvt-mutation-observer",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:51:18.086Z",
+  "lastUpdated": "2025-08-18T20:23:59.646Z",
   "changelog": [
-    {
-      "version": "0.0.26-alpha",
-      "date": "2025-07-16",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Adjust Button Design, Remove Shoelace Button",
-          "description": "Added adjust button design, remove shoelace button",
-          "commit": "67a0e62",
-          "impact": "visual",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/67a0e62e01b9591a16cf41b1d733e6db1cb944c5"
-        }
-      ]
-    },
-    {
-      "version": "0.0.25-alpha",
-      "date": "2025-06-15",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Update to Storybook 9",
-          "description": "Added update to storybook 9",
-          "commit": "c983425",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
-        },
-        {
-          "type": "bug-fix",
-          "title": "Make All Attribute Names \"kebab-case\"",
-          "description": "Fixed make all attribute names \"kebab-case\"",
-          "commit": "4d0bee0",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4d0bee09201d73522d00c25fbca941fe11a1e5fb"
-        }
-      ]
-    },
     {
       "version": "0.0.24-alpha",
       "date": "2025-05-15",
-      "type": "minor",
+      "type": "patch",
       "changes": [
         {
           "type": "improvement",
@@ -61,16 +17,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
-        },
-        {
-          "type": "feature",
-          "title": "Add Mutation Observer",
-          "description": "Added add mutation observer",
-          "commit": "616f2fc",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/616f2fc3b08f3bab5b049a123f2fea5bf1143d16"
         }
       ]
     }
@@ -89,14 +35,14 @@
     }
   ],
   "metadata": {
-    "totalVersions": 3,
+    "totalVersions": 1,
     "firstVersion": "0.0.24-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "67a0e62e01b9591a16cf41b1d733e6db1cb944c5",
+    "lastCommit": "0b7f5021677a1f290b041a3f9be157365f839e9c",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "5/6"
+    "filteredCommits": "1/6"
   }
 }

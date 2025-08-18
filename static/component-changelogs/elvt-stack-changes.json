@@ -1,33 +1,13 @@
 {
   "component": "elvt-stack",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:51:36.655Z",
+  "lastUpdated": "2025-08-18T20:24:19.540Z",
   "changelog": [
     {
       "version": "0.0.26-alpha",
       "date": "2025-07-16",
       "type": "minor",
       "changes": [
-        {
-          "type": "improvement",
-          "title": "Update Elevate Designs Token Package Version and Update Tokens",
-          "description": "Improved update elevate designs token package version and update tokens",
-          "commit": "cd3a237",
-          "impact": "visual",
-          "breakingChange": false,
-          "author": "pberckey",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/cd3a237df5597022fd9f56055c237affaa36732e"
-        },
-        {
-          "type": "feature",
-          "title": "Add CSS Properties for Divider",
-          "description": "Added add css properties for divider",
-          "commit": "cba49c9",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/cba49c9113047a4e36626539fdb76da47935b770"
-        },
         {
           "type": "bug-fix",
           "title": "Increase Default Overlap Indent for Stack, Cleanup Stack Stories",
@@ -64,16 +44,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/573e50e909bdf1f3ca177ab6a118aad6e75c2f2e"
-        },
-        {
-          "type": "feature",
-          "title": "Update to Storybook 9",
-          "description": "Added update to storybook 9",
-          "commit": "c983425",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
         }
       ]
     },
@@ -91,26 +61,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
-        },
-        {
-          "type": "bug-fix",
-          "title": "Fix Documentation Errors from Component Structure Changes (#113)",
-          "description": "Fixed fix documentation errors from component structure changes (#113)",
-          "commit": "ae9938b",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ae9938bb3ecb4b9d31787bc64bc50e2cc11a433a"
-        },
-        {
-          "type": "improvement",
-          "title": "Flatten Components File Structure",
-          "description": "Improved flatten components file structure",
-          "commit": "36e7dd6",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/36e7dd6caa9db3201f3783f10f7e86e47f12a6c5"
         }
       ]
     }
@@ -134,9 +84,9 @@
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "cd3a237df5597022fd9f56055c237affaa36732e",
+    "lastCommit": "9c253020efaea6e75b68e0c4d1e0246ee54622fb",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "9/10"
+    "filteredCommits": "4/10"
   }
 }

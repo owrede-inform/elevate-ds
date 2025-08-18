@@ -1,12 +1,12 @@
 # Changelog Generation Log for elvt-tab-group
-# Generated: 2025-08-16T20:51:48.394Z
+# Generated: 2025-08-18T20:24:29.464Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 19
-Included commits: 7
+Included commits: 1
 Excluded commits: 0
-Uncertain commits: 1
+Uncertain commits: 7
 
 ## Detailed Log
 
@@ -16,31 +16,27 @@ INFO: Found 8 total commits from GitHub API
 
 DEBUG: Evaluating commit: "fix: Change RTL Implementation for TabGroup..."
 
-INCLUDE: "fix: Change RTL Implementation for TabGroup..." (New features)
+UNCERTAIN: "fix: Change RTL Implementation for TabGroup..." (No clear component relevance)
   → Commit: c0da45b
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "fix: Handle Setting ActiveTab in TabGroup Correctly..."
 
-INCLUDE: "fix: Handle Setting ActiveTab in TabGroup Correctly..." (Bug fixes)
+UNCERTAIN: "fix: Handle Setting ActiveTab in TabGroup Correctly..." (No clear component relevance)
   → Commit: 25495d0
-  → Reason: Bug fixes
-  → Pattern: /^fix|^bug|resolve|correct|patch/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Adjust Tab, TabPanel and TabGroup Design..."
 
-INCLUDE: "feat: Adjust Tab, TabPanel and TabGroup Design..." (Design/Visual changes)
+UNCERTAIN: "feat: Adjust Tab, TabPanel and TabGroup Design..." (No clear component relevance)
   → Commit: 1eba9c8
-  → Reason: Design/Visual changes
-  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Add Autoloader..."
 
-INCLUDE: "feat: Add Autoloader..." (New features)
+UNCERTAIN: "feat: Add Autoloader..." (No clear component relevance)
   → Commit: 8d557b0
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
 
@@ -50,23 +46,21 @@ UNCERTAIN: "refactor: Change the "arrowParens" in Prettier to "always" (#138)...
 
 DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
 
-INCLUDE: "feat(build): Update to Storybook 9..." (New features)
+UNCERTAIN: "feat(build): Update to Storybook 9..." (No clear component relevance)
   → Commit: c983425
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
 
-INCLUDE: "refactor: Use Web Component Decorator from CDK..." (Component-related)
+INCLUDE: "refactor: Use Web Component Decorator from CDK..." (Component framework change)
   → Commit: 0b7f502
-  → Reason: Component-related
-  → Pattern: /component|web.component|custom.element/
+  → Reason: Component framework change
+  → Pattern: /web\s+component\s+decorator|component\s+base|lit\s+element.*change/i
 
 DEBUG: Evaluating commit: "refactor: Flatten Components File Structure..."
 
-INCLUDE: "refactor: Flatten Components File Structure..." (Component-related)
+UNCERTAIN: "refactor: Flatten Components File Structure..." (No clear component relevance)
   → Commit: 36e7dd6
-  → Reason: Component-related
-  → Pattern: /component|web.component|custom.element/
+  → Reason: No matching patterns
 
-INFO: Filtered from 8 to 7 relevant commits
+INFO: Filtered from 8 to 1 relevant commits

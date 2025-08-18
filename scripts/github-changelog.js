@@ -247,26 +247,51 @@ class GitHubChangelogGenerator {
   }
 
   /**
-   * Get commits for a specific component from GitHub API
+   * Get commits for a specific component from GitHub API with pagination
    */
   async getComponentCommits(componentName) {
     try {
       console.log(`🌐 Fetching commits from GitHub API for ${componentName}...`);
       
       const componentPath = await this.getComponentPath(componentName);
-      const endpoint = `/repos/${this.owner}/${this.repo}/commits?path=${componentPath}&per_page=50`;
+      const allCommits = [];
+      let page = 1;
+      const perPage = 100; // Maximum allowed by GitHub API
+      const maxPages = 50; // Safety limit: max 5000 commits per component
       
-      console.log(`📡 Endpoint: ${endpoint}`);
-      
-      const commits = await this.makeGitHubRequest(endpoint);
-      
-      if (!Array.isArray(commits)) {
-        throw new Error('Invalid response from GitHub API');
+      while (page <= maxPages) {
+        const endpoint = `/repos/${this.owner}/${this.repo}/commits?path=${componentPath}&per_page=${perPage}&page=${page}`;
+        
+        console.log(`📡 Fetching page ${page}: ${endpoint}`);
+        
+        const commits = await this.makeGitHubRequest(endpoint);
+        
+        if (!Array.isArray(commits)) {
+          throw new Error('Invalid response from GitHub API');
+        }
+
+        console.log(`📄 Page ${page}: Found ${commits.length} commits`);
+        
+        // If we get fewer commits than the page size, we've reached the end
+        if (commits.length === 0) {
+          console.log(`📋 Reached end of commits at page ${page}`);
+          break;
+        }
+        
+        allCommits.push(...commits);
+        
+        // If we got fewer than the full page size, this is the last page
+        if (commits.length < perPage) {
+          console.log(`📋 Last page detected (${commits.length} < ${perPage})`);
+          break;
+        }
+        
+        page++;
       }
 
-      console.log(`✅ Found ${commits.length} commits from GitHub`);
+      console.log(`✅ Total commits fetched: ${allCommits.length} across ${page - 1} pages`);
 
-      return commits.map(commit => ({
+      return allCommits.map(commit => ({
         hash: commit.sha,
         shortHash: commit.sha.substring(0, 7),
         date: commit.commit.author.date.split('T')[0],
@@ -511,11 +536,12 @@ class GitHubChangelogGenerator {
   async loadVersions() {
     try {
       // First, try to get versions from GitHub releases/tags API
-      console.log('📡 Fetching version information from GitHub API...');
+      console.log('📡 Fetching ALL version information from GitHub API...');
       const gitHubVersions = await this.getVersionsFromGitHub();
       
       if (gitHubVersions && gitHubVersions.length > 0) {
         console.log(`✅ Found ${gitHubVersions.length} versions from GitHub API`);
+        console.log(`🏷️ Version range: ${gitHubVersions[gitHubVersions.length - 1]?.version} to ${gitHubVersions[0]?.version}`);
         return gitHubVersions;
       }
     } catch (error) {
@@ -535,17 +561,23 @@ class GitHubChangelogGenerator {
       }));
       
       console.log(`✅ Loaded ${processedVersions.length} versions from component-versions.json`);
+      console.log(`🏷️ Version range: ${processedVersions[processedVersions.length - 1]?.version} to ${processedVersions[0]?.version}`);
       return processedVersions;
       
     } catch (error) {
       console.warn(`⚠️ Could not load versions.json: ${error.message}`);
       
-      // Ultimate fallback to minimal hardcoded versions
-      console.log('📋 Using minimal fallback version set...');
+      // Enhanced fallback: Create a single current version without time limits
+      console.log('📋 Creating dynamic fallback version based on current date...');
+      const now = new Date();
+      const currentVersion = '0.0.28-alpha'; // This will be the "catch-all" version
+      
       return [
-        { version: '0.0.28-alpha', date: '2025-08-11', cutoff: new Date('2025-08-01') },
-        { version: '0.0.27-alpha', date: '2025-08-08', cutoff: new Date('2025-07-25') },
-        { version: '0.0.26-alpha', date: '2025-07-16', cutoff: new Date('2025-07-01') }
+        { 
+          version: currentVersion, 
+          date: now.toISOString().split('T')[0], 
+          cutoff: new Date('2020-01-01') // Very old cutoff date to catch ALL commits
+        }
       ];
     }
   }
@@ -555,24 +587,55 @@ class GitHubChangelogGenerator {
    */
   async getVersionsFromGitHub() {
     try {
-      const endpoint = `/repos/${this.owner}/${this.repo}/releases`;
-      const releases = await this.makeGitHubRequest(endpoint);
+      console.log('🏷️ Fetching tags from GitHub API...');
+      const tagsEndpoint = `/repos/${this.owner}/${this.repo}/tags`;
       
-      if (!Array.isArray(releases) || releases.length === 0) {
-        console.log('📋 No releases found, trying tags...');
-        const tagsEndpoint = `/repos/${this.owner}/${this.repo}/tags`;
-        const tags = await this.makeGitHubRequest(tagsEndpoint);
+      // Get ALL tags with pagination
+      let allTags = [];
+      let page = 1;
+      const perPage = 100;
+      const maxPages = 10; // Up to 1000 tags
+      
+      while (page <= maxPages) {
+        const endpoint = `${tagsEndpoint}?per_page=${perPage}&page=${page}`;
+        console.log(`📡 Fetching tags page ${page}...`);
+        
+        const tags = await this.makeGitHubRequest(endpoint);
         
         if (!Array.isArray(tags) || tags.length === 0) {
+          console.log(`📋 No more tags found at page ${page}`);
+          break;
+        }
+        
+        console.log(`🏷️ Page ${page}: Found ${tags.length} tags`);
+        allTags.push(...tags);
+        
+        // If we got fewer than the full page size, this is the last page
+        if (tags.length < perPage) {
+          console.log(`📋 Last page detected (${tags.length} < ${perPage})`);
+          break;
+        }
+        
+        page++;
+      }
+      
+      console.log(`✅ Total tags fetched: ${allTags.length}`);
+      
+      if (allTags.length === 0) {
+        console.log('📋 No tags found, trying releases...');
+        const releasesEndpoint = `/repos/${this.owner}/${this.repo}/releases`;
+        const releases = await this.makeGitHubRequest(releasesEndpoint);
+        
+        if (!Array.isArray(releases) || releases.length === 0) {
           return null;
         }
         
-        // Convert tags to version format
-        return this.convertTagsToVersions(tags);
+        // Convert releases to version format
+        return this.convertReleasesToVersions(releases);
       }
       
-      // Convert releases to version format
-      return this.convertReleasesToVersions(releases);
+      // Convert tags to version format with commit date lookup
+      return await this.convertTagsToVersionsWithCommitDates(allTags);
       
     } catch (error) {
       console.warn(`⚠️ GitHub API error for versions: ${error.message}`);
@@ -611,12 +674,99 @@ class GitHubChangelogGenerator {
   }
 
   /**
-   * Convert GitHub tags to version timeline format
+   * Convert GitHub tags to version timeline format with actual commit dates
+   */
+  async convertTagsToVersionsWithCommitDates(tags) {
+    console.log('📅 Converting tags to versions with actual commit dates...');
+    
+    // Filter for version-like tags (semantic versioning pattern)
+    const versionTags = tags.filter(tag => {
+      const name = tag.name;
+      // Match patterns like: 0.0.28-alpha, 1.0.0, v1.0.0, etc.
+      return /^v?\d+\.\d+\.\d+/.test(name);
+    });
+    
+    console.log(`🏷️ Found ${versionTags.length} version tags out of ${tags.length} total tags`);
+    
+    if (versionTags.length === 0) {
+      console.warn('⚠️ No version tags found, using fallback method');
+      return this.convertTagsToVersions(tags);
+    }
+    
+    // Get commit dates for each tag
+    const versionsWithDates = [];
+    
+    for (let i = 0; i < Math.min(versionTags.length, 50); i++) { // Limit to 50 most recent versions to avoid rate limiting
+      const tag = versionTags[i];
+      
+      try {
+        console.log(`📅 Getting commit date for tag: ${tag.name}`);
+        
+        // Get the commit for this tag
+        const commitEndpoint = `/repos/${this.owner}/${this.repo}/commits/${tag.commit.sha}`;
+        const commit = await this.makeGitHubRequest(commitEndpoint);
+        
+        if (commit && commit.commit && commit.commit.author && commit.commit.author.date) {
+          const commitDate = new Date(commit.commit.author.date);
+          
+          versionsWithDates.push({
+            version: tag.name,
+            date: commitDate.toISOString().split('T')[0],
+            commitDate: commitDate,
+            sha: tag.commit.sha
+          });
+          
+          console.log(`✅ ${tag.name}: ${commitDate.toISOString().split('T')[0]}`);
+        } else {
+          console.warn(`⚠️ Could not get commit date for tag: ${tag.name}`);
+        }
+        
+        // Small delay to avoid rate limiting
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
+      } catch (error) {
+        console.warn(`⚠️ Error getting commit date for tag ${tag.name}: ${error.message}`);
+      }
+    }
+    
+    // Sort by commit date (newest first)
+    versionsWithDates.sort((a, b) => b.commitDate.getTime() - a.commitDate.getTime());
+    
+    // Calculate cutoff dates based on actual commit dates
+    const versionsWithCutoffs = versionsWithDates.map((version, index) => {
+      const nextVersion = versionsWithDates[index + 1];
+      
+      let cutoffDate;
+      if (nextVersion) {
+        // Use midpoint between this version and the next one
+        const thisTime = version.commitDate.getTime();
+        const nextTime = nextVersion.commitDate.getTime();
+        cutoffDate = new Date((thisTime + nextTime) / 2);
+      } else {
+        // For the oldest version, go back 30 days from its commit date
+        cutoffDate = new Date(version.commitDate);
+        cutoffDate.setDate(cutoffDate.getDate() - 30);
+      }
+      
+      return {
+        version: version.version,
+        date: version.date,
+        cutoff: cutoffDate
+      };
+    });
+    
+    console.log(`✅ Successfully converted ${versionsWithCutoffs.length} tags to versions with commit dates`);
+    
+    return versionsWithCutoffs;
+  }
+
+  /**
+   * Convert GitHub tags to version timeline format (fallback method)
    */
   convertTagsToVersions(tags) {
     // For tags, we don't have publish dates, so we'll estimate based on commit dates
     const versionTags = tags
-      .filter(tag => tag.name.match(/^\d+\.\d+\.\d+/))
+      .filter(tag => tag.name.match(/^v?\d+\.\d+\.\d+/))
       .sort((a, b) => b.name.localeCompare(a.name, undefined, { numeric: true }));
     
     // Generate cutoff dates with monthly intervals
@@ -964,8 +1114,8 @@ class GitHubChangelogGenerator {
     // Get the directory path for this component
     const dirPath = file.fullPath.replace(`/${file.name}`, '');
     
-    // Generate practical Status and Since information based on available data
-    const metadata = this.generatePracticalMetadata(componentName, dirPath);
+    // Read actual Status and Since information from local component files
+    const metadata = await this.extractComponentMetadataFromLocal(componentName, file.fullPath);
     
     return {
       name: componentName,
@@ -979,54 +1129,52 @@ class GitHubChangelogGenerator {
   }
 
   /**
-   * Generate practical metadata based on component name and known patterns
+   * Extract component metadata from local node_modules files
+   * Reads actual @since and @status information from component source files
    */
-  generatePracticalMetadata(componentName, componentPath) {
-    // Core UI components that are well-established
-    const coreComponents = ['elvt-button', 'elvt-input', 'elvt-card', 'elvt-icon', 'elvt-badge'];
-    
-    // Components that are commonly used in forms
-    const formComponents = ['elvt-checkbox', 'elvt-radio', 'elvt-select', 'elvt-textarea', 'elvt-switch'];
-    
-    // Layout and navigation components
-    const layoutComponents = ['elvt-divider', 'elvt-stack', 'elvt-breadcrumb', 'elvt-breadcrumb-item'];
-    
-    // Advanced/newer components  
-    const advancedComponents = ['elvt-table', 'elvt-table-row', 'elvt-table-cell', 'elvt-table-column', 'elvt-lightbox', 'elvt-dropdown'];
-
-    let status = 'Stable';
-    let since = 'v0.0.20';
-    
-    if (coreComponents.includes(componentName)) {
-      status = 'Stable';
-      since = 'v0.0.18';
-    } else if (formComponents.includes(componentName)) {
-      status = 'Stable';
-      since = 'v0.0.20';
-    } else if (layoutComponents.includes(componentName)) {
-      status = 'Maintained';
-      since = 'v0.0.22';
-    } else if (advancedComponents.includes(componentName)) {
-      status = 'Active Development';
-      since = 'v0.0.24';
-    } else {
-      // Default for other components
-      status = 'Stable';
-      since = 'v0.0.24';
+  async extractComponentMetadataFromLocal(componentName, githubPath) {
+    try {
+      console.log(`🔍 Reading metadata from local files for ${componentName}...`);
+      
+      // Convert component name to file path in local node_modules
+      // elvt-button -> node_modules/@inform-elevate/elevate-core-ui/dist/components/buttons/button/button.component.d.ts
+      const componentBaseName = componentName.replace('elvt-', '');
+      
+      // Try different possible paths for the component
+      const possiblePaths = [
+        `node_modules/@inform-elevate/elevate-core-ui/dist/components/${componentBaseName}/${componentBaseName}.component.d.ts`,
+        `node_modules/@inform-elevate/elevate-core-ui/dist/components/${componentBaseName}s/${componentBaseName}/${componentBaseName}.component.d.ts`,
+        `node_modules/@inform-elevate/elevate-core-ui/dist/components/buttons/${componentBaseName}/${componentBaseName}.component.d.ts`,
+        `node_modules/@inform-elevate/elevate-core-ui/dist/components/tables/${componentBaseName}/${componentBaseName}.component.d.ts`,
+        `node_modules/@inform-elevate/elevate-core-ui/dist/components/menus/${componentBaseName}/${componentBaseName}.component.d.ts`,
+        `node_modules/@inform-elevate/elevate-core-ui/dist/components/radios/${componentBaseName}/${componentBaseName}.component.d.ts`,
+        `node_modules/@inform-elevate/elevate-core-ui/dist/components/breadcrumbs/${componentBaseName}/${componentBaseName}.component.d.ts`,
+        `node_modules/@inform-elevate/elevate-core-ui/dist/components/tabs/${componentBaseName}/${componentBaseName}.component.d.ts`,
+        `node_modules/@inform-elevate/elevate-core-ui/dist/components/expansion-panels/${componentBaseName}/${componentBaseName}.component.d.ts`,
+        `node_modules/@inform-elevate/elevate-core-ui/dist/components/fields/${componentBaseName}/${componentBaseName}.component.d.ts`
+      ];
+      
+      for (const filePath of possiblePaths) {
+        try {
+          console.log(`📄 Trying: ${filePath}`);
+          const content = await fs.readFile(filePath, 'utf8');
+          console.log(`✅ Found content for ${componentName}`);
+          return this.parseComponentMetadata(content);
+        } catch (error) {
+          // File doesn't exist at this path, try next one
+          continue;
+        }
+      }
+      
+      console.warn(`⚠️ No local component file found for ${componentName}`);
+      return { status: 'Unknown', since: 'Unknown', description: `${componentName} component` };
+      
+    } catch (error) {
+      console.warn(`⚠️ Failed to read local metadata for ${componentName}: ${error.message}`);
+      return { status: 'Unknown', since: 'Unknown', description: `${componentName} component` };
     }
-
-    // Generate description
-    const componentDisplayName = componentName.replace('elvt-', '').replace(/-/g, ' ');
-    const description = `Interactive ${componentDisplayName} component with ELEVATE design system styling`;
-
-    console.log(`🏷️ Generated metadata for ${componentName}: Status="${status}", Since="${since}"`);
-    
-    return {
-      status,
-      since,  
-      description
-    };
   }
+
 
   /**
    * Extract component metadata from TypeScript source file
@@ -1096,7 +1244,7 @@ class GitHubChangelogGenerator {
 
   /**
    * Parse component metadata from source content
-   * Looks for patterns like "Status: Preliminary", "Since: v0.0.20", etc.
+   * Looks for JSDoc @since and @status annotations in ALL comment blocks
    */
   parseComponentMetadata(content) {
     const metadata = {
@@ -1105,45 +1253,62 @@ class GitHubChangelogGenerator {
       description: ''
     };
 
-    // Look for the first comment block (/** ... */ or /* ... */)
-    const commentBlockPattern = /\/\*\*?([\s\S]*?)\*\//;
-    const commentMatch = content.match(commentBlockPattern);
+    // Find ALL comment blocks (/** ... */ or /* ... */)
+    const commentBlockPattern = /\/\*\*?([\s\S]*?)\*\//g;
+    const commentMatches = Array.from(content.matchAll(commentBlockPattern));
     
-    if (!commentMatch) {
-      console.warn('⚠️ No comment block found in component file');
+    if (commentMatches.length === 0) {
+      console.warn('⚠️ No comment blocks found in component file');
       return metadata;
     }
     
-    const commentContent = commentMatch[1];
+    console.log(`🔍 Found ${commentMatches.length} comment blocks, searching for @since and @status...`);
     
-    // Extract Status information
-    const statusPattern = /\*?\s*Status:\s*([^\n\r\*]+)/i;
-    const statusMatch = commentContent.match(statusPattern);
-    if (statusMatch) {
-      metadata.status = statusMatch[1].trim();
-    }
-    
-    // Extract Since information  
-    const sincePattern = /\*?\s*Since:\s*([^\n\r\*]+)/i;
-    const sinceMatch = commentContent.match(sincePattern);
-    if (sinceMatch) {
-      metadata.since = sinceMatch[1].trim();
-    }
-    
-    // Extract description (first line after comment start that's not Status/Since)
-    const lines = commentContent.split(/\n|\r\n?/);
-    for (const line of lines) {
-      const cleanLine = line.replace(/^\s*\*\s*/, '').trim();
-      if (cleanLine && 
-          !cleanLine.toLowerCase().startsWith('status:') && 
-          !cleanLine.toLowerCase().startsWith('since:') &&
-          !cleanLine.startsWith('@')) {
-        metadata.description = cleanLine;
+    // Search through ALL comment blocks for @since and @status
+    for (let i = 0; i < commentMatches.length; i++) {
+      const commentContent = commentMatches[i][1];
+      console.log(`📝 Checking comment block ${i + 1}...`);
+      
+      // Extract @status JSDoc annotation
+      const statusPattern = /\*?\s*@status\s+([^\n\r\*]+)/i;
+      const statusMatch = commentContent.match(statusPattern);
+      if (statusMatch && metadata.status === 'Unknown') {
+        metadata.status = statusMatch[1].trim();
+        console.log(`✅ Found @status "${metadata.status}" in comment block ${i + 1}`);
+      }
+      
+      // Extract @since JSDoc annotation  
+      const sincePattern = /\*?\s*@since\s+([^\n\r\*]+)/i;
+      const sinceMatch = commentContent.match(sincePattern);
+      if (sinceMatch && metadata.since === 'Unknown') {
+        metadata.since = sinceMatch[1].trim();
+        console.log(`✅ Found @since "${metadata.since}" in comment block ${i + 1}`);
+      }
+      
+      // Extract description (first meaningful line from the first comment block with @since/@status)
+      if ((statusMatch || sinceMatch) && !metadata.description) {
+        const lines = commentContent.split(/\n|\r\n?/);
+        for (const line of lines) {
+          const cleanLine = line.replace(/^\s*\*\s*/, '').trim();
+          if (cleanLine && 
+              !cleanLine.startsWith('@') &&
+              !cleanLine.startsWith('*') &&
+              cleanLine.length > 5) { // Ensure it's substantial
+            metadata.description = cleanLine;
+            console.log(`📝 Found description: "${metadata.description.substring(0, 50)}..."`);
+            break;
+          }
+        }
+      }
+      
+      // Stop searching if we found both @since and @status
+      if (metadata.status !== 'Unknown' && metadata.since !== 'Unknown') {
+        console.log(`✅ Found both @status and @since, stopping search at comment block ${i + 1}`);
         break;
       }
     }
     
-    console.log(`📋 Extracted metadata: Status="${metadata.status}", Since="${metadata.since}", Description="${metadata.description.substring(0, 50)}..."`);    
+    console.log(`📋 Final metadata: Status="${metadata.status}", Since="${metadata.since}", Description="${metadata.description.substring(0, 50)}..."`);    
     return metadata;
   }
 

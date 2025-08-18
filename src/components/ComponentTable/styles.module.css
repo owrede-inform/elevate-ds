@@ -188,6 +188,25 @@
   color: var(--elvt-primitives-color-gray-100, #d5d9e1);
 }
 
+/* Fix badge stretching - ensure badges maintain natural width */
+.componentTable elvt-badge {
+  display: inline-block !important;
+  width: auto !important;
+  min-width: auto !important;
+  max-width: none !important;
+  flex-shrink: 0 !important;
+}
+
+/* Ensure table cells containing badges don't force full width */
+.componentTable elvt-table-cell:has(elvt-badge) {
+  text-align: left !important;
+}
+
+/* Fallback for browsers that don't support :has() */
+.componentTable elvt-table-row:not(:first-child) elvt-table-cell:nth-child(2) {
+  text-align: left !important;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .searchInput {

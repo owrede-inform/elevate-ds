@@ -1,12 +1,12 @@
 # Changelog Generation Log for elvt-table
-# Generated: 2025-08-16T20:51:46.437Z
+# Generated: 2025-08-18T20:24:27.516Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 11
-Included commits: 4
+Included commits: 3
 Excluded commits: 0
-Uncertain commits: 0
+Uncertain commits: 1
 
 ## Detailed Log
 
@@ -23,10 +23,9 @@ INCLUDE: "fix(table): Fix a Box-Sizing Bug in Non-Sortable Tables..." (Short com
 
 DEBUG: Evaluating commit: "fix: Fix PagedTableDataProvider with Indeterminate Result Length (#196)..."
 
-INCLUDE: "fix: Fix PagedTableDataProvider with Indeterminate Result Length (#196)..." (Bug fixes)
+UNCERTAIN: "fix: Fix PagedTableDataProvider with Indeterminate Result Length (#196)..." (No clear component relevance)
   → Commit: 580a919
-  → Reason: Bug fixes
-  → Pattern: /^fix|^bug|resolve|correct|patch/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "fix: Add Table Component Dependencies..."
 
@@ -42,4 +41,4 @@ INCLUDE: "feat: Add Table Selection..." (Short component name)
   → Reason: Short component name
   → Pattern: /\btable\b/i
 
-INFO: Filtered from 4 to 4 relevant commits
+INFO: Filtered from 4 to 3 relevant commits

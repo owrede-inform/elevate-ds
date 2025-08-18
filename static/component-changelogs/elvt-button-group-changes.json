@@ -1,93 +1,12 @@
 {
   "component": "elvt-button-group",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:50:44.292Z",
+  "lastUpdated": "2025-08-18T20:23:25.924Z",
   "changelog": [
-    {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
-      "type": "patch",
-      "changes": [
-        {
-          "type": "bug-fix",
-          "title": "Fix Button Group Separator Lines (#250)",
-          "description": "Fixed fix button group separator lines (#250)",
-          "commit": "7de00fe",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/7de00fed2bebd4f618630fd4c04ca4be514a8920"
-        }
-      ]
-    },
-    {
-      "version": "0.0.26-alpha",
-      "date": "2025-07-16",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "improvement",
-          "title": "Update Component Status",
-          "description": "Improved update component status",
-          "commit": "24cb112",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/24cb112848411ae6c3067465cb15e538f445d1fd"
-        },
-        {
-          "type": "feature",
-          "title": "Adjust Button Design, Remove Shoelace Button",
-          "description": "Added adjust button design, remove shoelace button",
-          "commit": "67a0e62",
-          "impact": "visual",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/67a0e62e01b9591a16cf41b1d733e6db1cb944c5"
-        }
-      ]
-    },
-    {
-      "version": "0.0.25-alpha",
-      "date": "2025-06-15",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "improvement",
-          "title": "Rename ComponentSize to Size ",
-          "description": "Improved rename componentsize to size ",
-          "commit": "ab26ae6",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ab26ae6257696c4fbe4e07abe704dc4e6fb5d9b0"
-        },
-        {
-          "type": "feature",
-          "title": "Added hide-label Prop and Fixed Checkbox Usability Issues",
-          "description": "Added added hide-label prop and fixed checkbox usability issues",
-          "commit": "dea7d2d",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "pberckey",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/dea7d2d0603c25bd0f8a7e8f24cf535a8e089fd4"
-        },
-        {
-          "type": "feature",
-          "title": "Update to Storybook 9",
-          "description": "Added update to storybook 9",
-          "commit": "c983425",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
-        }
-      ]
-    },
     {
       "version": "0.0.24-alpha",
       "date": "2025-05-15",
-      "type": "minor",
+      "type": "patch",
       "changes": [
         {
           "type": "improvement",
@@ -98,33 +17,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
-        },
-        {
-          "type": "feature",
-          "title": "Add Components Status Page",
-          "description": "Added add components status page",
-          "commit": "daf000f",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/daf000fc14c799b579f9b31d9e145791118f551e"
-        }
-      ]
-    },
-    {
-      "version": "0.0.22-alpha",
-      "date": "2025-03-25",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Add ButtonGroup Component",
-          "description": "Added add buttongroup component",
-          "commit": "4b1166b",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "github-actions[bot]",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4b1166b301f4ac11d0a3a3ab6417526a77727e13"
         }
       ]
     }
@@ -143,14 +35,14 @@
     }
   ],
   "metadata": {
-    "totalVersions": 5,
-    "firstVersion": "0.0.22-alpha",
+    "totalVersions": 1,
+    "firstVersion": "0.0.24-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "7de00fed2bebd4f618630fd4c04ca4be514a8920",
+    "lastCommit": "0b7f5021677a1f290b041a3f9be157365f839e9c",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "9/12"
+    "filteredCommits": "1/12"
   }
 }

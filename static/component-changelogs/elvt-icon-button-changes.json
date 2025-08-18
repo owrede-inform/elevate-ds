@@ -1,82 +1,8 @@
 {
   "component": "elvt-icon-button",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:51:03.366Z",
+  "lastUpdated": "2025-08-18T20:23:44.328Z",
   "changelog": [
-    {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Implement DropDown Component",
-          "description": "Added implement dropdown component",
-          "commit": "a4e1f06",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/a4e1f06a4a98e9999df43c9edf451b7ab9451a13"
-        }
-      ]
-    },
-    {
-      "version": "0.0.25-alpha",
-      "date": "2025-06-15",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "improvement",
-          "title": "Rename ComponentSize to Size ",
-          "description": "Improved rename componentsize to size ",
-          "commit": "ab26ae6",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ab26ae6257696c4fbe4e07abe704dc4e6fb5d9b0"
-        },
-        {
-          "type": "feature",
-          "title": "Make Libraries External for NPM Package",
-          "description": "Added make libraries external for npm package",
-          "commit": "4a0540c",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4a0540cd438f7c70843f6619076c2c51b6054f21"
-        },
-        {
-          "type": "feature",
-          "title": "Add Autoloader",
-          "description": "Added add autoloader",
-          "commit": "8d557b0",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8d557b0972abf0e251a7d4a90e6c057e827f0d62"
-        },
-        {
-          "type": "bug-fix",
-          "title": "Allow Strings for LinkTarget (Names)",
-          "description": "Fixed allow strings for linktarget (names)",
-          "commit": "04b4780",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/04b47809846c62d5d058e5eaf828480da83d464e"
-        },
-        {
-          "type": "feature",
-          "title": "Update to Storybook 9",
-          "description": "Added update to storybook 9",
-          "commit": "c983425",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
-        }
-      ]
-    },
     {
       "version": "0.0.24-alpha",
       "date": "2025-05-15",
@@ -91,16 +17,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
-        },
-        {
-          "type": "improvement",
-          "title": "Flatten Components File Structure",
-          "description": "Improved flatten components file structure",
-          "commit": "36e7dd6",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/36e7dd6caa9db3201f3783f10f7e86e47f12a6c5"
         }
       ]
     }
@@ -119,14 +35,14 @@
     }
   ],
   "metadata": {
-    "totalVersions": 3,
+    "totalVersions": 1,
     "firstVersion": "0.0.24-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "a4e1f06a4a98e9999df43c9edf451b7ab9451a13",
+    "lastCommit": "0b7f5021677a1f290b041a3f9be157365f839e9c",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "8/9"
+    "filteredCommits": "1/9"
   }
 }

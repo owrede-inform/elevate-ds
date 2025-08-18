@@ -1,7 +1,7 @@
 {
   "component": "elvt-table",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:51:46.434Z",
+  "lastUpdated": "2025-08-18T20:24:27.512Z",
   "changelog": [
     {
       "version": "0.0.28-alpha",
@@ -17,23 +17,6 @@
           "breakingChange": false,
           "author": "marius-bronner",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/f2ff11300bfe55a29386a5cd7b33463c9eaf48d1"
-        }
-      ]
-    },
-    {
-      "version": "0.0.26-alpha",
-      "date": "2025-07-16",
-      "type": "patch",
-      "changes": [
-        {
-          "type": "bug-fix",
-          "title": "Fix PagedTableDataProvider with Indeterminate Result Length (#196)",
-          "description": "Fixed fix pagedtabledataprovider with indeterminate result length (#196)",
-          "commit": "580a919",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/580a919bf3323aab27720c196804ea8eb492672a"
         }
       ]
     },
@@ -79,7 +62,7 @@
     }
   ],
   "metadata": {
-    "totalVersions": 3,
+    "totalVersions": 2,
     "firstVersion": "0.0.25-alpha",
     "storyCount": 0,
     "testCount": 0,
@@ -87,6 +70,6 @@
     "lastCommit": "f2ff11300bfe55a29386a5cd7b33463c9eaf48d1",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "4/4"
+    "filteredCommits": "3/4"
   }
 }

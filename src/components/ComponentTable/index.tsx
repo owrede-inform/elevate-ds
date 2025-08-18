@@ -22,8 +22,6 @@ interface ComponentTableData {
 interface ComponentTableProps {
   /** Show only components with specific status */
   statusFilter?: string;
-  /** Enable search functionality */
-  searchable?: boolean;
 }
 
 // Create React wrappers for ELEVATE table components
@@ -34,10 +32,8 @@ const ElvtTableCell = (props: any) => React.createElement('elvt-table-cell', pro
 const ElvtBadge = (props: any) => React.createElement('elvt-badge', props, props.children);
 
 const ComponentTable: React.FC<ComponentTableProps> = ({
-  statusFilter,
-  searchable = true
+  statusFilter
 }) => {
-  const [searchTerm, setSearchTerm] = useState('');
   const [sortColumn, setSortColumn] = useState<keyof ComponentMetadata>('name');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
   
@@ -52,23 +48,13 @@ const ComponentTable: React.FC<ComponentTableProps> = ({
     }
   }, []);
 
-  // Filter and search components
+  // Filter components
   const filteredComponents = useMemo(() => {
     let filtered = componentData.components;
     
     // Apply status filter
     if (statusFilter) {
       filtered = filtered.filter(comp => comp.status === statusFilter);
-    }
-    
-    // Apply search filter
-    if (searchTerm) {
-      const search = searchTerm.toLowerCase();
-      filtered = filtered.filter(comp => 
-        comp.name.toLowerCase().includes(search) ||
-        comp.displayName.toLowerCase().includes(search) ||
-        comp.status.toLowerCase().includes(search)
-      );
     }
     
     // Apply sorting
@@ -89,7 +75,7 @@ const ComponentTable: React.FC<ComponentTableProps> = ({
     });
     
     return filtered;
-  }, [componentData.components, statusFilter, searchTerm, sortColumn, sortDirection]);
+  }, [componentData.components, statusFilter, sortColumn, sortDirection]);
 
   // Handle column sorting
   const handleSort = (column: keyof ComponentMetadata) => {
@@ -110,6 +96,8 @@ const ComponentTable: React.FC<ComponentTableProps> = ({
   // Get status badge tone
   const getStatusTone = (status: string) => {
     switch (status.toLowerCase()) {
+      case 'complete':
+        return 'success';
       case 'stable':
         return 'success';
       case 'preliminary':
@@ -117,7 +105,7 @@ const ComponentTable: React.FC<ComponentTableProps> = ({
       case 'unstable':
         return 'warning';
       case 'experimental':
-        return 'neutral';
+        return 'danger';
       case 'deprecated':
         return 'danger';
       default:
@@ -136,18 +124,6 @@ const ComponentTable: React.FC<ComponentTableProps> = ({
 
   return (
     <div className={styles.componentTable}>
-      {searchable && (
-        <div className={styles.searchContainer}>
-          <input
-            type="text"
-            placeholder="Search components..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className={styles.searchInput}
-          />
-        </div>
-      )}
-      
       <ElvtTable style={{
         '--elvt-component-table-column-border-color-default': 'var(--elvt-primitives-color-gray-300, #a3aab4)',
         '--sl-color-neutral-300': 'var(--elvt-primitives-color-gray-300, #a3aab4)',

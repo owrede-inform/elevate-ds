@@ -1,49 +1,12 @@
 {
   "component": "elvt-menu-item",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:51:14.522Z",
+  "lastUpdated": "2025-08-18T20:23:55.749Z",
   "changelog": [
-    {
-      "version": "0.0.25-alpha",
-      "date": "2025-06-15",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Add Card Border and Layer Properties",
-          "description": "Added add card border and layer properties",
-          "commit": "a3ca8b3",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/a3ca8b32feafd29143bffa3876188545654f7f3e"
-        },
-        {
-          "type": "feature",
-          "title": "Add Autoloader",
-          "description": "Added add autoloader",
-          "commit": "8d557b0",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8d557b0972abf0e251a7d4a90e6c057e827f0d62"
-        },
-        {
-          "type": "feature",
-          "title": "Update to Storybook 9",
-          "description": "Added update to storybook 9",
-          "commit": "c983425",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
-        }
-      ]
-    },
     {
       "version": "0.0.24-alpha",
       "date": "2025-05-15",
-      "type": "minor",
+      "type": "patch",
       "changes": [
         {
           "type": "improvement",
@@ -54,80 +17,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
-        },
-        {
-          "type": "bug-fix",
-          "title": "Make Menu Item \"href\" Attribute Optional, Remove Log",
-          "description": "Fixed make menu item \"href\" attribute optional, remove log",
-          "commit": "7577b72",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/7577b72e53aaea688e2f64d02a431525ef16e9c4"
-        },
-        {
-          "type": "feature",
-          "title": "Add Components Status Page",
-          "description": "Added add components status page",
-          "commit": "daf000f",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/daf000fc14c799b579f9b31d9e145791118f551e"
-        },
-        {
-          "type": "feature",
-          "title": "Add \"selected\" Menu Item (#89)",
-          "description": "Added add \"selected\" menu item (#89)",
-          "commit": "823395e",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/823395e67a2cbcf9c0eb9e48d56a81dfe3353235"
-        }
-      ]
-    },
-    {
-      "version": "0.0.23-alpha",
-      "date": "2025-04-20",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "improvement",
-          "title": "Improve React Compatibility (#73)",
-          "description": "Improved improve react compatibility (#73)",
-          "commit": "f0cd5c4",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/f0cd5c4b1ebe43f680fcf422585840f611c09aca"
-        },
-        {
-          "type": "feature",
-          "title": "Add Link Function to Menu Item (#71)",
-          "description": "Added add link function to menu item (#71)",
-          "commit": "d8b3f7e",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/d8b3f7e18141cd8a307bb3b0660c16ed98ed08ad"
-        }
-      ]
-    },
-    {
-      "version": "0.0.22-alpha",
-      "date": "2025-03-25",
-      "type": "patch",
-      "changes": [
-        {
-          "type": "improvement",
-          "title": "Move Menu/Dropdown Components Into a Subdirectory",
-          "description": "Improved move menu/dropdown components into a subdirectory",
-          "commit": "e74ccc4",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/e74ccc4dcd80c8a95f78747a9dceae944929bbc4"
         }
       ]
     }
@@ -146,14 +35,14 @@
     }
   ],
   "metadata": {
-    "totalVersions": 4,
-    "firstVersion": "0.0.22-alpha",
+    "totalVersions": 1,
+    "firstVersion": "0.0.24-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "a3ca8b32feafd29143bffa3876188545654f7f3e",
+    "lastCommit": "0b7f5021677a1f290b041a3f9be157365f839e9c",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "10/12"
+    "filteredCommits": "1/12"
   }
 }

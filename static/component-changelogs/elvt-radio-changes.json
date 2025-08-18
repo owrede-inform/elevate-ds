@@ -1,23 +1,13 @@
 {
   "component": "elvt-radio",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:51:29.270Z",
+  "lastUpdated": "2025-08-18T20:24:10.513Z",
   "changelog": [
     {
       "version": "0.0.28-alpha",
       "date": "2025-08-11",
       "type": "minor",
       "changes": [
-        {
-          "type": "improvement",
-          "title": "Update Dependencies and Design Tokens",
-          "description": "Improved update dependencies and design tokens",
-          "commit": "907aee4",
-          "impact": "visual",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/907aee45e3db1983a42fb8aa2e4399c405f7b852"
-        },
         {
           "type": "feature",
           "title": "Update Radio Style and Add Reference Images",
@@ -53,26 +43,6 @@
       "type": "minor",
       "changes": [
         {
-          "type": "improvement",
-          "title": "Rename ComponentSize to Size ",
-          "description": "Improved rename componentsize to size ",
-          "commit": "ab26ae6",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ab26ae6257696c4fbe4e07abe704dc4e6fb5d9b0"
-        },
-        {
-          "type": "feature",
-          "title": "Style Elevate Switch Component",
-          "description": "Added style elevate switch component",
-          "commit": "a547458",
-          "impact": "visual",
-          "breakingChange": false,
-          "author": "pberckey",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/a547458c5ed634839ea353a8dc001314a3200db0"
-        },
-        {
           "type": "feature",
           "title": "Add Elevate Radio",
           "description": "Added add elevate radio",
@@ -81,63 +51,6 @@
           "breakingChange": false,
           "author": "pberckey",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/09462ee3a1d29ea22e2fdeb21aa3f8f1426a7cc6"
-        },
-        {
-          "type": "bug-fix",
-          "title": "Export Table Types",
-          "description": "Fixed export table types",
-          "commit": "8ab9caf",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8ab9caf9e846abde3a599c94fda0966254850a95"
-        },
-        {
-          "type": "feature",
-          "title": "Add Autoloader",
-          "description": "Added add autoloader",
-          "commit": "8d557b0",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8d557b0972abf0e251a7d4a90e6c057e827f0d62"
-        },
-        {
-          "type": "feature",
-          "title": "Added hide-label Prop and Fixed Checkbox Usability Issues",
-          "description": "Added added hide-label prop and fixed checkbox usability issues",
-          "commit": "dea7d2d",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "pberckey",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/dea7d2d0603c25bd0f8a7e8f24cf535a8e089fd4"
-        },
-        {
-          "type": "feature",
-          "title": "Update to Storybook 9",
-          "description": "Added update to storybook 9",
-          "commit": "c983425",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
-        }
-      ]
-    },
-    {
-      "version": "0.0.24-alpha",
-      "date": "2025-05-15",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Attach Form Control Internals (#127)",
-          "description": "Added attach form control internals (#127)",
-          "commit": "95b8bff",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/95b8bff1a8bc2372d11313cea0b50448938b3f87"
         }
       ]
     }
@@ -156,14 +69,14 @@
     }
   ],
   "metadata": {
-    "totalVersions": 4,
-    "firstVersion": "0.0.24-alpha",
+    "totalVersions": 3,
+    "firstVersion": "0.0.25-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "907aee45e3db1983a42fb8aa2e4399c405f7b852",
+    "lastCommit": "a336c13a98267440ae6f7776a6f19fb1488f1a7b",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "11/12"
+    "filteredCommits": "3/12"
   }
 }

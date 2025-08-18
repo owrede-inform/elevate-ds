@@ -29,45 +29,28 @@ Icons create visual consistency and improve interface comprehension through univ
 - **Decoration only**: Icons should serve functional purposes, not just visual appeal
 - **Overcrowding**: Too many icons create visual noise and reduce effectiveness
 
-## Variations
+## ELEVATE Custom Icons
 
-<elvt-icon icon="mdi:settings"></elvt-icon>
+The ELEVATE design system includes custom-designed icons that follow our specific design principles and brand guidelines. These icons are optimized for clarity, consistency, and accessibility.
 
-### Material Design Icons (MDI)
-
-The ELEVATE Icon component supports Material Design Icons with over 20 commonly used icons registered and working.
+### Available ELEVATE Icons
 
 <ComponentShowcase
-  title="Action Icons"
-  description="Icons for common user actions and interface controls"
-  code="action-icons.html" />
+  title="ELEVATE Custom Icon Set"
+  description="Complete collection of ELEVATE custom icons, designed specifically for the design system"
+  code="elevate-custom-icons.html" />
 
-<ComponentShowcase
-  title="Navigation Icons"
-  description="Icons for navigation, movement, and wayfinding"
-  code="navigation-icons.html" />
+### Usage
 
-<ComponentShowcase
-  title="Status and System Icons"
-  description="Icons for system states, notifications, and feedback"
-  code="status-and-system-icons.html" />
+ELEVATE custom icons use **no prefix** in the icon attribute:
 
-### Size Variations
-
-Icons can be sized using CSS font-size or by setting custom dimensions for different interface contexts.
-
-<ComponentShowcase
-  title="Icon Sizes"
-  description="Various icon sizes for different use cases and contexts"
-  code="icon-sizes.html" />
-
-### Style Treatments
-
-**Outlined Icons** use strokes to define shapes, providing clean, minimal appearance.
-
-**Filled Icons** use solid shapes for greater visual weight and emphasis.
-
-**Two-Tone Icons** combine outlined and filled elements for visual hierarchy.
+```html
+<!-- ELEVATE custom icons -->
+<elvt-icon icon="home"></elvt-icon>
+<elvt-icon icon="check"></elvt-icon>
+<elvt-icon icon="cancel"></elvt-icon>
+<elvt-icon icon="chevron-right"></elvt-icon>
+```
 
 ## Design Principles
 
@@ -83,19 +66,88 @@ Icons can be sized using CSS font-size or by setting custom dimensions for diffe
 ### Visual Hierarchy Principle
 **Icon size and treatment should reflect importance and interaction priority.** Primary actions might use larger or more prominent icons while secondary functions use smaller, subtler treatments.
 
+### Accessibility Principle
+**All icons must be accessible to users with disabilities.** This includes proper contrast ratios, alternative text, and support for assistive technologies.
+
+### Scalability Principle
+**Icons should maintain clarity and legibility at all sizes.** From 16px mobile icons to large display elements, icons must remain recognizable and functional.
+
+## Material Design Icons (MDI)
+
+The ELEVATE Icon component supports the complete Material Design Icons library with 7,447+ icons available. These provide extensive coverage for most interface needs.
+
+### Usage
+
+MDI icons use the **`mdi:` prefix** in the icon attribute:
+
+```html
+<!-- Material Design Icons -->
+<elvt-icon icon="mdi:home"></elvt-icon>
+<elvt-icon icon="mdi:settings"></elvt-icon>
+<elvt-icon icon="mdi:chevron-right"></elvt-icon>
+```
+
+### Common MDI Icons
+
+<ComponentShowcase
+  title="180 Most Common MDI Icons"
+  description="The most frequently used Material Design Icons, organized by category for easy reference"
+  code="common-mdi-icons.html" />
+
+### Icon Categories
+
+**Action Icons**: Plus, delete, edit, save, copy, share, download, upload, search, filter  
+**Navigation Icons**: Home, back, forward, menu, close, chevron directions, arrows  
+**Status Icons**: Check, warning, error, info, success, pending, loading  
+**System Icons**: Settings, help, notifications, user, security, visibility  
+**Content Icons**: File types, media controls, text formatting, attachments  
+**Communication Icons**: Email, phone, chat, video call, social media
+
+## Size Variations
+
+Icons can be sized using CSS font-size property for scalable, responsive design.
+
+<ComponentShowcase
+  title="Icon Sizes"
+  description="Standard icon sizes for different interface contexts and use cases"
+  code="icon-sizes.html" />
+
 ## Best Practices
 
 ### Choosing Recognizable Icons
 
 **Why this matters:** Unfamiliar icons force users to learn new visual vocabulary, increasing cognitive load. Well-established icon conventions help users understand functionality instantly.
 
+**Guidelines:**
+- Use conventional icons for common actions (trash for delete, pencil for edit)
+- Prefer ELEVATE custom icons for brand consistency when available
+- Test icon recognition with target users
+- Provide tooltips or labels for less common icons
+
 ### Pairing Icons with Text
 
 **Why this matters:** Icons alone can be ambiguous, especially for complex or abstract concepts. Text labels provide clarity and improve accessibility for all users.
 
+**Implementation:**
+```html
+<!-- Icon with visible text -->
+<elvt-button>
+  <elvt-icon slot="prefix" icon="plus"></elvt-icon>
+  Add New Item
+</elvt-button>
+
+<!-- Icon with tooltip -->
+<elvt-icon icon="help" title="Get help with this feature"></elvt-icon>
+```
+
 ### Maintaining Visual Consistency
 
 **Why this matters:** Mixed icon styles create visual inconsistency that makes interfaces feel unprofessional and harder to scan. Consistent treatment improves overall design cohesion.
+
+**Guidelines:**
+- Use consistent sizing within the same interface context
+- Maintain similar visual weight and style treatment
+- Follow the same interaction patterns (hover, focus, active states)
 
 ## Implementation
 
@@ -116,10 +168,15 @@ import '@inform-elevate/elevate-core-ui/dist/components/icon/icon.js';
 ### Common Usage Patterns
 
 ```html
+<!-- Basic ELEVATE custom icons -->
+<elvt-icon icon="home"></elvt-icon>
+<elvt-icon icon="check"></elvt-icon>
+<elvt-icon icon="cancel"></elvt-icon>
+
 <!-- Basic Material Design Icons -->
-<elvt-icon icon="mdi:home"></elvt-icon>
-<elvt-icon icon="mdi:user"></elvt-icon>
 <elvt-icon icon="mdi:settings"></elvt-icon>
+<elvt-icon icon="mdi:user"></elvt-icon>
+<elvt-icon icon="mdi:notification"></elvt-icon>
 
 <!-- Icons with CSS styling -->
 <elvt-icon icon="mdi:check-circle" style="color: #24a148; font-size: 20px;"></elvt-icon>
@@ -128,67 +185,38 @@ import '@inform-elevate/elevate-core-ui/dist/components/icon/icon.js';
 
 <!-- Icons in buttons (using slots) -->
 <elvt-button tone="primary">
-  <elvt-icon slot="prefix" icon="mdi:plus"></elvt-icon>
+  <elvt-icon slot="prefix" icon="plus"></elvt-icon>
   Add Item
 </elvt-button>
 
 <elvt-button>
   Continue
-  <elvt-icon slot="suffix" icon="mdi:chevron-right"></elvt-icon>
+  <elvt-icon slot="suffix" icon="chevron-right"></elvt-icon>
 </elvt-button>
 
-<!-- Standalone icons with accessibility -->
+<!-- Interactive icons with accessibility -->
 <elvt-icon 
   icon="mdi:delete" 
   style="color: #da1e28; font-size: 24px; cursor: pointer;"
   title="Delete item"
   aria-label="Delete this item">
 </elvt-icon>
-
-<!-- Different sizes using CSS -->
-<elvt-icon icon="mdi:home" style="font-size: 16px;"></elvt-icon>
-<elvt-icon icon="mdi:home" style="font-size: 24px;"></elvt-icon>
-<elvt-icon icon="mdi:home" style="font-size: 32px;"></elvt-icon>
-<elvt-icon icon="mdi:home" style="font-size: 48px;"></elvt-icon>
 ```
-
-### Available MDI Icons
-
-The following Material Design Icons are currently registered and available:
-
-**Action Icons:** `plus`, `delete`, `pencil`, `download`, `upload`, `copy`, `share`, `heart`, `heart-outline`
-
-**Navigation Icons:** `home`, `chevron-left`, `chevron-right`, `chevron-up`, `chevron-down`, `menu`, `close`, `arrow-left`, `arrow-right`
-
-**Status Icons:** `check`, `check-circle`, `alert-circle`, `close-circle`, `information`, `help-circle`
-
-**System Icons:** `settings`, `magnify`, `dots-vertical`, `open-in-new`, `web`
 
 ### Key Properties
 
 | Property | Options | Description |
 |----------|---------|-------------|
-| `icon` | SVG path, encoded JSON, or URL | Icon data as SVG path string, JSON, or URL to icon resource |
+| `icon` | Icon name string | Icon identifier (e.g., "home", "mdi:settings") |
 | `emblem` | SVG path, encoded JSON, or URL | Secondary icon displayed in lower right corner cutout |
 | `fill` | Hexadecimal color | Background color for the icon (e.g., `#ff0000`) |
 | `selected` | `true`, `false` (default) | Whether the icon appears in selected state |
 | `aspectRatio` | String | Aspect ratio for icon container (default: `1 / 1`) |
 | `image` | URL string | Alternative image source for icon |
 
-**Styling:** Icons are sized using CSS custom properties like `--icon-size` and `--icon-color`. Standard HTML attributes like `title`, `aria-label`, and `aria-hidden` can be used for accessibility.
+**Styling:** Icons are sized using CSS `font-size` property. Standard HTML attributes like `title`, `aria-label`, and `aria-hidden` can be used for accessibility.
 
 *For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-icon--docs).*
-
-## Interactive Examples
-
-### Icon Usage in Context
-
-Experience how icons enhance real interface elements and improve usability.
-
-<ComponentShowcase
-  title="Icon Integration Examples"
-  description="Real-world examples showing how icons improve interface usability"
-  code="code-examples/icon-integration-examples.html" />
 
 ## Accessibility
 

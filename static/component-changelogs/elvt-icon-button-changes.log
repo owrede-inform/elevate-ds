@@ -1,12 +1,12 @@
 # Changelog Generation Log for elvt-icon-button
-# Generated: 2025-08-16T20:51:03.369Z
+# Generated: 2025-08-18T20:23:44.330Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 21
-Included commits: 8
+Included commits: 1
 Excluded commits: 0
-Uncertain commits: 1
+Uncertain commits: 8
 
 ## Detailed Log
 
@@ -16,38 +16,33 @@ INFO: Found 9 total commits from GitHub API
 
 DEBUG: Evaluating commit: "feat: Implement DropDown Component..."
 
-INCLUDE: "feat: Implement DropDown Component..." (New features)
+UNCERTAIN: "feat: Implement DropDown Component..." (No clear component relevance)
   → Commit: a4e1f06
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "refactor: Rename ComponentSize to Size ..."
 
-INCLUDE: "refactor: Rename ComponentSize to Size ..." (Component-related)
+UNCERTAIN: "refactor: Rename ComponentSize to Size ..." (No clear component relevance)
   → Commit: ab26ae6
-  → Reason: Component-related
-  → Pattern: /component|web.component|custom.element/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Make Libraries External for NPM Package..."
 
-INCLUDE: "feat: Make Libraries External for NPM Package..." (New features)
+UNCERTAIN: "feat: Make Libraries External for NPM Package..." (No clear component relevance)
   → Commit: 4a0540c
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Add Autoloader..."
 
-INCLUDE: "feat: Add Autoloader..." (New features)
+UNCERTAIN: "feat: Add Autoloader..." (No clear component relevance)
   → Commit: 8d557b0
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "fix: Allow Strings for LinkTarget (Names)..."
 
-INCLUDE: "fix: Allow Strings for LinkTarget (Names)..." (Bug fixes)
+UNCERTAIN: "fix: Allow Strings for LinkTarget (Names)..." (No clear component relevance)
   → Commit: 04b4780
-  → Reason: Bug fixes
-  → Pattern: /^fix|^bug|resolve|correct|patch/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
 
@@ -57,23 +52,21 @@ UNCERTAIN: "refactor: Change the "arrowParens" in Prettier to "always" (#138)...
 
 DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
 
-INCLUDE: "feat(build): Update to Storybook 9..." (New features)
+UNCERTAIN: "feat(build): Update to Storybook 9..." (No clear component relevance)
   → Commit: c983425
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
 
-INCLUDE: "refactor: Use Web Component Decorator from CDK..." (Component-related)
+INCLUDE: "refactor: Use Web Component Decorator from CDK..." (Component framework change)
   → Commit: 0b7f502
-  → Reason: Component-related
-  → Pattern: /component|web.component|custom.element/
+  → Reason: Component framework change
+  → Pattern: /web\s+component\s+decorator|component\s+base|lit\s+element.*change/i
 
 DEBUG: Evaluating commit: "refactor: Flatten Components File Structure..."
 
-INCLUDE: "refactor: Flatten Components File Structure..." (Component-related)
+UNCERTAIN: "refactor: Flatten Components File Structure..." (No clear component relevance)
   → Commit: 36e7dd6
-  → Reason: Component-related
-  → Pattern: /component|web.component|custom.element/
+  → Reason: No matching patterns
 
-INFO: Filtered from 9 to 8 relevant commits
+INFO: Filtered from 9 to 1 relevant commits

@@ -75,7 +75,9 @@
       "Bash(start chrome \"http://localhost:3000/docs/components/\")",
       "Bash(start chrome \"file:///C:/Users/owrede/WebstormProjects/elevate-ds/debug-table-css.html\")",
       "Bash(gh workflow:*)",
-      "Bash(gh run:*)"
+      "Bash(gh run:*)",
+      "Bash(start chrome \"http://localhost:3000/docs/components/icon\")",
+      "WebFetch(domain:docusaurus.community)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits",

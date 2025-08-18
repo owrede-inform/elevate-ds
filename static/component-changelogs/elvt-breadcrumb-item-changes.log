@@ -1,12 +1,12 @@
 # Changelog Generation Log for elvt-breadcrumb-item
-# Generated: 2025-08-16T20:50:40.608Z
+# Generated: 2025-08-18T20:23:21.878Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 21
-Included commits: 9
+Included commits: 1
 Excluded commits: 0
-Uncertain commits: 0
+Uncertain commits: 8
 
 ## Detailed Log
 
@@ -16,65 +16,57 @@ INFO: Found 9 total commits from GitHub API
 
 DEBUG: Evaluating commit: "chore: Update Design Tokens..."
 
-INCLUDE: "chore: Update Design Tokens..." (Design/Visual changes)
+UNCERTAIN: "chore: Update Design Tokens..." (No clear component relevance)
   → Commit: 3692cba
-  → Reason: Design/Visual changes
-  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "fix: Change RTL Implementation for TabGroup..."
 
-INCLUDE: "fix: Change RTL Implementation for TabGroup..." (New features)
+UNCERTAIN: "fix: Change RTL Implementation for TabGroup..." (No clear component relevance)
   → Commit: c0da45b
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "Chore/update design tokens 0.13.1..."
 
-INCLUDE: "Chore/update design tokens 0.13.1..." (Design/Visual changes)
+UNCERTAIN: "Chore/update design tokens 0.13.1..." (No clear component relevance)
   → Commit: 3ea7125
-  → Reason: Design/Visual changes
-  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "docs: Update Component Status..."
 
-INCLUDE: "docs: Update Component Status..." (Component-related)
+UNCERTAIN: "docs: Update Component Status..." (No clear component relevance)
   → Commit: 24cb112
-  → Reason: Component-related
-  → Pattern: /component|web.component|custom.element/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Adjust Design for BreadcrumbItem..."
 
-INCLUDE: "feat: Adjust Design for BreadcrumbItem..." (Design/Visual changes)
+UNCERTAIN: "feat: Adjust Design for BreadcrumbItem..." (No clear component relevance)
   → Commit: 479d71f
-  → Reason: Design/Visual changes
-  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
 
-INCLUDE: "feat(build): Update to Storybook 9..." (New features)
+UNCERTAIN: "feat(build): Update to Storybook 9..." (No clear component relevance)
   → Commit: c983425
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
 
-INCLUDE: "refactor: Use Web Component Decorator from CDK..." (Component-related)
+INCLUDE: "refactor: Use Web Component Decorator from CDK..." (Component framework change)
   → Commit: 0b7f502
-  → Reason: Component-related
-  → Pattern: /component|web.component|custom.element/
+  → Reason: Component framework change
+  → Pattern: /web\s+component\s+decorator|component\s+base|lit\s+element.*change/i
 
 DEBUG: Evaluating commit: "docs: Add Components Status Page..."
 
-INCLUDE: "docs: Add Components Status Page..." (New features)
+UNCERTAIN: "docs: Add Components Status Page..." (No clear component relevance)
   → Commit: daf000f
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Add Breadcrumb and Breadcrumb Item Components..."
 
-INCLUDE: "feat: Add Breadcrumb and Breadcrumb Item Components..." (New features)
+UNCERTAIN: "feat: Add Breadcrumb and Breadcrumb Item Components..." (No clear component relevance)
   → Commit: c95371e
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
-INFO: Filtered from 9 to 9 relevant commits
+INFO: Filtered from 9 to 1 relevant commits

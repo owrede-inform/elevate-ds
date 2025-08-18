@@ -1,93 +1,12 @@
 {
   "component": "elvt-breadcrumb-item",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:50:40.603Z",
+  "lastUpdated": "2025-08-18T20:23:21.874Z",
   "changelog": [
-    {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
-      "type": "patch",
-      "changes": [
-        {
-          "type": "improvement",
-          "title": "Update Design Tokens",
-          "description": "Improved update design tokens",
-          "commit": "3692cba",
-          "impact": "visual",
-          "breakingChange": false,
-          "author": "nwester-inform",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/3692cba16cb9eb474c8de86c52427ed6cefbd53b"
-        },
-        {
-          "type": "bug-fix",
-          "title": "Change RTL Implementation for TabGroup",
-          "description": "Fixed change rtl implementation for tabgroup",
-          "commit": "c0da45b",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "nwester-inform",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c0da45b89bdf7472f5af966106ef02e3eb976140"
-        }
-      ]
-    },
-    {
-      "version": "0.0.26-alpha",
-      "date": "2025-07-16",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "improvement",
-          "title": "Chore/update design tokens 0.13.1",
-          "description": "Improved chore/update design tokens 0.13.1",
-          "commit": "3ea7125",
-          "impact": "visual",
-          "breakingChange": false,
-          "author": "pberckey",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/3ea7125daf705d7a55607dcd85f06d2316c57a89"
-        },
-        {
-          "type": "improvement",
-          "title": "Update Component Status",
-          "description": "Improved update component status",
-          "commit": "24cb112",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/24cb112848411ae6c3067465cb15e538f445d1fd"
-        },
-        {
-          "type": "feature",
-          "title": "Adjust Design for BreadcrumbItem",
-          "description": "Added adjust design for breadcrumbitem",
-          "commit": "479d71f",
-          "impact": "visual",
-          "breakingChange": false,
-          "author": "nwester-inform",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/479d71fb9bdd3c87a74f900effa54de4420ebb0a"
-        }
-      ]
-    },
-    {
-      "version": "0.0.25-alpha",
-      "date": "2025-06-15",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Update to Storybook 9",
-          "description": "Added update to storybook 9",
-          "commit": "c983425",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
-        }
-      ]
-    },
     {
       "version": "0.0.24-alpha",
       "date": "2025-05-15",
-      "type": "minor",
+      "type": "patch",
       "changes": [
         {
           "type": "improvement",
@@ -98,33 +17,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
-        },
-        {
-          "type": "feature",
-          "title": "Add Components Status Page",
-          "description": "Added add components status page",
-          "commit": "daf000f",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/daf000fc14c799b579f9b31d9e145791118f551e"
-        }
-      ]
-    },
-    {
-      "version": "0.0.22-alpha",
-      "date": "2025-03-25",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Add Breadcrumb and Breadcrumb Item Components",
-          "description": "Added add breadcrumb and breadcrumb item components",
-          "commit": "c95371e",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "pberckey",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c95371e9ecf51789b6a57455ffba39863940e1ea"
         }
       ]
     }
@@ -143,14 +35,14 @@
     }
   ],
   "metadata": {
-    "totalVersions": 5,
-    "firstVersion": "0.0.22-alpha",
+    "totalVersions": 1,
+    "firstVersion": "0.0.24-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "3692cba16cb9eb474c8de86c52427ed6cefbd53b",
+    "lastCommit": "0b7f5021677a1f290b041a3f9be157365f839e9c",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "9/9"
+    "filteredCommits": "1/9"
   }
 }

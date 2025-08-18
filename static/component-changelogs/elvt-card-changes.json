@@ -1,7 +1,7 @@
 {
   "component": "elvt-card",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:50:48.009Z",
+  "lastUpdated": "2025-08-18T20:23:29.817Z",
   "changelog": [
     {
       "version": "0.0.25-alpha",
@@ -17,26 +17,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/a3ca8b32feafd29143bffa3876188545654f7f3e"
-        },
-        {
-          "type": "feature",
-          "title": "Console Generic Shape (Box|Pill), Badge is Pill by Default",
-          "description": "Added console generic shape (box|pill), badge is pill by default",
-          "commit": "4a99c1a",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4a99c1a613b0f20abbcf6c7dfe6158ec0d7cb64d"
-        },
-        {
-          "type": "feature",
-          "title": "Update to Storybook 9",
-          "description": "Added update to storybook 9",
-          "commit": "c983425",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
         }
       ]
     },
@@ -54,16 +34,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
-        },
-        {
-          "type": "improvement",
-          "title": "Flatten Components File Structure",
-          "description": "Improved flatten components file structure",
-          "commit": "36e7dd6",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/36e7dd6caa9db3201f3783f10f7e86e47f12a6c5"
         }
       ]
     }
@@ -90,6 +60,6 @@
     "lastCommit": "a3ca8b32feafd29143bffa3876188545654f7f3e",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "5/6"
+    "filteredCommits": "2/6"
   }
 }

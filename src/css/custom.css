@@ -47,15 +47,13 @@ elvt-icon {
   /* Monospace Typography - ELEVATE primitives only */
   --ifm-font-family-monospace: var(--elvt-primitives-font-family-mono, "RobotoMono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace);
   
-  /* Heading Hierarchy - ELEVATE TypeAlias tokens following proper scale hierarchy */
-  /* Display > Headline > Section > Content > Caption (Label scale excluded as it duplicates Content) */
-  /* TAKE FULL CONTROL: Define typography variables directly */
-  --ifm-h1-font-size: 3.75rem !important;  /* Display M - Page titles, hero headers */
-  --ifm-h2-font-size: 3.25rem !important;  /* Headline M - Section titles */
-  --ifm-h3-font-size: 1.5rem !important;   /* Section M - Subsection titles */
-  --ifm-h4-font-size: 1.25rem !important;  /* Section S - Minor subsections */
-  --ifm-h5-font-size: 1rem !important;     /* Content M - Regular text, descriptions */
-  --ifm-h6-font-size: 0.75rem !important;  /* Caption - Fine print, captions */
+  /* Heading Hierarchy - Material Design Typography Scale */
+  --ifm-h1-font-size: 3.815rem;  /* Material Design Display Large */
+  --ifm-h2-font-size: 3.052rem;  /* Material Design Display Medium */
+  --ifm-h3-font-size: 2.441rem;  /* Material Design Display Small */
+  --ifm-h4-font-size: 1.953rem;  /* Material Design Headline Large */
+  --ifm-h5-font-size: 1.563rem;  /* Material Design Headline Medium */
+  --ifm-h6-font-size: 1.25rem;   /* Material Design Headline Small */
   
   /* Code Typography - Caption size for smaller code text */
   --ifm-code-font-size: var(--elvt-type-alias-default-caption-font-size, 0.75rem);
@@ -111,7 +109,7 @@ elvt-icon {
   --ifm-dropdown-shadow: var(--sl-shadow-large, 0 2px 8px hsl(240 3.8% 46.1% / 12%));
 
   /* Code Styling with ELEVATE Tokens */
-  --ifm-code-background: var(--elvt-primitives-color-gray-100, #d5d9e1);
+  --ifm-code-background: var(--elvt-alias-layout-layer-default, #ffffff);
   --ifm-pre-background: var(--elvt-alias-layout-layer-elevated, #f8f9fb);
   --docusaurus-highlighted-code-line-bg: var(--elvt-alias-layout-backdrop, rgba(0, 0, 0, 0.1));
 
@@ -172,7 +170,7 @@ h1.anchor,
 .theme-doc-markdown h1,
 article h1,
 main h1 {
-  font-size: 3.75rem !important; /* Force H1 to correct size */
+  font-size: 3.815rem !important; /* Material Design Display Large */
 }
 
 h2,
@@ -183,7 +181,7 @@ h2.anchorWithStickyNavbar_LWe7,
 .theme-doc-markdown h2,
 article h2,
 main h2 {
-  font-size: 3.25rem !important; /* Force H2 to correct size */
+  font-size: 3.052rem !important; /* Material Design Display Medium */
 }
 
 .markdown h1,
@@ -289,6 +287,7 @@ pre[class*="language-"] {
 code:not([class*="language-"]) {
   font-family: "RobotoMono", "Roboto Mono", Consolas, "Liberation Mono", Menlo, monospace !important;
   font-size: 0.85rem !important;
+  border: 1px solid var(--elvt-alias-layout-border-default);
 }
 
 /* Component integration styles for ELEVATE components */
@@ -303,7 +302,7 @@ code:not([class*="language-"]) {
 /* Override Infima navbar styling with ELEVATE theme */
 .navbar {
   background: var(--elvt-primitives-color-white, #ffffff);
-  border-bottom: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
+  border-bottom: 1px solid var(--elvt-alias-layout-border-prominent);
   box-shadow: var(--sl-shadow-small, 0 1px 2px hsl(240 3.8% 46.1% / 12%));
   padding: 0 var(--sl-spacing-medium, 1rem);
 }
@@ -371,7 +370,7 @@ code:not([class*="language-"]) {
 /* Dark theme navbar - Using black for header */
 [data-theme='dark'] .navbar {
   background: var(--elvt-primitives-color-black, #000000);
-  border-bottom: 1px solid var(--elvt-alias-layout-border-default);
+  border-bottom: 1px solid var(--elvt-alias-layout-border-prominent);
 }
 
 [data-theme='dark'] .navbar__title {
@@ -395,11 +394,11 @@ code:not([class*="language-"]) {
 
 /* Additional footer styling */
 .footer {
-  border-top: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
+  border-top: 1px solid var(--elvt-alias-layout-border-prominent);
 }
 
 [data-theme='dark'] .footer {
-  border-top: 1px solid var(--elvt-alias-layout-border-default);
+  border-top: 1px solid var(--elvt-alias-layout-border-prominent);
 }
 
 /* Footer logo - ensure proper display in both modes */
@@ -661,12 +660,12 @@ elvt-button::part(label) {
 /* Sidebar dark mode */
 .theme-doc-sidebar-container {
   background: var(--ifm-background-surface-color);
-  border-right: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
+  border-right: 1px solid var(--elvt-alias-layout-border-prominent);
 }
 
 [data-theme='dark'] .theme-doc-sidebar-container {
   background: var(--elvt-primitives-color-gray-1000, #111217);
-  border-right: 1px solid var(--elvt-alias-layout-border-default);
+  border-right: 1px solid var(--elvt-alias-layout-border-prominent);
 }
 
 /* Apply sidebar width reduction only on desktop */
@@ -1309,8 +1308,15 @@ elvt-card h6 { font-size: 0.875rem; }
   display: none !important;
 }
 
-/* Enhanced code block responsiveness for mobile devices */
+/* Enhanced code block responsiveness for mobile devices using Docusaurus CSS variables */
 @media screen and (max-width: 768px) {
+  :root {
+    /* Reduce code block padding on mobile using Infima variables */
+    --ifm-pre-padding: 0.75rem;
+    --ifm-code-padding-vertical: 0.05rem;
+    --ifm-code-padding-horizontal: 0.1rem;
+  }
+
   .theme-code-block,
   .prism-code,
   pre,
@@ -1322,8 +1328,6 @@ elvt-card h6 { font-size: 0.875rem; }
     white-space: pre-wrap !important;
     word-break: break-all !important;
     overflow-wrap: anywhere !important;
-    /* Reduce padding on mobile for more content space */
-    padding: 0.75rem !important;
     /* Ensure code blocks don't overflow containers */
     max-width: calc(100vw - 2rem) !important;
     box-sizing: border-box !important;

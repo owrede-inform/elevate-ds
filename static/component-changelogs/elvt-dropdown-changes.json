@@ -1,7 +1,7 @@
 {
   "component": "elvt-dropdown",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:50:55.370Z",
+  "lastUpdated": "2025-08-18T20:23:37.375Z",
   "changelog": [
     {
       "version": "0.0.28-alpha",
@@ -21,43 +21,6 @@
       ]
     },
     {
-      "version": "0.0.25-alpha",
-      "date": "2025-06-15",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Add Autoloader",
-          "description": "Added add autoloader",
-          "commit": "8d557b0",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8d557b0972abf0e251a7d4a90e6c057e827f0d62"
-        },
-        {
-          "type": "feature",
-          "title": "Update to Storybook 9",
-          "description": "Added update to storybook 9",
-          "commit": "c983425",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
-        },
-        {
-          "type": "bug-fix",
-          "title": "Make All Attribute Names \"kebab-case\"",
-          "description": "Fixed make all attribute names \"kebab-case\"",
-          "commit": "4d0bee0",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4d0bee09201d73522d00c25fbca941fe11a1e5fb"
-        }
-      ]
-    },
-    {
       "version": "0.0.24-alpha",
       "date": "2025-05-15",
       "type": "patch",
@@ -71,16 +34,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
-        },
-        {
-          "type": "improvement",
-          "title": "Flatten Components File Structure",
-          "description": "Improved flatten components file structure",
-          "commit": "36e7dd6",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/36e7dd6caa9db3201f3783f10f7e86e47f12a6c5"
         }
       ]
     },
@@ -100,16 +53,6 @@
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/e74ccc4dcd80c8a95f78747a9dceae944929bbc4"
         },
         {
-          "type": "feature",
-          "title": "Add Icon Button Component",
-          "description": "Added add icon button component",
-          "commit": "9603e54",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/9603e54a6527386f7df135340bc454e4cf5b5322"
-        },
-        {
           "type": "improvement",
           "title": "Resize Menu / DropDown Stories",
           "description": "Improved resize menu / dropdown stories",
@@ -118,16 +61,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/a9369e79416ee0b8ee54e5fe4eefb9da33c2ba50"
-        },
-        {
-          "type": "feature",
-          "title": "Build: Add Visual Regression Tests",
-          "description": "Added build: add visual regression tests",
-          "commit": "44f7f10",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/44f7f10596c08f6bc4af07f13ab9dab02ce7f8fe"
         },
         {
           "type": "feature",
@@ -156,7 +89,7 @@
     }
   ],
   "metadata": {
-    "totalVersions": 4,
+    "totalVersions": 3,
     "firstVersion": "0.0.22-alpha",
     "storyCount": 0,
     "testCount": 0,
@@ -164,6 +97,6 @@
     "lastCommit": "a4e1f06a4a98e9999df43c9edf451b7ab9451a13",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "11/14"
+    "filteredCommits": "5/14"
   }
 }

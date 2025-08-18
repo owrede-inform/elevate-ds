@@ -1,86 +1,8 @@
 {
   "component": "elvt-tab-group",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:51:48.391Z",
+  "lastUpdated": "2025-08-18T20:24:29.460Z",
   "changelog": [
-    {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
-      "type": "patch",
-      "changes": [
-        {
-          "type": "bug-fix",
-          "title": "Change RTL Implementation for TabGroup",
-          "description": "Fixed change rtl implementation for tabgroup",
-          "commit": "c0da45b",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "nwester-inform",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c0da45b89bdf7472f5af966106ef02e3eb976140"
-        }
-      ]
-    },
-    {
-      "version": "0.0.27-alpha",
-      "date": "2025-08-08",
-      "type": "patch",
-      "changes": [
-        {
-          "type": "bug-fix",
-          "title": "Handle Setting ActiveTab in TabGroup Correctly",
-          "description": "Fixed handle setting activetab in tabgroup correctly",
-          "commit": "25495d0",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "nwester-inform",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/25495d0b1e878b8ad25e4879554cf5fc9ee6c739"
-        }
-      ]
-    },
-    {
-      "version": "0.0.26-alpha",
-      "date": "2025-07-16",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Adjust Tab, TabPanel and TabGroup Design",
-          "description": "Added adjust tab, tabpanel and tabgroup design",
-          "commit": "1eba9c8",
-          "impact": "visual",
-          "breakingChange": false,
-          "author": "nwester-inform",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/1eba9c89335aecc947099a2f8cfb90b0b13c3dce"
-        }
-      ]
-    },
-    {
-      "version": "0.0.25-alpha",
-      "date": "2025-06-15",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Add Autoloader",
-          "description": "Added add autoloader",
-          "commit": "8d557b0",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8d557b0972abf0e251a7d4a90e6c057e827f0d62"
-        },
-        {
-          "type": "feature",
-          "title": "Update to Storybook 9",
-          "description": "Added update to storybook 9",
-          "commit": "c983425",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
-        }
-      ]
-    },
     {
       "version": "0.0.24-alpha",
       "date": "2025-05-15",
@@ -95,16 +17,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
-        },
-        {
-          "type": "improvement",
-          "title": "Flatten Components File Structure",
-          "description": "Improved flatten components file structure",
-          "commit": "36e7dd6",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/36e7dd6caa9db3201f3783f10f7e86e47f12a6c5"
         }
       ]
     }
@@ -123,14 +35,14 @@
     }
   ],
   "metadata": {
-    "totalVersions": 5,
+    "totalVersions": 1,
     "firstVersion": "0.0.24-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "c0da45b89bdf7472f5af966106ef02e3eb976140",
+    "lastCommit": "0b7f5021677a1f290b041a3f9be157365f839e9c",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "7/8"
+    "filteredCommits": "1/8"
   }
 }

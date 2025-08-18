@@ -1,33 +1,13 @@
 {
   "component": "elvt-notification",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:51:19.965Z",
+  "lastUpdated": "2025-08-18T20:24:01.658Z",
   "changelog": [
     {
       "version": "0.0.25-alpha",
       "date": "2025-06-15",
       "type": "minor",
       "changes": [
-        {
-          "type": "improvement",
-          "title": "Rename ComponentSize to Size ",
-          "description": "Improved rename componentsize to size ",
-          "commit": "ab26ae6",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ab26ae6257696c4fbe4e07abe704dc4e6fb5d9b0"
-        },
-        {
-          "type": "feature",
-          "title": "Add Autoloader",
-          "description": "Added add autoloader",
-          "commit": "8d557b0",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8d557b0972abf0e251a7d4a90e6c057e827f0d62"
-        },
         {
           "type": "bug-fix",
           "title": "Display Notification with Duration",
@@ -37,26 +17,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/e77604eb996fe7a64f29eb87920f931f71fa4558"
-        },
-        {
-          "type": "feature",
-          "title": "Update to Storybook 9",
-          "description": "Added update to storybook 9",
-          "commit": "c983425",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
-        },
-        {
-          "type": "feature",
-          "title": "Replace Variant Attributes with Shape",
-          "description": "Added replace variant attributes with shape",
-          "commit": "c20d569",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c20d569867a6fa4d9de20da50e1710e3d7c2e788"
         },
         {
           "type": "feature",
@@ -84,16 +44,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
-        },
-        {
-          "type": "feature",
-          "title": "Add Components Status Page",
-          "description": "Added add components status page",
-          "commit": "daf000f",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/daf000fc14c799b579f9b31d9e145791118f551e"
         },
         {
           "type": "feature",
@@ -127,9 +77,9 @@
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "ab26ae6257696c4fbe4e07abe704dc4e6fb5d9b0",
+    "lastCommit": "e77604eb996fe7a64f29eb87920f931f71fa4558",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "9/11"
+    "filteredCommits": "4/11"
   }
 }

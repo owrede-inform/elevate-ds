@@ -1,12 +1,12 @@
 # Changelog Generation Log for elvt-table-column
-# Generated: 2025-08-16T20:51:42.642Z
+# Generated: 2025-08-18T20:24:24.083Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 13
-Included commits: 5
+Included commits: 0
 Excluded commits: 0
-Uncertain commits: 0
+Uncertain commits: 5
 
 ## Detailed Log
 
@@ -16,37 +16,32 @@ INFO: Found 5 total commits from GitHub API
 
 DEBUG: Evaluating commit: "fix(table): Fix a Box-Sizing Bug in Non-Sortable Tables..."
 
-INCLUDE: "fix(table): Fix a Box-Sizing Bug in Non-Sortable Tables..." (Bug fixes)
+UNCERTAIN: "fix(table): Fix a Box-Sizing Bug in Non-Sortable Tables..." (No clear component relevance)
   → Commit: f2ff113
-  → Reason: Bug fixes
-  → Pattern: /^fix|^bug|resolve|correct|patch/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "docs: Update Component Status..."
 
-INCLUDE: "docs: Update Component Status..." (Component-related)
+UNCERTAIN: "docs: Update Component Status..." (No clear component relevance)
   → Commit: 24cb112
-  → Reason: Component-related
-  → Pattern: /component|web.component|custom.element/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "chore: Update Design Tokens..."
 
-INCLUDE: "chore: Update Design Tokens..." (Design/Visual changes)
+UNCERTAIN: "chore: Update Design Tokens..." (No clear component relevance)
   → Commit: 89c6926
-  → Reason: Design/Visual changes
-  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "fix: Export Table Types..."
 
-INCLUDE: "fix: Export Table Types..." (Bug fixes)
+UNCERTAIN: "fix: Export Table Types..." (No clear component relevance)
   → Commit: 8ab9caf
-  → Reason: Bug fixes
-  → Pattern: /^fix|^bug|resolve|correct|patch/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Add Table Selection..."
 
-INCLUDE: "feat: Add Table Selection..." (New features)
+UNCERTAIN: "feat: Add Table Selection..." (No clear component relevance)
   → Commit: bb8d2fe
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
-INFO: Filtered from 5 to 5 relevant commits
+INFO: Filtered from 5 to 0 relevant commits

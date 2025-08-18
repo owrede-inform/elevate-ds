@@ -1,58 +1,19 @@
 {
   "component": "elvt-field",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:51:01.440Z",
-  "changelog": [
-    {
-      "version": "0.0.25-alpha",
-      "date": "2025-06-15",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Support Form Reset and Basic Validation (Required)",
-          "description": "Added support form reset and basic validation (required)",
-          "commit": "44dc64e",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/44dc64e3c5f3d21832f3511c82262c85d11b683e"
-        },
-        {
-          "type": "feature",
-          "title": "Add Multi-Column Direction to Stack Component",
-          "description": "Added add multi-column direction to stack component",
-          "commit": "573e50e",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/573e50e909bdf1f3ca177ab6a118aad6e75c2f2e"
-        }
-      ]
-    }
-  ],
+  "lastUpdated": "2025-08-18T20:23:42.523Z",
+  "changelog": [],
   "deprecations": [],
-  "upcomingChanges": [
-    {
-      "version": "0.1.0",
-      "plannedDate": "2025-09-01",
-      "description": "Stable release with finalized API",
-      "changes": [
-        "API stabilization",
-        "Performance optimizations",
-        "Enhanced accessibility features"
-      ]
-    }
-  ],
+  "upcomingChanges": [],
   "metadata": {
-    "totalVersions": 1,
-    "firstVersion": "0.0.25-alpha",
+    "totalVersions": 0,
+    "firstVersion": "0.0.28-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "44dc64e3c5f3d21832f3511c82262c85d11b683e",
+    "lastCommit": "",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "2/2"
+    "filteredCommits": "0/2"
   }
 }

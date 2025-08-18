@@ -1,25 +1,8 @@
 {
   "component": "elvt-input",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:51:08.886Z",
+  "lastUpdated": "2025-08-18T20:23:50.325Z",
   "changelog": [
-    {
-      "version": "0.0.28-alpha",
-      "date": "2025-08-11",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Add Form Control Validators",
-          "description": "Added add form control validators",
-          "commit": "81c9c90",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/81c9c90a5b4eeb06784ca322e808ee818ea3a221"
-        }
-      ]
-    },
     {
       "version": "0.0.26-alpha",
       "date": "2025-07-16",
@@ -34,100 +17,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/e480bb51c5beda9d73d2afe4a4f29010d75f8d94"
-        },
-        {
-          "type": "feature",
-          "title": "Allow to Provide Additional Validators to Form Controls",
-          "description": "Added allow to provide additional validators to form controls",
-          "commit": "0db2df6",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0db2df60dbad4cd171ac2d3fc0ff4209c94b5cb9"
-        }
-      ]
-    },
-    {
-      "version": "0.0.25-alpha",
-      "date": "2025-06-15",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Support Form Reset and Basic Validation (Required)",
-          "description": "Added support form reset and basic validation (required)",
-          "commit": "44dc64e",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/44dc64e3c5f3d21832f3511c82262c85d11b683e"
-        },
-        {
-          "type": "feature",
-          "title": "Add Multi-Column Direction to Stack Component",
-          "description": "Added add multi-column direction to stack component",
-          "commit": "573e50e",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/573e50e909bdf1f3ca177ab6a118aad6e75c2f2e"
-        },
-        {
-          "type": "improvement",
-          "title": "Rename ComponentSize to Size ",
-          "description": "Improved rename componentsize to size ",
-          "commit": "ab26ae6",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ab26ae6257696c4fbe4e07abe704dc4e6fb5d9b0"
-        },
-        {
-          "type": "feature",
-          "title": "Add Field Component",
-          "description": "Added add field component",
-          "commit": "890b3f0",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/890b3f04a7394d0fd4a31ab5de6800e058ab3d37"
-        },
-        {
-          "type": "feature",
-          "title": "Add Autoloader",
-          "description": "Added add autoloader",
-          "commit": "8d557b0",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8d557b0972abf0e251a7d4a90e6c057e827f0d62"
-        },
-        {
-          "type": "feature",
-          "title": "Update to Storybook 9",
-          "description": "Added update to storybook 9",
-          "commit": "c983425",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
-        }
-      ]
-    },
-    {
-      "version": "0.0.24-alpha",
-      "date": "2025-05-15",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Attach Form Control Internals (#127)",
-          "description": "Added attach form control internals (#127)",
-          "commit": "95b8bff",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/95b8bff1a8bc2372d11313cea0b50448938b3f87"
         }
       ]
     }
@@ -146,14 +35,14 @@
     }
   ],
   "metadata": {
-    "totalVersions": 4,
-    "firstVersion": "0.0.24-alpha",
+    "totalVersions": 1,
+    "firstVersion": "0.0.26-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "81c9c90a5b4eeb06784ca322e808ee818ea3a221",
+    "lastCommit": "e480bb51c5beda9d73d2afe4a4f29010d75f8d94",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "10/11"
+    "filteredCommits": "1/11"
   }
 }

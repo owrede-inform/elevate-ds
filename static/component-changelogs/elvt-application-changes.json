@@ -1,7 +1,7 @@
 {
   "component": "elvt-application",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-16T20:50:35.017Z",
+  "lastUpdated": "2025-08-18T20:23:16.265Z",
   "changelog": [
     {
       "version": "0.0.26-alpha",
@@ -17,33 +17,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/d9536f063f6866ca05a4fe65abd2732a67e42d87"
-        }
-      ]
-    },
-    {
-      "version": "0.0.25-alpha",
-      "date": "2025-06-15",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Update to Storybook 9",
-          "description": "Added update to storybook 9",
-          "commit": "c983425",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
-        },
-        {
-          "type": "feature",
-          "title": "Add Lightbox and Dialogs",
-          "description": "Added add lightbox and dialogs",
-          "commit": "37d6740",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/37d6740931bada368f6af9c6ab3bc01dd12a7d4c"
         }
       ]
     },
@@ -71,26 +44,6 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/1a09e084df5d43bd479996d38108c2c476e20344"
-        },
-        {
-          "type": "bug-fix",
-          "title": "Fix Documentation Errors from Component Structure Changes (#113)",
-          "description": "Fixed fix documentation errors from component structure changes (#113)",
-          "commit": "ae9938b",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ae9938bb3ecb4b9d31787bc64bc50e2cc11a433a"
-        },
-        {
-          "type": "improvement",
-          "title": "Flatten Components File Structure",
-          "description": "Improved flatten components file structure",
-          "commit": "36e7dd6",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/36e7dd6caa9db3201f3783f10f7e86e47f12a6c5"
         }
       ]
     }
@@ -109,7 +62,7 @@
     }
   ],
   "metadata": {
-    "totalVersions": 3,
+    "totalVersions": 2,
     "firstVersion": "0.0.24-alpha",
     "storyCount": 0,
     "testCount": 0,
@@ -117,6 +70,6 @@
     "lastCommit": "d9536f063f6866ca05a4fe65abd2732a67e42d87",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "7/8"
+    "filteredCommits": "3/8"
   }
 }

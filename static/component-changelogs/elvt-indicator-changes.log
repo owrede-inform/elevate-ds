@@ -1,12 +1,12 @@
 # Changelog Generation Log for elvt-indicator
-# Generated: 2025-08-16T20:51:07.125Z
+# Generated: 2025-08-18T20:23:48.114Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 25
-Included commits: 9
+Included commits: 1
 Excluded commits: 0
-Uncertain commits: 2
+Uncertain commits: 10
 
 ## Detailed Log
 
@@ -16,38 +16,33 @@ INFO: Found 11 total commits from GitHub API
 
 DEBUG: Evaluating commit: "fix: Fix Button Group Separator Lines (#250)..."
 
-INCLUDE: "fix: Fix Button Group Separator Lines (#250)..." (Bug fixes)
+UNCERTAIN: "fix: Fix Button Group Separator Lines (#250)..." (No clear component relevance)
   → Commit: 7de00fe
-  → Reason: Bug fixes
-  → Pattern: /^fix|^bug|resolve|correct|patch/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Add Field Component..."
 
-INCLUDE: "feat: Add Field Component..." (New features)
+UNCERTAIN: "feat: Add Field Component..." (No clear component relevance)
   → Commit: 890b3f0
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Consolidate and Improve Link Component..."
 
-INCLUDE: "feat: Consolidate and Improve Link Component..." (New features)
+UNCERTAIN: "feat: Consolidate and Improve Link Component..." (No clear component relevance)
   → Commit: 3e64741
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "fix: Export Table Types..."
 
-INCLUDE: "fix: Export Table Types..." (Bug fixes)
+UNCERTAIN: "fix: Export Table Types..." (No clear component relevance)
   → Commit: 8ab9caf
-  → Reason: Bug fixes
-  → Pattern: /^fix|^bug|resolve|correct|patch/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Console Generic Shape (Box|Pill), Badge is Pill by Default..."
 
-INCLUDE: "feat: Console Generic Shape (Box|Pill), Badge is Pill by Default..." (New features)
+UNCERTAIN: "feat: Console Generic Shape (Box|Pill), Badge is Pill by Default..." (No clear component relevance)
   → Commit: 4a99c1a
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "refactor!: Replace Severity with Tone..."
 
@@ -57,10 +52,9 @@ UNCERTAIN: "refactor!: Replace Severity with Tone..." (No clear component releva
 
 DEBUG: Evaluating commit: "feat: Add Autoloader..."
 
-INCLUDE: "feat: Add Autoloader..." (New features)
+UNCERTAIN: "feat: Add Autoloader..." (No clear component relevance)
   → Commit: 8d557b0
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
 
@@ -70,23 +64,21 @@ UNCERTAIN: "refactor: Change the "arrowParens" in Prettier to "always" (#138)...
 
 DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
 
-INCLUDE: "feat(build): Update to Storybook 9..." (New features)
+UNCERTAIN: "feat(build): Update to Storybook 9..." (No clear component relevance)
   → Commit: c983425
-  → Reason: New features
-  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
 
-INCLUDE: "refactor: Use Web Component Decorator from CDK..." (Component-related)
+INCLUDE: "refactor: Use Web Component Decorator from CDK..." (Component framework change)
   → Commit: 0b7f502
-  → Reason: Component-related
-  → Pattern: /component|web.component|custom.element/
+  → Reason: Component framework change
+  → Pattern: /web\s+component\s+decorator|component\s+base|lit\s+element.*change/i
 
 DEBUG: Evaluating commit: "refactor: Flatten Components File Structure..."
 
-INCLUDE: "refactor: Flatten Components File Structure..." (Component-related)
+UNCERTAIN: "refactor: Flatten Components File Structure..." (No clear component relevance)
   → Commit: 36e7dd6
-  → Reason: Component-related
-  → Pattern: /component|web.component|custom.element/
+  → Reason: No matching patterns
 
-INFO: Filtered from 11 to 9 relevant commits
+INFO: Filtered from 11 to 1 relevant commits
