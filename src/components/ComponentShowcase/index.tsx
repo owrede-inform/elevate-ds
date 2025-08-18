@@ -3,6 +3,7 @@ import { useFramework } from '../../contexts/FrameworkContext';
 import { transformToFramework, getFrameworkImports, extractComponentNames, transformWebComponentCode, extractComponentNamesFromCode } from '../../utils/frameworkTransformer';
 import CodeDisplay from '../CodeDisplay';
 import styles from './styles.module.css';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 interface ComponentShowcaseProps {
   children?: React.ReactNode;
@@ -27,6 +28,7 @@ export default function ComponentShowcase({
 }: ComponentShowcaseProps): JSX.Element {
   const previewRef = useRef<HTMLDivElement>(null);
   const { selectedFramework } = useFramework();
+  const baseUrl = useBaseUrl('/');
   const [transformedCode, setTransformedCode] = useState<string>('');
   const [componentNames, setComponentNames] = useState<string[]>([]);
   const [showCode, setShowCode] = useState<boolean>(showCodeByDefault);
@@ -95,19 +97,19 @@ export default function ComponentShowcase({
         let filePaths = [];
         
         if (code.includes('/') || code.includes('\\')) {
-          // If code contains path separators, use it as-is
-          filePaths.push(`/${code}`);
+          // If code contains path separators, use it as-is with baseUrl
+          filePaths.push(`${baseUrl}${code}`);
         } else {
           // Primary path: static folder with full docs path structure (prioritize this for all HTML files)
           const staticPath = relativePath.length > 0 
-            ? `/docs/${relativePath.join('/')}/code-examples/${code}`
-            : `/docs/components/code-examples/${code}`;
+            ? `${baseUrl}docs/${relativePath.join('/')}/code-examples/${code}`
+            : `${baseUrl}docs/components/code-examples/${code}`;
           filePaths.push(staticPath);
           
-          // Secondary paths for legacy support
+          // Secondary paths for legacy support with baseUrl
           const componentName = relativePath.length > 0 ? relativePath[relativePath.length - 1] : '';
-          filePaths.push(`/code-examples/${componentName}/${code}`);
-          filePaths.push(`/code-examples/${code}`);
+          filePaths.push(`${baseUrl}code-examples/${componentName}/${code}`);
+          filePaths.push(`${baseUrl}code-examples/${code}`);
         }
         
         let content = '';
