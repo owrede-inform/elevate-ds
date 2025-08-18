@@ -8,7 +8,7 @@ const config: Config = {
   title: 'ELEVATE Design System',
   tagline: 'A comprehensive design system built for modern web applications of INFORM GmbH',
   
-  // Force deployment refresh - ensure all files are included
+  // Force deployment refresh - ensure ELEVATE CSS is included - 2025-01-27T18:40:00Z
   favicon: 'img/favicon.ico',
   
   // INFORM GmbH metadata
