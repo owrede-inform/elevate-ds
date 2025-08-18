@@ -1,0 +1,184 @@
+---
+title: Radio Group
+description: Radio group component that manages multiple radio buttons as a cohesive group with shared validation and accessibility features.
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Radio Group
+
+Radio groups organize multiple radio buttons into a logical group, ensuring only one option can be selected at a time while providing consistent validation and accessibility features.
+
+## Usage Guidelines
+
+### When to Use
+- **Mutually exclusive choices** - When users need to select exactly one option from a list
+- **Form organization** - To group related radio buttons with shared validation
+- **Accessibility** - When you need proper keyboard navigation and screen reader support
+- **Validation** - When the group requires collective validation or error messaging
+
+### When Not to Use
+- **Multiple selections** - Use checkbox groups instead
+- **Single options** - Use individual checkboxes for standalone choices
+- **Large option lists** - Consider select dropdowns for 7+ options
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Radio Group"
+  description="A simple radio group with multiple options"
+  code={`<elvt-radio-group label="Preferred contact method" name="contact" required>
+  <elvt-radio value="email">Email</elvt-radio>
+  <elvt-radio value="phone">Phone</elvt-radio>
+  <elvt-radio value="mail">Mail</elvt-radio>
+</elvt-radio-group>`}
+>
+  <elvt-radio-group label="Preferred contact method" name="contact" required>
+    <elvt-radio value="email">Email</elvt-radio>
+    <elvt-radio value="phone">Phone</elvt-radio>
+    <elvt-radio value="mail">Mail</elvt-radio>
+  </elvt-radio-group>
+</ComponentShowcase>
+
+## Component API
+
+### Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `label` | `string` | - | Accessible label for the radio group |
+| `name` | `string` | - | Name attribute shared by all radio buttons |
+| `value` | `string` | - | Currently selected value |
+| `required` | `boolean` | `false` | Whether a selection is required |
+| `disabled` | `boolean` | `false` | Disables the entire group |
+| `invalid` | `boolean` | `false` | Marks the group as invalid |
+| `help-text` | `string` | - | Helper text displayed below the group |
+
+### Events
+
+| Event | Description |
+|-------|-------------|
+| `elvt-change` | Fired when the selected value changes |
+| `elvt-invalid` | Fired when validation fails |
+
+### CSS Custom Properties
+
+| Property | Description |
+|----------|-------------|
+| `--radio-group-gap` | Space between radio buttons |
+| `--radio-group-label-color` | Color of the group label |
+
+## Examples
+
+### With Helper Text
+
+<ComponentShowcase
+  title="Radio Group with Helper Text"
+  description="Radio group with additional context"
+  code={`<elvt-radio-group 
+  label="Account type" 
+  name="account-type"
+  help-text="Choose the account type that best fits your needs"
+>
+  <elvt-radio value="personal">Personal</elvt-radio>
+  <elvt-radio value="business">Business</elvt-radio>
+  <elvt-radio value="enterprise">Enterprise</elvt-radio>
+</elvt-radio-group>`}
+>
+  <elvt-radio-group 
+    label="Account type" 
+    name="account-type"
+    help-text="Choose the account type that best fits your needs"
+  >
+    <elvt-radio value="personal">Personal</elvt-radio>
+    <elvt-radio value="business">Business</elvt-radio>
+    <elvt-radio value="enterprise">Enterprise</elvt-radio>
+  </elvt-radio-group>
+</ComponentShowcase>
+
+### Disabled State
+
+<ComponentShowcase
+  title="Disabled Radio Group"
+  description="Radio group in disabled state"
+  code={`<elvt-radio-group label="Notification settings" name="notifications" disabled>
+  <elvt-radio value="all">All notifications</elvt-radio>
+  <elvt-radio value="important">Important only</elvt-radio>
+  <elvt-radio value="none">No notifications</elvt-radio>
+</elvt-radio-group>`}
+>
+  <elvt-radio-group label="Notification settings" name="notifications" disabled>
+    <elvt-radio value="all">All notifications</elvt-radio>
+    <elvt-radio value="important">Important only</elvt-radio>
+    <elvt-radio value="none">No notifications</elvt-radio>
+  </elvt-radio-group>
+</ComponentShowcase>
+
+### Validation States
+
+<ComponentShowcase
+  title="Invalid Radio Group"
+  description="Radio group with validation error"
+  code={`<elvt-radio-group 
+  label="Payment method" 
+  name="payment"
+  required
+  invalid
+  help-text="Please select a payment method to continue"
+>
+  <elvt-radio value="card">Credit Card</elvt-radio>
+  <elvt-radio value="paypal">PayPal</elvt-radio>
+  <elvt-radio value="bank">Bank Transfer</elvt-radio>
+</elvt-radio-group>`}
+>
+  <elvt-radio-group 
+    label="Payment method" 
+    name="payment"
+    required
+    invalid
+    help-text="Please select a payment method to continue"
+  >
+    <elvt-radio value="card">Credit Card</elvt-radio>
+    <elvt-radio value="paypal">PayPal</elvt-radio>
+    <elvt-radio value="bank">Bank Transfer</elvt-radio>
+  </elvt-radio-group>
+</ComponentShowcase>
+
+## Accessibility
+
+### Keyboard Navigation
+- **Tab** - Move focus between radio groups
+- **Arrow Keys** - Navigate within a radio group
+- **Space** - Select focused radio button
+
+### Screen Reader Support
+- Group label is announced when entering the group
+- Individual radio labels and states are announced
+- Required status and validation errors are communicated
+
+### Best Practices
+- Always provide a descriptive group label
+- Use logical tab order in forms
+- Include helper text for complex choices
+- Ensure sufficient color contrast for all states
+
+## Design Guidelines
+
+### Layout
+- Stack radio buttons vertically for better readability
+- Use consistent spacing between options
+- Align radio buttons and labels consistently
+
+### Content
+- Keep radio labels concise and descriptive
+- Use parallel phrasing for all options
+- Order options logically (alphabetical, frequency, etc.)
+
+---
+
+:::tip Related Components
+Use this component with [Radio](/docs/components/radio) buttons to create cohesive form experiences.
+:::
+
+View the radio group component at [http://localhost:3000/docs/components/radio-group](http://localhost:3000/docs/components/radio-group)

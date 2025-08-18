@@ -1,0 +1,197 @@
+---
+title: Table Cell
+description: Individual cell component for table rows, providing content display and formatting options within tables.
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Table Cell
+
+Table cells are the basic content containers within table rows, providing flexible content display and formatting options for tabular data.
+
+## Usage Guidelines
+
+### When to Use
+- **Tabular data** - As content containers within table rows
+- **Data formatting** - When specific cell formatting is needed
+- **Interactive content** - For cells containing buttons, links, or form elements
+- **Custom styling** - When individual cell styling is required
+
+### When Not to Use
+- **Non-tabular content** - Use regular containers for non-table layouts
+- **Simple lists** - Consider list components for basic data display
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Table with Cells"
+  description="Table cells used within a table structure"
+  code={`<elvt-table>
+  <elvt-table-row slot="head">
+    <elvt-table-cell header>Name</elvt-table-cell>
+    <elvt-table-cell header>Role</elvt-table-cell>
+    <elvt-table-cell header>Status</elvt-table-cell>
+  </elvt-table-row>
+  <elvt-table-row>
+    <elvt-table-cell>John Doe</elvt-table-cell>
+    <elvt-table-cell>Developer</elvt-table-cell>
+    <elvt-table-cell>Active</elvt-table-cell>
+  </elvt-table-row>
+  <elvt-table-row>
+    <elvt-table-cell>Jane Smith</elvt-table-cell>
+    <elvt-table-cell>Designer</elvt-table-cell>
+    <elvt-table-cell>Active</elvt-table-cell>
+  </elvt-table-row>
+</elvt-table>`}
+>
+  <elvt-table>
+    <elvt-table-row slot="head">
+      <elvt-table-cell header>Name</elvt-table-cell>
+      <elvt-table-cell header>Role</elvt-table-cell>
+      <elvt-table-cell header>Status</elvt-table-cell>
+    </elvt-table-row>
+    <elvt-table-row>
+      <elvt-table-cell>John Doe</elvt-table-cell>
+      <elvt-table-cell>Developer</elvt-table-cell>
+      <elvt-table-cell>Active</elvt-table-cell>
+    </elvt-table-row>
+    <elvt-table-row>
+      <elvt-table-cell>Jane Smith</elvt-table-cell>
+      <elvt-table-cell>Designer</elvt-table-cell>
+      <elvt-table-cell>Active</elvt-table-cell>
+    </elvt-table-row>
+  </elvt-table>
+</ComponentShowcase>
+
+## Component API
+
+### Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `header` | `boolean` | `false` | Renders as table header cell (th) |
+| `align` | `'start' \| 'center' \| 'end'` | `'start'` | Text alignment |
+| `colspan` | `number` | `1` | Number of columns to span |
+| `rowspan` | `number` | `1` | Number of rows to span |
+| `sortable` | `boolean` | `false` | Whether column is sortable (header cells) |
+| `sorted` | `'asc' \| 'desc' \| 'none'` | `'none'` | Current sort direction |
+
+### Events
+
+| Event | Description |
+|-------|-------------|
+| `elvt-sort` | Fired when sortable header is clicked |
+
+### CSS Custom Properties
+
+| Property | Description |
+|----------|-------------|
+| `--table-cell-padding` | Cell padding |
+| `--table-cell-border` | Cell border styling |
+| `--table-cell-background` | Cell background color |
+
+## Examples
+
+### Interactive Cells
+
+<ComponentShowcase
+  title="Table with Interactive Cells"
+  description="Table cells containing buttons and interactive elements"
+  code={`<elvt-table>
+  <elvt-table-row slot="head">
+    <elvt-table-cell header>User</elvt-table-cell>
+    <elvt-table-cell header>Email</elvt-table-cell>
+    <elvt-table-cell header>Actions</elvt-table-cell>
+  </elvt-table-row>
+  <elvt-table-row>
+    <elvt-table-cell>
+      <elvt-stack direction="row" gap="s" alignment="center">
+        <elvt-avatar initials="JD"></elvt-avatar>
+        <span>John Doe</span>
+      </elvt-stack>
+    </elvt-table-cell>
+    <elvt-table-cell>john@example.com</elvt-table-cell>
+    <elvt-table-cell>
+      <elvt-stack direction="row" gap="s">
+        <elvt-button size="small" variant="outline">Edit</elvt-button>
+        <elvt-button size="small" variant="danger">Delete</elvt-button>
+      </elvt-stack>
+    </elvt-table-cell>
+  </elvt-table-row>
+</elvt-table>`}
+>
+  <elvt-table>
+    <elvt-table-row slot="head">
+      <elvt-table-cell header>User</elvt-table-cell>
+      <elvt-table-cell header>Email</elvt-table-cell>
+      <elvt-table-cell header>Actions</elvt-table-cell>
+    </elvt-table-row>
+    <elvt-table-row>
+      <elvt-table-cell>
+        <elvt-stack direction="row" gap="s" alignment="center">
+          <elvt-avatar initials="JD"></elvt-avatar>
+          <span>John Doe</span>
+        </elvt-stack>
+      </elvt-table-cell>
+      <elvt-table-cell>john@example.com</elvt-table-cell>
+      <elvt-table-cell>
+        <elvt-stack direction="row" gap="s">
+          <elvt-button size="small" variant="outline">Edit</elvt-button>
+          <elvt-button size="small" variant="danger">Delete</elvt-button>
+        </elvt-stack>
+      </elvt-table-cell>
+    </elvt-table-row>
+  </elvt-table>
+</ComponentShowcase>
+
+### Sortable Headers
+
+<ComponentShowcase
+  title="Sortable Table Headers"
+  description="Header cells with sorting functionality"
+  code={`<elvt-table>
+  <elvt-table-row slot="head">
+    <elvt-table-cell header sortable sorted="asc">Name</elvt-table-cell>
+    <elvt-table-cell header sortable>Date</elvt-table-cell>
+    <elvt-table-cell header>Status</elvt-table-cell>
+  </elvt-table-row>
+  <elvt-table-row>
+    <elvt-table-cell>Project A</elvt-table-cell>
+    <elvt-table-cell>2024-01-15</elvt-table-cell>
+    <elvt-table-cell>
+      <elvt-badge variant="success">Complete</elvt-badge>
+    </elvt-table-cell>
+  </elvt-table-row>
+</elvt-table>`}
+>
+  <elvt-table>
+    <elvt-table-row slot="head">
+      <elvt-table-cell header sortable sorted="asc">Name</elvt-table-cell>
+      <elvt-table-cell header sortable>Date</elvt-table-cell>
+      <elvt-table-cell header>Status</elvt-table-cell>
+    </elvt-table-row>
+    <elvt-table-row>
+      <elvt-table-cell>Project A</elvt-table-cell>
+      <elvt-table-cell>2024-01-15</elvt-table-cell>
+      <elvt-table-cell>
+        <elvt-badge variant="success">Complete</elvt-badge>
+      </elvt-table-cell>
+    </elvt-table-row>
+  </elvt-table>
+</ComponentShowcase>
+
+## Accessibility
+
+- Uses semantic `td` and `th` elements
+- Proper heading associations for screen readers
+- Sortable headers include appropriate ARIA attributes
+- Maintains table structure for assistive technology
+
+---
+
+:::tip Related Components
+Use with [Table](/docs/components/table), [Table Row](/docs/components/table-row), and [Table Column](/docs/components/table-column) for complete table functionality.
+:::
+
+View the table cell component at [http://localhost:3000/docs/components/table-cell](http://localhost:3000/docs/components/table-cell)

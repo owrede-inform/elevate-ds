@@ -1,12 +1,12 @@
 # Changelog Generation Log for elvt-lightbox
-# Generated: 2025-08-13T18:14:44.323Z
+# Generated: 2025-08-16T20:51:10.686Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 11
-Included commits: 2
-Excluded commits: 2
-Uncertain commits: 0
+Included commits: 3
+Excluded commits: 0
+Uncertain commits: 1
 
 ## Detailed Log
 
@@ -23,17 +23,16 @@ INCLUDE: "fix: Fix Lightbox Story Accessibility Contrast..." (Short component na
 
 DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
 
-EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+UNCERTAIN: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (No clear component relevance)
   → Commit: 0921993
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
 
-EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+INCLUDE: "feat(build): Update to Storybook 9..." (New features)
   → Commit: c983425
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "feat: Add Lightbox and Dialogs..."
 
@@ -42,4 +41,4 @@ INCLUDE: "feat: Add Lightbox and Dialogs..." (Short component name)
   → Reason: Short component name
   → Pattern: /\blightbox\b/i
 
-INFO: Filtered from 4 to 2 relevant commits
+INFO: Filtered from 4 to 3 relevant commits

@@ -1,0 +1,1294 @@
+/**
+ * INFORM ELEVATE Design System Theme
+ * Custom styling for INFORM GmbH's ELEVATE Design System documentation
+ * 
+ * Built on Docusaurus with ELEVATE design tokens integration
+ * Copyright © 2025 INFORM GmbH
+ */
+
+/* Import ELEVATE Core UI styles and themes */
+@import '@inform-elevate/elevate-core-ui/dist/elevate.css';
+@import '@inform-elevate/elevate-core-ui/dist/themes/light.css';
+@import '@inform-elevate/elevate-core-ui/dist/themes/dark.css';
+
+/* Import ELEVATE theme override CSS for CSS-only approach */
+@import './elevate-theme-override.css';
+
+/* ELEVATE Design System Integration with Alias Tokens */
+:root {
+  /* ELEVATE Brand Colors using Alias Tokens */
+  --ifm-color-primary: var(--elvt-primitives-color-blue-500, #0072ff);
+  --ifm-color-primary-dark: var(--elvt-primitives-color-blue-600, #0b5cdf);
+  --ifm-color-primary-darker: var(--elvt-primitives-color-blue-700, #1b50a6);
+  --ifm-color-primary-darkest: var(--elvt-primitives-color-blue-800, #234275);
+  --ifm-color-primary-light: var(--elvt-primitives-color-blue-400, #2a90ff);
+  --ifm-color-primary-lighter: var(--elvt-primitives-color-blue-300, #5facff);
+  --ifm-color-primary-lightest: var(--elvt-primitives-color-blue-200, #90c6ff);
+
+  /* ELEVATE Typography System - Alias Tokens */
+  --ifm-font-family-base: var(--elvt-type-alias-default-content-m-font-family, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif);
+  --ifm-font-family-monospace: var(--sl-font-mono, "RobotoMono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace);
+  
+  /* Use default Docusaurus typography scale - no overrides */
+
+  /* Use default Docusaurus line heights - no overrides */
+
+  /* ELEVATE Layout System - Alias Tokens */
+  
+  /* Background Colors using Layout Alias Tokens */
+  --ifm-background-color: var(--elvt-alias-layout-layer-appBackground, #f3f4f7);
+  --ifm-background-surface-color: var(--elvt-alias-layout-layer-default, #ffffff);
+  --ifm-card-background-color: var(--elvt-alias-layout-layer-default, #ffffff);
+  --ifm-sidebar-background-color: var(--elvt-alias-layout-layer-elevated, #f8f9fb);
+  --ifm-navbar-background-color: var(--elvt-alias-layout-layer-overlay, #ffffff);
+
+  /* Border Colors - Unified using layout/border/muted */
+  --ifm-border-color: var(--elvt-alias-layout-border-muted, #f3f4f7);
+  --ifm-border-color-light: var(--elvt-alias-layout-border-muted, #f3f4f7);
+  --ifm-border-color-prominent: var(--elvt-alias-layout-border-muted, #f3f4f7);
+  --ifm-border-color-accent: var(--elvt-alias-layout-border-muted, #f3f4f7);
+
+  /* ELEVATE Semantic Colors */
+  --ifm-color-success: var(--elvt-primitives-color-green-500, #128c46);
+  --ifm-color-info: var(--elvt-primitives-color-blue-500, #0072ff);
+  --ifm-color-warning: var(--elvt-primitives-color-yellow-500, #f59e0b);
+  --ifm-color-danger: var(--elvt-primitives-color-red-500, #ef4444);
+
+  /* Text Colors using ELEVATE Content Alias Tokens */
+  --ifm-color-content: var(--elvt-alias-content-text-default, #3d4253);
+  --ifm-color-content-secondary: var(--elvt-alias-content-text-secondary, #5d6679);
+  --ifm-color-emphasis-300: var(--elvt-alias-content-text-muted, #707a8f);
+  --ifm-color-emphasis-500: var(--elvt-alias-content-text-subtle, #8891a0);
+  --ifm-color-emphasis-700: var(--elvt-primitives-color-gray-700, #4d5366);
+
+  /* Spacing using ELEVATE/Shoelace Spacing Tokens */
+  --ifm-spacing-horizontal: var(--sl-spacing-medium, 1rem);
+  --ifm-spacing-vertical: var(--sl-spacing-medium, 1rem);
+  --ifm-global-spacing: var(--sl-spacing-medium, 1rem);
+  --ifm-blockquote-padding-horizontal: var(--sl-spacing-large, 1.25rem);
+  --ifm-blockquote-padding-vertical: var(--sl-spacing-small, 0.75rem);
+  --ifm-table-cell-padding: var(--sl-spacing-small, 0.75rem);
+  --ifm-card-padding-horizontal: var(--sl-spacing-large, 1.25rem);
+  --ifm-card-padding-vertical: var(--sl-spacing-large, 1.25rem);
+
+  /* Border Radius using ELEVATE/Shoelace Radius Tokens */
+  --ifm-global-radius: var(--sl-border-radius-medium, 0.25rem);
+  --ifm-button-border-radius: var(--sl-border-radius-medium, 0.25rem);
+  --ifm-code-border-radius: var(--sl-border-radius-small, 0.1875rem);
+  --ifm-card-border-radius: var(--sl-border-radius-large, 0.5rem);
+
+  /* Shadows using ELEVATE/Shoelace Shadow Tokens */
+  --ifm-global-shadow-lw: var(--sl-shadow-x-small, 0 1px 2px hsl(240 3.8% 46.1% / 6%));
+  --ifm-global-shadow-md: var(--sl-shadow-small, 0 1px 2px hsl(240 3.8% 46.1% / 12%));
+  --ifm-global-shadow-tl: var(--sl-shadow-medium, 0 2px 4px hsl(240 3.8% 46.1% / 12%));
+  --ifm-dropdown-shadow: var(--sl-shadow-large, 0 2px 8px hsl(240 3.8% 46.1% / 12%));
+
+  /* Code Styling with ELEVATE Tokens */
+  --ifm-code-font-size: var(--elvt-type-measures-caption-size-m, 0.875rem);
+  --ifm-code-background: var(--elvt-primitives-color-gray-100, #d5d9e1);
+  --ifm-pre-background: var(--elvt-alias-layout-layer-elevated, #f8f9fb);
+  --docusaurus-highlighted-code-line-bg: var(--elvt-alias-layout-backdrop, rgba(0, 0, 0, 0.1));
+
+  /* Focus Ring using ELEVATE Tokens */
+  --ifm-focus-ring-color: var(--elvt-primitives-color-blue-500, #0072ff);
+  --ifm-focus-ring-width: 2px;
+}
+
+/* Dark theme with ELEVATE Alias Tokens */
+[data-theme='dark'] {
+  /* ELEVATE Dark Brand Colors - use brighter variants for dark theme */
+  --ifm-color-primary: var(--elvt-primitives-color-blue-400, #2a90ff);
+  --ifm-color-primary-dark: var(--elvt-primitives-color-blue-300, #5facff);
+  --ifm-color-primary-darker: var(--elvt-primitives-color-blue-200, #90c6ff);
+  --ifm-color-primary-darkest: var(--elvt-primitives-color-blue-100, #b9dbff);
+  --ifm-color-primary-light: var(--elvt-primitives-color-blue-500, #0072ff);
+  --ifm-color-primary-lighter: var(--elvt-primitives-color-blue-600, #0b5cdf);
+  --ifm-color-primary-lightest: var(--elvt-primitives-color-blue-700, #1b50a6);
+
+  /* ELEVATE Dark Semantic Colors */
+  --ifm-color-success: var(--elvt-primitives-color-green-400, #31a554);
+  --ifm-color-info: var(--elvt-primitives-color-blue-400, #2a90ff);
+  --ifm-color-warning: var(--elvt-primitives-color-yellow-400, #facc15);
+  --ifm-color-danger: var(--elvt-primitives-color-red-400, #f87171);
+
+  /* ELEVATE Dark Layout - Using specific gray primitives for visual hierarchy */
+  --ifm-background-color: var(--elvt-alias-layout-layer-appBackground, #111217);
+  --ifm-background-surface-color: var(--elvt-alias-layout-layer-appBackground, #111217);
+  --ifm-card-background-color: var(--elvt-alias-layout-layer-appBackground, #111217);
+  --ifm-sidebar-background-color: var(--elvt-primitives-color-gray-1000, #111217);
+  --ifm-navbar-background-color: var(--elvt-primitives-color-black, #000000);
+
+  /* Dark Border Colors - Unified using layout/border/muted */
+  --ifm-border-color: var(--elvt-alias-layout-border-muted, #4d5366);
+  --ifm-border-color-light: var(--elvt-alias-layout-border-muted, #4d5366);
+  --ifm-border-color-prominent: var(--elvt-alias-layout-border-muted, #4d5366);
+  --ifm-border-color-accent: var(--elvt-alias-layout-border-muted, #4d5366);
+
+  /* ELEVATE Dark Text Colors - Using alias tokens for consistent brighter text */
+  --ifm-color-content: var(--elvt-alias-content-text-default, #d5d9e1);
+  --ifm-color-content-secondary: var(--elvt-alias-content-text-secondary, #a3aab4);
+  --ifm-color-emphasis-300: var(--elvt-alias-content-text-muted, #8891a0);
+  --ifm-color-emphasis-500: var(--elvt-alias-content-text-subtle, #707a8f);
+  --ifm-color-emphasis-700: var(--elvt-alias-content-text-secondary, #a3aab4);
+
+  /* Dark Code Styling with ELEVATE Tokens - Better contrast */
+  --ifm-code-background: var(--elvt-primitives-color-gray-800, #3d4253);
+  --ifm-pre-background: var(--elvt-alias-layout-layer-elevated, #2f3240);
+  --docusaurus-highlighted-code-line-bg: var(--elvt-alias-layout-backdrop, rgba(255, 255, 255, 0.1));
+}
+
+/* Typography - Proper vertical rhythm and spacing for content headings */
+.markdown h1,
+.theme-doc-markdown h1 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.markdown h2,
+.theme-doc-markdown h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.markdown h3,
+.theme-doc-markdown h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.markdown h4,
+.theme-doc-markdown h4 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.markdown h5,
+.theme-doc-markdown h5 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.markdown h6,
+.theme-doc-markdown h6 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* First heading in content has reduced top margin */
+.markdown h2:first-child,
+.theme-doc-markdown h2:first-child,
+.markdown h3:first-child,
+.theme-doc-markdown h3:first-child {
+  margin-top: 0;
+}
+
+/* Proper paragraph spacing */
+.markdown p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Lists with proper spacing */
+.markdown ul,
+.markdown ol,
+.theme-doc-markdown ul,
+.theme-doc-markdown ol {
+  margin-bottom: 1rem;
+}
+
+.markdown li,
+.theme-doc-markdown li {
+  margin-bottom: 0.25rem;
+}
+
+/* Blockquotes with proper spacing */
+.markdown blockquote,
+.theme-doc-markdown blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 4px solid var(--ifm-color-primary-lightest);
+}
+
+/* Code blocks - Roboto Mono with 0.85rem font size and proper wrapping */
+.theme-code-block,
+.prism-code,
+pre,
+.markdown pre,
+.theme-doc-markdown pre,
+code[class*="language-"],
+pre[class*="language-"] {
+  font-family: "RobotoMono", "Roboto Mono", Consolas, "Liberation Mono", Menlo, monospace !important;
+  font-size: 0.85rem !important;
+  /* Enable word wrapping for better mobile experience */
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  /* Ensure horizontal scrolling doesn't break layout */
+  overflow-x: auto !important;
+  max-width: 100% !important;
+}
+
+/* Inline code */
+.markdown code,
+.theme-doc-markdown code,
+code:not([class*="language-"]) {
+  font-family: "RobotoMono", "Roboto Mono", Consolas, "Liberation Mono", Menlo, monospace !important;
+  font-size: 0.85rem !important;
+}
+
+/* Component integration styles for ELEVATE components */
+.elevate-component-showcase {
+  padding: var(--sl-spacing-large, 1.25rem);
+  border: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
+  border-radius: var(--sl-border-radius-large, 0.5rem);
+  background: var(--elvt-primitives-color-white, #ffffff);
+  margin: var(--sl-spacing-medium, 1rem) 0;
+}
+
+/* Override Infima navbar styling with ELEVATE theme */
+.navbar {
+  background: var(--elvt-primitives-color-white, #ffffff);
+  border-bottom: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
+  box-shadow: var(--sl-shadow-small, 0 1px 2px hsl(240 3.8% 46.1% / 12%));
+  padding: 0 var(--sl-spacing-medium, 1rem);
+}
+
+.navbar__brand {
+  margin-right: var(--sl-spacing-large, 1.25rem);
+}
+
+/* Logo container */
+.navbar__logo-container {
+  position: relative;
+  margin-right: 0;
+  padding: 0 0.25rem 0 0;
+}
+
+.navbar__logo {
+  display: block;
+}
+
+/* Show light logo by default, hide dark logo */
+.navbar__logo--light {
+  display: block;
+}
+
+.navbar__logo--dark {
+  display: none;
+}
+
+/* In dark mode: hide light logo, show dark logo */
+[data-theme='dark'] .navbar__logo--light {
+  display: none;
+}
+
+[data-theme='dark'] .navbar__logo--dark {
+  display: block;
+}
+
+/* Fix navbar brand link to not inherit link colors */
+.navbar__brand {
+  margin-right: var(--sl-spacing-large, 1.25rem);
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar__brand:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Style the navbar title - Docusaurus way with swizzled component */
+.navbar__title {
+  font-family: var(--elvt-type-alias-default-title-m-font-family, "Inter");
+  font-weight: var(--elvt-type-alias-default-title-m-font-weight, 600);
+  color: var(--elvt-primitives-color-gray-800, #3d4253);
+  font-size: 1.375rem;
+  padding-right: 2rem;
+  margin-top: 0.15rem;
+}
+
+.navbar__title strong {
+  font-weight: var(--elvt-type-alias-default-title-m-font-weight, 700);
+  color: inherit;
+}
+
+/* Dark theme navbar - Using black for header */
+[data-theme='dark'] .navbar {
+  background: var(--elvt-primitives-color-black, #000000);
+  border-bottom: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
+}
+
+[data-theme='dark'] .navbar__title {
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
+}
+
+[data-theme='dark'] .navbar__title strong {
+  color: inherit;
+}
+
+/* Footer styling - Override Docusaurus footer background using CSS variables */
+:root {
+  --ifm-footer-background-color: var(--elvt-primitives-color-white, #ffffff);
+  --ifm-footer-color: var(--elvt-primitives-color-gray-700, #4d5366);
+}
+
+[data-theme='dark'] {
+  --ifm-footer-background-color: var(--elvt-primitives-color-black, #000000);
+  --ifm-footer-color: var(--elvt-primitives-color-gray-200, #bec3cd);
+}
+
+/* Additional footer styling */
+.footer {
+  border-top: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
+}
+
+[data-theme='dark'] .footer {
+  border-top: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
+}
+
+/* Footer logo - ensure proper display in both modes */
+.footer__logo {
+  display: block;
+}
+
+/* In light mode, use normal logo (footer is now light) */
+.footer__logo img {
+  filter: none;
+}
+
+/* In dark mode, use the dark version of logo */
+[data-theme='dark'] .footer__logo img {
+  filter: invert(1) brightness(1);
+}
+
+/* Footer links styling */
+.footer__link-item {
+  color: var(--elvt-primitives-color-gray-600, #5d6679);
+}
+
+.footer__link-item:hover {
+  color: var(--elvt-primitives-color-primary, #0072ff);
+}
+
+.footer__title {
+  color: var(--elvt-primitives-color-gray-800, #3d4253);
+}
+
+.footer__copyright {
+  color: var(--elvt-primitives-color-gray-600, #5d6679);
+}
+
+/* Dark mode footer links styling */
+[data-theme='dark'] .footer__link-item {
+  color: var(--elvt-primitives-color-gray-300, #a3aab4);
+}
+
+[data-theme='dark'] .footer__link-item:hover {
+  color: var(--elvt-primitives-color-white, #ffffff);
+}
+
+[data-theme='dark'] .footer__title {
+  color: var(--elvt-primitives-color-white, #ffffff);
+}
+
+[data-theme='dark'] .footer__copyright {
+  color: var(--elvt-primitives-color-gray-400, #8c95a5);
+}
+
+/* Prevent links from breaking lines - universal fix for navbar and footer */
+.navbar__item,
+.footer__link-item {
+  white-space: nowrap;
+}
+
+.navbar__link,
+.footer__link-item a,
+.footer__link-item {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Fix specific link icon behaviors - prevent line breaks between text and icons */
+.footer__link-item a {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.footer__link-item a svg,
+.footer__link-item svg {
+  margin-left: 0.25rem;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+/* External link icons */
+a[href*="github.com"]::after,
+a[href^="http"]::after,
+.external-link::after {
+  white-space: nowrap;
+  margin-left: 0.25rem;
+  flex-shrink: 0;
+}
+
+/* Fix dark/light mode toggle icon colors */
+.colorModeToggle_DEke {
+  color: var(--elvt-primitives-color-gray-600, #5d6679);
+}
+
+[data-theme='dark'] .colorModeToggle_DEke {
+  color: var(--elvt-primitives-color-gray-300, #a3aab4);
+}
+
+/* Alternative selector for color mode toggle */
+[class*="colorModeToggle"] {
+  color: var(--elvt-primitives-color-gray-600, #5d6679);
+}
+
+[data-theme='dark'] [class*="colorModeToggle"] {
+  color: var(--elvt-primitives-color-gray-300, #a3aab4);
+}
+
+/* Fix burger menu icon colors */
+.navbar__toggle {
+  color: var(--elvt-primitives-color-gray-600, #5d6679);
+}
+
+[data-theme='dark'] .navbar__toggle {
+  color: var(--elvt-primitives-color-gray-300, #a3aab4);
+}
+
+/* Target burger menu lines specifically */
+.navbar__toggle svg,
+[class*="toggleButton"] svg {
+  color: var(--elvt-primitives-color-gray-600, #5d6679);
+  fill: currentColor;
+}
+
+[data-theme='dark'] .navbar__toggle svg,
+[data-theme='dark'] [class*="toggleButton"] svg {
+  color: var(--elvt-primitives-color-gray-300, #a3aab4);
+  fill: currentColor;
+}
+
+/* Responsive navbar styling */
+@media screen and (max-width: 996px) {
+  .navbar__logo {
+    padding: 0 0.25rem;
+    margin-right: 0.5rem;
+  }
+  
+  .navbar__title {
+    font-size: 1rem;
+  }
+}
+
+/* Hide main navbar menu between tablet and desktop breakpoints */
+@media screen and (max-width: 1179px) {
+  /* Hide all left navigation items except the hamburger menu */
+  .navbar__items--left .navbar__item:not(.navbar__toggle),
+  .navbar__items--left .navbar__link,
+  .navbar__items .navbar__item:not(.navbar__toggle):not(.dropdown) {
+    display: none !important;
+  }
+}
+
+/* Show hamburger menu only when sidebar is hidden (matches Docusaurus breakpoint) */
+@media screen and (max-width: 996px) {
+  /* Keep the hamburger menu visible */
+  .navbar__toggle {
+    display: flex !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar__title {
+    font-size: 0.9rem;
+  }
+  
+  /* Hide "Design System" text on mobile, keep only "ELEVATE" */
+  .navbar__title {
+    visibility: visible;
+  }
+}
+
+/* Hide INFORM logo in mobile off-canvas menu */
+.navbar-sidebar .navbar__brand .navbar__logo-container,
+.navbar-sidebar__backdrop .navbar__brand .navbar__logo-container,
+[class*="navbarSidebar"] .navbar__brand .navbar__logo-container,
+.menu .navbar__brand .navbar__logo-container {
+  display: none !important;
+}
+
+/* Also hide the logo from any mobile menu variants */
+@media screen and (max-width: 996px) {
+  .navbar-sidebar .navbar__logo-container,
+  [class*="mobile"] .navbar__logo-container {
+    display: none !important;
+  }
+}
+
+/* Fix hero section colors in dark mode */
+.hero--primary {
+  background: var(--ifm-background-color);
+}
+
+[data-theme='dark'] .hero--primary {
+  background: linear-gradient(135deg, var(--elvt-alias-layout-layer-appBackground, #111217) 0%, var(--elvt-alias-layout-layer-default, #1f212b) 100%);
+}
+
+/* Ensure ELEVATE buttons work properly in both themes */
+elvt-button {
+  font-family: var(--elvt-type-alias-default-content-m-font-family, "Inter");
+  /* Fix scrollbar issue: prevent overflow and ensure proper height */
+  overflow: visible !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure button content doesn't cause overflow */
+elvt-button *,
+elvt-button::part(base),
+elvt-button::part(label) {
+  overflow: visible !important;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Fix Docusaurus skip-to-content fallback div height */
+#__docusaurus_skipToContent_fallback {
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Fix any remaining text color issues */
+.hero__title, .hero__subtitle, h1, h2, h3, h4, h5, h6 {
+  color: var(--ifm-color-content) !important;
+}
+
+[data-theme='dark'] .hero__subtitle {
+  color: var(--elvt-alias-content-text-secondary, #a3aab4) !important;
+}
+
+/* Main content area dark mode fixes - Using gray-950 for content */
+.main-wrapper {
+  background: var(--ifm-background-color);
+}
+
+[data-theme='dark'] .main-wrapper {
+  background: var(--elvt-primitives-color-gray-950, #1f212b);
+}
+
+/* Documentation content styling */
+.markdown {
+  color: var(--ifm-color-content);
+}
+
+.markdown p {
+  margin-bottom: 1rem;
+}
+
+[data-theme='dark'] .markdown {
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
+}
+
+/* Sidebar width reduction - 80% of default */
+:root {
+  --doc-sidebar-width: 240px; /* 80% of default ~300px */
+  --ifm-sidebar-width: 240px; /* Override Docusaurus default sidebar width */
+}
+
+/* Sidebar dark mode */
+.theme-doc-sidebar-container {
+  background: var(--ifm-background-surface-color);
+  border-right: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-container {
+  background: var(--elvt-primitives-color-gray-1000, #111217);
+  border-right: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
+}
+
+/* Apply sidebar width reduction only on desktop */
+@media (min-width: 997px) {
+  .theme-doc-sidebar-container {
+    width: var(--doc-sidebar-width);
+  }
+  
+  [data-theme='dark'] .theme-doc-sidebar-container {
+    width: var(--doc-sidebar-width);
+  }
+  
+  /* Fix sidebar content positioning to avoid clipping under navbar - but not in responsive mode */
+  .theme-doc-sidebar {
+    height: calc(100vh - var(--ifm-navbar-height, 60px));
+    position: sticky;
+    top: var(--ifm-navbar-height, 60px);
+  }
+}
+
+/* Sidebar menu items */
+.theme-doc-sidebar-item-link {
+  color: var(--ifm-color-content);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-item-link {
+  color: var(--elvt-alias-content-text-secondary, #bec3cd);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-item-link:hover {
+  color: var(--elvt-primitives-color-blue-300, #5facff);
+  background: var(--elvt-primitives-color-gray-800, #3d4253);
+}
+
+/* Active sidebar item */
+.theme-doc-sidebar-item-link--active {
+  color: var(--ifm-color-primary);
+  background: var(--elvt-primitives-color-blue-50, #eff6ff);
+}
+
+[data-theme='dark'] .theme-doc-sidebar-item-link--active {
+  color: var(--elvt-primitives-color-blue-300, #5facff);
+  background: var(--elvt-primitives-color-gray-800, #3d4253);
+}
+
+/* Content area */
+.theme-doc-markdown {
+  background: var(--ifm-background-color);
+}
+
+[data-theme='dark'] .theme-doc-markdown {
+  background: var(--elvt-primitives-color-gray-950, #1f212b);
+}
+
+/* Fix content boxes to match content area background */
+.theme-doc-markdown .markdown > div,
+.theme-doc-markdown .markdown pre,
+.theme-doc-markdown .markdown blockquote,
+.theme-doc-markdown .markdown .theme-code-block,
+.theme-doc-markdown .markdown .card,
+.theme-doc-markdown .markdown .item,
+.theme-doc-markdown .markdown .container,
+.docusaurus-highlight-code-line,
+article {
+  background: var(--ifm-background-color) !important;
+}
+
+[data-theme='dark'] .theme-doc-markdown .markdown > div,
+[data-theme='dark'] .theme-doc-markdown .markdown pre,
+[data-theme='dark'] .theme-doc-markdown .markdown blockquote,
+[data-theme='dark'] .theme-doc-markdown .markdown .theme-code-block,
+[data-theme='dark'] .theme-doc-markdown .markdown .card,
+[data-theme='dark'] .theme-doc-markdown .markdown .item,
+[data-theme='dark'] .theme-doc-markdown .markdown .container,
+[data-theme='dark'] .docusaurus-highlight-code-line,
+[data-theme='dark'] article {
+  background: var(--elvt-primitives-color-gray-950, #1f212b) !important;
+}
+
+/* Ensure code blocks have proper contrast backgrounds */
+.theme-code-block,
+.prism-code {
+  background: var(--ifm-background-surface-color) !important;
+}
+
+[data-theme='dark'] .theme-code-block,
+[data-theme='dark'] .prism-code {
+  background: var(--elvt-primitives-color-gray-1000, #111217) !important;
+}
+
+/* Fix any remaining white content containers */
+.theme-doc-markdown .markdown .elevate-component-showcase,
+.theme-doc-markdown .markdown .component-showcase,
+.theme-doc-markdown .markdown .design-token-table {
+  background: var(--ifm-background-color) !important;
+  border: 1px solid var(--elvt-alias-layout-border-muted, #f3f4f7);
+}
+
+[data-theme='dark'] .theme-doc-markdown .markdown .elevate-component-showcase,
+[data-theme='dark'] .theme-doc-markdown .markdown .component-showcase,
+[data-theme='dark'] .theme-doc-markdown .markdown .design-token-table {
+  background: var(--elvt-primitives-color-gray-950, #1f212b) !important;
+  border: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
+}
+
+/* Code blocks in documentation - Using gray-1000 for contrast */
+[data-theme='dark'] .prism-code {
+  background: var(--elvt-primitives-color-gray-1000, #111217) !important;
+}
+
+[data-theme='dark'] .token.comment,
+[data-theme='dark'] .token.prolog,
+[data-theme='dark'] .token.doctype,
+[data-theme='dark'] .token.cdata {
+  color: var(--elvt-alias-content-text-muted, #8891a0);
+}
+
+/* Inline code - Better contrast */
+[data-theme='dark'] code {
+  background: var(--elvt-primitives-color-gray-800, #3d4253) !important;
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
+  border: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
+}
+
+/* ========================================
+   UNIFIED TABLE STYLING (Markdown & Components)
+   ======================================== */
+
+/* Base table styling - applies to all Markdown tables */
+.markdown table,
+.theme-doc-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--ifm-font-size-sm);
+  margin: 1rem 0;
+  border: none; /* Remove top border */
+}
+
+/* Table headers - consistent styling for light/dark mode */
+.markdown thead tr,
+.theme-doc-markdown thead tr {
+  background: var(--ifm-table-head-background);
+  border-bottom: 2px solid var(--ifm-table-border-color);
+  border-top: none; /* Remove top border */
+}
+
+.markdown th,
+.theme-doc-markdown th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: var(--ifm-font-weight-semibold);
+  color: var(--ifm-table-head-color);
+  border: none; /* Remove vertical borders */
+}
+
+/* Table body rows - only bottom borders */
+.markdown tbody tr,
+.theme-doc-markdown tbody tr {
+  border-bottom: 1px solid var(--ifm-table-border-color);
+}
+
+.markdown td,
+.theme-doc-markdown td {
+  padding: 0.75rem 1rem;
+  border: none; /* Remove vertical borders */
+  color: var(--ifm-table-cell-color);
+  vertical-align: middle;
+}
+
+/* Code elements in tables - consistent styling */
+.markdown td code,
+.theme-doc-markdown td code,
+.markdown th code,
+.theme-doc-markdown th code {
+  font-size: 0.875rem;
+  background: var(--ifm-code-background);
+  color: var(--ifm-code-color);
+  padding: 0.125rem 0.25rem;
+  border-radius: 3px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+/* Dark theme table styling */
+[data-theme='dark'] .markdown table,
+[data-theme='dark'] .theme-doc-markdown table {
+  border-color: var(--elvt-alias-layout-border-muted, #4d5366);
+}
+
+[data-theme='dark'] .markdown thead tr,
+[data-theme='dark'] .theme-doc-markdown thead tr {
+  background: var(--ifm-table-head-background);
+  border-bottom-color: var(--ifm-table-border-color);
+}
+
+[data-theme='dark'] .markdown tbody tr,
+[data-theme='dark'] .theme-doc-markdown tbody tr {
+  border-bottom-color: var(--ifm-table-border-color);
+}
+
+[data-theme='dark'] .markdown td,
+[data-theme='dark'] .markdown th,
+[data-theme='dark'] .theme-doc-markdown td,
+[data-theme='dark'] .theme-doc-markdown th {
+  border: none;
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
+}
+
+/* Ensure table theme variables are defined */
+:root {
+  --ifm-table-head-background: var(--elvt-primitives-color-gray-100, #d5d9e1);
+  --ifm-table-head-color: var(--elvt-alias-content-text-primary, #3d4253);
+  --ifm-table-border-color: var(--elvt-primitives-color-gray-300, #a3aab4);
+  --ifm-table-cell-color: var(--elvt-alias-content-text-primary, #3d4253);
+}
+
+[data-theme='dark'] {
+  --ifm-table-head-background: var(--elvt-primitives-color-gray-700, #4d5366);
+  --ifm-table-head-color: var(--elvt-alias-content-text-default, #d5d9e1);
+  --ifm-table-border-color: var(--elvt-alias-layout-border-muted, #4d5366);
+  --ifm-table-cell-color: var(--elvt-alias-content-text-default, #d5d9e1);
+}
+
+/* Admonitions (note, tip, warning, etc.) */
+[data-theme='dark'] .alert {
+  border-left-color: var(--elvt-alias-layout-border-prominent, #707a8f);
+  background: var(--elvt-primitives-color-gray-1000, #111217);
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
+}
+
+[data-theme='dark'] .alert--info {
+  border-left-color: var(--elvt-primitives-color-blue-400, #2a90ff);
+  background: rgba(42, 144, 255, 0.1);
+}
+
+[data-theme='dark'] .alert--warning {
+  border-left-color: var(--elvt-primitives-color-yellow-400, #facc15);
+  background: rgba(250, 204, 21, 0.1);
+}
+
+[data-theme='dark'] .alert--danger {
+  border-left-color: var(--elvt-primitives-color-red-400, #f87171);
+  background: rgba(248, 113, 113, 0.1);
+}
+
+[data-theme='dark'] .alert--success {
+  border-left-color: var(--elvt-primitives-color-green-400, #31a554);
+  background: rgba(49, 165, 84, 0.1);
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.breadcrumbs__item {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.breadcrumbs__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+
+/* Fix breadcrumb home icon vertical alignment */
+.breadcrumbs__link svg,
+.breadcrumbs__item svg {
+  vertical-align: middle;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+[data-theme='dark'] .breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
+}
+
+[data-theme='dark'] .breadcrumbs__link {
+  color: var(--elvt-alias-content-text-muted, #8891a0);
+}
+
+/* Search */
+[data-theme='dark'] .navbar__search-input {
+  background: var(--elvt-primitives-color-gray-800, #3d4253);
+  border: 1px solid var(--elvt-alias-layout-border-muted, #4d5366);
+  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+}
+
+[data-theme='dark'] .navbar__search-input::placeholder {
+  color: var(--elvt-primitives-color-gray-400, #8c95a5);
+}
+
+/* Pagination */
+[data-theme='dark'] .pagination-nav__label {
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
+}
+
+[data-theme='dark'] .pagination-nav__sublabel {
+  color: var(--elvt-alias-content-text-muted, #8891a0);
+}
+
+[data-theme='dark'] .pagination-nav__link {
+  border-color: var(--elvt-alias-layout-border-muted, #4d5366);
+  background: var(--elvt-primitives-color-gray-900, #2f3240);
+}
+
+[data-theme='dark'] .pagination-nav__link:hover {
+  border-color: var(--elvt-primitives-color-blue-400, #2a90ff);
+  background: var(--elvt-primitives-color-gray-800, #3d4253);
+}
+
+/* =======================================================================
+   ELEVATE COMPONENT ISOLATION
+   ======================================================================= */
+
+/* Isolate ELEVATE components from Docusaurus typography inheritance */
+elvt-card *, elvt-card *::before, elvt-card *::after {
+  /* Reset font-family to Inter for ELEVATE components only */
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Home page custom styles */
+.elvt-path-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.elvt-path-card {
+  border: 1px solid var(--elvt-border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.elvt-path-card:hover {
+  box-shadow: var(--ifm-global-shadow-md);
+  border-color: var(--ifm-color-primary-light);
+}
+
+.elvt-path-card h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.elvt-path-card--primary h4 {
+  color: var(--ifm-color-primary);
+}
+
+.elvt-path-card--success h4 {
+  color: var(--ifm-color-success);
+}
+
+.elvt-path-card--purple h4 {
+  color: #8b5cf6;
+}
+
+.elvt-path-card a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.elvt-path-card a:hover {
+  text-decoration: underline;
+}
+
+/* Statistics grid */
+.elvt-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.elvt-stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.elvt-stat-number--primary {
+  color: var(--ifm-color-primary);
+}
+
+.elvt-stat-number--success {
+  color: var(--ifm-color-success);
+}
+
+.elvt-stat-number--warning {
+  color: #f59e0b;
+}
+
+.elvt-stat-number--error {
+  color: var(--ifm-color-danger);
+}
+
+.elvt-stat-label {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.9rem;
+}
+
+/* Action buttons */
+.elvt-action-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.elvt-button-primary {
+  background: var(--ifm-color-primary);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+}
+
+.elvt-button-primary:hover {
+  background: var(--ifm-color-primary-dark);
+  color: white;
+  text-decoration: none;
+}
+
+.elvt-button-secondary {
+  border: 1px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+}
+
+.elvt-button-secondary:hover {
+  background: var(--ifm-color-primary);
+  color: white;
+  text-decoration: none;
+}
+
+.elvt-button-tertiary {
+  color: var(--ifm-color-emphasis-600);
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+
+.elvt-button-tertiary:hover {
+  color: var(--ifm-color-emphasis-800);
+  text-decoration: none;
+}
+
+/* Components page styles */
+.elvt-component-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.elvt-component-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--elvt-alias-layout-layer-default, #ffffff);
+  border: 1px solid var(--elvt-alias-layout-border-muted, #e1e5e9);
+  border-radius: var(--elvt-alias-border-radius-medium, 8px);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.elvt-component-card:hover {
+  background: var(--elvt-alias-layout-layer-elevated, #f8f9fb);
+  border-color: var(--elvt-primitives-color-blue-200, #90c6ff);
+  text-decoration: none;
+  color: inherit;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.elvt-component-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 0.125rem;
+}
+
+.elvt-component-info {
+  flex: 1;
+}
+
+.elvt-component-info h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--elvt-alias-content-text-primary, #2f3240);
+}
+
+.elvt-component-info p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--elvt-alias-content-text-secondary, #6b7280);
+}
+
+/* Dark theme overrides for component cards */
+[data-theme='dark'] .elvt-component-card {
+  background: var(--elvt-alias-layout-layer-default, #1f2937);
+  border-color: var(--elvt-alias-layout-border-muted, #374151);
+}
+
+[data-theme='dark'] .elvt-component-card:hover {
+  background: var(--elvt-alias-layout-layer-elevated, #374151);
+  border-color: var(--elvt-primitives-color-blue-600, #0b5cdf);
+}
+
+[data-theme='dark'] .elvt-component-info h4 {
+  color: var(--elvt-alias-content-text-primary, #f9fafb);
+}
+
+[data-theme='dark'] .elvt-component-info p {
+  color: var(--elvt-alias-content-text-secondary, #d1d5db);
+}
+
+/* Reset typography for ELEVATE Card content specifically */
+elvt-card h1, elvt-card h2, elvt-card h3, elvt-card h4, elvt-card h5, elvt-card h6 {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Hide the Docusaurus TOC column completely */
+.theme-doc-toc-desktop,
+.table-of-contents,
+.theme-doc-toc-mobile,
+[class*="tableOfContents"],
+[class*="tocCollapsible"] {
+  display: none !important;
+}
+
+/* Hide the entire TOC column div */
+.col.col--3:has([class*="tableOfContents"]),
+.col.col--3:has(.theme-doc-toc-desktop),
+.row > .col:last-child:has([class*="tableOfContents"]) {
+  display: none !important;
+}
+
+/* Alternative selector for browsers that don't support :has() */
+.row > .col:last-child {
+  display: none !important;
+}
+
+/* Show the last column only if it doesn't contain TOC */
+.row > .col:last-child:not(:has([class*="tableOfContents"])):not(:has(.theme-doc-toc-desktop)) {
+  display: block !important;
+}
+
+/* Fallback: Hide col--3 specifically */
+.col--3 {
+  display: none !important;
+}
+
+/* Expand the main content column to take full width */
+.row > .col:first-child,
+.row > .col:not(:last-child) {
+  flex: 1 !important;
+  max-width: 100% !important;
+}
+
+/* Expand the main content area to use the full width */
+.main-wrapper .container {
+  max-width: none !important;
+}
+
+.main-wrapper .row {
+  --ifm-col-width: 100% !important;
+}
+
+/* Ensure the content area takes full width without TOC */
+.theme-doc-markdown {
+  max-width: none !important;
+}
+
+/* Remove the TOC column grid layout */
+@media (min-width: 997px) {
+  .theme-doc-markdown.markdown {
+    max-width: none !important;
+    width: 100% !important;
+  }
+  
+  /* Target the row div - remove max-width and add left margin */
+  .row {
+    max-width: none !important;
+    margin-left: 3rem !important;
+  }
+  
+  /* Remove TOC spacing calculations */
+  .theme-doc-markdown {
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* Specific fixes for different heading levels in ELEVATE cards */
+elvt-card h1 { font-size: 1.75rem; }
+elvt-card h2 { font-size: 1.5rem; }
+elvt-card h3 { font-size: 1.25rem; }
+elvt-card h4 { font-size: 1.125rem; }
+elvt-card h5 { font-size: 1rem; }
+elvt-card h6 { font-size: 0.875rem; }
+
+/* Header customizations removed - back to Docusaurus default */
+
+/* Header background system removed - prioritizing correct ELEVATE component rendering */
+
+/* Increase bottom margin of H1 by 3.5rem */
+.theme-doc-markdown h1:first-child {
+  margin-bottom: calc(var(--ifm-h1-margin-bottom, 1rem) + 3.5rem) !important;
+}
+
+/* Hide /docs/ds navbar item (works for both local and GitHub Pages) */
+.navbar__link[href="/docs/ds"],
+.navbar__link[href="/elevate-ds/docs/ds"] {
+  display: none !important;
+}
+
+/* Enhanced code block responsiveness for mobile devices */
+@media screen and (max-width: 768px) {
+  .theme-code-block,
+  .prism-code,
+  pre,
+  .markdown pre,
+  .theme-doc-markdown pre,
+  code[class*="language-"],
+  pre[class*="language-"] {
+    /* More aggressive wrapping on mobile */
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+    overflow-wrap: anywhere !important;
+    /* Reduce padding on mobile for more content space */
+    padding: 0.75rem !important;
+    /* Ensure code blocks don't overflow containers */
+    max-width: calc(100vw - 2rem) !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Ensure code containers don't overflow */
+  .theme-code-block-highlighted-line,
+  .code-block-error-line,
+  .code-block-added-line,
+  .code-block-removed-line {
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+  }
+}
+
+

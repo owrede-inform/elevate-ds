@@ -1,13 +1,23 @@
 {
   "component": "elvt-popup",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-13T18:14:56.490Z",
+  "lastUpdated": "2025-08-16T20:51:23.729Z",
   "changelog": [
     {
       "version": "0.0.28-alpha",
       "date": "2025-08-11",
       "type": "minor",
       "changes": [
+        {
+          "type": "feature",
+          "title": "Implement DropDown Component",
+          "description": "Added implement dropdown component",
+          "commit": "a4e1f06",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/a4e1f06a4a98e9999df43c9edf451b7ab9451a13"
+        },
         {
           "type": "feature",
           "title": "Add Popup Component",
@@ -40,9 +50,9 @@
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "c4191c7d916b821285aba01318bde5f7c34d74f9",
+    "lastCommit": "a4e1f06a4a98e9999df43c9edf451b7ab9451a13",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "1/1"
+    "filteredCommits": "2/2"
   }
 }

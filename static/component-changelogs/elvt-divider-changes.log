@@ -1,11 +1,11 @@
 # Changelog Generation Log for elvt-divider
-# Generated: 2025-08-13T18:14:29.109Z
+# Generated: 2025-08-16T20:50:53.436Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 31
-Included commits: 3
-Excluded commits: 11
+Included commits: 14
+Excluded commits: 0
 Uncertain commits: 0
 
 ## Detailed Log
@@ -16,17 +16,17 @@ INFO: Found 14 total commits from GitHub API
 
 DEBUG: Evaluating commit: "chore: Update Elevate Designs Token Package Version and Update Tokens..."
 
-EXCLUDE: "chore: Update Elevate Designs Token Package Version and Update Tokens..." (Build/Release)
+INCLUDE: "chore: Update Elevate Designs Token Package Version and Update Tokens..." (Design/Visual changes)
   → Commit: cd3a237
-  → Reason: Build/Release
-  → Pattern: /build|deploy|release|publish|version/
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "Chore/update design tokens 0.13.1..."
 
-EXCLUDE: "Chore/update design tokens 0.13.1..." (Generic token update)
+INCLUDE: "Chore/update design tokens 0.13.1..." (Design/Visual changes)
   → Commit: 3ea7125
-  → Reason: Generic token update
-  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "feat: Add CSS Properties for Divider..."
 
@@ -44,10 +44,10 @@ INCLUDE: "feat: Add Slots to Divider Component..." (Short component name)
 
 DEBUG: Evaluating commit: "docs: Consolidate Divider Content Story..."
 
-EXCLUDE: "docs: Consolidate Divider Content Story..." (Documentation)
+INCLUDE: "docs: Consolidate Divider Content Story..." (Short component name)
   → Commit: e619db5
-  → Reason: Documentation
-  → Pattern: /docs|documentation|readme|changelog/
+  → Reason: Short component name
+  → Pattern: /\bdivider\b/i
 
 DEBUG: Evaluating commit: "feat: Allow Content in Divider..."
 
@@ -58,58 +58,58 @@ INCLUDE: "feat: Allow Content in Divider..." (Short component name)
 
 DEBUG: Evaluating commit: "refactor: Rename ComponentSize to Size ..."
 
-EXCLUDE: "refactor: Rename ComponentSize to Size ..." (Generic refactoring)
+INCLUDE: "refactor: Rename ComponentSize to Size ..." (Component-related)
   → Commit: ab26ae6
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "chore: Update Design Tokens..."
 
-EXCLUDE: "chore: Update Design Tokens..." (Generic token update)
+INCLUDE: "chore: Update Design Tokens..." (Design/Visual changes)
   → Commit: 89c6926
-  → Reason: Generic token update
-  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "docs: Update Divider Stability..."
 
-EXCLUDE: "docs: Update Divider Stability..." (Documentation)
+INCLUDE: "docs: Update Divider Stability..." (Short component name)
   → Commit: d9f573d
-  → Reason: Documentation
-  → Pattern: /docs|documentation|readme|changelog/
+  → Reason: Short component name
+  → Pattern: /\bdivider\b/i
 
 DEBUG: Evaluating commit: "fix: Export Table Types..."
 
-EXCLUDE: "fix: Export Table Types..." (Table component)
+INCLUDE: "fix: Export Table Types..." (Bug fixes)
   → Commit: 8ab9caf
-  → Reason: Table component
-  → Pattern: /table(?!\s+\w*component)/
+  → Reason: Bug fixes
+  → Pattern: /^fix|^bug|resolve|correct|patch/
 
 DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
 
-EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+INCLUDE: "feat(build): Update to Storybook 9..." (New features)
   → Commit: c983425
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
 
-EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+INCLUDE: "refactor: Use Web Component Decorator from CDK..." (Component-related)
   → Commit: 0b7f502
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "feat: Refactor Divider, Implement Component Design, Remove Shoelace..."
 
-EXCLUDE: "feat: Refactor Divider, Implement Component Design, Remove Shoelace..." (Generic refactoring)
+INCLUDE: "feat: Refactor Divider, Implement Component Design, Remove Shoelace..." (Short component name)
   → Commit: 53c8e82
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Short component name
+  → Pattern: /\bdivider\b/i
 
 DEBUG: Evaluating commit: "refactor: Flatten Components File Structure..."
 
-EXCLUDE: "refactor: Flatten Components File Structure..." (Generic refactoring)
+INCLUDE: "refactor: Flatten Components File Structure..." (Component-related)
   → Commit: 36e7dd6
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
-INFO: Filtered from 14 to 3 relevant commits
+INFO: Filtered from 14 to 14 relevant commits

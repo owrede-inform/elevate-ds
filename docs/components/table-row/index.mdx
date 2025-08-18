@@ -1,0 +1,332 @@
+---
+title: Table Row
+description: Table row component that groups table cells and provides row-level functionality like selection and interaction.
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Table Row
+
+Table rows group table cells together and provide row-level functionality such as selection, hover states, and semantic organization of tabular data.
+
+## Usage Guidelines
+
+### When to Use
+- **Data organization** - To group related cells into logical rows
+- **Row interactions** - When rows need selection, hover, or click behavior
+- **Semantic structure** - To maintain proper table accessibility
+- **Row styling** - When specific row styling or states are needed
+
+### When Not to Use
+- **Non-tabular content** - Use other layout components for non-table data
+- **Single row displays** - Consider cards or lists for standalone content
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Table Rows"
+  description="Table rows organizing cells into logical groups"
+  code={`<elvt-table>
+  <elvt-table-row slot="head">
+    <elvt-table-cell header>Name</elvt-table-cell>
+    <elvt-table-cell header>Position</elvt-table-cell>
+    <elvt-table-cell header>Department</elvt-table-cell>
+  </elvt-table-row>
+  <elvt-table-row>
+    <elvt-table-cell>Alice Johnson</elvt-table-cell>
+    <elvt-table-cell>Senior Developer</elvt-table-cell>
+    <elvt-table-cell>Engineering</elvt-table-cell>
+  </elvt-table-row>
+  <elvt-table-row>
+    <elvt-table-cell>Bob Smith</elvt-table-cell>
+    <elvt-table-cell>Product Manager</elvt-table-cell>
+    <elvt-table-cell>Product</elvt-table-cell>
+  </elvt-table-row>
+</elvt-table>`}
+>
+  <elvt-table>
+    <elvt-table-row slot="head">
+      <elvt-table-cell header>Name</elvt-table-cell>
+      <elvt-table-cell header>Position</elvt-table-cell>
+      <elvt-table-cell header>Department</elvt-table-cell>
+    </elvt-table-row>
+    <elvt-table-row>
+      <elvt-table-cell>Alice Johnson</elvt-table-cell>
+      <elvt-table-cell>Senior Developer</elvt-table-cell>
+      <elvt-table-cell>Engineering</elvt-table-cell>
+    </elvt-table-row>
+    <elvt-table-row>
+      <elvt-table-cell>Bob Smith</elvt-table-cell>
+      <elvt-table-cell>Product Manager</elvt-table-cell>
+      <elvt-table-cell>Product</elvt-table-cell>
+    </elvt-table-row>
+  </elvt-table>
+</ComponentShowcase>
+
+## Component API
+
+### Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `selected` | `boolean` | `false` | Whether the row is selected |
+| `disabled` | `boolean` | `false` | Whether the row is disabled |
+| `clickable` | `boolean` | `false` | Whether the row responds to clicks |
+| `variant` | `'default' \| 'highlighted' \| 'danger'` | `'default'` | Row visual variant |
+| `index` | `number` | - | Row index for programmatic reference |
+
+### Events
+
+| Event | Description |
+|-------|-------------|
+| `elvt-row-click` | Fired when a clickable row is clicked |
+| `elvt-row-select` | Fired when row selection changes |
+
+### CSS Custom Properties
+
+| Property | Description |
+|----------|-------------|
+| `--table-row-background` | Background color of the row |
+| `--table-row-border` | Border styling for the row |
+| `--table-row-hover-background` | Background color on hover |
+| `--table-row-selected-background` | Background color when selected |
+
+## Examples
+
+### Selectable Rows
+
+<ComponentShowcase
+  title="Selectable Table Rows"
+  description="Table rows with selection functionality"
+  code={`<elvt-table>
+  <elvt-table-row slot="head">
+    <elvt-table-cell header>Select</elvt-table-cell>
+    <elvt-table-cell header>Task</elvt-table-cell>
+    <elvt-table-cell header>Priority</elvt-table-cell>
+    <elvt-table-cell header>Status</elvt-table-cell>
+  </elvt-table-row>
+  <elvt-table-row selected>
+    <elvt-table-cell>
+      <elvt-checkbox checked></elvt-checkbox>
+    </elvt-table-cell>
+    <elvt-table-cell>Update user documentation</elvt-table-cell>
+    <elvt-table-cell>High</elvt-table-cell>
+    <elvt-table-cell>
+      <elvt-badge variant="success">Complete</elvt-badge>
+    </elvt-table-cell>
+  </elvt-table-row>
+  <elvt-table-row>
+    <elvt-table-cell>
+      <elvt-checkbox></elvt-checkbox>
+    </elvt-table-cell>
+    <elvt-table-cell>Fix login bug</elvt-table-cell>
+    <elvt-table-cell>Critical</elvt-table-cell>
+    <elvt-table-cell>
+      <elvt-badge variant="warning">In Progress</elvt-badge>
+    </elvt-table-cell>
+  </elvt-table-row>
+</elvt-table>`}
+>
+  <elvt-table>
+    <elvt-table-row slot="head">
+      <elvt-table-cell header>Select</elvt-table-cell>
+      <elvt-table-cell header>Task</elvt-table-cell>
+      <elvt-table-cell header>Priority</elvt-table-cell>
+      <elvt-table-cell header>Status</elvt-table-cell>
+    </elvt-table-row>
+    <elvt-table-row selected>
+      <elvt-table-cell>
+        <elvt-checkbox checked></elvt-checkbox>
+      </elvt-table-cell>
+      <elvt-table-cell>Update user documentation</elvt-table-cell>
+      <elvt-table-cell>High</elvt-table-cell>
+      <elvt-table-cell>
+        <elvt-badge variant="success">Complete</elvt-badge>
+      </elvt-table-cell>
+    </elvt-table-row>
+    <elvt-table-row>
+      <elvt-table-cell>
+        <elvt-checkbox></elvt-checkbox>
+      </elvt-table-cell>
+      <elvt-table-cell>Fix login bug</elvt-table-cell>
+      <elvt-table-cell>Critical</elvt-table-cell>
+      <elvt-table-cell>
+        <elvt-badge variant="warning">In Progress</elvt-badge>
+      </elvt-table-cell>
+    </elvt-table-row>
+  </elvt-table>
+</ComponentShowcase>
+
+### Clickable Rows
+
+<ComponentShowcase
+  title="Clickable Table Rows"
+  description="Table rows that respond to click interactions"
+  code={`<elvt-table>
+  <elvt-table-row slot="head">
+    <elvt-table-cell header>Product</elvt-table-cell>
+    <elvt-table-cell header>Category</elvt-table-cell>
+    <elvt-table-cell header>Price</elvt-table-cell>
+  </elvt-table-row>
+  <elvt-table-row clickable>
+    <elvt-table-cell>MacBook Pro</elvt-table-cell>
+    <elvt-table-cell>Laptops</elvt-table-cell>
+    <elvt-table-cell>$2,499</elvt-table-cell>
+  </elvt-table-row>
+  <elvt-table-row clickable>
+    <elvt-table-cell>iPhone 15</elvt-table-cell>
+    <elvt-table-cell>Phones</elvt-table-cell>
+    <elvt-table-cell>$999</elvt-table-cell>
+  </elvt-table-row>
+  <elvt-table-row clickable disabled>
+    <elvt-table-cell>iPad Air</elvt-table-cell>
+    <elvt-table-cell>Tablets</elvt-table-cell>
+    <elvt-table-cell>Out of Stock</elvt-table-cell>
+  </elvt-table-row>
+</elvt-table>`}
+>
+  <elvt-table>
+    <elvt-table-row slot="head">
+      <elvt-table-cell header>Product</elvt-table-cell>
+      <elvt-table-cell header>Category</elvt-table-cell>
+      <elvt-table-cell header>Price</elvt-table-cell>
+    </elvt-table-row>
+    <elvt-table-row clickable>
+      <elvt-table-cell>MacBook Pro</elvt-table-cell>
+      <elvt-table-cell>Laptops</elvt-table-cell>
+      <elvt-table-cell>$2,499</elvt-table-cell>
+    </elvt-table-row>
+    <elvt-table-row clickable>
+      <elvt-table-cell>iPhone 15</elvt-table-cell>
+      <elvt-table-cell>Phones</elvt-table-cell>
+      <elvt-table-cell>$999</elvt-table-cell>
+    </elvt-table-row>
+    <elvt-table-row clickable disabled>
+      <elvt-table-cell>iPad Air</elvt-table-cell>
+      <elvt-table-cell>Tablets</elvt-table-cell>
+      <elvt-table-cell>Out of Stock</elvt-table-cell>
+    </elvt-table-row>
+  </elvt-table>
+</ComponentShowcase>
+
+### Row Variants
+
+<ComponentShowcase
+  title="Table Row Variants"
+  description="Different visual variants for table rows"
+  code={`<elvt-table>
+  <elvt-table-row slot="head">
+    <elvt-table-cell header>Alert</elvt-table-cell>
+    <elvt-table-cell header>Level</elvt-table-cell>
+    <elvt-table-cell header>Time</elvt-table-cell>
+  </elvt-table-row>
+  <elvt-table-row variant="default">
+    <elvt-table-cell>System update completed</elvt-table-cell>
+    <elvt-table-cell>Info</elvt-table-cell>
+    <elvt-table-cell>2 min ago</elvt-table-cell>
+  </elvt-table-row>
+  <elvt-table-row variant="highlighted">
+    <elvt-table-cell>New user registration</elvt-table-cell>
+    <elvt-table-cell>Success</elvt-table-cell>
+    <elvt-table-cell>5 min ago</elvt-table-cell>
+  </elvt-table-row>
+  <elvt-table-row variant="danger">
+    <elvt-table-cell>Database connection failed</elvt-table-cell>
+    <elvt-table-cell>Error</elvt-table-cell>
+    <elvt-table-cell>10 min ago</elvt-table-cell>
+  </elvt-table-row>
+</elvt-table>`}
+>
+  <elvt-table>
+    <elvt-table-row slot="head">
+      <elvt-table-cell header>Alert</elvt-table-cell>
+      <elvt-table-cell header>Level</elvt-table-cell>
+      <elvt-table-cell header>Time</elvt-table-cell>
+    </elvt-table-row>
+    <elvt-table-row variant="default">
+      <elvt-table-cell>System update completed</elvt-table-cell>
+      <elvt-table-cell>Info</elvt-table-cell>
+      <elvt-table-cell>2 min ago</elvt-table-cell>
+    </elvt-table-row>
+    <elvt-table-row variant="highlighted">
+      <elvt-table-cell>New user registration</elvt-table-cell>
+      <elvt-table-cell>Success</elvt-table-cell>
+      <elvt-table-cell>5 min ago</elvt-table-cell>
+    </elvt-table-row>
+    <elvt-table-row variant="danger">
+      <elvt-table-cell>Database connection failed</elvt-table-cell>
+      <elvt-table-cell>Error</elvt-table-cell>
+      <elvt-table-cell>10 min ago</elvt-table-cell>
+    </elvt-table-row>
+  </elvt-table>
+</ComponentShowcase>
+
+## Row States
+
+### Default State
+- Standard row appearance
+- Subtle hover effect when clickable
+- No special visual treatment
+
+### Selected State
+- Highlighted background color
+- Indicates user selection
+- Often used with checkboxes
+
+### Disabled State
+- Reduced opacity
+- No hover or click interactions
+- Indicates unavailable content
+
+### Variants
+- **Default**: Standard appearance for regular content
+- **Highlighted**: Emphasized appearance for important rows
+- **Danger**: Warning appearance for error or critical states
+
+## Accessibility
+
+### Semantic Structure
+- Uses proper `tr` element for table rows
+- Maintains semantic relationship with table cells
+- Supports screen reader navigation
+
+### Keyboard Navigation
+- **Tab** - Navigate between interactive elements within rows
+- **Enter/Space** - Activate clickable rows
+- **Arrow Keys** - Navigate between table cells
+
+### Screen Reader Support
+- Row selection states are announced
+- Clickable rows include appropriate roles
+- Cell content relationships are preserved
+
+### Focus Management
+- Visual focus indicators on interactive rows
+- Logical tab order within row content
+- Skip navigation support for large tables
+
+## Design Guidelines
+
+### Visual Hierarchy
+- Use consistent row heights for scanability
+- Apply subtle hover states for interactive rows
+- Maintain clear visual separation between rows
+
+### Selection Patterns
+- Provide clear visual feedback for selections
+- Use consistent selection mechanisms (checkboxes)
+- Support both single and multi-selection patterns
+
+### Content Organization
+- Align related data consistently across rows
+- Use consistent formatting within columns
+- Group related actions in dedicated columns
+
+---
+
+:::tip Table Interaction
+Table rows work best when combined with proper [Table Cell](/docs/components/table-cell) components and used within [Table](/docs/components/table) containers for full functionality.
+:::
+
+View the table row component at [http://localhost:3000/docs/components/table-row](http://localhost:3000/docs/components/table-row)

@@ -4,6 +4,8 @@ import React, { useEffect } from 'react';
 import '@inform-elevate/elevate-core-ui/dist/elevate.css';
 import '@inform-elevate/elevate-core-ui/dist/themes/light.css';
 import '@inform-elevate/elevate-core-ui/dist/themes/dark.css';
+// Import corrected INFORM ELEVATE theme CSS
+import '../css/inform-elevate.css';
 
 export default function Root({ children }: { children: React.ReactNode }) {
   useEffect(() => {

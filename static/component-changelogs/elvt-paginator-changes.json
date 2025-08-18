@@ -1,7 +1,7 @@
 {
   "component": "elvt-paginator",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-13T18:14:54.702Z",
+  "lastUpdated": "2025-08-16T20:51:21.921Z",
   "changelog": [
     {
       "version": "0.0.28-alpha",
@@ -21,10 +21,154 @@
       ]
     },
     {
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Support Form Reset and Basic Validation (Required)",
+          "description": "Added support form reset and basic validation (required)",
+          "commit": "44dc64e",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/44dc64e3c5f3d21832f3511c82262c85d11b683e"
+        },
+        {
+          "type": "improvement",
+          "title": "Rename ComponentSize to Size ",
+          "description": "Improved rename componentsize to size ",
+          "commit": "ab26ae6",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ab26ae6257696c4fbe4e07abe704dc4e6fb5d9b0"
+        },
+        {
+          "type": "feature",
+          "title": "Add Autoloader",
+          "description": "Added add autoloader",
+          "commit": "8d557b0",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8d557b0972abf0e251a7d4a90e6c057e827f0d62"
+        },
+        {
+          "type": "feature",
+          "title": "Update to Storybook 9",
+          "description": "Added update to storybook 9",
+          "commit": "c983425",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
+        },
+        {
+          "type": "bug-fix",
+          "title": "Make All Attribute Names \"kebab-case\"",
+          "description": "Fixed make all attribute names \"kebab-case\"",
+          "commit": "4d0bee0",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4d0bee09201d73522d00c25fbca941fe11a1e5fb"
+        }
+      ]
+    },
+    {
+      "version": "0.0.24-alpha",
+      "date": "2025-05-15",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Improve Icon Component, Add Selected, Add Shape, Fix Size",
+          "description": "Improved improve icon component, add selected, add shape, fix size",
+          "commit": "58898ac",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/58898aca3af6d73c42ca6447fb0ca3cd52c2d557"
+        },
+        {
+          "type": "improvement",
+          "title": "Use Web Component Decorator from CDK",
+          "description": "Improved use web component decorator from cdk",
+          "commit": "0b7f502",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
+        },
+        {
+          "type": "feature",
+          "title": "Use Component/Application Tokens for Default Background/Text",
+          "description": "Added use component/application tokens for default background/text",
+          "commit": "1a09e08",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/1a09e084df5d43bd479996d38108c2c476e20344"
+        },
+        {
+          "type": "feature",
+          "title": "Add Select Component, Refactor Field Label and Help Text",
+          "description": "Added add select component, refactor field label and help text",
+          "commit": "dfd142b",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/dfd142b3c1c3edab6fb0df6dd794fa94864bde83"
+        },
+        {
+          "type": "bug-fix",
+          "title": "Fix Documentation Errors from Component Structure Changes (#113)",
+          "description": "Fixed fix documentation errors from component structure changes (#113)",
+          "commit": "ae9938b",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ae9938bb3ecb4b9d31787bc64bc50e2cc11a433a"
+        },
+        {
+          "type": "feature",
+          "title": "Add Components Status Page",
+          "description": "Added add components status page",
+          "commit": "daf000f",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/daf000fc14c799b579f9b31d9e145791118f551e"
+        }
+      ]
+    },
+    {
       "version": "0.0.23-alpha",
       "date": "2025-04-20",
       "type": "minor",
       "changes": [
+        {
+          "type": "feature",
+          "title": "Integrate Design Tokens Package (#69)",
+          "description": "Added integrate design tokens package (#69)",
+          "commit": "b4cfb8c",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/b4cfb8c9f9c706ded59794327fab43103b349790"
+        },
+        {
+          "type": "feature",
+          "title": "Build: Add Tests for Package Build",
+          "description": "Added build: add tests for package build",
+          "commit": "715eee4",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/715eee4fc9164485118d3ea71b53904b329ac65f"
+        },
         {
           "type": "feature",
           "title": "Add Paginator Component (#53)",
@@ -52,7 +196,7 @@
     }
   ],
   "metadata": {
-    "totalVersions": 2,
+    "totalVersions": 4,
     "firstVersion": "0.0.23-alpha",
     "storyCount": 0,
     "testCount": 0,
@@ -60,6 +204,6 @@
     "lastCommit": "16fd6095aaa7369497201297e1e01b1396cebc56",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "2/16"
+    "filteredCommits": "15/16"
   }
 }

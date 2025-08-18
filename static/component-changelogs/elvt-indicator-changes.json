@@ -1,19 +1,142 @@
 {
   "component": "elvt-indicator",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-13T18:14:40.728Z",
-  "changelog": [],
+  "lastUpdated": "2025-08-16T20:51:07.121Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "bug-fix",
+          "title": "Fix Button Group Separator Lines (#250)",
+          "description": "Fixed fix button group separator lines (#250)",
+          "commit": "7de00fe",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/7de00fed2bebd4f618630fd4c04ca4be514a8920"
+        }
+      ]
+    },
+    {
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add Field Component",
+          "description": "Added add field component",
+          "commit": "890b3f0",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/890b3f04a7394d0fd4a31ab5de6800e058ab3d37"
+        },
+        {
+          "type": "improvement",
+          "title": "Consolidate and Improve Link Component",
+          "description": "Improved consolidate and improve link component",
+          "commit": "3e64741",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/3e647414702062e8304d9747259a0938675a2483"
+        },
+        {
+          "type": "bug-fix",
+          "title": "Export Table Types",
+          "description": "Fixed export table types",
+          "commit": "8ab9caf",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8ab9caf9e846abde3a599c94fda0966254850a95"
+        },
+        {
+          "type": "feature",
+          "title": "Console Generic Shape (Box|Pill), Badge is Pill by Default",
+          "description": "Added console generic shape (box|pill), badge is pill by default",
+          "commit": "4a99c1a",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4a99c1a613b0f20abbcf6c7dfe6158ec0d7cb64d"
+        },
+        {
+          "type": "feature",
+          "title": "Add Autoloader",
+          "description": "Added add autoloader",
+          "commit": "8d557b0",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8d557b0972abf0e251a7d4a90e6c057e827f0d62"
+        },
+        {
+          "type": "feature",
+          "title": "Update to Storybook 9",
+          "description": "Added update to storybook 9",
+          "commit": "c983425",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
+        }
+      ]
+    },
+    {
+      "version": "0.0.24-alpha",
+      "date": "2025-05-15",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Use Web Component Decorator from CDK",
+          "description": "Improved use web component decorator from cdk",
+          "commit": "0b7f502",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
+        },
+        {
+          "type": "improvement",
+          "title": "Flatten Components File Structure",
+          "description": "Improved flatten components file structure",
+          "commit": "36e7dd6",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/36e7dd6caa9db3201f3783f10f7e86e47f12a6c5"
+        }
+      ]
+    }
+  ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
-    "totalVersions": 0,
-    "firstVersion": "0.0.28-alpha",
+    "totalVersions": 3,
+    "firstVersion": "0.0.24-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "",
+    "lastCommit": "7de00fed2bebd4f618630fd4c04ca4be514a8920",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "0/11"
+    "filteredCommits": "9/11"
   }
 }

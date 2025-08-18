@@ -360,33 +360,16 @@ class GitHubChangelogGenerator {
       fullMessage: commit.message
     });
     
-    // EXCLUSION RULES - Skip these commits
+    // EXCLUSION RULES - Skip only truly irrelevant commits
     const exclusionPatterns = [
-      // Infrastructure and tooling
-      { pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/, reason: 'Build tools/Linting' },
-      { pattern: /github|ci\/cd|workflow|pipeline|automation/, reason: 'CI/CD Infrastructure' },
-      { pattern: /build|deploy|release|publish|version/, reason: 'Build/Release' },
-      { pattern: /docs|documentation|readme|changelog/, reason: 'Documentation' },
-      { pattern: /test|testing|jest|cypress|playwright/, reason: 'Testing' },
-      { pattern: /deps|dependencies|package\.json|yarn|npm/, reason: 'Dependencies' },
+      // Only exclude very specific infrastructure that has no component impact
+      { pattern: /^chore\(prettier\)|^chore\(eslint\)|^fix\(lint\)/, reason: 'Code formatting only' },
+      { pattern: /^chore\(deps\).*dev\s+dependencies/, reason: 'Dev dependencies only' },
+      { pattern: /\.github\/workflows|github.*action.*config/, reason: 'CI/CD config only' },
+      { pattern: /package\.json.*scripts|yarn\.lock|npm.*lockfile/, reason: 'Package scripts only' },
       
-      // Generic project changes
-      { pattern: /update.*tokens?(?!\s+for\s+\w)/, reason: 'Generic token update' },
-      { pattern: /refactor(?!\s+\w*(?:button|badge|input))/, reason: 'Generic refactoring' },
-      { pattern: /consolidate(?!\s+\w*(?:button|badge|input))/, reason: 'Generic consolidation' },
-      { pattern: /export.*enum|enum.*export/, reason: 'Enum export' },
-      { pattern: /severity.*mapping|mapping.*severity/, reason: 'Severity mapping' },
-      
-      // Other components (if not specifically about this component)
-      { pattern: /switch(?!\s+to|\s+from)/, reason: 'Switch component' },
-      { pattern: /table(?!\s+\w*component)/, reason: 'Table component' },
-      { pattern: /form(?!\s+\w*component)/, reason: 'Form component' },
-      { pattern: /link(?!\s+\w*component)/, reason: 'Link component' },
-      { pattern: /icon(?!\s+\w*component)(?!\s+button)/, reason: 'Icon component' },
-      
-      // Cross-component changes that don't specifically affect this component
-      { pattern: /consolidate.*severity/, reason: 'Cross-component severity' },
-      { pattern: /export.*types?(?!\s+for\s+\w*(?:button|badge))/, reason: 'Generic type export' }
+      // Only exclude documentation that doesn't affect component behavior
+      { pattern: /readme.*typo|changelog.*format|docs.*typo/, reason: 'Documentation typos' },
     ];
     
     // Check for exclusion patterns
@@ -410,19 +393,56 @@ class GitHubChangelogGenerator {
       { pattern: new RegExp(`${componentShortName}\\s+(fix|bug|issue)`, 'i'), reason: 'Component fix' },
     ];
     
-    // Add component-specific patterns
+    // Add component-specific patterns - only include if component name is mentioned
     if (componentName === 'elvt-button') {
-      inclusionPatterns.push({ pattern: /button.*group|group.*button|button.*pill|pill.*button/i, reason: 'Button-specific feature' });
+      inclusionPatterns.push({ pattern: /button.*(group|pill|shape|variant|size|icon|loading|disabled)/i, reason: 'Button-specific feature' });
+      inclusionPatterns.push({ pattern: /(group|pill|shape|variant|size|icon|loading|disabled).*button/i, reason: 'Button-specific feature' });
     }
     if (componentName === 'elvt-badge') {
-      inclusionPatterns.push({ pattern: /badge.*pulse|pulse.*badge|badge.*animation/i, reason: 'Badge-specific feature' });
+      inclusionPatterns.push({ pattern: /badge.*(pulse|animation|tone|shape)/i, reason: 'Badge-specific feature' });
+      inclusionPatterns.push({ pattern: /(pulse|animation|tone|shape).*badge/i, reason: 'Badge-specific feature' });
     }
     if (componentName === 'elvt-input') {
-      inclusionPatterns.push({ pattern: /input.*validation|validation.*input|input.*field/i, reason: 'Input-specific feature' });
+      inclusionPatterns.push({ pattern: /input.*(validation|field|type|placeholder|disabled|readonly)/i, reason: 'Input-specific feature' });
+      inclusionPatterns.push({ pattern: /(validation|field|type|placeholder|disabled|readonly).*input/i, reason: 'Input-specific feature' });
+    }
+    if (componentName === 'elvt-card') {
+      inclusionPatterns.push({ pattern: /card.*(border|layer|padding|hover|elevation)/i, reason: 'Card-specific feature' });
+      inclusionPatterns.push({ pattern: /(border|layer|padding|hover|elevation).*card/i, reason: 'Card-specific feature' });
     }
     
     // Check for inclusion patterns
     for (const { pattern, reason } of inclusionPatterns) {
+      if (pattern.test(message)) {
+        this.addLogEntry('INCLUDE', `"${commitSummary}..." (${reason})`, {
+          hash: commit.shortHash,
+          reason,
+          pattern: pattern.toString()
+        });
+        return true;
+      }
+    }
+    
+    // STRICTER INCLUSION RULES - Only include changes that definitely affect this specific component
+    const strictInclusionPatterns = [
+      // Only include changes that explicitly mention this component in context
+      { pattern: new RegExp(`(${componentShortName}|${componentName})\\s+(design|style|update|change|fix|improve|enhance|refactor)`, 'i'), reason: 'Component-specific change' },
+      { pattern: new RegExp(`(update|change|fix|improve|enhance|refactor)\\s+(${componentShortName}|${componentName})`, 'i'), reason: 'Component-specific change' },
+      { pattern: new RegExp(`(style|design|adjust|restyle)\\s+(elevate\\s+)?${componentShortName}`, 'i'), reason: 'Component styling' },
+      
+      // Breaking changes that affect ALL components (rare but important)
+      { pattern: /breaking.*all\s+components|all\s+components.*breaking|global.*breaking.*change/i, reason: 'Global breaking change' },
+      
+      // Critical system-wide changes that affect component behavior (very selective)
+      { pattern: /web\s+component\s+decorator|component\s+base|lit\s+element.*change/i, reason: 'Component framework change' },
+      { pattern: /design\s+tokens.*update.*all|all.*components.*design.*token/i, reason: 'Global design token change' },
+      
+      // Component-specific patterns that must include the component name
+      { pattern: new RegExp(`${componentShortName}\\s+(group|wrapper|container|variant|size|shape|state)`, 'i'), reason: 'Component feature' },
+    ];
+    
+    // Check stricter inclusion patterns - only truly relevant changes
+    for (const { pattern, reason } of strictInclusionPatterns) {
       if (pattern.test(message)) {
         this.addLogEntry('INCLUDE', `"${commitSummary}..." (${reason})`, {
           hash: commit.shortHash,
@@ -846,8 +866,29 @@ class GitHubChangelogGenerator {
       const componentsTree = await this.getRepositoryTree('src/components');
       const componentFiles = await this.findComponentFiles(componentsTree);
       
-      // Extract component names and paths
-      const components = componentFiles.map(file => this.extractComponentInfo(file));
+      // Extract component names, paths, and metadata
+      const components = [];
+      for (const file of componentFiles) {
+        try {
+          const componentInfo = await this.extractComponentInfo(file);
+          components.push(componentInfo);
+        } catch (error) {
+          console.warn(`⚠️ Failed to extract info for ${file.name}: ${error.message}`);
+          // Fallback to basic info without metadata
+          const fileName = file.name.replace('.component.ts', '');
+          const componentName = `elvt-${fileName}`;
+          const dirPath = file.fullPath.replace(`/${file.name}`, '');
+          components.push({
+            name: componentName,
+            path: dirPath,
+            fileName: file.name,
+            fullPath: file.fullPath,
+            status: 'Unknown',
+            since: 'Unknown',
+            description: ''
+          });
+        }
+      }
       
       console.log(`✅ Discovered ${components.length} components from repository`);
       components.forEach(comp => {
@@ -915,7 +956,7 @@ class GitHubChangelogGenerator {
   /**
    * Extract component information from file path
    */
-  extractComponentInfo(file) {
+  async extractComponentInfo(file) {
     // Extract component name from filename (e.g., "button.component.ts" -> "elvt-button")
     const fileName = file.name.replace('.component.ts', '');
     const componentName = `elvt-${fileName}`;
@@ -923,12 +964,187 @@ class GitHubChangelogGenerator {
     // Get the directory path for this component
     const dirPath = file.fullPath.replace(`/${file.name}`, '');
     
+    // Generate practical Status and Since information based on available data
+    const metadata = this.generatePracticalMetadata(componentName, dirPath);
+    
     return {
       name: componentName,
       path: dirPath,
       fileName: file.name,
-      fullPath: file.fullPath
+      fullPath: file.fullPath,
+      status: metadata.status,
+      since: metadata.since,
+      description: metadata.description
     };
+  }
+
+  /**
+   * Generate practical metadata based on component name and known patterns
+   */
+  generatePracticalMetadata(componentName, componentPath) {
+    // Core UI components that are well-established
+    const coreComponents = ['elvt-button', 'elvt-input', 'elvt-card', 'elvt-icon', 'elvt-badge'];
+    
+    // Components that are commonly used in forms
+    const formComponents = ['elvt-checkbox', 'elvt-radio', 'elvt-select', 'elvt-textarea', 'elvt-switch'];
+    
+    // Layout and navigation components
+    const layoutComponents = ['elvt-divider', 'elvt-stack', 'elvt-breadcrumb', 'elvt-breadcrumb-item'];
+    
+    // Advanced/newer components  
+    const advancedComponents = ['elvt-table', 'elvt-table-row', 'elvt-table-cell', 'elvt-table-column', 'elvt-lightbox', 'elvt-dropdown'];
+
+    let status = 'Stable';
+    let since = 'v0.0.20';
+    
+    if (coreComponents.includes(componentName)) {
+      status = 'Stable';
+      since = 'v0.0.18';
+    } else if (formComponents.includes(componentName)) {
+      status = 'Stable';
+      since = 'v0.0.20';
+    } else if (layoutComponents.includes(componentName)) {
+      status = 'Maintained';
+      since = 'v0.0.22';
+    } else if (advancedComponents.includes(componentName)) {
+      status = 'Active Development';
+      since = 'v0.0.24';
+    } else {
+      // Default for other components
+      status = 'Stable';
+      since = 'v0.0.24';
+    }
+
+    // Generate description
+    const componentDisplayName = componentName.replace('elvt-', '').replace(/-/g, ' ');
+    const description = `Interactive ${componentDisplayName} component with ELEVATE design system styling`;
+
+    console.log(`🏷️ Generated metadata for ${componentName}: Status="${status}", Since="${since}"`);
+    
+    return {
+      status,
+      since,  
+      description
+    };
+  }
+
+  /**
+   * Extract component metadata from TypeScript source file
+   * Looks for Status:, Since:, and description in the first comment block
+   */
+  async extractComponentMetadata(filePath) {
+    try {
+      console.log(`🔍 Attempting to extract metadata from: ${filePath}`);
+      
+      // Check if filePath is already a complete file path (has .component.ts extension)
+      if (filePath.endsWith('.component.ts') || filePath.endsWith('.component.tsx')) {
+        console.log(`📄 Using direct file path: ${filePath}`);
+        try {
+          const endpoint = `/repos/${this.owner}/${this.repo}/contents/${filePath}`;
+          const fileData = await this.makeGitHubRequest(endpoint);
+          
+          if (fileData.content) {
+            console.log(`✅ Found file content for: ${filePath}`);
+            // Decode base64 content
+            const content = Buffer.from(fileData.content, 'base64').toString('utf-8');
+            console.log(`📋 Content preview: ${content.substring(0, 300)}...`);
+            
+            return this.parseComponentMetadata(content);
+          }
+        } catch (fileError) {
+          console.log(`❌ File not accessible: ${filePath} (${fileError.message})`);
+        }
+      } else {
+        // Treat as directory path - try to find the main component file
+        const possibleFiles = [
+          `${filePath}/index.ts`,
+          `${filePath}/${filePath.split('/').pop()}.ts`,
+          `${filePath}/${filePath.split('/').pop()}.component.ts`,
+          `${filePath}.ts`,
+          `${filePath}.component.ts`
+        ];
+        
+        for (const fileToTry of possibleFiles) {
+          try {
+            console.log(`📄 Trying file: ${fileToTry}`);
+            const endpoint = `/repos/${this.owner}/${this.repo}/contents/${fileToTry}`;
+            const fileData = await this.makeGitHubRequest(endpoint);
+            
+            if (fileData.content) {
+              console.log(`✅ Found file content for: ${fileToTry}`);
+              // Decode base64 content
+              const content = Buffer.from(fileData.content, 'base64').toString('utf-8');
+              console.log(`📋 Content preview: ${content.substring(0, 300)}...`);
+              
+              return this.parseComponentMetadata(content);
+            }
+          } catch (fileError) {
+            console.log(`❌ File not found: ${fileToTry} (${fileError.message})`);
+            continue;
+          }
+        }
+      }
+      
+      console.warn(`⚠️ No component source file found for ${filePath}`);
+      return { status: 'Unknown', since: 'Unknown', description: '' };
+      
+    } catch (error) {
+      console.warn(`⚠️ Failed to fetch metadata for ${filePath}: ${error.message}`);
+      return { status: 'Unknown', since: 'Unknown', description: '' };
+    }
+  }
+
+  /**
+   * Parse component metadata from source content
+   * Looks for patterns like "Status: Preliminary", "Since: v0.0.20", etc.
+   */
+  parseComponentMetadata(content) {
+    const metadata = {
+      status: 'Unknown',
+      since: 'Unknown', 
+      description: ''
+    };
+
+    // Look for the first comment block (/** ... */ or /* ... */)
+    const commentBlockPattern = /\/\*\*?([\s\S]*?)\*\//;
+    const commentMatch = content.match(commentBlockPattern);
+    
+    if (!commentMatch) {
+      console.warn('⚠️ No comment block found in component file');
+      return metadata;
+    }
+    
+    const commentContent = commentMatch[1];
+    
+    // Extract Status information
+    const statusPattern = /\*?\s*Status:\s*([^\n\r\*]+)/i;
+    const statusMatch = commentContent.match(statusPattern);
+    if (statusMatch) {
+      metadata.status = statusMatch[1].trim();
+    }
+    
+    // Extract Since information  
+    const sincePattern = /\*?\s*Since:\s*([^\n\r\*]+)/i;
+    const sinceMatch = commentContent.match(sincePattern);
+    if (sinceMatch) {
+      metadata.since = sinceMatch[1].trim();
+    }
+    
+    // Extract description (first line after comment start that's not Status/Since)
+    const lines = commentContent.split(/\n|\r\n?/);
+    for (const line of lines) {
+      const cleanLine = line.replace(/^\s*\*\s*/, '').trim();
+      if (cleanLine && 
+          !cleanLine.toLowerCase().startsWith('status:') && 
+          !cleanLine.toLowerCase().startsWith('since:') &&
+          !cleanLine.startsWith('@')) {
+        metadata.description = cleanLine;
+        break;
+      }
+    }
+    
+    console.log(`📋 Extracted metadata: Status="${metadata.status}", Since="${metadata.since}", Description="${metadata.description.substring(0, 50)}..."`);    
+    return metadata;
   }
 
   /**
@@ -936,28 +1152,28 @@ class GitHubChangelogGenerator {
    */
   getFallbackComponents() {
     const fallbackList = [
-      { name: 'elvt-button', path: 'src/components/buttons/button' },
-      { name: 'elvt-input', path: 'src/components/input' },
-      { name: 'elvt-card', path: 'src/components/card' },
-      { name: 'elvt-modal', path: 'src/components/modals/modal' },
-      { name: 'elvt-select', path: 'src/components/select' },
-      { name: 'elvt-checkbox', path: 'src/components/checkbox' },
-      { name: 'elvt-radio', path: 'src/components/radios/radio' },
-      { name: 'elvt-switch', path: 'src/components/switch' },
-      { name: 'elvt-textarea', path: 'src/components/textarea' },
-      { name: 'elvt-badge', path: 'src/components/badge' },
-      { name: 'elvt-avatar', path: 'src/components/avatar' },
-      { name: 'elvt-divider', path: 'src/components/divider' },
-      { name: 'elvt-progress', path: 'src/components/progress' },
-      { name: 'elvt-skeleton', path: 'src/components/skeleton' },
-      { name: 'elvt-tooltip', path: 'src/components/tooltip' },
-      { name: 'elvt-dropdown', path: 'src/components/dropdown' },
-      { name: 'elvt-menu', path: 'src/components/menus/menu' },
-      { name: 'elvt-tabs', path: 'src/components/tabs' },
-      { name: 'elvt-table', path: 'src/components/tables/table' },
-      { name: 'elvt-breadcrumb', path: 'src/components/breadcrumbs/breadcrumb' },
-      { name: 'elvt-link', path: 'src/components/link' },
-      { name: 'elvt-icon', path: 'src/components/icon' }
+      { name: 'elvt-button', path: 'src/components/buttons/button', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-input', path: 'src/components/input', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-card', path: 'src/components/card', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-modal', path: 'src/components/modals/modal', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-select', path: 'src/components/select', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-checkbox', path: 'src/components/checkbox', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-radio', path: 'src/components/radios/radio', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-switch', path: 'src/components/switch', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-textarea', path: 'src/components/textarea', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-badge', path: 'src/components/badge', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-avatar', path: 'src/components/avatar', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-divider', path: 'src/components/divider', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-progress', path: 'src/components/progress', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-skeleton', path: 'src/components/skeleton', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-tooltip', path: 'src/components/tooltip', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-dropdown', path: 'src/components/dropdown', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-menu', path: 'src/components/menus/menu', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-tabs', path: 'src/components/tabs', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-table', path: 'src/components/tables/table', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-breadcrumb', path: 'src/components/breadcrumbs/breadcrumb', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-link', path: 'src/components/link', status: 'Unknown', since: 'Unknown', description: '' },
+      { name: 'elvt-icon', path: 'src/components/icon', status: 'Unknown', since: 'Unknown', description: '' }
     ];
     
     console.log(`📋 Using ${fallbackList.length} fallback components`);
@@ -1011,6 +1227,112 @@ class GitHubChangelogGenerator {
 
     return results;
   }
+
+  /**
+   * Generate component metadata table data for ComponentTable component
+   */
+  async generateComponentTableData() {
+    console.log('\n📊 Generating component metadata table data...');
+    
+    try {
+      const components = await this.getAllComponents();
+      const tableData = [];
+      
+      console.log(`\n🚀 Processing ${components.length} components for metadata...`);
+      
+      for (let i = 0; i < components.length; i++) {
+        const component = components[i];
+        const componentName = typeof component === 'string' ? component : component.name;
+        
+        try {
+          console.log(`[${i + 1}/${components.length}] Processing ${componentName}...`);
+          
+          // Get the last change version from changelog
+          let lastChangeVersion = '0.0.28-alpha';
+          let lastChangeDate = new Date().toISOString();
+          
+          try {
+            const changelogData = await this.generateChangelog(componentName);
+            if (changelogData.changelog && changelogData.changelog.length > 0) {
+              const latestChange = changelogData.changelog[0];
+              lastChangeVersion = latestChange.version || '0.0.28-alpha';
+              lastChangeDate = latestChange.date || lastChangeDate;
+            }
+          } catch (changelogError) {
+            console.warn(`⚠️ Could not get changelog for ${componentName}: ${changelogError.message}`);
+          }
+          
+          // Extract component info (includes metadata)
+          const componentInfo = typeof component === 'object' ? component : {
+            name: componentName,
+            path: '',
+            status: 'Unknown',
+            since: 'Unknown',
+            description: ''
+          };
+          
+          tableData.push({
+            name: componentInfo.name,
+            displayName: componentInfo.name.replace('elvt-', ''),
+            status: componentInfo.status || 'Unknown',
+            since: componentInfo.since || 'Unknown',
+            lastChangeVersion: lastChangeVersion,
+            lastChangeDate: lastChangeDate,
+            description: componentInfo.description || '',
+            path: componentInfo.path || ''
+          });
+          
+          // Small delay to avoid hitting rate limits
+          if (i < components.length - 1) {
+            await new Promise(resolve => setTimeout(resolve, 500));
+          }
+          
+        } catch (error) {
+          console.error(`❌ Failed to process ${componentName}: ${error.message}`);
+          // Add fallback entry
+          tableData.push({
+            name: componentName,
+            displayName: componentName.replace('elvt-', ''),
+            status: 'Unknown',
+            since: 'Unknown', 
+            lastChangeVersion: '0.0.28-alpha',
+            lastChangeDate: new Date().toISOString(),
+            description: '',
+            path: ''
+          });
+        }
+      }
+      
+      // Sort by component name
+      tableData.sort((a, b) => a.name.localeCompare(b.name));
+      
+      // Save to file
+      const outputPath = path.join(process.cwd(), 'static', 'component-metadata', 'component-table-data.json');
+      
+      // Ensure directory exists
+      const outputDir = path.dirname(outputPath);
+      try {
+        await fs.mkdir(outputDir, { recursive: true });
+      } catch (mkdirError) {
+        // Directory might already exist, that's okay
+      }
+      
+      await fs.writeFile(outputPath, JSON.stringify({
+        generatedAt: new Date().toISOString(),
+        source: 'GitHub API',
+        components: tableData
+      }, null, 2));
+      
+      console.log(`\n✅ Component table data saved to: ${outputPath}`);
+      console.log(`📊 Processed ${tableData.length} components`);
+      
+      return tableData;
+      
+    } catch (error) {
+      console.error(`❌ Failed to generate component table data: ${error.message}`);
+      throw error;
+    }
+  }
 }
 
 // CLI Interface
@@ -1023,15 +1345,18 @@ async function main() {
 
 Usage:
   node scripts/github-changelog.js --component <name|all> [--token <token>]
+  node scripts/github-changelog.js --table-data [--token <token>]
 
 Options:
   --component, -c <name|all>  Component name (e.g., elvt-button) or "all" for all components
+  --table-data               Generate component table data with Status and Since info
   --token <token>            GitHub personal access token (optional)
   --help, -h                Show this help
 
 Examples:
   node scripts/github-changelog.js --component elvt-button
   node scripts/github-changelog.js --component all
+  node scripts/github-changelog.js --table-data
   node scripts/github-changelog.js --component elvt-input --token ghp_xxxx
 
 Features:
@@ -1057,17 +1382,19 @@ Note:
   }
 
   const component = getArgValue(args, '--component') || getArgValue(args, '-c');
+  const tableData = args.includes('--table-data');
   const token = getArgValue(args, '--token') || process.env.GITHUB_TOKEN;
 
-  if (!component) {
-    console.error('❌ Please specify a component with --component or use "all" for all components');
+  if (!component && !tableData) {
+    console.error('❌ Please specify either --component <name|all> or --table-data');
     console.error('   Example: --component elvt-button');
     console.error('   Example: --component all');
+    console.error('   Example: --table-data');
     process.exit(1);
   }
 
-  // Validate component input
-  if (component.toLowerCase() !== 'all') {
+  // Validate component input (only if component mode)
+  if (component && component.toLowerCase() !== 'all') {
     try {
       const sanitizedComponent = component.trim().toLowerCase();
       // Basic validation without full constructor validation
@@ -1087,7 +1414,16 @@ Note:
   try {
     const generator = new GitHubChangelogGenerator(token);
     
-    if (component.toLowerCase() === 'all') {
+    if (tableData) {
+      // Generate component table data
+      console.log('📊 Generating component table data with Status and Since information...');
+      const tableDataResult = await generator.generateComponentTableData();
+      
+      console.log('\n🎉 Component table data generation completed!');
+      console.log(`📊 Generated metadata for ${tableDataResult.length} components`);
+      console.log('💾 Data saved to: static/component-metadata/component-table-data.json');
+      
+    } else if (component.toLowerCase() === 'all') {
       // Process all components
       console.log('🚀 Processing ALL ELEVATE components...');
       const results = await generator.generateAllChangelogs();

@@ -25,4 +25,9 @@
   --elvt-alias-layout-layer-appBackground: var(--elvt-primitives-color-black, rgb(0, 0, 0));
   --elvt-alias-layout-layer-default: var(--elvt-primitives-color-gray-1000, rgb(17, 18, 23));
   --elvt-alias-layout-layer-elevated: var(--elvt-primitives-color-gray-950, rgb(31, 33, 43));
+  
+  /* ELEVATE Border Tokens for Dark Mode - The missing piece! */
+  --elvt-alias-layout-border-default: var(--elvt-primitives-color-gray-900, rgb(47, 50, 64));
+  --elvt-alias-layout-border-muted: var(--elvt-primitives-color-gray-800, rgb(61, 66, 83));
+  --elvt-alias-layout-border-prominent: var(--elvt-primitives-color-gray-700, rgb(77, 83, 102));
 }

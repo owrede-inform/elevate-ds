@@ -1,12 +1,12 @@
 # Changelog Generation Log for elvt-checkbox
-# Generated: 2025-08-13T18:14:25.276Z
+# Generated: 2025-08-16T20:50:49.825Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 37
-Included commits: 2
-Excluded commits: 12
-Uncertain commits: 3
+Included commits: 16
+Excluded commits: 0
+Uncertain commits: 1
 
 ## Detailed Log
 
@@ -23,70 +23,73 @@ INCLUDE: " feat: Restyle Elevate Checkbox Component..." (Short component name)
 
 DEBUG: Evaluating commit: "Chore/update design tokens 0.13.1..."
 
-EXCLUDE: "Chore/update design tokens 0.13.1..." (Generic token update)
+INCLUDE: "Chore/update design tokens 0.13.1..." (Design/Visual changes)
   → Commit: 3ea7125
-  → Reason: Generic token update
-  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "feat: Add Multi-Column Direction to Stack Component..."
 
-UNCERTAIN: "feat: Add Multi-Column Direction to Stack Component..." (No clear component relevance)
+INCLUDE: "feat: Add Multi-Column Direction to Stack Component..." (New features)
   → Commit: 573e50e
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "refactor: Rename ComponentSize to Size ..."
 
-EXCLUDE: "refactor: Rename ComponentSize to Size ..." (Generic refactoring)
+INCLUDE: "refactor: Rename ComponentSize to Size ..." (Component-related)
   → Commit: ab26ae6
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "feat: Style Elevate Switch Component..."
 
-EXCLUDE: "feat: Style Elevate Switch Component..." (Switch component)
+INCLUDE: "feat: Style Elevate Switch Component..." (Design/Visual changes)
   → Commit: a547458
-  → Reason: Switch component
-  → Pattern: /switch(?!\s+to|\s+from)/
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "feat: Add Group Mode to Field Component..."
 
-UNCERTAIN: "feat: Add Group Mode to Field Component..." (No clear component relevance)
+INCLUDE: "feat: Add Group Mode to Field Component..." (New features)
   → Commit: 1588138
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "feat: Add Field Component..."
 
-UNCERTAIN: "feat: Add Field Component..." (No clear component relevance)
+INCLUDE: "feat: Add Field Component..." (New features)
   → Commit: 890b3f0
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "fix: Export Table Types..."
 
-EXCLUDE: "fix: Export Table Types..." (Table component)
+INCLUDE: "fix: Export Table Types..." (Bug fixes)
   → Commit: 8ab9caf
-  → Reason: Table component
-  → Pattern: /table(?!\s+\w*component)/
+  → Reason: Bug fixes
+  → Pattern: /^fix|^bug|resolve|correct|patch/
 
 DEBUG: Evaluating commit: "feat: Add Table Selection..."
 
-EXCLUDE: "feat: Add Table Selection..." (Table component)
+INCLUDE: "feat: Add Table Selection..." (New features)
   → Commit: bb8d2fe
-  → Reason: Table component
-  → Pattern: /table(?!\s+\w*component)/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "feat: Add Elevate Switch and Update Checkbox..."
 
-EXCLUDE: "feat: Add Elevate Switch and Update Checkbox..." (Switch component)
+INCLUDE: "feat: Add Elevate Switch and Update Checkbox..." (Short component name)
   → Commit: dc0fd89
-  → Reason: Switch component
-  → Pattern: /switch(?!\s+to|\s+from)/
+  → Reason: Short component name
+  → Pattern: /\bcheckbox\b/i
 
 DEBUG: Evaluating commit: "feat: Make Libraries External for NPM Package..."
 
-EXCLUDE: "feat: Make Libraries External for NPM Package..." (Dependencies)
+INCLUDE: "feat: Make Libraries External for NPM Package..." (New features)
   → Commit: 4a0540c
-  → Reason: Dependencies
-  → Pattern: /deps|dependencies|package\.json|yarn|npm/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..."
 
@@ -97,37 +100,36 @@ INCLUDE: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..." (Sh
 
 DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
 
-EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+UNCERTAIN: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (No clear component relevance)
   → Commit: 0921993
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
 
-EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+INCLUDE: "feat(build): Update to Storybook 9..." (New features)
   → Commit: c983425
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "fix: Update Design Tokens Package and Fix Tokens..."
 
-EXCLUDE: "fix: Update Design Tokens Package and Fix Tokens..." (Generic token update)
+INCLUDE: "fix: Update Design Tokens Package and Fix Tokens..." (Design/Visual changes)
   → Commit: 0ea3b49
-  → Reason: Generic token update
-  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "feat(refactor): Replace Variant Attributes with Shape..."
 
-EXCLUDE: "feat(refactor): Replace Variant Attributes with Shape..." (Generic refactoring)
+INCLUDE: "feat(refactor): Replace Variant Attributes with Shape..." (New features)
   → Commit: c20d569
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "feat: Attach Form Control Internals (#127)..."
 
-EXCLUDE: "feat: Attach Form Control Internals (#127)..." (Form component)
+INCLUDE: "feat: Attach Form Control Internals (#127)..." (New features)
   → Commit: 95b8bff
-  → Reason: Form component
-  → Pattern: /form(?!\s+\w*component)/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
-INFO: Filtered from 17 to 2 relevant commits
+INFO: Filtered from 17 to 16 relevant commits

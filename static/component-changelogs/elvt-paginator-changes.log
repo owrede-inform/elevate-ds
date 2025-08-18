@@ -1,12 +1,12 @@
 # Changelog Generation Log for elvt-paginator
-# Generated: 2025-08-13T18:14:54.705Z
+# Generated: 2025-08-16T20:51:21.924Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 35
-Included commits: 2
-Excluded commits: 9
-Uncertain commits: 5
+Included commits: 15
+Excluded commits: 0
+Uncertain commits: 1
 
 ## Detailed Log
 
@@ -23,96 +23,100 @@ INCLUDE: "feat: Adjust Paginator Design..." (Short component name)
 
 DEBUG: Evaluating commit: "feat: Support Form Reset and Basic Validation (Required)..."
 
-EXCLUDE: "feat: Support Form Reset and Basic Validation (Required)..." (Form component)
+INCLUDE: "feat: Support Form Reset and Basic Validation (Required)..." (New features)
   → Commit: 44dc64e
-  → Reason: Form component
-  → Pattern: /form(?!\s+\w*component)/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "refactor: Rename ComponentSize to Size ..."
 
-EXCLUDE: "refactor: Rename ComponentSize to Size ..." (Generic refactoring)
+INCLUDE: "refactor: Rename ComponentSize to Size ..." (Component-related)
   → Commit: ab26ae6
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "feat: Add Autoloader..."
 
-UNCERTAIN: "feat: Add Autoloader..." (No clear component relevance)
+INCLUDE: "feat: Add Autoloader..." (New features)
   → Commit: 8d557b0
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
 
-EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+UNCERTAIN: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (No clear component relevance)
   → Commit: 0921993
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
 
-EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+INCLUDE: "feat(build): Update to Storybook 9..." (New features)
   → Commit: c983425
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "fix: Make All Attribute Names "kebab-case"..."
 
-UNCERTAIN: "fix: Make All Attribute Names "kebab-case"..." (No clear component relevance)
+INCLUDE: "fix: Make All Attribute Names "kebab-case"..." (Bug fixes)
   → Commit: 4d0bee0
-  → Reason: No matching patterns
+  → Reason: Bug fixes
+  → Pattern: /^fix|^bug|resolve|correct|patch/
 
 DEBUG: Evaluating commit: "feat: Improve Icon Component, Add Selected, Add Shape, Fix Size..."
 
-UNCERTAIN: "feat: Improve Icon Component, Add Selected, Add Shape, Fix Size..." (No clear component relevance)
+INCLUDE: "feat: Improve Icon Component, Add Selected, Add Shape, Fix Size..." (New features)
   → Commit: 58898ac
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
 
-EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+INCLUDE: "refactor: Use Web Component Decorator from CDK..." (Component-related)
   → Commit: 0b7f502
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "feat: Use Component/Application Tokens for Default Background/Text..."
 
-UNCERTAIN: "feat: Use Component/Application Tokens for Default Background/Text..." (No clear component relevance)
+INCLUDE: "feat: Use Component/Application Tokens for Default Background/Text..." (New features)
   → Commit: 1a09e08
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "feat: Add Select Component, Refactor Field Label and Help Text..."
 
-EXCLUDE: "feat: Add Select Component, Refactor Field Label and Help Text..." (Generic refactoring)
+INCLUDE: "feat: Add Select Component, Refactor Field Label and Help Text..." (New features)
   → Commit: dfd142b
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "docs: Fix Documentation Errors from Component Structure Changes (#113)..."
 
-EXCLUDE: "docs: Fix Documentation Errors from Component Structure Changes (#113)..." (Documentation)
+INCLUDE: "docs: Fix Documentation Errors from Component Structure Changes (#113)..." (Component-related)
   → Commit: ae9938b
-  → Reason: Documentation
-  → Pattern: /docs|documentation|readme|changelog/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "docs: Add Components Status Page..."
 
-EXCLUDE: "docs: Add Components Status Page..." (Documentation)
+INCLUDE: "docs: Add Components Status Page..." (New features)
   → Commit: daf000f
-  → Reason: Documentation
-  → Pattern: /docs|documentation|readme|changelog/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "feat: Integrate Design Tokens Package (#69)..."
 
-UNCERTAIN: "feat: Integrate Design Tokens Package (#69)..." (No clear component relevance)
+INCLUDE: "feat: Integrate Design Tokens Package (#69)..." (Design/Visual changes)
   → Commit: b4cfb8c
-  → Reason: No matching patterns
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "build: Add Tests for Package Build..."
 
-EXCLUDE: "build: Add Tests for Package Build..." (Build/Release)
+INCLUDE: "build: Add Tests for Package Build..." (New features)
   → Commit: 715eee4
-  → Reason: Build/Release
-  → Pattern: /build|deploy|release|publish|version/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "Add Paginator Component (#53)..."
 
@@ -121,4 +125,4 @@ INCLUDE: "Add Paginator Component (#53)..." (Short component name)
   → Reason: Short component name
   → Pattern: /\bpaginator\b/i
 
-INFO: Filtered from 16 to 2 relevant commits
+INFO: Filtered from 16 to 15 relevant commits

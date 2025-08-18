@@ -1,0 +1,227 @@
+---
+title: Tab Panel
+description: Content panel component that works with Tab Group to display content associated with each tab selection.
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Tab Panel
+
+Tab panels contain the content associated with each tab in a tab group. They provide the content area that displays when users select different tabs.
+
+## Usage Guidelines
+
+### When to Use
+- **Tabbed interfaces** - As content containers within tab groups
+- **Conditional content** - To show/hide content based on tab selection
+- **Accessible content** - When proper ARIA relationships are needed
+- **Lazy loading** - For content that should only render when visible
+
+### When Not to Use
+- **Standalone content** - Use regular containers for non-tabbed content
+- **Always visible content** - Use standard layout components instead
+- **Simple toggles** - Consider switches or buttons for simple show/hide
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Tab Panel"
+  description="Tab panel used within a tab group"
+  code={`<elvt-tab-group>
+  <elvt-tab slot="nav" panel="general">General</elvt-tab>
+  <elvt-tab slot="nav" panel="security">Security</elvt-tab>
+  <elvt-tab slot="nav" panel="notifications">Notifications</elvt-tab>
+
+  <elvt-tab-panel name="general">
+    <h3>General Settings</h3>
+    <p>Configure your basic account preferences here.</p>
+  </elvt-tab-panel>
+  
+  <elvt-tab-panel name="security">
+    <h3>Security Settings</h3>
+    <p>Manage your password and security options.</p>
+  </elvt-tab-panel>
+  
+  <elvt-tab-panel name="notifications">
+    <h3>Notification Settings</h3>
+    <p>Control how and when you receive notifications.</p>
+  </elvt-tab-panel>
+</elvt-tab-group>`}
+>
+  <elvt-tab-group>
+    <elvt-tab slot="nav" panel="general">General</elvt-tab>
+    <elvt-tab slot="nav" panel="security">Security</elvt-tab>
+    <elvt-tab slot="nav" panel="notifications">Notifications</elvt-tab>
+
+    <elvt-tab-panel name="general">
+      <h3>General Settings</h3>
+      <p>Configure your basic account preferences here.</p>
+    </elvt-tab-panel>
+    
+    <elvt-tab-panel name="security">
+      <h3>Security Settings</h3>
+      <p>Manage your password and security options.</p>
+    </elvt-tab-panel>
+    
+    <elvt-tab-panel name="notifications">
+      <h3>Notification Settings</h3>
+      <p>Control how and when you receive notifications.</p>
+    </elvt-tab-panel>
+  </elvt-tab-group>
+</ComponentShowcase>
+
+## Component API
+
+### Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `name` | `string` | - | Unique identifier that matches the tab's panel attribute |
+| `active` | `boolean` | `false` | Whether this panel is currently active |
+| `lazy` | `boolean` | `false` | Whether to render content only when active |
+
+### CSS Custom Properties
+
+| Property | Description |
+|----------|-------------|
+| `--tab-panel-padding` | Internal padding of the panel |
+| `--tab-panel-border` | Border styling for the panel |
+| `--tab-panel-background` | Background color of the panel |
+
+## Examples
+
+### Rich Content Panel
+
+<ComponentShowcase
+  title="Tab Panel with Form Content"
+  description="Tab panel containing form elements"
+  code={`<elvt-tab-group>
+  <elvt-tab slot="nav" panel="profile">Profile</elvt-tab>
+  <elvt-tab slot="nav" panel="preferences">Preferences</elvt-tab>
+
+  <elvt-tab-panel name="profile">
+    <elvt-stack direction="column" gap="m">
+      <h3>Profile Information</h3>
+      <elvt-input label="Full Name" value="John Doe"></elvt-input>
+      <elvt-input label="Email" type="email" value="john@example.com"></elvt-input>
+      <elvt-textarea label="Bio" placeholder="Tell us about yourself"></elvt-textarea>
+      <elvt-stack direction="row" gap="m" distribution="end">
+        <elvt-button variant="secondary">Cancel</elvt-button>
+        <elvt-button variant="primary">Save Changes</elvt-button>
+      </elvt-stack>
+    </elvt-stack>
+  </elvt-tab-panel>
+  
+  <elvt-tab-panel name="preferences">
+    <elvt-stack direction="column" gap="m">
+      <h3>Preferences</h3>
+      <elvt-switch checked>Email notifications</elvt-switch>
+      <elvt-switch>Push notifications</elvt-switch>
+      <elvt-switch checked>Marketing emails</elvt-switch>
+    </elvt-stack>
+  </elvt-tab-panel>
+</elvt-tab-group>`}
+>
+  <elvt-tab-group>
+    <elvt-tab slot="nav" panel="profile">Profile</elvt-tab>
+    <elvt-tab slot="nav" panel="preferences">Preferences</elvt-tab>
+
+    <elvt-tab-panel name="profile">
+      <elvt-stack direction="column" gap="m">
+        <h3>Profile Information</h3>
+        <elvt-input label="Full Name" value="John Doe"></elvt-input>
+        <elvt-input label="email" type="email" value="john@example.com"></elvt-input>
+        <elvt-textarea label="Bio" placeholder="Tell us about yourself"></elvt-textarea>
+        <elvt-stack direction="row" gap="m" distribution="end">
+          <elvt-button variant="secondary">Cancel</elvt-button>
+          <elvt-button variant="primary">Save Changes</elvt-button>
+        </elvt-stack>
+      </elvt-stack>
+    </elvt-tab-panel>
+    
+    <elvt-tab-panel name="preferences">
+      <elvt-stack direction="column" gap="m">
+        <h3>Preferences</h3>
+        <elvt-switch checked>Email notifications</elvt-switch>
+        <elvt-switch>Push notifications</elvt-switch>
+        <elvt-switch checked>Marketing emails</elvt-switch>
+      </elvt-stack>
+    </elvt-tab-panel>
+  </elvt-tab-group>
+</ComponentShowcase>
+
+### Lazy Loading Panel
+
+<ComponentShowcase
+  title="Lazy Loading Tab Panel"
+  description="Tab panel that only renders content when active"
+  code={`<elvt-tab-group>
+  <elvt-tab slot="nav" panel="summary">Summary</elvt-tab>
+  <elvt-tab slot="nav" panel="details">Details</elvt-tab>
+
+  <elvt-tab-panel name="summary">
+    <p>This content loads immediately.</p>
+  </elvt-tab-panel>
+  
+  <elvt-tab-panel name="details" lazy>
+    <p>This content only loads when the tab is first activated.</p>
+    <elvt-skeleton loading style="height: 100px; margin-top: 1rem;"></elvt-skeleton>
+  </elvt-tab-panel>
+</elvt-tab-group>`}
+>
+  <elvt-tab-group>
+    <elvt-tab slot="nav" panel="summary">Summary</elvt-tab>
+    <elvt-tab slot="nav" panel="details">Details</elvt-tab>
+
+    <elvt-tab-panel name="summary">
+      <p>This content loads immediately.</p>
+    </elvt-tab-panel>
+    
+    <elvt-tab-panel name="details" lazy>
+      <p>This content only loads when the tab is first activated.</p>
+      <elvt-skeleton loading style="height: 100px; margin-top: 1rem;"></elvt-skeleton>
+    </elvt-tab-panel>
+  </elvt-tab-group>
+</ComponentShowcase>
+
+## Accessibility
+
+### ARIA Attributes
+- `role="tabpanel"` - Identifies the element as a tab panel
+- `aria-labelledby` - References the associated tab element
+- `tabindex="0"` - When active, `-1` when inactive
+
+### Keyboard Navigation
+- **Tab** - Moves focus to the active panel (if focusable content exists)
+- **Shift + Tab** - Moves focus back to the tab navigation
+
+### Screen Reader Support
+- Panel content is announced when tabs are activated
+- Lazy panels announce loading states appropriately
+- Content structure (headings, etc.) is preserved for navigation
+
+## Design Guidelines
+
+### Content Organization
+- Start each panel with a clear heading
+- Use consistent padding across all panels
+- Organize content logically within each panel
+
+### Visual Hierarchy
+- Maintain consistent typography scale
+- Use appropriate spacing between content sections
+- Consider content length differences between panels
+
+### Loading States
+- Use skeleton placeholders for lazy-loaded content
+- Provide loading indicators for dynamic content
+- Ensure smooth transitions between panels
+
+---
+
+:::tip Performance
+Use the `lazy` attribute for panels containing heavy content or complex components to improve initial page load performance.
+:::
+
+View the tab panel component at [http://localhost:3000/docs/components/tab-panel](http://localhost:3000/docs/components/tab-panel)

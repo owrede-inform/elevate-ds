@@ -1,0 +1,326 @@
+[
+  {
+    "type": "info",
+    "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold",
+    "location": {
+      "url": "webpack-internal:///./node_modules/react-dom/cjs/react-dom-client.development.js",
+      "lineNumber": 24869,
+      "columnNumber": 16
+    }
+  },
+  {
+    "type": "warning",
+    "text": "Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.",
+    "location": {
+      "url": "webpack-internal:///./node_modules/@lit/reactive-element/development/reactive-element.js",
+      "lineNumber": 62,
+      "columnNumber": 20
+    }
+  },
+  {
+    "type": "log",
+    "text": "Applied elvt-theme-light to 0 ELEVATE components",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 47,
+      "columnNumber": 11
+    }
+  },
+  {
+    "type": "log",
+    "text": "🔧 Registering Material Design Icons resolver with ELEVATE IconRegistry...",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 28,
+      "columnNumber": 72
+    }
+  },
+  {
+    "type": "log",
+    "text": "IconRegistry available: true",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 29,
+      "columnNumber": 138
+    }
+  },
+  {
+    "type": "log",
+    "text": "IconRegistry methods: [_libraries, _resolvers, DefaultLibrary]",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 29,
+      "columnNumber": 289
+    }
+  },
+  {
+    "type": "log",
+    "text": "✅ Material Design Icons resolver registered successfully!",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 37,
+      "columnNumber": 274
+    }
+  },
+  {
+    "type": "log",
+    "text": "   Usage: <elvt-icon icon=\"mdi:settings\" />, <elvt-icon icon=\"mdi:home\" />, etc.",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 37,
+      "columnNumber": 347
+    }
+  },
+  {
+    "type": "log",
+    "text": "   The resolver can handle ANY Material Design Icon from @mdi/js package",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 37,
+      "columnNumber": 443
+    }
+  },
+  {
+    "type": "log",
+    "text": "✅ ELEVATE Icons available via elvt: prefix",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 37,
+      "columnNumber": 531
+    }
+  },
+  {
+    "type": "log",
+    "text": "   Usage: <elvt-icon icon=\"elvt:home\" />",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 37,
+      "columnNumber": 589
+    }
+  },
+  {
+    "type": "log",
+    "text": "Icon configuration completed",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 41,
+      "columnNumber": 8
+    }
+  },
+  {
+    "type": "info",
+    "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold",
+    "location": {
+      "url": "webpack-internal:///./node_modules/react-dom/cjs/react-dom-client.development.js",
+      "lineNumber": 24869,
+      "columnNumber": 16
+    }
+  },
+  {
+    "type": "warning",
+    "text": "Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.",
+    "location": {
+      "url": "webpack-internal:///./node_modules/@lit/reactive-element/development/reactive-element.js",
+      "lineNumber": 62,
+      "columnNumber": 20
+    }
+  },
+  {
+    "type": "log",
+    "text": "Applied elvt-theme-light to 0 ELEVATE components",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 47,
+      "columnNumber": 11
+    }
+  },
+  {
+    "type": "log",
+    "text": "🔧 Registering Material Design Icons resolver with ELEVATE IconRegistry...",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 28,
+      "columnNumber": 72
+    }
+  },
+  {
+    "type": "log",
+    "text": "IconRegistry available: true",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 29,
+      "columnNumber": 138
+    }
+  },
+  {
+    "type": "log",
+    "text": "IconRegistry methods: [_libraries, _resolvers, DefaultLibrary]",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 29,
+      "columnNumber": 289
+    }
+  },
+  {
+    "type": "log",
+    "text": "✅ Material Design Icons resolver registered successfully!",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 37,
+      "columnNumber": 274
+    }
+  },
+  {
+    "type": "log",
+    "text": "   Usage: <elvt-icon icon=\"mdi:settings\" />, <elvt-icon icon=\"mdi:home\" />, etc.",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 37,
+      "columnNumber": 347
+    }
+  },
+  {
+    "type": "log",
+    "text": "   The resolver can handle ANY Material Design Icon from @mdi/js package",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 37,
+      "columnNumber": 443
+    }
+  },
+  {
+    "type": "log",
+    "text": "✅ ELEVATE Icons available via elvt: prefix",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 37,
+      "columnNumber": 531
+    }
+  },
+  {
+    "type": "log",
+    "text": "   Usage: <elvt-icon icon=\"elvt:home\" />",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 37,
+      "columnNumber": 589
+    }
+  },
+  {
+    "type": "log",
+    "text": "Icon configuration completed",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 41,
+      "columnNumber": 8
+    }
+  },
+  {
+    "type": "info",
+    "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold",
+    "location": {
+      "url": "webpack-internal:///./node_modules/react-dom/cjs/react-dom-client.development.js",
+      "lineNumber": 24869,
+      "columnNumber": 16
+    }
+  },
+  {
+    "type": "warning",
+    "text": "Lit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.",
+    "location": {
+      "url": "webpack-internal:///./node_modules/@lit/reactive-element/development/reactive-element.js",
+      "lineNumber": 62,
+      "columnNumber": 20
+    }
+  },
+  {
+    "type": "log",
+    "text": "Applied elvt-theme-light to 0 ELEVATE components",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 47,
+      "columnNumber": 11
+    }
+  },
+  {
+    "type": "log",
+    "text": "🔧 Registering Material Design Icons resolver with ELEVATE IconRegistry...",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 28,
+      "columnNumber": 72
+    }
+  },
+  {
+    "type": "log",
+    "text": "IconRegistry available: true",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 29,
+      "columnNumber": 138
+    }
+  },
+  {
+    "type": "log",
+    "text": "IconRegistry methods: [_libraries, _resolvers, DefaultLibrary]",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 29,
+      "columnNumber": 289
+    }
+  },
+  {
+    "type": "log",
+    "text": "✅ Material Design Icons resolver registered successfully!",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 37,
+      "columnNumber": 274
+    }
+  },
+  {
+    "type": "log",
+    "text": "   Usage: <elvt-icon icon=\"mdi:settings\" />, <elvt-icon icon=\"mdi:home\" />, etc.",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 37,
+      "columnNumber": 347
+    }
+  },
+  {
+    "type": "log",
+    "text": "   The resolver can handle ANY Material Design Icon from @mdi/js package",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 37,
+      "columnNumber": 443
+    }
+  },
+  {
+    "type": "log",
+    "text": "✅ ELEVATE Icons available via elvt: prefix",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 37,
+      "columnNumber": 531
+    }
+  },
+  {
+    "type": "log",
+    "text": "   Usage: <elvt-icon icon=\"elvt:home\" />",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 37,
+      "columnNumber": 589
+    }
+  },
+  {
+    "type": "log",
+    "text": "Icon configuration completed",
+    "location": {
+      "url": "webpack-internal:///./src/theme/Root.tsx",
+      "lineNumber": 41,
+      "columnNumber": 8
+    }
+  }
+]

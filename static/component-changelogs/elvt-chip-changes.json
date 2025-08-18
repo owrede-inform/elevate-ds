@@ -1,13 +1,43 @@
 {
   "component": "elvt-chip",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-13T18:14:27.148Z",
+  "lastUpdated": "2025-08-16T20:50:51.652Z",
   "changelog": [
     {
       "version": "0.0.25-alpha",
       "date": "2025-06-15",
       "type": "minor",
       "changes": [
+        {
+          "type": "improvement",
+          "title": "Rename ComponentSize to Size ",
+          "description": "Improved rename componentsize to size ",
+          "commit": "ab26ae6",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ab26ae6257696c4fbe4e07abe704dc4e6fb5d9b0"
+        },
+        {
+          "type": "feature",
+          "title": "Console Generic Shape (Box|Pill), Badge is Pill by Default",
+          "description": "Added console generic shape (box|pill), badge is pill by default",
+          "commit": "4a99c1a",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4a99c1a613b0f20abbcf6c7dfe6158ec0d7cb64d"
+        },
+        {
+          "type": "feature",
+          "title": "Add Autoloader",
+          "description": "Added add autoloader",
+          "commit": "8d557b0",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8d557b0972abf0e251a7d4a90e6c057e827f0d62"
+        },
         {
           "type": "feature",
           "title": "Adjust/Revisit Chip Component Styles",
@@ -17,6 +47,36 @@
           "breakingChange": false,
           "author": "pberckey",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ab68982339f078783aeab8a01af5ac1e1736e06a"
+        },
+        {
+          "type": "feature",
+          "title": "Update to Storybook 9",
+          "description": "Added update to storybook 9",
+          "commit": "c983425",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
+        },
+        {
+          "type": "bug-fix",
+          "title": "Update Design Tokens Package and Fix Tokens",
+          "description": "Fixed update design tokens package and fix tokens",
+          "commit": "0ea3b49",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0ea3b49f7868bae8a5936c7a18fbd343c428c7fc"
+        },
+        {
+          "type": "bug-fix",
+          "title": "Make All Attribute Names \"kebab-case\"",
+          "description": "Fixed make all attribute names \"kebab-case\"",
+          "commit": "4d0bee0",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4d0bee09201d73522d00c25fbca941fe11a1e5fb"
         }
       ]
     },
@@ -27,6 +87,36 @@
       "changes": [
         {
           "type": "feature",
+          "title": "Add Elevate Checkbox",
+          "description": "Added add elevate checkbox",
+          "commit": "87dd564",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/87dd564f0a5f5bb5a3e4059099814c2c5e19ce17"
+        },
+        {
+          "type": "improvement",
+          "title": "Use Web Component Decorator from CDK",
+          "description": "Improved use web component decorator from cdk",
+          "commit": "0b7f502",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
+        },
+        {
+          "type": "bug-fix",
+          "title": "Fix Documentation Errors from Component Structure Changes (#113)",
+          "description": "Fixed fix documentation errors from component structure changes (#113)",
+          "commit": "ae9938b",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ae9938bb3ecb4b9d31787bc64bc50e2cc11a433a"
+        },
+        {
+          "type": "feature",
           "title": "Add Elevate Chip",
           "description": "Added add elevate chip",
           "commit": "86a7027",
@@ -34,6 +124,16 @@
           "breakingChange": false,
           "author": "pberckey",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/86a7027d09d08ad1aea9deb89b7475fe7138dda2"
+        },
+        {
+          "type": "feature",
+          "title": "Add Components Status Page",
+          "description": "Added add components status page",
+          "commit": "daf000f",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/daf000fc14c799b579f9b31d9e145791118f551e"
         }
       ]
     },
@@ -51,6 +151,16 @@
           "breakingChange": false,
           "author": "paolainform",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/102fd0586910f78411f3402b4610ab045f1c26f3"
+        },
+        {
+          "type": "improvement",
+          "title": "Consolidate Severity To Variant Mapping",
+          "description": "Improved consolidate severity to variant mapping",
+          "commit": "61b6eed",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/61b6eede2a47b076cd13ea8fc5a864bdfb007f0c"
         }
       ]
     },
@@ -59,6 +169,16 @@
       "date": "2025-02-28",
       "type": "minor",
       "changes": [
+        {
+          "type": "bug-fix",
+          "title": "Update Annotation and Extensions for Consistency",
+          "description": "Fixed update annotation and extensions for consistency",
+          "commit": "5e60aef",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/5e60aef98a9fd486f2d2762e40d7ceed282c2297"
+        },
         {
           "type": "feature",
           "title": "Add Chip Wrapper",
@@ -91,9 +211,9 @@
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "ab68982339f078783aeab8a01af5ac1e1736e06a",
+    "lastCommit": "ab26ae6257696c4fbe4e07abe704dc4e6fb5d9b0",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "4/21"
+    "filteredCommits": "16/21"
   }
 }

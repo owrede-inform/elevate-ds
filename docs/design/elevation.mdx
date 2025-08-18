@@ -1,0 +1,195 @@
+---
+title: Elevation
+description: Height and depth system for creating layered interfaces
+sidebar_position: 6
+---
+
+# Elevation System
+
+Elevation defines the relative height of interface elements, creating visual hierarchy and depth through the use of shadows, borders, and layering. ELEVATE's elevation system helps users understand the relationship between different interface layers.
+
+## Elevation Philosophy
+
+### Design Principles
+- **Layered Hierarchy** - Different elevation levels indicate interface layers
+- **Contextual Depth** - Elevation communicates element importance
+- **Spatial Relationships** - Higher elements appear closer to the user
+- **Interaction Feedback** - Elevation changes provide user feedback
+
+### Elevation Functions
+- **Hierarchy** - Establish visual importance and relationships
+- **Focus** - Draw attention to critical elements
+- **Interaction** - Provide feedback for user actions
+- **Organization** - Separate content areas and interface regions
+
+## Elevation Levels
+
+### Level 0 - Surface Level
+**Usage:** Base surfaces, page backgrounds, flat elements
+- No shadow or border treatment
+- Elements that sit flush with the background
+- Base level for all other elevations to build upon
+
+```css
+.elvt-elevation-0 {
+  box-shadow: none;
+  z-index: 0;
+}
+```
+
+### Level 1 - Subtle Elevation
+**Usage:** Cards, buttons, form elements
+- Subtle depth for interactive elements
+- Indicates clickable or interactive surfaces
+- Minimal shadow treatment
+
+```css
+.elvt-elevation-1 {
+  box-shadow: var(--elvt-shadow-sm);
+  z-index: 1;
+}
+```
+
+### Level 2 - Standard Elevation
+**Usage:** Panels, navigation elements, featured content
+- Standard elevation for important content areas
+- Clear separation from background surface
+- Moderate shadow treatment
+
+```css
+.elvt-elevation-2 {
+  box-shadow: var(--elvt-shadow-base);
+  z-index: 10;
+}
+```
+
+### Level 3 - Raised Elevation
+**Usage:** Dropdowns, tooltips, floating elements
+- Higher elevation for temporary interface elements
+- Elements that appear above standard content
+- Noticeable shadow treatment
+
+```css
+.elvt-elevation-3 {
+  box-shadow: var(--elvt-shadow-md);
+  z-index: 100;
+}
+```
+
+### Level 4 - High Elevation
+**Usage:** Modals, overlays, important notifications
+- High elevation for critical interface elements
+- Elements that must appear above all other content
+- Strong shadow treatment
+
+```css
+.elvt-elevation-4 {
+  box-shadow: var(--elvt-shadow-lg);
+  z-index: 1000;
+}
+```
+
+### Level 5 - Maximum Elevation
+**Usage:** System alerts, global notifications, loading overlays
+- Maximum elevation for system-level elements
+- Elements that override all other interface layers
+- Strongest shadow treatment
+
+```css
+.elvt-elevation-5 {
+  box-shadow: var(--elvt-shadow-xl);
+  z-index: 10000;
+}
+```
+
+## Elevation Tokens
+
+### Z-Index Scale
+Consistent z-index values for layered interfaces.
+
+```css
+/* Z-index elevation tokens */
+--elvt-elevation-z-index-base: 0;           /* Level 0 - Surface */
+--elvt-elevation-z-index-raised: 1;         /* Level 1 - Subtle */
+--elvt-elevation-z-index-floating: 10;      /* Level 2 - Standard */
+--elvt-elevation-z-index-overlay: 100;      /* Level 3 - Raised */
+--elvt-elevation-z-index-modal: 1000;       /* Level 4 - High */
+--elvt-elevation-z-index-system: 10000;     /* Level 5 - Maximum */
+```
+
+### Shadow Integration
+Elevation levels correspond to shadow tokens for visual depth.
+
+```css
+/* Elevation-shadow mapping */
+.elvt-elevation-1 { box-shadow: var(--elvt-shadow-sm); }
+.elvt-elevation-2 { box-shadow: var(--elvt-shadow-base); }
+.elvt-elevation-3 { box-shadow: var(--elvt-shadow-md); }
+.elvt-elevation-4 { box-shadow: var(--elvt-shadow-lg); }
+.elvt-elevation-5 { box-shadow: var(--elvt-shadow-xl); }
+```
+
+## Implementation Guidelines
+
+### Using Elevation Tokens
+Always use elevation tokens for consistent layering.
+
+```css
+/* ✅ Good - Elevation tokens */
+.modal {
+  z-index: var(--elvt-elevation-z-index-modal);
+  box-shadow: var(--elvt-shadow-lg);
+}
+
+/* ❌ Avoid - Hard-coded values */
+.modal {
+  z-index: 999;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+```
+
+### Elevation Hierarchy
+Maintain logical elevation relationships between components.
+
+```css
+/* Proper elevation layering */
+.page-background { z-index: var(--elvt-elevation-z-index-base); }
+.content-card { z-index: var(--elvt-elevation-z-index-raised); }
+.dropdown-menu { z-index: var(--elvt-elevation-z-index-overlay); }
+.modal-dialog { z-index: var(--elvt-elevation-z-index-modal); }
+```
+
+## Accessibility Considerations
+
+### Focus Management
+Ensure keyboard navigation respects elevation hierarchy.
+
+```css
+/* Focus indicator respects elevation */
+.elvt-elevated:focus {
+  outline: 2px solid var(--elvt-color-primary);
+  outline-offset: 2px;
+  z-index: calc(var(--current-z-index) + 1);
+}
+```
+
+### Screen Reader Support
+Provide proper context for elevated elements.
+
+```html
+<!-- Proper labeling for elevated content -->
+<div class="elvt-modal" role="dialog" aria-labelledby="modal-title" aria-describedby="modal-description">
+  <h2 id="modal-title">Modal Title</h2>
+  <p id="modal-description">Modal content description</p>
+</div>
+```
+
+---
+
+:::info Elevation vs Shadows
+Elevation defines the logical layering of interface elements, while shadows provide the visual representation of that layering. Use elevation tokens for z-index management and shadow tokens for visual depth.
+:::
+
+:::tip Elevation Hierarchy
+Maintain a clear elevation hierarchy throughout your interface. Elements should have logical stacking relationships that make sense to users navigating your application.
+:::

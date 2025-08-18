@@ -1,19 +1,65 @@
 {
   "component": "elvt-table-cell",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-13T18:15:10.720Z",
-  "changelog": [],
+  "lastUpdated": "2025-08-16T20:51:40.756Z",
+  "changelog": [
+    {
+      "version": "0.0.26-alpha",
+      "date": "2025-07-16",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Update Component Status",
+          "description": "Improved update component status",
+          "commit": "24cb112",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/24cb112848411ae6c3067465cb15e538f445d1fd"
+        }
+      ]
+    },
+    {
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add Table Selection",
+          "description": "Added add table selection",
+          "commit": "bb8d2fe",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/bb8d2feb3a71bb1da5c082998b99e653c374c677"
+        }
+      ]
+    }
+  ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
-    "totalVersions": 0,
-    "firstVersion": "0.0.28-alpha",
+    "totalVersions": 2,
+    "firstVersion": "0.0.25-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "",
+    "lastCommit": "24cb112848411ae6c3067465cb15e538f445d1fd",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "0/2"
+    "filteredCommits": "2/2"
   }
 }

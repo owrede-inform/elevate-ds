@@ -1,0 +1,199 @@
+---
+title: Table Column
+description: Table column component for defining column structure, headers, and sorting behavior in data tables.
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Table Column
+
+Table columns define the structure and behavior of table columns, providing column headers, sorting capabilities, and responsive behavior for data tables.
+
+## Usage Guidelines
+
+### When to Use
+- **Data tables** - To define column structure and behavior
+- **Sortable columns** - When users need to sort data by column
+- **Responsive tables** - For columns that need to adapt to screen size
+- **Column customization** - When specific column styling or behavior is needed
+
+### When Not to Use
+- **Simple content** - Use regular table cells for basic layouts
+- **Non-tabular data** - Consider other layout components for non-table content
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Table with Columns"
+  description="Table columns defining table structure"
+  code={`<elvt-table>
+  <elvt-table-column header="Name" key="name"></elvt-table-column>
+  <elvt-table-column header="Role" key="role"></elvt-table-column>
+  <elvt-table-column header="Status" key="status"></elvt-table-column>
+</elvt-table>`}
+>
+  <elvt-table>
+    <elvt-table-column header="Name" key="name"></elvt-table-column>
+    <elvt-table-column header="Role" key="role"></elvt-table-column>
+    <elvt-table-column header="Status" key="status"></elvt-table-column>
+  </elvt-table>
+</ComponentShowcase>
+
+## Component API
+
+### Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `header` | `string` | - | Column header text |
+| `key` | `string` | - | Unique identifier for the column |
+| `sortable` | `boolean` | `false` | Whether the column can be sorted |
+| `sorted` | `'asc' \| 'desc' \| 'none'` | `'none'` | Current sort direction |
+| `width` | `string` | - | Column width (CSS value) |
+| `minWidth` | `string` | - | Minimum column width |
+| `maxWidth` | `string` | - | Maximum column width |
+| `align` | `'start' \| 'center' \| 'end'` | `'start'` | Column content alignment |
+| `resizable` | `boolean` | `false` | Whether column can be resized |
+| `hidden` | `boolean` | `false` | Hide column on small screens |
+
+### Events
+
+| Event | Description |
+|-------|-------------|
+| `elvt-sort` | Fired when sortable column header is clicked |
+| `elvt-resize` | Fired when column is resized |
+
+### CSS Custom Properties
+
+| Property | Description |
+|----------|-------------|
+| `--table-column-width` | Default column width |
+| `--table-column-padding` | Column padding |
+| `--table-column-border` | Column border styling |
+
+## Examples
+
+### Sortable Columns
+
+<ComponentShowcase
+  title="Sortable Table Columns"
+  description="Table columns with sorting functionality"
+  code={`<elvt-table>
+  <elvt-table-column header="Product" key="product" sortable sorted="asc"></elvt-table-column>
+  <elvt-table-column header="Price" key="price" sortable align="end"></elvt-table-column>
+  <elvt-table-column header="Stock" key="stock" sortable align="center"></elvt-table-column>
+  <elvt-table-column header="Actions" key="actions"></elvt-table-column>
+</elvt-table>`}
+>
+  <elvt-table>
+    <elvt-table-column header="Product" key="product" sortable sorted="asc"></elvt-table-column>
+    <elvt-table-column header="Price" key="price" sortable align="end"></elvt-table-column>
+    <elvt-table-column header="Stock" key="stock" sortable align="center"></elvt-table-column>
+    <elvt-table-column header="Actions" key="actions"></elvt-table-column>
+  </elvt-table>
+</ComponentShowcase>
+
+### Fixed Width Columns
+
+<ComponentShowcase
+  title="Fixed Width Columns"
+  description="Table columns with specific width constraints"
+  code={`<elvt-table>
+  <elvt-table-column header="ID" key="id" width="80px" align="center"></elvt-table-column>
+  <elvt-table-column header="Description" key="description" minWidth="200px"></elvt-table-column>
+  <elvt-table-column header="Date" key="date" width="120px"></elvt-table-column>
+  <elvt-table-column header="Status" key="status" width="100px" align="center"></elvt-table-column>
+</elvt-table>`}
+>
+  <elvt-table>
+    <elvt-table-column header="ID" key="id" width="80px" align="center"></elvt-table-column>
+    <elvt-table-column header="Description" key="description" minWidth="200px"></elvt-table-column>
+    <elvt-table-column header="Date" key="date" width="120px"></elvt-table-column>
+    <elvt-table-column header="Status" key="status" width="100px" align="center"></elvt-table-column>
+  </elvt-table>
+</ComponentShowcase>
+
+### Responsive Columns
+
+<ComponentShowcase
+  title="Responsive Table Columns"
+  description="Table columns that adapt to screen size"
+  code={`<elvt-table>
+  <elvt-table-column header="Name" key="name" sortable></elvt-table-column>
+  <elvt-table-column header="Email" key="email" hidden></elvt-table-column>
+  <elvt-table-column header="Department" key="dept" hidden></elvt-table-column>
+  <elvt-table-column header="Status" key="status"></elvt-table-column>
+</elvt-table>`}
+>
+  <elvt-table>
+    <elvt-table-column header="Name" key="name" sortable></elvt-table-column>
+    <elvt-table-column header="Email" key="email" hidden></elvt-table-column>
+    <elvt-table-column header="Department" key="dept" hidden></elvt-table-column>
+    <elvt-table-column header="Status" key="status"></elvt-table-column>
+  </elvt-table>
+</ComponentShowcase>
+
+## Column Types
+
+### Text Columns
+- Default alignment: start
+- Suitable for names, descriptions, addresses
+- Auto-width with min/max constraints
+
+### Numeric Columns
+- Recommended alignment: end
+- Use for prices, quantities, scores
+- Fixed width often preferred
+
+### Status Columns
+- Recommended alignment: center
+- Use for badges, icons, short status text
+- Fixed width for consistency
+
+### Action Columns
+- Recommended alignment: center or end
+- Contains buttons, links, menus
+- Fixed width to prevent layout shift
+
+## Accessibility
+
+### Semantic Structure
+- Uses proper `th` elements for headers
+- Maintains column-row relationships
+- Provides sorting state information
+
+### Keyboard Navigation
+- **Enter/Space** - Activate sorting on sortable columns
+- **Tab** - Navigate between interactive elements
+- **Arrow Keys** - Navigate table content
+
+### Screen Reader Support
+- Column headers are properly announced
+- Sort states and changes are communicated
+- Column relationships are maintained
+
+## Design Guidelines
+
+### Sizing
+- Use consistent column widths for similar data types
+- Allow flexible width for content columns
+- Set fixed widths for action and status columns
+
+### Alignment
+- Align text columns to start (left)
+- Align numeric columns to end (right)
+- Center align status indicators and actions
+
+### Sorting
+- Make sorting available for data columns
+- Use clear visual indicators for sort state
+- Maintain sort state across interactions
+
+---
+
+:::tip Table Structure
+Use Table Column to define the structure of your data tables. It works with [Table](/docs/components/table), [Table Row](/docs/components/table-row), and [Table Cell](/docs/components/table-cell) components.
+:::
+
+View the table column component at [http://localhost:3000/docs/components/table-column](http://localhost:3000/docs/components/table-column)

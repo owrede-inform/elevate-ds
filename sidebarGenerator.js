@@ -44,9 +44,10 @@ function getIndexPriority(id) {
 /**
  * Sorts sidebar items with custom logic
  * @param {Array} items - Array of sidebar items
+ * @param {Object} docs - Docs collection for metadata lookup
  * @returns {Array} - Sorted items
  */
-function sortSidebarItems(items) {
+function sortSidebarItems(items, docs = null) {
   return items.sort((a, b) => {
     // Handle categories first - sort by position or label
     if (a.type === 'category' && b.type === 'category') {
@@ -66,8 +67,25 @@ function sortSidebarItems(items) {
     
     // Both are docs - check for manual sidebar_position first
     if (a.type === 'doc' && b.type === 'doc') {
-      const aPos = a.customProps?.sidebar_position;
-      const bPos = b.customProps?.sidebar_position;
+      // Try to get sidebar_position from various sources
+      let aPos, bPos;
+      
+      // Find the doc metadata from the docs collection
+      const aDoc = (docs && Array.isArray(docs)) ? docs.find(doc => doc.id === a.id) : 
+                   (docs && docs[a.id]) || null;
+      const bDoc = (docs && Array.isArray(docs)) ? docs.find(doc => doc.id === b.id) : 
+                   (docs && docs[b.id]) || null;
+      
+      // Get sidebar_position from frontmatter
+      aPos = aDoc?.frontMatter?.sidebar_position || aDoc?.sidebar_position || 
+             a.customProps?.sidebar_position || a.sidebar_position;
+      bPos = bDoc?.frontMatter?.sidebar_position || bDoc?.sidebar_position || 
+             b.customProps?.sidebar_position || b.sidebar_position;
+      
+      // Debug logging for design folder
+      if (process.env.NODE_ENV === 'development' && (a.id.includes('design/') || b.id.includes('design/'))) {
+        console.log(`[Sidebar] Comparing ${a.id} (pos: ${aPos}) vs ${b.id} (pos: ${bPos})`);
+      }
       
       // If both have manual positions, sort by position
       if (aPos !== undefined && bPos !== undefined) {
@@ -107,19 +125,20 @@ function sortSidebarItems(items) {
 /**
  * Recursively sorts all sidebar items and their children
  * @param {Array} items - Sidebar items
+ * @param {Object} docs - Docs collection for metadata lookup
  * @returns {Array} - Sorted sidebar items
  */
-function recursiveSortItems(items) {
+function recursiveSortItems(items, docs = null) {
   if (!Array.isArray(items)) return items;
   
-  const sorted = sortSidebarItems(items);
+  const sorted = sortSidebarItems(items, docs);
   
   // Recursively sort children in categories
   return sorted.map(item => {
     if (item.type === 'category' && item.items) {
       return {
         ...item,
-        items: recursiveSortItems(item.items)
+        items: recursiveSortItems(item.items, docs)
       };
     }
     return item;
@@ -156,7 +175,7 @@ async function customSidebarItemsGenerator({
   });
   
   // Apply our custom sorting
-  const sortedItems = recursiveSortItems(sidebarItems);
+  const sortedItems = recursiveSortItems(sidebarItems, docs);
   
   // Debug logging in development
   if (process.env.NODE_ENV === 'development') {

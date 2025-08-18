@@ -1,45 +1,52 @@
 # Changelog Generation Log for elvt-table-column
-# Generated: 2025-08-13T18:15:12.097Z
+# Generated: 2025-08-16T20:51:42.642Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
-Total log entries: 11
-Included commits: 0
-Excluded commits: 4
+Total log entries: 13
+Included commits: 5
+Excluded commits: 0
 Uncertain commits: 0
 
 ## Detailed Log
 
 INFO: Starting changelog generation for elvt-table-column
 
-INFO: Found 4 total commits from GitHub API
+INFO: Found 5 total commits from GitHub API
+
+DEBUG: Evaluating commit: "fix(table): Fix a Box-Sizing Bug in Non-Sortable Tables..."
+
+INCLUDE: "fix(table): Fix a Box-Sizing Bug in Non-Sortable Tables..." (Bug fixes)
+  → Commit: f2ff113
+  → Reason: Bug fixes
+  → Pattern: /^fix|^bug|resolve|correct|patch/
 
 DEBUG: Evaluating commit: "docs: Update Component Status..."
 
-EXCLUDE: "docs: Update Component Status..." (Documentation)
+INCLUDE: "docs: Update Component Status..." (Component-related)
   → Commit: 24cb112
-  → Reason: Documentation
-  → Pattern: /docs|documentation|readme|changelog/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "chore: Update Design Tokens..."
 
-EXCLUDE: "chore: Update Design Tokens..." (Generic token update)
+INCLUDE: "chore: Update Design Tokens..." (Design/Visual changes)
   → Commit: 89c6926
-  → Reason: Generic token update
-  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "fix: Export Table Types..."
 
-EXCLUDE: "fix: Export Table Types..." (Table component)
+INCLUDE: "fix: Export Table Types..." (Bug fixes)
   → Commit: 8ab9caf
-  → Reason: Table component
-  → Pattern: /table(?!\s+\w*component)/
+  → Reason: Bug fixes
+  → Pattern: /^fix|^bug|resolve|correct|patch/
 
 DEBUG: Evaluating commit: "feat: Add Table Selection..."
 
-EXCLUDE: "feat: Add Table Selection..." (Table component)
+INCLUDE: "feat: Add Table Selection..." (New features)
   → Commit: bb8d2fe
-  → Reason: Table component
-  → Pattern: /table(?!\s+\w*component)/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
-INFO: Filtered from 4 to 0 relevant commits
+INFO: Filtered from 5 to 5 relevant commits

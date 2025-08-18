@@ -1,11 +1,11 @@
 # Changelog Generation Log for elvt-table-row
-# Generated: 2025-08-13T18:15:13.506Z
+# Generated: 2025-08-16T20:51:44.525Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 15
-Included commits: 0
-Excluded commits: 6
+Included commits: 6
+Excluded commits: 0
 Uncertain commits: 0
 
 ## Detailed Log
@@ -16,44 +16,44 @@ INFO: Found 6 total commits from GitHub API
 
 DEBUG: Evaluating commit: "docs: Update Component Status..."
 
-EXCLUDE: "docs: Update Component Status..." (Documentation)
+INCLUDE: "docs: Update Component Status..." (Component-related)
   → Commit: 24cb112
-  → Reason: Documentation
-  → Pattern: /docs|documentation|readme|changelog/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "fix: Fix PagedTableDataProvider with Indeterminate Result Length (#196)..."
 
-EXCLUDE: "fix: Fix PagedTableDataProvider with Indeterminate Result Length (#196)..." (Table component)
+INCLUDE: "fix: Fix PagedTableDataProvider with Indeterminate Result Length (#196)..." (Bug fixes)
   → Commit: 580a919
-  → Reason: Table component
-  → Pattern: /table(?!\s+\w*component)/
+  → Reason: Bug fixes
+  → Pattern: /^fix|^bug|resolve|correct|patch/
 
 DEBUG: Evaluating commit: "chore: Update Design Tokens..."
 
-EXCLUDE: "chore: Update Design Tokens..." (Generic token update)
+INCLUDE: "chore: Update Design Tokens..." (Design/Visual changes)
   → Commit: 89c6926
-  → Reason: Generic token update
-  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "fix: Add Table Component Dependencies..."
 
-EXCLUDE: "fix: Add Table Component Dependencies..." (Dependencies)
+INCLUDE: "fix: Add Table Component Dependencies..." (New features)
   → Commit: d5f001a
-  → Reason: Dependencies
-  → Pattern: /deps|dependencies|package\.json|yarn|npm/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "fix: Export Table Types..."
 
-EXCLUDE: "fix: Export Table Types..." (Table component)
+INCLUDE: "fix: Export Table Types..." (Bug fixes)
   → Commit: 8ab9caf
-  → Reason: Table component
-  → Pattern: /table(?!\s+\w*component)/
+  → Reason: Bug fixes
+  → Pattern: /^fix|^bug|resolve|correct|patch/
 
 DEBUG: Evaluating commit: "feat: Add Table Selection..."
 
-EXCLUDE: "feat: Add Table Selection..." (Table component)
+INCLUDE: "feat: Add Table Selection..." (New features)
   → Commit: bb8d2fe
-  → Reason: Table component
-  → Pattern: /table(?!\s+\w*component)/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
-INFO: Filtered from 6 to 0 relevant commits
+INFO: Filtered from 6 to 6 relevant commits

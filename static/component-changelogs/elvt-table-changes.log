@@ -1,38 +1,45 @@
 # Changelog Generation Log for elvt-table
-# Generated: 2025-08-13T18:15:14.866Z
+# Generated: 2025-08-16T20:51:46.437Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
-Total log entries: 9
-Included commits: 0
-Excluded commits: 3
+Total log entries: 11
+Included commits: 4
+Excluded commits: 0
 Uncertain commits: 0
 
 ## Detailed Log
 
 INFO: Starting changelog generation for elvt-table
 
-INFO: Found 3 total commits from GitHub API
+INFO: Found 4 total commits from GitHub API
+
+DEBUG: Evaluating commit: "fix(table): Fix a Box-Sizing Bug in Non-Sortable Tables..."
+
+INCLUDE: "fix(table): Fix a Box-Sizing Bug in Non-Sortable Tables..." (Short component name)
+  → Commit: f2ff113
+  → Reason: Short component name
+  → Pattern: /\btable\b/i
 
 DEBUG: Evaluating commit: "fix: Fix PagedTableDataProvider with Indeterminate Result Length (#196)..."
 
-EXCLUDE: "fix: Fix PagedTableDataProvider with Indeterminate Result Length (#196)..." (Table component)
+INCLUDE: "fix: Fix PagedTableDataProvider with Indeterminate Result Length (#196)..." (Bug fixes)
   → Commit: 580a919
-  → Reason: Table component
-  → Pattern: /table(?!\s+\w*component)/
+  → Reason: Bug fixes
+  → Pattern: /^fix|^bug|resolve|correct|patch/
 
 DEBUG: Evaluating commit: "fix: Add Table Component Dependencies..."
 
-EXCLUDE: "fix: Add Table Component Dependencies..." (Dependencies)
+INCLUDE: "fix: Add Table Component Dependencies..." (Short component name)
   → Commit: d5f001a
-  → Reason: Dependencies
-  → Pattern: /deps|dependencies|package\.json|yarn|npm/
+  → Reason: Short component name
+  → Pattern: /\btable\b/i
 
 DEBUG: Evaluating commit: "feat: Add Table Selection..."
 
-EXCLUDE: "feat: Add Table Selection..." (Table component)
+INCLUDE: "feat: Add Table Selection..." (Short component name)
   → Commit: bb8d2fe
-  → Reason: Table component
-  → Pattern: /table(?!\s+\w*component)/
+  → Reason: Short component name
+  → Pattern: /\btable\b/i
 
-INFO: Filtered from 3 to 0 relevant commits
+INFO: Filtered from 4 to 4 relevant commits

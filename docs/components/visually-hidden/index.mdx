@@ -1,0 +1,155 @@
+---
+title: Visually Hidden
+description: Accessibility utility component that hides content visually while keeping it available to screen readers and assistive technologies.
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Visually Hidden
+
+The Visually Hidden component provides content that is accessible to screen readers and assistive technologies while being visually hidden from sighted users. This is essential for creating inclusive interfaces.
+
+## Usage Guidelines
+
+### When to Use
+- **Screen reader context** - Providing additional context for assistive technologies
+- **Form labels** - When visual labels aren't needed but accessibility requires them
+- **Skip links** - Creating navigation shortcuts for keyboard users
+- **Status announcements** - Communicating state changes to screen readers
+- **Instructions** - Providing usage instructions for complex interfaces
+
+### When Not to Use
+- **Decorative content** - Don't hide important visual information
+- **Primary content** - Essential content should be visible to all users
+- **Navigation** - Main navigation should be visible unless specifically designing skip links
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Visually Hidden Text"
+  description="Content that's hidden visually but available to screen readers"
+  code="visually-hidden-basic.html" />
+
+## Component API
+
+### Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `focusable` | `boolean` | `false` | Whether the content becomes visible when focused |
+
+### CSS Custom Properties
+
+| Property | Description |
+|----------|-------------|
+| `--visually-hidden-position` | Positioning strategy (absolute by default) |
+
+## Examples
+
+### Icon Button with Context
+
+<ComponentShowcase
+  title="Icon Button with Screen Reader Context"
+  description="Icon buttons with descriptive text for screen readers"
+  code="icon-button-context.html" />
+
+### Skip Link
+
+<ComponentShowcase
+  title="Skip Link for Navigation"
+  description="Focusable skip link that becomes visible when focused"
+  code="skip-link.html" />
+
+### Form Field Context
+
+<ComponentShowcase
+  title="Form Field with Additional Context"
+  description="Form fields with additional instructions for screen readers"
+  code="form-field-context.html" />
+
+### Status Announcements
+
+<ComponentShowcase
+  title="Dynamic Status Announcements"
+  description="Live regions for announcing status changes"
+  code="status-announcements.html" />
+
+## Accessibility Features
+
+### Screen Reader Support
+- Content is read by all major screen readers
+- Preserves semantic structure and markup
+- Maintains reading order and context
+
+### Focus Management
+- With `focusable` attribute, content becomes visible when focused
+- Useful for skip links and keyboard navigation aids
+- Proper focus indicators when visible
+
+### Live Regions
+- Works within ARIA live regions for dynamic announcements
+- Supports both `polite` and `assertive` announcement levels
+- Integrates with form validation and status updates
+
+## Implementation Details
+
+### CSS Technique
+The component uses the "clip" technique rather than `display: none` or `visibility: hidden`:
+
+```css
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+```
+
+### Why Not `display: none`?
+- `display: none` removes content from the accessibility tree
+- Screen readers cannot access hidden content
+- The clip technique keeps content in the DOM and accessibility tree
+
+## Best Practices
+
+### Content Guidelines
+- Keep hidden text concise but descriptive
+- Use clear, action-oriented language
+- Match the tone of your visible content
+
+### Technical Implementation
+- Place visually hidden content close to related visible elements
+- Use semantic HTML within the component
+- Test with actual screen readers when possible
+
+### Common Use Cases
+- Icon-only buttons need descriptive text
+- Complex form fields benefit from additional instructions
+- Data tables may need additional column descriptions
+- Interactive elements should have clear action descriptions
+
+## Testing
+
+### Screen Reader Testing
+- Test with NVDA, JAWS, and VoiceOver
+- Verify content is announced in logical order
+- Check that context makes sense without visual cues
+
+### Keyboard Testing
+- Ensure focusable content works correctly
+- Verify skip links function as expected
+- Test tab order remains logical
+
+---
+
+:::tip Accessibility First
+The Visually Hidden component is a fundamental accessibility tool. Use it generously to provide context and instructions that make your interface usable for everyone.
+:::
+
+View the visually hidden component at [http://localhost:3000/docs/components/visually-hidden](http://localhost:3000/docs/components/visually-hidden)

@@ -1,7 +1,7 @@
 {
   "component": "elvt-checkbox",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-13T18:14:25.272Z",
+  "lastUpdated": "2025-08-16T20:50:49.821Z",
   "changelog": [
     {
       "version": "0.0.26-alpha",
@@ -17,6 +17,16 @@
           "breakingChange": false,
           "author": "pberckey",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8b96b358c63ad618364a6fc77df5f9e4a00d5146"
+        },
+        {
+          "type": "improvement",
+          "title": "Chore/update design tokens 0.13.1",
+          "description": "Improved chore/update design tokens 0.13.1",
+          "commit": "3ea7125",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/3ea7125daf705d7a55607dcd85f06d2316c57a89"
         }
       ]
     },
@@ -27,6 +37,96 @@
       "changes": [
         {
           "type": "feature",
+          "title": "Add Multi-Column Direction to Stack Component",
+          "description": "Added add multi-column direction to stack component",
+          "commit": "573e50e",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/573e50e909bdf1f3ca177ab6a118aad6e75c2f2e"
+        },
+        {
+          "type": "improvement",
+          "title": "Rename ComponentSize to Size ",
+          "description": "Improved rename componentsize to size ",
+          "commit": "ab26ae6",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ab26ae6257696c4fbe4e07abe704dc4e6fb5d9b0"
+        },
+        {
+          "type": "feature",
+          "title": "Style Elevate Switch Component",
+          "description": "Added style elevate switch component",
+          "commit": "a547458",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/a547458c5ed634839ea353a8dc001314a3200db0"
+        },
+        {
+          "type": "feature",
+          "title": "Add Group Mode to Field Component",
+          "description": "Added add group mode to field component",
+          "commit": "1588138",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/15881388876549182b5a9bb3e73f16e900ed279e"
+        },
+        {
+          "type": "feature",
+          "title": "Add Field Component",
+          "description": "Added add field component",
+          "commit": "890b3f0",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/890b3f04a7394d0fd4a31ab5de6800e058ab3d37"
+        },
+        {
+          "type": "bug-fix",
+          "title": "Export Table Types",
+          "description": "Fixed export table types",
+          "commit": "8ab9caf",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8ab9caf9e846abde3a599c94fda0966254850a95"
+        },
+        {
+          "type": "feature",
+          "title": "Add Table Selection",
+          "description": "Added add table selection",
+          "commit": "bb8d2fe",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/bb8d2feb3a71bb1da5c082998b99e653c374c677"
+        },
+        {
+          "type": "feature",
+          "title": "Add Elevate Switch and Update Checkbox",
+          "description": "Added add elevate switch and update checkbox",
+          "commit": "dc0fd89",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/dc0fd896eb5b15efb2ba45c5e858e01c828c746b"
+        },
+        {
+          "type": "feature",
+          "title": "Make Libraries External for NPM Package",
+          "description": "Added make libraries external for npm package",
+          "commit": "4a0540c",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4a0540cd438f7c70843f6619076c2c51b6054f21"
+        },
+        {
+          "type": "feature",
           "title": "Added hide-label Prop and Fixed Checkbox Usability Issues",
           "description": "Added added hide-label prop and fixed checkbox usability issues",
           "commit": "dea7d2d",
@@ -34,6 +134,53 @@
           "breakingChange": false,
           "author": "pberckey",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/dea7d2d0603c25bd0f8a7e8f24cf535a8e089fd4"
+        },
+        {
+          "type": "feature",
+          "title": "Update to Storybook 9",
+          "description": "Added update to storybook 9",
+          "commit": "c983425",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
+        },
+        {
+          "type": "bug-fix",
+          "title": "Update Design Tokens Package and Fix Tokens",
+          "description": "Fixed update design tokens package and fix tokens",
+          "commit": "0ea3b49",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0ea3b49f7868bae8a5936c7a18fbd343c428c7fc"
+        },
+        {
+          "type": "feature",
+          "title": "Replace Variant Attributes with Shape",
+          "description": "Added replace variant attributes with shape",
+          "commit": "c20d569",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c20d569867a6fa4d9de20da50e1710e3d7c2e788"
+        }
+      ]
+    },
+    {
+      "version": "0.0.24-alpha",
+      "date": "2025-05-15",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Attach Form Control Internals (#127)",
+          "description": "Added attach form control internals (#127)",
+          "commit": "95b8bff",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/95b8bff1a8bc2372d11313cea0b50448938b3f87"
         }
       ]
     }
@@ -52,14 +199,14 @@
     }
   ],
   "metadata": {
-    "totalVersions": 2,
-    "firstVersion": "0.0.25-alpha",
+    "totalVersions": 3,
+    "firstVersion": "0.0.24-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
     "lastCommit": "8b96b358c63ad618364a6fc77df5f9e4a00d5146",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "2/17"
+    "filteredCommits": "16/17"
   }
 }

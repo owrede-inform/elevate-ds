@@ -1,13 +1,141 @@
 {
   "component": "elvt-link",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-13T18:14:46.165Z",
+  "lastUpdated": "2025-08-16T20:51:12.571Z",
   "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Update Design Tokens",
+          "description": "Improved update design tokens",
+          "commit": "3692cba",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "nwester-inform",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/3692cba16cb9eb474c8de86c52427ed6cefbd53b"
+        },
+        {
+          "type": "feature",
+          "title": "Adjust Link Design",
+          "description": "Added adjust link design",
+          "commit": "4eefa00",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "nwester-inform",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4eefa008abd22f860aa2a0c28d94c6a0ecd70b13"
+        }
+      ]
+    },
+    {
+      "version": "0.0.26-alpha",
+      "date": "2025-07-16",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "bug-fix",
+          "title": "Set Default Link Color",
+          "description": "Fixed set default link color",
+          "commit": "e223f33",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/e223f335237687ce4879f8c1bb22b5fd03a48d6d"
+        }
+      ]
+    },
+    {
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Update Design Tokens",
+          "description": "Improved update design tokens",
+          "commit": "89c6926",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/89c69269f8f9a68225698635a2551f416a8cfbe1"
+        },
+        {
+          "type": "improvement",
+          "title": "Consolidate and Improve Link Component",
+          "description": "Improved consolidate and improve link component",
+          "commit": "3e64741",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/3e647414702062e8304d9747259a0938675a2483"
+        },
+        {
+          "type": "feature",
+          "title": "Update to Storybook 9",
+          "description": "Added update to storybook 9",
+          "commit": "c983425",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
+        },
+        {
+          "type": "bug-fix",
+          "title": "Make All Attribute Names \"kebab-case\"",
+          "description": "Fixed make all attribute names \"kebab-case\"",
+          "commit": "4d0bee0",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4d0bee09201d73522d00c25fbca941fe11a1e5fb"
+        }
+      ]
+    },
+    {
+      "version": "0.0.24-alpha",
+      "date": "2025-05-15",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Use Web Component Decorator from CDK",
+          "description": "Improved use web component decorator from cdk",
+          "commit": "0b7f502",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
+        },
+        {
+          "type": "feature",
+          "title": "Add Components Status Page",
+          "description": "Added add components status page",
+          "commit": "daf000f",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/daf000fc14c799b579f9b31d9e145791118f551e"
+        }
+      ]
+    },
     {
       "version": "0.0.23-alpha",
       "date": "2025-04-20",
       "type": "minor",
       "changes": [
+        {
+          "type": "improvement",
+          "title": "Improve React Compatibility (#73)",
+          "description": "Improved improve react compatibility (#73)",
+          "commit": "f0cd5c4",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/f0cd5c4b1ebe43f680fcf422585840f611c09aca"
+        },
         {
           "type": "feature",
           "title": "Implement Link Component",
@@ -35,14 +163,14 @@
     }
   ],
   "metadata": {
-    "totalVersions": 1,
+    "totalVersions": 5,
     "firstVersion": "0.0.23-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "b1bcf46037b5797c7ea82970250f2cc76642968a",
+    "lastCommit": "3692cba16cb9eb474c8de86c52427ed6cefbd53b",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "1/12"
+    "filteredCommits": "11/12"
   }
 }

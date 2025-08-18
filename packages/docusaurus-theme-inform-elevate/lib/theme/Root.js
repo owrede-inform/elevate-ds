@@ -6,6 +6,7 @@ const react_1 = require("react");
 require("@inform-elevate/elevate-core-ui/dist/elevate.css");
 require("@inform-elevate/elevate-core-ui/dist/themes/light.css");
 require("@inform-elevate/elevate-core-ui/dist/themes/dark.css");
+require("../css/inform-elevate.css");
 function Root({ children }) {
     (0, react_1.useEffect)(() => {
         document.body.classList.add('elvt-theme-light');

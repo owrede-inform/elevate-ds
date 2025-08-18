@@ -1,19 +1,102 @@
 {
   "component": "elvt-table-column",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-13T18:15:12.093Z",
-  "changelog": [],
+  "lastUpdated": "2025-08-16T20:51:42.637Z",
+  "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "bug-fix",
+          "title": "Fix a Box-Sizing Bug in Non-Sortable Tables",
+          "description": "Fixed fix a box-sizing bug in non-sortable tables",
+          "commit": "f2ff113",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "marius-bronner",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/f2ff11300bfe55a29386a5cd7b33463c9eaf48d1"
+        }
+      ]
+    },
+    {
+      "version": "0.0.26-alpha",
+      "date": "2025-07-16",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Update Component Status",
+          "description": "Improved update component status",
+          "commit": "24cb112",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/24cb112848411ae6c3067465cb15e538f445d1fd"
+        }
+      ]
+    },
+    {
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Update Design Tokens",
+          "description": "Improved update design tokens",
+          "commit": "89c6926",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/89c69269f8f9a68225698635a2551f416a8cfbe1"
+        },
+        {
+          "type": "bug-fix",
+          "title": "Export Table Types",
+          "description": "Fixed export table types",
+          "commit": "8ab9caf",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8ab9caf9e846abde3a599c94fda0966254850a95"
+        },
+        {
+          "type": "feature",
+          "title": "Add Table Selection",
+          "description": "Added add table selection",
+          "commit": "bb8d2fe",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/bb8d2feb3a71bb1da5c082998b99e653c374c677"
+        }
+      ]
+    }
+  ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
-    "totalVersions": 0,
-    "firstVersion": "0.0.28-alpha",
+    "totalVersions": 3,
+    "firstVersion": "0.0.25-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "",
+    "lastCommit": "f2ff11300bfe55a29386a5cd7b33463c9eaf48d1",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "0/4"
+    "filteredCommits": "5/5"
   }
 }

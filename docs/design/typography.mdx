@@ -1,441 +1,317 @@
 ---
 title: Typography
-description: Systematic approach to text styling with hierarchical type scales and responsive typography
-sidebar_position: 3
+description: Font families, sizes, weights, and hierarchical systems
+sidebar_position: 4
+sidebar_label: Typography
 ---
 
-# Typography System
+import DesignTokenTable from '@site/src/components/DesignTokenTable';
 
-Typography is fundamental to creating clear, readable, and engaging interfaces. ELEVATE's typography system provides consistent text styling that enhances readability and supports effective communication.
+# ELEVATE Typography System
+
+Typography is the foundation of clear communication and visual hierarchy. ELEVATE's TypeAlias token system provides semantic typography tokens that ensure consistency across all interfaces while maintaining flexibility for various content needs.
 
 ## Typography Philosophy
 
 ### Design Principles
-- **Readability First** - Optimized for screen reading and comprehension
-- **Hierarchical Clarity** - Clear information hierarchy through type scales
-- **Accessibility Focus** - Meets WCAG guidelines for text accessibility
-- **Performance Optimized** - Efficient font loading and rendering
+- **Semantic Meaning** - TypeAlias tokens represent purpose, not just size
+- **Hierarchical Clarity** - Clear information hierarchy through systematic scaling
+- **Content-First** - Body text optimized for readability and comprehension
+- **Future-Proof** - Token-based system that adapts to design evolution
 
-### Font Selection Criteria
-- **Screen Optimization** - Excellent readability on digital displays
-- **Character Coverage** - Support for multiple languages and special characters
-- **Performance** - Fast loading times and efficient rendering
-- **Brand Alignment** - Professional, trustworthy, and modern appearance
+### "Eat Your Own Dogfood"
+This documentation site demonstrates ELEVATE typography in action. Every heading, paragraph, and text element uses ELEVATE TypeAlias tokens, proving the system's effectiveness in real-world applications.
 
-## Primary Typeface
+## ELEVATE TypeAlias Token Structure
 
-### Inter Font Family
-Inter is our primary typeface, specifically designed for user interfaces.
-
-**Why Inter:**
-- **Screen Optimized** - Designed specifically for digital interfaces
-- **Excellent Legibility** - Clear at all sizes, especially small text
-- **Extensive Weights** - Multiple weights for proper hierarchy
-- **Character Support** - Comprehensive language and symbol coverage
-- **Open Source** - Freely available and actively maintained
-
-### Font Loading Strategy
-```css
-/* Optimized font loading */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-/* Font stack with fallbacks */
---elvt-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
---elvt-font-family-mono: 'SF Mono', Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+### Token Naming Convention
+```
+--elvt-type-alias-{emphasis}-{purpose}-{size}-{property}
 ```
 
-## Type Scale System
-
-### Responsive Type Scale
-Our type scale adapts to different screen sizes for optimal readability.
-
-```css
-/* Desktop type scale (16px base) */
---elvt-font-size-xs: 0.75rem;    /* 12px - Fine print, captions */
---elvt-font-size-sm: 0.875rem;   /* 14px - Helper text, labels */
---elvt-font-size-base: 1rem;     /* 16px - Body text, default */
---elvt-font-size-lg: 1.125rem;   /* 18px - Large body, emphasis */
---elvt-font-size-xl: 1.25rem;    /* 20px - Small headings */
---elvt-font-size-2xl: 1.5rem;    /* 24px - Section headings */
---elvt-font-size-3xl: 1.875rem;  /* 30px - Page titles */
---elvt-font-size-4xl: 2.25rem;   /* 36px - Hero titles */
---elvt-font-size-5xl: 3rem;      /* 48px - Display titles */
---elvt-font-size-6xl: 3.75rem;   /* 60px - Large display */
-
-/* Mobile type scale (slightly smaller) */
-@media (max-width: 768px) {
-  --elvt-font-size-3xl: 1.75rem;  /* 28px */
-  --elvt-font-size-4xl: 2rem;     /* 32px */
-  --elvt-font-size-5xl: 2.5rem;   /* 40px */
-  --elvt-font-size-6xl: 3rem;     /* 48px */
-}
-```
-
-### Font Weights
-```css
-/* Font weight scale */
---elvt-font-weight-normal: 400;    /* Regular text, body copy */
---elvt-font-weight-medium: 500;    /* Emphasis, important text */
---elvt-font-weight-semibold: 600;  /* Subheadings, UI labels */
---elvt-font-weight-bold: 700;      /* Headings, titles */
-```
+**Components:**
+- **Emphasis**: `default`, `emphasized`, `important`, `strong`
+- **Purpose**: `content`, `caption`, `label`, `section`, `headline`, `display`
+- **Size**: `s`, `m`, `l`, `xl` (medium is the standard)
+- **Property**: `font-family`, `font-size`, `font-weight`, `line-height`
 
 ## Typography Hierarchy
 
-### Heading Styles
-Semantic heading styles that establish clear information hierarchy.
+### Semantic Type Scale (by Size)
+
+The ELEVATE typography hierarchy is organized by semantic meaning, not arbitrary sizes. Here's how the medium (`-m`) variants map to our content hierarchy:
+
+<DesignTokenTable
+  title="ELEVATE TypeAlias Hierarchy"
+  type="typography"
+  tokens={[
+    {
+      name: 'Display',
+      token: '--elvt-type-alias-default-display-m-font-size',
+      value: '3.75rem',
+      usage: 'Hero titles, page banners, large displays',
+      example: 'H1 - Main page titles'
+    },
+    {
+      name: 'Headline', 
+      token: '--elvt-type-alias-default-headline-m-font-size',
+      value: '3.25rem',
+      usage: 'Major section headers, primary content divisions',
+      example: 'H2 - Section headings'
+    },
+    {
+      name: 'Section',
+      token: '--elvt-type-alias-default-section-m-font-size', 
+      value: '1.5rem',
+      usage: 'Subsection titles, content organization',
+      example: 'H3 - Subsection headings'
+    },
+    {
+      name: 'Label',
+      token: '--elvt-type-alias-default-label-m-font-size',
+      value: '1rem', 
+      usage: 'Form labels, UI labels, minor headings',
+      example: 'H4 - Component titles'
+    },
+    {
+      name: 'Content',
+      token: '--elvt-type-alias-default-content-m-font-size',
+      value: '1rem',
+      usage: 'Body text, paragraphs, primary content',
+      example: 'Body text, H5'
+    },
+    {
+      name: 'Caption',
+      token: '--elvt-type-alias-default-caption-font-size',
+      value: '0.75rem',
+      usage: 'Helper text, metadata, code, fine print',
+      example: 'H6, code text'
+    }
+  ]}
+/>
+
+## Live Typography Examples
+
+### Heading Hierarchy in Action
+
+# Display Typography (H1)
+**Token:** `--elvt-type-alias-default-display-m-font-size` (3.75rem)  
+**Usage:** Hero titles, page banners, main page headings
+
+## Headline Typography (H2)  
+**Token:** `--elvt-type-alias-default-headline-m-font-size` (3.25rem)  
+**Usage:** Major section headers, primary content divisions
+
+### Section Typography (H3)
+**Token:** `--elvt-type-alias-default-section-m-font-size` (1.5rem)  
+**Usage:** Subsection titles, content organization
+
+#### Label Typography (H4)
+**Token:** `--elvt-type-alias-default-label-m-font-size` (1rem)  
+**Usage:** Form labels, UI labels, component titles
+
+##### Content Typography (H5)
+**Token:** `--elvt-type-alias-default-content-m-font-size` (1rem)  
+**Usage:** Smaller headings, content-level titles
+
+###### Caption Typography (H6)
+**Token:** `--elvt-type-alias-default-caption-font-size` (0.75rem)  
+**Usage:** Fine print, metadata, helper text
+
+### Body Text Examples
+
+**Content Typography** - This paragraph demonstrates the primary content token (`--elvt-type-alias-default-content-m-font-size`) at 1rem. This is the standard body text size used throughout ELEVATE interfaces, optimized for readability and accessibility.
+
+**Code Typography** - `--elvt-type-alias-default-caption-font-size` - Code blocks and inline code use the caption token at 0.75rem for better visual distinction and space efficiency.
+
+## Typography Token Implementation
+
+### Docusaurus Integration
+
+The documentation site maps ELEVATE TypeAlias tokens to Docusaurus typography variables:
 
 ```css
-/* Heading 1 - Page titles */
-.elvt-heading-1 {
-  font-size: var(--elvt-font-size-4xl);
-  font-weight: var(--elvt-font-weight-bold);
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-  margin-top: 0;
-  margin-bottom: 1.5rem;
+/* Base Typography - Content tokens for body text */
+--ifm-font-family-base: var(--elvt-type-alias-default-content-m-font-family, "Inter");
+--ifm-font-size-base: var(--elvt-type-alias-default-content-m-font-size, 1rem);
+--ifm-line-height-base: var(--elvt-type-alias-default-content-m-line-height, 1.6);
+
+/* Heading Hierarchy - Semantic token mapping */
+--ifm-h1-font-size: var(--elvt-type-alias-default-display-m-font-size, 3.75rem);
+--ifm-h2-font-size: var(--elvt-type-alias-default-headline-m-font-size, 3.25rem);
+--ifm-h3-font-size: var(--elvt-type-alias-default-section-m-font-size, 1.5rem);
+--ifm-h4-font-size: var(--elvt-type-alias-default-label-m-font-size, 1rem);
+--ifm-h5-font-size: var(--elvt-type-alias-default-content-m-font-size, 1rem);
+--ifm-h6-font-size: var(--elvt-type-alias-default-caption-font-size, 0.75rem);
+
+/* Code Typography */
+--ifm-code-font-size: var(--elvt-type-alias-default-caption-font-size, 0.75rem);
+--ifm-font-family-monospace: var(--elvt-primitives-font-family-mono, "RobotoMono");
+```
+
+### Emphasis Variations
+
+ELEVATE provides emphasis variations for each semantic token:
+
+```css
+/* Default weight (400) */
+font-family: var(--elvt-type-alias-default-content-m-font-family);
+font-weight: var(--elvt-type-alias-default-content-m-font-weight);
+
+/* Emphasized weight (500) */
+font-weight: var(--elvt-type-alias-emphasized-content-m-font-weight);
+
+/* Important weight (600) */  
+font-weight: var(--elvt-type-alias-important-content-m-font-weight);
+
+/* Strong weight (700) */
+font-weight: var(--elvt-type-alias-strong-content-m-font-weight);
+```
+
+## Typography Best Practices
+
+### 1. Use Semantic Tokens
+
+**✅ Do:** Choose tokens based on content purpose
+```css
+/* Article title */
+.article-title {
+  font-size: var(--elvt-type-alias-default-display-m-font-size);
 }
 
-/* Heading 2 - Section titles */
-.elvt-heading-2 {
-  font-size: var(--elvt-font-size-3xl);
-  font-weight: var(--elvt-font-weight-bold);
-  line-height: 1.3;
-  letter-spacing: -0.025em;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
+/* Section header */
+.section-header {
+  font-size: var(--elvt-type-alias-default-headline-m-font-size);
 }
 
-/* Heading 3 - Subsection titles */
-.elvt-heading-3 {
-  font-size: var(--elvt-font-size-2xl);
-  font-weight: var(--elvt-font-weight-semibold);
-  line-height: 1.4;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
-}
-
-/* Heading 4 - Component titles */
-.elvt-heading-4 {
-  font-size: var(--elvt-font-size-xl);
-  font-weight: var(--elvt-font-weight-semibold);
-  line-height: 1.4;
-  margin-top: 1.75rem;
-  margin-bottom: 0.75rem;
-}
-
-/* Heading 5 - Small headings */
-.elvt-heading-5 {
-  font-size: var(--elvt-font-size-lg);
-  font-weight: var(--elvt-font-weight-medium);
-  line-height: 1.5;
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Heading 6 - Micro headings */
-.elvt-heading-6 {
-  font-size: var(--elvt-font-size-base);
-  font-weight: var(--elvt-font-weight-medium);
-  line-height: 1.5;
-  margin-top: 1.25rem;
-  margin-bottom: 0.5rem;
+/* Body content */
+.body-text {
+  font-size: var(--elvt-type-alias-default-content-m-font-size);
 }
 ```
 
-### Body Text Styles
-Different body text variations for various content needs.
-
+**❌ Don't:** Choose tokens based only on visual size
 ```css
-/* Body Large - Important content, introductions */
-.elvt-body-large {
-  font-size: var(--elvt-font-size-lg);
-  font-weight: var(--elvt-font-weight-normal);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-/* Body - Standard text, paragraphs */
-.elvt-body {
-  font-size: var(--elvt-font-size-base);
-  font-weight: var(--elvt-font-weight-normal);
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-/* Body Small - Helper text, captions */
-.elvt-body-small {
-  font-size: var(--elvt-font-size-sm);
-  font-weight: var(--elvt-font-weight-normal);
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
-}
-
-/* Body Emphasis - Important body text */
-.elvt-body-emphasis {
-  font-size: var(--elvt-font-size-base);
-  font-weight: var(--elvt-font-weight-medium);
-  line-height: 1.6;
+/* Wrong - choosing by size not purpose */
+.form-label {
+  font-size: var(--elvt-type-alias-default-display-m-font-size); /* Too large! */
 }
 ```
 
-### UI Text Styles
-Specific text styles for interface elements.
+### 2. Maintain Consistent Hierarchy
+
+- **Display** → Hero/banner content
+- **Headline** → Major section divisions  
+- **Section** → Subsection organization
+- **Label** → UI labels and form elements
+- **Content** → Body text and paragraphs
+- **Caption** → Supporting information and metadata
+
+### 3. Typography Token Combinations
+
+Combine size, weight, and line-height tokens for complete typography definitions:
 
 ```css
-/* Button text */
-.elvt-button-text {
-  font-size: var(--elvt-font-size-base);
-  font-weight: var(--elvt-font-weight-medium);
-  line-height: 1.5;
-  letter-spacing: 0.025em;
-}
-
-/* Label text */
-.elvt-label {
-  font-size: var(--elvt-font-size-sm);
-  font-weight: var(--elvt-font-weight-medium);
-  line-height: 1.4;
-  letter-spacing: 0.025em;
-}
-
-/* Caption text */
-.elvt-caption {
-  font-size: var(--elvt-font-size-xs);
-  font-weight: var(--elvt-font-weight-normal);
-  line-height: 1.4;
-  color: var(--elvt-alias-content-text-secondary);
-}
-
-/* Code text */
-.elvt-code {
-  font-family: var(--elvt-font-family-mono);
-  font-size: var(--elvt-font-size-sm);
-  font-weight: var(--elvt-font-weight-normal);
-  line-height: 1.5;
-  background: var(--elvt-alias-layout-surface-code);
-  padding: 0.125rem 0.25rem;
-  border-radius: 0.25rem;
+.component-title {
+  font-family: var(--elvt-type-alias-default-section-m-font-family);
+  font-size: var(--elvt-type-alias-default-section-m-font-size);
+  font-weight: var(--elvt-type-alias-important-section-m-font-weight);
+  line-height: var(--elvt-type-alias-default-section-m-line-height);
 }
 ```
 
-## Line Height and Spacing
+## Size Variations
 
-### Line Height Guidelines
-Optimized line heights for different text sizes and use cases.
+### Beyond Medium (`-m`)
 
-```css
-/* Line height scale */
---elvt-line-height-tight: 1.2;    /* Large headings */
---elvt-line-height-snug: 1.3;     /* Medium headings */
---elvt-line-height-normal: 1.4;   /* Small headings, UI text */
---elvt-line-height-relaxed: 1.5;  /* Small text, captions */
---elvt-line-height-loose: 1.6;    /* Body text, paragraphs */
-```
+ELEVATE provides multiple size variants for each semantic token:
 
-### Vertical Rhythm
-Consistent vertical spacing creates visual rhythm and improves readability.
+- **Small (`-s`)** - Compact layouts, mobile interfaces
+- **Medium (`-m`)** - Standard desktop interfaces (default)
+- **Large (`-l`)** - Spacious layouts, large screens
+- **Extra Large (`-xl`)** - Hero sections, marketing content
 
 ```css
-/* Vertical spacing scale */
-.elvt-text-spacing {
-  /* Headings */
-  h1, h2, h3, h4, h5, h6 {
-    margin-top: 2em;
-    margin-bottom: 0.5em;
-  }
-  
-  /* First heading has no top margin */
-  h1:first-child,
-  h2:first-child,
-  h3:first-child {
-    margin-top: 0;
-  }
-  
-  /* Paragraphs */
-  p {
-    margin-bottom: 1em;
-  }
-  
-  /* Lists */
-  ul, ol {
-    margin-bottom: 1em;
-    padding-left: 1.5em;
-  }
-  
-  li {
-    margin-bottom: 0.25em;
-  }
-}
-```
-
-## Responsive Typography
-
-### Fluid Typography
-Typography that scales smoothly between breakpoints.
-
-```css
-/* Fluid font size using clamp() */
-.elvt-fluid-heading {
-  font-size: clamp(
-    var(--elvt-font-size-2xl),  /* Minimum size */
-    4vw,                        /* Preferred size */
-    var(--elvt-font-size-4xl)   /* Maximum size */
-  );
+/* Responsive section headers */
+.section-title {
+  font-size: var(--elvt-type-alias-default-section-s-font-size); /* Mobile */
 }
 
-/* Responsive line length */
-.elvt-text-container {
-  max-width: 65ch; /* Optimal reading line length */
-  margin: 0 auto;
-}
-```
-
-### Breakpoint-Specific Adjustments
-```css
-/* Mobile typography adjustments */
-@media (max-width: 768px) {
-  .elvt-heading-1 {
-    font-size: var(--elvt-font-size-3xl);
-    line-height: 1.3;
-  }
-  
-  .elvt-body {
-    font-size: var(--elvt-font-size-base);
+@media (min-width: 768px) {
+  .section-title {
+    font-size: var(--elvt-type-alias-default-section-m-font-size); /* Desktop */
   }
 }
 
-/* Large screen typography enhancements */
 @media (min-width: 1200px) {
-  .elvt-heading-1 {
-    font-size: var(--elvt-font-size-5xl);
-  }
-  
-  .elvt-body-large {
-    font-size: var(--elvt-font-size-xl);
+  .section-title {
+    font-size: var(--elvt-type-alias-default-section-l-font-size); /* Large */
   }
 }
 ```
 
 ## Accessibility Considerations
 
-### Text Contrast
-Ensure sufficient contrast between text and background colors.
+### WCAG Compliance
+
+ELEVATE typography tokens are designed with accessibility in mind:
+
+- **Minimum Sizes** - All tokens meet WCAG minimum size requirements
+- **Contrast Ratios** - When combined with ELEVATE color tokens, achieve minimum 4.5:1 contrast
+- **Line Height** - Built-in line heights optimize readability for each token size
+- **Font Choice** - Inter font provides excellent screen readability
+
+### Implementation Guidelines
 
 ```css
-/* High contrast text combinations */
-.elvt-text-primary {
-  color: var(--elvt-alias-content-text-primary); /* 21:1 contrast */
+/* Accessible text combinations */
+.accessible-text {
+  font-size: var(--elvt-type-alias-default-content-m-font-size);
+  line-height: var(--elvt-type-alias-default-content-m-line-height);
+  color: var(--elvt-alias-content-text-default);
 }
 
-.elvt-text-secondary {
-  color: var(--elvt-alias-content-text-secondary); /* 7.5:1 contrast */
-}
-
-.elvt-text-tertiary {
-  color: var(--elvt-alias-content-text-tertiary); /* 4.6:1 contrast */
-}
-```
-
-### Font Size Requirements
-- **Minimum Size** - 16px for body text (browser default)
-- **Large Text** - 18px+ or 14px+ bold for better readability
-- **UI Elements** - Minimum 14px for interface text
-- **Fine Print** - 12px minimum with high contrast
-
-### Reading Considerations
-- **Line Length** - 45-75 characters per line for optimal reading
-- **Line Height** - 1.5x font size minimum for body text
-- **Letter Spacing** - Slight positive spacing for small text
-- **Word Spacing** - Default browser spacing works well
-
-## Implementation Guidelines
-
-### Using Typography Tokens
-Always use typography tokens for consistent text styling.
-
-```css
-/* ✅ Good - Typography tokens */
-.component-title {
-  font-size: var(--elvt-font-size-xl);
-  font-weight: var(--elvt-font-weight-semibold);
-  line-height: var(--elvt-line-height-normal);
-}
-
-/* ❌ Avoid - Hard-coded values */
-.component-title {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.4;
-}
-```
-
-### Text Color Integration
-Combine typography tokens with semantic color tokens.
-
-```css
-.text-styling {
-  font-size: var(--elvt-font-size-base);
+/* High contrast for important content */
+.important-text {
+  font-size: var(--elvt-type-alias-emphasized-content-m-font-size);
+  font-weight: var(--elvt-type-alias-important-content-m-font-weight);
   color: var(--elvt-alias-content-text-primary);
-  font-family: var(--elvt-font-family-base);
 }
 ```
 
-### Custom Typography Extensions
-When creating custom text styles, follow the established patterns.
+## Future-Proofing
+
+### Token Evolution
+
+The TypeAlias token system is designed to evolve with ELEVATE:
+
+1. **Semantic Stability** - Token purposes remain consistent
+2. **Value Updates** - Underlying sizes and weights can be refined
+3. **New Variants** - Additional emphasis levels or sizes can be added
+4. **Framework Independence** - Tokens work across different UI frameworks
+
+### Migration Strategy
+
+When ELEVATE typography tokens evolve:
 
 ```css
-/* Custom display text style */
-.elvt-display-text {
-  font-size: var(--elvt-font-size-6xl);
-  font-weight: var(--elvt-font-weight-bold);
-  line-height: var(--elvt-line-height-tight);
-  letter-spacing: -0.05em;
+/* Current implementation */
+.text-style {
+  font-size: var(--elvt-type-alias-default-content-m-font-size, 1rem);
 }
-```
 
-## Typography Examples
-
-### Content Hierarchy
-```html
-<article class="elvt-article">
-  <h1 class="elvt-heading-1">Article Title</h1>
-  <p class="elvt-body-large">Introduction paragraph with larger text.</p>
-  
-  <h2 class="elvt-heading-2">Section Heading</h2>
-  <p class="elvt-body">Regular body paragraph text.</p>
-  
-  <h3 class="elvt-heading-3">Subsection</h3>
-  <p class="elvt-body-small">Smaller supporting text.</p>
-</article>
-```
-
-### Interface Text
-```html
-<div class="elvt-ui-component">
-  <label class="elvt-label">Form Label</label>
-  <button class="elvt-button">
-    <span class="elvt-button-text">Button Text</span>
-  </button>
-  <p class="elvt-caption">Helper text or caption</p>
-</div>
-```
-
-### Code and Technical Text
-```html
-<div class="elvt-code-example">
-  <p class="elvt-body">Install the package:</p>
-  <code class="elvt-code">npm install @inform-elevate/elevate-core-ui</code>
-  <p class="elvt-caption">Run this command in your project directory</p>
-</div>
+/* Fallback values ensure graceful degradation */
+/* Token updates automatically propagate to all components */
 ```
 
 ---
 
-:::info Typography Performance
-Use font-display: swap for better loading performance and consider preloading critical fonts to improve perceived performance.
+:::info Shoelace Deprecation
+This typography system is future-proof against Shoelace deprecation. All typography tokens use pure ELEVATE primitives and aliases, ensuring continued functionality when Shoelace components are replaced.
 :::
 
-:::tip Readable Line Lengths
-Keep text lines between 45-75 characters for optimal readability. Use max-width with ch units to control line length effectively.
+:::tip Live Examples
+This entire page demonstrates ELEVATE typography tokens in action. Inspect any heading or text to see the TypeAlias tokens being used in real-time.
 :::
+
+View the typography implementation at [http://localhost:3000/docs/design/typography](http://localhost:3000/docs/design/typography)

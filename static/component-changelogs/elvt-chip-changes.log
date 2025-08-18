@@ -1,11 +1,11 @@
 # Changelog Generation Log for elvt-chip
-# Generated: 2025-08-13T18:14:27.150Z
+# Generated: 2025-08-16T20:50:51.655Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 45
-Included commits: 4
-Excluded commits: 12
+Included commits: 16
+Excluded commits: 0
 Uncertain commits: 5
 
 ## Detailed Log
@@ -16,29 +16,30 @@ INFO: Found 21 total commits from GitHub API
 
 DEBUG: Evaluating commit: "refactor: Rename ComponentSize to Size ..."
 
-EXCLUDE: "refactor: Rename ComponentSize to Size ..." (Generic refactoring)
+INCLUDE: "refactor: Rename ComponentSize to Size ..." (Component-related)
   → Commit: ab26ae6
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "feat: Console Generic Shape (Box|Pill), Badge is Pill by Default..."
 
-UNCERTAIN: "feat: Console Generic Shape (Box|Pill), Badge is Pill by Default..." (No clear component relevance)
+INCLUDE: "feat: Console Generic Shape (Box|Pill), Badge is Pill by Default..." (New features)
   → Commit: 4a99c1a
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "refactor!: Replace Severity with Tone..."
 
-EXCLUDE: "refactor!: Replace Severity with Tone..." (Generic refactoring)
+UNCERTAIN: "refactor!: Replace Severity with Tone..." (No clear component relevance)
   → Commit: 0d82a85
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Add Autoloader..."
 
-UNCERTAIN: "feat: Add Autoloader..." (No clear component relevance)
+INCLUDE: "feat: Add Autoloader..." (New features)
   → Commit: 8d557b0
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "feat: Adjust/Revisit Chip Component Styles..."
 
@@ -49,50 +50,51 @@ INCLUDE: "feat: Adjust/Revisit Chip Component Styles..." (Short component name)
 
 DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
 
-EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+UNCERTAIN: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (No clear component relevance)
   → Commit: 0921993
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
 
-EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+INCLUDE: "feat(build): Update to Storybook 9..." (New features)
   → Commit: c983425
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "fix: Update Design Tokens Package and Fix Tokens..."
 
-EXCLUDE: "fix: Update Design Tokens Package and Fix Tokens..." (Generic token update)
+INCLUDE: "fix: Update Design Tokens Package and Fix Tokens..." (Design/Visual changes)
   → Commit: 0ea3b49
-  → Reason: Generic token update
-  → Pattern: /update.*tokens?(?!\s+for\s+\w)/
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "fix: Make All Attribute Names "kebab-case"..."
 
-UNCERTAIN: "fix: Make All Attribute Names "kebab-case"..." (No clear component relevance)
+INCLUDE: "fix: Make All Attribute Names "kebab-case"..." (Bug fixes)
   → Commit: 4d0bee0
-  → Reason: No matching patterns
+  → Reason: Bug fixes
+  → Pattern: /^fix|^bug|resolve|correct|patch/
 
 DEBUG: Evaluating commit: "feat: Add Elevate Checkbox..."
 
-UNCERTAIN: "feat: Add Elevate Checkbox..." (No clear component relevance)
+INCLUDE: "feat: Add Elevate Checkbox..." (New features)
   → Commit: 87dd564
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
 
-EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+INCLUDE: "refactor: Use Web Component Decorator from CDK..." (Component-related)
   → Commit: 0b7f502
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "docs: Fix Documentation Errors from Component Structure Changes (#113)..."
 
-EXCLUDE: "docs: Fix Documentation Errors from Component Structure Changes (#113)..." (Documentation)
+INCLUDE: "docs: Fix Documentation Errors from Component Structure Changes (#113)..." (Component-related)
   → Commit: ae9938b
-  → Reason: Documentation
-  → Pattern: /docs|documentation|readme|changelog/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "feat: Add Elevate Chip..."
 
@@ -103,17 +105,16 @@ INCLUDE: "feat: Add Elevate Chip..." (Short component name)
 
 DEBUG: Evaluating commit: "docs: Add Components Status Page..."
 
-EXCLUDE: "docs: Add Components Status Page..." (Documentation)
+INCLUDE: "docs: Add Components Status Page..." (New features)
   → Commit: daf000f
-  → Reason: Documentation
-  → Pattern: /docs|documentation|readme|changelog/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "build: Separate CLI Tools and Storybook Addons into own Repositories/Packages..."
 
-EXCLUDE: "build: Separate CLI Tools and Storybook Addons into own Repositories/Packages..." (Build tools/Linting)
+UNCERTAIN: "build: Separate CLI Tools and Storybook Addons into own Repositories/Packages..." (No clear component relevance)
   → Commit: d95c89b
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "refac: Add Shape Enum for both chip and badge..."
 
@@ -124,30 +125,29 @@ INCLUDE: "refac: Add Shape Enum for both chip and badge..." (Short component nam
 
 DEBUG: Evaluating commit: "refactor: Consolidate Severity To Variant Mapping..."
 
-EXCLUDE: "refactor: Consolidate Severity To Variant Mapping..." (Generic refactoring)
+INCLUDE: "refactor: Consolidate Severity To Variant Mapping..." (Accessibility)
   → Commit: 61b6eed
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Accessibility
+  → Pattern: /accessibility|a11y|screen.reader|keyboard|aria|focus/
 
 DEBUG: Evaluating commit: "refactor: Consolidate and Export Severity Enum..."
 
-EXCLUDE: "refactor: Consolidate and Export Severity Enum..." (Generic refactoring)
+UNCERTAIN: "refactor: Consolidate and Export Severity Enum..." (No clear component relevance)
   → Commit: ea1ad10
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "refactor: Consolidate and Export Severity Enum..."
 
-EXCLUDE: "refactor: Consolidate and Export Severity Enum..." (Generic refactoring)
+UNCERTAIN: "refactor: Consolidate and Export Severity Enum..." (No clear component relevance)
   → Commit: 51b5cb5
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "fix: Update Annotation and Extensions for Consistency..."
 
-UNCERTAIN: "fix: Update Annotation and Extensions for Consistency..." (No clear component relevance)
+INCLUDE: "fix: Update Annotation and Extensions for Consistency..." (Bug fixes)
   → Commit: 5e60aef
-  → Reason: No matching patterns
+  → Reason: Bug fixes
+  → Pattern: /^fix|^bug|resolve|correct|patch/
 
 DEBUG: Evaluating commit: "feat: Add Chip Wrapper..."
 
@@ -156,4 +156,4 @@ INCLUDE: "feat: Add Chip Wrapper..." (Short component name)
   → Reason: Short component name
   → Pattern: /\bchip\b/i
 
-INFO: Filtered from 21 to 4 relevant commits
+INFO: Filtered from 21 to 16 relevant commits

@@ -1,12 +1,12 @@
 # Changelog Generation Log for elvt-tab-panel
-# Generated: 2025-08-13T18:15:17.582Z
+# Generated: 2025-08-16T20:51:50.712Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 13
-Included commits: 0
-Excluded commits: 3
-Uncertain commits: 2
+Included commits: 5
+Excluded commits: 0
+Uncertain commits: 0
 
 ## Detailed Log
 
@@ -16,35 +16,37 @@ INFO: Found 5 total commits from GitHub API
 
 DEBUG: Evaluating commit: "fix: Adjust Padding for TabPanel..."
 
-UNCERTAIN: "fix: Adjust Padding for TabPanel..." (No clear component relevance)
+INCLUDE: "fix: Adjust Padding for TabPanel..." (Bug fixes)
   → Commit: a6b498d
-  → Reason: No matching patterns
+  → Reason: Bug fixes
+  → Pattern: /^fix|^bug|resolve|correct|patch/
 
 DEBUG: Evaluating commit: "feat: Adjust Tab, TabPanel and TabGroup Design..."
 
-UNCERTAIN: "feat: Adjust Tab, TabPanel and TabGroup Design..." (No clear component relevance)
+INCLUDE: "feat: Adjust Tab, TabPanel and TabGroup Design..." (Design/Visual changes)
   → Commit: 1eba9c8
-  → Reason: No matching patterns
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
 
-EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+INCLUDE: "feat(build): Update to Storybook 9..." (New features)
   → Commit: c983425
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
 
-EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+INCLUDE: "refactor: Use Web Component Decorator from CDK..." (Component-related)
   → Commit: 0b7f502
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "refactor: Flatten Components File Structure..."
 
-EXCLUDE: "refactor: Flatten Components File Structure..." (Generic refactoring)
+INCLUDE: "refactor: Flatten Components File Structure..." (Component-related)
   → Commit: 36e7dd6
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
-INFO: Filtered from 5 to 0 relevant commits
+INFO: Filtered from 5 to 5 relevant commits

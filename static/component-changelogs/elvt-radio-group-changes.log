@@ -1,12 +1,12 @@
 # Changelog Generation Log for elvt-radio-group
-# Generated: 2025-08-13T18:14:59.683Z
+# Generated: 2025-08-16T20:51:27.395Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 21
-Included commits: 0
-Excluded commits: 5
-Uncertain commits: 4
+Included commits: 8
+Excluded commits: 0
+Uncertain commits: 1
 
 ## Detailed Log
 
@@ -16,61 +16,64 @@ INFO: Found 9 total commits from GitHub API
 
 DEBUG: Evaluating commit: "feat: Add Form Control Validators..."
 
-EXCLUDE: "feat: Add Form Control Validators..." (Form component)
+INCLUDE: "feat: Add Form Control Validators..." (New features)
   → Commit: 81c9c90
-  → Reason: Form component
-  → Pattern: /form(?!\s+\w*component)/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "feat: Radio Group Redesign..."
 
-UNCERTAIN: "feat: Radio Group Redesign..." (No clear component relevance)
+INCLUDE: "feat: Radio Group Redesign..." (Design/Visual changes)
   → Commit: bb6fd12
-  → Reason: No matching patterns
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "feat: Adjust Radio Styles..."
 
-UNCERTAIN: "feat: Adjust Radio Styles..." (No clear component relevance)
+INCLUDE: "feat: Adjust Radio Styles..." (Design/Visual changes)
   → Commit: e4ccbe5
-  → Reason: No matching patterns
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "feat: Add Multi-Column Direction to Stack Component..."
 
-UNCERTAIN: "feat: Add Multi-Column Direction to Stack Component..." (No clear component relevance)
+INCLUDE: "feat: Add Multi-Column Direction to Stack Component..." (New features)
   → Commit: 573e50e
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "refactor: Rename ComponentSize to Size ..."
 
-EXCLUDE: "refactor: Rename ComponentSize to Size ..." (Generic refactoring)
+INCLUDE: "refactor: Rename ComponentSize to Size ..." (Component-related)
   → Commit: ab26ae6
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "feat: Add Field Component..."
 
-UNCERTAIN: "feat: Add Field Component..." (No clear component relevance)
+INCLUDE: "feat: Add Field Component..." (New features)
   → Commit: 890b3f0
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
 
-EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+UNCERTAIN: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (No clear component relevance)
   → Commit: 0921993
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
 
-EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+INCLUDE: "feat(build): Update to Storybook 9..." (New features)
   → Commit: c983425
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "feat: Attach Form Control Internals (#127)..."
 
-EXCLUDE: "feat: Attach Form Control Internals (#127)..." (Form component)
+INCLUDE: "feat: Attach Form Control Internals (#127)..." (New features)
   → Commit: 95b8bff
-  → Reason: Form component
-  → Pattern: /form(?!\s+\w*component)/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
-INFO: Filtered from 9 to 0 relevant commits
+INFO: Filtered from 9 to 8 relevant commits

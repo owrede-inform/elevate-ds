@@ -1,0 +1,336 @@
+---
+title: Mutation Observer
+description: Utility component that observes DOM changes and provides reactive behavior for dynamic content and element modifications.
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Mutation Observer
+
+The Mutation Observer component provides a declarative way to observe DOM changes and react to modifications in the document structure, attributes, or content.
+
+## Usage Guidelines
+
+### When to Use
+- **Dynamic content monitoring** - Watching for content changes in dynamic applications
+- **Attribute tracking** - Observing attribute changes on elements
+- **DOM structure monitoring** - Detecting when elements are added or removed
+- **Reactive components** - Building components that respond to external changes
+- **Accessibility updates** - Tracking changes that affect assistive technologies
+
+### When Not to Use
+- **Simple event handling** - Use standard event listeners for user interactions
+- **Performance-critical operations** - Heavy DOM observation can impact performance
+- **Static content** - Unnecessary for content that doesn't change after initial render
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Mutation Observer"
+  description="Observer that watches for changes in a target element"
+  code={`<div>
+  <elvt-mutation-observer 
+    target="#dynamic-content"
+    child-list
+    attributes
+  ></elvt-mutation-observer>
+  
+  <div id="dynamic-content">
+    <p>This content will be observed for changes</p>
+  </div>
+  
+  <elvt-button onclick="addContent()">Add Content</elvt-button>
+</div>
+
+<script>
+function addContent() {
+  const container = document.getElementById('dynamic-content');
+  const newElement = document.createElement('p');
+  newElement.textContent = 'New content added at ' + new Date().toLocaleTimeString();
+  container.appendChild(newElement);
+}
+</script>`}
+>
+  <div>
+    <elvt-mutation-observer 
+      target="#dynamic-content"
+      child-list
+      attributes
+    ></elvt-mutation-observer>
+    
+    <div id="dynamic-content">
+      <p>This content will be observed for changes</p>
+    </div>
+    
+    <elvt-button onclick="document.getElementById('dynamic-content').appendChild(document.createElement('p')).textContent = 'New content added'">Add Content</elvt-button>
+  </div>
+</ComponentShowcase>
+
+## Component API
+
+### Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `target` | `string \| Element` | - | Target element or CSS selector to observe |
+| `child-list` | `boolean` | `false` | Observe additions and removals of child elements |
+| `attributes` | `boolean` | `false` | Observe attribute changes |
+| `character-data` | `boolean` | `false` | Observe text content changes |
+| `subtree` | `boolean` | `false` | Observe all descendants, not just direct children |
+| `attribute-old-value` | `boolean` | `false` | Record previous attribute values |
+| `character-data-old-value` | `boolean` | `false` | Record previous text content |
+| `attribute-filter` | `string[]` | - | Specific attributes to observe |
+| `disabled` | `boolean` | `false` | Disable the observer |
+
+### Events
+
+| Event | Description |
+|-------|-------------|
+| `elvt-mutation` | Fired when observed changes occur |
+
+### Event Details
+
+The `elvt-mutation` event includes detailed information about the changes:
+
+```typescript
+interface MutationEventDetail {
+  mutations: MutationRecord[];
+  target: Element;
+  observer: MutationObserver;
+}
+```
+
+## Examples
+
+### Attribute Observer
+
+<ComponentShowcase
+  title="Attribute Change Observer"
+  description="Observer that watches for attribute changes"
+  code={`<div>
+  <elvt-mutation-observer 
+    target="#attribute-target"
+    attributes
+    attribute-filter='["class", "style"]'
+  ></elvt-mutation-observer>
+  
+  <div id="attribute-target" class="initial-class">
+    Watch my attributes change
+  </div>
+  
+  <elvt-stack direction="row" gap="s">
+    <elvt-button onclick="toggleClass()">Toggle Class</elvt-button>
+    <elvt-button onclick="changeStyle()">Change Style</elvt-button>
+  </elvt-stack>
+</div>
+
+<script>
+function toggleClass() {
+  const target = document.getElementById('attribute-target');
+  target.classList.toggle('highlight');
+}
+
+function changeStyle() {
+  const target = document.getElementById('attribute-target');
+  target.style.backgroundColor = target.style.backgroundColor ? '' : '#f0f8ff';
+}
+</script>`}
+>
+  <div>
+    <elvt-mutation-observer 
+      target="#attribute-target"
+      attributes
+      attribute-filter='["class", "style"]'
+    ></elvt-mutation-observer>
+    
+    <div id="attribute-target" class="initial-class">
+      Watch my attributes change
+    </div>
+    
+    <elvt-stack direction="row" gap="s">
+      <elvt-button onclick="document.getElementById('attribute-target').classList.toggle('highlight')">Toggle Class</elvt-button>
+      <elvt-button onclick="document.getElementById('attribute-target').style.backgroundColor = document.getElementById('attribute-target').style.backgroundColor ? '' : '#f0f8ff'">Change Style</elvt-button>
+    </elvt-stack>
+  </div>
+</ComponentShowcase>
+
+### Text Content Observer
+
+<ComponentShowcase
+  title="Text Content Observer"
+  description="Observer that watches for text content changes"
+  code={`<div>
+  <elvt-mutation-observer 
+    target="#text-target"
+    character-data
+    subtree
+    character-data-old-value
+  ></elvt-mutation-observer>
+  
+  <div id="text-target" contenteditable="true" style="border: 1px solid #ccc; padding: 1rem; min-height: 60px;">
+    Edit this text to see the observer in action
+  </div>
+  
+  <p><small>Try typing in the box above - changes will be observed</small></p>
+</div>`}
+>
+  <div>
+    <elvt-mutation-observer 
+      target="#text-target"
+      character-data
+      subtree
+      character-data-old-value
+    ></elvt-mutation-observer>
+    
+    <div id="text-target" contenteditable="true" style="border: 1px solid #ccc; padding: 1rem; min-height: 60px;">
+      Edit this text to see the observer in action
+    </div>
+    
+    <p><small>Try typing in the box above - changes will be observed</small></p>
+  </div>
+</ComponentShowcase>
+
+### Subtree Observer
+
+<ComponentShowcase
+  title="Subtree Observer"
+  description="Observer that watches an entire subtree for changes"
+  code={`<div>
+  <elvt-mutation-observer 
+    target="#subtree-target"
+    child-list
+    attributes
+    subtree
+  ></elvt-mutation-observer>
+  
+  <div id="subtree-target">
+    <div class="level-1">
+      <p>Level 1 content</p>
+      <div class="level-2">
+        <span>Level 2 content</span>
+      </div>
+    </div>
+  </div>
+  
+  <elvt-stack direction="row" gap="s">
+    <elvt-button onclick="addDeepContent()">Add Deep Content</elvt-button>
+    <elvt-button onclick="modifyDeepAttribute()">Modify Deep Attribute</elvt-button>
+  </elvt-stack>
+</div>
+
+<script>
+function addDeepContent() {
+  const level2 = document.querySelector('#subtree-target .level-2');
+  const newElement = document.createElement('p');
+  newElement.textContent = 'Added to level 2';
+  level2.appendChild(newElement);
+}
+
+function modifyDeepAttribute() {
+  const level1 = document.querySelector('#subtree-target .level-1');
+  level1.setAttribute('data-modified', new Date().toISOString());
+}
+</script>`}
+>
+  <div>
+    <elvt-mutation-observer 
+      target="#subtree-target"
+      child-list
+      attributes
+      subtree
+    ></elvt-mutation-observer>
+    
+    <div id="subtree-target">
+      <div class="level-1">
+        <p>Level 1 content</p>
+        <div class="level-2">
+          <span>Level 2 content</span>
+        </div>
+      </div>
+    </div>
+    
+    <elvt-stack direction="row" gap="s">
+      <elvt-button onclick="document.querySelector('#subtree-target .level-2').appendChild(document.createElement('p')).textContent = 'Added to level 2'">Add Deep Content</elvt-button>
+      <elvt-button onclick="document.querySelector('#subtree-target .level-1').setAttribute('data-modified', new Date().toISOString())">Modify Deep Attribute</elvt-button>
+    </elvt-stack>
+  </div>
+</ComponentShowcase>
+
+## Event Handling
+
+### JavaScript Event Listener
+
+```javascript
+// Listen for mutations
+document.addEventListener('elvt-mutation', (event) => {
+  const { mutations, target } = event.detail;
+  
+  mutations.forEach(mutation => {
+    switch (mutation.type) {
+      case 'childList':
+        console.log('Child nodes changed:', mutation);
+        break;
+      case 'attributes':
+        console.log('Attributes changed:', mutation);
+        break;
+      case 'characterData':
+        console.log('Text content changed:', mutation);
+        break;
+    }
+  });
+});
+```
+
+### Mutation Record Properties
+
+Each mutation record includes:
+- `type`: Type of mutation ('childList', 'attributes', 'characterData')
+- `target`: The element that was modified
+- `addedNodes`: Nodes that were added
+- `removedNodes`: Nodes that were removed
+- `attributeName`: Name of changed attribute
+- `oldValue`: Previous value (if tracking enabled)
+
+## Performance Considerations
+
+### Optimization Tips
+- **Specific targeting**: Use specific selectors rather than observing large trees
+- **Minimal observations**: Only observe the changes you need
+- **Throttling**: Consider throttling rapid changes in your event handlers
+- **Cleanup**: Disable observers when no longer needed
+
+### Memory Management
+- Observers maintain references to observed elements
+- Disable observers when components are destroyed
+- Use weak references in long-lived applications
+
+## Use Cases
+
+### Dynamic Form Validation
+- Watch for form field additions/removals
+- Observe validation attribute changes
+- React to dynamic form structure
+
+### Accessibility Updates
+- Track ARIA attribute changes
+- Monitor focus management
+- Update screen reader announcements
+
+### Content Management
+- Detect content injection from external sources
+- Monitor rich text editor changes
+- Track dynamic list modifications
+
+### Component Libraries
+- Build reactive components that respond to external changes
+- Create auto-updating layouts
+- Implement change-sensitive optimizations
+
+---
+
+:::tip Performance Impact
+Mutation observers can impact performance if overused. Only observe the specific changes you need and consider debouncing rapid changes in your event handlers.
+:::
+
+View the mutation observer component at [http://localhost:3000/docs/components/mutation-observer](http://localhost:3000/docs/components/mutation-observer)

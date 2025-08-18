@@ -1,19 +1,102 @@
 {
   "component": "elvt-expansion-panel-group",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-13T18:14:33.092Z",
-  "changelog": [],
+  "lastUpdated": "2025-08-16T20:50:57.612Z",
+  "changelog": [
+    {
+      "version": "0.0.26-alpha",
+      "date": "2025-07-16",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Adjust Elevate Expansion Panel Design",
+          "description": "Added adjust elevate expansion panel design",
+          "commit": "981f461",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/981f4610a0e70b5725178844a54df814ea6fb505"
+        }
+      ]
+    },
+    {
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Update to Storybook 9",
+          "description": "Added update to storybook 9",
+          "commit": "c983425",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
+        },
+        {
+          "type": "bug-fix",
+          "title": "Make All Attribute Names \"kebab-case\"",
+          "description": "Fixed make all attribute names \"kebab-case\"",
+          "commit": "4d0bee0",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4d0bee09201d73522d00c25fbca941fe11a1e5fb"
+        }
+      ]
+    },
+    {
+      "version": "0.0.24-alpha",
+      "date": "2025-05-15",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Use Web Component Decorator from CDK",
+          "description": "Improved use web component decorator from cdk",
+          "commit": "0b7f502",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
+        },
+        {
+          "type": "improvement",
+          "title": "Flatten Components File Structure",
+          "description": "Improved flatten components file structure",
+          "commit": "36e7dd6",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/36e7dd6caa9db3201f3783f10f7e86e47f12a6c5"
+        }
+      ]
+    }
+  ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
-    "totalVersions": 0,
-    "firstVersion": "0.0.28-alpha",
+    "totalVersions": 3,
+    "firstVersion": "0.0.24-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "",
+    "lastCommit": "981f4610a0e70b5725178844a54df814ea6fb505",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "0/6"
+    "filteredCommits": "5/6"
   }
 }

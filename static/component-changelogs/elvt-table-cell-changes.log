@@ -1,11 +1,11 @@
 # Changelog Generation Log for elvt-table-cell
-# Generated: 2025-08-13T18:15:10.724Z
+# Generated: 2025-08-16T20:51:40.759Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 7
-Included commits: 0
-Excluded commits: 2
+Included commits: 2
+Excluded commits: 0
 Uncertain commits: 0
 
 ## Detailed Log
@@ -16,16 +16,16 @@ INFO: Found 2 total commits from GitHub API
 
 DEBUG: Evaluating commit: "docs: Update Component Status..."
 
-EXCLUDE: "docs: Update Component Status..." (Documentation)
+INCLUDE: "docs: Update Component Status..." (Component-related)
   → Commit: 24cb112
-  → Reason: Documentation
-  → Pattern: /docs|documentation|readme|changelog/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "feat: Add Table Selection..."
 
-EXCLUDE: "feat: Add Table Selection..." (Table component)
+INCLUDE: "feat: Add Table Selection..." (New features)
   → Commit: bb8d2fe
-  → Reason: Table component
-  → Pattern: /table(?!\s+\w*component)/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
-INFO: Filtered from 2 to 0 relevant commits
+INFO: Filtered from 2 to 2 relevant commits

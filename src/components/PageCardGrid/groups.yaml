@@ -1,0 +1,28 @@
+# PageCardGrid Group Descriptions
+# This file defines group descriptions that appear between group headers and component cards
+
+groups:
+  "Form Elements":
+    description: "Interactive components for user input and data collection. These components provide clear affordances, validation feedback, and accessibility features."
+    
+  "Layout Elements":
+    description: "Structural components for organizing content and creating visual hierarchy. These components help establish consistent spacing, grouping, and information architecture."
+    
+  "Navigation Elements":
+    description: "Components that help users understand their location and move through your application. These components improve wayfinding and reduce cognitive load."
+    
+  "Feedback Elements":
+    description: "Components that communicate system status, user actions, and important information. These components help users understand what's happening and what they should do next."
+    
+  "Data Display Elements":
+    description: "Components for presenting information clearly and efficiently. These components help users scan, understand, and act on data."
+    
+  "Interactive Elements":
+    description: "Advanced interactive components for complex user interactions. These components provide rich functionality while maintaining usability and accessibility."
+    
+  "Content Elements":
+    description: "Components for displaying and organizing textual and visual content. These components ensure consistent presentation and readability."
+
+# Example of how to add custom groups:
+# "Custom Group":
+#   description: "Description of your custom component group."

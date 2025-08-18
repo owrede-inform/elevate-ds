@@ -28,13 +28,16 @@
     "changelog:github-token": "node scripts/github-changelog.js --component",
     "versions:list": "node scripts/update-versions.js --list",
     "versions:add": "node scripts/update-versions.js --add-version",
-    "versions:regen": "node scripts/update-versions.js --regen-cutoffs"
+    "versions:regen": "node scripts/update-versions.js --regen-cutoffs",
+    "generate:overview": "node scripts/generate-components-overview.js"
   },
   "dependencies": {
     "@docusaurus/core": "3.8.1",
     "@docusaurus/preset-classic": "3.8.1",
     "@iconify/react": "^6.0.0",
     "@inform-elevate/elevate-core-ui": "^0.0.28-alpha",
+    "@inform-elevate/elevate-icons": "^0.3.0",
+    "@mdi/js": "^7.4.47",
     "@mdx-js/react": "^3.0.0",
     "@shoelace-style/shoelace": "^2.20.1",
     "clsx": "^2.0.0",
@@ -46,6 +49,7 @@
     "@docusaurus/module-type-aliases": "3.8.1",
     "@docusaurus/tsconfig": "3.8.1",
     "@docusaurus/types": "3.8.1",
+    "@playwright/test": "^1.54.2",
     "chokidar": "^4.0.3",
     "cross-env": "^10.0.0",
     "playwright": "^1.54.2",

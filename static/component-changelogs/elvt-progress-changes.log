@@ -1,12 +1,12 @@
 # Changelog Generation Log for elvt-progress
-# Generated: 2025-08-13T18:14:58.313Z
+# Generated: 2025-08-16T20:51:25.565Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 31
-Included commits: 3
-Excluded commits: 6
-Uncertain commits: 5
+Included commits: 13
+Excluded commits: 0
+Uncertain commits: 1
 
 ## Detailed Log
 
@@ -23,16 +23,17 @@ INCLUDE: "feat: Adjust Progress Design..." (Short component name)
 
 DEBUG: Evaluating commit: "feat: Adjust Button Design, Remove Shoelace Button..."
 
-UNCERTAIN: "feat: Adjust Button Design, Remove Shoelace Button..." (No clear component relevance)
+INCLUDE: "feat: Adjust Button Design, Remove Shoelace Button..." (Design/Visual changes)
   → Commit: 67a0e62
-  → Reason: No matching patterns
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "refactor: Rename ComponentSize to Size ..."
 
-EXCLUDE: "refactor: Rename ComponentSize to Size ..." (Generic refactoring)
+INCLUDE: "refactor: Rename ComponentSize to Size ..." (Component-related)
   → Commit: ab26ae6
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "feat: Add Progress Arc Shape and Dynamic Size..."
 
@@ -43,56 +44,58 @@ INCLUDE: "feat: Add Progress Arc Shape and Dynamic Size..." (Short component nam
 
 DEBUG: Evaluating commit: "feat: Add Autoloader..."
 
-UNCERTAIN: "feat: Add Autoloader..." (No clear component relevance)
+INCLUDE: "feat: Add Autoloader..." (New features)
   → Commit: 8d557b0
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
 
-EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+UNCERTAIN: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (No clear component relevance)
   → Commit: 0921993
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
 
-EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+INCLUDE: "feat(build): Update to Storybook 9..." (New features)
   → Commit: c983425
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
 
-EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+INCLUDE: "refactor: Use Web Component Decorator from CDK..." (Component-related)
   → Commit: 0b7f502
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "refactor: Flatten Components File Structure..."
 
-EXCLUDE: "refactor: Flatten Components File Structure..." (Generic refactoring)
+INCLUDE: "refactor: Flatten Components File Structure..." (Component-related)
   → Commit: 36e7dd6
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "feat: Add Indicator Component (Experimental)..."
 
-UNCERTAIN: "feat: Add Indicator Component (Experimental)..." (No clear component relevance)
+INCLUDE: "feat: Add Indicator Component (Experimental)..." (New features)
   → Commit: db0bd06
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "docs: Add Components Status Page..."
 
-EXCLUDE: "docs: Add Components Status Page..." (Documentation)
+INCLUDE: "docs: Add Components Status Page..." (New features)
   → Commit: daf000f
-  → Reason: Documentation
-  → Pattern: /docs|documentation|readme|changelog/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "feat: Improve React Compatibility (#73)..."
 
-UNCERTAIN: "feat: Improve React Compatibility (#73)..." (No clear component relevance)
+INCLUDE: "feat: Improve React Compatibility (#73)..." (New features)
   → Commit: f0cd5c4
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "feat: Show Content in Indeterminate Ring Progress Indicator (#70)..."
 
@@ -103,8 +106,9 @@ INCLUDE: "feat: Show Content in Indeterminate Ring Progress Indicator (#70)..." 
 
 DEBUG: Evaluating commit: "feat: Skeleton Component Wrapper (#65)..."
 
-UNCERTAIN: "feat: Skeleton Component Wrapper (#65)..." (No clear component relevance)
+INCLUDE: "feat: Skeleton Component Wrapper (#65)..." (New features)
   → Commit: 1cd3fc7
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
-INFO: Filtered from 14 to 3 relevant commits
+INFO: Filtered from 14 to 13 relevant commits

@@ -1,0 +1,410 @@
+---
+title: Resize Observer
+description: Utility component that observes element size changes and provides reactive behavior for responsive layouts and dynamic sizing.
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Resize Observer
+
+The Resize Observer component provides a declarative way to observe element size changes and react to dimension modifications, enabling responsive behavior and dynamic layouts.
+
+## Usage Guidelines
+
+### When to Use
+- **Responsive components** - Building components that adapt to container size changes
+- **Dynamic layouts** - Creating layouts that respond to content or viewport changes
+- **Performance optimization** - Optimizing rendering based on available space
+- **Container queries** - Implementing container-based responsive design
+- **Chart and visualization** - Updating graphics when containers resize
+
+### When Not to Use
+- **Viewport changes only** - Use media queries for viewport-based responsive design
+- **Static layouts** - Unnecessary for fixed-size content
+- **Performance-critical code** - Frequent resize observations can impact performance
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Basic Resize Observer"
+  description="Observer that watches for size changes in a target element"
+  code={`<div>
+  <elvt-resize-observer target="#resize-target"></elvt-resize-observer>
+  
+  <div 
+    id="resize-target" 
+    style="
+      border: 2px solid #007bff; 
+      padding: 1rem; 
+      resize: both; 
+      overflow: auto; 
+      min-width: 200px; 
+      min-height: 100px;
+      background: #f8f9fa;
+    "
+  >
+    <p>Resize this box by dragging the corner</p>
+    <p id="size-display">Size will be displayed here</p>
+  </div>
+</div>
+
+<script>
+document.addEventListener('elvt-resize', (event) => {
+  const { width, height } = event.detail.contentRect;
+  const display = document.getElementById('size-display');
+  if (display) {
+    display.textContent = \`Width: \${Math.round(width)}px, Height: \${Math.round(height)}px\`;
+  }
+});
+</script>`}
+>
+  <div>
+    <elvt-resize-observer target="#resize-target"></elvt-resize-observer>
+    
+    <div 
+      id="resize-target" 
+      style="border: 2px solid #007bff; padding: 1rem; resize: both; overflow: auto; min-width: 200px; min-height: 100px; background: #f8f9fa;"
+    >
+      <p>Resize this box by dragging the corner</p>
+      <p id="size-display">Size will be displayed here</p>
+    </div>
+  </div>
+</ComponentShowcase>
+
+## Component API
+
+### Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `target` | `string \| Element` | - | Target element or CSS selector to observe |
+| `box` | `'content-box' \| 'border-box' \| 'device-pixel-content-box'` | `'content-box'` | Which box model to observe |
+| `disabled` | `boolean` | `false` | Disable the observer |
+
+### Events
+
+| Event | Description |
+|-------|-------------|
+| `elvt-resize` | Fired when the observed element's size changes |
+
+### Event Details
+
+The `elvt-resize` event includes detailed size information:
+
+```typescript
+interface ResizeEventDetail {
+  contentRect: DOMRectReadOnly;
+  borderBoxSize: ResizeObserverSize[];
+  contentBoxSize: ResizeObserverSize[];
+  devicePixelContentBoxSize?: ResizeObserverSize[];
+  target: Element;
+}
+```
+
+## Examples
+
+### Responsive Component
+
+<ComponentShowcase
+  title="Responsive Component Behavior"
+  description="Component that adapts its content based on available width"
+  code={`<div>
+  <elvt-resize-observer target="#responsive-component"></elvt-resize-observer>
+  
+  <elvt-card id="responsive-component" style="resize: horizontal; overflow: auto; min-width: 250px; max-width: 100%;">
+    <div slot="content">
+      <div id="responsive-content">
+        <p>Resize the card horizontally to see content adapt</p>
+        <elvt-stack direction="row" gap="m" wrap>
+          <elvt-button>Button 1</elvt-button>
+          <elvt-button>Button 2</elvt-button>
+          <elvt-button>Button 3</elvt-button>
+        </elvt-stack>
+      </div>
+    </div>
+  </elvt-card>
+</div>
+
+<script>
+document.addEventListener('elvt-resize', (event) => {
+  const { width } = event.detail.contentRect;
+  const content = document.getElementById('responsive-content');
+  const stack = content?.querySelector('elvt-stack');
+  
+  if (stack) {
+    // Switch to vertical layout for narrow containers
+    stack.setAttribute('direction', width < 300 ? 'column' : 'row');
+  }
+});
+</script>`}
+>
+  <div>
+    <elvt-resize-observer target="#responsive-component"></elvt-resize-observer>
+    
+    <elvt-card id="responsive-component" style="resize: horizontal; overflow: auto; min-width: 250px; max-width: 100%;">
+      <div slot="content">
+        <div id="responsive-content">
+          <p>Resize the card horizontally to see content adapt</p>
+          <elvt-stack direction="row" gap="m" wrap>
+            <elvt-button>Button 1</elvt-button>
+            <elvt-button>Button 2</elvt-button>
+            <elvt-button>Button 3</elvt-button>
+          </elvt-stack>
+        </div>
+      </div>
+    </elvt-card>
+  </div>
+</ComponentShowcase>
+
+### Chart Container
+
+<ComponentShowcase
+  title="Chart Container Observer"
+  description="Container that updates chart dimensions when resized"
+  code={`<div>
+  <elvt-resize-observer target="#chart-container"></elvt-resize-observer>
+  
+  <div 
+    id="chart-container"
+    style="
+      border: 1px solid #ddd; 
+      padding: 1rem; 
+      resize: both; 
+      overflow: auto; 
+      min-width: 300px; 
+      min-height: 200px;
+      background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
+                  linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
+                  linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
+                  linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    "
+  >
+    <div id="chart-placeholder" style="background: #e3f2fd; height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+      <div style="text-align: center;">
+        <strong>Chart Area</strong>
+        <div id="chart-dimensions">300 × 200</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('elvt-resize', (event) => {
+  if (event.detail.target.id === 'chart-container') {
+    const { width, height } = event.detail.contentRect;
+    const dimensions = document.getElementById('chart-dimensions');
+    if (dimensions) {
+      dimensions.textContent = \`\${Math.round(width)} × \${Math.round(height)}\`;
+    }
+    
+    // Simulate chart update
+    console.log('Chart would be updated to:', Math.round(width), 'x', Math.round(height));
+  }
+});
+</script>`}
+>
+  <div>
+    <elvt-resize-observer target="#chart-container"></elvt-resize-observer>
+    
+    <div 
+      id="chart-container"
+      style="border: 1px solid #ddd; padding: 1rem; resize: both; overflow: auto; min-width: 300px; min-height: 200px; background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px;"
+    >
+      <div id="chart-placeholder" style="background: #e3f2fd; height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
+        <div style="text-align: center;">
+          <strong>Chart Area</strong>
+          <div id="chart-dimensions">300 × 200</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ComponentShowcase>
+
+### Container Query Simulation
+
+<ComponentShowcase
+  title="Container Query Simulation"
+  description="Simulating container queries with resize observer"
+  code={`<div>
+  <elvt-resize-observer target="#container-query-demo"></elvt-resize-observer>
+  
+  <div 
+    id="container-query-demo"
+    class="container-demo"
+    style="
+      border: 2px solid #28a745; 
+      padding: 1rem; 
+      resize: horizontal; 
+      overflow: auto; 
+      min-width: 200px; 
+      max-width: 100%;
+    "
+  >
+    <div class="container-content">
+      <h4>Responsive Card</h4>
+      <p>This card adapts its layout based on container width, not viewport width.</p>
+      <elvt-stack direction="column" gap="s">
+        <elvt-button variant="primary">Primary Action</elvt-button>
+        <elvt-button variant="secondary">Secondary Action</elvt-button>
+      </elvt-stack>
+    </div>
+  </div>
+  
+  <p><small>Drag to resize horizontally and see the content adapt</small></p>
+</div>
+
+<script>
+document.addEventListener('elvt-resize', (event) => {
+  if (event.detail.target.id === 'container-query-demo') {
+    const { width } = event.detail.contentRect;
+    const container = event.detail.target;
+    const content = container.querySelector('.container-content');
+    const stack = content?.querySelector('elvt-stack');
+    
+    // Add size-based classes
+    container.classList.toggle('size-small', width < 300);
+    container.classList.toggle('size-medium', width >= 300 && width < 500);
+    container.classList.toggle('size-large', width >= 500);
+    
+    // Adjust button layout
+    if (stack) {
+      stack.setAttribute('direction', width < 350 ? 'column' : 'row');
+    }
+  }
+});
+</script>
+
+<style>
+.container-demo.size-small .container-content h4 {
+  font-size: 1rem;
+}
+.container-demo.size-medium .container-content h4 {
+  font-size: 1.2rem;
+}
+.container-demo.size-large .container-content h4 {
+  font-size: 1.5rem;
+}
+</style>`}
+>
+  <div>
+    <elvt-resize-observer target="#container-query-demo"></elvt-resize-observer>
+    
+    <div 
+      id="container-query-demo"
+      class="container-demo"
+      style="border: 2px solid #28a745; padding: 1rem; resize: horizontal; overflow: auto; min-width: 200px; max-width: 100%;"
+    >
+      <div class="container-content">
+        <h4>Responsive Card</h4>
+        <p>This card adapts its layout based on container width, not viewport width.</p>
+        <elvt-stack direction="column" gap="s">
+          <elvt-button variant="primary">Primary Action</elvt-button>
+          <elvt-button variant="secondary">Secondary Action</elvt-button>
+        </elvt-stack>
+      </div>
+    </div>
+    
+    <p><small>Drag to resize horizontally and see the content adapt</small></p>
+  </div>
+</ComponentShowcase>
+
+## Box Models
+
+### Content Box (Default)
+- Measures the content area excluding padding and border
+- Most common for layout calculations
+- Consistent with CSS `box-sizing: content-box`
+
+### Border Box
+- Includes padding and border in measurements
+- Useful when working with `box-sizing: border-box`
+- Matches element's total rendered size
+
+### Device Pixel Content Box
+- Provides device pixel measurements
+- Useful for high-DPI displays and canvas elements
+- May not be available in all browsers
+
+## Event Handling
+
+### JavaScript Event Listener
+
+```javascript
+// Listen for resize events
+document.addEventListener('elvt-resize', (event) => {
+  const { 
+    contentRect, 
+    borderBoxSize, 
+    contentBoxSize, 
+    target 
+  } = event.detail;
+  
+  // Access size information
+  const width = contentRect.width;
+  const height = contentRect.height;
+  
+  // Respond to size changes
+  updateLayoutForSize(target, width, height);
+});
+```
+
+### Debouncing Resize Events
+
+```javascript
+let resizeTimeout;
+
+document.addEventListener('elvt-resize', (event) => {
+  clearTimeout(resizeTimeout);
+  
+  resizeTimeout = setTimeout(() => {
+    // Perform expensive operations after resize settles
+    updateExpensiveLayout(event.detail);
+  }, 100);
+});
+```
+
+## Performance Considerations
+
+### Optimization Strategies
+- **Throttling**: Limit the frequency of expensive operations
+- **Debouncing**: Wait for resize to settle before expensive calculations
+- **Conditional updates**: Only update when size changes significantly
+- **Efficient selectors**: Use specific target selectors
+
+### Memory Management
+- Disable observers when components are destroyed
+- Avoid keeping references to observed elements
+- Clean up event listeners when no longer needed
+
+## Use Cases
+
+### Layout Systems
+- Grid systems that adapt to container size
+- Sidebar layouts that collapse based on available width
+- Card layouts that reflow based on container dimensions
+
+### Data Visualization
+- Charts that redraw when container size changes
+- Tables that adjust column layout for different widths
+- Dashboards that reorganize based on available space
+
+### Component Libraries
+- Responsive components independent of viewport size
+- Auto-sizing input fields and text areas
+- Dynamic toolbar layouts
+
+### Performance Optimization
+- Lazy loading based on visible area
+- Virtual scrolling with dynamic item sizing
+- Progressive enhancement based on available space
+
+---
+
+:::tip Container Queries Alternative
+Resize Observer provides functionality similar to CSS Container Queries (when they become widely available) and can serve as a polyfill for container-based responsive design.
+:::
+
+View the resize observer component at [http://localhost:3000/docs/components/resize-observer](http://localhost:3000/docs/components/resize-observer)

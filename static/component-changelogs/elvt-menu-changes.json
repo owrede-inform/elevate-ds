@@ -1,13 +1,77 @@
 {
   "component": "elvt-menu",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-13T18:14:49.528Z",
+  "lastUpdated": "2025-08-16T20:51:16.308Z",
   "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Implement DropDown Component",
+          "description": "Added implement dropdown component",
+          "commit": "a4e1f06",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/a4e1f06a4a98e9999df43c9edf451b7ab9451a13"
+        }
+      ]
+    },
+    {
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add Autoloader",
+          "description": "Added add autoloader",
+          "commit": "8d557b0",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8d557b0972abf0e251a7d4a90e6c057e827f0d62"
+        },
+        {
+          "type": "feature",
+          "title": "Update to Storybook 9",
+          "description": "Added update to storybook 9",
+          "commit": "c983425",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
+        }
+      ]
+    },
     {
       "version": "0.0.24-alpha",
       "date": "2025-05-15",
       "type": "minor",
       "changes": [
+        {
+          "type": "improvement",
+          "title": "Use Web Component Decorator from CDK",
+          "description": "Improved use web component decorator from cdk",
+          "commit": "0b7f502",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
+        },
+        {
+          "type": "feature",
+          "title": "Add Components Status Page",
+          "description": "Added add components status page",
+          "commit": "daf000f",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/daf000fc14c799b579f9b31d9e145791118f551e"
+        },
         {
           "type": "bug-fix",
           "title": "Fix Menu \"shape\" Property (#91)",
@@ -29,6 +93,33 @@
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/54a13135011e52eb78f7367867e2d83b66e853fa"
         }
       ]
+    },
+    {
+      "version": "0.0.22-alpha",
+      "date": "2025-03-25",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Improve Menu Item",
+          "description": "Improved improve menu item",
+          "commit": "c52fca7",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c52fca7f4962bcca5a031f88a447f618335412f6"
+        },
+        {
+          "type": "improvement",
+          "title": "Move Menu/Dropdown Components Into a Subdirectory",
+          "description": "Improved move menu/dropdown components into a subdirectory",
+          "commit": "e74ccc4",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/e74ccc4dcd80c8a95f78747a9dceae944929bbc4"
+        }
+      ]
     }
   ],
   "deprecations": [],
@@ -45,14 +136,14 @@
     }
   ],
   "metadata": {
-    "totalVersions": 1,
-    "firstVersion": "0.0.24-alpha",
+    "totalVersions": 4,
+    "firstVersion": "0.0.22-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "497830ebb860ce67bd80e9173cea342d55562a0f",
+    "lastCommit": "a4e1f06a4a98e9999df43c9edf451b7ab9451a13",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "2/10"
+    "filteredCommits": "9/11"
   }
 }

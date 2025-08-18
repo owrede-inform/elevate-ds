@@ -1,19 +1,102 @@
 {
   "component": "elvt-tab-panel",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-13T18:15:17.577Z",
-  "changelog": [],
+  "lastUpdated": "2025-08-16T20:51:50.708Z",
+  "changelog": [
+    {
+      "version": "0.0.26-alpha",
+      "date": "2025-07-16",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Adjust Padding for TabPanel",
+          "description": "Added adjust padding for tabpanel",
+          "commit": "a6b498d",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "nwester-inform",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/a6b498d47b414b8e8ecec11f950c6d3bfea7e716"
+        },
+        {
+          "type": "feature",
+          "title": "Adjust Tab, TabPanel and TabGroup Design",
+          "description": "Added adjust tab, tabpanel and tabgroup design",
+          "commit": "1eba9c8",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "nwester-inform",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/1eba9c89335aecc947099a2f8cfb90b0b13c3dce"
+        }
+      ]
+    },
+    {
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Update to Storybook 9",
+          "description": "Added update to storybook 9",
+          "commit": "c983425",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
+        }
+      ]
+    },
+    {
+      "version": "0.0.24-alpha",
+      "date": "2025-05-15",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Use Web Component Decorator from CDK",
+          "description": "Improved use web component decorator from cdk",
+          "commit": "0b7f502",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
+        },
+        {
+          "type": "improvement",
+          "title": "Flatten Components File Structure",
+          "description": "Improved flatten components file structure",
+          "commit": "36e7dd6",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/36e7dd6caa9db3201f3783f10f7e86e47f12a6c5"
+        }
+      ]
+    }
+  ],
   "deprecations": [],
-  "upcomingChanges": [],
+  "upcomingChanges": [
+    {
+      "version": "0.1.0",
+      "plannedDate": "2025-09-01",
+      "description": "Stable release with finalized API",
+      "changes": [
+        "API stabilization",
+        "Performance optimizations",
+        "Enhanced accessibility features"
+      ]
+    }
+  ],
   "metadata": {
-    "totalVersions": 0,
-    "firstVersion": "0.0.28-alpha",
+    "totalVersions": 3,
+    "firstVersion": "0.0.24-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "",
+    "lastCommit": "a6b498d47b414b8e8ecec11f950c6d3bfea7e716",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "0/5"
+    "filteredCommits": "5/5"
   }
 }

@@ -1,8 +1,35 @@
 {
   "component": "elvt-tab",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-13T18:15:19.538Z",
+  "lastUpdated": "2025-08-16T20:51:52.535Z",
   "changelog": [
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Update Design Tokens",
+          "description": "Improved update design tokens",
+          "commit": "08e28c8",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/08e28c8e136b28de44e0627ee356b080abee823c"
+        },
+        {
+          "type": "improvement",
+          "title": "Update Dependencies and Design Tokens",
+          "description": "Improved update dependencies and design tokens",
+          "commit": "907aee4",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/907aee45e3db1983a42fb8aa2e4399c405f7b852"
+        }
+      ]
+    },
     {
       "version": "0.0.26-alpha",
       "date": "2025-07-16",
@@ -17,6 +44,50 @@
           "breakingChange": false,
           "author": "nwester-inform",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/1eba9c89335aecc947099a2f8cfb90b0b13c3dce"
+        }
+      ]
+    },
+    {
+      "version": "0.0.25-alpha",
+      "date": "2025-06-15",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Update to Storybook 9",
+          "description": "Added update to storybook 9",
+          "commit": "c983425",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
+        }
+      ]
+    },
+    {
+      "version": "0.0.24-alpha",
+      "date": "2025-05-15",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Use Web Component Decorator from CDK",
+          "description": "Improved use web component decorator from cdk",
+          "commit": "0b7f502",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
+        },
+        {
+          "type": "improvement",
+          "title": "Flatten Components File Structure",
+          "description": "Improved flatten components file structure",
+          "commit": "36e7dd6",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/36e7dd6caa9db3201f3783f10f7e86e47f12a6c5"
         }
       ]
     }
@@ -35,14 +106,14 @@
     }
   ],
   "metadata": {
-    "totalVersions": 1,
-    "firstVersion": "0.0.26-alpha",
+    "totalVersions": 4,
+    "firstVersion": "0.0.24-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "1eba9c89335aecc947099a2f8cfb90b0b13c3dce",
+    "lastCommit": "08e28c8e136b28de44e0627ee356b080abee823c",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "1/7"
+    "filteredCommits": "6/7"
   }
 }

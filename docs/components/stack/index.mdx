@@ -1,0 +1,219 @@
+---
+title: Stack
+description: Layout component that arranges child elements in vertical or horizontal stacks with consistent spacing and alignment options.
+sidebar_position: 1
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+
+# Stack
+
+Stack is a fundamental layout component that arranges child elements in vertical or horizontal stacks with consistent spacing, alignment, and distribution options.
+
+## Usage Guidelines
+
+### When to Use
+- **Linear layouts** - When elements need to be arranged in a single direction
+- **Consistent spacing** - To maintain uniform gaps between elements
+- **Responsive design** - For layouts that adapt to different screen sizes
+- **Component composition** - As a building block for more complex layouts
+
+### When Not to Use
+- **Complex grids** - Use CSS Grid or Flexbox directly for multi-dimensional layouts
+- **Overlapping elements** - Use absolute positioning instead
+- **Complex responsive behavior** - Consider custom CSS for intricate breakpoint logic
+
+## Basic Usage
+
+<ComponentShowcase
+  title="Vertical Stack"
+  description="Basic vertical stack with default spacing"
+  code={`<elvt-stack direction="column" gap="m">
+  <elvt-card padding="m">Item 1</elvt-card>
+  <elvt-card padding="m">Item 2</elvt-card>
+  <elvt-card padding="m">Item 3</elvt-card>
+</elvt-stack>`}
+>
+  <elvt-stack direction="column" gap="m">
+    <elvt-card padding="m">Item 1</elvt-card>
+    <elvt-card padding="m">Item 2</elvt-card>
+    <elvt-card padding="m">Item 3</elvt-card>
+  </elvt-stack>
+</ComponentShowcase>
+
+## Component API
+
+### Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `direction` | `'row' \| 'column'` | `'column'` | Stack direction |
+| `gap` | `'xs' \| 's' \| 'm' \| 'l' \| 'xl'` | `'m'` | Space between items |
+| `alignment` | `'start' \| 'center' \| 'end' \| 'stretch'` | `'stretch'` | Cross-axis alignment |
+| `distribution` | `'start' \| 'center' \| 'end' \| 'space-between' \| 'space-around' \| 'space-evenly'` | `'start'` | Main-axis distribution |
+| `wrap` | `boolean` | `false` | Allow items to wrap to new lines |
+| `inline` | `boolean` | `false` | Display as inline element |
+
+### CSS Custom Properties
+
+| Property | Description |
+|----------|-------------|
+| `--stack-gap` | Custom gap size overriding the gap property |
+| `--stack-padding` | Internal padding of the stack container |
+
+## Examples
+
+### Horizontal Stack
+
+<ComponentShowcase
+  title="Horizontal Stack"
+  description="Horizontal stack with center alignment"
+  code={`<elvt-stack direction="row" gap="l" alignment="center">
+  <elvt-button variant="primary">Primary</elvt-button>
+  <elvt-button variant="secondary">Secondary</elvt-button>
+  <elvt-button variant="outline">Outline</elvt-button>
+</elvt-stack>`}
+>
+  <elvt-stack direction="row" gap="l" alignment="center">
+    <elvt-button variant="primary">Primary</elvt-button>
+    <elvt-button variant="secondary">Secondary</elvt-button>
+    <elvt-button variant="outline">Outline</elvt-button>
+  </elvt-stack>
+</ComponentShowcase>
+
+### Distribution Options
+
+<ComponentShowcase
+  title="Space Between Distribution"
+  description="Horizontal stack with space-between distribution"
+  code={`<elvt-stack direction="row" distribution="space-between" style="width: 100%;">
+  <elvt-button variant="secondary">Cancel</elvt-button>
+  <elvt-stack direction="row" gap="m">
+    <elvt-button variant="outline">Save Draft</elvt-button>
+    <elvt-button variant="primary">Publish</elvt-button>
+  </elvt-stack>
+</elvt-stack>`}
+>
+  <elvt-stack direction="row" distribution="space-between" style="width: 100%;">
+    <elvt-button variant="secondary">Cancel</elvt-button>
+    <elvt-stack direction="row" gap="m">
+      <elvt-button variant="outline">Save Draft</elvt-button>
+      <elvt-button variant="primary">Publish</elvt-button>
+    </elvt-stack>
+  </elvt-stack>
+</ComponentShowcase>
+
+### Wrapping Stack
+
+<ComponentShowcase
+  title="Wrapping Stack"
+  description="Horizontal stack that wraps items to new lines"
+  code={`<elvt-stack direction="row" gap="m" wrap>
+  <elvt-chip>JavaScript</elvt-chip>
+  <elvt-chip>TypeScript</elvt-chip>
+  <elvt-chip>React</elvt-chip>
+  <elvt-chip>Vue</elvt-chip>
+  <elvt-chip>Angular</elvt-chip>
+  <elvt-chip>Svelte</elvt-chip>
+  <elvt-chip>Node.js</elvt-chip>
+  <elvt-chip>Python</elvt-chip>
+</elvt-stack>`}
+>
+  <elvt-stack direction="row" gap="m" wrap>
+    <elvt-chip>JavaScript</elvt-chip>
+    <elvt-chip>TypeScript</elvt-chip>
+    <elvt-chip>React</elvt-chip>
+    <elvt-chip>Vue</elvt-chip>
+    <elvt-chip>Angular</elvt-chip>
+    <elvt-chip>Svelte</elvt-chip>
+    <elvt-chip>Node.js</elvt-chip>
+    <elvt-chip>Python</elvt-chip>
+  </elvt-stack>
+</ComponentShowcase>
+
+### Nested Stacks
+
+<ComponentShowcase
+  title="Nested Stacks"
+  description="Complex layouts using nested stacks"
+  code={`<elvt-stack direction="column" gap="l">
+  <elvt-card padding="m">
+    <elvt-stack direction="column" gap="m">
+      <h3>User Profile</h3>
+      <elvt-stack direction="row" gap="m" alignment="center">
+        <elvt-avatar initials="JD"></elvt-avatar>
+        <elvt-stack direction="column" gap="xs">
+          <span><strong>John Doe</strong></span>
+          <span>Software Engineer</span>
+        </elvt-stack>
+      </elvt-stack>
+    </elvt-stack>
+  </elvt-card>
+  <elvt-stack direction="row" gap="m" distribution="end">
+    <elvt-button variant="secondary">Edit</elvt-button>
+    <elvt-button variant="primary">Save</elvt-button>
+  </elvt-stack>
+</elvt-stack>`}
+>
+  <elvt-stack direction="column" gap="l">
+    <elvt-card padding="m">
+      <elvt-stack direction="column" gap="m">
+        <h3>User Profile</h3>
+        <elvt-stack direction="row" gap="m" alignment="center">
+          <elvt-avatar initials="JD"></elvt-avatar>
+          <elvt-stack direction="column" gap="xs">
+            <span><strong>John Doe</strong></span>
+            <span>Software Engineer</span>
+          </elvt-stack>
+        </elvt-stack>
+      </elvt-stack>
+    </elvt-card>
+    <elvt-stack direction="row" gap="m" distribution="end">
+      <elvt-button variant="secondary">Edit</elvt-button>
+      <elvt-button variant="primary">Save</elvt-button>
+    </elvt-stack>
+  </elvt-stack>
+</ComponentShowcase>
+
+## Gap Sizes
+
+| Size | Value | Use Case |
+|------|-------|----------|
+| `xs` | 4px | Minimal spacing for tightly related items |
+| `s` | 8px | Small spacing for related elements |
+| `m` | 16px | Standard spacing for most layouts |
+| `l` | 24px | Larger spacing for distinct sections |
+| `xl` | 32px | Maximum spacing for major separations |
+
+## Responsive Behavior
+
+Stack automatically adapts to container constraints. For responsive behavior, consider:
+
+- Using wrapping for horizontal stacks with many items
+- Switching direction at different breakpoints with CSS
+- Adjusting gap sizes for different screen sizes
+
+## Design Guidelines
+
+### Spacing
+- Use consistent gap sizes throughout your application
+- Choose smaller gaps for related items, larger for distinct sections
+- Consider the visual weight of child elements when selecting gaps
+
+### Alignment
+- Use `stretch` alignment for form fields and cards
+- Use `center` alignment for mixed content types
+- Use `start` or `end` alignment for intentional asymmetry
+
+### Direction
+- Prefer vertical stacks for most content flows
+- Use horizontal stacks for action buttons and navigation
+- Consider text direction (LTR/RTL) when using horizontal stacks
+
+---
+
+:::tip Layout Building Block
+Stack is designed to be composable. Nest stacks to create complex layouts while maintaining consistent spacing and alignment.
+:::
+
+View the stack component at [http://localhost:3000/docs/components/stack](http://localhost:3000/docs/components/stack)

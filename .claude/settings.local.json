@@ -61,9 +61,25 @@
       "Bash(npm start:*)",
       "Bash(find:*)",
       "Bash(del:*)",
-      "WebFetch(domain:localhost)"
+      "WebFetch(domain:localhost)",
+      "WebFetch(domain:gist.githubusercontent.com)",
+      "Bash(npm uninstall:*)",
+      "Bash(where chrome)",
+      "Bash(where chromium)",
+      "Bash(where google-chrome)",
+      "Bash(npx playwright screenshot:*)",
+      "Bash(npx playwright test:*)",
+      "Bash(npx playwright:*)",
+      "Bash(npm run clear:*)",
+      "Bash(start debug-table-css.html)",
+      "Bash(start chrome \"http://localhost:3000/docs/components/\")",
+      "Bash(start chrome \"file:///C:/Users/owrede/WebstormProjects/elevate-ds/debug-table-css.html\")",
+      "Bash(gh workflow:*)"
     ],
     "deny": [],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "acceptEdits",
+    "additionalDirectories": [
+      "C:\\d C:\\Users\\owrede\\WebstormProjects"
+    ]
   }
 }

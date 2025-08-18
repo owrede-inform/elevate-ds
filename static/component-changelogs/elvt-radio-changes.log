@@ -1,12 +1,12 @@
 # Changelog Generation Log for elvt-radio
-# Generated: 2025-08-13T18:15:01.526Z
+# Generated: 2025-08-16T20:51:29.273Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 27
-Included commits: 3
-Excluded commits: 7
-Uncertain commits: 2
+Included commits: 11
+Excluded commits: 0
+Uncertain commits: 1
 
 ## Detailed Log
 
@@ -16,10 +16,10 @@ INFO: Found 12 total commits from GitHub API
 
 DEBUG: Evaluating commit: "chore: Update Dependencies and Design Tokens..."
 
-EXCLUDE: "chore: Update Dependencies and Design Tokens..." (Dependencies)
+INCLUDE: "chore: Update Dependencies and Design Tokens..." (Design/Visual changes)
   → Commit: 907aee4
-  → Reason: Dependencies
-  → Pattern: /deps|dependencies|package\.json|yarn|npm/
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "fix: Update Radio Style and Add Reference Images..."
 
@@ -37,17 +37,17 @@ INCLUDE: "feat: Adjust Radio Styles..." (Short component name)
 
 DEBUG: Evaluating commit: "refactor: Rename ComponentSize to Size ..."
 
-EXCLUDE: "refactor: Rename ComponentSize to Size ..." (Generic refactoring)
+INCLUDE: "refactor: Rename ComponentSize to Size ..." (Component-related)
   → Commit: ab26ae6
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "feat: Style Elevate Switch Component..."
 
-EXCLUDE: "feat: Style Elevate Switch Component..." (Switch component)
+INCLUDE: "feat: Style Elevate Switch Component..." (Design/Visual changes)
   → Commit: a547458
-  → Reason: Switch component
-  → Pattern: /switch(?!\s+to|\s+from)/
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "feat: Add Elevate Radio..."
 
@@ -58,42 +58,43 @@ INCLUDE: "feat: Add Elevate Radio..." (Short component name)
 
 DEBUG: Evaluating commit: "fix: Export Table Types..."
 
-EXCLUDE: "fix: Export Table Types..." (Table component)
+INCLUDE: "fix: Export Table Types..." (Bug fixes)
   → Commit: 8ab9caf
-  → Reason: Table component
-  → Pattern: /table(?!\s+\w*component)/
+  → Reason: Bug fixes
+  → Pattern: /^fix|^bug|resolve|correct|patch/
 
 DEBUG: Evaluating commit: "feat: Add Autoloader..."
 
-UNCERTAIN: "feat: Add Autoloader..." (No clear component relevance)
+INCLUDE: "feat: Add Autoloader..." (New features)
   → Commit: 8d557b0
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..."
 
-UNCERTAIN: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..." (No clear component relevance)
+INCLUDE: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..." (Bug fixes)
   → Commit: dea7d2d
-  → Reason: No matching patterns
+  → Reason: Bug fixes
+  → Pattern: /^fix|^bug|resolve|correct|patch/
 
 DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
 
-EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+UNCERTAIN: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (No clear component relevance)
   → Commit: 0921993
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
 
-EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+INCLUDE: "feat(build): Update to Storybook 9..." (New features)
   → Commit: c983425
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "feat: Attach Form Control Internals (#127)..."
 
-EXCLUDE: "feat: Attach Form Control Internals (#127)..." (Form component)
+INCLUDE: "feat: Attach Form Control Internals (#127)..." (New features)
   → Commit: 95b8bff
-  → Reason: Form component
-  → Pattern: /form(?!\s+\w*component)/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
-INFO: Filtered from 12 to 3 relevant commits
+INFO: Filtered from 12 to 11 relevant commits

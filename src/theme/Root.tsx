@@ -9,6 +9,7 @@ declare global {
     ElevateUI?: {
       setIconLibrary: (name: string, config: { resolver: (name: string) => string }) => void;
     };
+    IconRegistry?: any;
   }
 }
 
@@ -22,6 +23,104 @@ import '@inform-elevate/elevate-core-ui/dist/elevate.css';
 // Import light theme as default - dark theme handled via CSS overrides
 import '@inform-elevate/elevate-core-ui/dist/themes/light.css';
 
+// Import ELEVATE icons
+import * as elevateIcons from '@inform-elevate/elevate-icons';
+
+// Import ELEVATE IconRegistry and internal MDI icons that are already included
+import IconRegistry from '@inform-elevate/elevate-core-ui/dist/components/icon/icon-registry.js';
+import { InternalIcons } from '@inform-elevate/elevate-core-ui/dist/components/icon/internal-icons.js';
+
+// Import ALL MDI icons from @mdi/js (7,447+ icons)
+import * as mdi from '@mdi/js';
+
+// Helper function to create corrected icons with fill="white" for CSS masks
+const createCorrectedIcon = (originalIcon: string) => {
+  if (originalIcon.startsWith('data:image/svg+xml,')) {
+    const decoded = decodeURIComponent(originalIcon.substring(originalIcon.indexOf(',') + 1));
+    const corrected = decoded.replace(/fill="black"/g, 'fill="white"').replace(/fill="#000"/g, 'fill="white"');
+    return `data:image/svg+xml,${encodeURIComponent(corrected)}`;
+  }
+  return originalIcon;
+};
+
+// Create MDI icon name mapper - converts kebab-case to camelCase for @mdi/js lookup
+const createMdiNameMapper = () => {
+  const nameMap = new Map<string, string>();
+  
+  // Get all available MDI icons and create name mappings
+  Object.keys(mdi).forEach(mdiExportName => {
+    if (mdiExportName.startsWith('mdi')) {
+      // Convert mdiIconName to icon-name format
+      const iconName = mdiExportName
+        .replace(/^mdi/, '') // Remove 'mdi' prefix
+        .replace(/([A-Z])/g, '-$1') // Add hyphens before capital letters
+        .toLowerCase() // Convert to lowercase
+        .replace(/^-/, ''); // Remove leading hyphen
+      
+      nameMap.set(iconName, mdiExportName);
+    }
+  });
+  
+  return nameMap;
+};
+
+// Create the name mapper
+const mdiNameMap = createMdiNameMapper();
+
+// Register ALL MDI icons using a resolver (7,447+ icons available on-demand)
+// This is much more efficient than registering each icon individually
+IconRegistry.registerResolver('mdi', (iconName: string) => {
+  // Try direct lookup first (for exact matches like 'settings', 'home')
+  let mdiExportName = `mdi${iconName.charAt(0).toUpperCase()}${iconName.slice(1).replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())}`;
+  let pathData = (mdi as any)[mdiExportName];
+  
+  // If not found, try the name mapper
+  if (!pathData && mdiNameMap.has(iconName)) {
+    mdiExportName = mdiNameMap.get(iconName)!;
+    pathData = (mdi as any)[mdiExportName];
+  }
+  
+  // If still not found, try some common variations
+  if (!pathData) {
+    const variations = [
+      iconName.replace(/-/g, ''), // Remove all hyphens
+      iconName.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), // camelCase
+      iconName.toLowerCase().replace(/-/g, ''), // lowercase no hyphens
+    ];
+    
+    for (const variation of variations) {
+      const testName = `mdi${variation.charAt(0).toUpperCase()}${variation.slice(1)}`;
+      if ((mdi as any)[testName]) {
+        pathData = (mdi as any)[testName];
+        break;
+      }
+    }
+  }
+  
+  if (pathData) {
+    // Return properly formatted SVG data URL with white fill for CSS masking
+    return `data:image/svg+xml,${encodeURIComponent(
+      `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="${pathData}" fill="white"/>
+      </svg>`
+    )}`;
+  }
+  
+  console.warn(`MDI icon not found: ${iconName} (tried: ${mdiExportName})`);
+  return null;
+});
+
+// Register ELEVATE icons IMMEDIATELY at module load time with corrected fill colors
+// CRITICAL: ELEVATE icons come with fill="black" which breaks CSS masking
+IconRegistry.registerIcons({
+  'home': createCorrectedIcon(elevateIcons.elvtHome),
+  'check': createCorrectedIcon(elevateIcons.elvtCheck),
+  'cancel': createCorrectedIcon(elevateIcons.elvtCancel),
+  'chevron-right': createCorrectedIcon(elevateIcons.elvtChevronRight)
+});
+
+console.log('🚀 ALL MDI icons registered via resolver - 7,447+ icons available!');
+
 // Import framework context
 import { FrameworkProvider } from '../contexts/FrameworkContext';
 
@@ -30,70 +129,21 @@ export default function Root({ children }: { children: React.ReactNode }) {
     // Set Shoelace base path for icons and assets
     setBasePath('/node_modules/@shoelace-style/shoelace/dist/');
     
-    // Configure icon library for ELEVATE components
+    // Register built-in MDI icons that ELEVATE already includes
     const configureIcons = () => {
       if (typeof window === 'undefined') return;
-
-      // Enhanced configuration approach
-      const iconConfig = {
-        resolver: (name: string) => {
-          if (!name || typeof name !== 'string') {
-            console.warn('Invalid icon name provided:', name);
-            return '';
-          }
-          const iconName = name.replace('mdi:', '');
-          const url = `https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/${iconName}.svg`;
-          console.log(`Resolving icon ${name} to ${url}`);
-          return url;
-        }
-      };
-
-      // Approach 1: Global ElevateUI configuration
-      if ((window as any).ElevateUI?.setIconLibrary) {
-        (window as any).ElevateUI.setIconLibrary('mdi', iconConfig);
-        console.log('ElevateUI icon library configured');
+      
+      console.log('🔧 Setting up ELEVATE icons...');
+      
+      try {
+        // Icons are now registered at module load time - just log completion
+        console.log('✅ Icon setup complete!');
+        console.log('   Usage: <elvt-icon icon="mdi:any-icon-name" /> (7,447+ MDI icons)');
+        console.log('   Example: <elvt-icon icon="mdi:home" />, <elvt-icon icon="mdi:account" />');
+        
+      } catch (error) {
+        console.error('❌ Failed to set up icons:', error);
       }
-
-      // Approach 2: Direct element configuration
-      const configureElement = (element: any) => {
-        if (element.setIconLibrary) {
-          element.setIconLibrary('mdi', iconConfig);
-        } else if (element.iconLibraries) {
-          element.iconLibraries = { ...element.iconLibraries, mdi: iconConfig };
-        }
-      };
-
-      // Configure existing elements
-      document.querySelectorAll('elvt-icon').forEach(configureElement);
-
-      // Configure new elements as they're added
-      const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-          mutation.addedNodes.forEach((node) => {
-            if (node.nodeType === Node.ELEMENT_NODE) {
-              const element = node as Element;
-              if (element.tagName === 'ELVT-ICON') {
-                configureElement(element);
-              }
-              element.querySelectorAll?.('elvt-icon').forEach(configureElement);
-            }
-          });
-        });
-      });
-
-      observer.observe(document.body, { childList: true, subtree: true });
-
-      // Approach 3: Global fallback configuration
-      (window as any).ElevateIconResolver = (name: string) => {
-        if (!name || typeof name !== 'string') {
-          console.warn('Invalid icon name provided to fallback resolver:', name);
-          return '';
-        }
-        const iconName = name.replace('mdi:', '');
-        return `https://cdn.jsdelivr.net/npm/@mdi/svg@latest/svg/${iconName}.svg`;
-      };
-
-      return () => observer.disconnect();
     };
 
     // Configure icons when components are ready

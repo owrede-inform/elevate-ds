@@ -1,12 +1,12 @@
 # Changelog Generation Log for elvt-button-group
-# Generated: 2025-08-13T18:14:19.355Z
+# Generated: 2025-08-16T20:50:44.310Z
 # GitHub API: https://api.github.com/repos/inform-elevate/elevate-core-ui
 
 ## Summary
 Total log entries: 27
-Included commits: 0
-Excluded commits: 8
-Uncertain commits: 4
+Included commits: 9
+Excluded commits: 0
+Uncertain commits: 3
 
 ## Detailed Log
 
@@ -16,82 +16,83 @@ INFO: Found 12 total commits from GitHub API
 
 DEBUG: Evaluating commit: "fix: Fix Button Group Separator Lines (#250)..."
 
-UNCERTAIN: "fix: Fix Button Group Separator Lines (#250)..." (No clear component relevance)
+INCLUDE: "fix: Fix Button Group Separator Lines (#250)..." (Bug fixes)
   → Commit: 7de00fe
-  → Reason: No matching patterns
+  → Reason: Bug fixes
+  → Pattern: /^fix|^bug|resolve|correct|patch/
 
 DEBUG: Evaluating commit: "docs: Update Component Status..."
 
-EXCLUDE: "docs: Update Component Status..." (Documentation)
+INCLUDE: "docs: Update Component Status..." (Component-related)
   → Commit: 24cb112
-  → Reason: Documentation
-  → Pattern: /docs|documentation|readme|changelog/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "feat: Adjust Button Design, Remove Shoelace Button..."
 
-UNCERTAIN: "feat: Adjust Button Design, Remove Shoelace Button..." (No clear component relevance)
+INCLUDE: "feat: Adjust Button Design, Remove Shoelace Button..." (Design/Visual changes)
   → Commit: 67a0e62
-  → Reason: No matching patterns
+  → Reason: Design/Visual changes
+  → Pattern: /design|visual|style|theme|color|layout|spacing|border|shadow/
 
 DEBUG: Evaluating commit: "refactor: Rename ComponentSize to Size ..."
 
-EXCLUDE: "refactor: Rename ComponentSize to Size ..." (Generic refactoring)
+INCLUDE: "refactor: Rename ComponentSize to Size ..." (Component-related)
   → Commit: ab26ae6
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "refactor!: Replace Severity with Tone..."
 
-EXCLUDE: "refactor!: Replace Severity with Tone..." (Generic refactoring)
+UNCERTAIN: "refactor!: Replace Severity with Tone..." (No clear component relevance)
   → Commit: 0d82a85
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..."
 
-UNCERTAIN: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..." (No clear component relevance)
+INCLUDE: "fix: Added hide-label Prop and Fixed Checkbox Usability Issues..." (Bug fixes)
   → Commit: dea7d2d
-  → Reason: No matching patterns
+  → Reason: Bug fixes
+  → Pattern: /^fix|^bug|resolve|correct|patch/
 
 DEBUG: Evaluating commit: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..."
 
-EXCLUDE: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (Build tools/Linting)
+UNCERTAIN: "refactor: Change the "arrowParens" in Prettier to "always" (#138)..." (No clear component relevance)
   → Commit: 0921993
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat(build): Update to Storybook 9..."
 
-EXCLUDE: "feat(build): Update to Storybook 9..." (Build tools/Linting)
+INCLUDE: "feat(build): Update to Storybook 9..." (New features)
   → Commit: c983425
-  → Reason: Build tools/Linting
-  → Pattern: /prettier|eslint|lint|storybook|webpack|rollup|vite|babel/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "refactor: Use Web Component Decorator from CDK..."
 
-EXCLUDE: "refactor: Use Web Component Decorator from CDK..." (Generic refactoring)
+INCLUDE: "refactor: Use Web Component Decorator from CDK..." (Component-related)
   → Commit: 0b7f502
-  → Reason: Generic refactoring
-  → Pattern: /refactor(?!\s+\w*(?:button|badge|input))/
+  → Reason: Component-related
+  → Pattern: /component|web.component|custom.element/
 
 DEBUG: Evaluating commit: "docs: Add Components Status Page..."
 
-EXCLUDE: "docs: Add Components Status Page..." (Documentation)
+INCLUDE: "docs: Add Components Status Page..." (New features)
   → Commit: daf000f
-  → Reason: Documentation
-  → Pattern: /docs|documentation|readme|changelog/
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
 DEBUG: Evaluating commit: "docs: Document Severity and Refactor ButtonSeverity..."
 
-EXCLUDE: "docs: Document Severity and Refactor ButtonSeverity..." (Documentation)
+UNCERTAIN: "docs: Document Severity and Refactor ButtonSeverity..." (No clear component relevance)
   → Commit: fa7f552
-  → Reason: Documentation
-  → Pattern: /docs|documentation|readme|changelog/
+  → Reason: No matching patterns
 
 DEBUG: Evaluating commit: "feat: Add ButtonGroup Component..."
 
-UNCERTAIN: "feat: Add ButtonGroup Component..." (No clear component relevance)
+INCLUDE: "feat: Add ButtonGroup Component..." (New features)
   → Commit: 4b1166b
-  → Reason: No matching patterns
+  → Reason: New features
+  → Pattern: /^feat|^feature|add\s+|new\s+|implement|introduc/
 
-INFO: Filtered from 12 to 0 relevant commits
+INFO: Filtered from 12 to 9 relevant commits

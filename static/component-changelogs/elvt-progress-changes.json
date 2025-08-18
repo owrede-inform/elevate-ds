@@ -1,7 +1,7 @@
 {
   "component": "elvt-progress",
   "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-13T18:14:58.310Z",
+  "lastUpdated": "2025-08-16T20:51:25.561Z",
   "changelog": [
     {
       "version": "0.0.28-alpha",
@@ -21,10 +21,37 @@
       ]
     },
     {
+      "version": "0.0.26-alpha",
+      "date": "2025-07-16",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Adjust Button Design, Remove Shoelace Button",
+          "description": "Added adjust button design, remove shoelace button",
+          "commit": "67a0e62",
+          "impact": "visual",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/67a0e62e01b9591a16cf41b1d733e6db1cb944c5"
+        }
+      ]
+    },
+    {
       "version": "0.0.25-alpha",
       "date": "2025-06-15",
       "type": "minor",
       "changes": [
+        {
+          "type": "improvement",
+          "title": "Rename ComponentSize to Size ",
+          "description": "Improved rename componentsize to size ",
+          "commit": "ab26ae6",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ab26ae6257696c4fbe4e07abe704dc4e6fb5d9b0"
+        },
         {
           "type": "feature",
           "title": "Add Progress Arc Shape and Dynamic Size",
@@ -34,6 +61,73 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/e8fd1493fcc9a16c8bb6c0f5c87ee8c677b12909"
+        },
+        {
+          "type": "feature",
+          "title": "Add Autoloader",
+          "description": "Added add autoloader",
+          "commit": "8d557b0",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/8d557b0972abf0e251a7d4a90e6c057e827f0d62"
+        },
+        {
+          "type": "feature",
+          "title": "Update to Storybook 9",
+          "description": "Added update to storybook 9",
+          "commit": "c983425",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/c983425d29248a6bbef5a2edb3ecfc5ec160de35"
+        }
+      ]
+    },
+    {
+      "version": "0.0.24-alpha",
+      "date": "2025-05-15",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Use Web Component Decorator from CDK",
+          "description": "Improved use web component decorator from cdk",
+          "commit": "0b7f502",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
+        },
+        {
+          "type": "improvement",
+          "title": "Flatten Components File Structure",
+          "description": "Improved flatten components file structure",
+          "commit": "36e7dd6",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/36e7dd6caa9db3201f3783f10f7e86e47f12a6c5"
+        },
+        {
+          "type": "feature",
+          "title": "Add Indicator Component (Experimental)",
+          "description": "Added add indicator component (experimental)",
+          "commit": "db0bd06",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/db0bd063fe3baff87721c6558c3847319b52d11a"
+        },
+        {
+          "type": "feature",
+          "title": "Add Components Status Page",
+          "description": "Added add components status page",
+          "commit": "daf000f",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/daf000fc14c799b579f9b31d9e145791118f551e"
         }
       ]
     },
@@ -43,6 +137,16 @@
       "type": "minor",
       "changes": [
         {
+          "type": "improvement",
+          "title": "Improve React Compatibility (#73)",
+          "description": "Improved improve react compatibility (#73)",
+          "commit": "f0cd5c4",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "Thomas Weinert",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/f0cd5c4b1ebe43f680fcf422585840f611c09aca"
+        },
+        {
           "type": "feature",
           "title": "Show Content in Indeterminate Ring Progress Indicator (#70)",
           "description": "Added show content in indeterminate ring progress indicator (#70)",
@@ -51,6 +155,16 @@
           "breakingChange": false,
           "author": "Thomas Weinert",
           "url": "https://github.com/inform-elevate/elevate-core-ui/commit/d83876474c1d2239e4e583bf9fd3ecf6a3334d1a"
+        },
+        {
+          "type": "feature",
+          "title": "Skeleton Component Wrapper (#65)",
+          "description": "Added skeleton component wrapper (#65)",
+          "commit": "1cd3fc7",
+          "impact": "functionality",
+          "breakingChange": false,
+          "author": "pberckey",
+          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/1cd3fc77fd6a57fdacc80fe8735ab0ec8232501c"
         }
       ]
     }
@@ -69,7 +183,7 @@
     }
   ],
   "metadata": {
-    "totalVersions": 3,
+    "totalVersions": 5,
     "firstVersion": "0.0.23-alpha",
     "storyCount": 0,
     "testCount": 0,
@@ -77,6 +191,6 @@
     "lastCommit": "bc93eb027a439b664423671d018cce5813751242",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
-    "filteredCommits": "3/14"
+    "filteredCommits": "13/14"
   }
 }
