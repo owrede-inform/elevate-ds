@@ -7,6 +7,8 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'ELEVATE Design System',
   tagline: 'A comprehensive design system built for modern web applications of INFORM GmbH',
+  
+  // Force deployment refresh - ensure all files are included
   favicon: 'img/favicon.ico',
   
   // INFORM GmbH metadata
