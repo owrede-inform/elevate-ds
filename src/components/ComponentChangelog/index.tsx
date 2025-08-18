@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './styles.module.css';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 // TypeScript interfaces for changelog data
 export interface ChangelogEntry {
@@ -59,6 +60,7 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = ({
   showMetadata = true,
   compactMode = false
 }) => {
+  const baseUrl = useBaseUrl('/');
   const [changelogData, setChangelogData] = useState<ComponentChangelogData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -71,7 +73,7 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = ({
       
       try {
         // Try to load the changelog JSON file from static directory
-        const response = await fetch(`/component-changelogs/${component}-changes.json`);
+        const response = await fetch(`${baseUrl}component-changelogs/${component}-changes.json`);
         
         if (!response.ok) {
           throw new Error(`Changelog not found for ${component}`);

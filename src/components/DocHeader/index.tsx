@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from '@docusaurus/router';
 import Link from '@docusaurus/Link';
 import { Icon } from '@iconify/react';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 interface DocHeaderProps {
   title: string;
@@ -9,14 +10,17 @@ interface DocHeaderProps {
 
 const DocHeader: React.FC<DocHeaderProps> = ({ title }) => {
   const location = useLocation();
+  const baseUrl = useBaseUrl('/');
 
   // CSS handles hiding default elements immediately to prevent flash
 
   // Simple breadcrumb generation from pathname
   const generateBreadcrumbs = () => {
-    const pathSegments = location.pathname.split('/').filter(Boolean);
+    // Remove baseUrl from pathname to get relative path
+    const relativePath = location.pathname.replace(baseUrl.replace(/\/$/, ''), '');
+    const pathSegments = relativePath.split('/').filter(Boolean);
     const breadcrumbs = [
-      { label: 'Home', href: '/' }
+      { label: 'Home', href: baseUrl }
     ];
 
     let currentPath = '';
@@ -31,7 +35,7 @@ const DocHeader: React.FC<DocHeaderProps> = ({ title }) => {
       
       breadcrumbs.push({
         label,
-        href: index === pathSegments.length - 1 ? null : currentPath
+        href: index === pathSegments.length - 1 ? null : baseUrl + currentPath.replace(/^\//, '')
       });
     });
 

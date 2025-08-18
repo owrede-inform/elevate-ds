@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { useAllDocsData, useDocById } from '@docusaurus/plugin-content-docs/client';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
 // Error boundary for the component
 class PageCardGridErrorBoundary extends React.Component {
@@ -217,6 +218,7 @@ function PageCardGridInner({
   groupDescriptions = {}
 }: PageCardGridProps) {
   const allDocsData = useAllDocsData();
+  const baseUrl = useBaseUrl('/');
   
   const processedPages = useMemo(() => {
     if (!allDocsData?.default?.versions?.[0]?.docs) {
@@ -345,7 +347,7 @@ function PageCardGridInner({
                   }}>
                     {page.description || `${page.title} documentation`}
                   </p>
-                  <a href={page.path} style={{ color: 'var(--elvt-alias-content-link-default)', textDecoration: 'none' }}>
+                  <a href={baseUrl + page.path.replace(/^\//, '')} style={{ color: 'var(--elvt-alias-content-link-default)', textDecoration: 'none' }}>
                     Learn more →
                   </a>
                 </elvt-card>
