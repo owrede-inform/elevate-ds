@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Fuse from 'fuse.js';
 import { useHistory } from '@docusaurus/router';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 
 interface SearchItem {
@@ -28,12 +29,14 @@ const CustomSearch: React.FC = () => {
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const history = useHistory();
+  const { siteConfig } = useDocusaurusContext();
 
   // Initialize Fuse.js with search index
   useEffect(() => {
     const loadSearchIndex = async () => {
       try {
-        const response = await fetch('/search-index.json');
+        const searchIndexPath = `${siteConfig.baseUrl}search-index.json`;
+        const response = await fetch(searchIndexPath);
         const searchIndex: SearchItem[] = await response.json();
         
         const fuseOptions = {
@@ -175,7 +178,7 @@ const CustomSearch: React.FC = () => {
         <div className={styles.searchResults}>
           <div className={styles.noResults}>
             <span>No results found for "{searchTerm}"</span>
-            <p>Try different keywords or browse <a href="/docs/components">components</a></p>
+            <p>Try different keywords or browse <a href={`${siteConfig.baseUrl}docs/components`}>components</a></p>
           </div>
         </div>
       )}
