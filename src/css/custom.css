@@ -23,14 +23,17 @@ elvt-icon {
 
 /* ELEVATE Design System Integration with Alias Tokens */
 :root {
+  /* Docusaurus Core Variables - Fix for production builds */
+  --ifm-navbar-height: 60px;
+  
   /* ELEVATE Brand Colors using Alias Tokens */
   --ifm-color-primary: var(--elvt-primitives-color-blue-500, #0072ff);
-  --ifm-color-primary-dark: var(--elvt-primitives-color-blue-600, #0b5cdf);
-  --ifm-color-primary-darker: var(--elvt-primitives-color-blue-700, #1b50a6);
-  --ifm-color-primary-darkest: var(--elvt-primitives-color-blue-800, #234275);
-  --ifm-color-primary-light: var(--elvt-primitives-color-blue-400, #2a90ff);
-  --ifm-color-primary-lighter: var(--elvt-primitives-color-blue-300, #5facff);
-  --ifm-color-primary-lightest: var(--elvt-primitives-color-blue-200, #90c6ff);
+  --ifm-color-primary-dark: var(--elvt-primitives-color-blue-700, #0b5cdf);
+  --ifm-color-primary-darker: var(--elvt-primitives-color-blue-800, #1b50a6);
+  --ifm-color-primary-darkest: var(--elvt-primitives-color-blue-900, #234275);
+  --ifm-color-primary-light: var(--elvt-primitives-color-blue-300, #2a90ff);
+  --ifm-color-primary-lighter: var(--elvt-primitives-color-blue-200, #5facff);
+  --ifm-color-primary-lightest: var(--elvt-primitives-color-blue-100, #90c6ff);
 
   /* ELEVATE Table Border Colors - Global CSS custom properties */
   --elvt-component-table-column-border-color-default: var(--elvt-primitives-color-gray-300, #a3aab4);
@@ -47,13 +50,13 @@ elvt-icon {
   /* Monospace Typography - ELEVATE primitives only */
   --ifm-font-family-monospace: var(--elvt-primitives-font-family-mono, "RobotoMono", SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace);
   
-  /* Heading Hierarchy - Material Design Typography Scale */
-  --ifm-h1-font-size: 3.815rem;  /* Material Design Display Large */
-  --ifm-h2-font-size: 3.052rem;  /* Material Design Display Medium */
-  --ifm-h3-font-size: 2.441rem;  /* Material Design Display Small */
-  --ifm-h4-font-size: 1.953rem;  /* Material Design Headline Large */
-  --ifm-h5-font-size: 1.563rem;  /* Material Design Headline Medium */
-  --ifm-h6-font-size: 1.25rem;   /* Material Design Headline Small */
+  /* Heading Hierarchy - Typography Scale */
+  --ifm-h1-font-size: 3.815rem;  /* Display Large */
+  --ifm-h2-font-size: 3.052rem;  /* Display Medium */
+  --ifm-h3-font-size: 2.441rem;  /* Display Small */
+  --ifm-h4-font-size: 1.953rem;  /* Headline Large */
+  --ifm-h5-font-size: 1.563rem;  /* Headline Medium */
+  --ifm-h6-font-size: 1.25rem;   /* Headline Small */
   
   /* Code Typography - Caption size for smaller code text */
   --ifm-code-font-size: var(--elvt-type-alias-default-caption-font-size, 0.75rem);
@@ -120,6 +123,9 @@ elvt-icon {
 
 /* Dark theme with ELEVATE Alias Tokens */
 [data-theme='dark'] {
+  /* Docusaurus Core Variables - Consistency across themes */
+  --ifm-navbar-height: 60px;
+  
   /* ELEVATE Dark Brand Colors - use brighter variants for dark theme */
   --ifm-color-primary: var(--elvt-primitives-color-blue-400, #2a90ff);
   --ifm-color-primary-dark: var(--elvt-primitives-color-blue-300, #5facff);
@@ -170,7 +176,7 @@ h1.anchor,
 .theme-doc-markdown h1,
 article h1,
 main h1 {
-  font-size: 3.815rem !important; /* Material Design Display Large */
+  font-size: 3.815rem; /* Material Design Display Large */
 }
 
 h2,
@@ -181,7 +187,7 @@ h2.anchorWithStickyNavbar_LWe7,
 .theme-doc-markdown h2,
 article h2,
 main h2 {
-  font-size: 3.052rem !important; /* Material Design Display Medium */
+  font-size: 3.052rem; /* Material Design Display Medium */
 }
 
 .markdown h1,
@@ -270,15 +276,15 @@ pre,
 code[class*="language-"],
 pre[class*="language-"] {
   font-family: "RobotoMono", "Roboto Mono", Consolas, "Liberation Mono", Menlo, monospace !important;
-  font-size: 0.85rem !important;
+  font-size: 0.85rem;
   /* Enable word wrapping for better mobile experience */
-  white-space: pre-wrap !important;
-  word-wrap: break-word !important;
-  word-break: break-word !important;
-  overflow-wrap: break-word !important;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
   /* Ensure horizontal scrolling doesn't break layout */
-  overflow-x: auto !important;
-  max-width: 100% !important;
+  overflow-x: auto;
+  max-width: 100%;
 }
 
 /* Inline code */
@@ -286,7 +292,7 @@ pre[class*="language-"] {
 .theme-doc-markdown code,
 code:not([class*="language-"]) {
   font-family: "RobotoMono", "Roboto Mono", Consolas, "Liberation Mono", Menlo, monospace !important;
-  font-size: 0.85rem !important;
+  font-size: 0.85rem;
   border: 1px solid var(--elvt-alias-layout-border-default);
 }
 
@@ -541,15 +547,7 @@ a[href^="http"]::after,
   }
 }
 
-/* Hide main navbar menu between tablet and desktop breakpoints */
-@media screen and (max-width: 1179px) {
-  /* Hide all left navigation items except the hamburger menu */
-  .navbar__items--left .navbar__item:not(.navbar__toggle),
-  .navbar__items--left .navbar__link,
-  .navbar__items .navbar__item:not(.navbar__toggle):not(.dropdown) {
-    display: none !important;
-  }
-}
+/* No navbar navigation items to hide - all moved to sidebar */
 
 /* Show hamburger menu only when sidebar is hidden (matches Docusaurus breakpoint) */
 @media screen and (max-width: 996px) {
@@ -678,17 +676,36 @@ elvt-button::part(label) {
     width: var(--doc-sidebar-width);
   }
   
-  /* Fix sidebar content positioning to avoid clipping under navbar - but not in responsive mode */
+  /* Fix sidebar content positioning to avoid clipping under navbar - consistent positioning */
   .theme-doc-sidebar {
     height: calc(100vh - var(--ifm-navbar-height, 60px));
-    position: sticky;
+    position: fixed !important;
     top: var(--ifm-navbar-height, 60px);
+    left: 0;
+    width: var(--doc-sidebar-width);
+    z-index: 10;
+    overflow-y: auto;
+  }
+  
+  /* Ensure swizzled sidebar components don't override positioning */
+  .theme-doc-sidebar-container {
+    position: relative;
+    top: 0;
+  }
+  
+  /* Adjust main content to account for fixed sidebar */
+  .main-wrapper {
+    margin-left: var(--doc-sidebar-width) !important;
   }
 }
 
-/* Sidebar menu items */
+/* Sidebar menu items - lighter color for better readability */
 .theme-doc-sidebar-item-link {
-  color: var(--ifm-color-content);
+  color: var(--elvt-alias-content-text-secondary, #5d6679);
+}
+
+.theme-doc-sidebar-item-link:hover {
+  color: var(--ifm-color-primary);
 }
 
 [data-theme='dark'] .theme-doc-sidebar-item-link {
@@ -805,7 +822,7 @@ article {
   border: none; /* Remove top border */
 }
 
-/* Table headers - consistent styling for light/dark mode */
+/* Table headers - consistent styling for light/dark mode with increased specificity */
 .markdown thead tr,
 .theme-doc-markdown thead tr {
   background: var(--ifm-table-head-background);
@@ -819,6 +836,7 @@ article {
   text-align: left;
   font-weight: var(--ifm-font-weight-semibold);
   color: var(--ifm-table-head-color);
+  background: var(--ifm-table-head-background);
   border: none; /* Remove vertical borders */
 }
 
@@ -856,8 +874,11 @@ article {
 }
 
 [data-theme='dark'] .markdown thead tr,
-[data-theme='dark'] .theme-doc-markdown thead tr {
-  background: var(--ifm-table-head-background);
+[data-theme='dark'] .theme-doc-markdown thead tr,
+[data-theme='dark'] table thead tr,
+[data-theme='dark'] .markdown table thead tr,
+[data-theme='dark'] .theme-doc-markdown table thead tr {
+  background: var(--ifm-table-head-background) !important;
   border-bottom-color: var(--ifm-table-border-color);
 }
 
@@ -869,9 +890,25 @@ article {
 [data-theme='dark'] .markdown td,
 [data-theme='dark'] .markdown th,
 [data-theme='dark'] .theme-doc-markdown td,
-[data-theme='dark'] .theme-doc-markdown th {
+[data-theme='dark'] .theme-doc-markdown th,
+[data-theme='dark'] table td,
+[data-theme='dark'] table th,
+[data-theme='dark'] .markdown table td,
+[data-theme='dark'] .markdown table th,
+[data-theme='dark'] .theme-doc-markdown table td,
+[data-theme='dark'] .theme-doc-markdown table th {
   border: none;
   color: var(--elvt-alias-content-text-default, #d5d9e1);
+}
+
+/* Ensure dark theme table headers have proper background */
+[data-theme='dark'] .markdown th,
+[data-theme='dark'] .theme-doc-markdown th,
+[data-theme='dark'] table th,
+[data-theme='dark'] .markdown table th,
+[data-theme='dark'] .theme-doc-markdown table th {
+  background: var(--ifm-table-head-background) !important;
+  color: var(--ifm-table-head-color) !important;
 }
 
 /* Ensure table theme variables are defined */
@@ -1344,3 +1381,89 @@ elvt-card h6 { font-size: 0.875rem; }
 }
 
 
+
+/* Production Build Fixes - Ensure consistency between dev and prod using proper specificity */
+
+/* Navbar height - using higher specificity selectors */
+html body .navbar,
+html body .navbar__inner,
+html body header.navbar {
+  height: 60px;
+  min-height: 60px;
+  max-height: 60px;
+}
+
+/* Sidebar positioning fix for production builds using higher specificity */
+@media (min-width: 997px) {
+  html body .theme-doc-sidebar {
+    top: 60px;
+    height: calc(100vh - 60px);
+    position: fixed !important; /* Use fixed positioning for better control */
+    left: 0;
+    width: var(--doc-sidebar-width, 240px);
+    z-index: 10; /* Ensure it stays above content */
+    overflow-y: auto; /* Make sidebar content scrollable if needed */
+  }
+
+  /* Adjust main content to account for fixed sidebar */
+  html body .main-wrapper {
+    margin-left: var(--doc-sidebar-width, 240px) !important;
+  }
+}
+
+/* Fix sidebar container negative margin that causes overlap with navbar */
+html body .theme-doc-sidebar-container {
+  position: relative;
+  top: 0;
+  margin-top: 0 !important; /* Override Docusaurus negative margin */
+}
+
+/* Fix sidebar text color for better readability - maximum specificity */
+html body .theme-doc-sidebar-item-link {
+  color: #5d6679 !important; /* Use direct color for immediate fix */
+}
+
+html body .theme-doc-sidebar-item-link:hover {
+  color: var(--ifm-color-primary) !important;
+}
+
+html body [data-theme='dark'] .theme-doc-sidebar-item-link {
+  color: #bec3cd !important; /* Use direct color for immediate fix */
+}
+
+/* Navbar Search Margin Fix - Higher specificity for production builds */
+html body .navbar__search,
+html body .navbar .searchContainer_src-components-CustomSearch-styles-module,
+html body .navbar__items--right .searchContainer_src-components-CustomSearch-styles-module,
+html body .navbar [class*="searchContainer"] {
+  margin-left: 1rem;
+}
+
+/* ELEVATE theme toggle - let the component handle its own styling */
+html body .navbar .toggle_MW0i elvt-button,
+html body .navbar [class*="toggle"] elvt-button {
+  /* ELEVATE button naturally maintains proper proportions */
+}
+
+/* Sidebar Accordion Behavior */
+.sidebar-accordion-section {
+  /* Ensure smooth transitions for accordion sections */
+}
+
+.sidebar-accordion-section .menu__list-item-collapsible {
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar-accordion-section .menu__list {
+  transition: max-height 0.3s ease-in-out;
+}
+
+/* Highlight the expanded section */
+.sidebar-accordion-section .menu__list-item:not(.menu__list-item--collapsed) > .menu__list-item-collapsible {
+  background: var(--elvt-alias-surface-subtle, var(--elvt-primitives-color-gray-100, #f3f4f6));
+  border-radius: var(--elvt-alias-border-radius-small, 4px);
+}
+
+[data-theme='dark'] .sidebar-accordion-section .menu__list-item:not(.menu__list-item--collapsed) > .menu__list-item-collapsible {
+  background: var(--elvt-alias-surface-subtle, var(--elvt-primitives-color-gray-800, #3d4253));
+}
