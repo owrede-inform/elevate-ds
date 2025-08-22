@@ -128,7 +128,7 @@ function verifyMDXFile(filePath) {
 function findOrphanedHTMLFiles() {
   console.log('\n🔍 Checking for orphaned HTML files...');
   
-  const mdxFiles = glob.sync(path.join(COMPONENTS_DIR, '**', 'index.mdx'));
+  const mdxFiles = glob.sync(path.join(COMPONENTS_DIR, '**', 'foundation.mdx'));
   const orphanedFiles = [];
   
   for (const mdxFile of mdxFiles) {
@@ -174,7 +174,7 @@ async function main() {
     }
     
     // Find all MDX files
-    const mdxFiles = glob.sync(path.join(COMPONENTS_DIR, '**', 'index.mdx'), { absolute: true });
+    const mdxFiles = glob.sync(path.join(COMPONENTS_DIR, '**', 'foundation.mdx'), { absolute: true });
     
     if (mdxFiles.length === 0) {
       console.log('ℹ️  No MDX files found in components directory');

@@ -1,0 +1,96 @@
+---
+title: Popup
+description: A popup component that displays content in a floating panel, typically used for tooltips, dropdown menus, or contextual information.
+sidebar_position: 1
+group: Overlays
+tags: [overlay, floating, contextual, tooltip]
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import TocLinks from '@site/src/components/TocLinks';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
+
+# Popup
+
+The Popup component provides a flexible way to display content in a floating panel that appears relative to a trigger element. It's commonly used for tooltips, dropdown menus, contextual information, or small forms that need to appear over existing content.
+
+<TocLinks />
+
+## Overview
+
+### When to Use Popup
+- **Tooltips**: Additional information or help text
+- **Dropdown menus**: Actions or navigation options
+- **Contextual information**: Details that don't warrant a full page
+- **Quick forms**: Small input forms or settings panels
+- **Preview content**: Quick preview of larger content
+
+### When NOT to Use Popup
+- **Major workflows**: Use Dialog or dedicated pages for complex tasks
+- **Critical information**: Use notifications for important system messages
+- **Large content**: Use dedicated pages for substantial content
+- **Mobile primary actions**: Consider full-screen alternatives on mobile
+
+## Status
+
+:::warning Development Status
+This component was recently added in version 0.0.28-alpha and may still be under development. Please check the [ELEVATE Core UI Storybook](https://elevate-core-ui.inform-cloud.io) for the most current implementation details and examples.
+:::
+
+## Basic Example
+
+```jsx
+// Basic popup usage - implementation details may vary
+<elvt-popup trigger="hover" placement="top">
+  <button slot="trigger">Hover me</button>
+  <div slot="content">
+    This is popup content that appears on hover
+  </div>
+</elvt-popup>
+```
+
+## API Reference
+
+:::info API Documentation
+For complete API documentation, including all properties, methods, and slots, please refer to the [ELEVATE Core UI Storybook](https://elevate-core-ui.inform-cloud.io) or the component's TypeScript definitions in your installed package.
+:::
+
+### Common Properties
+
+Based on typical popup component patterns, this component likely supports:
+
+- **`placement`**: Position relative to trigger (top, bottom, left, right, etc.)
+- **`trigger`**: How the popup is triggered (click, hover, focus, manual)
+- **`offset`**: Distance from the trigger element
+- **`arrow`**: Whether to show a pointer arrow
+- **`open`**: Controlled open/closed state
+
+### Slots
+
+- **`trigger`**: Element that triggers the popup
+- **`content`**: Content displayed in the popup
+
+## Accessibility
+
+The popup component should follow accessibility best practices:
+
+- **Keyboard Navigation**: Support for Escape key to close
+- **Focus Management**: Proper focus handling when opening/closing
+- **ARIA Attributes**: Appropriate roles and relationships
+- **Screen Reader Support**: Meaningful announcements for state changes
+
+## Resources
+
+- **[ELEVATE Core UI Storybook](https://elevate-core-ui.inform-cloud.io)** - Interactive examples and complete API documentation
+- **[Floating UI](https://floating-ui.com/)** - Positioning library often used for popup components
+- **[WAI-ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/)** - Accessibility guidelines for popup patterns
+
+## Changelog
+
+<ComponentChangelog component="elvt-popup" />
+
+---
+
+:::tip Contributing
+This component is newly added and documentation may be incomplete. If you have experience using this component, please consider contributing examples or improvements to this documentation.
+:::

@@ -6,6 +6,18 @@
  */
 
 /* 
+ * ELEVATE LIGHT THEME TOKENS
+ * 
+ * Define light mode content text tokens that are missing from ELEVATE light.css
+ */
+:root {
+  /* ELEVATE Text Tokens for Light Mode */
+  --elvt-alias-content-text-default: var(--elvt-primitives-color-gray-900, rgb(61, 66, 83));
+  --elvt-alias-content-text-secondary: var(--elvt-primitives-color-gray-600, rgb(93, 102, 121));
+  --elvt-alias-content-text-muted: var(--elvt-primitives-color-gray-500, rgb(112, 122, 143));
+}
+
+/* 
  * DOCUSAURUS DARK THEME BRIDGE
  * 
  * Problem: ELEVATE dark.css uses :host,.sl-theme-dark and .elvt-theme-dark selectors

@@ -3,20 +3,19 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /**
- * Auto-generated sidebar configuration for ELEVATE Design System
- * Each main area automatically detects and includes all files in its directory
- * No need to manually maintain file lists - just add/remove .md/.mdx files!
+ * Unified sidebar configuration for ELEVATE Design System
+ * Single comprehensive navigation with full hierarchy
+ * All sections accessible from one unified sidebar
  * 
  * Benefits:
- * - Add new .md/.mdx files and they appear automatically
- * - Remove files and they disappear from navigation  
- * - No more crashes when files are missing
- * - Use sidebar_position in frontmatter to control order
- * - Use sidebar_label in frontmatter to customize labels
+ * - Complete navigation hierarchy in sidebar
+ * - No need to switch between different sections
+ * - Auto-generated content within each category
+ * - Collapsible sections for better organization
  */
 const sidebars: SidebarsConfig = {
-  // Home sidebar - Introduction and getting started
-  homeSidebar: [
+  // Main unified sidebar - accordion style (only one section expanded)
+  mainSidebar: [
     {
       type: 'category',
       label: 'Home',
@@ -30,11 +29,12 @@ const sidebars: SidebarsConfig = {
           dirName: 'home',
         },
       ],
+      collapsed: false,
+      className: 'sidebar-accordion-section',
+      customProps: {
+        accordion: true,
+      },
     },
-  ],
-
-  // Design sidebar - Design tokens and foundations (auto-detected)
-  designSidebar: [
     {
       type: 'category',
       label: 'Design',
@@ -48,11 +48,12 @@ const sidebars: SidebarsConfig = {
           dirName: 'design',
         },
       ],
+      collapsed: true,
+      className: 'sidebar-accordion-section',
+      customProps: {
+        accordion: true,
+      },
     },
-  ],
-
-  // Guidelines sidebar - Design principles and best practices
-  guidelinesSidebar: [
     {
       type: 'category',
       label: 'Guidelines',
@@ -66,11 +67,12 @@ const sidebars: SidebarsConfig = {
           dirName: 'guidelines',
         },
       ],
+      collapsed: true,
+      className: 'sidebar-accordion-section',
+      customProps: {
+        accordion: true,
+      },
     },
-  ],
-
-  // Components sidebar - All design system components with automatic detection
-  componentsSidebar: [
     {
       type: 'category',
       label: 'Components',
@@ -84,11 +86,12 @@ const sidebars: SidebarsConfig = {
           dirName: 'components',
         },
       ],
+      collapsed: true,
+      className: 'sidebar-accordion-section',
+      customProps: {
+        accordion: true,
+      },
     },
-  ],
-
-  // Patterns sidebar - UI patterns and templates (auto-detected)
-  patternsSidebar: [
     {
       type: 'category',
       label: 'Patterns',
@@ -102,14 +105,15 @@ const sidebars: SidebarsConfig = {
           dirName: 'patterns',
         },
       ],
+      collapsed: true,
+      className: 'sidebar-accordion-section',
+      customProps: {
+        accordion: true,
+      },
     },
-  ],
-
-  // DS sidebar - Design System documentation meta (auto-detected)
-  dsSidebar: [
     {
       type: 'category',
-      label: 'DS',
+      label: 'DS Components',
       link: {
         type: 'doc',
         id: 'ds/index',
@@ -120,6 +124,11 @@ const sidebars: SidebarsConfig = {
           dirName: 'ds',
         },
       ],
+      collapsed: true,
+      className: 'sidebar-accordion-section',
+      customProps: {
+        accordion: true,
+      },
     },
   ],
 };

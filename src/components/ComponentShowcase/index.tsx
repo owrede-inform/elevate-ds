@@ -155,8 +155,18 @@ export default function ComponentShowcase({
     if (code && isFilePath(code)) {
       // Use sanitized file content for code display (no DOCTYPE, html/head/body tags, preserves formatting)
       const sanitizedForCode = sanitizeHTMLForCode(loadedFileContent);
-      setTransformedCode(sanitizedForCode);
-      setComponentNames([]);
+      
+      // Transform the loaded HTML file content to the selected framework
+      try {
+        const transformed = transformWebComponentCode(sanitizedForCode, selectedFramework);
+        setTransformedCode(transformed);
+        const names = extractComponentNamesFromCode(sanitizedForCode);
+        setComponentNames(names);
+      } catch (error) {
+        console.error('Error transforming loaded file code:', error);
+        setTransformedCode(sanitizedForCode);
+        setComponentNames([]);
+      }
       return;
     }
     
@@ -219,9 +229,7 @@ export default function ComponentShowcase({
       case 'react':
       case 'angular':
       case 'vue':
-      case 'svelte':
         return 'tsx';
-      case 'html':
       case 'webcomponent':
       default:
         return 'html';

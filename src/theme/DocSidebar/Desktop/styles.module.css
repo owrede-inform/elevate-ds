@@ -34,7 +34,8 @@
 /* Clean sidebar positioning for responsive navigation - now in normal flow */
 @media (min-width: 768px) and (max-width: 1180px) {
   .docSidebarContainer {
-    top: var(--ifm-navbar-height, 60px);
+    /* Remove conflicting top positioning that pushes sidebar down */
+    position: relative;
   }
   
   .docSidebar {

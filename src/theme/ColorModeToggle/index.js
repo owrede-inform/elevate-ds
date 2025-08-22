@@ -70,22 +70,22 @@ function CurrentColorModeIcon() {
         // not relying on button content (svg icons)
         aria-hidden
         className={clsx(styles.toggleIcon, styles.lightToggleIcon)}
-        width={20}
-        height={20}
+        width={24}
+        height={24}
       />
       <Icon
         icon="mdi:white-balance-sunny"
         aria-hidden
         className={clsx(styles.toggleIcon, styles.darkToggleIcon)}
-        width={20}
-        height={20}
+        width={24}
+        height={24}
       />
       <Icon
         icon="mdi:theme-light-dark"
         aria-hidden
         className={clsx(styles.toggleIcon, styles.systemToggleIcon)}
-        width={20}
-        height={20}
+        width={24}
+        height={24}
       />
     </>
   );
@@ -100,13 +100,9 @@ function ColorModeToggle({
   const isBrowser = useIsBrowser();
   return (
     <div className={clsx(styles.toggle, className)}>
-      <button
-        className={clsx(
-          'clean-btn',
-          styles.toggleButton,
-          !isBrowser && styles.toggleButtonDisabled,
-          buttonClassName,
-        )}
+      <elvt-button
+        tone="neutral"
+        size="medium"
         type="button"
         onClick={() =>
           onChange(getNextColorMode(value, respectPrefersColorScheme))
@@ -115,7 +111,7 @@ function ColorModeToggle({
         title={getColorModeLabel(value)}
         aria-label={getColorModeAriaLabel(value)}>
         <CurrentColorModeIcon />
-      </button>
+      </elvt-button>
     </div>
   );
 }

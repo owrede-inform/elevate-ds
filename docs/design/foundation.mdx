@@ -1,7 +1,7 @@
 ---
 title: Design Foundation
 description: Visual design foundations including colors, typography, spacing, and layout systems for ELEVATE Design System
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Design Foundation
@@ -20,48 +20,6 @@ Design foundations are the basic building blocks of visual design - the colors, 
 - 📐 **Grid & Layout** - Flexible grid systems and responsive layouts
 - ⚡ **Animation** - Motion design principles and interaction animations
 
-## Design Token Architecture
-
-ELEVATE uses a structured design token system to maintain consistency and enable theming across all platforms and frameworks.
-
-### Token Hierarchy
-
-#### Primitive Tokens
-
-**Primitive Tokens** are named _base values_ that don't change - raw colors,
-font sizes, spacing values - basically any design decision that can be expressed with a value.
-
-```css
-/* Color primitives */
---elvt-primitives-color-blue-500: #0072ff;
---elvt-primitives-color-gray-100: #f3f4f6;
-
-/* Spacing primitives */
---elvt-primitives-spacing-4: 16px; /* Equals 1rem */
---elvt-primitives-spacing-8: 32px; /* Equals 2rem */
-```
-
-#### Alias Tokens
-
-Semantic tokens that reference primitives with meaningful names.
-
-```css
-/* Layout aliases */
---elvt-alias-layout-layer-default: var(--elvt-primitives-color-white);
---elvt-alias-content-text-primary: var(--elvt-primitives-color-gray-900);
-
-/* Spacing aliases */
---elvt-alias-spacing-component-padding: var(--elvt-primitives-spacing-4);
-```
-
-#### Component Tokens
-Component-specific tokens that reference alias tokens.
-
-```css
-/* Button component tokens */
---elvt-button-background-primary: var(--elvt-alias-layout-surface-primary);
---elvt-button-text-primary: var(--elvt-alias-content-text-inverse);
-```
 
 ## Foundation Overview
 

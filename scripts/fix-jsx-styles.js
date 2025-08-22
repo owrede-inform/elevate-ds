@@ -98,7 +98,7 @@ let totalFixes = 0;
 
 for (const file of files) {
   if (file.isDirectory()) {
-    const indexPath = path.join(docsDir, file.name, 'index.mdx');
+    const indexPath = path.join(docsDir, file.name, 'foundation.mdx');
     if (fs.existsSync(indexPath)) {
       console.log(`\n🔍 Checking ${file.name}/index.mdx...`);
       const fixCount = fixJsxStylesInFile(indexPath);

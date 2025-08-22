@@ -24,11 +24,7 @@ interface ComponentTableProps {
   statusFilter?: string;
 }
 
-// Create React wrappers for ELEVATE table components
-const ElvtTable = (props: any) => React.createElement('elvt-table', props, props.children);
-const ElvtTableRow = (props: any) => React.createElement('elvt-table-row', props, props.children);
-const ElvtTableColumn = (props: any) => React.createElement('elvt-table-column', props, props.children);
-const ElvtTableCell = (props: any) => React.createElement('elvt-table-cell', props, props.children);
+// Create React wrapper for ELEVATE badge component
 const ElvtBadge = (props: any) => React.createElement('elvt-badge', props, props.children);
 
 const ComponentTable: React.FC<ComponentTableProps> = ({
@@ -124,99 +120,83 @@ const ComponentTable: React.FC<ComponentTableProps> = ({
 
   return (
     <div className={styles.componentTable}>
-      <ElvtTable style={{
-        '--elvt-component-table-column-border-color-default': 'var(--elvt-primitives-color-gray-300, #a3aab4)',
-        '--sl-color-neutral-300': 'var(--elvt-primitives-color-gray-300, #a3aab4)',
-        '--border-color': 'var(--elvt-primitives-color-gray-300, #a3aab4)'
-      }}>
-        <ElvtTableRow>
-          <ElvtTableColumn style={{ 
-            '--elvt-component-table-column-border-color-default': 'var(--elvt-primitives-color-gray-300, #a3aab4)',
-            '--border-color': 'var(--elvt-primitives-color-gray-300, #a3aab4)'
-          }}>
-            <button 
-              onClick={() => handleSort('name')}
-              className={styles.sortButton}
-            >
-              Component{renderSortIndicator('name')}
-            </button>
-          </ElvtTableColumn>
-          <ElvtTableColumn style={{ 
-            '--elvt-component-table-column-border-color-default': 'var(--elvt-primitives-color-gray-300, #a3aab4)',
-            '--border-color': 'var(--elvt-primitives-color-gray-300, #a3aab4)'
-          }}>
-            <button 
-              onClick={() => handleSort('status')}
-              className={styles.sortButton}
-            >
-              Status{renderSortIndicator('status')}
-            </button>
-          </ElvtTableColumn>
-          <ElvtTableColumn style={{ 
-            '--elvt-component-table-column-border-color-default': 'var(--elvt-primitives-color-gray-300, #a3aab4)',
-            '--border-color': 'var(--elvt-primitives-color-gray-300, #a3aab4)'
-          }}>
-            <button 
-              onClick={() => handleSort('since')}
-              className={styles.sortButton}
-            >
-              Since{renderSortIndicator('since')}
-            </button>
-          </ElvtTableColumn>
-          <ElvtTableColumn style={{ 
-            '--elvt-component-table-column-border-color-default': 'var(--elvt-primitives-color-gray-300, #a3aab4)',
-            '--border-color': 'var(--elvt-primitives-color-gray-300, #a3aab4)'
-          }}>
-            <button 
-              onClick={() => handleSort('lastChangeVersion')}
-              className={styles.sortButton}
-            >
-              Last Version{renderSortIndicator('lastChangeVersion')}
-            </button>
-          </ElvtTableColumn>
-          <ElvtTableColumn style={{ 
-            '--elvt-component-table-column-border-color-default': 'var(--elvt-primitives-color-gray-300, #a3aab4)',
-            '--border-color': 'var(--elvt-primitives-color-gray-300, #a3aab4)'
-          }}>
-            <button 
-              onClick={() => handleSort('lastChangeDate')}
-              className={styles.sortButton}
-            >
-              Last Changed{renderSortIndicator('lastChangeDate')}
-            </button>
-          </ElvtTableColumn>
-        </ElvtTableRow>
-        
-        {filteredComponents.map((component) => (
-          <ElvtTableRow key={component.name} style={{ background: 'transparent' }}>
-            <ElvtTableCell style={{ background: 'transparent' }}>
-              <Link 
-                to={`/docs/components/${component.displayName}`}
-                className={styles.componentLink}
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th>
+              <button 
+                onClick={() => handleSort('name')}
+                className={styles.sortButton}
               >
-                <code>{component.name}</code>
-              </Link>
-            </ElvtTableCell>
-            <ElvtTableCell style={{ background: 'transparent' }}>
-              <ElvtBadge tone={getStatusTone(component.status)}>
-                {component.status}
-              </ElvtBadge>
-            </ElvtTableCell>
-            <ElvtTableCell style={{ background: 'transparent' }}>
-              <code>{component.since}</code>
-            </ElvtTableCell>
-            <ElvtTableCell style={{ background: 'transparent' }}>
-              <code>{component.lastChangeVersion}</code>
-            </ElvtTableCell>
-            <ElvtTableCell style={{ background: 'transparent' }}>
-              {component.lastChangeDate ? 
-                new Date(component.lastChangeDate).toLocaleDateString() : 
-                '-'
-              }
-            </ElvtTableCell>
-          </ElvtTableRow>
-        ))}
-      </ElvtTable>
+                Component{renderSortIndicator('name')}
+              </button>
+            </th>
+            <th>
+              <button 
+                onClick={() => handleSort('status')}
+                className={styles.sortButton}
+              >
+                Status{renderSortIndicator('status')}
+              </button>
+            </th>
+            <th>
+              <button 
+                onClick={() => handleSort('since')}
+                className={styles.sortButton}
+              >
+                Since{renderSortIndicator('since')}
+              </button>
+            </th>
+            <th>
+              <button 
+                onClick={() => handleSort('lastChangeVersion')}
+                className={styles.sortButton}
+              >
+                Last Version{renderSortIndicator('lastChangeVersion')}
+              </button>
+            </th>
+            <th>
+              <button 
+                onClick={() => handleSort('lastChangeDate')}
+                className={styles.sortButton}
+              >
+                Last Changed{renderSortIndicator('lastChangeDate')}
+              </button>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredComponents.map((component) => (
+            <tr key={component.name}>
+              <td>
+                <Link 
+                  to={`/docs/components/${component.displayName}`}
+                  className={styles.componentLink}
+                >
+                  <code>{component.name}</code>
+                </Link>
+              </td>
+              <td>
+                <ElvtBadge tone={getStatusTone(component.status)}>
+                  {component.status}
+                </ElvtBadge>
+              </td>
+              <td>
+                <code>{component.since}</code>
+              </td>
+              <td>
+                <code>{component.lastChangeVersion}</code>
+              </td>
+              <td>
+                {component.lastChangeDate ? 
+                  new Date(component.lastChangeDate).toLocaleDateString() : 
+                  '-'
+                }
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
       
       <div className={styles.tableFooter}>
         <p>

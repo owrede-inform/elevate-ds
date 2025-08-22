@@ -5,7 +5,7 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export type Framework = 'webcomponent' | 'react' | 'angular' | 'vue' | 'svelte' | 'html';
+export type Framework = 'webcomponent' | 'react' | 'angular' | 'vue';
 
 export interface FrameworkContextType {
   selectedFramework: Framework;
@@ -20,18 +20,14 @@ export const AVAILABLE_FRAMEWORKS: readonly Framework[] = [
   'webcomponent',
   'react', 
   'angular',
-  'vue',
-  'svelte',
-  'html'
+  'vue'
 ] as const;
 
 export const FRAMEWORK_LABELS: Record<Framework, string> = {
   webcomponent: 'Web Components',
   react: 'React',
   angular: 'Angular', 
-  vue: 'Vue',
-  svelte: 'Svelte',
-  html: 'HTML'
+  vue: 'Vue'
 };
 
 const FrameworkContext = createContext<FrameworkContextType | undefined>(undefined);

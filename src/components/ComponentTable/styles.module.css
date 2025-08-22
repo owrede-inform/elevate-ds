@@ -12,49 +12,49 @@
   width: 100%;
   max-width: 400px;
   padding: 0.75rem 1rem;
-  border: 1px solid var(--elvt-primitives-color-gray-300, #a3aab4);
-  border-radius: var(--sl-border-radius-medium, 0.25rem);
-  font-size: 0.875rem;
+  border: 1px solid var(--elvt-component-input-border-color-default, var(--elvt-alias-layout-border-default, var(--elvt-primitives-color-gray-300, #a3aab4)));
+  border-radius: var(--elvt-component-input-border-radius-default, var(--elvt-alias-layout-border-radius-m, var(--sl-border-radius-medium, 0.25rem)));
+  font-size: var(--elvt-type-alias-default-content-m-font-size, 0.875rem);
   font-family: var(--elvt-type-alias-default-content-m-font-family, "Inter");
-  background: var(--elvt-primitives-color-white, #ffffff);
-  color: var(--elvt-primitives-color-gray-800, #3d4253);
+  background: var(--elvt-component-input-background-default, var(--elvt-alias-surface-background-default, var(--elvt-primitives-color-white, #ffffff)));
+  color: var(--elvt-component-input-text-color-default, var(--elvt-alias-content-text-default, var(--elvt-primitives-color-gray-800, #3d4253)));
   transition: border-color 0.2s ease;
 }
 
 .searchInput:focus {
   outline: none;
-  border-color: var(--elvt-primitives-color-blue-500, #0072ff);
-  box-shadow: 0 0 0 2px rgba(0, 114, 255, 0.1);
+  border-color: var(--elvt-component-input-border-color-focus, var(--elvt-alias-layout-border-focus, var(--elvt-primitives-color-blue-500, #0072ff)));
+  box-shadow: 0 0 0 2px var(--elvt-component-input-focus-ring-color, rgba(0, 114, 255, 0.1));
 }
 
 [data-theme='dark'] .searchInput {
-  background: var(--elvt-primitives-color-gray-800, #3d4253);
-  border-color: var(--elvt-primitives-color-gray-600, #5d6679);
-  color: var(--elvt-primitives-color-gray-100, #d5d9e1);
+  background: var(--elvt-component-input-background-default, var(--elvt-alias-surface-background-default, var(--elvt-primitives-color-gray-800, #3d4253)));
+  border-color: var(--elvt-component-input-border-color-default, var(--elvt-alias-layout-border-default, var(--elvt-primitives-color-gray-600, #5d6679)));
+  color: var(--elvt-component-input-text-color-default, var(--elvt-alias-content-text-default, var(--elvt-primitives-color-gray-100, #d5d9e1)));
 }
 
 [data-theme='dark'] .searchInput:focus {
-  border-color: var(--elvt-primitives-color-blue-400, #2a90ff);
-  box-shadow: 0 0 0 2px rgba(42, 144, 255, 0.2);
+  border-color: var(--elvt-component-input-border-color-focus, var(--elvt-alias-layout-border-focus, var(--elvt-primitives-color-blue-400, #2a90ff)));
+  box-shadow: 0 0 0 2px var(--elvt-component-input-focus-ring-color, rgba(42, 144, 255, 0.2));
 }
 
 .componentLink {
-  color: var(--elvt-primitives-color-blue-600, #0b5cdf);
+  color: var(--elvt-component-link-text-color-default, var(--elvt-alias-content-text-link, var(--elvt-primitives-color-blue-600, #0b5cdf)));
   text-decoration: none;
-  font-family: var(--sl-font-mono, "RobotoMono", monospace);
+  font-family: var(--elvt-type-alias-code-content-m-font-family, var(--sl-font-mono, "RobotoMono", monospace));
 }
 
 .componentLink:hover {
   text-decoration: underline;
-  color: var(--elvt-primitives-color-blue-700, #1b50a6);
+  color: var(--elvt-component-link-text-color-hover, var(--elvt-alias-content-text-link-hover, var(--elvt-primitives-color-blue-700, #1b50a6)));
 }
 
 [data-theme='dark'] .componentLink {
-  color: var(--elvt-primitives-color-blue-400, #2a90ff);
+  color: var(--elvt-component-link-text-color-default, var(--elvt-alias-content-text-link, var(--elvt-primitives-color-blue-400, #2a90ff)));
 }
 
 [data-theme='dark'] .componentLink:hover {
-  color: var(--elvt-primitives-color-blue-300, #5facff);
+  color: var(--elvt-component-link-text-color-hover, var(--elvt-alias-content-text-link-hover, var(--elvt-primitives-color-blue-300, #5facff)));
 }
 
 .sortButton {
@@ -76,76 +76,86 @@
   opacity: 0.8;
 }
 
-/* Configure ELEVATE table styling with design tokens */
-.componentTable elvt-table {
-  /* Remove table row background fills */
-  --sl-color-neutral-50: transparent;
-  --sl-color-neutral-100: transparent;
-  --elvt-table-row-background: transparent;
-  --elvt-table-cell-background: transparent;
-  
-  /* Try ELEVATE table border colors - official design token */
-  --elvt-component-table-column-border-color-default: var(--elvt-primitives-color-gray-300, #a3aab4);
-  
-  /* Try common Shoelace table color patterns */
-  --sl-color-neutral-200: var(--elvt-primitives-color-gray-300, #a3aab4);
-  --sl-color-neutral-300: var(--elvt-primitives-color-gray-300, #a3aab4);
-  --sl-color-neutral-400: var(--elvt-primitives-color-gray-300, #a3aab4);
-  
-  /* Try generic border color properties */
-  --border-color: var(--elvt-primitives-color-gray-300, #a3aab4);
-  --table-border-color: var(--elvt-primitives-color-gray-300, #a3aab4);
-  
-  /* Try ELEVATE semantic border colors */
-  --elvt-alias-layout-border-default: var(--elvt-primitives-color-gray-300, #a3aab4);
-  --elvt-alias-layout-border-muted: var(--elvt-primitives-color-gray-300, #a3aab4);
+/* Clean table styling with ELEVATE component tokens - no background or border */
+.componentTable .table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+  color: var(--elvt-component-table-text-color-default, var(--elvt-alias-content-text-default, var(--elvt-primitives-color-gray-800, #3d4253)));
 }
 
-/* Try targeting with CSS parts if available */
-.componentTable elvt-table::part(table) {
-  border-color: var(--elvt-primitives-color-gray-300, #a3aab4) !important;
+[data-theme='dark'] .componentTable .table {
+  color: var(--elvt-component-table-text-color-default, var(--elvt-alias-content-text-default, var(--elvt-primitives-color-gray-100, #d5d9e1)));
 }
 
-.componentTable elvt-table-column::part(column) {
-  border-color: var(--elvt-primitives-color-gray-300, #a3aab4) !important;
+/* Table header styling with ELEVATE component tokens */
+.componentTable .table thead th {
+  padding: 0.75rem 1rem;
+  background: var(--elvt-component-table-header-background-default, var(--elvt-alias-surface-background-emphasis, var(--ifm-table-head-background, var(--elvt-primitives-color-gray-100, #d5d9e1))));
+  color: var(--elvt-component-table-header-text-color-default, var(--elvt-alias-content-text-primary, var(--ifm-table-head-color, var(--elvt-primitives-color-gray-800, #3d4253))));
+  border-bottom: 2px solid var(--elvt-component-table-header-border-color-default, var(--elvt-alias-layout-border-emphasis, var(--elvt-primitives-color-gray-400, #8c95a5)));
+  text-align: left;
+  font-weight: var(--elvt-type-alias-default-content-m-font-weight, var(--ifm-font-weight-semibold, 600));
 }
 
-.componentTable elvt-table-cell::part(cell) {
-  border-color: var(--elvt-primitives-color-gray-300, #a3aab4) !important;
+[data-theme='dark'] .componentTable .table thead th {
+  background: var(--elvt-component-table-header-background-default, var(--elvt-alias-surface-background-emphasis, var(--elvt-primitives-color-gray-700, #4d5366)));
+  color: var(--elvt-component-table-header-text-color-default, var(--elvt-alias-content-text-primary, var(--elvt-primitives-color-gray-100, #d5d9e1)));
+  border-bottom-color: var(--elvt-component-table-header-border-color-default, var(--elvt-alias-layout-border-emphasis, var(--elvt-primitives-color-gray-500, #6b7380)));
 }
+
+/* Remove ELEVATE-specific part selectors - not needed for HTML table */
 
 /* Clean approach: Focus on proper ELEVATE design token application */
 
-/* Target data rows specifically - skip header row */
-.componentTable elvt-table elvt-table-row:not(:first-child) {
-  background: transparent !important;
-  /* Override any CSS custom properties for row backgrounds */
-  --sl-color-neutral-50: transparent !important;
-  --sl-color-neutral-100: transparent !important;
+/* Table body rows with ELEVATE component tokens */
+.componentTable .table tbody tr {
+  height: 2rem;
+  border-bottom: 1px solid var(--elvt-component-table-row-border-color-default, var(--elvt-alias-layout-border-muted, var(--elvt-primitives-color-gray-200, #bec3cd)));
+  background: var(--elvt-component-table-row-background-default, transparent);
 }
 
-/* Target table cells in data rows */
-.componentTable elvt-table elvt-table-row:not(:first-child) elvt-table-cell {
-  background: transparent !important;
-  /* Override any CSS custom properties for cell backgrounds */
-  --sl-color-neutral-50: transparent !important;
-  --sl-color-neutral-100: transparent !important;
+.componentTable .table tbody tr:hover {
+  background: var(--elvt-component-table-row-background-hover, var(--elvt-alias-surface-background-hover, var(--elvt-primitives-color-gray-50, #f3f4f7)));
 }
 
-/* Ensure hover and focus states don't add fills */
-.componentTable elvt-table elvt-table-row:not(:first-child):hover,
-.componentTable elvt-table elvt-table-row:not(:first-child):focus {
-  background: transparent !important;
+.componentTable .table tbody tr:nth-child(even) {
+  background: var(--elvt-component-table-row-background-alternate, var(--elvt-alias-surface-background-subtle, var(--elvt-primitives-color-gray-25, #f8f9fa)));
 }
 
-/* Alternative targeting - direct element selectors */
-.componentTable elvt-table-row:not(:first-child) {
-  background: transparent !important;
+[data-theme='dark'] .componentTable .table tbody tr {
+  border-bottom-color: var(--elvt-component-table-row-border-color-default, var(--elvt-alias-layout-border-muted, var(--elvt-primitives-color-gray-700, #4d5366)));
 }
 
-.componentTable elvt-table-cell {
-  background: transparent !important;
+[data-theme='dark'] .componentTable .table tbody tr:hover {
+  background: var(--elvt-component-table-row-background-hover, var(--elvt-alias-surface-background-hover, var(--elvt-primitives-color-gray-700, #4d5366)));
 }
+
+[data-theme='dark'] .componentTable .table tbody tr:nth-child(even) {
+  background: var(--elvt-component-table-row-background-alternate, var(--elvt-alias-surface-background-subtle, var(--elvt-primitives-color-gray-750, #424759)));
+}
+
+/* Table data cells with ELEVATE component tokens */
+.componentTable .table tbody td {
+  padding: 0.5rem 0.75rem;
+  vertical-align: middle;
+  border-right: 1px solid var(--elvt-component-table-column-border-color-default, var(--elvt-alias-layout-border-muted, var(--elvt-primitives-color-gray-200, #bec3cd)));
+  color: var(--elvt-component-table-cell-text-color-default, var(--elvt-alias-content-text-default, var(--elvt-primitives-color-gray-800, #3d4253)));
+  background: var(--elvt-component-table-cell-background-default, transparent);
+}
+
+.componentTable .table tbody td:last-child {
+  border-right: none;
+}
+
+[data-theme='dark'] .componentTable .table tbody td {
+  color: var(--elvt-component-table-cell-text-color-default, var(--elvt-alias-content-text-default, var(--elvt-primitives-color-gray-100, #d5d9e1)));
+  border-right-color: var(--elvt-component-table-column-border-color-default, var(--elvt-alias-layout-border-muted, var(--elvt-primitives-color-gray-700, #4d5366)));
+}
+
+/* Remove this - standard table hover is handled above */
+
+/* Remove ELEVATE-specific selectors - not needed for HTML table */
 
 .tableFooter {
   padding: 1rem 0;
@@ -190,21 +200,16 @@
 
 /* Fix badge stretching - ensure badges maintain natural width */
 .componentTable elvt-badge {
-  display: inline-block !important;
-  width: auto !important;
-  min-width: auto !important;
-  max-width: none !important;
-  flex-shrink: 0 !important;
+  display: inline-block;
+  width: auto;
+  min-width: auto;
+  max-width: none;
+  flex-shrink: 0;
 }
 
 /* Ensure table cells containing badges don't force full width */
-.componentTable elvt-table-cell:has(elvt-badge) {
-  text-align: left !important;
-}
-
-/* Fallback for browsers that don't support :has() */
-.componentTable elvt-table-row:not(:first-child) elvt-table-cell:nth-child(2) {
-  text-align: left !important;
+.componentTable .table tbody td:nth-child(2) {
+  text-align: left;
 }
 
 /* Responsive Design */

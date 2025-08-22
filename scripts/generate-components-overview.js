@@ -12,7 +12,7 @@ const path = require('path');
 
 // Configuration
 const COMPONENTS_DIR = path.join(__dirname, '..', 'docs', 'components');
-const OUTPUT_FILE = path.join(COMPONENTS_DIR, 'index.mdx');
+const OUTPUT_FILE = path.join(COMPONENTS_DIR, 'foundation.mdx');
 
 // Icon mapping for components (SVG paths)
 const COMPONENT_ICONS = {
@@ -100,9 +100,9 @@ function scanComponents() {
       if (!entry.isDirectory()) continue;
       
       const componentName = entry.name;
-      const indexPath = path.join(COMPONENTS_DIR, componentName, 'index.mdx');
+      const indexPath = path.join(COMPONENTS_DIR, componentName, 'foundation.mdx');
       
-      // Skip if no index.mdx file
+      // Skip if no foundation.mdx file
       if (!fs.existsSync(indexPath)) continue;
       
       try {

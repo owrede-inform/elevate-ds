@@ -12,6 +12,8 @@
     "deploy": "cross-env DEPLOYMENT_ENV=github-pages docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
+    "search:generate": "node scripts/generate-search-index.js",
+    "build:with-search": "npm run search:generate && npm run build",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
@@ -34,6 +36,8 @@
   "dependencies": {
     "@docusaurus/core": "3.8.1",
     "@docusaurus/preset-classic": "3.8.1",
+    "@docusaurus/theme-search-algolia": "^3.8.1",
+    "@easyops-cn/docusaurus-search-local": "^0.52.1",
     "@iconify/react": "^6.0.0",
     "@inform-elevate/elevate-core-ui": "^0.0.28-alpha",
     "@inform-elevate/elevate-icons": "^0.3.0",
@@ -41,6 +45,7 @@
     "@mdx-js/react": "^3.0.0",
     "@shoelace-style/shoelace": "^2.20.1",
     "clsx": "^2.0.0",
+    "fuse.js": "^7.1.0",
     "prism-react-renderer": "^2.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
@@ -52,6 +57,8 @@
     "@playwright/test": "^1.54.2",
     "chokidar": "^4.0.3",
     "cross-env": "^10.0.0",
+    "glob": "^11.0.3",
+    "gray-matter": "^4.0.3",
     "playwright": "^1.54.2",
     "typescript": "~5.6.2"
   },

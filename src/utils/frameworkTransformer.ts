@@ -41,20 +41,6 @@ export const FRAMEWORK_CONFIGS: Record<string, FrameworkSyntax> = {
     eventHandling: '@event="handler"',
     slotSyntax: 'slot="name"',
     closingTagStyle: 'explicit'
-  },
-  svelte: {
-    componentPrefix: 'elvt-',
-    attributeStyle: 'kebab-case',
-    eventHandling: 'on:event={handler}',
-    slotSyntax: 'slot="name"',
-    closingTagStyle: 'explicit'
-  },
-  html: {
-    componentPrefix: 'elvt-',
-    attributeStyle: 'kebab-case',
-    eventHandling: 'addEventListener("event", handler)',
-    slotSyntax: 'slot="name"',
-    closingTagStyle: 'explicit'
   }
 };
 
@@ -384,15 +370,6 @@ import { ElevatePlugin } from '@inform-elevate/elevate-core-ui/vue';
 // Use plugin in your app:
 // app.use(ElevatePlugin);`;
     
-    case 'svelte':
-      return `// Svelte components
-import { ${uniqueComponents.join(', ')} } from '@inform-elevate/elevate-core-ui/svelte';`;
-    
-    case 'html':
-      return `<!-- Include in your build process -->
-<script type="module" src="./dist/elevate-core-ui.js"></script>
-<link rel="stylesheet" href="./dist/elevate.css">`;
-    
     default:
       return '// Framework not supported';
   }
@@ -435,8 +412,8 @@ export function extractComponentNames(children: React.ReactNode): string[] {
  * Transform web component code to different frameworks
  */
 export function transformWebComponentCode(code: string, framework: string): string {
-  if (framework === 'webcomponent' || framework === 'html') {
-    return code; // Return as-is for web components and HTML
+  if (framework === 'webcomponent') {
+    return code; // Return as-is for web components
   }
   
   try {

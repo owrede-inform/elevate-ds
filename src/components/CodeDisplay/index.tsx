@@ -115,11 +115,9 @@ export default function CodeDisplay({
   const getLanguageForFramework = (framework: string, defaultLanguage: string) => {
     const frameworkLanguageMap: Record<string, string> = {
       'webcomponent': 'markup', // HTML tags, available by default
-      'html': 'markup', // HTML tags, available by default
       'react': 'jsx', // JSX syntax (imported dynamically)
       'angular': 'typescript', // TypeScript syntax (imported dynamically)
-      'vue': 'markup', // Vue templates are HTML-like (fallback to markup)
-      'svelte': 'markup' // Svelte templates are HTML-like (fallback to markup)
+      'vue': 'markup' // Vue templates are HTML-like (fallback to markup)
     };
     
     // Check if the language is available, fallback to safer options

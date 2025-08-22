@@ -1,7 +1,7 @@
 ---
 title: Design Tokens
 description: ELEVATE design tokens provide the foundational design values that ensure consistency across all interfaces and components.
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Design Tokens
@@ -18,6 +18,50 @@ Design tokens are named entities that store visual design attributes. They act a
 - **Scalability** - Easy to maintain and update design values globally
 - **Cross-Platform** - Works across web, mobile, and desktop applications
 - **Themeable** - Enables light/dark themes and brand customizations
+
+## Design Token Architecture
+
+ELEVATE uses a structured design token system to maintain consistency and enable theming across all platforms and frameworks.
+
+### Token Hierarchy
+
+#### Primitive Tokens
+
+**Primitive Tokens** are named _base values_ that don't change - raw colors,
+font sizes, spacing values - basically any design decision that can be expressed with a value.
+
+```css
+/* Color primitives */
+--elvt-primitives-color-blue-500: #0072ff;
+--elvt-primitives-color-gray-100: #f3f4f6;
+
+/* Spacing primitives */
+--elvt-primitives-spacing-4: 16px; /* Equals 1rem */
+--elvt-primitives-spacing-8: 32px; /* Equals 2rem */
+```
+
+#### Alias Tokens
+
+Semantic tokens that reference primitives with meaningful names.
+
+```css
+/* Layout aliases */
+--elvt-alias-layout-layer-default: var(--elvt-primitives-color-white);
+--elvt-alias-content-text-primary: var(--elvt-primitives-color-gray-900);
+
+/* Spacing aliases */
+--elvt-alias-spacing-component-padding: var(--elvt-primitives-spacing-4);
+```
+
+#### Component Tokens
+Component-specific tokens that reference alias tokens.
+
+```css
+/* Button component tokens */
+--elvt-button-background-primary: var(--elvt-alias-layout-surface-primary);
+--elvt-button-text-primary: var(--elvt-alias-content-text-inverse);
+```
+
 
 ## Token Categories
 
@@ -149,11 +193,6 @@ For complete token documentation, see:
 - **[Spacing Reference](/docs/tokens/spacing)** - Spacing scale and usage
 - **[Elevation Reference](/docs/tokens/elevation)** - Shadow and elevation system
 
-## Tools and Resources
-
-- **[Token Studio](https://tokens.studio)** - Design token management
-- **[Style Dictionary](https://amzn.github.io/style-dictionary)** - Token transformation
-- **[Figma Plugin](https://figma.com)** - Design-to-code token sync
 
 ---
 

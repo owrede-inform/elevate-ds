@@ -343,7 +343,7 @@ async function processMDXFile(filePath) {
  * Find all MDX files to process
  */
 function findMDXFiles() {
-  const pattern = path.join(COMPONENTS_DIR, '**', 'index.mdx');
+  const pattern = path.join(COMPONENTS_DIR, '**', 'foundation.mdx');
   return glob.sync(pattern, { absolute: true });
 }
 

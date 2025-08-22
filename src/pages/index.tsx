@@ -18,13 +18,13 @@ export default function Home(): ReactNode {
     { 
       label: 'View Components', 
       href: useBaseUrl('/docs/components'), 
-      tone: 'subtle' as const,
+      tone: 'neutral' as const,
       size: 'large' as const
     },
     { 
       label: 'Design Guidelines', 
       href: useBaseUrl('/docs/guidelines'), 
-      tone: 'subtle' as const,
+      tone: 'neutral' as const,
       size: 'large' as const
     }
   ];

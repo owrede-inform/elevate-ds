@@ -1,0 +1,41 @@
+---
+title: Table Styling Test
+description: Test page for verifying markdown table header styling in light/dark modes
+---
+
+# Table Styling Test
+
+This page demonstrates that markdown table headers now properly use theme-aware background colors.
+
+## Component Properties Table
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `tone` | `string` | `neutral` | Visual style that communicates action type |
+| `size` | `string` | `medium` | Physical size of the component |
+| `disabled` | `boolean` | `false` | Whether the component can be interacted with |
+| `loading` | `boolean` | `false` | Shows loading state |
+
+## Design Token Table
+
+| Token Name | Light Mode | Dark Mode | Usage |
+|------------|------------|-----------|-------|
+| `--elvt-primitives-color-gray-100` | `#d5d9e1` | N/A | Light theme table headers |
+| `--elvt-primitives-color-gray-700` | N/A | `#4d5366` | Dark theme table headers |
+| `--elvt-alias-content-text-primary` | `#3d4253` | `#d5d9e1` | Header text color |
+
+## Status Indicators
+
+| Status | Badge | Since | Last Updated |
+|--------|-------|-------|--------------|
+| ✅ Complete | ![Complete](https://img.shields.io/badge/Complete-green) | v0.0.1 | 2025-08-18 |
+| ⚠️ Unstable | ![Unstable](https://img.shields.io/badge/Unstable-yellow) | v0.0.15 | 2025-07-11 |
+| 🔬 Experimental | ![Experimental](https://img.shields.io/badge/Experimental-red) | v0.0.20 | 2025-06-04 |
+
+**Expected Behavior:**
+- **Light Mode**: Table headers should have a light gray background (`#d5d9e1`)
+- **Dark Mode**: Table headers should have a darker gray background (`#4d5366`)
+- **Text**: Header text should be readable with proper contrast in both modes
+- **Borders**: Clean borders with theme-appropriate colors
+
+Test by switching between light and dark modes using the theme toggle in the navbar.
