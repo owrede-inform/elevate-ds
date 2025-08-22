@@ -48,6 +48,26 @@ const config: Config = {
   },
 
   plugins: [
+    // Local search plugin - temporarily disabled due to theme conflicts
+    // Using custom search component via Navbar/Search swizzle instead
+    // [
+    //   require.resolve("@easyops-cn/docusaurus-search-local"),
+    //   /** @type {import("@easyops-cn/docusaurus-search-local").PluginOptions} */
+    //   ({
+    //     hashed: true,
+    //     language: ["en"],
+    //     highlightSearchTermsOnTargetPage: true,
+    //     explicitSearchResultPath: false,
+    //     indexDocs: true,
+    //     indexBlog: false,
+    //     indexPages: false,
+    //     docsRouteBasePath: "docs",
+    //     searchResultLimits: 8,
+    //     searchResultContextMaxLength: 50,
+    //     searchBarShortcutHint: false,
+    //     searchBarPosition: "right"
+    //   }),
+    // ],
     // 'docusaurus-plugin-code-preview', // Temporarily disabled due to compatibility issue
     function(context, options) {
       return {
@@ -133,6 +153,13 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/elevate-social-card.jpg',
     
+    // Color mode configuration
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
+    
     // Table of contents configuration - Disabled to use custom TocLinks component
     tableOfContents: {
       minHeadingLevel: 6,
@@ -158,41 +185,7 @@ const config: Config = {
         height: 24,
       },
       items: [
-        {
-          to: 'docs/home',
-          position: 'left',
-          label: 'Home',
-        },
-        {
-          to: 'docs/design',
-          position: 'left',
-          label: 'Design',
-        },
-        {
-          to: 'docs/guidelines',
-          position: 'left',
-          label: 'Guidelines',
-        },
-        {
-          to: 'docs/components',
-          position: 'left',
-          label: 'Components',
-        },
-        {
-          to: 'docs/patterns',
-          position: 'left',
-          label: 'Patterns',
-        },
-        {
-          to: 'docs/ds',
-          position: 'left',
-          label: 'DS Components',
-        },
-        {
-          href: 'https://github.com/inform-elevate/',
-          label: 'GitHub',
-          position: 'right',
-        },
+        // Utilities only - main navigation in sidebar
       ],
       hideOnScroll: false,
     },
@@ -235,10 +228,6 @@ const config: Config = {
               href: 'https://elevate-core-ui.inform-cloud.io',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/inform-elevate/',
-            },
-            {
               label: 'NPM Package',
               href: 'https://www.npmjs.com/package/@inform-elevate/elevate-core-ui',
             },
@@ -250,10 +239,6 @@ const config: Config = {
             {
               label: 'Release Notes',
               to: 'blog',
-            },
-            {
-              label: 'Changelog',
-              href: 'https://github.com/inform-elevate/',
             },
           ],
         },
