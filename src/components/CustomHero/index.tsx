@@ -100,14 +100,18 @@ const CustomHero: React.FC<CustomHeroProps> = ({
           {actions && actions.length > 0 && (
             <div className={styles.heroActions}>
               {actions.map((action, index) => (
-                <ElvtButton
+                <Link
                   key={index}
-                  tone={action.tone || 'primary'}
-                  size={action.size || 'large'}
-                  href={action.href}
+                  to={action.href}
+                  style={{ textDecoration: 'none' }}
                 >
-                  {action.label}
-                </ElvtButton>
+                  <ElvtButton
+                    tone={action.tone || 'primary'}
+                    size={action.size || 'large'}
+                  >
+                    {action.label}
+                  </ElvtButton>
+                </Link>
               ))}
             </div>
           )}
