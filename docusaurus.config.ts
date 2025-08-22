@@ -185,7 +185,36 @@ const config: Config = {
         height: 24,
       },
       items: [
-        // Utilities only - main navigation in sidebar
+        // Main navigation
+        {
+          type: 'doc',
+          docId: 'home/index',
+          position: 'left',
+          label: 'Home',
+        },
+        {
+          type: 'doc',
+          docId: 'design/index',
+          position: 'left',
+          label: 'Design',
+        },
+        {
+          type: 'doc',
+          docId: 'guidelines/index',
+          position: 'left', 
+          label: 'Guidelines',
+        },
+        {
+          type: 'doc',
+          docId: 'components/index',
+          position: 'left',
+          label: 'Components', 
+        },
+        // Search on the right
+        {
+          type: 'search',
+          position: 'right',
+        },
       ],
       hideOnScroll: false,
     },

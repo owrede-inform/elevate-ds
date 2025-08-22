@@ -1418,17 +1418,21 @@ html body .theme-doc-sidebar-container {
   margin-top: 0 !important; /* Override Docusaurus negative margin */
 }
 
-/* Fix sidebar text color for better readability - maximum specificity */
+/* Fix sidebar text color for better readability using ELEVATE tokens - maximum specificity */
 html body .theme-doc-sidebar-item-link {
-  color: #5d6679 !important; /* Use direct color for immediate fix */
+  color: var(--elvt-alias-content-text-secondary, #5d6679) !important;
 }
 
 html body .theme-doc-sidebar-item-link:hover {
-  color: var(--ifm-color-primary) !important;
+  color: var(--elvt-alias-content-text-primary, var(--ifm-color-primary)) !important;
 }
 
 html body [data-theme='dark'] .theme-doc-sidebar-item-link {
-  color: #bec3cd !important; /* Use direct color for immediate fix */
+  color: var(--elvt-alias-content-text-secondary, #bec3cd) !important;
+}
+
+html body [data-theme='dark'] .theme-doc-sidebar-item-link:hover {
+  color: var(--elvt-alias-content-text-primary, var(--ifm-color-primary)) !important;
 }
 
 /* Navbar Search Margin Fix - Higher specificity for production builds */
