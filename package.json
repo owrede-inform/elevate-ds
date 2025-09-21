@@ -7,7 +7,7 @@
     "docusaurus": "npx docusaurus",
     "start": "npx docusaurus start",
     "build": "npx docusaurus build",
-    "build:github": "npm run search:generate && cross-env DEPLOYMENT_ENV=github-pages npx docusaurus build",
+    "build:github": "npm run search:generate && npx docusaurus build",
     "swizzle": "npx docusaurus swizzle",
     "deploy": "cross-env DEPLOYMENT_ENV=github-pages npx docusaurus deploy",
     "clear": "npx docusaurus clear",

@@ -75,6 +75,7 @@ jobs:
         env:
           NODE_ENV: production
           NODE_OPTIONS: "--max-old-space-size=4096"
+          DEPLOYMENT_ENV: github-pages
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
