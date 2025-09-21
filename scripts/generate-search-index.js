@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const glob = require('glob');
+const { globSync } = require('glob');
 const matter = require('gray-matter');
 
 // Search index generator for ELEVATE Design System docs
@@ -15,7 +15,7 @@ function generateSearchIndex() {
   ];
   
   patterns.forEach(pattern => {
-    const files = glob.sync(pattern, { cwd: path.join(__dirname, '..') });
+    const files = globSync(pattern, { cwd: path.join(__dirname, '..') });
     
     files.forEach(filePath => {
       try {
