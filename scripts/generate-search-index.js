@@ -1,25 +1,41 @@
 const fs = require('fs');
 const path = require('path');
-const { globSync } = require('glob');
 const matter = require('gray-matter');
+
+// Simple file finder function to replace glob
+function findFiles(dir, extensions, result = []) {
+  if (!fs.existsSync(dir)) return result;
+
+  const files = fs.readdirSync(dir);
+
+  for (const file of files) {
+    const filePath = path.join(dir, file);
+    const stat = fs.statSync(filePath);
+
+    if (stat.isDirectory()) {
+      findFiles(filePath, extensions, result);
+    } else {
+      const ext = path.extname(file);
+      if (extensions.includes(ext)) {
+        result.push(path.relative(process.cwd(), filePath));
+      }
+    }
+  }
+
+  return result;
+}
 
 // Search index generator for ELEVATE Design System docs
 function generateSearchIndex() {
   const searchIndex = [];
-  const docsPath = path.join(__dirname, '../docs');
-  
+
   // Find all markdown and mdx files
-  const patterns = [
-    'docs/**/*.md',
-    'docs/**/*.mdx'
-  ];
-  
-  patterns.forEach(pattern => {
-    const files = globSync(pattern, { cwd: path.join(__dirname, '..') });
-    
-    files.forEach(filePath => {
+  const docsDir = path.join(__dirname, '../docs');
+  const files = findFiles(docsDir, ['.md', '.mdx']);
+
+  files.forEach(filePath => {
       try {
-        const fullPath = path.join(__dirname, '..', filePath);
+        const fullPath = path.resolve(filePath);
         const content = fs.readFileSync(fullPath, 'utf8');
         const { data: frontMatter, content: markdownContent } = matter(content);
         
@@ -62,7 +78,6 @@ function generateSearchIndex() {
         console.warn(`Error processing ${filePath}:`, error.message);
       }
     });
-  });
   
   // Add component data from existing metadata
   try {
