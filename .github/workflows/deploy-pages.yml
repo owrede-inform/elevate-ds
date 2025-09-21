@@ -71,7 +71,10 @@ jobs:
           echo "✅ Security audit completed"
 
       - name: Build Docusaurus site with search index
-        run: npm run build:github
+        run: |
+          # Ensure docusaurus binary is executable
+          chmod +x node_modules/.bin/docusaurus || true
+          npm run build:github
         env:
           NODE_ENV: production
           NODE_OPTIONS: "--max-old-space-size=4096"
