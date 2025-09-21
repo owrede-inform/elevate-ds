@@ -55,8 +55,8 @@ jobs:
         run: |
           echo "🛡️ Installing dependencies with security monitoring..."
           if command -v npq >/dev/null 2>&1; then
-            echo "Using npq for secure installation"
-            npq install || npm ci
+            echo "Using npq for secure installation (non-interactive)"
+            echo "y" | npq install || npm ci
           else
             echo "Using npm ci with security monitoring"
             npm ci
@@ -130,8 +130,8 @@ jobs:
         run: |
           echo "🛡️ Installing dependencies with security monitoring..."
           if command -v npq >/dev/null 2>&1; then
-            echo "Using npq for secure installation"
-            npq install || npm ci
+            echo "Using npq for secure installation (non-interactive)"
+            echo "y" | npq install || npm ci
           else
             echo "Using npm ci with security monitoring"
             npm ci
