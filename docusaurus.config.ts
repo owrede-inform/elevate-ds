@@ -1,5 +1,5 @@
 import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import type {Config, LoadContext, Plugin} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
@@ -11,9 +11,9 @@ const config: Config = {
   // Force deployment refresh - ensure ELEVATE CSS is included - 2025-01-27T18:40:00Z
   favicon: 'img/favicon.ico',
   
-  // INFORM GmbH metadata
-  organizationName: 'INFORM GmbH',
-  projectName: 'ELEVATE Design System',
+  // INFORM GmbH metadata - GitHub pages deployment config
+  organizationName: 'owrede-inform', // GitHub org/user name for deployment
+  projectName: 'elevate-ds', // GitHub repo name for deployment
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -31,10 +31,7 @@ const config: Config = {
     ? '/elevate-ds/'
     : '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'owrede-inform', // Usually your GitHub org/user name.
-  projectName: 'elevate-ds', // Usually your repo name.
+  // GitHub pages deployment config handled above in metadata section
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -69,41 +66,42 @@ const config: Config = {
     //   }),
     // ],
     // 'docusaurus-plugin-code-preview', // Temporarily disabled due to compatibility issue
-    function(context, options) {
+    function(context: LoadContext, options: any): Plugin {
       return {
         name: 'code-examples-plugin',
         configureWebpack(config, isServer, utils) {
-          return {
-            devServer: {
-              setupMiddlewares: (middlewares, devServer) => {
-                // Add middleware to serve code-examples folders as raw files
-                devServer.app.get(/^\/docs\/.*\/code-examples\/.*/, (req, res, next) => {
-                  const path = require('path');
-                  const fs = require('fs');
-                  
-                  // Extract path from URL
-                  const urlPath = req.url;
-                  const match = urlPath.match(/^\/docs\/(.*?)\/code-examples\/(.*)$/);
-                  
-                  if (match) {
-                    const componentPath = match[1];
-                    const fileName = match[2];
-                    const filePath = path.join(context.siteDir, 'docs', componentPath, 'code-examples', fileName);
-                    
-                    if (fs.existsSync(filePath)) {
-                      const content = fs.readFileSync(filePath, 'utf8');
-                      res.setHeader('Content-Type', 'text/html');
-                      res.setHeader('Cache-Control', 'no-cache');
-                      res.send(content);
-                      return;
+          if (!isServer) {
+            config.devServer = {
+              ...config.devServer,
+                setupMiddlewares: (middlewares: any, devServer: any) => {
+                  // Add middleware to serve code-examples folders as raw files
+                  devServer.app.get(/^\/docs\/.*\/code-examples\/.*/, (req, res, next) => {
+                    const path = require('path');
+                    const fs = require('fs');
+
+                    // Extract path from URL
+                    const urlPath = req.url;
+                    const match = urlPath.match(/^\/docs\/(.*?)\/code-examples\/(.*)$/);
+
+                    if (match) {
+                      const componentPath = match[1];
+                      const fileName = match[2];
+                      const filePath = path.join(context.siteDir, 'docs', componentPath, 'code-examples', fileName);
+
+                      if (fs.existsSync(filePath)) {
+                        const content = fs.readFileSync(filePath, 'utf8');
+                        res.setHeader('Content-Type', 'text/html');
+                        res.setHeader('Cache-Control', 'no-cache');
+                        res.send(content);
+                        return;
+                      }
                     }
-                  }
-                  next();
-                });
-                return middlewares;
-              }
-            }
-          };
+                    next();
+                  });
+                  return middlewares;
+                }
+              };
+          }
         }
       };
     }

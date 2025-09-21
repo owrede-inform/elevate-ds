@@ -25,7 +25,7 @@ export default function ComponentShowcase({
   showFrameworkSwitcher = true,
   wrapLines = true,
   showCodeByDefault = false
-}: ComponentShowcaseProps): JSX.Element {
+}: ComponentShowcaseProps): React.ReactElement {
   const previewRef = useRef<HTMLDivElement>(null);
   const { selectedFramework } = useFramework();
   const baseUrl = useBaseUrl('/');

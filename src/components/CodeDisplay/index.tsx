@@ -52,7 +52,7 @@ export default function CodeDisplay({
   showLineNumbers = true,
   showFrameworkSwitcher = true,
   wrapLines = true
-}: CodeDisplayProps): JSX.Element {
+}: CodeDisplayProps): React.ReactElement {
   const [copied, setCopied] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const { selectedFramework } = useFramework();

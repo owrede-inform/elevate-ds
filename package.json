@@ -7,7 +7,7 @@
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
-    "build:github": "cross-env DEPLOYMENT_ENV=github-pages docusaurus build",
+    "build:github": "npm run search:generate && cross-env DEPLOYMENT_ENV=github-pages docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "cross-env DEPLOYMENT_ENV=github-pages docusaurus deploy",
     "clear": "docusaurus clear",
@@ -31,7 +31,10 @@
     "versions:list": "node scripts/update-versions.js --list",
     "versions:add": "node scripts/update-versions.js --add-version",
     "versions:regen": "node scripts/update-versions.js --regen-cutoffs",
-    "generate:overview": "node scripts/generate-components-overview.js"
+    "generate:overview": "node scripts/generate-components-overview.js",
+    "security:check": "node scripts/npm-security-check.js",
+    "security:audit": "npm audit --audit-level moderate",
+    "preinstall": "node scripts/npm-security-check.js"
   },
   "dependencies": {
     "@docusaurus/core": "3.8.1",
@@ -39,7 +42,8 @@
     "@docusaurus/theme-search-algolia": "^3.8.1",
     "@easyops-cn/docusaurus-search-local": "^0.52.1",
     "@iconify/react": "^6.0.0",
-    "@inform-elevate/elevate-core-ui": "^0.0.28-alpha",
+    "@inform-elevate/elevate-cdk": "^0.12.0-alpha",
+    "@inform-elevate/elevate-core-ui": "^0.0.29-alpha",
     "@inform-elevate/elevate-icons": "^0.3.0",
     "@mdi/js": "^7.4.47",
     "@mdx-js/react": "^3.0.0",

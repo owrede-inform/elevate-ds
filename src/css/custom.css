@@ -267,15 +267,15 @@ main h2 {
   border-left: 4px solid var(--ifm-color-primary-lightest);
 }
 
-/* Code blocks - Roboto Mono with 0.85rem font size and proper wrapping */
-.theme-code-block,
-.prism-code,
-pre,
-.markdown pre,
-.theme-doc-markdown pre,
-code[class*="language-"],
-pre[class*="language-"] {
-  font-family: "RobotoMono", "Roboto Mono", Consolas, "Liberation Mono", Menlo, monospace !important;
+/* Code blocks - Roboto Mono with 0.85rem font size and proper wrapping - Using high specificity instead of !important */
+html body .theme-code-block,
+html body .prism-code,
+html body pre,
+html body .markdown pre,
+html body .theme-doc-markdown pre,
+html body code[class*="language-"],
+html body pre[class*="language-"] {
+  font-family: "RobotoMono", "Roboto Mono", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 0.85rem;
   /* Enable word wrapping for better mobile experience */
   white-space: pre-wrap;
@@ -287,11 +287,11 @@ pre[class*="language-"] {
   max-width: 100%;
 }
 
-/* Inline code */
-.markdown code,
-.theme-doc-markdown code,
-code:not([class*="language-"]) {
-  font-family: "RobotoMono", "Roboto Mono", Consolas, "Liberation Mono", Menlo, monospace !important;
+/* Inline code - Using high specificity instead of !important */
+html body .markdown code,
+html body .theme-doc-markdown code,
+html body code:not([class*="language-"]) {
+  font-family: "RobotoMono", "Roboto Mono", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 0.85rem;
   border: 1px solid var(--elvt-alias-layout-border-default);
 }
@@ -618,13 +618,20 @@ elvt-button::part(label) {
   margin: 0 !important;
 }
 
-/* Fix any remaining text color issues */
-.hero__title, .hero__subtitle, h1, h2, h3, h4, h5, h6 {
-  color: var(--ifm-color-content) !important;
+/* Fix any remaining text color issues - Using high specificity instead of !important */
+html body .hero__title,
+html body .hero__subtitle,
+html body h1,
+html body h2,
+html body h3,
+html body h4,
+html body h5,
+html body h6 {
+  color: var(--ifm-color-content);
 }
 
-[data-theme='dark'] .hero__subtitle {
-  color: var(--elvt-alias-content-text-secondary, #a3aab4) !important;
+html body[data-theme='dark'] .hero__subtitle {
+  color: var(--elvt-alias-content-text-secondary, #a3aab4);
 }
 
 /* Main content area dark mode fixes - Using gray-950 for content */

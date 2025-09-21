@@ -415,7 +415,7 @@ const getTemplateModule = (templateName: string): TemplateModule => {
   return getTemplate(templateName);
 };
 
-const renderCustomTemplate = (tokens: ColorToken[], template: TemplateModule, props: ColorRampProps): JSX.Element => {
+const renderCustomTemplate = (tokens: ColorToken[], template: TemplateModule, props: ColorRampProps): React.ReactElement => {
   const { container, item } = template;
   
   // Render all token items with individual styling
@@ -467,7 +467,7 @@ const renderTemplate = (
   tokens: ColorToken[], 
   templateName: string, 
   props: ColorRampProps
-): JSX.Element => {
+): React.ReactElement => {
   // Handle custom template first
   if (templateName === 'custom' && props.customTemplate) {
     // Parse custom template in old format for backwards compatibility
