@@ -2,6 +2,8 @@
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator, and documents the ELEVATE Design System components and patterns.
 
+> ✨ **Now optimized with pnpm** for faster builds and enhanced security scanning!
+
 ## Installation
 
 ```bash
