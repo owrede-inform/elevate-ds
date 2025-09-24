@@ -88,4 +88,38 @@ importers:
         specifier: ~5.6.2
         version: 5.6.2
 
+  packages/docusaurus-theme-inform-elevate:
+    dependencies:
+      '@docusaurus/theme-classic':
+        specifier: ^3.8.0
+        version: 3.8.1
+      '@docusaurus/theme-common':
+        specifier: ^3.8.0
+        version: 3.8.1
+      '@docusaurus/utils-validation':
+        specifier: ^3.8.0
+        version: 3.8.1
+      '@iconify/react':
+        specifier: ^6.0.0
+        version: 6.0.0
+      '@inform-elevate/elevate-core-ui':
+        specifier: ^0.0.27-alpha
+        version: 0.0.34-alpha
+      clsx:
+        specifier: ^2.0.0
+        version: 2.1.1
+    devDependencies:
+      '@docusaurus/module-type-aliases':
+        specifier: ^3.8.0
+        version: 3.8.1
+      '@docusaurus/types':
+        specifier: ^3.8.0
+        version: 3.8.1
+      '@types/react':
+        specifier: ^18.0.0
+        version: 18.3.1
+      typescript:
+        specifier: ^5.0.0
+        version: 5.6.2
+
 packages: {}
