@@ -27,7 +27,7 @@ import '@inform-elevate/elevate-core-ui/dist/themes/light.css';
 import * as elevateIcons from '@inform-elevate/elevate-icons';
 
 // Import ELEVATE IconRegistry and internal MDI icons that are already included
-import IconRegistry from '@inform-elevate/elevate-core-ui/dist/components/icon/icon-registry.js';
+import { IconRegistry, iconRegistry } from '@inform-elevate/elevate-core-ui/dist/components/icon/icon-registry.js';
 import { InternalIcons } from '@inform-elevate/elevate-core-ui/dist/components/icon/internal-icons.js';
 
 // Import ALL MDI icons from @mdi/js (7,447+ icons)
@@ -67,109 +67,72 @@ const createMdiNameMapper = () => {
 // Create the name mapper
 const mdiNameMap = createMdiNameMapper();
 
-// Register ALL MDI icons using a resolver (7,447+ icons available on-demand)
-// This is much more efficient than registering each icon individually
-IconRegistry.registerResolver('mdi', (iconName: string) => {
-  // Try direct lookup first (for exact matches like 'settings', 'home')
-  let mdiExportName = `mdi${iconName.charAt(0).toUpperCase()}${iconName.slice(1).replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())}`;
-  let pathData = (mdi as any)[mdiExportName];
-  
-  // If not found, try the name mapper
-  if (!pathData && mdiNameMap.has(iconName)) {
-    mdiExportName = mdiNameMap.get(iconName)!;
-    pathData = (mdi as any)[mdiExportName];
-  }
-  
-  // If still not found, try some common variations
-  if (!pathData) {
-    const variations = [
-      iconName.replace(/-/g, ''), // Remove all hyphens
-      iconName.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), // camelCase
-      iconName.toLowerCase().replace(/-/g, ''), // lowercase no hyphens
-    ];
-    
-    for (const variation of variations) {
-      const testName = `mdi${variation.charAt(0).toUpperCase()}${variation.slice(1)}`;
-      if ((mdi as any)[testName]) {
-        pathData = (mdi as any)[testName];
-        break;
-      }
+// SSR-safe icon registration - only run in browser
+if (typeof window !== 'undefined') {
+  try {
+    // Get the icon registry instance (try both imports)
+    const registry = IconRegistry || iconRegistry;
+
+    // Check if registry has the expected API
+    if (registry && typeof registry.registerIcons === 'function') {
+      // Register ELEVATE icons with corrected fill colors
+      registry.registerIcons({
+        'home': createCorrectedIcon(elevateIcons.elvtHome),
+        'check': createCorrectedIcon(elevateIcons.elvtCheck),
+        'cancel': createCorrectedIcon(elevateIcons.elvtCancel),
+        'chevron-right': createCorrectedIcon(elevateIcons.elvtChevronRight)
+      });
+      console.log('🚀 ELEVATE icons registered successfully');
     }
-  }
-  
-  if (pathData) {
-    // Return properly formatted SVG data URL with white fill for CSS masking
-    return `data:image/svg+xml,${encodeURIComponent(
-      `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="${pathData}" fill="white"/>
-      </svg>`
-    )}`;
-  }
-  
-  console.warn(`MDI icon not found: ${iconName} (tried: ${mdiExportName})`);
-  return null;
-});
 
-// Register ELEVATE icons IMMEDIATELY at module load time with corrected fill colors
-// CRITICAL: ELEVATE icons come with fill="black" which breaks CSS masking
-IconRegistry.registerIcons({
-  'home': createCorrectedIcon(elevateIcons.elvtHome),
-  'check': createCorrectedIcon(elevateIcons.elvtCheck),
-  'cancel': createCorrectedIcon(elevateIcons.elvtCancel),
-  'chevron-right': createCorrectedIcon(elevateIcons.elvtChevronRight)
-});
+    // Try to register MDI icons if registerResolver exists
+    if (registry && typeof registry.registerResolver === 'function') {
+      registry.registerResolver('mdi', (iconName: string) => {
+        // Try direct lookup first (for exact matches like 'settings', 'home')
+        let mdiExportName = `mdi${iconName.charAt(0).toUpperCase()}${iconName.slice(1).replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())}`;
+        let pathData = (mdi as any)[mdiExportName];
 
-console.log('🚀 ALL MDI icons registered via resolver - 7,447+ icons available!');
+        // If not found, try the name mapper
+        if (!pathData && mdiNameMap.has(iconName)) {
+          mdiExportName = mdiNameMap.get(iconName)!;
+          pathData = (mdi as any)[mdiExportName];
+        }
+
+        if (pathData) {
+          // Return properly formatted SVG data URL with white fill for CSS masking
+          return `data:image/svg+xml,${encodeURIComponent(
+            `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="${pathData}" fill="white"/>
+            </svg>`
+          )}`;
+        }
+
+        return null;
+      });
+      console.log('🚀 MDI icon resolver registered successfully');
+    } else {
+      console.log('⚠️ IconRegistry.registerResolver not available in this version', { registry, IconRegistry, iconRegistry });
+    }
+  } catch (error) {
+    console.warn('Icon registration failed:', error);
+  }
+}
 
 // Import framework context
 import { FrameworkProvider } from '../contexts/FrameworkContext';
 
 export default function Root({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // Set Shoelace base path for icons and assets
-    setBasePath('/node_modules/@shoelace-style/shoelace/dist/');
-    
-    // Register built-in MDI icons that ELEVATE already includes
-    const configureIcons = () => {
-      if (typeof window === 'undefined') return;
-      
-      console.log('🔧 Setting up ELEVATE icons...');
-      
-      try {
-        // Icons are now registered at module load time - just log completion
-        console.log('✅ Icon setup complete!');
-        console.log('   Usage: <elvt-icon icon="mdi:any-icon-name" /> (7,447+ MDI icons)');
-        console.log('   Example: <elvt-icon icon="mdi:home" />, <elvt-icon icon="mdi:account" />');
-        
-      } catch (error) {
-        console.error('❌ Failed to set up icons:', error);
-      }
-    };
+    // Only run in browser environment
+    if (typeof window === 'undefined') return;
 
-    // Configure icons when components are ready
-    const initializeIcons = async () => {
-      try {
-        // Wait for both elvt-icon and elvt-button to be defined
-        await Promise.all([
-          customElements.whenDefined('elvt-icon').catch(() => {}),
-          customElements.whenDefined('elvt-button').catch(() => {})
-        ]);
-        
-        // Additional delay to ensure components are fully initialized
-        setTimeout(() => {
-          configureIcons();
-          
-          // Skip force refresh - let components initialize naturally
-          console.log('Icon configuration completed');
-        }, 250);
-      } catch (error) {
-        console.warn('Error initializing icons:', error);
-        // Still configure icons even if there's an error
-        configureIcons();
-      }
-    };
-
-    initializeIcons();
+    try {
+      // Set Shoelace base path for icons and assets
+      setBasePath('/node_modules/@shoelace-style/shoelace/dist/');
+      console.log('✅ Root setup complete');
+    } catch (error) {
+      console.warn('Root setup warning:', error);
+    }
 
     // Apply theme classes to ELEVATE components when theme changes
     const applyThemeToComponents = () => {
