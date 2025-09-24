@@ -48,9 +48,14 @@ function generateSearchIndex() {
           .replace('.mdx', '')
           .replace('.md', '')
           .replace('docs/', 'docs/');
-        
+
         // Remove /index from URLs (foundation.mdx files should map to folder URLs)
         urlPath = urlPath.replace(/\/index$/, '');
+
+        // Add base URL for GitHub Pages deployment
+        if (process.env.DEPLOYMENT_ENV === 'github-pages') {
+          urlPath = '/elevate-ds' + urlPath;
+        }
         
         // Extract first paragraph as description
         const description = frontMatter.description || 
@@ -86,11 +91,17 @@ function generateSearchIndex() {
       const componentData = JSON.parse(fs.readFileSync(componentDataPath, 'utf8'));
       
       componentData.forEach(component => {
+        // Generate component URL with proper base path
+        let componentUrl = `/docs/components/${component.displayName}`;
+        if (process.env.DEPLOYMENT_ENV === 'github-pages') {
+          componentUrl = '/elevate-ds' + componentUrl;
+        }
+
         const searchEntry = {
           id: `component_${component.name}`,
           title: `${component.displayName} Component`,
           description: component.summary || `${component.displayName} - ${component.description}`,
-          url: `/docs/components/${component.displayName}`,
+          url: componentUrl,
           content: `${component.displayName} ${component.description} ${component.summary || ''} ${component.tags.join(' ')}`,
           tags: component.tags || [],
           group: 'Components',
