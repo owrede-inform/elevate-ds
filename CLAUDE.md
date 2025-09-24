@@ -10,29 +10,35 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - **Framework**: Docusaurus 3.8.1 (React-based static site generator)
 - **Language**: TypeScript
-- **Package Manager**: npm
+- **Package Manager**: pnpm (>=8.0.0)
 - **Node Version**: >=18.0
 
 ## Development Commands
 
 ```bash
 # Start development server (with hot reloading)
-npm start
+pnpm start
 
 # Build for production
-npm run build
+pnpm build
 
 # Serve production build locally
-npm run serve
+pnpm serve
 
 # Type checking
-npm run typecheck
+pnpm typecheck
 
 # Clear Docusaurus cache
-npm run clear
+pnpm clear
 
 # Deploy to GitHub Pages
-npm run deploy
+pnpm deploy
+
+# Install dependencies
+pnpm install
+
+# Security audit
+pnpm audit
 ```
 
 ## Project Structure
@@ -83,8 +89,8 @@ elevate-ds/
 2. **Component Development**: Create React components in `src/components/`
 3. **Styling**: Use CSS modules or edit `src/css/custom.css`
 4. **Configuration**: Modify `docusaurus.config.ts` for site-wide changes
-5. **Testing**: Use `npm run typecheck` for TypeScript validation
-6. **Preview**: Use `npm start` for live development server
+5. **Testing**: Use `pnpm typecheck` for TypeScript validation
+6. **Preview**: Use `pnpm start` for live development server
 
 ## Design System Integration
 

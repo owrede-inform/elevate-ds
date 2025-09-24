@@ -1,0 +1,10 @@
+# PNPM Workspace Configuration
+# Defines workspace structure for elevate-ds project
+
+packages:
+  # Main project
+  - '.'
+  # Docusaurus theme package
+  - 'packages/*'
+  # Scripts and tools (if any)
+  - 'scripts'

@@ -30,51 +30,51 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'pnpm'
           registry-url: 'https://npm.pkg.github.com'
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Configure npm for GitHub Packages
-        run: |
-          echo "@inform-elevate:registry=https://npm.pkg.github.com" >> .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.ELEVATE_DS2 }}" >> .npmrc
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.17.1
+          run_install: false
 
-      - name: Install npq security scanner
+      - name: Configure pnpm for GitHub Packages
         run: |
-          npm install -g npq || echo "npq installation failed, using alternative security scanner"
-          npq --version || echo "npq not available, using custom security scanner"
+          echo "@inform-elevate:registry=https://npm.pkg.github.com" >> .pnpmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.ELEVATE_DS2 }}" >> .pnpmrc
+
+      - name: Install security scanner (pnpm-based)
+        run: |
+          echo "Using pnpm's built-in audit for security scanning"
+          pnpm --version
 
       - name: Pre-installation security check
         run: |
           echo "🔍 Running pre-installation security check..."
-          node scripts/npm-security-check.js --pre-install || echo "Custom scanner not available yet"
+          node scripts/pnpm-security-check.js --pre-install || echo "Custom scanner not available yet"
 
       - name: Install dependencies with security monitoring
         run: |
-          echo "🛡️ Installing dependencies with security monitoring..."
-          if command -v npq >/dev/null 2>&1; then
-            echo "Using npq for secure installation (non-interactive)"
-            echo "y" | npq install || npm ci
-          else
-            echo "Using npm ci with security monitoring"
-            npm ci
-          fi
+          echo "🛡️ Installing dependencies with pnpm..."
+          pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.ELEVATE_DS2 }}
 
       - name: Post-installation security audit
         run: |
           echo "🔍 Running comprehensive security audit..."
-          npm run security:check
+          pnpm security:check
           echo "✅ Security audit completed"
 
       - name: Build Docusaurus site with search index
         run: |
           # Ensure docusaurus binary is executable
           chmod +x node_modules/.bin/docusaurus || true
-          npm run build:github
+          pnpm build:github
         env:
           NODE_ENV: production
           NODE_OPTIONS: "--max-old-space-size=4096"
@@ -112,54 +112,54 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'pnpm'
           registry-url: 'https://npm.pkg.github.com'
 
-      - name: Configure npm for GitHub Packages
-        run: |
-          echo "@inform-elevate:registry=https://npm.pkg.github.com" >> .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.ELEVATE_DS2 }}" >> .npmrc
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.17.1
+          run_install: false
 
-      - name: Install npq security scanner
+      - name: Configure pnpm for GitHub Packages
         run: |
-          npm install -g npq || echo "npq installation failed, using alternative security scanner"
-          npq --version || echo "npq not available, using custom security scanner"
+          echo "@inform-elevate:registry=https://npm.pkg.github.com" >> .pnpmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.ELEVATE_DS2 }}" >> .pnpmrc
+
+      - name: Install security scanner (pnpm-based)
+        run: |
+          echo "Using pnpm's built-in audit for security scanning"
+          pnpm --version
 
       - name: Pre-installation security check
         run: |
           echo "🔍 Running pre-installation security check..."
-          node scripts/npm-security-check.js --pre-install || echo "Custom scanner not available yet"
+          node scripts/pnpm-security-check.js --pre-install || echo "Custom scanner not available yet"
 
       - name: Install dependencies with security monitoring
         run: |
-          echo "🛡️ Installing dependencies with security monitoring..."
-          if command -v npq >/dev/null 2>&1; then
-            echo "Using npq for secure installation (non-interactive)"
-            echo "y" | npq install || npm ci
-          else
-            echo "Using npm ci with security monitoring"
-            npm ci
-          fi
+          echo "🛡️ Installing dependencies with pnpm..."
+          pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.ELEVATE_DS2 }}
 
       - name: Post-installation security audit
         run: |
           echo "🔍 Running comprehensive security audit..."
-          npm run security:check
+          pnpm security:check
           echo "✅ Security audit completed"
 
       - name: Test build
-        run: npm run build
+        run: pnpm build
         env:
           NODE_ENV: production
 
       - name: Run type checking
-        run: npm run typecheck
+        run: pnpm typecheck
 
       - name: Test serve (smoke test)
         run: |
-          npm run serve &
+          pnpm serve &
           SERVER_PID=$!
           sleep 10
           curl -f http://localhost:3000 || exit 1

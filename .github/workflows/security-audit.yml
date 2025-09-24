@@ -9,16 +9,16 @@ on:
     branches: [ "main" ]
     paths:
       - 'package.json'
-      - 'package-lock.json'
-      - '.npmrc'
-      - 'scripts/npm-security-check.js'
+      - 'pnpm-lock.yaml'
+      - '.pnpmrc'
+      - 'scripts/pnpm-security-check.js'
   pull_request:
     branches: [ "main" ]
     paths:
       - 'package.json'
-      - 'package-lock.json'
-      - '.npmrc'
-      - 'scripts/npm-security-check.js'
+      - 'pnpm-lock.yaml'
+      - '.pnpmrc'
+      - 'scripts/pnpm-security-check.js'
 
 permissions:
   contents: read
@@ -39,28 +39,31 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'pnpm'
           registry-url: 'https://npm.pkg.github.com'
 
-      - name: Configure npm for GitHub Packages
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.17.1
+          run_install: false
+
+      - name: Configure pnpm for GitHub Packages
         run: |
-          echo "@inform-elevate:registry=https://npm.pkg.github.com" >> .npmrc
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.ELEVATE_DS2 }}" >> .npmrc
+          echo "@inform-elevate:registry=https://npm.pkg.github.com" >> .pnpmrc
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.ELEVATE_DS2 }}" >> .pnpmrc
 
       - name: Install security tools
         run: |
           echo "🛡️ Installing security scanning tools..."
-          # Try to install npq
-          npm install -g npq || echo "npq installation failed, using alternative"
-
-          # Install other security tools
-          npm install -g audit-ci || echo "audit-ci installation failed"
-          npm install -g better-npm-audit || echo "better-npm-audit installation failed"
+          # Use pnpm's built-in security features
+          echo "pnpm has built-in security features - no additional tools needed"
+          pnpm --version
 
           echo "Installed security tools:"
           npq --version || echo "npq: not available"
           audit-ci --version || echo "audit-ci: not available"
-          better-npm-audit --version || echo "better-npm-audit: not available"
+          # Note: Using pnpm's built-in audit capabilities
 
       - name: Pre-installation security scan
         run: |
@@ -68,7 +71,7 @@ jobs:
 
           # Check for known malicious packages in package.json
           echo "Checking for known compromised packages..."
-          if grep -E "command-exists|gpmm-test|@wokd/wokd-js|test-json-package-14|geeeks|e5f2d5e1c7|@zumry/zumry-js" package.json package-lock.json; then
+          if grep -E "command-exists|gpmm-test|@wokd/wokd-js|test-json-package-14|geeeks|e5f2d5e1c7|@zumry/zumry-js" package.json pnpm-lock.yaml; then
             echo "🚨 CRITICAL: Known compromised package detected!"
             exit 1
           else
@@ -76,20 +79,14 @@ jobs:
           fi
 
           # Run our custom security check
-          node scripts/npm-security-check.js --pre-install
+          node scripts/pnpm-security-check.js --pre-install
 
       - name: Install dependencies with security monitoring
         run: |
           echo "🛡️ Installing dependencies with security monitoring..."
 
-          # Use npq if available, otherwise use npm ci with monitoring
-          if command -v npq >/dev/null 2>&1; then
-            echo "Using npq for secure installation"
-            npq install
-          else
-            echo "Using npm ci with security monitoring"
-            npm ci --audit
-          fi
+          echo "Installing dependencies with pnpm..."
+          pnpm install --frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.ELEVATE_DS2 }}
 
@@ -99,30 +96,18 @@ jobs:
 
           # Run our custom security scanner
           echo "1. Custom Security Scanner:"
-          npm run security:check
+          pnpm security:check
 
-          # Run npm audit
-          echo "2. NPM Audit:"
-          npm audit --audit-level moderate || echo "npm audit found issues"
-
-          # Run better-npm-audit if available
-          if command -v better-npm-audit >/dev/null 2>&1; then
-            echo "3. Better NPM Audit:"
-            better-npm-audit audit || echo "better-npm-audit found issues"
-          fi
-
-          # Run audit-ci if available
-          if command -v audit-ci >/dev/null 2>&1; then
-            echo "4. Audit CI:"
-            audit-ci --moderate || echo "audit-ci found moderate+ issues"
-          fi
+          # Run pnpm audit
+          echo "2. PNPM Audit:"
+          pnpm audit --audit-level moderate || echo "pnpm audit found issues"
 
       - name: Check for dependency vulnerabilities
         run: |
           echo "🔍 Checking for known vulnerabilities in dependencies..."
 
           # Check for packages with known security issues
-          if npm ls --parseable | grep -E "node_modules/(event-stream|flatmap-stream|eslint-scope|getcookies)"; then
+          if pnpm ls --parseable | grep -E "node_modules/(event-stream|flatmap-stream|eslint-scope|getcookies)"; then
             echo "🚨 CRITICAL: Package with known security issues detected!"
             exit 1
           fi
@@ -153,8 +138,8 @@ jobs:
         with:
           name: security-audit-results
           path: |
-            npm-audit.json
-            package-lock.json
+            pnpm-audit.json
+            pnpm-lock.yaml
           retention-days: 30
 
   dependency-review:

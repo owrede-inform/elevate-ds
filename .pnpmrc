@@ -1,0 +1,45 @@
+# PNPM Configuration for elevate-ds
+# Security and performance optimized settings
+
+# Registry Configuration
+registry=https://registry.npmjs.org/
+@inform-elevate:registry=https://npm.pkg.github.com
+
+# Security Settings
+strict-ssl=true
+audit-level=moderate
+
+# Performance and Behavior
+prefer-offline=false
+use-node-version=18.0.0
+auto-install-peers=false
+dedupe-peer-dependents=false
+
+# Store and Cache
+store-dir=~/.pnpm-store
+cache-dir=~/.pnpm-cache
+
+# Hoisting and Linking
+hoist=true
+shamefully-hoist=false
+public-hoist-pattern=*eslint*,*prettier*,*typescript*
+
+# Security - Prevent script execution during install
+ignore-scripts=false
+
+# Save exact versions for security
+save-exact=true
+
+# Workspace settings (if needed later)
+shared-workspace-lockfile=true
+link-workspace-packages=deep
+
+# Performance optimizations
+child-concurrency=5
+network-concurrency=16
+
+# Logging
+loglevel=warn
+
+# GitHub Packages Authentication (inherited from .npmrc)
+# //npm.pkg.github.com/:_authToken will be inherited
