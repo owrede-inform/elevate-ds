@@ -109,8 +109,15 @@ jobs:
           echo "🔍 Checking for known vulnerabilities in dependencies..."
 
           # Check for packages with known security issues
-          if pnpm ls --parseable | grep -E "node_modules/(event-stream|flatmap-stream|eslint-scope|getcookies)"; then
+          # Note: eslint-scope vulnerability was only in version 3.7.2 (2018), modern versions are safe
+          if pnpm ls --parseable | grep -E "node_modules/(event-stream|flatmap-stream|getcookies)"; then
             echo "🚨 CRITICAL: Package with known security issues detected!"
+            exit 1
+          fi
+
+          # Check specifically for vulnerable eslint-scope version (3.7.2)
+          if pnpm ls eslint-scope --depth=0 2>/dev/null | grep -q "3.7.2"; then
+            echo "🚨 CRITICAL: Vulnerable eslint-scope 3.7.2 detected!"
             exit 1
           fi
 
