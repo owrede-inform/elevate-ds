@@ -27,9 +27,6 @@ function findFiles(dir, extensions, result = []) {
 
 // Search index generator for ELEVATE Design System docs
 function generateSearchIndex() {
-  console.log(`🔍 DEPLOYMENT_ENV: ${process.env.DEPLOYMENT_ENV}`);
-  console.log(`🔍 Building search index for: ${process.env.DEPLOYMENT_ENV === 'github-pages' ? 'GitHub Pages' : 'Local Development'}`);
-
   const searchIndex = [];
 
   // Find all markdown and mdx files
