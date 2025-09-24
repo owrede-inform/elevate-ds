@@ -26,6 +26,12 @@ jobs:
           token: ${{ secrets.ELEVATE_DS2 }}
           fetch-depth: 0
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.17.1
+          run_install: false
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -35,12 +41,6 @@ jobs:
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.17.1
-          run_install: false
 
       - name: Configure pnpm for GitHub Packages
         run: |
@@ -108,18 +108,18 @@ jobs:
         with:
           token: ${{ secrets.ELEVATE_DS2 }}
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.17.1
+          run_install: false
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'pnpm'
           registry-url: 'https://npm.pkg.github.com'
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.17.1
-          run_install: false
 
       - name: Configure pnpm for GitHub Packages
         run: |
