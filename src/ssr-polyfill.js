@@ -15,7 +15,9 @@ if (typeof global !== 'undefined' && typeof window === 'undefined') {
         add: () => {},
         remove: () => {},
         contains: () => false
-      }
+      },
+      offsetHeight: 0,
+      dispatchEvent: () => {}
     }),
     createTreeWalker: () => ({
       nextNode: () => null
@@ -37,7 +39,8 @@ if (typeof global !== 'undefined' && typeof window === 'undefined') {
         add: () => {},
         remove: () => {},
         contains: () => false
-      }
+      },
+      offsetHeight: 0
     },
     head: {
       appendChild: () => {},
@@ -52,6 +55,22 @@ if (typeof global !== 'undefined' && typeof window === 'undefined') {
         contains: () => false
       }
     }
+  };
+
+  // Mock CustomEvent
+  global.CustomEvent = function(type, options) {
+    return {
+      type: type,
+      detail: options ? options.detail : undefined
+    };
+  };
+
+  // Mock MutationObserver
+  global.MutationObserver = function(callback) {
+    return {
+      observe: () => {},
+      disconnect: () => {}
+    };
   };
   
   // Mock navigator

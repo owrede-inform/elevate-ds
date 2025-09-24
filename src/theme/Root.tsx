@@ -111,7 +111,9 @@ if (typeof window !== 'undefined') {
       });
       console.log('🚀 MDI icon resolver registered successfully');
     } else {
-      console.log('⚠️ IconRegistry.registerResolver not available in this version', { registry, IconRegistry, iconRegistry });
+      // Silently skip MDI icon registration if registerResolver is not available
+      // This prevents console warnings during SSR or when using older versions
+      console.log('ℹ️ MDI icon resolver registration skipped (method not available)');
     }
   } catch (error) {
     console.warn('Icon registration failed:', error);
