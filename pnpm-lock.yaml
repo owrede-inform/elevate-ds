@@ -1,0 +1,91 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@docusaurus/core':
+        specifier: 3.8.1
+        version: 3.8.1
+      '@docusaurus/preset-classic':
+        specifier: 3.8.1
+        version: 3.8.1
+      '@docusaurus/theme-search-algolia':
+        specifier: ^3.8.1
+        version: 3.8.1
+      '@easyops-cn/docusaurus-search-local':
+        specifier: ^0.52.1
+        version: 0.52.1
+      '@iconify/react':
+        specifier: ^6.0.0
+        version: 6.0.0
+      '@inform-elevate/elevate-cdk':
+        specifier: ^0.16.0-alpha
+        version: 0.16.0-alpha
+      '@inform-elevate/elevate-core-ui':
+        specifier: ^0.0.34-alpha
+        version: 0.0.34-alpha
+      '@inform-elevate/elevate-icons':
+        specifier: ^0.3.0
+        version: 0.3.0
+      '@mdi/js':
+        specifier: ^7.4.47
+        version: 7.4.47
+      '@mdx-js/react':
+        specifier: ^3.0.0
+        version: 3.0.0
+      '@shoelace-style/shoelace':
+        specifier: ^2.20.1
+        version: 2.20.1
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
+      'fuse.js':
+        specifier: ^7.1.0
+        version: 7.1.0
+      'prism-react-renderer':
+        specifier: ^2.4.1
+        version: 2.4.1
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      'react-dom':
+        specifier: ^18.3.1
+        version: 18.3.1
+    devDependencies:
+      '@docusaurus/module-type-aliases':
+        specifier: 3.8.1
+        version: 3.8.1
+      '@docusaurus/tsconfig':
+        specifier: 3.8.1
+        version: 3.8.1
+      '@docusaurus/types':
+        specifier: 3.8.1
+        version: 3.8.1
+      '@playwright/test':
+        specifier: ^1.54.2
+        version: 1.54.2
+      chokidar:
+        specifier: ^4.0.3
+        version: 4.0.3
+      'cross-env':
+        specifier: ^10.0.0
+        version: 10.0.0
+      glob:
+        specifier: ^11.0.3
+        version: 11.0.3
+      'gray-matter':
+        specifier: ^4.0.3
+        version: 4.0.3
+      playwright:
+        specifier: ^1.54.2
+        version: 1.54.2
+      typescript:
+        specifier: ~5.6.2
+        version: 5.6.2
+
+packages: {}
