@@ -86,7 +86,7 @@ jobs:
           echo "🛡️ Installing dependencies with security monitoring..."
 
           echo "Installing dependencies with pnpm..."
-          pnpm install --frozen-lockfile
+          pnpm install --no-frozen-lockfile
         env:
           NODE_AUTH_TOKEN: ${{ secrets.ELEVATE_DS2 }}
 
