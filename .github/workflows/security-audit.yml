@@ -12,6 +12,7 @@ on:
       - 'pnpm-lock.yaml'
       - '.pnpmrc'
       - 'scripts/pnpm-security-check.js'
+      - '.github/workflows/security-audit.yml'
   pull_request:
     branches: [ "main" ]
     paths:
@@ -19,6 +20,7 @@ on:
       - 'pnpm-lock.yaml'
       - '.pnpmrc'
       - 'scripts/pnpm-security-check.js'
+      - '.github/workflows/security-audit.yml'
 
 permissions:
   contents: read
