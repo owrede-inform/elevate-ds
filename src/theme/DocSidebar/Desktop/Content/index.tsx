@@ -1,10 +1,7 @@
-import React, {type ReactNode, useState} from 'react';
+import React, {type ReactNode} from 'react';
 import clsx from 'clsx';
 import {ThemeClassNames} from '@docusaurus/theme-common';
-import {
-  useAnnouncementBar,
-  useScrollPosition,
-} from '@docusaurus/theme-common/internal';
+// Removed unused announcement bar imports since no announcement bar is configured
 import {translate} from '@docusaurus/Translate';
 import DocSidebarItems from '@theme/DocSidebarItems';
 import type {Props} from '@theme/DocSidebar/Desktop/Content';
@@ -12,18 +9,9 @@ import type {Props} from '@theme/DocSidebar/Desktop/Content';
 import styles from './styles.module.css';
 
 function useShowAnnouncementBar() {
-  const {isActive} = useAnnouncementBar();
-  const [showAnnouncementBar, setShowAnnouncementBar] = useState(isActive);
-
-  useScrollPosition(
-    ({scrollY}) => {
-      if (isActive) {
-        setShowAnnouncementBar(scrollY === 0);
-      }
-    },
-    [isActive],
-  );
-  return isActive && showAnnouncementBar;
+  // Since no announcement bar is configured, always return false
+  // This avoids the context error when no AnnouncementBarProvider exists
+  return false;
 }
 
 export default function DocSidebarDesktopContent({

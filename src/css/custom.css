@@ -597,25 +597,25 @@ a[href^="http"]::after,
 elvt-button {
   font-family: var(--elvt-type-alias-default-content-m-font-family, "Inter");
   /* Fix scrollbar issue: prevent overflow and ensure proper height */
-  overflow: visible !important;
-  box-sizing: border-box !important;
+  overflow: visible;
+  box-sizing: border-box;
 }
 
 /* Ensure button content doesn't cause overflow */
 elvt-button *,
 elvt-button::part(base),
 elvt-button::part(label) {
-  overflow: visible !important;
+  overflow: visible;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-/* Fix Docusaurus skip-to-content fallback div height */
-#__docusaurus_skipToContent_fallback {
-  height: auto !important;
-  min-height: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
+/* Fix Docusaurus skip-to-content fallback div height using high specificity */
+html body #__docusaurus_skipToContent_fallback {
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
 }
 
 /* Fix any remaining text color issues - Using high specificity instead of !important */
@@ -700,9 +700,9 @@ html body[data-theme='dark'] .hero__subtitle {
     top: 0;
   }
   
-  /* Adjust main content to account for fixed sidebar */
-  .main-wrapper {
-    margin-left: var(--doc-sidebar-width) !important;
+  /* Adjust main content to account for fixed sidebar - when layout has sidebar */
+  .main-wrapper.with-sidebar {
+    margin-left: var(--doc-sidebar-width, 240px) !important;
   }
 }
 
@@ -1257,56 +1257,56 @@ elvt-card h1, elvt-card h2, elvt-card h3, elvt-card h4, elvt-card h5, elvt-card 
   line-height: 1.4;
 }
 
-/* Hide the Docusaurus TOC column completely */
-.theme-doc-toc-desktop,
-.table-of-contents,
-.theme-doc-toc-mobile,
-[class*="tableOfContents"],
-[class*="tocCollapsible"] {
-  display: none !important;
+/* Hide the Docusaurus TOC column completely using high specificity */
+html body .theme-doc-toc-desktop,
+html body .table-of-contents,
+html body .theme-doc-toc-mobile,
+html body [class*="tableOfContents"],
+html body [class*="tocCollapsible"] {
+  display: none;
 }
 
-/* Hide the entire TOC column div */
-.col.col--3:has([class*="tableOfContents"]),
-.col.col--3:has(.theme-doc-toc-desktop),
-.row > .col:last-child:has([class*="tableOfContents"]) {
-  display: none !important;
+/* Hide the entire TOC column div using high specificity */
+html body .col.col--3:has([class*="tableOfContents"]),
+html body .col.col--3:has(.theme-doc-toc-desktop),
+html body .row > .col:last-child:has([class*="tableOfContents"]) {
+  display: none;
 }
 
 /* Alternative selector for browsers that don't support :has() */
-.row > .col:last-child {
-  display: none !important;
+html body .row > .col:last-child {
+  display: none;
 }
 
 /* Show the last column only if it doesn't contain TOC */
-.row > .col:last-child:not(:has([class*="tableOfContents"])):not(:has(.theme-doc-toc-desktop)) {
-  display: block !important;
+html body .row > .col:last-child:not(:has([class*="tableOfContents"])):not(:has(.theme-doc-toc-desktop)) {
+  display: block;
 }
 
 /* Fallback: Hide col--3 specifically */
-.col--3 {
-  display: none !important;
+html body .col--3 {
+  display: none;
 }
 
-/* Expand the main content column to take full width */
-.row > .col:first-child,
-.row > .col:not(:last-child) {
-  flex: 1 !important;
-  max-width: 100% !important;
+/* Expand the main content column to take full width using high specificity */
+html body .row > .col:first-child,
+html body .row > .col:not(:last-child) {
+  flex: 1;
+  max-width: 100%;
 }
 
-/* Expand the main content area to use the full width */
-.main-wrapper .container {
-  max-width: none !important;
+/* Expand the main content area to use the full width using high specificity */
+html body .main-wrapper .container {
+  max-width: none;
 }
 
-.main-wrapper .row {
-  --ifm-col-width: 100% !important;
+html body .main-wrapper .row {
+  --ifm-col-width: 100%;
 }
 
-/* Ensure the content area takes full width without TOC */
-.theme-doc-markdown {
-  max-width: none !important;
+/* Ensure the content area takes full width without TOC using high specificity */
+html body .theme-doc-markdown {
+  max-width: none;
 }
 
 /* Remove the TOC column grid layout */
@@ -1412,10 +1412,7 @@ html body header.navbar {
     overflow-y: auto; /* Make sidebar content scrollable if needed */
   }
 
-  /* Adjust main content to account for fixed sidebar */
-  html body .main-wrapper {
-    margin-left: var(--doc-sidebar-width, 240px) !important;
-  }
+  /* Sidebar margin handled by conditional class in .main-wrapper.with-sidebar rule above */
 }
 
 /* Fix sidebar container negative margin that causes overlap with navbar */

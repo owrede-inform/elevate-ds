@@ -3,7 +3,26 @@
 }
 
 .toggleButton {
-  /* ELEVATE button handles its own styling */
+  /* Button styling for theme toggle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background-color: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-content);
+  transition: all 0.2s;
+}
+
+.toggleButton:hover:not(:disabled) {
+  background-color: var(--ifm-color-emphasis-200);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+.toggleButton:active:not(:disabled) {
+  transform: scale(0.98);
 }
 
 .toggleIcon {

@@ -100,9 +100,12 @@ function ColorModeToggle({
   const isBrowser = useIsBrowser();
   return (
     <div className={clsx(styles.toggle, className)}>
-      <elvt-button
-        tone="neutral"
-        size="medium"
+      <button
+        className={clsx(
+          styles.toggleButton,
+          'clean-btn',
+          buttonClassName,
+        )}
         type="button"
         onClick={() =>
           onChange(getNextColorMode(value, respectPrefersColorScheme))
@@ -111,7 +114,7 @@ function ColorModeToggle({
         title={getColorModeLabel(value)}
         aria-label={getColorModeAriaLabel(value)}>
         <CurrentColorModeIcon />
-      </elvt-button>
+      </button>
     </div>
   );
 }

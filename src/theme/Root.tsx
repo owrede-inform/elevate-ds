@@ -166,6 +166,29 @@ export default function Root({ children }: { children: React.ReactNode }) {
       console.log(`Applied ${themeClass} to ${elevateComponents.length} ELEVATE components`);
     };
 
+    // Handle sidebar margin for main wrapper
+    const updateSidebarMargin = () => {
+      const mainWrapper = document.querySelector('.main-wrapper');
+      const sidebarContainer = document.querySelector('.theme-doc-sidebar-container');
+
+      if (mainWrapper) {
+        // Only apply margin if sidebar exists AND is positioned outside main content
+        // In Docusaurus doc pages, sidebar is inside main wrapper, so no extra margin needed
+        const isDocPage = document.querySelector('.docRoot_p297, .docMainContainer_bWxl');
+
+        if (sidebarContainer && !isDocPage) {
+          // Only for non-doc pages that have external sidebars
+          mainWrapper.classList.add('with-sidebar');
+        } else {
+          // For doc pages or pages without sidebars, remove margin
+          mainWrapper.classList.remove('with-sidebar');
+        }
+      }
+    };
+
+    // Apply sidebar margin immediately on page load
+    updateSidebarMargin();
+
     // Apply theme classes immediately
     applyThemeToComponents();
 
@@ -200,6 +223,13 @@ export default function Root({ children }: { children: React.ReactNode }) {
             const elevateComponents = element.querySelectorAll?.('[class*="elvt-"], elvt-card, elvt-button, elvt-input, elvt-stack');
             if (elevateComponents?.length > 0) {
               applyThemeToComponents();
+            }
+            // Check for sidebar changes (navigation between pages)
+            if (element.classList?.contains('theme-doc-sidebar-container') ||
+                element.classList?.contains('main-wrapper') ||
+                element.querySelector?.('.theme-doc-sidebar-container') ||
+                element.querySelector?.('.main-wrapper')) {
+              updateSidebarMargin();
             }
           }
         });

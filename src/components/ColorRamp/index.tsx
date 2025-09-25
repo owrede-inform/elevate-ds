@@ -58,22 +58,31 @@ const matchesExcludePattern = (variable: string, excludePatterns: string[]): boo
 
 // Extract design tokens from CSS by dynamically reading computed styles
 const extractColorTokens = (selectorString: string, excludeString?: string): ColorToken[] => {
+  // Skip during SSR
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    return [];
+  }
+
   const tokens: ColorToken[] = [];
   const selectors = parseSelectors(selectorString);
   const excludePatterns = excludeString ? parseSelectors(excludeString) : [];
   
-  // Get computed styles from document root
-  const computedStyle = getComputedStyle(document.documentElement);
+  // Get computed styles from document root - SSR safe
+  const computedStyle = typeof window !== 'undefined' && document?.documentElement
+    ? getComputedStyle(document.documentElement)
+    : null;
   
   // Get all available CSS custom properties from computed styles
   // This is more reliable than parsing stylesheets which might not be accessible
   const allCssVars = new Set<string>();
   
   // Method 1: Read from computed styles of document element
-  for (let i = 0; i < computedStyle.length; i++) {
-    const prop = computedStyle.item(i);
-    if (prop.startsWith('--elvt-')) {
-      allCssVars.add(prop);
+  if (computedStyle) {
+    for (let i = 0; i < computedStyle.length; i++) {
+      const prop = computedStyle.item(i);
+      if (prop.startsWith('--elvt-')) {
+        allCssVars.add(prop);
+      }
     }
   }
   
@@ -93,7 +102,7 @@ const extractColorTokens = (selectorString: string, excludeString?: string): Col
       // Pattern with shades
       commonShades.forEach(shade => {
         const variable = `--elvt-${pattern}${shade}`;
-        const value = computedStyle.getPropertyValue(variable);
+        const value = computedStyle?.getPropertyValue(variable);
         if (value && value.trim()) {
           allCssVars.add(variable);
         }
@@ -101,7 +110,7 @@ const extractColorTokens = (selectorString: string, excludeString?: string): Col
     } else {
       // Single color pattern (like black, white)
       const variable = `--elvt-${pattern}`;
-      const value = computedStyle.getPropertyValue(variable);
+      const value = computedStyle?.getPropertyValue(variable);
       if (value && value.trim()) {
         allCssVars.add(variable);
       }
@@ -109,8 +118,9 @@ const extractColorTokens = (selectorString: string, excludeString?: string): Col
   });
   
   // Method 3: Try to parse from stylesheets (if accessible)
-  try {
-    Array.from(document.styleSheets).forEach(sheet => {
+  if (typeof window !== 'undefined' && document?.styleSheets) {
+    try {
+      Array.from(document.styleSheets).forEach(sheet => {
       try {
         Array.from(sheet.cssRules).forEach(rule => {
           if (rule instanceof CSSStyleRule) {
@@ -126,8 +136,9 @@ const extractColorTokens = (selectorString: string, excludeString?: string): Col
         console.debug('Could not access stylesheet:', e);
       }
     });
-  } catch (e) {
-    console.debug('Could not access stylesheets:', e);
+    } catch (e) {
+      console.debug('Could not access stylesheets:', e);
+    }
   }
 
   // Match tokens against all selectors
@@ -154,7 +165,7 @@ const extractColorTokens = (selectorString: string, excludeString?: string): Col
   );
   
   uniqueVars.forEach(variable => {
-    const value = computedStyle.getPropertyValue(variable).trim();
+    const value = computedStyle?.getPropertyValue(variable)?.trim();
     
     // Debug log to see what values we're getting
     //if (process.env.NODE_ENV === 'development') {
@@ -516,6 +527,11 @@ const ColorRamp: React.FC<ColorRampProps> = ({
   ...props
 }) => {
   const tokens = useMemo(() => {
+    // Skip all token extraction during SSR
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+      return [];
+    }
+
     // Small delay to ensure ELEVATE CSS is fully loaded
     const ensureElevateLoaded = () => {
       const testTokens = [
@@ -523,19 +539,21 @@ const ColorRamp: React.FC<ColorRampProps> = ({
         '--elvt-primitives-color-gray-500',
         '--elvt-primitives-color-green-500'
       ];
-      
-      const computedStyle = getComputedStyle(document.documentElement);
-      const loadedCount = testTokens.filter(token => 
-        computedStyle.getPropertyValue(token).trim()
+
+      const computedStyle = typeof window !== 'undefined' && document?.documentElement
+        ? getComputedStyle(document.documentElement)
+        : null;
+      const loadedCount = testTokens.filter(token =>
+        computedStyle?.getPropertyValue(token)?.trim()
       ).length;
-      
+
       if (process.env.NODE_ENV === 'development') {
         console.log(`ColorRamp: ELEVATE tokens loaded: ${loadedCount}/${testTokens.length}`);
       }
-      
+
       return loadedCount > 0;
     };
-    
+
     // Check if ELEVATE is loaded, if not, try again after a short delay
     if (!ensureElevateLoaded()) {
       setTimeout(() => {
@@ -545,7 +563,7 @@ const ColorRamp: React.FC<ColorRampProps> = ({
         }
       }, 100);
     }
-    
+
     let extractedTokens = extractColorTokens(selector, props.exclude);
     
     // Filter by include/exclude shades

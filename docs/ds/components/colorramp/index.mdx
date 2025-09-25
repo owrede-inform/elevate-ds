@@ -33,13 +33,13 @@ The ColorRamp component discovers and displays color tokens from CSS using selec
 
 ### Color Scale
 
-<ColorRamp 
+<ColorRamp
   selector="primitives-color-blue-*"
   title="Blue Color Scale"
 />
 
 ```tsx
-<ColorRamp 
+<ColorRamp
   selector="primitives-color-blue-*"
   title="Blue Color Scale"
 />
@@ -47,14 +47,14 @@ The ColorRamp component discovers and displays color tokens from CSS using selec
 
 ### Base Colors
 
-<ColorRamp 
+<ColorRamp
   selector="primitives-color-*-500"
   title="Base Colors"
   template="compact"
 />
 
 ```tsx
-<ColorRamp 
+<ColorRamp
   selector="primitives-color-*-500"
   title="Base Colors"
   template="compact"
@@ -87,7 +87,7 @@ The ColorRamp component discovers and displays color tokens from CSS using selec
 
 ### Default Template
 
-<ColorRamp 
+<ColorRamp
   selector="primitives-color-green-*"
   title="Default Template"
   includeShades={[200, 400, 600, 800]}
@@ -95,7 +95,7 @@ The ColorRamp component discovers and displays color tokens from CSS using selec
 
 ### Compact Template
 
-<ColorRamp 
+<ColorRamp
   selector="primitives-color-blue-*"
   title="Compact Template"
   template="compact"
@@ -104,7 +104,7 @@ The ColorRamp component discovers and displays color tokens from CSS using selec
 
 ### Table Template
 
-<ColorRamp 
+<ColorRamp
   selector="primitives-color-red-*"
   title="Table Template"
   template="table"
@@ -116,7 +116,7 @@ The ColorRamp component discovers and displays color tokens from CSS using selec
 ### Semantic Sort (Default)
 Groups by color family, then by shade number.
 
-<ColorRamp 
+<ColorRamp
   selector="primitives-color-gray-*"
   title="Semantic Sort"
   sortBy="semantic"
@@ -127,7 +127,7 @@ Groups by color family, then by shade number.
 ### Brightness Sort
 Orders colors from light to dark by perceived brightness.
 
-<ColorRamp 
+<ColorRamp
   selector="primitives-color-blue-*"
   title="Brightness Sort"
   sortBy="brightness"
@@ -139,7 +139,7 @@ Orders colors from light to dark by perceived brightness.
 
 ### Show Hex Values
 
-<ColorRamp 
+<ColorRamp
   selector="primitives-color-green-*"
   title="With Hex Values"
   showHexValue={true}
@@ -148,15 +148,15 @@ Orders colors from light to dark by perceived brightness.
 
 ### Specific Shades Only
 
-<ColorRamp 
-  selector="primitives-color-*-500"
-  title="Base Colors Only"
-  template="compact"
+<ColorRamp
+  selector="primitives-color-purple-*"
+  title="Specific Shades"
+  includeShades={[100, 300, 500, 700, 900]}
 />
 
 ### Exclude Patterns
 
-<ColorRamp 
+<ColorRamp
   selector="primitives-color-*-*"
   exclude="primitives-color-gray-0"
   title="All Colors (Excluding Gray 0)"
@@ -165,7 +165,7 @@ Orders colors from light to dark by perceived brightness.
 />
 
 ```tsx
-<ColorRamp 
+<ColorRamp
   selector="primitives-color-*-*"
   exclude="primitives-color-gray-0"  // Exclude specific tokens
   title="All Colors (Excluding Gray 0)"
