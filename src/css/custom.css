@@ -674,6 +674,13 @@ html body[data-theme='dark'] .hero__subtitle {
   border-right: 1px solid var(--elvt-alias-layout-border-prominent);
 }
 
+/* Fix sidebar content positioning to account for fixed navbar */
+.theme-doc-sidebar {
+  padding-top: var(--ifm-navbar-height, 60px);
+  height: calc(100vh - var(--ifm-navbar-height, 60px));
+  overflow-y: auto;
+}
+
 /* Sidebar menu items - lighter color for better readability */
 .theme-doc-sidebar-item-link {
   color: var(--elvt-alias-content-text-secondary, #5d6679);
