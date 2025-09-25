@@ -43,10 +43,95 @@ export default function Root({ children }: { children: React.ReactNode }) {
         // Set Shoelace base path for icons and assets
         setBasePath('/node_modules/@shoelace-style/shoelace/dist/');
 
-        // Note: ELEVATE package imports temporarily disabled due to export structure issues
-        // This allows the site to build successfully while package exports are resolved
-        console.log('ℹ️ ELEVATE package imports are temporarily disabled due to export compatibility issues');
-        console.log('✅ Basic Root setup complete (ELEVATE features will be restored once package exports are fixed)');
+        // Try importing ELEVATE packages using specific export paths that work
+        let IconRegistry = null;
+        let iconRegistry = null;
+        let mdi = null;
+
+        try {
+          // Import icon registry from specific path
+          const registryModule = await import('@inform-elevate/elevate-core-ui/dist/components/icon/icon-registry.js');
+          IconRegistry = registryModule.IconRegistry;
+          iconRegistry = registryModule.iconRegistry;
+          console.log('✅ ELEVATE icon registry imported successfully');
+        } catch (error) {
+          console.warn('ELEVATE icon registry import failed:', error);
+        }
+
+        try {
+          // Import MDI icons
+          const mdiModule = await import('@mdi/js');
+          mdi = mdiModule.default || mdiModule;
+          console.log('✅ MDI icons imported successfully');
+        } catch (error) {
+          console.warn('MDI icons import failed:', error);
+        }
+
+        // Try importing ELEVATE styles using specific paths
+        try {
+          await Promise.all([
+            import('@inform-elevate/elevate-core-ui/dist/elevate.css').catch(e => console.warn('ELEVATE CSS import failed:', e)),
+            import('@inform-elevate/elevate-core-ui/dist/themes/light.css').catch(e => console.warn('ELEVATE theme CSS import failed:', e))
+          ]);
+          console.log('✅ ELEVATE styles imported successfully');
+        } catch (error) {
+          console.warn('ELEVATE styles import failed:', error);
+        }
+
+        // Set up icon registry if available
+        const registry = IconRegistry || iconRegistry;
+
+        if (registry && mdi) {
+          try {
+            // Create MDI icon name mapper
+            const createMdiNameMapper = () => {
+              const nameMap = new Map<string, string>();
+              Object.keys(mdi).forEach(mdiExportName => {
+                if (mdiExportName.startsWith('mdi')) {
+                  const iconName = mdiExportName
+                    .replace(/^mdi/, '')
+                    .replace(/([A-Z])/g, '-$1')
+                    .toLowerCase()
+                    .replace(/^-/, '');
+                  nameMap.set(iconName, mdiExportName);
+                }
+              });
+              return nameMap;
+            };
+
+            const mdiNameMap = createMdiNameMapper();
+
+            // Register MDI icon resolver
+            if (typeof registry.registerResolver === 'function') {
+              registry.registerResolver('mdi', (iconName: string) => {
+                let mdiExportName = `mdi${iconName.charAt(0).toUpperCase()}${iconName.slice(1).replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())}`;
+                let pathData = (mdi as any)[mdiExportName];
+
+                if (!pathData && mdiNameMap.has(iconName)) {
+                  mdiExportName = mdiNameMap.get(iconName)!;
+                  pathData = (mdi as any)[mdiExportName];
+                }
+
+                if (pathData) {
+                  return `data:image/svg+xml,${encodeURIComponent(
+                    `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="${pathData}" fill="white"/>
+                    </svg>`
+                  )}`;
+                }
+
+                return null;
+              });
+              console.log('🚀 MDI icon resolver registered successfully');
+            }
+          } catch (error) {
+            console.warn('Icon registration failed:', error);
+          }
+        } else {
+          console.log('ℹ️ Icon registration skipped (registry or MDI not available)');
+        }
+
+        console.log('✅ ELEVATE Root setup complete');
       } catch (error) {
         console.warn('ELEVATE initialization warning:', error);
       }
