@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ExecuteOnceFromBrowser from '@docusaurus/ExecuteOnceFromBrowser';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 interface ColorRampProps {
   title?: string;
@@ -27,14 +27,9 @@ const ColorRamp: React.FC<ColorRampProps> = ({
   showHexValue = false
 }) => {
   const [colors, setColors] = useState<ColorToken[]>([]);
-  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isClient || !selector) return;
+    if (!selector) return;
 
     const discoverColors = () => {
       const foundColors: ColorToken[] = [];
@@ -123,15 +118,7 @@ const ColorRamp: React.FC<ColorRampProps> = ({
     // Delay to ensure styles are loaded
     const timer = setTimeout(discoverColors, 100);
     return () => clearTimeout(timer);
-  }, [isClient, selector, exclude, includeShades, sortBy]);
-
-  if (!isClient) {
-    return (
-      <div style={{ padding: '16px', textAlign: 'center', color: '#666' }}>
-        Loading color tokens...
-      </div>
-    );
-  }
+  }, [selector, exclude, includeShades, sortBy]);
 
   if (!selector) {
     return (
@@ -283,12 +270,16 @@ const ColorRamp: React.FC<ColorRampProps> = ({
   }
 };
 
-// Wrap with ExecuteOnceFromBrowser to ensure client-side only execution
+// Wrap with BrowserOnly to ensure client-side only execution
 const ColorRampWrapper: React.FC<ColorRampProps> = (props) => {
   return (
-    <ExecuteOnceFromBrowser>
-      <ColorRamp {...props} />
-    </ExecuteOnceFromBrowser>
+    <BrowserOnly fallback={
+      <div style={{ padding: '16px', textAlign: 'center', color: '#666' }}>
+        Loading color tokens...
+      </div>
+    }>
+      {() => <ColorRamp {...props} />}
+    </BrowserOnly>
   );
 };
 
