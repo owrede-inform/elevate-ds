@@ -13,25 +13,8 @@ declare global {
   }
 }
 
-// Import Shoelace styles and icon setup (required peer dependency)
+// Import Shoelace styles (safe to import at module level)
 import '@shoelace-style/shoelace/dist/themes/light.css';
-import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
-
-// Import ELEVATE web components and core styles
-import '@inform-elevate/elevate-core-ui';
-import '@inform-elevate/elevate-core-ui/dist/elevate.css';
-// Import light theme as default - dark theme handled via CSS overrides
-import '@inform-elevate/elevate-core-ui/dist/themes/light.css';
-
-// Import ELEVATE icons
-import * as elevateIcons from '@inform-elevate/elevate-icons';
-
-// Import ELEVATE IconRegistry and internal MDI icons that are already included
-import { IconRegistry, iconRegistry } from '@inform-elevate/elevate-core-ui/dist/components/icon/icon-registry.js';
-import { InternalIcons } from '@inform-elevate/elevate-core-ui/dist/components/icon/internal-icons.js';
-
-// Import ALL MDI icons from @mdi/js (7,447+ icons)
-import * as mdi from '@mdi/js';
 
 // Helper function to create corrected icons with fill="white" for CSS masks
 const createCorrectedIcon = (originalIcon: string) => {
@@ -43,82 +26,7 @@ const createCorrectedIcon = (originalIcon: string) => {
   return originalIcon;
 };
 
-// Create MDI icon name mapper - converts kebab-case to camelCase for @mdi/js lookup
-const createMdiNameMapper = () => {
-  const nameMap = new Map<string, string>();
-  
-  // Get all available MDI icons and create name mappings
-  Object.keys(mdi).forEach(mdiExportName => {
-    if (mdiExportName.startsWith('mdi')) {
-      // Convert mdiIconName to icon-name format
-      const iconName = mdiExportName
-        .replace(/^mdi/, '') // Remove 'mdi' prefix
-        .replace(/([A-Z])/g, '-$1') // Add hyphens before capital letters
-        .toLowerCase() // Convert to lowercase
-        .replace(/^-/, ''); // Remove leading hyphen
-      
-      nameMap.set(iconName, mdiExportName);
-    }
-  });
-  
-  return nameMap;
-};
-
-// Create the name mapper
-const mdiNameMap = createMdiNameMapper();
-
-// SSR-safe icon registration - only run in browser
-if (typeof window !== 'undefined') {
-  try {
-    // Get the icon registry instance (try both imports)
-    const registry = IconRegistry || iconRegistry;
-
-    // Check if registry has the expected API
-    if (registry && typeof registry.registerIcons === 'function') {
-      // Register ELEVATE icons with corrected fill colors
-      registry.registerIcons({
-        'home': createCorrectedIcon(elevateIcons.elvtHome),
-        'check': createCorrectedIcon(elevateIcons.elvtCheck),
-        'cancel': createCorrectedIcon(elevateIcons.elvtCancel),
-        'chevron-right': createCorrectedIcon(elevateIcons.elvtChevronRight)
-      });
-      console.log('🚀 ELEVATE icons registered successfully');
-    }
-
-    // Try to register MDI icons if registerResolver exists
-    if (registry && typeof registry.registerResolver === 'function') {
-      registry.registerResolver('mdi', (iconName: string) => {
-        // Try direct lookup first (for exact matches like 'settings', 'home')
-        let mdiExportName = `mdi${iconName.charAt(0).toUpperCase()}${iconName.slice(1).replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())}`;
-        let pathData = (mdi as any)[mdiExportName];
-
-        // If not found, try the name mapper
-        if (!pathData && mdiNameMap.has(iconName)) {
-          mdiExportName = mdiNameMap.get(iconName)!;
-          pathData = (mdi as any)[mdiExportName];
-        }
-
-        if (pathData) {
-          // Return properly formatted SVG data URL with white fill for CSS masking
-          return `data:image/svg+xml,${encodeURIComponent(
-            `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="${pathData}" fill="white"/>
-            </svg>`
-          )}`;
-        }
-
-        return null;
-      });
-      console.log('🚀 MDI icon resolver registered successfully');
-    } else {
-      // Silently skip MDI icon registration if registerResolver is not available
-      // This prevents console warnings during SSR or when using older versions
-      console.log('ℹ️ MDI icon resolver registration skipped (method not available)');
-    }
-  } catch (error) {
-    console.warn('Icon registration failed:', error);
-  }
-}
+// Dynamic icon registration will be done in useEffect
 
 // Import framework context
 import { FrameworkProvider } from '../contexts/FrameworkContext';
@@ -128,19 +36,109 @@ export default function Root({ children }: { children: React.ReactNode }) {
     // Only run in browser environment
     if (typeof window === 'undefined') return;
 
-    try {
-      // Set Shoelace base path for icons and assets
-      setBasePath('/node_modules/@shoelace-style/shoelace/dist/');
-      console.log('✅ Root setup complete');
-    } catch (error) {
-      console.warn('Root setup warning:', error);
-    }
+    // Initialize ELEVATE components asynchronously
+    const initializeElevate = async () => {
+      try {
+        // Dynamic imports to avoid module-level execution
+        const [
+          { setBasePath },
+          elevateIcons,
+          { IconRegistry, iconRegistry },
+          mdi
+        ] = await Promise.all([
+          import('@shoelace-style/shoelace/dist/utilities/base-path.js'),
+          import('@inform-elevate/elevate-icons'),
+          import('@inform-elevate/elevate-core-ui/dist/components/icon/icon-registry.js'),
+          import('@mdi/js')
+        ]);
+
+        // Import ELEVATE styles and components
+        await Promise.all([
+          import('@inform-elevate/elevate-core-ui'),
+          import('@inform-elevate/elevate-core-ui/dist/elevate.css'),
+          import('@inform-elevate/elevate-core-ui/dist/themes/light.css')
+        ]);
+
+        // Set Shoelace base path for icons and assets
+        setBasePath('/node_modules/@shoelace-style/shoelace/dist/');
+
+        // Create MDI icon name mapper
+        const createMdiNameMapper = () => {
+          const nameMap = new Map<string, string>();
+          Object.keys(mdi).forEach(mdiExportName => {
+            if (mdiExportName.startsWith('mdi')) {
+              const iconName = mdiExportName
+                .replace(/^mdi/, '')
+                .replace(/([A-Z])/g, '-$1')
+                .toLowerCase()
+                .replace(/^-/, '');
+              nameMap.set(iconName, mdiExportName);
+            }
+          });
+          return nameMap;
+        };
+
+        const mdiNameMap = createMdiNameMapper();
+
+        // Register icons
+        const registry = IconRegistry || iconRegistry;
+
+        if (registry && typeof registry.registerIcons === 'function') {
+          registry.registerIcons({
+            'home': createCorrectedIcon(elevateIcons.elvtHome),
+            'check': createCorrectedIcon(elevateIcons.elvtCheck),
+            'cancel': createCorrectedIcon(elevateIcons.elvtCancel),
+            'chevron-right': createCorrectedIcon(elevateIcons.elvtChevronRight)
+          });
+          console.log('🚀 ELEVATE icons registered successfully');
+        }
+
+        if (registry && typeof registry.registerResolver === 'function') {
+          registry.registerResolver('mdi', (iconName: string) => {
+            let mdiExportName = `mdi${iconName.charAt(0).toUpperCase()}${iconName.slice(1).replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())}`;
+            let pathData = (mdi as any)[mdiExportName];
+
+            if (!pathData && mdiNameMap.has(iconName)) {
+              mdiExportName = mdiNameMap.get(iconName)!;
+              pathData = (mdi as any)[mdiExportName];
+            }
+
+            if (pathData) {
+              return `data:image/svg+xml,${encodeURIComponent(
+                `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="${pathData}" fill="white"/>
+                </svg>`
+              )}`;
+            }
+
+            return null;
+          });
+          console.log('🚀 MDI icon resolver registered successfully');
+        } else {
+          console.log('ℹ️ MDI icon resolver registration skipped (method not available)');
+        }
+
+        console.log('✅ ELEVATE Root setup complete');
+      } catch (error) {
+        console.warn('ELEVATE initialization warning:', error);
+      }
+    };
+
+    // Initialize ELEVATE after a small delay to ensure Docusaurus is ready
+    const timer = setTimeout(initializeElevate, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    // Only run in browser environment
+    if (typeof window === 'undefined') return;
 
     // Apply theme classes to ELEVATE components when theme changes
     const applyThemeToComponents = () => {
       const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
       const themeClass = isDark ? 'elvt-theme-dark' : 'elvt-theme-light';
-      
+
       // Apply theme class to all ELEVATE components
       const elevateComponents = document.querySelectorAll('[class*="elvt-"], elvt-card, elvt-button, elvt-input, elvt-stack');
       elevateComponents.forEach((component) => {
@@ -148,10 +146,10 @@ export default function Root({ children }: { children: React.ReactNode }) {
         component.classList.remove('elvt-theme-light', 'elvt-theme-dark');
         // Add current theme class
         component.classList.add(themeClass);
-        
+
         // No manual style forcing needed - ELEVATE tokens handle this automatically
       });
-      
+
       console.log(`Applied ${themeClass} to ${elevateComponents.length} ELEVATE components`);
     };
 
@@ -164,10 +162,10 @@ export default function Root({ children }: { children: React.ReactNode }) {
         if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
           // Apply theme classes to components
           applyThemeToComponents();
-          
+
           // Trigger a reflow to ensure CSS variables are picked up by shadow DOM
           document.body.offsetHeight; // Force reflow
-          
+
           // Dispatch a custom event that ELEVATE components can listen to
           window.dispatchEvent(new CustomEvent('theme-changed', {
             detail: { theme: document.documentElement.getAttribute('data-theme') }
