@@ -554,8 +554,8 @@ const ColorRamp: React.FC<ColorRampProps> = ({
       return loadedCount > 0;
     };
 
-    // Check if ELEVATE is loaded, if not, try again after a short delay
-    if (!ensureElevateLoaded()) {
+    // Check if ELEVATE is loaded, if not, try again after a short delay (browser only)
+    if (typeof window !== 'undefined' && !ensureElevateLoaded()) {
       setTimeout(() => {
         // Force re-render by updating a dummy state if needed
         if (process.env.NODE_ENV === 'development') {
