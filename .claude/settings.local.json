@@ -57,7 +57,8 @@
       "Read(//c/nvm4w/nodejs/**)",
       "Bash(export:*)",
       "Bash(echo $PATH)",
-      "Read(//c/Users/owrede/.claude/**)"
+      "Read(//c/Users/owrede/.claude/**)",
+      "Bash(cross-env:*)"
     ],
     "deny": [],
     "ask": [],

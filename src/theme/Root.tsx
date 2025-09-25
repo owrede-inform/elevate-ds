@@ -172,15 +172,15 @@ export default function Root({ children }: { children: React.ReactNode }) {
       const sidebarContainer = document.querySelector('.theme-doc-sidebar-container');
 
       if (mainWrapper) {
-        // Only apply margin if sidebar exists AND is positioned outside main content
-        // In Docusaurus doc pages, sidebar is inside main wrapper, so no extra margin needed
-        const isDocPage = document.querySelector('.docRoot_p297, .docMainContainer_bWxl');
+        // Apply margin when sidebar exists (for doc pages, the sidebar is fixed positioned)
+        // The fixed sidebar needs margin to prevent content overlap
+        const isDocPage = document.querySelector('.docRoot_p297, .docMainContainer_bWxl, .theme-doc-sidebar');
 
-        if (sidebarContainer && !isDocPage) {
-          // Only for non-doc pages that have external sidebars
+        if (sidebarContainer && isDocPage) {
+          // Doc pages with sidebar need margin to avoid overlap with fixed sidebar
           mainWrapper.classList.add('with-sidebar');
         } else {
-          // For doc pages or pages without sidebars, remove margin
+          // Homepage and pages without sidebars don't need margin
           mainWrapper.classList.remove('with-sidebar');
         }
       }
