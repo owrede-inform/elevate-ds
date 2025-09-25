@@ -1,0 +1,194 @@
+---
+title: Loading
+description: Loading indicators provide visual feedback during data fetching, processing, or other asynchronous operations to keep users informed of system activity.
+sidebar_position: 50
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
+import TocLinks from '@site/src/components/TocLinks';
+
+# Loading
+
+Loading indicators inform users that the system is processing their request and provide reassurance during wait times. The ELEVATE Loading component offers various patterns to match different loading scenarios and user experiences.
+
+<TocLinks />
+
+## Overview
+
+### When to Use Loading Indicators
+- **Data fetching**: API calls, database queries, search results
+- **Form submissions**: Processing form data, validation, saving
+- **Page transitions**: Route changes, dynamic content loading
+- **File operations**: Uploads, downloads, file processing
+
+### When NOT to Use Loading Indicators
+- **Instant operations**: Actions that complete in under 200ms
+- **Background tasks**: Operations that don't affect current user workflow
+- **Progressive enhancement**: Content that loads incrementally without blocking interaction
+- **Error states**: Use error messages instead of loading indicators for failed operations
+
+## Types
+
+### Spinner
+Use for general loading scenarios and indeterminate progress.
+
+<ComponentShowcase
+  title="Spinner"
+  description="Standard loading spinner for general use"
+  code={`<elvt-loading type="spinner" size="medium">
+  Loading data...
+</elvt-loading>`}
+>
+  <elvt-loading type="spinner" size="medium">
+    Loading data...
+  </elvt-loading>
+</ComponentShowcase>
+
+### Progress Bar
+Use when you can show determinate progress with percentage completion.
+
+<ComponentShowcase
+  title="Progress Bar"
+  description="Progress bar with determinate completion"
+  code={`<elvt-loading type="progress" progress="65" size="medium">
+  Uploading file... 65%
+</elvt-loading>`}
+>
+  <elvt-loading type="progress" progress="65" size="medium">
+    Uploading file... 65%
+  </elvt-loading>
+</ComponentShowcase>
+
+### Skeleton
+Use to show the shape of content while it loads, maintaining layout stability.
+
+<ComponentShowcase
+  title="Skeleton"
+  description="Skeleton loading for maintaining layout"
+  code={`<elvt-loading type="skeleton" variant="text" lines="3">
+  Loading article content...
+</elvt-loading>`}
+>
+  <elvt-loading type="skeleton" variant="text" lines="3">
+    Loading article content...
+  </elvt-loading>
+</ComponentShowcase>
+
+### Dots
+Use for subtle loading scenarios where minimal visual impact is desired.
+
+<ComponentShowcase
+  title="Dots"
+  description="Subtle dot-based loading indicator"
+  code={`<elvt-loading type="dots" size="small">
+  Processing...
+</elvt-loading>`}
+>
+  <elvt-loading type="dots" size="small">
+    Processing...
+  </elvt-loading>
+</ComponentShowcase>
+
+## Sizes
+
+### Small Loading
+For inline and compact loading scenarios.
+
+<ComponentShowcase
+  title="Small Loading"
+  description="Compact loading indicators"
+  code={`<elvt-loading type="spinner" size="small">
+  Loading...
+</elvt-loading>`}
+>
+  <elvt-loading type="spinner" size="small">
+    Loading...
+  </elvt-loading>
+</ComponentShowcase>
+
+### Large Loading
+For full-page or prominent loading scenarios.
+
+<ComponentShowcase
+  title="Large Loading"
+  description="Prominent loading indicators"
+  code={`<elvt-loading type="spinner" size="large">
+  Loading application...
+</elvt-loading>`}
+>
+  <elvt-loading type="spinner" size="large">
+    Loading application...
+  </elvt-loading>
+</ComponentShowcase>
+
+## Variants
+
+### Overlay Loading
+Loading indicator that covers content with an overlay.
+
+<ComponentShowcase
+  title="Overlay Loading"
+  description="Loading with content overlay"
+  code={`<elvt-loading type="spinner" overlay>
+  <div>This content will be covered during loading</div>
+</elvt-loading>`}
+>
+  <elvt-loading type="spinner" overlay>
+    <div>This content will be covered during loading</div>
+  </elvt-loading>
+</ComponentShowcase>
+
+### Inline Loading
+Loading indicator that flows with text content.
+
+<ComponentShowcase
+  title="Inline Loading"
+  description="Loading indicator within text flow"
+  code={`<p>Please wait while we <elvt-loading type="dots" size="small" inline></elvt-loading> process your request.</p>`}
+>
+  <p>Please wait while we <elvt-loading type="dots" size="small" inline></elvt-loading> process your request.</p>
+</ComponentShowcase>
+
+## Best Practices
+
+### Performance Guidelines
+- **Show immediately**: Display loading indicators within 100ms of user action
+- **Provide context**: Include descriptive text explaining what's loading
+- **Set expectations**: Use progress bars when completion time is known
+- **Avoid nesting**: Don't stack multiple loading states simultaneously
+
+### Accessibility
+- **ARIA labels**: Include appropriate loading announcements for screen readers
+- **Focus management**: Handle keyboard focus during loading states
+- **Reduced motion**: Respect user preferences for reduced motion
+- **Timeout handling**: Provide error states for failed loading operations
+
+### UX Considerations
+- **Perceived performance**: Use skeleton screens to maintain layout
+- **Progressive disclosure**: Show partial content as it becomes available
+- **Graceful degradation**: Handle slow connections with appropriate fallbacks
+- **Loading hierarchy**: Prioritize critical content loading over secondary features
+
+## API Reference
+
+### Properties
+- `type`: `'spinner' | 'progress' | 'skeleton' | 'dots'` - Loading indicator type
+- `size`: `'small' | 'medium' | 'large'` - Size variant
+- `progress`: `number` - Progress percentage (0-100) for progress type
+- `overlay`: `boolean` - Whether to show as overlay
+- `inline`: `boolean` - Whether to display inline with text
+- `variant`: `'text' | 'circular' | 'rectangular'` - Skeleton variant
+- `lines`: `number` - Number of skeleton lines for text variant
+
+### Events
+- `elvt-loading-complete` - Fired when loading completes
+- `elvt-loading-timeout` - Fired when loading times out
+- `elvt-loading-error` - Fired when loading fails
+
+### Slots
+- `default` - Content to show with loading indicator
+
+## Changelog
+
+<ComponentChangelog componentName="loading" />

@@ -1,0 +1,27 @@
+<div style="max-width: 400px; padding: 1rem; border: 1px solid #e0e0e0; border-radius: 8px;">
+  <h3 style="margin: 0 0 1rem 0; font-size: 1rem;">User Registration</h3>
+  
+  <elvt-stack direction="column" spacing="medium">
+    <elvt-field label="Email Address">
+      <elvt-input type="email" value="invalid-email" placeholder="Enter your email"></elvt-input>
+    </elvt-field>
+    
+    <elvt-alert type="error" show-icon>
+      Please enter a valid email address (e.g., user@example.com).
+    </elvt-alert>
+    
+    <elvt-field label="Password">
+      <elvt-input type="password" placeholder="Enter password"></elvt-input>
+    </elvt-field>
+    
+    <elvt-alert type="warning" show-icon>
+      Password must be at least 8 characters with uppercase, lowercase, and numbers.
+    </elvt-alert>
+    
+    <elvt-button variant="primary" disabled>Create Account</elvt-button>
+    
+    <elvt-alert type="info" show-icon>
+      All fields marked with * are required to complete registration.
+    </elvt-alert>
+  </elvt-stack>
+</div>

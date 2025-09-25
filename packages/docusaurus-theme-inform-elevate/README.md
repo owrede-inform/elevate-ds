@@ -15,7 +15,7 @@ A custom Docusaurus theme that integrates the INFORM ELEVATE Design System with 
 ## Installation
 
 ```bash
-npm install @inform/docusaurus-theme-elevate
+pnpm add @inform/docusaurus-theme-elevate
 ```
 
 ## Usage
@@ -119,7 +119,7 @@ export default {
 You can swizzle any theme component for further customization:
 
 ```bash
-npm run swizzle @inform/docusaurus-theme-elevate ComponentName
+pnpm swizzle @inform/docusaurus-theme-elevate ComponentName
 ```
 
 ## Requirements

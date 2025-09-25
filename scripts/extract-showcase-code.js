@@ -357,7 +357,7 @@ async function main() {
       require('glob');
     } catch (e) {
       console.error('❌ Missing required dependency: glob');
-      console.log('Please install it with: npm install glob');
+      console.log('Please install it with: pnpm add glob');
       process.exit(1);
     }
     

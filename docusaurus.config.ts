@@ -66,10 +66,22 @@ const config: Config = {
     //   }),
     // ],
     // 'docusaurus-plugin-code-preview', // Temporarily disabled due to compatibility issue
-    function(context: LoadContext, options: any): Plugin {
+    function(context: LoadContext, options: any): Plugin<void> {
       return {
         name: 'code-examples-plugin',
-        configureWebpack(config, isServer, utils) {
+        configureWebpack(config: any, isServer: boolean, utils: any) {
+          // Add webpack bundle analyzer if ANALYZE environment variable is set
+          if (process.env.ANALYZE === 'true') {
+            const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+            config.plugins.push(
+              new BundleAnalyzerPlugin({
+                analyzerMode: 'static',
+                openAnalyzer: true,
+                reportFilename: 'bundle-report.html',
+              })
+            );
+          }
+
           if (!isServer) {
             config.devServer = {
               ...config.devServer,

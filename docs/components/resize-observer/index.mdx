@@ -32,17 +32,17 @@ The Resize Observer component provides a declarative way to observe element size
   code={`<div>
   <elvt-resize-observer target="#resize-target"></elvt-resize-observer>
   
-  <div 
-    id="resize-target" 
-    style="
-      border: 2px solid #007bff; 
-      padding: 1rem; 
-      resize: both; 
-      overflow: auto; 
-      min-width: 200px; 
-      min-height: 100px;
-      background: #f8f9fa;
-    "
+  <div
+    id="resize-target"
+    style={{
+      border: '2px solid #007bff',
+      padding: '1rem',
+      resize: 'both',
+      overflow: 'auto',
+      minWidth: '200px',
+      minHeight: '100px',
+      background: '#f8f9fa'
+    }}
   >
     <p>Resize this box by dragging the corner</p>
     <p id="size-display">Size will be displayed here</p>
@@ -64,7 +64,7 @@ document.addEventListener('elvt-resize', (event) => {
     
     <div 
       id="resize-target" 
-      style="border: 2px solid #007bff; padding: 1rem; resize: both; overflow: auto; min-width: 200px; min-height: 100px; background: #f8f9fa;"
+      style={{border: '2px solid #007bff', padding: '1rem', resize: 'both', overflow: 'auto', minWidth: '200px', minHeight: '100px', background: '#f8f9fa'}}
     >
       <p>Resize this box by dragging the corner</p>
       <p id="size-display">Size will be displayed here</p>
@@ -112,7 +112,7 @@ interface ResizeEventDetail {
   code={`<div>
   <elvt-resize-observer target="#responsive-component"></elvt-resize-observer>
   
-  <elvt-card id="responsive-component" style="resize: horizontal; overflow: auto; min-width: 250px; max-width: 100%;">
+  <elvt-card id="responsive-component" style={{resize: 'horizontal', overflow: 'auto', minWidth: '250px', maxWidth: '100%'}}>
     <div slot="content">
       <div id="responsive-content">
         <p>Resize the card horizontally to see content adapt</p>
@@ -142,7 +142,7 @@ document.addEventListener('elvt-resize', (event) => {
   <div>
     <elvt-resize-observer target="#responsive-component"></elvt-resize-observer>
     
-    <elvt-card id="responsive-component" style="resize: horizontal; overflow: auto; min-width: 250px; max-width: 100%;">
+    <elvt-card id="responsive-component" style={{resize: 'horizontal', overflow: 'auto', minWidth: '250px', maxWidth: '100%'}}>
       <div slot="content">
         <div id="responsive-content">
           <p>Resize the card horizontally to see content adapt</p>
@@ -165,25 +165,22 @@ document.addEventListener('elvt-resize', (event) => {
   code={`<div>
   <elvt-resize-observer target="#chart-container"></elvt-resize-observer>
   
-  <div 
+  <div
     id="chart-container"
-    style="
-      border: 1px solid #ddd; 
-      padding: 1rem; 
-      resize: both; 
-      overflow: auto; 
-      min-width: 300px; 
-      min-height: 200px;
-      background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), 
-                  linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), 
-                  linear-gradient(45deg, transparent 75%, #f0f0f0 75%), 
-                  linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
-      background-size: 20px 20px;
-      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-    "
+    style={{
+      border: '1px solid #ddd',
+      padding: '1rem',
+      resize: 'both',
+      overflow: 'auto',
+      minWidth: '300px',
+      minHeight: '200px',
+      background: 'linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%)',
+      backgroundSize: '20px 20px',
+      backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px'
+    }}
   >
-    <div id="chart-placeholder" style="background: #e3f2fd; height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
-      <div style="text-align: center;">
+    <div id="chart-placeholder" style={{background: '#e3f2fd', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '4px'}}>
+      <div style={{textAlign: 'center'}}>
         <strong>Chart Area</strong>
         <div id="chart-dimensions">300 × 200</div>
       </div>
@@ -209,12 +206,22 @@ document.addEventListener('elvt-resize', (event) => {
   <div>
     <elvt-resize-observer target="#chart-container"></elvt-resize-observer>
     
-    <div 
+    <div
       id="chart-container"
-      style="border: 1px solid #ddd; padding: 1rem; resize: both; overflow: auto; min-width: 300px; min-height: 200px; background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0px;"
+      style={{
+        border: '1px solid #ddd',
+        padding: '1rem',
+        resize: 'both',
+        overflow: 'auto',
+        minWidth: '300px',
+        minHeight: '200px',
+        background: 'linear-gradient(45deg, #f0f0f0 25%, transparent 25%), linear-gradient(-45deg, #f0f0f0 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #f0f0f0 75%), linear-gradient(-45deg, transparent 75%, #f0f0f0 75%)',
+        backgroundSize: '20px 20px',
+        backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px'
+      }}
     >
-      <div id="chart-placeholder" style="background: #e3f2fd; height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 4px;">
-        <div style="text-align: center;">
+      <div id="chart-placeholder" style={{background: '#e3f2fd', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '4px'}}>
+        <div style={{textAlign: 'center'}}>
           <strong>Chart Area</strong>
           <div id="chart-dimensions">300 × 200</div>
         </div>
@@ -231,17 +238,17 @@ document.addEventListener('elvt-resize', (event) => {
   code={`<div>
   <elvt-resize-observer target="#container-query-demo"></elvt-resize-observer>
   
-  <div 
+  <div
     id="container-query-demo"
-    class="container-demo"
-    style="
-      border: 2px solid #28a745; 
-      padding: 1rem; 
-      resize: horizontal; 
-      overflow: auto; 
-      min-width: 200px; 
-      max-width: 100%;
-    "
+    className="container-demo"
+    style={{
+      border: '2px solid #28a745',
+      padding: '1rem',
+      resize: 'horizontal',
+      overflow: 'auto',
+      minWidth: '200px',
+      maxWidth: '100%'
+    }}
   >
     <div class="container-content">
       <h4>Responsive Card</h4>
@@ -295,7 +302,7 @@ document.addEventListener('elvt-resize', (event) => {
     <div 
       id="container-query-demo"
       class="container-demo"
-      style="border: 2px solid #28a745; padding: 1rem; resize: horizontal; overflow: auto; min-width: 200px; max-width: 100%;"
+      style={{border: '2px solid #28a745', padding: '1rem', resize: 'horizontal', overflow: 'auto', minWidth: '200px', maxWidth: '100%'}}
     >
       <div class="container-content">
         <h4>Responsive Card</h4>

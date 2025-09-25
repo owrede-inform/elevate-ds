@@ -1,0 +1,300 @@
+---
+title: Pagination
+description: Pagination helps users navigate through large sets of data by dividing content into manageable pages with clear navigation controls.
+sidebar_position: 60
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
+import TocLinks from '@site/src/components/TocLinks';
+
+# Pagination
+
+Pagination breaks large datasets into smaller, manageable chunks, helping users navigate efficiently through content. The ELEVATE Pagination component provides accessible navigation patterns that maintain context and performance.
+
+<TocLinks />
+
+## Overview
+
+### When to Use Pagination
+- **Large datasets**: Tables, lists, search results with many items
+- **Performance optimization**: Reducing load times by limiting displayed items
+- **User experience**: Making content consumption more manageable
+- **Sequential content**: Articles, galleries, multi-step processes
+
+### When NOT to Use Pagination
+- **Small datasets**: Lists with fewer than 25-50 items
+- **Infinite scroll contexts**: Social feeds, continuous browsing experiences
+- **Single-page content**: All content fits comfortably on one page
+- **Real-time data**: Live feeds where pagination would interrupt updates
+
+## Types
+
+### Basic Pagination
+Standard pagination with numbered pages and navigation arrows.
+
+<ComponentShowcase
+  title="Basic Pagination"
+  description="Standard numbered pagination"
+  code={`<elvt-pagination
+  total-pages="10"
+  current-page="5"
+  show-first-last="true">
+</elvt-pagination>`}
+>
+  <elvt-pagination
+    total-pages="10"
+    current-page="5"
+    show-first-last="true">
+  </elvt-pagination>
+</ComponentShowcase>
+
+### Simple Pagination
+Minimal pagination with only previous and next controls.
+
+<ComponentShowcase
+  title="Simple Pagination"
+  description="Minimal previous/next navigation"
+  code={`<elvt-pagination
+  type="simple"
+  current-page="3"
+  total-pages="10"
+  show-info="true">
+</elvt-pagination>`}
+>
+  <elvt-pagination
+    type="simple"
+    current-page="3"
+    total-pages="10"
+    show-info="true">
+  </elvt-pagination>
+</ComponentShowcase>
+
+### Compact Pagination
+Space-efficient pagination for smaller interfaces.
+
+<ComponentShowcase
+  title="Compact Pagination"
+  description="Space-efficient pagination"
+  code={`<elvt-pagination
+  size="compact"
+  current-page="7"
+  total-pages="20"
+  max-visible="3">
+</elvt-pagination>`}
+>
+  <elvt-pagination
+    size="compact"
+    current-page="7"
+    total-pages="20"
+    max-visible="3">
+  </elvt-pagination>
+</ComponentShowcase>
+
+## Sizes
+
+### Default Size
+Standard pagination sizing for most use cases.
+
+<ComponentShowcase
+  title="Default Pagination"
+  description="Standard sized pagination controls"
+  code={`<elvt-pagination
+  current-page="4"
+  total-pages="8"
+  size="default">
+</elvt-pagination>`}
+>
+  <elvt-pagination
+    current-page="4"
+    total-pages="8"
+    size="default">
+  </elvt-pagination>
+</ComponentShowcase>
+
+### Large Size
+Larger pagination for better touch targets and visibility.
+
+<ComponentShowcase
+  title="Large Pagination"
+  description="Larger pagination for better accessibility"
+  code={`<elvt-pagination
+  current-page="2"
+  total-pages="6"
+  size="large">
+</elvt-pagination>`}
+>
+  <elvt-pagination
+    current-page="2"
+    total-pages="6"
+    size="large">
+  </elvt-pagination>
+</ComponentShowcase>
+
+## Features
+
+### Page Size Selection
+Allow users to choose how many items to display per page.
+
+<ComponentShowcase
+  title="Page Size Selection"
+  description="Pagination with configurable page size"
+  code={`<elvt-pagination
+  current-page="1"
+  total-items="250"
+  page-size="25"
+  page-size-options="[10, 25, 50, 100]"
+  show-page-size="true">
+</elvt-pagination>`}
+>
+  <elvt-pagination
+    current-page="1"
+    total-items="250"
+    page-size="25"
+    page-size-options="[10, 25, 50, 100]"
+    show-page-size="true">
+  </elvt-pagination>
+</ComponentShowcase>
+
+### Quick Jump
+Allow users to jump directly to a specific page.
+
+<ComponentShowcase
+  title="Quick Jump"
+  description="Pagination with page jump input"
+  code={`<elvt-pagination
+  current-page="15"
+  total-pages="100"
+  show-quick-jump="true"
+  show-info="true">
+</elvt-pagination>`}
+>
+  <elvt-pagination
+    current-page="15"
+    total-pages="100"
+    show-quick-jump="true"
+    show-info="true">
+  </elvt-pagination>
+</ComponentShowcase>
+
+### Info Display
+Show detailed information about current page and total items.
+
+<ComponentShowcase
+  title="Info Display"
+  description="Pagination with detailed information"
+  code={`<elvt-pagination
+  current-page="3"
+  total-items="156"
+  page-size="20"
+  show-info="true"
+  info-template="Showing {start} to {end} of {total} items">
+</elvt-pagination>`}
+>
+  <elvt-pagination
+    current-page="3"
+    total-items="156"
+    page-size="20"
+    show-info="true"
+    info-template="Showing {start} to {end} of {total} items">
+  </elvt-pagination>
+</ComponentShowcase>
+
+## States
+
+### Loading State
+Show pagination in loading state while data is being fetched.
+
+<ComponentShowcase
+  title="Loading Pagination"
+  description="Pagination in loading state"
+  code={`<elvt-pagination
+  current-page="1"
+  total-pages="5"
+  loading="true">
+</elvt-pagination>`}
+>
+  <elvt-pagination
+    current-page="1"
+    total-pages="5"
+    loading="true">
+  </elvt-pagination>
+</ComponentShowcase>
+
+### Disabled State
+Disabled pagination when no navigation is possible.
+
+<ComponentShowcase
+  title="Disabled Pagination"
+  description="Disabled pagination controls"
+  code={`<elvt-pagination
+  current-page="1"
+  total-pages="1"
+  disabled="true">
+</elvt-pagination>`}
+>
+  <elvt-pagination
+    current-page="1"
+    total-pages="1"
+    disabled="true">
+  </elvt-pagination>
+</ComponentShowcase>
+
+## Best Practices
+
+### Content Guidelines
+- **Clear labeling**: Use descriptive text for navigation controls
+- **Consistent numbering**: Start page numbers from 1, not 0
+- **Helpful information**: Show total items, current range, and context
+- **Reasonable defaults**: Use sensible page sizes (25-50 items typically)
+
+### Accessibility
+- **Keyboard navigation**: Support tab navigation and enter/space activation
+- **Screen reader support**: Include ARIA labels and page context
+- **Focus management**: Maintain logical focus order through controls
+- **High contrast**: Ensure controls are visible with sufficient contrast
+
+### UX Considerations
+- **Performance**: Load pages efficiently without blocking interactions
+- **URL integration**: Update URLs to support bookmarking and back navigation
+- **Mobile optimization**: Use appropriate sizing and touch targets
+- **Context preservation**: Maintain filters, sorting, and search state
+
+## API Reference
+
+### Properties
+- `current-page`: `number` - Currently active page (1-indexed)
+- `total-pages`: `number` - Total number of pages
+- `total-items`: `number` - Total number of items across all pages
+- `page-size`: `number` - Number of items per page
+- `type`: `'default' | 'simple'` - Pagination type
+- `size`: `'compact' | 'default' | 'large'` - Control sizing
+- `max-visible`: `number` - Maximum visible page numbers
+- `show-first-last`: `boolean` - Show first/last page buttons
+- `show-info`: `boolean` - Show pagination information
+- `show-page-size`: `boolean` - Show page size selector
+- `show-quick-jump`: `boolean` - Show page jump input
+- `page-size-options`: `number[]` - Available page size options
+- `info-template`: `string` - Template for pagination info text
+- `loading`: `boolean` - Show loading state
+- `disabled`: `boolean` - Disable all controls
+
+### Events
+- `elvt-pagination-change` - Fired when page changes
+- `elvt-pagination-size-change` - Fired when page size changes
+- `elvt-pagination-jump` - Fired when quick jump is used
+
+### Slots
+- `info` - Custom pagination information display
+- `controls` - Custom pagination controls
+
+### Methods
+- `goToPage(page)` - Navigate to specific page
+- `nextPage()` - Go to next page
+- `previousPage()` - Go to previous page
+- `firstPage()` - Go to first page
+- `lastPage()` - Go to last page
+
+## Changelog
+
+<ComponentChangelog componentName="pagination" />

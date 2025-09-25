@@ -10,7 +10,94 @@ Stay up to date with the latest ELEVATE Design System releases, including new co
 
 ## Current Version
 
-### v0.0.28-alpha (Latest)
+### v0.0.34-alpha (Latest)
+*Released: September 21, 2025*
+
+**✨ New Features**
+- **Advanced Component APIs**: Latest component interfaces with enhanced TypeScript support
+- **Improved Design System Integration**: Better design token integration and theming capabilities
+- **Enhanced Accessibility**: WCAG 2.1 AA compliance improvements across all components
+- **Performance Optimizations**: Reduced bundle size and improved runtime performance
+
+**🐛 Bug Fixes**
+- Resolved component state management issues across form controls
+- Fixed accessibility labels and keyboard navigation patterns
+- Improved component styling consistency and theme integration
+- Enhanced error handling and validation feedback mechanisms
+
+**📦 Package Updates**
+```bash
+npm install @inform-elevate/elevate-core-ui@0.0.34-alpha
+```
+
+## Release History
+
+### v0.0.33-alpha
+*Released: September 18, 2025*
+
+**✨ New Features**
+- **Component State Management**: Enhanced state handling across interactive components
+- **Theme System**: Improved CSS custom properties and design token integration
+- **Documentation Updates**: Enhanced component documentation and usage examples
+
+**🐛 Bug Fixes**
+- Fixed component rendering edge cases
+- Improved form validation consistency
+- Resolved theming issues in dark mode
+
+### v0.0.32-alpha
+*Released: September 15, 2025*
+
+**✨ New Features**
+- **Accessibility Improvements**: Enhanced screen reader support and keyboard navigation
+- **Performance Enhancements**: Optimized component rendering and memory usage
+- **API Refinements**: Updated component interfaces for better developer experience
+
+**🐛 Bug Fixes**
+- Fixed component lifecycle issues
+- Improved error boundary handling
+- Resolved styling conflicts in nested components
+
+### v0.0.31-alpha
+*Released: September 12, 2025*
+
+**✨ New Features**
+- **Component Updates**: Enhanced button, input, and form component functionality
+- **Design Token Expansion**: Added new spacing and color tokens
+- **TypeScript Improvements**: Better type definitions and interface consistency
+
+**🐛 Bug Fixes**
+- Fixed form validation edge cases
+- Improved component prop validation
+- Resolved CSS specificity issues
+
+### v0.0.30-alpha
+*Released: September 9, 2025*
+
+**✨ New Features**
+- **Component Library Expansion**: New utility components and design patterns
+- **Styling Improvements**: Enhanced visual consistency across components
+- **Developer Experience**: Better error messages and debugging capabilities
+
+**🐛 Bug Fixes**
+- Fixed component initialization issues
+- Improved browser compatibility
+- Resolved dependency conflicts
+
+### v0.0.29-alpha
+*Released: September 6, 2025*
+
+**✨ New Features**
+- **Component API Improvements**: Enhanced component interfaces and TypeScript definitions
+- **Form Validation Enhancements**: Improved form field validation and error handling
+- **Performance Optimizations**: Better component rendering and memory management
+
+**🐛 Bug Fixes**
+- Improved accessibility labels and ARIA support across components
+- Enhanced form control state management and validation feedback
+- Fixed various component styling and interaction issues
+
+### v0.0.28-alpha
 *Released: August 11, 2025*
 
 **✨ New Features**
@@ -20,13 +107,6 @@ Stay up to date with the latest ELEVATE Design System releases, including new co
 **🐛 Bug Fixes**
 - Fixed value handling for multiple select components
 - Improved form control value management and validation
-
-**📦 Package Updates**
-```bash
-npm install @inform-elevate/elevate-core-ui@0.0.28-alpha
-```
-
-## Release History
 
 ### v0.0.27-alpha
 *Released: August 8, 2025*
@@ -112,6 +192,87 @@ ELEVATE follows [semantic versioning](https://semver.org/) principles:
 - **Frequency**: Monthly or quarterly
 
 ## Migration Guides
+
+### Upgrading from v0.0.33 to v0.0.34
+
+#### Breaking Changes
+None in this release.
+
+#### New Features Available
+```tsx
+// Latest component APIs with enhanced TypeScript support
+<ElvtButton
+  variant="primary"
+  size="medium"
+  accessibility={{
+    label: "Submit form",
+    describedBy: "form-help"
+  }}
+  onClick={handleClick}
+>
+  Advanced Button API
+</ElvtButton>
+
+// Improved design token integration
+<ElvtCard
+  theme="elevated"
+  spacing="large"
+  className="custom-card"
+>
+  Enhanced theming support
+</ElvtCard>
+
+// Better form validation with accessibility
+<ElvtInput
+  required
+  validators={[customValidator]}
+  errorMessage="Enhanced validation feedback"
+  accessibility={{
+    describedBy: "field-help",
+    invalid: hasError
+  }}
+/>
+```
+
+#### Recommended Updates
+1. Update package version: `npm install @inform-elevate/elevate-core-ui@0.0.34-alpha`
+2. Review component implementations for enhanced accessibility features
+3. Update TypeScript definitions to take advantage of improved type safety
+4. Test new design token integration and theming capabilities
+5. Verify accessibility improvements with automated testing tools
+6. No breaking changes expected for existing implementations
+
+### Upgrading from v0.0.28 to v0.0.29
+
+#### Breaking Changes
+None in this release.
+
+#### New Features Available
+```tsx
+// Enhanced form validation with better error handling
+<ElvtInput
+  required
+  validators={[customValidator]}
+  error-message="Improved error messages"
+  aria-describedby="field-help"
+/>
+
+// Better TypeScript interfaces for component props
+<ElvtButton
+  variant="primary"
+  size="medium"
+  onClick={handleClick}
+>
+  Enhanced Button API
+</ElvtButton>
+```
+
+#### Recommended Updates
+1. Update package version: `npm install @inform-elevate/elevate-core-ui@0.0.29-alpha`
+2. Review form validation implementations for enhanced error handling
+3. Check TypeScript definitions for improved type safety
+4. Test accessibility improvements with screen readers
+5. No breaking changes expected for existing implementations
 
 ### Upgrading from v0.0.27 to v0.0.28
 

@@ -1,0 +1,382 @@
+---
+title: Tag
+description: Tags are compact labels that represent categories, attributes, or metadata, helping users organize and filter content efficiently.
+sidebar_position: 76
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
+import TocLinks from '@site/src/components/TocLinks';
+
+# Tag
+
+Tags provide a flexible way to categorize, label, and organize content. The ELEVATE Tag component offers various visual styles and interactive patterns to help users understand content relationships and filter information effectively.
+
+<TocLinks />
+
+## Overview
+
+### When to Use Tags
+- **Content categorization**: Blog posts, articles, documentation sections
+- **Metadata display**: Status indicators, attributes, properties
+- **Filtering interfaces**: Search results, product catalogs, data tables
+- **User-generated content**: Social tags, bookmarks, organizational labels
+
+### When NOT to Use Tags
+- **Navigation**: Use breadcrumbs or navigation menus for site structure
+- **Primary actions**: Use buttons for clickable actions
+- **Form inputs**: Use appropriate form controls for data entry
+- **Status badges**: Use badges for system status and notifications
+
+## Types
+
+### Basic Tags
+Standard tags for general categorization and labeling.
+
+<ComponentShowcase
+  title="Basic Tags"
+  description="Standard tags for content categorization"
+  code={`<div>
+  <elvt-tag>Design</elvt-tag>
+  <elvt-tag>Development</elvt-tag>
+  <elvt-tag>Documentation</elvt-tag>
+  <elvt-tag>Testing</elvt-tag>
+</div>`}
+>
+  <div>
+    <elvt-tag>Design</elvt-tag>
+    <elvt-tag>Development</elvt-tag>
+    <elvt-tag>Documentation</elvt-tag>
+    <elvt-tag>Testing</elvt-tag>
+  </div>
+</ComponentShowcase>
+
+### Clickable Tags
+Interactive tags that respond to user clicks for filtering or navigation.
+
+<ComponentShowcase
+  title="Clickable Tags"
+  description="Interactive tags for filtering and navigation"
+  code={`<div>
+  <elvt-tag clickable>JavaScript</elvt-tag>
+  <elvt-tag clickable>TypeScript</elvt-tag>
+  <elvt-tag clickable>React</elvt-tag>
+  <elvt-tag clickable active>Vue.js</elvt-tag>
+</div>`}
+>
+  <div>
+    <elvt-tag clickable>JavaScript</elvt-tag>
+    <elvt-tag clickable>TypeScript</elvt-tag>
+    <elvt-tag clickable>React</elvt-tag>
+    <elvt-tag clickable active>Vue.js</elvt-tag>
+  </div>
+</ComponentShowcase>
+
+### Removable Tags
+Tags with close buttons for dynamic content management.
+
+<ComponentShowcase
+  title="Removable Tags"
+  description="Tags that can be removed by users"
+  code={`<div>
+  <elvt-tag removable>Feature Request</elvt-tag>
+  <elvt-tag removable>Bug Fix</elvt-tag>
+  <elvt-tag removable>Enhancement</elvt-tag>
+  <elvt-tag removable>Documentation</elvt-tag>
+</div>`}
+>
+  <div>
+    <elvt-tag removable>Feature Request</elvt-tag>
+    <elvt-tag removable>Bug Fix</elvt-tag>
+    <elvt-tag removable>Enhancement</elvt-tag>
+    <elvt-tag removable>Documentation</elvt-tag>
+  </div>
+</ComponentShowcase>
+
+## Variants
+
+### Color Variants
+Tags with semantic colors for different meanings and emphasis.
+
+<ComponentShowcase
+  title="Color Variants"
+  description="Semantic color variations for different contexts"
+  code={`<div>
+  <elvt-tag variant="primary">Primary</elvt-tag>
+  <elvt-tag variant="secondary">Secondary</elvt-tag>
+  <elvt-tag variant="success">Success</elvt-tag>
+  <elvt-tag variant="warning">Warning</elvt-tag>
+  <elvt-tag variant="danger">Danger</elvt-tag>
+  <elvt-tag variant="info">Info</elvt-tag>
+</div>`}
+>
+  <div>
+    <elvt-tag variant="primary">Primary</elvt-tag>
+    <elvt-tag variant="secondary">Secondary</elvt-tag>
+    <elvt-tag variant="success">Success</elvt-tag>
+    <elvt-tag variant="warning">Warning</elvt-tag>
+    <elvt-tag variant="danger">Danger</elvt-tag>
+    <elvt-tag variant="info">Info</elvt-tag>
+  </div>
+</ComponentShowcase>
+
+### Outlined Tags
+Tags with outline style for subtle emphasis and better hierarchy.
+
+<ComponentShowcase
+  title="Outlined Tags"
+  description="Outline style tags for subtle emphasis"
+  code={`<div>
+  <elvt-tag variant="primary" outlined>Primary</elvt-tag>
+  <elvt-tag variant="secondary" outlined>Secondary</elvt-tag>
+  <elvt-tag variant="success" outlined>Success</elvt-tag>
+  <elvt-tag variant="warning" outlined>Warning</elvt-tag>
+</div>`}
+>
+  <div>
+    <elvt-tag variant="primary" outlined>Primary</elvt-tag>
+    <elvt-tag variant="secondary" outlined>Secondary</elvt-tag>
+    <elvt-tag variant="success" outlined>Success</elvt-tag>
+    <elvt-tag variant="warning" outlined>Warning</elvt-tag>
+  </div>
+</ComponentShowcase>
+
+### Pill Tags
+Rounded tags with pill-shaped appearance for modern interfaces.
+
+<ComponentShowcase
+  title="Pill Tags"
+  description="Rounded pill-shaped tags"
+  code={`<div>
+  <elvt-tag shape="pill">Design System</elvt-tag>
+  <elvt-tag shape="pill" variant="primary">Component</elvt-tag>
+  <elvt-tag shape="pill" variant="success">Pattern</elvt-tag>
+  <elvt-tag shape="pill" outlined>Guidelines</elvt-tag>
+</div>`}
+>
+  <div>
+    <elvt-tag shape="pill">Design System</elvt-tag>
+    <elvt-tag shape="pill" variant="primary">Component</elvt-tag>
+    <elvt-tag shape="pill" variant="success">Pattern</elvt-tag>
+    <elvt-tag shape="pill" outlined>Guidelines</elvt-tag>
+  </div>
+</ComponentShowcase>
+
+## Sizes
+
+### Small Tags
+Compact tags for dense interfaces and metadata display.
+
+<ComponentShowcase
+  title="Small Tags"
+  description="Compact tags for dense layouts"
+  code={`<div>
+  <elvt-tag size="small">HTML</elvt-tag>
+  <elvt-tag size="small">CSS</elvt-tag>
+  <elvt-tag size="small">JavaScript</elvt-tag>
+  <elvt-tag size="small" removable>TypeScript</elvt-tag>
+</div>`}
+>
+  <div>
+    <elvt-tag size="small">HTML</elvt-tag>
+    <elvt-tag size="small">CSS</elvt-tag>
+    <elvt-tag size="small">JavaScript</elvt-tag>
+    <elvt-tag size="small" removable>TypeScript</elvt-tag>
+  </div>
+</ComponentShowcase>
+
+### Large Tags
+Prominent tags for important categories and featured content.
+
+<ComponentShowcase
+  title="Large Tags"
+  description="Prominent tags for featured content"
+  code={`<div>
+  <elvt-tag size="large" variant="primary">Featured</elvt-tag>
+  <elvt-tag size="large" variant="success">Popular</elvt-tag>
+  <elvt-tag size="large" variant="warning" removable>Trending</elvt-tag>
+</div>`}
+>
+  <div>
+    <elvt-tag size="large" variant="primary">Featured</elvt-tag>
+    <elvt-tag size="large" variant="success">Popular</elvt-tag>
+    <elvt-tag size="large" variant="warning" removable>Trending</elvt-tag>
+  </div>
+</ComponentShowcase>
+
+## Features
+
+### Icon Tags
+Tags with icons to provide visual context and improve recognition.
+
+<ComponentShowcase
+  title="Icon Tags"
+  description="Tags with icons for better visual context"
+  code={`<div>
+  <elvt-tag>
+    <elvt-icon name="code" slot="start"></elvt-icon>
+    Development
+  </elvt-tag>
+  <elvt-tag variant="success">
+    <elvt-icon name="check-circle" slot="start"></elvt-icon>
+    Complete
+  </elvt-tag>
+  <elvt-tag variant="warning" removable>
+    <elvt-icon name="clock" slot="start"></elvt-icon>
+    In Progress
+  </elvt-tag>
+</div>`}
+>
+  <div>
+    <elvt-tag>
+      <elvt-icon name="code" slot="start"></elvt-icon>
+      Development
+    </elvt-tag>
+    <elvt-tag variant="success">
+      <elvt-icon name="check-circle" slot="start"></elvt-icon>
+      Complete
+    </elvt-tag>
+    <elvt-tag variant="warning" removable>
+      <elvt-icon name="clock" slot="start"></elvt-icon>
+      In Progress
+    </elvt-tag>
+  </div>
+</ComponentShowcase>
+
+### Tag Groups
+Organized collections of related tags with proper spacing.
+
+<ComponentShowcase
+  title="Tag Groups"
+  description="Organized groups of related tags"
+  code={`<elvt-tag-group label="Technologies">
+  <elvt-tag clickable>React</elvt-tag>
+  <elvt-tag clickable>Vue.js</elvt-tag>
+  <elvt-tag clickable>Angular</elvt-tag>
+  <elvt-tag clickable active>Svelte</elvt-tag>
+</elvt-tag-group>
+
+<elvt-tag-group label="Categories" max-visible="3">
+  <elvt-tag removable>Web Development</elvt-tag>
+  <elvt-tag removable>Mobile Apps</elvt-tag>
+  <elvt-tag removable>Design Systems</elvt-tag>
+  <elvt-tag removable>User Experience</elvt-tag>
+  <elvt-tag removable>Performance</elvt-tag>
+</elvt-tag-group>`}
+>
+  <elvt-tag-group label="Technologies">
+    <elvt-tag clickable>React</elvt-tag>
+    <elvt-tag clickable>Vue.js</elvt-tag>
+    <elvt-tag clickable>Angular</elvt-tag>
+    <elvt-tag clickable active>Svelte</elvt-tag>
+  </elvt-tag-group>
+
+  <elvt-tag-group label="Categories" max-visible="3">
+    <elvt-tag removable>Web Development</elvt-tag>
+    <elvt-tag removable>Mobile Apps</elvt-tag>
+    <elvt-tag removable>Design Systems</elvt-tag>
+    <elvt-tag removable>User Experience</elvt-tag>
+    <elvt-tag removable>Performance</elvt-tag>
+  </elvt-tag-group>
+</ComponentShowcase>
+
+## States
+
+### Active Tags
+Tags in active state to show selection or current filter.
+
+<ComponentShowcase
+  title="Active Tags"
+  description="Tags showing active or selected state"
+  code={`<div>
+  <elvt-tag clickable>All</elvt-tag>
+  <elvt-tag clickable active>Active</elvt-tag>
+  <elvt-tag clickable>Completed</elvt-tag>
+  <elvt-tag clickable>Archived</elvt-tag>
+</div>`}
+>
+  <div>
+    <elvt-tag clickable>All</elvt-tag>
+    <elvt-tag clickable active>Active</elvt-tag>
+    <elvt-tag clickable>Completed</elvt-tag>
+    <elvt-tag clickable>Archived</elvt-tag>
+  </div>
+</ComponentShowcase>
+
+### Disabled Tags
+Tags in disabled state when interaction is not available.
+
+<ComponentShowcase
+  title="Disabled Tags"
+  description="Tags in disabled state"
+  code={`<div>
+  <elvt-tag>Normal</elvt-tag>
+  <elvt-tag disabled>Disabled</elvt-tag>
+  <elvt-tag clickable disabled>Disabled Clickable</elvt-tag>
+  <elvt-tag removable disabled>Disabled Removable</elvt-tag>
+</div>`}
+>
+  <div>
+    <elvt-tag>Normal</elvt-tag>
+    <elvt-tag disabled>Disabled</elvt-tag>
+    <elvt-tag clickable disabled>Disabled Clickable</elvt-tag>
+    <elvt-tag removable disabled>Disabled Removable</elvt-tag>
+  </div>
+</ComponentShowcase>
+
+## Best Practices
+
+### Content Guidelines
+- **Concise labels**: Use short, descriptive text that's easy to scan
+- **Consistent terminology**: Maintain consistent naming across similar tags
+- **Meaningful categories**: Choose categories that help users understand content
+- **Appropriate quantity**: Limit tags per item to avoid overwhelming users
+
+### Accessibility
+- **Keyboard support**: Ensure clickable and removable tags work with keyboard navigation
+- **Screen reader support**: Include appropriate ARIA labels and role attributes
+- **Focus indicators**: Provide clear visual focus states for interactive tags
+- **Color independence**: Don't rely solely on color to convey meaning
+
+### UX Considerations
+- **Logical grouping**: Group related tags together for better organization
+- **Visual hierarchy**: Use size and color consistently to establish importance
+- **Clear interactions**: Make clickable and removable actions obvious to users
+- **Responsive behavior**: Ensure tags work well on mobile and desktop devices
+
+## API Reference
+
+### Tag Properties
+- `variant`: `'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info'` - Visual style variant
+- `size`: `'small' | 'medium' | 'large'` - Tag sizing
+- `shape`: `'default' | 'pill'` - Border radius style
+- `outlined`: `boolean` - Use outline style instead of filled
+- `clickable`: `boolean` - Enable click interaction
+- `removable`: `boolean` - Show remove button
+- `active`: `boolean` - Show active/selected state
+- `disabled`: `boolean` - Disable all interactions
+
+### Tag Group Properties
+- `label`: `string` - Group label text
+- `max-visible`: `number` - Maximum tags to show before overflow
+- `collapsible`: `boolean` - Allow expanding/collapsing overflow tags
+- `spacing`: `'compact' | 'normal' | 'comfortable'` - Spacing between tags
+
+### Events
+- `elvt-tag-click` - Fired when tag is clicked (clickable tags only)
+- `elvt-tag-remove` - Fired when tag is removed
+- `elvt-tag-activate` - Fired when tag becomes active
+
+### Slots
+- `default` - Tag content text
+- `start` - Content before the text (icons, indicators)
+- `end` - Content after the text (badges, counts)
+
+### Methods
+- `setActive(active)` - Programmatically set active state
+- `remove()` - Programmatically remove tag
+- `focus()` - Focus the tag element
+
+## Changelog
+
+<ComponentChangelog componentName="tag" />

@@ -4,39 +4,10 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Highlight, themes, Prism } from 'prism-react-renderer';
+import { Highlight, themes } from 'prism-react-renderer';
 import { useFramework } from '../../contexts/FrameworkContext';
 import FrameworkSwitcher from '../FrameworkSwitcher';
 import styles from './styles.module.css';
-
-// Set up Prism globally before importing language components
-(typeof global !== "undefined" ? global : window).Prism = Prism;
-
-// Load additional language support dynamically
-let languagesLoaded = false;
-const loadLanguages = () => {
-  if (typeof window !== "undefined" && !languagesLoaded) {
-    // Load TypeScript support (for Angular)
-    import('prismjs/components/prism-typescript').catch(() => {
-      console.warn('Could not load TypeScript syntax highlighting');
-    });
-    
-    // Load JSX support (for React)
-    import('prismjs/components/prism-jsx').catch(() => {
-      console.warn('Could not load JSX syntax highlighting');
-    });
-
-    // Load CSS support
-    import('prismjs/components/prism-css').catch(() => {
-      console.warn('Could not load CSS syntax highlighting');
-    });
-
-    languagesLoaded = true;
-  }
-};
-
-// Load languages immediately
-loadLanguages();
 
 interface CodeDisplayProps {
   code: string;
@@ -56,11 +27,6 @@ export default function CodeDisplay({
   const [copied, setCopied] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const { selectedFramework } = useFramework();
-
-  // Ensure languages are loaded when component mounts
-  useEffect(() => {
-    loadLanguages();
-  }, []);
 
   // Watch for theme changes
   useEffect(() => {
@@ -114,25 +80,13 @@ export default function CodeDisplay({
   // Map framework to appropriate syntax highlighting language
   const getLanguageForFramework = (framework: string, defaultLanguage: string) => {
     const frameworkLanguageMap: Record<string, string> = {
-      'webcomponent': 'markup', // HTML tags, available by default
-      'react': 'jsx', // JSX syntax (imported dynamically)
-      'angular': 'typescript', // TypeScript syntax (imported dynamically)
-      'vue': 'markup' // Vue templates are HTML-like (fallback to markup)
+      'webcomponent': 'markup', // HTML tags
+      'react': 'jsx', // JSX syntax
+      'angular': 'typescript', // TypeScript syntax
+      'vue': 'markup' // Vue templates are HTML-like
     };
-    
-    // Check if the language is available, fallback to safer options
-    const targetLanguage = frameworkLanguageMap[framework] || defaultLanguage;
-    
-    // Languages are imported directly, so they should be available
-    // Keep fallback just in case
-    if (targetLanguage === 'jsx' && typeof Prism?.languages?.jsx === 'undefined') {
-      return 'javascript';
-    }
-    if (targetLanguage === 'typescript' && typeof Prism?.languages?.typescript === 'undefined') {
-      return 'javascript';
-    }
-    
-    return targetLanguage;
+
+    return frameworkLanguageMap[framework] || defaultLanguage;
   };
 
   // Get the final language to use for syntax highlighting

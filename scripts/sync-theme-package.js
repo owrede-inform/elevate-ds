@@ -299,7 +299,7 @@ class ThemeSyncer {
     try {
       // Change to theme package directory and build
       process.chdir(this.themePackagePath);
-      execSync('npm run build', { stdio: 'pipe' });
+      execSync('pnpm build', { stdio: 'pipe' });
       process.chdir('../../'); // Back to root
       
       this.log('✅ Theme package built successfully', 'success');

@@ -1,0 +1,306 @@
+---
+title: Modal
+description: Modals display content in a layer above the main interface, requiring user interaction before returning to the underlying page.
+sidebar_position: 55
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
+import TocLinks from '@site/src/components/TocLinks';
+
+# Modal
+
+Modals are overlay dialogs that focus user attention on specific tasks or information. The ELEVATE Modal component provides accessible, customizable dialogs that maintain context while presenting critical content or actions.
+
+<TocLinks />
+
+## Overview
+
+### When to Use Modals
+- **Critical decisions**: Confirmations, destructive actions, important choices
+- **Focused tasks**: Forms, workflows that require completion
+- **Additional information**: Details, help content, media viewers
+- **Alerts and notifications**: Important messages requiring acknowledgment
+
+### When NOT to Use Modals
+- **Navigation**: Use routing or inline content for page transitions
+- **Complex workflows**: Break long processes into separate pages
+- **Frequent interactions**: Use inline editing for common actions
+- **Mobile-first content**: Consider drawer or full-page alternatives on small screens
+
+## Types
+
+### Basic Modal
+Standard modal with header, body, and footer sections.
+
+<ComponentShowcase
+  title="Basic Modal"
+  description="Standard modal with header, body and actions"
+  code={`<elvt-modal open="true" size="medium">
+  <div slot="header">
+    <h2>Confirm Action</h2>
+  </div>
+  <p>Are you sure you want to delete this item? This action cannot be undone.</p>
+  <div slot="footer">
+    <elvt-button variant="secondary">Cancel</elvt-button>
+    <elvt-button variant="danger">Delete</elvt-button>
+  </div>
+</elvt-modal>`}
+>
+  <elvt-modal open="true" size="medium">
+    <div slot="header">
+      <h2>Confirm Action</h2>
+    </div>
+    <p>Are you sure you want to delete this item? This action cannot be undone.</p>
+    <div slot="footer">
+      <elvt-button variant="secondary">Cancel</elvt-button>
+      <elvt-button variant="danger">Delete</elvt-button>
+    </div>
+  </elvt-modal>
+</ComponentShowcase>
+
+### Form Modal
+Modal containing a form for user input.
+
+<ComponentShowcase
+  title="Form Modal"
+  description="Modal with form content"
+  code={`<elvt-modal open="true" size="medium">
+  <div slot="header">
+    <h2>Create New Project</h2>
+  </div>
+  <form>
+    <elvt-field label="Project Name" required>
+      <elvt-input placeholder="Enter project name"></elvt-input>
+    </elvt-field>
+    <elvt-field label="Description">
+      <elvt-textarea placeholder="Project description"></elvt-textarea>
+    </elvt-field>
+  </form>
+  <div slot="footer">
+    <elvt-button variant="secondary">Cancel</elvt-button>
+    <elvt-button variant="primary">Create Project</elvt-button>
+  </div>
+</elvt-modal>`}
+>
+  <elvt-modal open="true" size="medium">
+    <div slot="header">
+      <h2>Create New Project</h2>
+    </div>
+    <form>
+      <elvt-field label="Project Name" required>
+        <elvt-input placeholder="Enter project name"></elvt-input>
+      </elvt-field>
+      <elvt-field label="Description">
+        <elvt-textarea placeholder="Project description"></elvt-textarea>
+      </elvt-field>
+    </form>
+    <div slot="footer">
+      <elvt-button variant="secondary">Cancel</elvt-button>
+      <elvt-button variant="primary">Create Project</elvt-button>
+    </div>
+  </elvt-modal>
+</ComponentShowcase>
+
+### Alert Modal
+Simple modal for displaying alerts or confirmations.
+
+<ComponentShowcase
+  title="Alert Modal"
+  description="Simple alert modal"
+  code={`<elvt-modal open="true" type="alert" size="small">
+  <div slot="header">
+    <h2>Success!</h2>
+  </div>
+  <p>Your changes have been saved successfully.</p>
+  <div slot="footer">
+    <elvt-button variant="primary">OK</elvt-button>
+  </div>
+</elvt-modal>`}
+>
+  <elvt-modal open="true" type="alert" size="small">
+    <div slot="header">
+      <h2>Success!</h2>
+    </div>
+    <p>Your changes have been saved successfully.</p>
+    <div slot="footer">
+      <elvt-button variant="primary">OK</elvt-button>
+    </div>
+  </elvt-modal>
+</ComponentShowcase>
+
+## Sizes
+
+### Small Modal
+Compact modal for simple content and confirmations.
+
+<ComponentShowcase
+  title="Small Modal"
+  description="Compact modal for simple content"
+  code={`<elvt-modal open="true" size="small">
+  <div slot="header">
+    <h2>Quick Action</h2>
+  </div>
+  <p>This is a small modal for simple interactions.</p>
+  <div slot="footer">
+    <elvt-button variant="primary">Continue</elvt-button>
+  </div>
+</elvt-modal>`}
+>
+  <elvt-modal open="true" size="small">
+    <div slot="header">
+      <h2>Quick Action</h2>
+    </div>
+    <p>This is a small modal for simple interactions.</p>
+    <div slot="footer">
+      <elvt-button variant="primary">Continue</elvt-button>
+    </div>
+  </elvt-modal>
+</ComponentShowcase>
+
+### Large Modal
+Spacious modal for complex content and detailed forms.
+
+<ComponentShowcase
+  title="Large Modal"
+  description="Spacious modal for complex content"
+  code={`<elvt-modal open="true" size="large">
+  <div slot="header">
+    <h2>Detailed Settings</h2>
+  </div>
+  <p>This large modal provides ample space for complex content, detailed forms, and comprehensive information.</p>
+  <div slot="footer">
+    <elvt-button variant="secondary">Cancel</elvt-button>
+    <elvt-button variant="primary">Save Changes</elvt-button>
+  </div>
+</elvt-modal>`}
+>
+  <elvt-modal open="true" size="large">
+    <div slot="header">
+      <h2>Detailed Settings</h2>
+    </div>
+    <p>This large modal provides ample space for complex content, detailed forms, and comprehensive information.</p>
+    <div slot="footer">
+      <elvt-button variant="secondary">Cancel</elvt-button>
+      <elvt-button variant="primary">Save Changes</elvt-button>
+    </div>
+  </elvt-modal>
+</ComponentShowcase>
+
+## Variants
+
+### Scrollable Modal
+Modal with scrollable content for longer text or multiple sections.
+
+<ComponentShowcase
+  title="Scrollable Modal"
+  description="Modal with scrollable content area"
+  code={`<elvt-modal open="true" size="medium" scrollable>
+  <div slot="header">
+    <h2>Terms of Service</h2>
+  </div>
+  <div style={{height: '300px'}}>
+    <p>Long content that requires scrolling...</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p>More content continues here...</p>
+  </div>
+  <div slot="footer">
+    <elvt-button variant="secondary">Decline</elvt-button>
+    <elvt-button variant="primary">Accept</elvt-button>
+  </div>
+</elvt-modal>`}
+>
+  <elvt-modal open="true" size="medium" scrollable>
+    <div slot="header">
+      <h2>Terms of Service</h2>
+    </div>
+    <div style={{height: '300px'}}>
+      <p>Long content that requires scrolling...</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>More content continues here...</p>
+    </div>
+    <div slot="footer">
+      <elvt-button variant="secondary">Decline</elvt-button>
+      <elvt-button variant="primary">Accept</elvt-button>
+    </div>
+  </elvt-modal>
+</ComponentShowcase>
+
+### Non-dismissible Modal
+Modal that cannot be closed by clicking outside or pressing escape.
+
+<ComponentShowcase
+  title="Non-dismissible Modal"
+  description="Modal requiring explicit action to close"
+  code={`<elvt-modal open="true" size="medium" no-dismiss>
+  <div slot="header">
+    <h2>Required Action</h2>
+  </div>
+  <p>This action is required before you can continue. Please make a selection.</p>
+  <div slot="footer">
+    <elvt-button variant="secondary">Option A</elvt-button>
+    <elvt-button variant="primary">Option B</elvt-button>
+  </div>
+</elvt-modal>`}
+>
+  <elvt-modal open="true" size="medium" no-dismiss>
+    <div slot="header">
+      <h2>Required Action</h2>
+    </div>
+    <p>This action is required before you can continue. Please make a selection.</p>
+    <div slot="footer">
+      <elvt-button variant="secondary">Option A</elvt-button>
+      <elvt-button variant="primary">Option B</elvt-button>
+    </div>
+  </elvt-modal>
+</ComponentShowcase>
+
+## Best Practices
+
+### Content Guidelines
+- **Clear purpose**: Each modal should have a single, clear objective
+- **Concise content**: Keep text brief and scannable
+- **Action hierarchy**: Make primary actions visually prominent
+- **Escape routes**: Always provide a way to cancel or close
+
+### Accessibility
+- **Focus management**: Move focus to modal when opened, return when closed
+- **Keyboard support**: Support ESC key, tab navigation, and enter/space actions
+- **ARIA labels**: Include proper modal, dialog, and button labeling
+- **Screen reader support**: Announce modal opening and content changes
+
+### UX Considerations
+- **Progressive disclosure**: Use modals for secondary or optional content
+- **Mobile adaptation**: Consider full-screen variants on small screens
+- **Loading states**: Show progress for async actions within modals
+- **Stacking caution**: Avoid opening modals on top of other modals
+
+## API Reference
+
+### Properties
+- `open`: `boolean` - Whether the modal is open
+- `size`: `'small' | 'medium' | 'large' | 'fullscreen'` - Modal size
+- `type`: `'default' | 'alert' | 'confirmation'` - Modal type
+- `scrollable`: `boolean` - Whether content is scrollable
+- `no-dismiss`: `boolean` - Prevents dismissal by clicking outside or ESC
+- `no-header`: `boolean` - Hides the header section
+- `no-footer`: `boolean` - Hides the footer section
+
+### Events
+- `elvt-modal-open` - Fired when modal opens
+- `elvt-modal-close` - Fired when modal closes
+- `elvt-modal-dismiss` - Fired when modal is dismissed via ESC or backdrop
+- `elvt-modal-action` - Fired when action button is clicked
+
+### Slots
+- `header` - Modal header content
+- `default` - Main modal content
+- `footer` - Modal footer with actions
+
+### Methods
+- `open()` - Programmatically open the modal
+- `close()` - Programmatically close the modal
+
+## Changelog
+
+<ComponentChangelog componentName="modal" />

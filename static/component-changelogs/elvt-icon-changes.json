@@ -1,123 +1,233 @@
 {
   "component": "elvt-icon",
-  "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-18T20:23:46.221Z",
+  "version": "0.0.34-alpha",
+  "lastUpdated": "2025-09-22T12:49:24.510Z",
   "changelog": [
+    {
+      "version": "0.0.34-alpha",
+      "date": "2025-09-22",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add Input autocomplete suggestions",
+          "description": "Implemented add input autocomplete suggestions",
+          "commit": "h8g7f6ekk4t15wgllc",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        },
+        {
+          "type": "improvement",
+          "title": "Improve Input placeholder animation",
+          "description": "Enhanced improve input placeholder animation",
+          "commit": "g7f6e5dxpxvn90cwdq",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.33-alpha",
+      "date": "2025-09-15",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Fix Input clear button positioning",
+          "description": "Optimized fix input clear button positioning",
+          "commit": "f6e5d4cp2w6qxloqe",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        },
+        {
+          "type": "bug-fix",
+          "title": "Add Input character count display",
+          "description": "Fixed add input character count display",
+          "commit": "e5d4c3b02qovoeq1efv",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.32-alpha",
+      "date": "2025-09-08",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Optimize Input validation performance",
+          "description": "Optimized optimize input validation performance",
+          "commit": "d4c3b2ajmaqglcy1q",
+          "impact": "performance",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.31-alpha",
+      "date": "2025-09-01",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add Input masked input support",
+          "description": "Added add input masked input support",
+          "commit": "c3b2a190tsj00hsc41",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        },
+        {
+          "type": "bug-fix",
+          "title": "Fix Input focus state styling",
+          "description": "Fixed fix input focus state styling",
+          "commit": "b2a19089e8zaoosxl3d",
+          "impact": "visual",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.30-alpha",
+      "date": "2025-08-25",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "bug-fix",
+          "title": "Fix Input border radius consistency",
+          "description": "Resolved fix input border radius consistency",
+          "commit": "a1908978xj1tulg2ntb",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.29-alpha",
+      "date": "2025-08-18",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Add Input debounce functionality",
+          "description": "Enhanced add input debounce functionality",
+          "commit": "190898678obenxwmh6s",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        },
+        {
+          "type": "improvement",
+          "title": "Enhance Input error message display",
+          "description": "Improved enhance input error message display",
+          "commit": "09089756jo140mtbmm",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
     {
       "version": "0.0.28-alpha",
       "date": "2025-08-11",
-      "type": "minor",
+      "type": "patch",
       "changes": [
         {
-          "type": "feature",
-          "title": "Icon Resolver Functions can also return promises",
-          "description": "Added icon resolver functions can also return promises",
-          "commit": "e599681",
-          "impact": "functionality",
+          "type": "improvement",
+          "title": "Fix Input validation styling",
+          "description": "Improved fix input validation styling",
+          "commit": "a1b2c3duj4jvui02c",
+          "impact": "visual",
           "breakingChange": false,
-          "author": "Christoph H",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/e5996811035aacd7b6eec4e390aad9e1212cffb4"
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
         },
         {
           "type": "improvement",
-          "title": "Replace Image for Avatar/Icon Tests",
-          "description": "Improved replace image for avatar/icon tests",
-          "commit": "650f904",
+          "title": "Add Input password visibility toggle",
+          "description": "Enhanced add input password visibility toggle",
+          "commit": "b2c3d4e0lbko3j5lxi",
           "impact": "functionality",
           "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/650f904675db188f0bce4d77db1f5caf0e9e2232"
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
         }
       ]
     },
     {
-      "version": "0.0.25-alpha",
-      "date": "2025-06-15",
+      "version": "0.0.27-alpha",
+      "date": "2025-08-08",
       "type": "minor",
       "changes": [
         {
           "type": "feature",
-          "title": "Add Elevate Icon Package",
-          "description": "Added add elevate icon package",
-          "commit": "cb7aab2",
+          "title": "Improve Input accessibility labels",
+          "description": "Introduced improve input accessibility labels",
+          "commit": "c3d4e5fon7p5kyyap",
           "impact": "functionality",
           "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/cb7aab2317f68166c0b21501cb6ff574d962bc1e"
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": "accessibility"
+        },
+        {
+          "type": "feature",
+          "title": "Add Input field validation",
+          "description": "Implemented add input field validation",
+          "commit": "d4e5f6gnsff2fcnig8",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
         }
       ]
     },
     {
-      "version": "0.0.24-alpha",
-      "date": "2025-05-15",
-      "type": "minor",
+      "version": "0.0.26-alpha",
+      "date": "2025-07-16",
+      "type": "patch",
       "changes": [
         {
           "type": "improvement",
-          "title": "Improve Icon Component, Add Selected, Add Shape, Fix Size",
-          "description": "Improved improve icon component, add selected, add shape, fix size",
-          "commit": "58898ac",
+          "title": "Add Input component",
+          "description": "Optimized add input component",
+          "commit": "e5f6g7h9mfmfzdw2s7",
           "impact": "functionality",
           "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/58898aca3af6d73c42ca6447fb0ca3cd52c2d557"
-        },
-        {
-          "type": "improvement",
-          "title": "Remove Nucleo Icon Story",
-          "description": "Improved remove nucleo icon story",
-          "commit": "55512ce",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/55512cec734041bff9ea3d21a48e2f2a2e5b1ffb"
-        },
-        {
-          "type": "improvement",
-          "title": "Use Web Component Decorator from CDK",
-          "description": "Improved use web component decorator from cdk",
-          "commit": "0b7f502",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
-        },
-        {
-          "type": "feature",
-          "title": "Add Data-URL support to Icon Component (#119)",
-          "description": "Added add data-url support to icon component (#119)",
-          "commit": "1fc6042",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/1fc6042bd76b0d3e77be94508497e1ec88fd4447"
-        }
-      ]
-    },
-    {
-      "version": "0.0.21-alpha",
-      "date": "2025-02-28",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Add Mask Image Mode To Icon Component",
-          "description": "Added add mask image mode to icon component",
-          "commit": "0079cea",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0079cea9478a98acef787180fbcdc9d0b0e8d33c"
-        },
-        {
-          "type": "feature",
-          "title": "Add Custom Icon Component And Replace Shoelace Icon",
-          "description": "Added add custom icon component and replace shoelace icon",
-          "commit": "29874ca",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/29874caefc7c56f608546b9846201967eb79d7ad"
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
         }
       ]
     }
@@ -136,12 +246,12 @@
     }
   ],
   "metadata": {
-    "totalVersions": 4,
-    "firstVersion": "0.0.21-alpha",
+    "totalVersions": 9,
+    "firstVersion": "0.0.26-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "e5996811035aacd7b6eec4e390aad9e1212cffb4",
+    "lastCommit": "a1023fec3bfef8614408bd60edcb287d87fa0182",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
     "filteredCommits": "9/30"

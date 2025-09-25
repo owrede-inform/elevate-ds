@@ -1,0 +1,415 @@
+---
+title: Tabs
+description: Tabs organize content into multiple sections, allowing users to navigate between different views within the same context.
+sidebar_position: 78
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
+import TocLinks from '@site/src/components/TocLinks';
+
+# Tabs
+
+Tabs provide a way to organize related content into separate panels, allowing users to switch between different views efficiently. The ELEVATE Tabs component offers accessible navigation patterns that maintain context while presenting multiple content sections.
+
+<TocLinks />
+
+## Overview
+
+### When to Use Tabs
+- **Related content sections**: Settings panels, data views, content categories
+- **Space efficiency**: Reducing vertical scrolling by organizing content
+- **Contextual organization**: Grouping similar functionality or information
+- **Navigation within sections**: Moving between different aspects of the same topic
+
+### When NOT to Use Tabs
+- **Sequential processes**: Use stepper or multi-page flows for workflows
+- **Unrelated content**: Use separate pages for distinct topics
+- **Single content section**: No need for tabs with only one content area
+- **Critical comparisons**: When users need to see multiple sections simultaneously
+
+## Types
+
+### Basic Tabs
+Standard tabs with text labels and content panels.
+
+<ComponentShowcase
+  title="Basic Tabs"
+  description="Standard tab navigation with content panels"
+  code={`<elvt-tabs active-tab="profile">
+  <elvt-tab-group>
+    <elvt-tab tab-id="profile" active>Profile</elvt-tab>
+    <elvt-tab tab-id="settings">Settings</elvt-tab>
+    <elvt-tab tab-id="notifications">Notifications</elvt-tab>
+  </elvt-tab-group>
+  <elvt-tab-panels>
+    <elvt-tab-panel tab-id="profile">
+      <h3>User Profile</h3>
+      <p>Manage your personal information and preferences.</p>
+    </elvt-tab-panel>
+    <elvt-tab-panel tab-id="settings">
+      <h3>Account Settings</h3>
+      <p>Configure your account options and privacy settings.</p>
+    </elvt-tab-panel>
+    <elvt-tab-panel tab-id="notifications">
+      <h3>Notification Preferences</h3>
+      <p>Control when and how you receive notifications.</p>
+    </elvt-tab-panel>
+  </elvt-tab-panels>
+</elvt-tabs>`}
+>
+  <elvt-tabs active-tab="profile">
+    <elvt-tab-group>
+      <elvt-tab tab-id="profile" active>Profile</elvt-tab>
+      <elvt-tab tab-id="settings">Settings</elvt-tab>
+      <elvt-tab tab-id="notifications">Notifications</elvt-tab>
+    </elvt-tab-group>
+    <elvt-tab-panels>
+      <elvt-tab-panel tab-id="profile">
+        <h3>User Profile</h3>
+        <p>Manage your personal information and preferences.</p>
+      </elvt-tab-panel>
+      <elvt-tab-panel tab-id="settings">
+        <h3>Account Settings</h3>
+        <p>Configure your account options and privacy settings.</p>
+      </elvt-tab-panel>
+      <elvt-tab-panel tab-id="notifications">
+        <h3>Notification Preferences</h3>
+        <p>Control when and how you receive notifications.</p>
+      </elvt-tab-panel>
+    </elvt-tab-panels>
+  </elvt-tabs>
+</ComponentShowcase>
+
+### Icon Tabs
+Tabs with icons to provide visual context and improve recognition.
+
+<ComponentShowcase
+  title="Icon Tabs"
+  description="Tabs with icons for better visual recognition"
+  code={`<elvt-tabs active-tab="dashboard">
+  <elvt-tab-group>
+    <elvt-tab tab-id="dashboard" active>
+      <elvt-icon name="dashboard"></elvt-icon>
+      Dashboard
+    </elvt-tab>
+    <elvt-tab tab-id="analytics">
+      <elvt-icon name="chart-line"></elvt-icon>
+      Analytics
+    </elvt-tab>
+    <elvt-tab tab-id="reports">
+      <elvt-icon name="file-report"></elvt-icon>
+      Reports
+    </elvt-tab>
+  </elvt-tab-group>
+  <elvt-tab-panels>
+    <elvt-tab-panel tab-id="dashboard">
+      <h3>Dashboard Overview</h3>
+      <p>Key metrics and summary information.</p>
+    </elvt-tab-panel>
+    <elvt-tab-panel tab-id="analytics">
+      <h3>Analytics Data</h3>
+      <p>Detailed analysis and trends.</p>
+    </elvt-tab-panel>
+    <elvt-tab-panel tab-id="reports">
+      <h3>Report Center</h3>
+      <p>Generate and download reports.</p>
+    </elvt-tab-panel>
+  </elvt-tab-panels>
+</elvt-tabs>`}
+>
+  <elvt-tabs active-tab="dashboard">
+    <elvt-tab-group>
+      <elvt-tab tab-id="dashboard" active>
+        <elvt-icon name="dashboard"></elvt-icon>
+        Dashboard
+      </elvt-tab>
+      <elvt-tab tab-id="analytics">
+        <elvt-icon name="chart-line"></elvt-icon>
+        Analytics
+      </elvt-tab>
+      <elvt-tab tab-id="reports">
+        <elvt-icon name="file-report"></elvt-icon>
+        Reports
+      </elvt-tab>
+    </elvt-tab-group>
+    <elvt-tab-panels>
+      <elvt-tab-panel tab-id="dashboard">
+        <h3>Dashboard Overview</h3>
+        <p>Key metrics and summary information.</p>
+      </elvt-tab-panel>
+      <elvt-tab-panel tab-id="analytics">
+        <h3>Analytics Data</h3>
+        <p>Detailed analysis and trends.</p>
+      </elvt-tab-panel>
+      <elvt-tab-panel tab-id="reports">
+        <h3>Report Center</h3>
+        <p>Generate and download reports.</p>
+      </elvt-tab-panel>
+    </elvt-tab-panels>
+  </elvt-tabs>
+</ComponentShowcase>
+
+### Vertical Tabs
+Tabs arranged vertically for better use of horizontal space.
+
+<ComponentShowcase
+  title="Vertical Tabs"
+  description="Vertically arranged tab navigation"
+  code={`<elvt-tabs active-tab="general" orientation="vertical">
+  <elvt-tab-group>
+    <elvt-tab tab-id="general" active>General</elvt-tab>
+    <elvt-tab tab-id="security">Security</elvt-tab>
+    <elvt-tab tab-id="privacy">Privacy</elvt-tab>
+    <elvt-tab tab-id="advanced">Advanced</elvt-tab>
+  </elvt-tab-group>
+  <elvt-tab-panels>
+    <elvt-tab-panel tab-id="general">
+      <h3>General Settings</h3>
+      <p>Basic application preferences and configurations.</p>
+    </elvt-tab-panel>
+    <elvt-tab-panel tab-id="security">
+      <h3>Security Options</h3>
+      <p>Password, two-factor authentication, and security settings.</p>
+    </elvt-tab-panel>
+    <elvt-tab-panel tab-id="privacy">
+      <h3>Privacy Controls</h3>
+      <p>Data sharing, visibility, and privacy preferences.</p>
+    </elvt-tab-panel>
+    <elvt-tab-panel tab-id="advanced">
+      <h3>Advanced Configuration</h3>
+      <p>Developer options and advanced system settings.</p>
+    </elvt-tab-panel>
+  </elvt-tab-panels>
+</elvt-tabs>`}
+>
+  <elvt-tabs active-tab="general" orientation="vertical">
+    <elvt-tab-group>
+      <elvt-tab tab-id="general" active>General</elvt-tab>
+      <elvt-tab tab-id="security">Security</elvt-tab>
+      <elvt-tab tab-id="privacy">Privacy</elvt-tab>
+      <elvt-tab tab-id="advanced">Advanced</elvt-tab>
+    </elvt-tab-group>
+    <elvt-tab-panels>
+      <elvt-tab-panel tab-id="general">
+        <h3>General Settings</h3>
+        <p>Basic application preferences and configurations.</p>
+      </elvt-tab-panel>
+      <elvt-tab-panel tab-id="security">
+        <h3>Security Options</h3>
+        <p>Password, two-factor authentication, and security settings.</p>
+      </elvt-tab-panel>
+      <elvt-tab-panel tab-id="privacy">
+        <h3>Privacy Controls</h3>
+        <p>Data sharing, visibility, and privacy preferences.</p>
+      </elvt-tab-panel>
+      <elvt-tab-panel tab-id="advanced">
+        <h3>Advanced Configuration</h3>
+        <p>Developer options and advanced system settings.</p>
+      </elvt-tab-panel>
+    </elvt-tab-panels>
+  </elvt-tabs>
+</ComponentShowcase>
+
+## Variants
+
+### Scrollable Tabs
+Tabs that scroll horizontally when there are too many to fit.
+
+<ComponentShowcase
+  title="Scrollable Tabs"
+  description="Horizontally scrollable tabs for many options"
+  code={`<elvt-tabs active-tab="tab3" scrollable>
+  <elvt-tab-group>
+    <elvt-tab tab-id="tab1">Tab 1</elvt-tab>
+    <elvt-tab tab-id="tab2">Tab 2</elvt-tab>
+    <elvt-tab tab-id="tab3" active>Tab 3</elvt-tab>
+    <elvt-tab tab-id="tab4">Tab 4</elvt-tab>
+    <elvt-tab tab-id="tab5">Tab 5</elvt-tab>
+    <elvt-tab tab-id="tab6">Tab 6</elvt-tab>
+    <elvt-tab tab-id="tab7">Tab 7</elvt-tab>
+    <elvt-tab tab-id="tab8">Tab 8</elvt-tab>
+  </elvt-tab-group>
+  <elvt-tab-panels>
+    <elvt-tab-panel tab-id="tab3">
+      <h3>Tab 3 Content</h3>
+      <p>This is the content for the third tab in a scrollable tab group.</p>
+    </elvt-tab-panel>
+  </elvt-tab-panels>
+</elvt-tabs>`}
+>
+  <elvt-tabs active-tab="tab3" scrollable>
+    <elvt-tab-group>
+      <elvt-tab tab-id="tab1">Tab 1</elvt-tab>
+      <elvt-tab tab-id="tab2">Tab 2</elvt-tab>
+      <elvt-tab tab-id="tab3" active>Tab 3</elvt-tab>
+      <elvt-tab tab-id="tab4">Tab 4</elvt-tab>
+      <elvt-tab tab-id="tab5">Tab 5</elvt-tab>
+      <elvt-tab tab-id="tab6">Tab 6</elvt-tab>
+      <elvt-tab tab-id="tab7">Tab 7</elvt-tab>
+      <elvt-tab tab-id="tab8">Tab 8</elvt-tab>
+    </elvt-tab-group>
+    <elvt-tab-panels>
+      <elvt-tab-panel tab-id="tab3">
+        <h3>Tab 3 Content</h3>
+        <p>This is the content for the third tab in a scrollable tab group.</p>
+      </elvt-tab-panel>
+    </elvt-tab-panels>
+  </elvt-tabs>
+</ComponentShowcase>
+
+### Closable Tabs
+Tabs that can be closed with close buttons.
+
+<ComponentShowcase
+  title="Closable Tabs"
+  description="Tabs with close buttons for dynamic content"
+  code={`<elvt-tabs active-tab="doc1" closable>
+  <elvt-tab-group>
+    <elvt-tab tab-id="doc1" active closable>Document 1.txt</elvt-tab>
+    <elvt-tab tab-id="doc2" closable>Document 2.txt</elvt-tab>
+    <elvt-tab tab-id="doc3" closable>Document 3.txt</elvt-tab>
+  </elvt-tab-group>
+  <elvt-tab-panels>
+    <elvt-tab-panel tab-id="doc1">
+      <h3>Document 1</h3>
+      <p>Content of the first document.</p>
+    </elvt-tab-panel>
+    <elvt-tab-panel tab-id="doc2">
+      <h3>Document 2</h3>
+      <p>Content of the second document.</p>
+    </elvt-tab-panel>
+    <elvt-tab-panel tab-id="doc3">
+      <h3>Document 3</h3>
+      <p>Content of the third document.</p>
+    </elvt-tab-panel>
+  </elvt-tab-panels>
+</elvt-tabs>`}
+>
+  <elvt-tabs active-tab="doc1" closable>
+    <elvt-tab-group>
+      <elvt-tab tab-id="doc1" active closable>Document 1.txt</elvt-tab>
+      <elvt-tab tab-id="doc2" closable>Document 2.txt</elvt-tab>
+      <elvt-tab tab-id="doc3" closable>Document 3.txt</elvt-tab>
+    </elvt-tab-group>
+    <elvt-tab-panels>
+      <elvt-tab-panel tab-id="doc1">
+        <h3>Document 1</h3>
+        <p>Content of the first document.</p>
+      </elvt-tab-panel>
+      <elvt-tab-panel tab-id="doc2">
+        <h3>Document 2</h3>
+        <p>Content of the second document.</p>
+      </elvt-tab-panel>
+      <elvt-tab-panel tab-id="doc3">
+        <h3>Document 3</h3>
+        <p>Content of the third document.</p>
+      </elvt-tab-panel>
+    </elvt-tab-panels>
+  </elvt-tabs>
+</ComponentShowcase>
+
+### Bordered Tabs
+Tabs with visible borders for clear visual separation.
+
+<ComponentShowcase
+  title="Bordered Tabs"
+  description="Tabs with borders for clear separation"
+  code={`<elvt-tabs active-tab="overview" variant="bordered">
+  <elvt-tab-group>
+    <elvt-tab tab-id="overview" active>Overview</elvt-tab>
+    <elvt-tab tab-id="details">Details</elvt-tab>
+    <elvt-tab tab-id="history">History</elvt-tab>
+  </elvt-tab-group>
+  <elvt-tab-panels>
+    <elvt-tab-panel tab-id="overview">
+      <h3>Overview</h3>
+      <p>High-level summary and key information.</p>
+    </elvt-tab-panel>
+    <elvt-tab-panel tab-id="details">
+      <h3>Detailed Information</h3>
+      <p>Comprehensive details and specifications.</p>
+    </elvt-tab-panel>
+    <elvt-tab-panel tab-id="history">
+      <h3>Change History</h3>
+      <p>Timeline of changes and modifications.</p>
+    </elvt-tab-panel>
+  </elvt-tab-panels>
+</elvt-tabs>`}
+>
+  <elvt-tabs active-tab="overview" variant="bordered">
+    <elvt-tab-group>
+      <elvt-tab tab-id="overview" active>Overview</elvt-tab>
+      <elvt-tab tab-id="details">Details</elvt-tab>
+      <elvt-tab tab-id="history">History</elvt-tab>
+    </elvt-tab-group>
+    <elvt-tab-panels>
+      <elvt-tab-panel tab-id="overview">
+        <h3>Overview</h3>
+        <p>High-level summary and key information.</p>
+      </elvt-tab-panel>
+      <elvt-tab-panel tab-id="details">
+        <h3>Detailed Information</h3>
+        <p>Comprehensive details and specifications.</p>
+      </elvt-tab-panel>
+      <elvt-tab-panel tab-id="history">
+        <h3>Change History</h3>
+        <p>Timeline of changes and modifications.</p>
+      </elvt-tab-panel>
+    </elvt-tab-panels>
+  </elvt-tabs>
+</ComponentShowcase>
+
+## Best Practices
+
+### Content Guidelines
+- **Clear labels**: Use concise, descriptive tab names
+- **Logical grouping**: Organize related content together
+- **Consistent content**: Maintain similar content structure across tabs
+- **Appropriate length**: Keep tab labels short but meaningful
+
+### Accessibility
+- **Keyboard navigation**: Support arrow keys and tab navigation
+- **Screen reader support**: Include proper ARIA labels and roles
+- **Focus management**: Maintain clear focus indicators
+- **High contrast**: Ensure sufficient contrast for active/inactive states
+
+### UX Considerations
+- **Reasonable number**: Limit tabs to 5-7 for optimal usability
+- **Mobile adaptation**: Consider accordion or dropdown alternatives
+- **Content relationships**: Ensure tab content is truly related
+- **State persistence**: Remember selected tab across sessions when appropriate
+
+## API Reference
+
+### Tabs Properties
+- `active-tab`: `string` - ID of currently active tab
+- `orientation`: `'horizontal' | 'vertical'` - Tab layout direction
+- `variant`: `'default' | 'bordered' | 'pills'` - Visual style variant
+- `size`: `'small' | 'medium' | 'large'` - Tab sizing
+- `scrollable`: `boolean` - Enable horizontal scrolling for overflow
+- `closable`: `boolean` - Allow tabs to be closed
+
+### Tab Properties
+- `tab-id`: `string` - Unique identifier for the tab
+- `active`: `boolean` - Whether this tab is currently active
+- `disabled`: `boolean` - Whether the tab is disabled
+- `closable`: `boolean` - Whether this specific tab can be closed
+
+### Events
+- `elvt-tab-change` - Fired when active tab changes
+- `elvt-tab-close` - Fired when a tab is closed
+- `elvt-tab-add` - Fired when a new tab is added
+
+### Slots
+- `default` - Tab content within tab panels
+- `tab-content` - Custom content for individual tabs
+
+### Methods
+- `activateTab(tabId)` - Activate specific tab
+- `closeTab(tabId)` - Close specific tab
+- `addTab(tabData)` - Add new tab dynamically
+
+## Changelog
+
+<ComponentChangelog componentName="tabs" />

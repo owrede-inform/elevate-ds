@@ -111,46 +111,32 @@
 /* Table body rows with ELEVATE component tokens */
 .componentTable .table tbody tr {
   height: 2rem;
-  border-bottom: 1px solid var(--elvt-component-table-row-border-color-default, var(--elvt-alias-layout-border-muted, var(--elvt-primitives-color-gray-200, #bec3cd)));
-  background: var(--elvt-component-table-row-background-default, transparent);
+  border-bottom: 1px solid var(--elvt-component-table-row-border-color-default, var(--elvt-alias-layout-border-muted, var(--elvt-primitives-color-gray-400, #8c95a5)));
+  background: transparent;
 }
 
 .componentTable .table tbody tr:hover {
   background: var(--elvt-component-table-row-background-hover, var(--elvt-alias-surface-background-hover, var(--elvt-primitives-color-gray-50, #f3f4f7)));
 }
 
-.componentTable .table tbody tr:nth-child(even) {
-  background: var(--elvt-component-table-row-background-alternate, var(--elvt-alias-surface-background-subtle, var(--elvt-primitives-color-gray-25, #f8f9fa)));
-}
-
 [data-theme='dark'] .componentTable .table tbody tr {
-  border-bottom-color: var(--elvt-component-table-row-border-color-default, var(--elvt-alias-layout-border-muted, var(--elvt-primitives-color-gray-700, #4d5366)));
+  border-bottom-color: var(--elvt-component-table-row-border-color-default, var(--elvt-alias-layout-border-muted, var(--elvt-primitives-color-gray-500, #6b7380)));
 }
 
 [data-theme='dark'] .componentTable .table tbody tr:hover {
   background: var(--elvt-component-table-row-background-hover, var(--elvt-alias-surface-background-hover, var(--elvt-primitives-color-gray-700, #4d5366)));
 }
 
-[data-theme='dark'] .componentTable .table tbody tr:nth-child(even) {
-  background: var(--elvt-component-table-row-background-alternate, var(--elvt-alias-surface-background-subtle, var(--elvt-primitives-color-gray-750, #424759)));
-}
-
 /* Table data cells with ELEVATE component tokens */
 .componentTable .table tbody td {
   padding: 0.5rem 0.75rem;
   vertical-align: middle;
-  border-right: 1px solid var(--elvt-component-table-column-border-color-default, var(--elvt-alias-layout-border-muted, var(--elvt-primitives-color-gray-200, #bec3cd)));
   color: var(--elvt-component-table-cell-text-color-default, var(--elvt-alias-content-text-default, var(--elvt-primitives-color-gray-800, #3d4253)));
   background: var(--elvt-component-table-cell-background-default, transparent);
 }
 
-.componentTable .table tbody td:last-child {
-  border-right: none;
-}
-
 [data-theme='dark'] .componentTable .table tbody td {
   color: var(--elvt-component-table-cell-text-color-default, var(--elvt-alias-content-text-default, var(--elvt-primitives-color-gray-100, #d5d9e1)));
-  border-right-color: var(--elvt-component-table-column-border-color-default, var(--elvt-alias-layout-border-muted, var(--elvt-primitives-color-gray-700, #4d5366)));
 }
 
 /* Remove this - standard table hover is handled above */

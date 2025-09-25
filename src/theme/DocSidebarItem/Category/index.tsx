@@ -59,7 +59,7 @@ class AccordionState {
     if (!wasOnDocsPage && isOnDocsPage) {
       const previousSection = this.expandedSection;
       this.expandedSection = null;
-      if (typeof window !== 'undefined' && window.location.search.includes('debug=sidebar')) {
+      if (typeof window !== 'undefined' && window.location?.search?.includes('debug=sidebar')) {
         console.log('[Accordion] Reset state - coming from non-docs page to docs page, was:', previousSection);
       }
       // Notify all listeners that no section should be expanded
@@ -133,13 +133,13 @@ function DocSidebarItemCategory({
       const shouldBeExpanded = currentExpanded === item.label;
       const shouldBeCollapsed = !shouldBeExpanded;
       
-      if (typeof window !== 'undefined' && window.location.search.includes('debug=sidebar')) {
+      if (typeof window !== 'undefined' && window.location?.search?.includes('debug=sidebar')) {
         console.log(`[Sync] ${item.label} - currentExpanded: ${currentExpanded}, shouldBeCollapsed: ${shouldBeCollapsed}, collapsed: ${collapsed}`);
       }
       
       // Force synchronization if states are out of sync
       if (shouldBeCollapsed !== collapsed) {
-        if (typeof window !== 'undefined' && window.location.search.includes('debug=sidebar')) {
+        if (typeof window !== 'undefined' && window.location?.search?.includes('debug=sidebar')) {
           console.log(`[Sync] Force sync ${item.label} - setting collapsed to ${shouldBeCollapsed}`);
         }
         setCollapsed(shouldBeCollapsed);
@@ -189,7 +189,7 @@ function DocSidebarItemCategory({
     const result = isMainPage || recursiveMatch || pathMatches;
     
     // Debug logging to help troubleshoot
-    if (typeof window !== 'undefined' && window.location.search.includes('debug=sidebar')) {
+    if (typeof window !== 'undefined' && window.location?.search?.includes('debug=sidebar')) {
       console.log(`[Sidebar] ${item.label}:`, {
         activePath,
         href,
@@ -224,7 +224,7 @@ function DocSidebarItemCategory({
         const isLargeSection = itemCount > 20; // Components has 55 items
         
         // Debug logging for initialization
-        if (typeof window !== 'undefined' && window.location.search.includes('debug=sidebar')) {
+        if (typeof window !== 'undefined' && window.location?.search?.includes('debug=sidebar')) {
           console.log(`[Init] ${item.label} - isActive: ${isActive}, currentExpanded: ${currentExpanded}, itemCount: ${itemCount}, isLargeSection: ${isLargeSection}`);
         }
         
@@ -233,7 +233,7 @@ function DocSidebarItemCategory({
         if (isLargeSection) {
           // Start collapsed for large sections and let the effects handle expansion
           // This prevents the flash of wrong state during initial render
-          if (typeof window !== 'undefined' && window.location.search.includes('debug=sidebar')) {
+          if (typeof window !== 'undefined' && window.location?.search?.includes('debug=sidebar')) {
             console.log(`[Init] ${item.label} - starting collapsed (large section), will expand via effects`);
           }
           return true; // collapsed initially
@@ -242,7 +242,7 @@ function DocSidebarItemCategory({
         // For smaller sections, use the previous logic
         if (isActive) {
           accordionState.setExpandedSection(item.label);
-          if (typeof window !== 'undefined' && window.location.search.includes('debug=sidebar')) {
+          if (typeof window !== 'undefined' && window.location?.search?.includes('debug=sidebar')) {
             console.log(`[Init] Expanding ${item.label} because it's active (small section)`);
           }
           return false; // expanded
@@ -314,7 +314,7 @@ function DocSidebarItemCategory({
           if (sectionActive && !foundActiveSection) {
             foundActiveSection = true;
             if (accordionState.getExpandedSection() !== item.label) {
-              if (typeof window !== 'undefined' && window.location.search.includes('debug=sidebar')) {
+              if (typeof window !== 'undefined' && window.location?.search?.includes('debug=sidebar')) {
                 console.log(`[Accordion Coordination] Setting ${item.label} as active section`);
               }
               accordionState.setExpandedSection(item.label);
@@ -336,20 +336,20 @@ function DocSidebarItemCategory({
     const isLargeSection = itemCount > 20;
     
     // Debug logging
-    if (typeof window !== 'undefined' && window.location.search.includes('debug=sidebar')) {
+    if (typeof window !== 'undefined' && window.location?.search?.includes('debug=sidebar')) {
       console.log(`[Accordion] ${item.label} - isActive: ${isActive}, currentExpanded: ${accordionState.getExpandedSection()}, isLargeSection: ${isLargeSection}`);
     }
     
     // If this section is active (contains the current page), expand it
     if (isActive && accordionState.getExpandedSection() !== item.label) {
-      if (typeof window !== 'undefined' && window.location.search.includes('debug=sidebar')) {
+      if (typeof window !== 'undefined' && window.location?.search?.includes('debug=sidebar')) {
         console.log(`[Accordion] Expanding ${item.label} because it's active`);
       }
       accordionState.setExpandedSection(item.label);
       
       // For large sections that started collapsed, also update the local state immediately
       if (isLargeSection && collapsed) {
-        if (typeof window !== 'undefined' && window.location.search.includes('debug=sidebar')) {
+        if (typeof window !== 'undefined' && window.location?.search?.includes('debug=sidebar')) {
           console.log(`[Accordion] Immediately expanding ${item.label} (large section)`);
         }
         setCollapsed(false);
@@ -375,7 +375,7 @@ function DocSidebarItemCategory({
     // Longer delay to ensure all components have updated their active state and DOM is settled
     const timer = setTimeout(() => {
       if (isActive && accordionState.getExpandedSection() !== item.label) {
-        if (typeof window !== 'undefined' && window.location.search.includes('debug=sidebar')) {
+        if (typeof window !== 'undefined' && window.location?.search?.includes('debug=sidebar')) {
           console.log(`[Accordion Delayed] Expanding ${item.label} after navigation (delay: ${delay}ms)`);
         }
         accordionState.setExpandedSection(item.label);
@@ -400,12 +400,12 @@ function DocSidebarItemCategory({
       const shouldBeCollapsed = !shouldBeExpanded;
       
       // Debug logging for subscription changes
-      if (typeof window !== 'undefined' && window.location.search.includes('debug=sidebar')) {
+      if (typeof window !== 'undefined' && window.location?.search?.includes('debug=sidebar')) {
         console.log(`[Subscription] ${item.label} - expandedSection: ${expandedSection}, shouldBeExpanded: ${shouldBeExpanded}, currentCollapsed: ${collapsed}`);
       }
       
       if (shouldBeCollapsed !== collapsed) {
-        if (typeof window !== 'undefined' && window.location.search.includes('debug=sidebar')) {
+        if (typeof window !== 'undefined' && window.location?.search?.includes('debug=sidebar')) {
           console.log(`[Subscription] ${item.label} - changing collapsed from ${collapsed} to ${shouldBeCollapsed}`);
         }
         setCollapsed(shouldBeCollapsed);

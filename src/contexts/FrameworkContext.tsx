@@ -104,7 +104,16 @@ export function FrameworkProvider({ children }: FrameworkProviderProps) {
   
   // Don't render until initialized to prevent hydration mismatches
   if (!isInitialized) {
-    return null;
+    // Return a loading placeholder instead of null to prevent white page
+    return (
+      <FrameworkContext.Provider value={{
+        selectedFramework: DEFAULT_FRAMEWORK,
+        setSelectedFramework: () => {},
+        availableFrameworks: AVAILABLE_FRAMEWORKS,
+      }}>
+        {children}
+      </FrameworkContext.Provider>
+    );
   }
   
   const contextValue: FrameworkContextType = {

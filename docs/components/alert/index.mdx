@@ -1,0 +1,254 @@
+---
+title: Alert
+description: Alerts provide important information and feedback to users about system states, user actions, or potential issues. They appear prominently to capture attention while remaining contextually appropriate.
+sidebar_position: 2
+---
+
+# Alert
+
+Alerts communicate important information to users in a prominent, contextually appropriate way. The ELEVATE Alert component helps designers and developers create consistent feedback systems that enhance user understanding while maintaining interface harmony.
+
+<TocLinks />
+
+## Overview
+
+### When to Use Alerts
+
+- **System feedback**: Confirm successful actions, warn about potential issues, or report errors
+- **Important announcements**: Notify users about system updates, maintenance, or feature changes  
+- **Contextual guidance**: Provide helpful information or tips related to current user tasks
+- **Status updates**: Communicate the current state of processes, applications, or user accounts
+- **Validation messages**: Display form validation results, input requirements, or submission status
+
+### When NOT to Use Alerts
+
+- **Toast notifications**: Use Toast component for temporary, dismissible messages
+- **Inline validation**: Use field-level validation for immediate input feedback
+- **Loading states**: Use Loading or Progress components for process indicators
+- **Permanent navigation**: Use appropriate navigation components for persistent interface elements
+- **Decorative messages**: Use appropriate content components for non-critical information
+
+## Variations
+
+### Alert Types
+
+Different alert types for various message contexts and severity levels.
+
+<ComponentShowcase
+  title="Alert Types"
+  description="Primary, success, warning, and error alerts for different contexts."
+  code="alert-types.html"
+/>
+
+### Alert Variants
+
+Filled and outlined variants for different interface contexts.
+
+<ComponentShowcase
+  title="Alert Variants"
+  description="Filled and outlined alert styles for visual hierarchy."
+  code="alert-variants.html"
+/>
+
+### Alert with Actions
+
+Alerts can include actionable elements like buttons or links.
+
+<ComponentShowcase
+  title="Alert with Actions"
+  description="Alerts with buttons and interactive elements."
+  code="alert-with-actions.html"
+/>
+
+### Dismissible Alerts
+
+Alerts that can be closed by the user.
+
+<ComponentShowcase
+  title="Dismissible Alerts"
+  description="Closable alerts with dismiss functionality."
+  code="dismissible-alerts.html"
+/>
+
+## Design Principles
+
+### Clarity Principle
+**Alert content should be immediately clear and actionable.** Use concise, specific language that helps users understand the situation and what they should do next.
+
+### Context Principle  
+**Alerts should appear in contextually appropriate locations.** Position alerts near relevant content or actions to maintain clear relationships between the message and its context.
+
+### Hierarchy Principle
+**Alert importance should be visually apparent.** Use appropriate types (error, warning, success, info) and styling to indicate the relative importance and urgency of different messages.
+
+### Action Principle
+**Alerts should guide users toward appropriate next steps.** When possible, include clear actions or links that help users address the situation or continue their workflow.
+
+## Best Practices
+
+### Writing Effective Alert Content
+
+**Why this matters:** Well-written alerts help users understand situations quickly and take appropriate action without confusion or frustration.
+
+:::tip Do: Use clear, action-oriented language
+Write concise messages that explain the situation and suggest next steps when appropriate.
+
+```html
+<!-- Good: Clear and actionable -->
+<elvt-alert type="error">
+  Unable to save changes. Check your internet connection and try again.
+</elvt-alert>
+```
+:::
+
+:::danger Don't: Use vague or technical language
+Avoid confusing messages that don't help users understand what happened or what to do.
+
+```html
+<!-- Avoid this -->
+<elvt-alert type="error">
+  Error 500: Internal server exception occurred.
+</elvt-alert>
+```
+:::
+
+### Choosing Appropriate Alert Types
+
+**Why this matters:** Using the correct alert type helps users quickly assess the importance and nature of the message.
+
+:::tip Do: Match alert types to message context
+Use error for failures, warning for potential issues, success for confirmations, and info for general guidance.
+
+```html
+<elvt-alert type="success">Payment processed successfully!</elvt-alert>
+<elvt-alert type="warning">Your session expires in 5 minutes.</elvt-alert>
+<elvt-alert type="error">Invalid email address format.</elvt-alert>
+<elvt-alert type="info">Pro tip: Use keyboard shortcuts to work faster.</elvt-alert>
+```
+:::
+
+:::danger Don't: Misuse alert types
+Avoid using error styling for non-critical messages or success styling for warnings.
+
+```html
+<!-- Avoid this -->
+<elvt-alert type="error">Welcome to the application!</elvt-alert>
+<elvt-alert type="success">Your account will be deleted soon.</elvt-alert>
+```
+:::
+
+## Implementation
+
+### Getting Started
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+### Basic Usage
+
+```html
+<!-- Basic alert -->
+<elvt-alert type="info">
+  This is an informational alert message.
+</elvt-alert>
+
+<!-- Alert with icon -->
+<elvt-alert type="success" show-icon>
+  Your changes have been saved successfully.
+</elvt-alert>
+
+<!-- Dismissible alert -->
+<elvt-alert type="warning" closable>
+  Your session will expire soon. Please save your work.
+</elvt-alert>
+
+<!-- Alert with custom icon -->
+<elvt-alert type="error">
+  <elvt-icon slot="icon" icon="mdi:alert-circle"></elvt-icon>
+  Unable to connect to server. Please try again.
+</elvt-alert>
+```
+
+### Key Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `type` | `info` (default), `success`, `warning`, `error` | Alert type affecting styling and semantics |
+| `variant` | `filled` (default), `outlined` | Visual style variant |
+| `show-icon` | Boolean | Whether to display type-appropriate icon |
+| `closable` | Boolean | Whether alert can be dismissed |
+| `open` | Boolean | Controls alert visibility |
+
+### Slots
+
+| Slot | Description |
+|------|-------------|
+| Default | Alert content and message text |
+| `icon` | Custom icon (overrides show-icon behavior) |
+| `actions` | Action buttons or interactive elements |
+
+### Events
+
+| Event | Description |
+|-------|-------------|
+| `elvt-close` | Fired when alert is dismissed |
+| `elvt-show` | Fired when alert becomes visible |
+| `elvt-hide` | Fired when alert becomes hidden |
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-alert--docs).*
+
+## Interface Integration Examples
+
+### Form Validation Alerts
+
+<ComponentShowcase
+  title="Form Validation Alerts"
+  description="Common pattern showing alerts for form validation feedback."
+  code="form-validation-alerts.html"
+/>
+
+### System Status Alerts
+
+<ComponentShowcase
+  title="System Status Alerts"
+  description="Alerts communicating system status and maintenance information."
+  code="system-status-alerts.html"
+/>
+
+## Accessibility
+
+### Essential Accessibility Practices
+
+**ARIA support:**
+- Alerts automatically include appropriate `role="alert"` or `role="status"` attributes
+- Content changes are announced to screen readers
+- Focus management for dismissible alerts
+- Semantic markup for alert structure
+
+**Visual accessibility:**
+- Sufficient color contrast for all alert types (4.5:1 minimum)
+- Clear visual indicators beyond color alone
+- Consistent spacing and typography
+- Support for high contrast mode
+
+**Keyboard interaction:**
+- Dismissible alerts can be closed with Escape key
+- Action buttons are keyboard accessible
+- Focus moves appropriately when alerts are dismissed
+- Tab navigation follows logical order
+
+**Screen reader support:**
+- Alert content is announced when shown
+- Type information is conveyed semantically
+- Action instructions are clear and descriptive
+- Status changes are communicated appropriately
+
+## Changelog
+
+<ComponentChangelog 
+  component="elvt-alert" 
+  maxVersions={10}
+  showMetadata={true}
+  compactMode={false}
+/>

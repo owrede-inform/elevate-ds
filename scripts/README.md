@@ -6,13 +6,13 @@
 
 ```bash
 # Interactive mode - easiest way to get started
-npm run changelog
+pnpm changelog
 
 # Generate changelog for specific component
-npm run changelog:component elvt-button
+pnpm changelog:component elvt-button
 
 # Generate changelogs for all components
-npm run changelog:all
+pnpm changelog:all
 ```
 
 ## Scripts Overview
@@ -25,7 +25,7 @@ npm run changelog:all
 - Perfect for occasional use
 
 ```bash
-npm run changelog
+pnpm changelog
 ```
 
 ### ⚙️ `generate-changelog.js` - Advanced Generator
@@ -161,17 +161,17 @@ Each component changelog follows this structure:
 ### Generate for Single Component
 ```bash
 # Interactive mode
-npm run changelog
+pnpm changelog
 # Choose option 1, then select elvt-button
 
 # Direct mode
-npm run changelog:component elvt-button
+pnpm changelog:component elvt-button
 ```
 
 ### Update Existing Changelog
 ```bash
 # Interactive mode
-npm run changelog
+pnpm changelog
 # Choose option 3, then select component
 
 # Direct mode
@@ -181,10 +181,10 @@ node scripts/generate-changelog.js --component elvt-button --version 0.0.29-alph
 ### Batch Generation
 ```bash
 # Generate for all components
-npm run changelog:all
+pnpm changelog:all
 
 # Or interactive
-npm run changelog
+pnpm changelog
 # Choose option 2
 ```
 
@@ -232,7 +232,7 @@ The generated JSON files are consumed by:
 ### Debug Mode
 Add `DEBUG=1` environment variable for verbose output:
 ```bash
-DEBUG=1 npm run changelog:component elvt-button
+DEBUG=1 pnpm changelog:component elvt-button
 ```
 
 ## Contributing

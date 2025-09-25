@@ -1,0 +1,388 @@
+---
+title: Stepper
+description: Steppers guide users through multi-step processes by showing progress and breaking complex workflows into manageable stages.
+sidebar_position: 75
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
+import TocLinks from '@site/src/components/TocLinks';
+
+# Stepper
+
+Steppers display progress through a sequence of logical and numbered steps, helping users understand where they are in a multi-step process. The ELEVATE Stepper component provides clear navigation and status indication for complex workflows.
+
+<TocLinks />
+
+## Overview
+
+### When to Use Steppers
+- **Multi-step forms**: Registration, checkout, onboarding processes
+- **Sequential workflows**: Setup wizards, guided tours, configuration processes
+- **Progress tracking**: Show completion status and remaining steps
+- **Linear processes**: When steps must be completed in a specific order
+
+### When NOT to Use Steppers
+- **Non-linear processes**: When users can complete steps in any order
+- **Simple forms**: Single-page forms that don't require step division
+- **Parallel tasks**: Multiple independent actions that aren't sequential
+- **Continuous processes**: Workflows without discrete completion points
+
+## Types
+
+### Horizontal Stepper
+Traditional horizontal layout showing steps from left to right.
+
+<ComponentShowcase
+  title="Horizontal Stepper"
+  description="Standard horizontal step progression"
+  code={`<elvt-stepper current-step="2" orientation="horizontal">
+  <elvt-stepper-step status="completed">
+    <span slot="label">Account Details</span>
+    <span slot="description">Personal information</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="active">
+    <span slot="label">Verification</span>
+    <span slot="description">Email and phone</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="pending">
+    <span slot="label">Preferences</span>
+    <span slot="description">Configure settings</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="pending">
+    <span slot="label">Complete</span>
+    <span slot="description">Finish setup</span>
+  </elvt-stepper-step>
+</elvt-stepper>`}
+>
+  <elvt-stepper current-step="2" orientation="horizontal">
+    <elvt-stepper-step status="completed">
+      <span slot="label">Account Details</span>
+      <span slot="description">Personal information</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="active">
+      <span slot="label">Verification</span>
+      <span slot="description">Email and phone</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="pending">
+      <span slot="label">Preferences</span>
+      <span slot="description">Configure settings</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="pending">
+      <span slot="label">Complete</span>
+      <span slot="description">Finish setup</span>
+    </elvt-stepper-step>
+  </elvt-stepper>
+</ComponentShowcase>
+
+### Vertical Stepper
+Vertical layout suitable for mobile or sidebar placement.
+
+<ComponentShowcase
+  title="Vertical Stepper"
+  description="Vertical step progression"
+  code={`<elvt-stepper current-step="3" orientation="vertical">
+  <elvt-stepper-step status="completed">
+    <span slot="label">Choose Plan</span>
+    <span slot="description">Select subscription tier</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="completed">
+    <span slot="label">Payment Info</span>
+    <span slot="description">Credit card details</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="active">
+    <span slot="label">Review Order</span>
+    <span slot="description">Confirm your selection</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="pending">
+    <span slot="label">Confirmation</span>
+    <span slot="description">Setup complete</span>
+  </elvt-stepper-step>
+</elvt-stepper>`}
+>
+  <elvt-stepper current-step="3" orientation="vertical">
+    <elvt-stepper-step status="completed">
+      <span slot="label">Choose Plan</span>
+      <span slot="description">Select subscription tier</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="completed">
+      <span slot="label">Payment Info</span>
+      <span slot="description">Credit card details</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="active">
+      <span slot="label">Review Order</span>
+      <span slot="description">Confirm your selection</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="pending">
+      <span slot="label">Confirmation</span>
+      <span slot="description">Setup complete</span>
+    </elvt-stepper-step>
+  </elvt-stepper>
+</ComponentShowcase>
+
+### Numbered Stepper
+Stepper with numbered indicators for clear step identification.
+
+<ComponentShowcase
+  title="Numbered Stepper"
+  description="Stepper with numbered step indicators"
+  code={`<elvt-stepper current-step="2" show-numbers="true">
+  <elvt-stepper-step status="completed">
+    <span slot="label">Personal Info</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="active">
+    <span slot="label">Address</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="pending">
+    <span slot="label">Payment</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="pending">
+    <span slot="label">Review</span>
+  </elvt-stepper-step>
+</elvt-stepper>`}
+>
+  <elvt-stepper current-step="2" show-numbers="true">
+    <elvt-stepper-step status="completed">
+      <span slot="label">Personal Info</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="active">
+      <span slot="label">Address</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="pending">
+      <span slot="label">Payment</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="pending">
+      <span slot="label">Review</span>
+    </elvt-stepper-step>
+  </elvt-stepper>
+</ComponentShowcase>
+
+## Step States
+
+### Completed Steps
+Steps that have been successfully finished.
+
+<ComponentShowcase
+  title="Completed Step"
+  description="Successfully completed step with checkmark"
+  code={`<elvt-stepper current-step="1">
+  <elvt-stepper-step status="completed">
+    <span slot="label">Registration</span>
+    <span slot="description">Account created successfully</span>
+  </elvt-stepper-step>
+</elvt-stepper>`}
+>
+  <elvt-stepper current-step="1">
+    <elvt-stepper-step status="completed">
+      <span slot="label">Registration</span>
+      <span slot="description">Account created successfully</span>
+    </elvt-stepper-step>
+  </elvt-stepper>
+</ComponentShowcase>
+
+### Active Step
+The current step being worked on.
+
+<ComponentShowcase
+  title="Active Step"
+  description="Currently active step"
+  code={`<elvt-stepper current-step="2">
+  <elvt-stepper-step status="completed">
+    <span slot="label">Start</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="active">
+    <span slot="label">In Progress</span>
+    <span slot="description">Currently working on this step</span>
+  </elvt-stepper-step>
+</elvt-stepper>`}
+>
+  <elvt-stepper current-step="2">
+    <elvt-stepper-step status="completed">
+      <span slot="label">Start</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="active">
+      <span slot="label">In Progress</span>
+      <span slot="description">Currently working on this step</span>
+    </elvt-stepper-step>
+  </elvt-stepper>
+</ComponentShowcase>
+
+### Error Step
+Steps with validation errors or issues.
+
+<ComponentShowcase
+  title="Error Step"
+  description="Step with error state"
+  code={`<elvt-stepper current-step="2">
+  <elvt-stepper-step status="completed">
+    <span slot="label">Details</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="error">
+    <span slot="label">Validation</span>
+    <span slot="description">Please fix required fields</span>
+  </elvt-stepper-step>
+</elvt-stepper>`}
+>
+  <elvt-stepper current-step="2">
+    <elvt-stepper-step status="completed">
+      <span slot="label">Details</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="error">
+      <span slot="label">Validation</span>
+      <span slot="description">Please fix required fields</span>
+    </elvt-stepper-step>
+  </elvt-stepper>
+</ComponentShowcase>
+
+### Disabled Step
+Steps that cannot be accessed or are not available.
+
+<ComponentShowcase
+  title="Disabled Step"
+  description="Disabled step not available"
+  code={`<elvt-stepper current-step="1">
+  <elvt-stepper-step status="active">
+    <span slot="label">Basic Info</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="disabled">
+    <span slot="label">Advanced Settings</span>
+    <span slot="description">Requires premium account</span>
+  </elvt-stepper-step>
+</elvt-stepper>`}
+>
+  <elvt-stepper current-step="1">
+    <elvt-stepper-step status="active">
+      <span slot="label">Basic Info</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="disabled">
+      <span slot="label">Advanced Settings</span>
+      <span slot="description">Requires premium account</span>
+    </elvt-stepper-step>
+  </elvt-stepper>
+</ComponentShowcase>
+
+## Variants
+
+### Clickable Stepper
+Allow users to click on previous steps to navigate back.
+
+<ComponentShowcase
+  title="Clickable Stepper"
+  description="Stepper with clickable navigation"
+  code={`<elvt-stepper current-step="3" clickable="true">
+  <elvt-stepper-step status="completed">
+    <span slot="label">Profile</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="completed">
+    <span slot="label">Settings</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="active">
+    <span slot="label">Review</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="pending">
+    <span slot="label">Done</span>
+  </elvt-stepper-step>
+</elvt-stepper>`}
+>
+  <elvt-stepper current-step="3" clickable="true">
+    <elvt-stepper-step status="completed">
+      <span slot="label">Profile</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="completed">
+      <span slot="label">Settings</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="active">
+      <span slot="label">Review</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="pending">
+      <span slot="label">Done</span>
+    </elvt-stepper-step>
+  </elvt-stepper>
+</ComponentShowcase>
+
+### Compact Stepper
+Space-efficient stepper for smaller interfaces.
+
+<ComponentShowcase
+  title="Compact Stepper"
+  description="Space-efficient stepper design"
+  code={`<elvt-stepper current-step="2" size="compact">
+  <elvt-stepper-step status="completed">
+    <span slot="label">Start</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="active">
+    <span slot="label">Progress</span>
+  </elvt-stepper-step>
+  <elvt-stepper-step status="pending">
+    <span slot="label">End</span>
+  </elvt-stepper-step>
+</elvt-stepper>`}
+>
+  <elvt-stepper current-step="2" size="compact">
+    <elvt-stepper-step status="completed">
+      <span slot="label">Start</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="active">
+      <span slot="label">Progress</span>
+    </elvt-stepper-step>
+    <elvt-stepper-step status="pending">
+      <span slot="label">End</span>
+    </elvt-stepper-step>
+  </elvt-stepper>
+</ComponentShowcase>
+
+## Best Practices
+
+### Content Guidelines
+- **Clear labels**: Use concise, descriptive step names
+- **Helpful descriptions**: Provide context about what each step involves
+- **Consistent language**: Use similar tone and terminology throughout
+- **Progress indicators**: Show users how many steps remain
+
+### Accessibility
+- **Keyboard navigation**: Support tab navigation and arrow key movement
+- **Screen reader support**: Include step status and progress announcements
+- **Focus management**: Maintain logical focus order through steps
+- **High contrast**: Ensure step indicators are clearly visible
+
+### UX Considerations
+- **Linear flow**: Ensure steps follow logical progression
+- **Error handling**: Clearly indicate and explain validation errors
+- **Save progress**: Consider saving progress for long multi-step forms
+- **Mobile optimization**: Use vertical layout or adapt for smaller screens
+
+## API Reference
+
+### Stepper Properties
+- `current-step`: `number` - Currently active step (1-indexed)
+- `orientation`: `'horizontal' | 'vertical'` - Layout direction
+- `size`: `'default' | 'compact'` - Size variant
+- `show-numbers`: `boolean` - Display step numbers
+- `clickable`: `boolean` - Allow clicking on completed steps
+- `show-connector`: `boolean` - Show lines connecting steps
+
+### Step Properties
+- `status`: `'pending' | 'active' | 'completed' | 'error' | 'disabled'` - Step state
+- `clickable`: `boolean` - Override stepper clickable setting
+- `optional`: `boolean` - Mark step as optional
+
+### Events
+- `elvt-stepper-change` - Fired when step changes
+- `elvt-stepper-step-click` - Fired when step is clicked
+- `elvt-stepper-complete` - Fired when all steps are completed
+
+### Slots
+- `label` - Step title
+- `description` - Step description
+- `icon` - Custom step icon
+- `content` - Step content area
+
+### Methods
+- `goToStep(stepNumber)` - Navigate to specific step
+- `nextStep()` - Move to next step
+- `previousStep()` - Move to previous step
+- `reset()` - Reset to first step
+
+## Changelog
+
+<ComponentChangelog componentName="stepper" />

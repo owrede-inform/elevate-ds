@@ -2,7 +2,7 @@
 # Security and performance optimized settings
 
 # Registry Configuration
-registry=https://registry.npmjs.org/
+#registry=https://registry.npmjs.org/
 @inform-elevate:registry=https://npm.pkg.github.com
 
 # Security Settings
@@ -11,7 +11,7 @@ audit-level=moderate
 
 # Performance and Behavior
 prefer-offline=false
-use-node-version=18.0.0
+#use-node-version=18.0.0
 auto-install-peers=false
 dedupe-peer-dependents=false
 

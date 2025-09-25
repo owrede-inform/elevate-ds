@@ -30,44 +30,28 @@ Avatars are visual representations of users, teams, or entities within interface
 
 ## Variations
 
-### Image Avatars
-
-Avatars displaying profile photos or uploaded images.
-
 <ComponentShowcase
   title="Image Avatars"
   description="Avatars with profile images in different sizes."
-  code="code-examples/image-avatars.html"
+  code="image-avatars.html"
 />
-
-### Initial Avatars
-
-Avatars displaying user initials when no image is available.
 
 <ComponentShowcase
   title="Initial Avatars"
   description="Avatars showing user initials with various background colors."
-  code="code-examples/initial-avatars.html"
+  code="initial-avatars.html"
 />
-
-### Icon Avatars
-
-Avatars using icons for system accounts or placeholder states.
 
 <ComponentShowcase
   title="Icon Avatars"
   description="Avatars with icons for system accounts and default states."
-  code="code-examples/icon-avatars.html"
+  code="icon-avatars.html"
 />
-
-### Avatar Sizes
-
-Different avatar sizes for various interface contexts.
 
 <ComponentShowcase
   title="Avatar Size Variations"
   description="Five standard avatar sizes for different interface contexts."
-  code="code-examples/avatar-size-variations.html"
+  code="avatar-size-variations.html"
 />
 
 ## Design Principles
@@ -94,12 +78,10 @@ Different avatar sizes for various interface contexts.
 Implement a clear hierarchy: image → initials → icon, with appropriate styling for each.
 
 ```html
-<!-- Good fallback hierarchy -->
+<!-- Good: Image with name fallback -->
 <elvt-avatar 
-  src="user-photo.jpg"
-  alt="John Doe"
-  initials="JD"
-  fallback-icon="user">
+  image="user-photo.jpg"
+  name="John Doe">
 </elvt-avatar>
 ```
 :::
@@ -108,8 +90,8 @@ Implement a clear hierarchy: image → initials → icon, with appropriate styli
 Avoid meaningless placeholder images or generic icons that don't help identify users.
 
 ```html
-<!-- Avoid this -->
-<elvt-avatar src="generic-user.png" alt="User">
+<!-- Avoid: Generic image without meaningful name -->
+<elvt-avatar image="generic-user.png">
 </elvt-avatar>
 ```
 :::
@@ -123,9 +105,8 @@ Ensure text and icons meet WCAG contrast requirements against background colors.
 
 ```html
 <elvt-avatar 
-  initials="AB" 
-  background-color="#1f2937"
-  text-color="#ffffff">
+  name="Alex Brown"
+  style="--avatar-color-on-dark: #ffffff;">
 </elvt-avatar>
 ```
 :::
@@ -134,69 +115,35 @@ Ensure text and icons meet WCAG contrast requirements against background colors.
 Avoid color combinations that make text or icons difficult to read.
 
 ```html
-<!-- Avoid this -->
-<elvt-avatar 
-  initials="AB" 
-  background-color="#f0f0f0"
-  text-color="#d0d0d0">
+<!-- Avoid: The component automatically calculates appropriate colors -->
+<!-- No manual color specification needed -->
+<elvt-avatar name="Alex Brown">
 </elvt-avatar>
 ```
 :::
 
-## Implementation
-
-### Getting Started
-
-```bash
-npm install @inform-elevate/elevate-core-ui
-```
-
-### Basic Usage
-
-```html
-<!-- Image avatar -->
-<elvt-avatar 
-  src="profile-photo.jpg"
-  alt="John Doe"
-  size="medium">
-</elvt-avatar>
-
-<!-- Initials avatar -->
-<elvt-avatar 
-  initials="JD"
-  background-color="#3b82f6"
-  size="medium">
-</elvt-avatar>
-
-<!-- Icon avatar -->
-<elvt-avatar 
-  icon="user"
-  background-color="#6b7280"
-  size="medium">
-</elvt-avatar>
-
-<!-- Avatar with fallback -->
-<elvt-avatar 
-  src="broken-image.jpg"
-  alt="Jane Smith"
-  initials="JS"
-  fallback-icon="user"
-  size="large">
-</elvt-avatar>
-```
 
 ### Key Properties
 
 | Property | Type | Description |
 |----------|------|-------------|
-| `src` | String | Image source URL for photo avatars |
-| `alt` | String | Alternative text for accessibility |
-| `initials` | String | User initials for text-based avatars |
-| `icon` | String | Icon name for icon-based avatars |
-| `size` | `xsmall`, `small`, `medium` (default), `large`, `xlarge` | Visual size of avatar |
-| `background-color` | String | Background color for non-image avatars |
-| `text-color` | String | Text color for initials |
-| `shape` | `circle` (default), `square`, `rounded` | Avatar shape variant |
+| `image` | String | Image source URL for photo avatars |
+| `name` | String | User name - used for initials generation and color calculation |
+| `shape` | `circle` (default), `square` | Avatar shape variant |
+
+### CSS Custom Properties
+
+| Property | Description | Default |
+|----------|-------------|----------|
+| `--avatar-size` | The avatar size | `1em` |
+| `--avatar-color-on-dark` | Initials color on dark backgrounds | `#fff` |
+| `--avatar-color-on-light` | Initials color on light backgrounds | `#000` |
+
+### Slots
+
+| Slot | Description |
+|------|-------------|
+| `icon` | Custom guest icon (use `<elvt-icon slot="icon" name="...">`) |
 
 *For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-avatar--docs).*
 
@@ -207,7 +154,7 @@ npm install @inform-elevate/elevate-core-ui
 <ComponentShowcase
   title="User List with Avatars"
   description="Common pattern showing avatars in user lists and team member displays."
-  code="code-examples/user-list-with-avatars.html"
+  code="user-list-with-avatars.html"
 />
 
 ## Accessibility
@@ -234,9 +181,4 @@ npm install @inform-elevate/elevate-core-ui
 
 ## Changelog
 
-<ComponentChangelog 
-  component="elvt-avatar" 
-  maxVersions={10}
-  showMetadata={true}
-  compactMode={false}
-/>
+<ComponentChangelog component="elvt-avatar" />

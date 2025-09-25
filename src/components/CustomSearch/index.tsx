@@ -88,7 +88,13 @@ const CustomSearch: React.FC = () => {
   }, []);
 
   const handleResultClick = (url: string) => {
-    history.push(url);
+    // Handle base URL for GitHub Pages deployment
+    let fullUrl = url;
+    if (siteConfig.baseUrl !== '/' && !url.startsWith(siteConfig.baseUrl)) {
+      // If we have a base URL (like '/elevate-ds/') and the URL doesn't already include it
+      fullUrl = siteConfig.baseUrl + url.replace(/^\//, '');
+    }
+    history.push(fullUrl);
     setSearchTerm('');
     setIsOpen(false);
     inputRef.current?.blur();

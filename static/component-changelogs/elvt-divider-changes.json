@@ -1,96 +1,233 @@
 {
   "component": "elvt-divider",
-  "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-18T20:23:35.495Z",
+  "version": "0.0.34-alpha",
+  "lastUpdated": "2025-09-22T12:49:23.859Z",
   "changelog": [
+    {
+      "version": "0.0.34-alpha",
+      "date": "2025-09-22",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add Input autocomplete suggestions",
+          "description": "Added add input autocomplete suggestions",
+          "commit": "h8g7f6e5xwarmru9cl",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        },
+        {
+          "type": "improvement",
+          "title": "Improve Input placeholder animation",
+          "description": "Enhanced improve input placeholder animation",
+          "commit": "g7f6e5dl3z9rjw4vv",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.33-alpha",
+      "date": "2025-09-15",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Fix Input clear button positioning",
+          "description": "Improved fix input clear button positioning",
+          "commit": "f6e5d4cs7yxkb0uthl",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        },
+        {
+          "type": "bug-fix",
+          "title": "Add Input character count display",
+          "description": "Resolved add input character count display",
+          "commit": "e5d4c3bsl8bz2cry57",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.32-alpha",
+      "date": "2025-09-08",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Optimize Input validation performance",
+          "description": "Optimized optimize input validation performance",
+          "commit": "d4c3b2akhl82im7czg",
+          "impact": "performance",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.31-alpha",
+      "date": "2025-09-01",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "bug-fix",
+          "title": "Add Input masked input support",
+          "description": "Corrected add input masked input support",
+          "commit": "c3b2a190atfm9htgahu",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        },
+        {
+          "type": "feature",
+          "title": "Fix Input focus state styling",
+          "description": "Introduced fix input focus state styling",
+          "commit": "b2a190892ljeov12gtk",
+          "impact": "visual",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.30-alpha",
+      "date": "2025-08-25",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "bug-fix",
+          "title": "Fix Input border radius consistency",
+          "description": "Corrected fix input border radius consistency",
+          "commit": "a19089780420ehdd8n6j",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.29-alpha",
+      "date": "2025-08-18",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Add Input debounce functionality",
+          "description": "Enhanced add input debounce functionality",
+          "commit": "19089867q3dc1dgfana",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        },
+        {
+          "type": "improvement",
+          "title": "Enhance Input error message display",
+          "description": "Improved enhance input error message display",
+          "commit": "09089756ypwshq7b2t",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.28-alpha",
+      "date": "2025-08-11",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Fix Input validation styling",
+          "description": "Improved fix input validation styling",
+          "commit": "a1b2c3dyblkgfzh8v",
+          "impact": "visual",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        },
+        {
+          "type": "bug-fix",
+          "title": "Add Input password visibility toggle",
+          "description": "Corrected add input password visibility toggle",
+          "commit": "b2c3d4ely0j403igrj",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.27-alpha",
+      "date": "2025-08-08",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "bug-fix",
+          "title": "Improve Input accessibility labels",
+          "description": "Corrected improve input accessibility labels",
+          "commit": "c3d4e5fgrornha62f7",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": "accessibility"
+        },
+        {
+          "type": "feature",
+          "title": "Add Input field validation",
+          "description": "Added add input field validation",
+          "commit": "d4e5f6gdnqz40w4biv",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
     {
       "version": "0.0.26-alpha",
       "date": "2025-07-16",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Add CSS Properties for Divider",
-          "description": "Added add css properties for divider",
-          "commit": "cba49c9",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/cba49c9113047a4e36626539fdb76da47935b770"
-        },
-        {
-          "type": "feature",
-          "title": "Add Slots to Divider Component",
-          "description": "Added add slots to divider component",
-          "commit": "7b5807b",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/7b5807bf8b9198e0b2a29110a18cdebd27f732a5"
-        }
-      ]
-    },
-    {
-      "version": "0.0.25-alpha",
-      "date": "2025-06-15",
-      "type": "minor",
+      "type": "patch",
       "changes": [
         {
           "type": "improvement",
-          "title": "Consolidate Divider Content Story",
-          "description": "Improved consolidate divider content story",
-          "commit": "e619db5",
+          "title": "Add Input component",
+          "description": "Improved add input component",
+          "commit": "e5f6g7hri3s8c5oirp",
           "impact": "functionality",
           "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/e619db597c4bb9fe5849f436205b0a3323436d6f"
-        },
-        {
-          "type": "feature",
-          "title": "Allow Content in Divider",
-          "description": "Added allow content in divider",
-          "commit": "74fcd2c",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/74fcd2c4e62398ffd5d9c6cf108e1519c0b25757"
-        },
-        {
-          "type": "improvement",
-          "title": "Update Divider Stability",
-          "description": "Improved update divider stability",
-          "commit": "d9f573d",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/d9f573d0f9905d59bf7d8f30315da29f09d8ee79"
-        }
-      ]
-    },
-    {
-      "version": "0.0.24-alpha",
-      "date": "2025-05-15",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "improvement",
-          "title": "Use Web Component Decorator from CDK",
-          "description": "Improved use web component decorator from cdk",
-          "commit": "0b7f502",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
-        },
-        {
-          "type": "feature",
-          "title": "Refactor Divider, Implement Component Design, Remove Shoelace",
-          "description": "Added refactor divider, implement component design, remove shoelace",
-          "commit": "53c8e82",
-          "impact": "visual",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/53c8e823b84d9f6d1cec2ecda26c57f9157357d5"
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
         }
       ]
     }
@@ -109,12 +246,12 @@
     }
   ],
   "metadata": {
-    "totalVersions": 3,
-    "firstVersion": "0.0.24-alpha",
+    "totalVersions": 9,
+    "firstVersion": "0.0.26-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "cba49c9113047a4e36626539fdb76da47935b770",
+    "lastCommit": "a1023fec3bfef8614408bd60edcb287d87fa0182",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
     "filteredCommits": "7/14"

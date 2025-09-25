@@ -159,7 +159,7 @@ sidebar_position: 1
   Last generated: ${timestamp}
   
   To regenerate this file, run:
-  npm run generate:overview
+  pnpm generate:overview
 -->
 
 # Components

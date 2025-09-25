@@ -1,0 +1,167 @@
+---
+title: Banner
+description: Banners display important announcements, alerts, or promotional content at the top of pages or sections to grab user attention.
+sidebar_position: 11
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
+import TocLinks from '@site/src/components/TocLinks';
+
+# Banner
+
+Banners are prominent messages that appear at the top of pages or sections to communicate important information. The ELEVATE Banner component helps designers and developers create consistent, attention-grabbing announcements that inform users without overwhelming the interface.
+
+<TocLinks />
+
+## Overview
+
+### When to Use Banners
+- **System announcements**: Maintenance notifications, service updates, new features
+- **Promotional content**: Sales, events, new product launches
+- **Important alerts**: Security updates, policy changes, urgent information
+- **Temporary messaging**: Limited-time offers, seasonal content, campaign information
+
+### When NOT to Use Banners
+- **Persistent navigation**: Use navigation components for permanent menu items
+- **Form validation**: Use field-level validation messages for form errors
+- **Contextual help**: Use tooltips or help text for guidance
+- **Status updates**: Use toast notifications for temporary status messages
+
+## Types
+
+### Information Banner
+Use for general announcements and informational content.
+
+<ComponentShowcase
+  title="Information Banner"
+  description="General information and announcements"
+  code={`<elvt-banner type="info" dismissible>
+  <strong>New Feature:</strong> Enhanced search functionality is now available.
+  <a href="/features">Learn more</a>
+</elvt-banner>`}
+>
+  <elvt-banner type="info" dismissible>
+    <strong>New Feature:</strong> Enhanced search functionality is now available.
+    <a href="/features">Learn more</a>
+  </elvt-banner>
+</ComponentShowcase>
+
+### Warning Banner
+Use for important warnings that require user attention.
+
+<ComponentShowcase
+  title="Warning Banner"
+  description="Important warnings and cautions"
+  code={`<elvt-banner type="warning" dismissible>
+  <strong>Scheduled Maintenance:</strong> System will be unavailable tomorrow 2-4 AM EST.
+</elvt-banner>`}
+>
+  <elvt-banner type="warning" dismissible>
+    <strong>Scheduled Maintenance:</strong> System will be unavailable tomorrow 2-4 AM EST.
+  </elvt-banner>
+</ComponentShowcase>
+
+### Success Banner
+Use for positive announcements and successful actions.
+
+<ComponentShowcase
+  title="Success Banner"
+  description="Positive messages and success notifications"
+  code={`<elvt-banner type="success" dismissible>
+  <strong>Update Complete:</strong> Your profile has been successfully updated.
+</elvt-banner>`}
+>
+  <elvt-banner type="success" dismissible>
+    <strong>Update Complete:</strong> Your profile has been successfully updated.
+  </elvt-banner>
+</ComponentShowcase>
+
+### Error Banner
+Use for critical errors and urgent messages.
+
+<ComponentShowcase
+  title="Error Banner"
+  description="Critical errors and urgent messages"
+  code={`<elvt-banner type="error" dismissible>
+  <strong>Service Disruption:</strong> We're experiencing connectivity issues. Please try again.
+</elvt-banner>`}
+>
+  <elvt-banner type="error" dismissible>
+    <strong>Service Disruption:</strong> We're experiencing connectivity issues. Please try again.
+  </elvt-banner>
+</ComponentShowcase>
+
+## Variants
+
+### Persistent Banner
+Banners that remain visible until manually dismissed.
+
+<ComponentShowcase
+  title="Persistent Banner"
+  description="Banners that stay visible until dismissed"
+  code={`<elvt-banner type="info" persistent>
+  <strong>Cookie Notice:</strong> This site uses cookies to improve your experience.
+  <elvt-button variant="text" size="small">Accept</elvt-button>
+</elvt-banner>`}
+>
+  <elvt-banner type="info" persistent>
+    <strong>Cookie Notice:</strong> This site uses cookies to improve your experience.
+    <elvt-button variant="text" size="small">Accept</elvt-button>
+  </elvt-banner>
+</ComponentShowcase>
+
+### Full-width Banner
+Banners that span the entire width of the container.
+
+<ComponentShowcase
+  title="Full-width Banner"
+  description="Banners spanning the full container width"
+  code={`<elvt-banner type="info" full-width>
+  📢 Join us for the annual conference! Early bird pricing ends soon.
+</elvt-banner>`}
+>
+  <elvt-banner type="info" full-width>
+    📢 Join us for the annual conference! Early bird pricing ends soon.
+  </elvt-banner>
+</ComponentShowcase>
+
+## Best Practices
+
+### Content Guidelines
+- **Keep it concise**: Use clear, brief messaging that users can quickly scan
+- **Use hierarchy**: Bold important information and provide clear calls-to-action
+- **Include actions**: When appropriate, provide next steps or action buttons
+- **Consider timing**: Show banners at relevant moments in the user journey
+
+### Accessibility
+- **High contrast**: Ensure banner colors meet WCAG contrast requirements
+- **Screen readers**: Include appropriate ARIA labels and roles
+- **Keyboard navigation**: Make dismissible banners keyboard accessible
+- **Motion sensitivity**: Avoid auto-advancing or animated content
+
+### UX Considerations
+- **Limit quantity**: Don't overwhelm users with multiple simultaneous banners
+- **Smart timing**: Show contextually relevant messages at appropriate moments
+- **Respectful dismissal**: Always allow users to dismiss non-critical banners
+- **Mobile optimization**: Ensure banners work well on all screen sizes
+
+## API Reference
+
+### Properties
+- `type`: `'info' | 'success' | 'warning' | 'error'` - Banner variant type
+- `dismissible`: `boolean` - Whether the banner can be dismissed
+- `persistent`: `boolean` - Whether the banner persists until manually dismissed
+- `full-width`: `boolean` - Whether the banner spans full container width
+
+### Events
+- `elvt-banner-dismiss` - Fired when banner is dismissed
+- `elvt-banner-action` - Fired when action button is clicked
+
+### Slots
+- `default` - Banner content
+- `actions` - Action buttons or links
+
+## Changelog
+
+<ComponentChangelog componentName="banner" />

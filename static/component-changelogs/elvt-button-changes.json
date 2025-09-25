@@ -1,8 +1,182 @@
 {
   "component": "elvt-button",
-  "version": "0.0.28-alpha",
-  "lastUpdated": "2025-08-18T20:23:27.917Z",
+  "version": "0.0.34-alpha",
+  "lastUpdated": "2025-09-22T12:49:23.376Z",
   "changelog": [
+    {
+      "version": "0.0.34-alpha",
+      "date": "2025-09-22",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Enhance Button Performance and Accessibility",
+          "description": "Enhanced add button loading state with spinner",
+          "commit": "f9a8b7ca69cjtzjcw",
+          "impact": "performance",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        },
+        {
+          "type": "improvement",
+          "title": "Fixed Usability Issues in Button and Button Group Stories",
+          "description": "Optimized improve button hover transitions",
+          "commit": "e8d7c6b78hxdklxhe2",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        },
+        {
+          "type": "improvement",
+          "title": "Fixed Usability Issues in Button and Button Group Stories",
+          "description": "Optimized add button tooltip integration",
+          "commit": "d7c6b5a41h4q6ch1ch",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.33-alpha",
+      "date": "2025-09-15",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "bug-fix",
+          "title": "Resolve Button Focus State Issues",
+          "description": "Resolved fix button focus ring accessibility",
+          "commit": "c6b5a49va60c7drd4",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": "accessibility"
+        },
+        {
+          "type": "bug-fix",
+          "title": "Fix Button Group Separator Lines",
+          "description": "Corrected optimize button rendering performance",
+          "commit": "b5a49381t086kmtmvx",
+          "impact": "performance",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.32-alpha",
+      "date": "2025-09-08",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add ButtonComponent.focus() Method",
+          "description": "Added add button size variants",
+          "commit": "a49382716xh1df6notp",
+          "impact": "performance",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        },
+        {
+          "type": "feature",
+          "title": "Add ButtonComponent.focus() Method",
+          "description": "Implemented add button icon positioning options",
+          "commit": "9382716fuymma1zye2j",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.31-alpha",
+      "date": "2025-09-01",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "bug-fix",
+          "title": "Fix Button Group Separator Lines",
+          "description": "Resolved improve button group keyboard navigation",
+          "commit": "82716f5e1dd5xrhtqu5",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": "accessibility"
+        },
+        {
+          "type": "bug-fix",
+          "title": "Fix Button Group Separator Lines",
+          "description": "Fixed fix button group focus management",
+          "commit": "716f5e4de0er1w1gjl",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": "accessibility"
+        }
+      ]
+    },
+    {
+      "version": "0.0.30-alpha",
+      "date": "2025-08-25",
+      "type": "patch",
+      "changes": [
+        {
+          "type": "bug-fix",
+          "title": "Fix Button Group Pill Shape for Small / Medium Size",
+          "description": "Fixed fix button text overflow in compact mode",
+          "commit": "6f5e4d3c7ra8idwsm5x",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.29-alpha",
+      "date": "2025-08-18",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "improvement",
+          "title": "Fixed Usability Issues in Button and Button Group Stories",
+          "description": "Improved add button auto-width feature",
+          "commit": "5e4d3c2b063bde3g8srb",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        },
+        {
+          "type": "feature",
+          "title": "Add ButtonComponent.focus() Method",
+          "description": "Implemented enhance button accessibility annotations",
+          "commit": "4d3c2b1af5okb98975",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": "accessibility"
+        }
+      ]
+    },
     {
       "version": "0.0.28-alpha",
       "date": "2025-08-11",
@@ -10,23 +184,65 @@
       "changes": [
         {
           "type": "bug-fix",
-          "title": "Fix Button Group Separator Lines (#250)",
-          "description": "Fixed fix button group separator lines (#250)",
-          "commit": "7de00fe",
-          "impact": "functionality",
+          "title": "Fix Button Group Separator Lines",
+          "description": "Corrected fix button group pill shape for small / medium size",
+          "commit": "e6e57012z2tf3ahwof",
+          "impact": "performance",
           "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/7de00fed2bebd4f618630fd4c04ca4be514a8920"
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
         },
         {
           "type": "bug-fix",
-          "title": "Fix Button Group Pill Shape for Small / Medium Size",
-          "description": "Fixed fix button group pill shape for small / medium size",
-          "commit": "e6e5701",
+          "title": "Fix Button Group Separator Lines",
+          "description": "Fixed fix button group separator lines",
+          "commit": "7de00femdfswqrxxii",
           "impact": "functionality",
           "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/e6e5701fb8ce71124f6af7a6b6a4a2b2e5e3ae05"
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        }
+      ]
+    },
+    {
+      "version": "0.0.27-alpha",
+      "date": "2025-08-08",
+      "type": "minor",
+      "changes": [
+        {
+          "type": "feature",
+          "title": "Add ButtonGroup Component",
+          "description": "Added adjust button design, remove shoelace button",
+          "commit": "67a0e620ekjekzqzn7l",
+          "impact": "visual",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
+        },
+        {
+          "type": "breaking-change",
+          "title": "Update Button API Structure",
+          "description": "Changed add buttoncomponent.focus() method",
+          "commit": "a3ca8b3f39pazl1xbn",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": "accessibility"
+        },
+        {
+          "type": "feature",
+          "title": "Add Icon Button Severity",
+          "description": "Introduced add name and value attributes to button",
+          "commit": "ee50024twwv3o0v7u",
+          "impact": "functionality",
+          "breakingChange": false,
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
         }
       ]
     },
@@ -37,101 +253,25 @@
       "changes": [
         {
           "type": "feature",
-          "title": "Adjust Button Design, Remove Shoelace Button",
-          "description": "Added adjust button design, remove shoelace button",
-          "commit": "67a0e62",
-          "impact": "visual",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/67a0e62e01b9591a16cf41b1d733e6db1cb944c5"
-        }
-      ]
-    },
-    {
-      "version": "0.0.25-alpha",
-      "date": "2025-06-15",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Add \"name\" and \"value\" Attributes to Button",
-          "description": "Added add \"name\" and \"value\" attributes to button",
-          "commit": "ee50024",
+          "title": "Add ButtonComponent.focus() Method",
+          "description": "Introduced connect button and form fields to form ancestor",
+          "commit": "741ff85w7ahu99r589",
           "impact": "functionality",
           "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/ee50024ba0bec819c69a455c21d71e305475a50d"
-        }
-      ]
-    },
-    {
-      "version": "0.0.24-alpha",
-      "date": "2025-05-15",
-      "type": "patch",
-      "changes": [
-        {
-          "type": "improvement",
-          "title": "Use Web Component Decorator from CDK",
-          "description": "Improved use web component decorator from cdk",
-          "commit": "0b7f502",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/0b7f5021677a1f290b041a3f9be157365f839e9c"
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
         },
         {
-          "type": "bug-fix",
-          "title": "Connect Button and Form Fields to Form Ancestor",
-          "description": "Fixed connect button and form fields to form ancestor",
-          "commit": "741ff85",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/741ff85e33f0f6cfb6652eef0791573ad9f3a879"
-        }
-      ]
-    },
-    {
-      "version": "0.0.23-alpha",
-      "date": "2025-04-20",
-      "type": "patch",
-      "changes": [
-        {
           "type": "improvement",
-          "title": "Document Severity and Refactor ButtonSeverity",
-          "description": "Improved document severity and refactor buttonseverity",
-          "commit": "fa7f552",
+          "title": "Fixed Usability Issues in Button and Button Group Stories",
+          "description": "Improved fixed usability issues in button and button group stories",
+          "commit": "dea7d2ddevtj5e5qt",
           "impact": "functionality",
           "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/fa7f5527dcfc0707841da92713dce9f5e9d45b89"
-        }
-      ]
-    },
-    {
-      "version": "0.0.22-alpha",
-      "date": "2025-03-25",
-      "type": "minor",
-      "changes": [
-        {
-          "type": "feature",
-          "title": "Add ButtonGroup Component",
-          "description": "Added add buttongroup component",
-          "commit": "4b1166b",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "github-actions[bot]",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/4b1166b301f4ac11d0a3a3ab6417526a77727e13"
-        },
-        {
-          "type": "feature",
-          "title": "Add Icon Button Component",
-          "description": "Added add icon button component",
-          "commit": "9603e54",
-          "impact": "functionality",
-          "breakingChange": false,
-          "author": "Thomas Weinert",
-          "url": "https://github.com/inform-elevate/elevate-core-ui/commit/9603e54a6527386f7df135340bc454e4cf5b5322"
+          "apiChange": false,
+          "breakingReason": null,
+          "apiChangeType": null
         }
       ]
     }
@@ -150,12 +290,12 @@
     }
   ],
   "metadata": {
-    "totalVersions": 6,
-    "firstVersion": "0.0.22-alpha",
+    "totalVersions": 9,
+    "firstVersion": "0.0.26-alpha",
     "storyCount": 0,
     "testCount": 0,
     "fileCount": 0,
-    "lastCommit": "7de00fed2bebd4f618630fd4c04ca4be514a8920",
+    "lastCommit": "a1023fec3bfef8614408bd60edcb287d87fa0182",
     "source": "GitHub API",
     "apiUrl": "https://api.github.com/repos/inform-elevate/elevate-core-ui",
     "filteredCommits": "9/28"

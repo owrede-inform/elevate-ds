@@ -39,7 +39,7 @@
     "@docusaurus/theme-common": "^3.8.0",
     "@docusaurus/theme-classic": "^3.8.0",
     "@docusaurus/utils-validation": "^3.8.0",
-    "@inform-elevate/elevate-core-ui": "^0.0.27-alpha",
+    "@inform-elevate/elevate-core-ui": "^0.0.35-alpha",
     "@iconify/react": "^6.0.0",
     "clsx": "^2.0.0"
   },

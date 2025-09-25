@@ -48,18 +48,22 @@ export interface ComponentChangelogData {
 }
 
 interface ComponentChangelogProps {
-  component: string;
+  component?: string;
+  componentName?: string; // Support both prop names for backward compatibility
   maxVersions?: number;
   showMetadata?: boolean;
   compactMode?: boolean;
 }
 
 const ComponentChangelog: React.FC<ComponentChangelogProps> = ({
-  component,
+  component: componentProp,
+  componentName,
   maxVersions = 3,
   showMetadata = true,
   compactMode = false
 }) => {
+  // Support both component and componentName props
+  const component = componentProp || componentName;
   const baseUrl = useBaseUrl('/');
   const [changelogData, setChangelogData] = useState<ComponentChangelogData | null>(null);
   const [loading, setLoading] = useState(false);
@@ -67,13 +71,20 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = ({
   const [expandedVersions, setExpandedVersions] = useState<Set<string>>(new Set());
 
   React.useEffect(() => {
+    if (!component) {
+      setError('No component name provided');
+      return;
+    }
+
     const loadChangelogData = async () => {
       setLoading(true);
       setError(null);
       
       try {
         // Try to load the changelog JSON file from static directory
-        const response = await fetch(`${baseUrl}component-changelogs/${component}-changes.json`);
+        // Handle elvt- prefix for component names
+        const fileName = component?.startsWith('elvt-') ? component : `elvt-${component}`;
+        const response = await fetch(`${baseUrl}component-changelogs/${fileName}-changes.json`);
         
         if (!response.ok) {
           throw new Error(`Changelog not found for ${component}`);
@@ -100,7 +111,7 @@ const ComponentChangelog: React.FC<ComponentChangelogProps> = ({
     };
 
     loadChangelogData();
-  }, [component]);
+  }, [component, baseUrl]);
 
   const toggleVersionExpansion = (version: string) => {
     const newExpanded = new Set(expandedVersions);
