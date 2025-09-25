@@ -166,28 +166,7 @@ export default function Root({ children }: { children: React.ReactNode }) {
       console.log(`Applied ${themeClass} to ${elevateComponents.length} ELEVATE components`);
     };
 
-    // Handle sidebar margin for main wrapper
-    const updateSidebarMargin = () => {
-      const mainWrapper = document.querySelector('.main-wrapper');
-      const sidebarContainer = document.querySelector('.theme-doc-sidebar-container');
-
-      if (mainWrapper) {
-        // Apply margin when sidebar exists (for doc pages, the sidebar is fixed positioned)
-        // The fixed sidebar needs margin to prevent content overlap
-        const isDocPage = document.querySelector('.docRoot_p297, .docMainContainer_bWxl, .theme-doc-sidebar');
-
-        if (sidebarContainer && isDocPage) {
-          // Doc pages with sidebar need margin to avoid overlap with fixed sidebar
-          mainWrapper.classList.add('with-sidebar');
-        } else {
-          // Homepage and pages without sidebars don't need margin
-          mainWrapper.classList.remove('with-sidebar');
-        }
-      }
-    };
-
-    // Apply sidebar margin immediately on page load
-    updateSidebarMargin();
+    // Let Docusaurus handle sidebar layout naturally
 
     // Apply theme classes immediately
     applyThemeToComponents();
@@ -224,13 +203,7 @@ export default function Root({ children }: { children: React.ReactNode }) {
             if (elevateComponents?.length > 0) {
               applyThemeToComponents();
             }
-            // Check for sidebar changes (navigation between pages)
-            if (element.classList?.contains('theme-doc-sidebar-container') ||
-                element.classList?.contains('main-wrapper') ||
-                element.querySelector?.('.theme-doc-sidebar-container') ||
-                element.querySelector?.('.main-wrapper')) {
-              updateSidebarMargin();
-            }
+            // Sidebar layout handled by Docusaurus automatically
           }
         });
       });

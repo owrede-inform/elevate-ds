@@ -656,54 +656,22 @@ html body[data-theme='dark'] .hero__subtitle {
   color: var(--elvt-alias-content-text-default, #d5d9e1);
 }
 
-/* Sidebar width reduction - 80% of default */
+/* Clean sidebar approach - Let Docusaurus handle layout naturally */
 :root {
-  --doc-sidebar-width: 240px; /* 80% of default ~300px */
-  --ifm-sidebar-width: 240px; /* Override Docusaurus default sidebar width */
+  --doc-sidebar-width: 240px;
+  --ifm-sidebar-width: 240px;
 }
 
-/* Sidebar dark mode */
+/* Simple sidebar styling - work with Docusaurus, not against it */
 .theme-doc-sidebar-container {
   background: var(--ifm-background-surface-color);
   border-right: 1px solid var(--elvt-alias-layout-border-prominent);
+  width: var(--doc-sidebar-width);
 }
 
 [data-theme='dark'] .theme-doc-sidebar-container {
   background: var(--elvt-primitives-color-gray-1000, #111217);
   border-right: 1px solid var(--elvt-alias-layout-border-prominent);
-}
-
-/* Apply sidebar width reduction only on desktop */
-@media (min-width: 997px) {
-  .theme-doc-sidebar-container {
-    width: var(--doc-sidebar-width);
-  }
-  
-  [data-theme='dark'] .theme-doc-sidebar-container {
-    width: var(--doc-sidebar-width);
-  }
-  
-  /* Fix sidebar content positioning to avoid clipping under navbar - consistent positioning */
-  .theme-doc-sidebar {
-    height: calc(100vh - var(--ifm-navbar-height, 60px));
-    position: fixed !important;
-    top: var(--ifm-navbar-height, 60px);
-    left: 0;
-    width: var(--doc-sidebar-width);
-    z-index: 10;
-    overflow-y: auto;
-  }
-  
-  /* Ensure swizzled sidebar components don't override positioning */
-  .theme-doc-sidebar-container {
-    position: relative;
-    top: 0;
-  }
-  
-  /* Adjust main content to account for fixed sidebar - when layout has sidebar */
-  .main-wrapper.with-sidebar {
-    margin-left: var(--doc-sidebar-width, 240px) !important;
-  }
 }
 
 /* Sidebar menu items - lighter color for better readability */
@@ -1400,44 +1368,7 @@ html body header.navbar {
   max-height: 60px;
 }
 
-/* Sidebar positioning fix for production builds using higher specificity */
-@media (min-width: 997px) {
-  html body .theme-doc-sidebar {
-    top: 60px;
-    height: calc(100vh - 60px);
-    position: fixed !important; /* Use fixed positioning for better control */
-    left: 0;
-    width: var(--doc-sidebar-width, 240px);
-    z-index: 10; /* Ensure it stays above content */
-    overflow-y: auto; /* Make sidebar content scrollable if needed */
-  }
-
-  /* Sidebar margin handled by conditional class in .main-wrapper.with-sidebar rule above */
-}
-
-/* Fix sidebar container negative margin that causes overlap with navbar */
-html body .theme-doc-sidebar-container {
-  position: relative;
-  top: 0;
-  margin-top: 0 !important; /* Override Docusaurus negative margin */
-}
-
-/* Fix sidebar text color for better readability using ELEVATE tokens - maximum specificity */
-html body .theme-doc-sidebar-item-link {
-  color: var(--elvt-alias-content-text-secondary, #5d6679) !important;
-}
-
-html body .theme-doc-sidebar-item-link:hover {
-  color: var(--elvt-alias-content-text-primary, var(--ifm-color-primary)) !important;
-}
-
-html body [data-theme='dark'] .theme-doc-sidebar-item-link {
-  color: var(--elvt-alias-content-text-secondary, #bec3cd) !important;
-}
-
-html body [data-theme='dark'] .theme-doc-sidebar-item-link:hover {
-  color: var(--elvt-alias-content-text-primary, var(--ifm-color-primary)) !important;
-}
+/* Sidebar positioning - let Docusaurus handle it naturally */
 
 /* Navbar Search Margin Fix - Higher specificity for production builds */
 html body .navbar__search,
