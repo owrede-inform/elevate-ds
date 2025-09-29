@@ -35,15 +35,15 @@ export default function Root({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     // console.log('🚀 Root useEffect triggered');
 
-    // Only run in browser environment
-    if (typeof window === 'undefined') {
-      // console.log('❌ Window undefined, skipping ELEVATE initialization');
+    // Only run in browser environment - critical for SSR compatibility
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+      // console.log('❌ Window/document undefined, skipping ELEVATE initialization');
       return;
     }
 
     // console.log('✅ Browser environment detected, starting ELEVATE initialization');
 
-    // Initialize ELEVATE components asynchronously
+    // Initialize ELEVATE components asynchronously - browser-only
     const initializeElevate = async () => {
       // console.log('🔧 Starting ELEVATE initialization...');
       try {
@@ -51,11 +51,20 @@ export default function Root({ children }: { children: React.ReactNode }) {
         // console.log('📦 Attempting ELEVATE Core UI import...');
         let elevateModule: any;
         try {
-          elevateModule = await import('@inform-elevate/elevate-core-ui');
+          // Use webpack magic comment for better chunk handling
+          elevateModule = await import(
+            /* webpackChunkName: "elevate-core-ui" */
+            /* webpackMode: "lazy" */
+            '@inform-elevate/elevate-core-ui'
+          );
           // console.log('✅ ELEVATE Core UI components imported successfully', elevateModule);
         } catch (error) {
           console.error('❌ ELEVATE Core UI import failed:', error);
-          throw error; // Re-throw to be caught by outer try-catch
+          // Don't throw in SSR/build environment, gracefully degrade
+          if (typeof window !== 'undefined') {
+            console.warn('🚨 ELEVATE icons will not work without elevate-core-ui');
+          }
+          return; // Exit early if core UI can't load
         }
 
         // Wait a moment for components to register
@@ -67,16 +76,25 @@ export default function Root({ children }: { children: React.ReactNode }) {
         let elevateIconsModule: any;
         try {
           // console.log('📦 Importing ELEVATE icons package...');
-          elevateIconsModule = await import('@inform-elevate/elevate-icons');
+          elevateIconsModule = await import(
+            /* webpackChunkName: "elevate-icons" */
+            /* webpackMode: "lazy" */
+            '@inform-elevate/elevate-icons'
+          );
           // console.log('✅ ELEVATE icons imported successfully', elevateIconsModule);
         } catch (error) {
           console.error('❌ ELEVATE icons import failed:', error);
+          // Non-critical error - icons can still work without this package
         }
 
         // Set up MDI icon resolver
         try {
           // Import MDI icons
-          const mdi = await import('@mdi/js');
+          const mdi = await import(
+            /* webpackChunkName: "mdi-icons" */
+            /* webpackMode: "lazy" */
+            '@mdi/js'
+          );
 
           // Use the global iconRegistry from ELEVATE Core UI
           const globalIconRegistry = elevateModule.iconRegistry;
