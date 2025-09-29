@@ -58,7 +58,10 @@
       "Bash(export:*)",
       "Bash(echo $PATH)",
       "Read(//c/Users/owrede/.claude/**)",
-      "Bash(cross-env:*)"
+      "Bash(cross-env:*)",
+      "Bash(start http://localhost:3000/design/colors)",
+      "mcp__sequential-thinking__sequentialthinking",
+      "Bash(dir \"C:\\Users\\owrede\\WebstormProjects\\elevate-ds\\tests\\screenshots\"\")"
     ],
     "deny": [],
     "ask": [],

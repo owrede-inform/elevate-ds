@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
@@ -24,8 +24,68 @@ interface ComponentTableProps {
   statusFilter?: string;
 }
 
-// Create React wrapper for ELEVATE badge component
-const ElvtBadge = (props: any) => React.createElement('elvt-badge', props, props.children);
+// Create React wrapper for ELEVATE badge component with theme class
+const ElvtBadge: React.FC<any> = (props) => {
+  const [themeClass, setThemeClass] = useState('elvt-theme-light');
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const updateTheme = () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      setThemeClass(isDark ? 'elvt-theme-dark' : 'elvt-theme-light');
+    };
+
+    // Set initial theme
+    updateTheme();
+
+    // Watch for theme changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+          updateTheme();
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const badgeRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (badgeRef.current) {
+      // Remove existing theme classes
+      badgeRef.current.classList.remove('elvt-theme-light', 'elvt-theme-dark');
+      // Add current theme class
+      badgeRef.current.classList.add(themeClass);
+
+      // Force reflow to ensure immediate styling
+      badgeRef.current.offsetHeight;
+
+      // Additional fallback: retry theme application after a short delay
+      setTimeout(() => {
+        if (badgeRef.current) {
+          badgeRef.current.classList.remove('elvt-theme-light', 'elvt-theme-dark');
+          badgeRef.current.classList.add(themeClass);
+          badgeRef.current.offsetHeight; // Force another reflow
+        }
+      }, 100);
+    }
+  }, [themeClass]);
+
+  return React.createElement('elvt-badge', {
+    ...props,
+    ref: badgeRef,
+    shape: 'pill',
+    className: `${props.className || ''} ${themeClass}`.trim()
+  }, props.children);
+};
 
 const ComponentTable: React.FC<ComponentTableProps> = ({
   statusFilter
@@ -169,11 +229,12 @@ const ComponentTable: React.FC<ComponentTableProps> = ({
           {filteredComponents.map((component) => (
             <tr key={component.name}>
               <td>
-                <Link 
+                <Link
                   to={`/docs/components/${component.displayName}`}
                   className={styles.componentLink}
+                  style={{ fontWeight: 'bold', textDecoration: 'none' }}
                 >
-                  <code>{component.name}</code>
+                  {component.name}
                 </Link>
               </td>
               <td>
@@ -182,14 +243,14 @@ const ComponentTable: React.FC<ComponentTableProps> = ({
                 </ElvtBadge>
               </td>
               <td>
-                <code>{component.since}</code>
+                {component.since}
               </td>
               <td>
-                <code>{component.lastChangeVersion}</code>
+                {component.lastChangeVersion}
               </td>
               <td>
-                {component.lastChangeDate ? 
-                  new Date(component.lastChangeDate).toLocaleDateString() : 
+                {component.lastChangeDate ?
+                  component.lastChangeDate :
                   '-'
                 }
               </td>

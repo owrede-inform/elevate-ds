@@ -236,13 +236,37 @@ export default function ComponentShowcase({
     }
   };
   
+  // Handle icon resolution after content is injected
+  useEffect(() => {
+    if (sanitizedFileContent && previewRef.current) {
+      // Wait a moment for the DOM to settle
+      setTimeout(() => {
+        // Find all elvt-icon elements in the preview
+        const iconElements = previewRef.current?.querySelectorAll('elvt-icon[icon^="mdi:"]');
+        if (iconElements && iconElements.length > 0) {
+          // console.log(`🔍 ComponentShowcase: Found ${iconElements.length} elvt-icon elements`);
+
+          // Force a re-render/update of icon elements by triggering a property change
+          iconElements.forEach((iconEl: Element) => {
+            const icon = iconEl.getAttribute('icon');
+            if (icon) {
+              // Trigger re-evaluation by setting the same value again
+              // This should cause the icon component to re-parse and resolve the icon
+              (iconEl as any).icon = icon;
+            }
+          });
+        }
+      }, 100);
+    }
+  }, [sanitizedFileContent]);
+
   // Get framework imports if needed
-  const imports = componentNames.length > 0 
-    ? getFrameworkImports(selectedFramework, componentNames) 
+  const imports = componentNames.length > 0
+    ? getFrameworkImports(selectedFramework, componentNames)
     : '';
-    
-  const displayCode = imports 
-    ? `${imports}\n\n${transformedCode}` 
+
+  const displayCode = imports
+    ? `${imports}\n\n${transformedCode}`
     : transformedCode;
 
   return (

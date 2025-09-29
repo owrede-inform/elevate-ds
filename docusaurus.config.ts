@@ -34,7 +34,26 @@ const config: Config = {
   // GitHub pages deployment config handled above in metadata section
 
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
+
+  // Markdown hooks configuration (migrated from deprecated onBrokenMarkdownLinks)
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
+
+  // Client modules to run on the client side - REMOVED: not working
+  // clientModules: [
+  //   require.resolve('./src/elevate-components.js'),
+  // ],
+
+  // Add scripts directly to HTML head
+  scripts: [
+    {
+      src: '/elevate-init.js',
+      async: true,
+    },
+  ],
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you

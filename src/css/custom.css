@@ -21,6 +21,21 @@ elvt-icon {
   justify-content: center;
 }
 
+/* Fix icon visibility in ComponentShowcase - ensure proper color inheritance */
+.componentShowcase elvt-icon,
+.preview elvt-icon,
+[class*="componentShowcase"] elvt-icon,
+[class*="preview"] elvt-icon {
+  color: var(--elvt-alias-content-text-default, #3d4253);
+}
+
+[data-theme='dark'] .componentShowcase elvt-icon,
+[data-theme='dark'] .preview elvt-icon,
+[data-theme='dark'] [class*="componentShowcase"] elvt-icon,
+[data-theme='dark'] [class*="preview"] elvt-icon {
+  color: var(--elvt-alias-content-text-default, #d5d9e1);
+}
+
 /* ELEVATE Design System Integration with Alias Tokens */
 :root {
   /* Docusaurus Core Variables - Fix for production builds */

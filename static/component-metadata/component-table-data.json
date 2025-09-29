@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-08-18T20:51:43.970Z",
+  "generatedAt": "2025-09-26T17:50:48.637Z",
   "source": "GitHub API",
   "components": [
     {
@@ -27,8 +27,8 @@
       "displayName": "badge",
       "status": "Complete",
       "since": "0.0.1",
-      "lastChangeVersion": "v0.0.22-alpha",
-      "lastChangeDate": "2025-06-25",
+      "lastChangeVersion": "v0.0.31-alpha",
+      "lastChangeDate": "2025-09-05",
       "description": "A badge component that is used to draw attention and display statuses or counts.",
       "path": "src/components/badge"
     },
@@ -57,8 +57,8 @@
       "displayName": "button",
       "status": "Complete",
       "since": "0.0.3",
-      "lastChangeVersion": "v0.0.27-alpha",
-      "lastChangeDate": "2025-08-08",
+      "lastChangeVersion": "v0.0.30-alpha",
+      "lastChangeDate": "2025-08-29",
       "description": "Buttons represent actions that are available to the user.",
       "path": "src/components/buttons/button"
     },
@@ -77,8 +77,8 @@
       "displayName": "card",
       "status": "Unstable",
       "since": "0.0.2",
-      "lastChangeVersion": "v0.0.22-alpha",
-      "lastChangeDate": "2025-06-25",
+      "lastChangeVersion": "v0.0.33-alpha",
+      "lastChangeDate": "2025-09-12",
       "description": "A card is a visual container for related subjects. The content of a",
       "path": "src/components/card"
     },
@@ -97,8 +97,8 @@
       "displayName": "chip",
       "status": "Unstable",
       "since": "0.0.12",
-      "lastChangeVersion": "v0.0.16-alpha",
-      "lastChangeDate": "2025-06-04",
+      "lastChangeVersion": "v0.0.28-alpha",
+      "lastChangeDate": "2025-08-11",
       "description": "A chip component is used as labels to organize things or to indicate a selection.",
       "path": "src/components/chip"
     },
@@ -107,8 +107,8 @@
       "displayName": "divider",
       "status": "Stable",
       "since": "0.0.3",
-      "lastChangeVersion": "v0.0.24-alpha",
-      "lastChangeDate": "2025-07-02",
+      "lastChangeVersion": "0.0.28-alpha",
+      "lastChangeDate": "2025-09-26T17:50:26.251Z",
       "description": "The divider acts as a separator in a stack of items. By default",
       "path": "src/components/divider"
     },
@@ -117,10 +117,20 @@
       "displayName": "dropdown",
       "status": "Preliminary",
       "since": "0.0.1",
-      "lastChangeVersion": "v0.0.28-alpha",
-      "lastChangeDate": "2025-08-11",
+      "lastChangeVersion": "0.0.28-alpha",
+      "lastChangeDate": "2025-09-26T17:50:26.756Z",
       "description": "A dropdown uses a trigger component to show an container with additional content",
       "path": "src/components/dropdown"
+    },
+    {
+      "name": "elvt-dropzone",
+      "displayName": "dropzone",
+      "status": "unstable",
+      "since": "0.0.29",
+      "lastChangeVersion": "0.0.28-alpha",
+      "lastChangeDate": "2025-09-26T17:50:27.270Z",
+      "description": "A file drop zone",
+      "path": "src/components/dropzone"
     },
     {
       "name": "elvt-expansion-panel",
@@ -128,7 +138,7 @@
       "status": "Complete",
       "since": "0.0.8",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:27.720Z",
+      "lastChangeDate": "2025-09-26T17:50:28.277Z",
       "description": "Provides an expandable details view.",
       "path": "src/components/expansion-panels/expansion-panel"
     },
@@ -137,8 +147,8 @@
       "displayName": "expansion-panel-group",
       "status": "Complete",
       "since": "0.0.8",
-      "lastChangeVersion": "v0.0.15-alpha",
-      "lastChangeDate": "2025-05-23",
+      "lastChangeVersion": "0.0.28-alpha",
+      "lastChangeDate": "2025-09-26T17:50:27.772Z",
       "description": "Provides a grouping to behave as an accordion for the expansion panels.",
       "path": "src/components/expansion-panels/expansion-panel-group"
     },
@@ -148,7 +158,7 @@
       "status": "Unstable",
       "since": "0.0.22",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:28.223Z",
+      "lastChangeDate": "2025-09-26T17:50:28.786Z",
       "description": "Outer frame of a form field, with the label and help text.",
       "path": "src/components/fields/field"
     },
@@ -158,7 +168,7 @@
       "status": "Complete",
       "since": "0.0.1",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:29.252Z",
+      "lastChangeDate": "2025-09-26T17:50:29.795Z",
       "description": "Display an icon",
       "path": "src/components/icon"
     },
@@ -168,7 +178,7 @@
       "status": "Unstable",
       "since": "0.0.3",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:28.739Z",
+      "lastChangeDate": "2025-09-26T17:50:29.290Z",
       "description": "A clickable icon",
       "path": "src/components/icon-button"
     },
@@ -178,7 +188,7 @@
       "status": "Experimental",
       "since": "0.0.14",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:29.755Z",
+      "lastChangeDate": "2025-09-26T17:50:30.297Z",
       "description": "Attach an indicator to the enclosed component",
       "path": "src/components/indicator"
     },
@@ -188,7 +198,7 @@
       "status": "Preliminary",
       "since": "0.0.1",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:30.256Z",
+      "lastChangeDate": "2025-09-26T17:50:30.805Z",
       "description": "An input field",
       "path": "src/components/input"
     },
@@ -198,17 +208,17 @@
       "status": "Unstable",
       "since": "0.0.16",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:30.758Z",
+      "lastChangeDate": "2025-09-26T17:50:31.317Z",
       "description": "The lightbox fill the whole window with a backdrop and displays",
       "path": "src/components/lightbox"
     },
     {
       "name": "elvt-link",
       "displayName": "link",
-      "status": "complete",
+      "status": "Complete",
       "since": "0.0.5",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:31.260Z",
+      "lastChangeDate": "2025-09-26T17:50:31.825Z",
       "description": "A link that redirects to a URL if clicked",
       "path": "src/components/link"
     },
@@ -218,19 +228,29 @@
       "status": "Preliminary",
       "since": "0.0.1",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:32.282Z",
+      "lastChangeDate": "2025-09-26T17:50:33.344Z",
       "description": "Menus provide a list of options for the user to choose from.",
       "path": "src/components/menus/menu"
     },
     {
       "name": "elvt-menu-item",
       "displayName": "menu-item",
-      "status": "Preliminary",
+      "status": "Unstable",
       "since": "0.0.1",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:31.769Z",
+      "lastChangeDate": "2025-09-26T17:50:32.335Z",
       "description": "Menu-Items provide a list of options for the user to choose from.",
       "path": "src/components/menus/menu-item"
+    },
+    {
+      "name": "elvt-menu-label",
+      "displayName": "menu-label",
+      "status": "Unstable",
+      "since": "0.0.29",
+      "lastChangeVersion": "0.0.28-alpha",
+      "lastChangeDate": "2025-09-26T17:50:32.836Z",
+      "description": "A label inside a menu",
+      "path": "src/components/menus/menu-label"
     },
     {
       "name": "elvt-mutation-observer",
@@ -238,38 +258,68 @@
       "status": "Stable",
       "since": "0.0.14",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:32.795Z",
+      "lastChangeDate": "2025-09-26T17:50:33.858Z",
       "description": "Trigger an event for DOM changes.",
       "path": "src/components/mutation-observer"
     },
     {
+      "name": "elvt-navigation",
+      "displayName": "navigation",
+      "status": "Unstable",
+      "since": "0.33.0",
+      "lastChangeVersion": "0.0.28-alpha",
+      "lastChangeDate": "2025-09-26T17:50:35.391Z",
+      "description": "Define a navigation with nested navigation items.",
+      "path": "src/components/navigations/navigation"
+    },
+    {
+      "name": "elvt-navigation-item",
+      "displayName": "navigation-item",
+      "status": "Unknown",
+      "since": "Unknown",
+      "lastChangeVersion": "0.0.28-alpha",
+      "lastChangeDate": "2025-09-26T17:50:34.375Z",
+      "description": "elvt-navigation-item component",
+      "path": "src/components/navigations/navigation-item"
+    },
+    {
+      "name": "elvt-navigation-label",
+      "displayName": "navigation-label",
+      "status": "Unknown",
+      "since": "Unknown",
+      "lastChangeVersion": "0.0.28-alpha",
+      "lastChangeDate": "2025-09-26T17:50:34.889Z",
+      "description": "elvt-navigation-label component",
+      "path": "src/components/navigations/navigation-label"
+    },
+    {
       "name": "elvt-notification",
       "displayName": "notification",
-      "status": "Preliminary",
+      "status": "Unstable",
       "since": "0.0.11",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:33.297Z",
+      "lastChangeDate": "2025-09-26T17:50:35.901Z",
       "description": "Used to display important messages inline or as toast notifications.",
       "path": "src/components/notification"
     },
     {
       "name": "elvt-paginator",
       "displayName": "paginator",
-      "status": "Preliminary",
+      "status": "Unstable",
       "since": "0.0.7",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:33.806Z",
+      "lastChangeDate": "2025-09-26T17:50:36.408Z",
       "description": "Paging Control Bar",
       "path": "src/components/paginator"
     },
     {
       "name": "elvt-popup",
       "displayName": "popup",
-      "status": "Unknown",
-      "since": "Unknown",
+      "status": "Unstable",
+      "since": "0.0.28",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:34.311Z",
-      "description": "elvt-popup component",
+      "lastChangeDate": "2025-09-26T17:50:36.925Z",
+      "description": "A component that position a content as a popup next to an anchor. This component is used",
       "path": "src/components/popup"
     },
     {
@@ -278,7 +328,7 @@
       "status": "Preliminary",
       "since": "0.0.7",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:34.813Z",
+      "lastChangeDate": "2025-09-26T17:50:37.433Z",
       "description": "Show the progress of an ongoing operation.",
       "path": "src/components/progress"
     },
@@ -288,7 +338,7 @@
       "status": "Complete",
       "since": "0.0.21",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:35.821Z",
+      "lastChangeDate": "2025-09-26T17:50:38.457Z",
       "description": "A radio component that allows the user to select a single option from a group.",
       "path": "src/components/radios/radio"
     },
@@ -298,7 +348,7 @@
       "status": "Complete",
       "since": "0.0.1",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:35.315Z",
+      "lastChangeDate": "2025-09-26T17:50:37.942Z",
       "description": "A radio component that allows the user to select a single option from a group.",
       "path": "src/components/radios/radio-group"
     },
@@ -308,19 +358,39 @@
       "status": "Stable",
       "since": "0.0.14",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:36.324Z",
+      "lastChangeDate": "2025-09-26T17:50:38.966Z",
       "description": "Triggers a resize event if its size changes.",
       "path": "src/components/resize-observer"
     },
     {
       "name": "elvt-select",
       "displayName": "select",
-      "status": "Preliminary",
-      "since": "0.0.14",
+      "status": "Unstable",
+      "since": "0.0.34",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:36.827Z",
-      "description": "A select field",
-      "path": "src/components/select"
+      "lastChangeDate": "2025-09-26T17:50:40.490Z",
+      "description": "A select field, that allows you to choose options from a menu",
+      "path": "src/components/selects/select"
+    },
+    {
+      "name": "elvt-select-option",
+      "displayName": "select-option",
+      "status": "Unknown",
+      "since": "Unknown",
+      "lastChangeVersion": "0.0.28-alpha",
+      "lastChangeDate": "2025-09-26T17:50:39.980Z",
+      "description": "elvt-select-option component",
+      "path": "src/components/selects/select-option"
+    },
+    {
+      "name": "elvt-select-option-group",
+      "displayName": "select-option-group",
+      "status": "Unknown",
+      "since": "Unknown",
+      "lastChangeVersion": "0.0.28-alpha",
+      "lastChangeDate": "2025-09-26T17:50:39.474Z",
+      "description": "elvt-select-option-group component",
+      "path": "src/components/selects/select-option-group"
     },
     {
       "name": "elvt-skeleton",
@@ -328,7 +398,7 @@
       "status": "Preliminary",
       "since": "0.0.1",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:37.340Z",
+      "lastChangeDate": "2025-09-26T17:50:41.007Z",
       "description": "Skeletons are used to provide a visual representation of where content will eventually load.",
       "path": "src/components/skeleton"
     },
@@ -338,9 +408,29 @@
       "status": "Unstable",
       "since": "0.0.1",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:37.849Z",
+      "lastChangeDate": "2025-09-26T17:50:41.517Z",
       "description": "A container for a stack of child elements.",
       "path": "src/components/stack"
+    },
+    {
+      "name": "elvt-stepper",
+      "displayName": "stepper",
+      "status": "Unknown",
+      "since": "Unknown",
+      "lastChangeVersion": "0.0.28-alpha",
+      "lastChangeDate": "2025-09-26T17:50:42.534Z",
+      "description": "elvt-stepper component",
+      "path": "src/components/stepper/stepper"
+    },
+    {
+      "name": "elvt-stepper-item",
+      "displayName": "stepper-item",
+      "status": "Unknown",
+      "since": "Unknown",
+      "lastChangeVersion": "0.0.28-alpha",
+      "lastChangeDate": "2025-09-26T17:50:42.024Z",
+      "description": "elvt-stepper-item component",
+      "path": "src/components/stepper/stepper-item"
     },
     {
       "name": "elvt-switch",
@@ -348,7 +438,7 @@
       "status": "Stable",
       "since": "0.0.19",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:38.358Z",
+      "lastChangeDate": "2025-09-26T17:50:43.036Z",
       "description": "Switches allow the user to toggle an option on or off.",
       "path": "src/components/switch"
     },
@@ -358,7 +448,7 @@
       "status": "Complete",
       "since": "0.0.1",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:41.925Z",
+      "lastChangeDate": "2025-09-26T17:50:46.597Z",
       "description": "A tab component that can be used inside tab groups to display",
       "path": "src/components/tabs/tab"
     },
@@ -368,7 +458,7 @@
       "status": "Complete",
       "since": "0.0.1",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:40.903Z",
+      "lastChangeDate": "2025-09-26T17:50:45.578Z",
       "description": "A control that renders a number of tabs (`elvt-tab`) and the content of the active tab (`elvt-tab-panel`).",
       "path": "src/components/tabs/tab-group"
     },
@@ -378,7 +468,7 @@
       "status": "Complete",
       "since": "0.0.1",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:41.411Z",
+      "lastChangeDate": "2025-09-26T17:50:46.092Z",
       "description": "A tab panel component that wraps the content of a single tab",
       "path": "src/components/tabs/tab-panel"
     },
@@ -388,7 +478,7 @@
       "status": "Experimental",
       "since": "0.0.14",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:40.397Z",
+      "lastChangeDate": "2025-09-26T17:50:45.069Z",
       "description": "Table can be defined in two ways. You can create a table using the `elvt-table-*` elements or",
       "path": "src/components/tables/table"
     },
@@ -398,7 +488,7 @@
       "status": "Experimental",
       "since": "0.0.20",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:38.868Z",
+      "lastChangeDate": "2025-09-26T17:50:43.542Z",
       "description": "A table cell - used inside `elvt-table`",
       "path": "src/components/tables/table-cell"
     },
@@ -408,7 +498,7 @@
       "status": "Experimental",
       "since": "0.0.20",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:39.383Z",
+      "lastChangeDate": "2025-09-26T17:50:44.050Z",
       "description": "A table column - used inside `elvt-table`",
       "path": "src/components/tables/table-column"
     },
@@ -418,7 +508,7 @@
       "status": "Experimental",
       "since": "0.0.20",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:39.890Z",
+      "lastChangeDate": "2025-09-26T17:50:44.556Z",
       "description": "A table row - used inside `elvt-table`",
       "path": "src/components/tables/table-row"
     },
@@ -428,17 +518,17 @@
       "status": "Preliminary",
       "since": "0.0.1",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:42.427Z",
+      "lastChangeDate": "2025-09-26T17:50:47.107Z",
       "description": "A textarea field",
       "path": "src/components/textarea"
     },
     {
       "name": "elvt-toolbar",
       "displayName": "toolbar",
-      "status": "Unstable",
+      "status": "Complete",
       "since": "0.0.9",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:42.942Z",
+      "lastChangeDate": "2025-09-26T17:50:47.623Z",
       "description": "A toolbar defines a row of actions and context information.",
       "path": "src/components/toolbar"
     },
@@ -448,8 +538,8 @@
       "status": "Preliminary",
       "since": "0.0.7",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:43.459Z",
-      "description": "",
+      "lastChangeDate": "2025-09-26T17:50:48.127Z",
+      "description": "Display a tooltip next to wrapped anchor element",
       "path": "src/components/tooltip"
     },
     {
@@ -458,7 +548,7 @@
       "status": "Stable",
       "since": "0.0.7",
       "lastChangeVersion": "0.0.28-alpha",
-      "lastChangeDate": "2025-08-18T20:51:43.969Z",
+      "lastChangeDate": "2025-09-26T17:50:48.635Z",
       "description": "Makes content accessible to assistive devices without displaying it on the screen. If an element inside has",
       "path": "src/components/visually-hidden"
     }
