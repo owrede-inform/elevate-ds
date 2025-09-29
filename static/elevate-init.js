@@ -1,8 +1,8 @@
-// ELEVATE Icon Registration Script - DEPRECATED
-// This file is no longer needed since icon registration is handled in Root.tsx
-// Keeping for reference but disabled to prevent console spam
+// ELEVATE Icon Registration Script - REACTIVATED FOR SSR BUILD COMPATIBILITY
+// This handles ELEVATE initialization without dynamic imports that break SSR builds
+// Root.tsx will only handle theme application
 
-// console.log('🚀 ELEVATE Icon Registration Starting...');
+console.log('🚀 ELEVATE Icon Registration Starting...');
 
 // Function to register icons properly
 async function registerElevateIcons() {
@@ -75,9 +75,9 @@ async function registerElevateIcons() {
   }
 }
 
-// Start registration when DOM is ready - DISABLED
-// if (document.readyState === 'loading') {
-//   document.addEventListener('DOMContentLoaded', registerElevateIcons);
-// } else {
-//   registerElevateIcons();
-// }
+// Start registration when DOM is ready - REACTIVATED
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', registerElevateIcons);
+} else {
+  registerElevateIcons();
+}

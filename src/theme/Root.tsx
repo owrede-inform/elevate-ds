@@ -43,174 +43,37 @@ export default function Root({ children }: { children: React.ReactNode }) {
 
     // console.log('✅ Browser environment detected, starting ELEVATE initialization');
 
-    // Initialize ELEVATE components asynchronously - browser-only
-    const initializeElevate = async () => {
-      // console.log('🔧 Starting ELEVATE initialization...');
-      try {
-        // Import ELEVATE Core UI components first to register web components
-        // console.log('📦 Attempting ELEVATE Core UI import...');
-        let elevateModule: any;
-        try {
-          // Use webpack magic comment for better chunk handling
-          elevateModule = await import(
-            /* webpackChunkName: "elevate-core-ui" */
-            /* webpackMode: "lazy" */
-            '@inform-elevate/elevate-core-ui'
-          );
-          // console.log('✅ ELEVATE Core UI components imported successfully', elevateModule);
-        } catch (error) {
-          console.error('❌ ELEVATE Core UI import failed:', error);
-          // Don't throw in SSR/build environment, gracefully degrade
-          if (typeof window !== 'undefined') {
-            console.warn('🚨 ELEVATE icons will not work without elevate-core-ui');
-          }
-          return; // Exit early if core UI can't load
-        }
+    // Instead of using dynamic imports that cause SSR build issues,
+    // rely on the static script loaded via docusaurus.config.ts
+    // The elevate-init.js script will handle all ELEVATE initialization
 
-        // Wait a moment for components to register
-        // console.log('⏳ Waiting for component registration...');
-        await new Promise(resolve => setTimeout(resolve, 500)); // Increased timeout
-        // console.log('✅ Component registration wait complete');
+    // Check if ELEVATE components are available and apply theme classes
+    const initializeElevateTheme = () => {
+      // Only proceed if we're in browser environment
+      if (typeof window === 'undefined' || typeof document === 'undefined') return;
 
-        // Import ELEVATE icons - this is needed for MDI icon support
-        let elevateIconsModule: any;
-        try {
-          // console.log('📦 Importing ELEVATE icons package...');
-          elevateIconsModule = await import(
-            /* webpackChunkName: "elevate-icons" */
-            /* webpackMode: "lazy" */
-            '@inform-elevate/elevate-icons'
-          );
-          // console.log('✅ ELEVATE icons imported successfully', elevateIconsModule);
-        } catch (error) {
-          console.error('❌ ELEVATE icons import failed:', error);
-          // Non-critical error - icons can still work without this package
-        }
+      // Wait for potential ELEVATE initialization from static script
+      setTimeout(() => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const themeClass = isDark ? 'elvt-theme-dark' : 'elvt-theme-light';
 
-        // Set up MDI icon resolver
-        try {
-          // Import MDI icons
-          const mdi = await import(
-            /* webpackChunkName: "mdi-icons" */
-            /* webpackMode: "lazy" */
-            '@mdi/js'
-          );
+        // Apply ELEVATE theme class to document element
+        document.documentElement.classList.remove('elvt-theme-light', 'elvt-theme-dark');
+        document.documentElement.classList.add(themeClass);
 
-          // Use the global iconRegistry from ELEVATE Core UI
-          const globalIconRegistry = elevateModule.iconRegistry;
-          if (globalIconRegistry && typeof globalIconRegistry.registerResolver === 'function') {
-            // Register MDI resolver
-            globalIconRegistry.registerResolver('mdi', (name: string) => {
-              // Convert mdi:plus to mdiPlus format
-              const mdiExportName = `mdi${name.charAt(0).toUpperCase()}${name.slice(1).replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())}`;
-              const iconData = (mdi as any)[mdiExportName];
-
-              if (iconData) {
-                // CRITICAL: Wrap path data in proper SVG structure
-                const svgData = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="${iconData}" /></svg>`;
-                return {
-                  svg: svgData,
-                  width: 24,
-                  height: 24
-                };
-              }
-              return undefined;
-            });
-
-            // Make registry globally available
-            (window as any).iconRegistry = globalIconRegistry;
-            // Note: elevateModule.iconRegistry is read-only, so we only use window.iconRegistry
-
-            // CRITICAL: Prevent registry loss through property override
-            const ensureRegistryPersistence = () => {
-              const iconElements = document.querySelectorAll('elvt-icon');
-              iconElements.forEach((iconEl: any) => {
-                // Override registry property to prevent loss during DOM manipulation
-                if (!iconEl._registryOverridden) {
-                  Object.defineProperty(iconEl, 'registry', {
-                    get: () => globalIconRegistry,
-                    set: () => {}, // Ignore attempts to overwrite
-                    enumerable: true,
-                    configurable: false
-                  });
-                  iconEl._registryOverridden = true;
-
-                  // Trigger re-render if icon already set
-                  if (iconEl.icon) {
-                    const currentIcon = iconEl.icon;
-                    iconEl.icon = '';
-                    setTimeout(() => {
-                      iconEl.icon = currentIcon;
-                      if (typeof iconEl.requestUpdate === 'function') {
-                        iconEl.requestUpdate();
-                      }
-                    }, 10);
-                  }
-                }
-              });
-            };
-
-            // Apply immediately and watch for new icons
-            ensureRegistryPersistence();
-
-            const iconObserver = new MutationObserver(() => {
-              ensureRegistryPersistence();
-            });
-
-            iconObserver.observe(document.body, {
-              childList: true,
-              subtree: true
-            });
-
-            console.log('✅ ELEVATE MDI icon resolver setup complete');
-          }
-        } catch (error) {
-          console.error('❌ Error setting up MDI resolver:', error);
-        }
-
-        // Debug: Check if elvt-icon is registered
-        // const elvtIconDefined = !!window.customElements.get('elvt-icon');
-        // console.log('🔍 elvt-icon custom element defined:', elvtIconDefined);
-
-        // Check if we have global icon registry
-        // console.log('🔍 Window.IconRegistry available:', !!(window as any).IconRegistry);
-        // console.log('🔍 Window.iconRegistry available:', !!(window as any).iconRegistry);
-
-        // console.log('✅ ELEVATE Root setup complete');
-
-        // CRITICAL: Apply theme classes immediately after ELEVATE initialization
-        setTimeout(() => {
-          const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-          const themeClass = isDark ? 'elvt-theme-dark' : 'elvt-theme-light';
-
-          // Apply ELEVATE theme class to document element
-          document.documentElement.classList.remove('elvt-theme-light', 'elvt-theme-dark');
-          document.documentElement.classList.add(themeClass);
-
-          // Apply theme class to all ELEVATE components
-          const elevateComponents = document.querySelectorAll('[class*="elvt-"], elvt-card, elvt-button, elvt-input, elvt-stack, elvt-badge');
-          elevateComponents.forEach((component) => {
-            component.classList.remove('elvt-theme-light', 'elvt-theme-dark');
-            component.classList.add(themeClass);
-          });
-
-          // Theme classes applied - no forced reflow needed
-
-          // console.log(`🎨 IMMEDIATE THEME APPLICATION: Applied ${themeClass} to ${elevateComponents.length} ELEVATE components`);
-        }, 50);
-
-      } catch (error) {
-        console.error('❌ ELEVATE initialization failed:', error);
-        console.error('❌ Error details:', {
-          name: error.name,
-          message: error.message,
-          stack: error.stack
+        // Apply theme class to all ELEVATE components
+        const elevateComponents = document.querySelectorAll('[class*="elvt-"], elvt-card, elvt-button, elvt-input, elvt-stack, elvt-badge');
+        elevateComponents.forEach((component) => {
+          component.classList.remove('elvt-theme-light', 'elvt-theme-dark');
+          component.classList.add(themeClass);
         });
-      }
+
+        // console.log(`🎨 THEME APPLICATION: Applied ${themeClass} to ${elevateComponents.length} ELEVATE components`);
+      }, 600); // Give time for ELEVATE static script to load
     };
 
-    // Initialize ELEVATE after a small delay to ensure Docusaurus is ready
-    const timer = setTimeout(initializeElevate, 100);
+    // Initialize theme handling
+    const timer = setTimeout(initializeElevateTheme, 100);
 
     return () => clearTimeout(timer);
   }, []);
