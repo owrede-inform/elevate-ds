@@ -50,7 +50,7 @@ const config: Config = {
   // Add scripts directly to HTML head
   scripts: [
     {
-      src: '/elevate-init.js',
+      src: process.env.DEPLOYMENT_ENV === 'github-pages' ? '/elevate-ds/elevate-init.js' : '/elevate-init.js',
       async: true,
     },
   ],
