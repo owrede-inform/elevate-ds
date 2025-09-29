@@ -47,11 +47,18 @@ const config: Config = {
   //   require.resolve('./src/elevate-components.js'),
   // ],
 
-  // Add scripts directly to HTML head
+  // Add scripts directly to HTML head - SYNC loading for proper timing
   scripts: [
+    // ELEVATE components must load first (async is OK for the library)
+    {
+      src: 'https://unpkg.com/@inform-elevate/elevate-core-ui@latest/dist/elevate.js',
+      type: 'module',
+      async: true,
+    },
+    // Icon resolver must load synchronously after ELEVATE components
     {
       src: process.env.DEPLOYMENT_ENV === 'github-pages' ? '/elevate-ds/elevate-init.js' : '/elevate-init.js',
-      async: true,
+      defer: true, // Use defer instead of async for proper order
     },
   ],
 
