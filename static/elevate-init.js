@@ -1,8 +1,8 @@
-// ELEVATE Icon Registration Script - IMPROVED TIMING AND RELIABILITY
-// This registers a proper icon resolver with ELEVATE's registry system
-// to prevent blob URL 404 errors on GitHub Pages - Enhanced for production reliability
+// ELEVATE Icon Registration Script - WORKS WITH ROOT.TSX INITIALIZATION
+// This script works alongside Root.tsx ELEVATE initialization
+// Only handles icon resolver registration, does not load ELEVATE components
 
-console.log('🚀 ELEVATE Icon Registration Starting - Enhanced Version...');
+console.log('🚀 ELEVATE Icon Registration Starting (compatible with Root.tsx)...');
 
 // Enhanced icon map with all required icons
 const ICON_MAP = {
