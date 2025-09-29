@@ -43,9 +43,33 @@ export default function Root({ children }: { children: React.ReactNode }) {
 
     // console.log('✅ Browser environment detected, starting ELEVATE initialization');
 
-    // Instead of using dynamic imports that cause SSR build issues,
-    // rely on the static script loaded via docusaurus.config.ts
-    // The elevate-init.js script will handle all ELEVATE initialization
+    // ELEVATE library needs to be loaded via dynamic import since static script loading
+    // in docusaurus.config.ts was causing conflicts. Production build needs this.
+
+    const loadElevateLibrary = async () => {
+      try {
+        // Load ELEVATE core UI library from local node_modules instead of CDN
+        if (typeof window !== 'undefined' && !window.ElevateUI) {
+          console.log('🚀 Loading ELEVATE Core UI library from local package...');
+
+          // Import ELEVATE elements from local package (try index.js first)
+          await import('@inform-elevate/elevate-core-ui/dist/index.js');
+
+          console.log('✅ ELEVATE Core UI library loaded successfully from local package');
+
+          // Wait a bit for the library to fully initialize
+          setTimeout(() => {
+            console.log('🔍 ElevateUI available:', typeof window.ElevateUI);
+            console.log('🔍 Custom elements registry:', window.customElements ? 'available' : 'not available');
+          }, 500);
+        }
+      } catch (error) {
+        console.error('❌ Failed to load ELEVATE Core UI library:', error);
+      }
+    };
+
+    // Load ELEVATE library first, then initialize everything else
+    loadElevateLibrary();
 
     // Check if ELEVATE components are available and apply theme classes
     const initializeElevateTheme = () => {
