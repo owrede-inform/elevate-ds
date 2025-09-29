@@ -1,14 +1,12 @@
-// ELEVATE Icon Registration Script - REACTIVATED FOR SSR BUILD COMPATIBILITY
-// This handles ELEVATE initialization without dynamic imports that break SSR builds
-// Root.tsx will only handle theme application
+// ELEVATE Icon Registration Script - PROPER RESOLVER APPROACH
+// This registers a proper icon resolver with ELEVATE's registry system
+// to prevent blob URL 404 errors on GitHub Pages
 
 console.log('🚀 ELEVATE Icon Registration Starting...');
 
-// Function to register icons properly
+// Function to register icons using proper ELEVATE resolver API
 async function registerElevateIcons() {
   try {
-    // console.log('📦 Importing ELEVATE components...');
-
     // Import ELEVATE components
     await import('https://unpkg.com/@inform-elevate/elevate-core-ui@latest/dist/elevate.js');
     console.log('✅ ELEVATE components imported');
@@ -33,42 +31,58 @@ async function registerElevateIcons() {
       'mdi:dots-vertical': mdi.mdiDotsVertical,
     };
 
-    // Function to update icon elements
-    const updateIcons = () => {
-      const iconElements = document.querySelectorAll('elvt-icon[icon^="mdi:"]');
-      console.log(`🔍 Found ${iconElements.length} elvt-icon elements`);
+    // Register proper icon resolver with ELEVATE
+    if (window.ElevateUI && window.ElevateUI.registerIconLibrary) {
+      console.log('🔧 Registering ELEVATE icon resolver...');
 
-      iconElements.forEach(iconEl => {
-        const iconName = iconEl.getAttribute('icon');
-        const pathData = iconMap[iconName];
-
-        if (pathData) {
-          const svgContent = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="${pathData}"/></svg>`;
-
-          // Try to set the icon data directly
-          if (iconEl.src) {
-            iconEl.src = `data:image/svg+xml,${encodeURIComponent(svgContent)}`;
-          } else if (iconEl.innerHTML !== undefined) {
-            iconEl.innerHTML = svgContent;
+      window.ElevateUI.registerIconLibrary('mdi', {
+        resolver: (iconName) => {
+          const pathData = iconMap[iconName];
+          if (pathData) {
+            const svgContent = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="${pathData}"/></svg>`;
+            console.log(`✅ Resolved icon: ${iconName}`);
+            return `data:image/svg+xml,${encodeURIComponent(svgContent)}`;
           }
-
-          console.log(`✅ Set icon: ${iconName}`);
-        } else {
           console.warn(`❌ Unknown icon: ${iconName}`);
-        }
+          return null;
+        },
       });
-    };
 
-    // Update icons immediately
-    updateIcons();
+      console.log('🎉 ELEVATE icon resolver registered!');
+    } else {
+      console.warn('⚠️ ElevateUI.registerIconLibrary not available, falling back to manual update');
 
-    // Update icons when DOM changes
-    const observer = new MutationObserver(() => {
-      setTimeout(updateIcons, 100);
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
+      // Fallback: Manual icon update approach
+      const updateIcons = () => {
+        const iconElements = document.querySelectorAll('elvt-icon[icon^="mdi:"]');
+        console.log(`🔍 Found ${iconElements.length} elvt-icon elements`);
 
-    console.log('🎉 ELEVATE icon registration complete!');
+        iconElements.forEach(iconEl => {
+          const iconName = iconEl.getAttribute('icon');
+          const pathData = iconMap[iconName];
+
+          if (pathData) {
+            const svgContent = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="${pathData}"/></svg>`;
+
+            // Force update the icon content
+            if (iconEl.src) {
+              iconEl.src = `data:image/svg+xml,${encodeURIComponent(svgContent)}`;
+            } else {
+              iconEl.innerHTML = svgContent;
+            }
+
+            console.log(`✅ Set icon: ${iconName}`);
+          } else {
+            console.warn(`❌ Unknown icon: ${iconName}`);
+          }
+        });
+      };
+
+      // Update icons immediately and on DOM changes
+      updateIcons();
+      const observer = new MutationObserver(() => setTimeout(updateIcons, 100));
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
 
   } catch (error) {
     console.error('❌ ELEVATE icon registration failed:', error);
