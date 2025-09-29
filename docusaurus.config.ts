@@ -20,16 +20,30 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // Set the production url of your site here
-  url: process.env.DEPLOYMENT_ENV === 'github-pages'
-    ? 'https://owrede-inform.github.io'
-    : 'http://localhost:3000',
+  // Environment detection with validation and debug logging
+  // CRITICAL: Only set DEPLOYMENT_ENV=github-pages for production builds/deploys
+  url: (() => {
+    const isGitHubPages = process.env.DEPLOYMENT_ENV === 'github-pages';
+    const url = isGitHubPages ? 'https://owrede-inform.github.io' : 'http://localhost:3000';
+    console.log(`[CONFIG] Environment: ${isGitHubPages ? 'GitHub Pages' : 'Local Development'}`);
+    console.log(`[CONFIG] URL: ${url}`);
+    return url;
+  })(),
+
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  // For local development, always use '/' root path
-  baseUrl: process.env.DEPLOYMENT_ENV === 'github-pages'
-    ? '/elevate-ds/'
-    : '/',
+  // CRITICAL: Local development MUST use '/' - GitHub Pages uses '/elevate-ds/'
+  baseUrl: (() => {
+    const isGitHubPages = process.env.DEPLOYMENT_ENV === 'github-pages';
+    const baseUrl = isGitHubPages ? '/elevate-ds/' : '/';
+    console.log(`[CONFIG] BaseUrl: ${baseUrl}`);
+
+    // Validation: Prevent incorrect environment mixing
+    if (!isGitHubPages && process.env.NODE_ENV === 'production') {
+      console.warn('⚠️  WARNING: Production build without DEPLOYMENT_ENV=github-pages may cause issues');
+    }
+
+    return baseUrl;
+  })(),
 
   // GitHub pages deployment config handled above in metadata section
 
@@ -50,7 +64,7 @@ const config: Config = {
   // Add scripts directly to HTML head
   scripts: [
     {
-      src: process.env.DEPLOYMENT_ENV === 'github-pages' ? '/elevate-ds/elevate-init.js' : '/elevate-init.js',
+      src: process.env.DEPLOYMENT_ENV === 'github-pages' ? '/elevate-ds/elevate-icon-setup.js' : '/elevate-icon-setup.js',
       async: true,
     },
   ],
