@@ -1,0 +1,31 @@
+<svg width="320" height="200" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="320" height="200" fill="#f8fafc"/>
+
+  <!-- Clear, well-defined dropzone with prominent border -->
+  <rect x="40" y="40" width="240" height="120" rx="12" fill="#ffffff" stroke="#0066ff" stroke-width="3" stroke-dasharray="8,4"/>
+
+  <!-- Upload icon - prominent and clear -->
+  <circle cx="160" cy="80" r="20" fill="#0066ff" opacity="0.1"/>
+  <path d="M150 75 L160 65 L170 75 M160 65 L160 95" stroke="#0066ff" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- Clear, actionable text -->
+  <text x="160" y="110" text-anchor="middle" fill="#1e293b" font-family="system-ui" font-size="14" font-weight="600">Drop files here</text>
+  <text x="160" y="130" text-anchor="middle" fill="#64748b" font-family="system-ui" font-size="12">or click to browse</text>
+
+  <!-- Visual cues showing file types -->
+  <g transform="translate(120, 140)">
+    <rect width="16" height="20" rx="2" fill="#22c55e" opacity="0.2"/>
+    <text x="8" y="14" text-anchor="middle" fill="#22c55e" font-family="system-ui" font-size="8" font-weight="bold">PDF</text>
+  </g>
+
+  <g transform="translate(152, 140)">
+    <rect width="16" height="20" rx="2" fill="#3b82f6" opacity="0.2"/>
+    <text x="8" y="14" text-anchor="middle" fill="#3b82f6" font-family="system-ui" font-size="8" font-weight="bold">DOC</text>
+  </g>
+
+  <g transform="translate(184, 140)">
+    <rect width="16" height="20" rx="2" fill="#f59e0b" opacity="0.2"/>
+    <text x="8" y="14" text-anchor="middle" fill="#f59e0b" font-family="system-ui" font-size="8" font-weight="bold">XLS</text>
+  </g>
+</svg>

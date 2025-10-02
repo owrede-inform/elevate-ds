@@ -1,0 +1,277 @@
+---
+title: Dropzone
+description: Drag and drop file upload component with support for multiple files, file type validation, and upload progress feedback
+sidebar_position: 1
+group: Form Elements
+tags: [interactive, upload, files, drag-drop]
+---
+
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentDoDont from '@site/src/components/ComponentDoDont';
+import TocLinks from '@site/src/components/TocLinks';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
+
+# Dropzone
+
+The Dropzone component provides an intuitive drag-and-drop interface for file uploads, making it easy for users to upload single or multiple files with clear visual feedback and validation. It's designed to handle the complexity of file upload interactions while maintaining accessibility and user experience best practices.
+
+<TocLinks />
+
+## Overview
+
+### When to Use Dropzone
+- **Document uploads**: Forms requiring file attachments, document submissions
+- **Media uploads**: Image galleries, profile pictures, media libraries
+- **Bulk file operations**: Multiple file uploads, batch processing workflows
+- **Data import**: CSV uploads, configuration file imports, backup uploads
+- **Content creation**: Asset uploads for CMS, blog post attachments
+
+### When NOT to Use Dropzone
+- **Single text inputs**: Use Input component for text-based data entry
+- **Simple selections**: Use Select component for choosing from predefined options
+- **Binary choices**: Use Switch or Checkbox for on/off states
+- **Small file inputs**: Consider Button with file input for minimal file selection needs
+- **Image capture**: Use camera-specific components for photo capture workflows
+
+## Variations
+
+### Size
+
+The Dropzone comes in three sizes to accommodate different interface layouts and content types.
+
+<ComponentShowcase
+  title="Dropzone Sizes"
+  description="Three sizes available - small for constrained spaces, medium (default) for general use, and large for prominent upload areas."
+  code="dropzone-sizes.html"
+/>
+
+### Configuration
+
+Dropzone can be configured for different file upload scenarios using its API properties.
+
+| Configuration | Properties | Use Case |
+|---------------|------------|----------|
+| **Multiple Files** | `allow-files="multiple"` | General file uploads, bulk operations |
+| **Single File Only** | `allow-files="single"` | Profile pictures, single document uploads |
+| **Files & Directories** | `allow-files="multiple" allow-directories` | Project uploads, bulk content migration |
+| **File Type Filter** | `enable-file-filter allowed-file-types='["image/jpeg", "image/png"]'` | Restrict to specific file types |
+| **Disabled State** | `disabled` | Temporarily prevent uploads |
+| **No File Selection** | `allow-files="none"` | Display-only dropzone (rare use case) |
+
+## Design Principles
+
+Understanding these core principles will help you create file upload experiences that are intuitive, accessible, and efficient for users.
+
+### Progressive Disclosure Principle
+**Reveal complexity gradually as users engage with the upload process.** Start with a simple, unintimidating interface and progressively show more options, validation rules, and progress information only when needed. This reduces initial cognitive load and prevents user overwhelm.
+
+### Clear Affordance Principle
+**The upload area must clearly communicate its interactive nature.** Visual cues like borders, icons, and text should immediately signal that the area accepts file drops and clicks. Ambiguous designs force users to guess how to interact, creating friction and abandonment.
+
+### Immediate Feedback Principle
+**Provide instant visual response to all user interactions.** Users need immediate confirmation that their drag, drop, or click actions have been recognized. Delayed or missing feedback creates uncertainty about whether the action was successful.
+
+### Error Prevention & Recovery Principle
+**Design to prevent errors and make recovery simple when they occur.** Validate file types, sizes, and formats before upload attempts. When errors happen, provide clear, actionable guidance for resolution rather than technical error messages.
+
+### Status Transparency Principle
+**Keep users informed about upload progress and system state.** File uploads can take time, and users need visibility into what's happening. Clear progress indicators and status messages build trust and reduce anxiety.
+
+## Best Practices
+
+### Designing Clear Upload Areas
+
+**Why this matters:** Users need to immediately understand where they can drop files and how to interact with the upload area. Ambiguous designs create hesitation and require users to experiment, increasing friction and potential abandonment.
+
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Use clear visual boundaries with proper contrast and iconography',
+      code: 'dropzone-do-clear.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid ambiguous styling that doesn\'t clearly communicate functionality',
+      image: '/docs/components/dropzone/illustrations/dropzone-dont-ambiguous-target.svg'
+    }
+  ]}
+/>
+
+### Providing Meaningful Feedback
+
+**Why this matters:** File upload is often an anxious process for users. They need immediate confirmation that their actions are recognized and progress updates to build confidence that the process is working correctly.
+
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Provide instant visual feedback and clear messaging',
+      code: 'dropzone-do-feedback.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid silent interactions that leave users uncertain',
+      image: '/docs/components/dropzone/illustrations/dropzone-dont-silent.svg'
+    }
+  ]}
+/>
+
+### Setting Clear Expectations
+
+**Why this matters:** Users need to know what types and sizes of files are acceptable before they attempt upload. Setting expectations upfront prevents frustration and reduces failed upload attempts.
+
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Clearly communicate file requirements and interaction methods',
+      code: 'dropzone-do-expectations.html'
+    },
+    {
+      type: 'dont',
+      title: 'Force users to discover limitations through trial and error',
+      image: '/docs/components/dropzone/illustrations/dropzone-dont-vague.svg'
+    }
+  ]}
+/>
+
+## Implementation
+
+### Getting Started
+
+```bash
+npm install @inform-elevate/elevate-core-ui
+```
+
+```javascript
+// ELEVATE components are auto-registered globally
+// No additional imports needed in this documentation site
+
+// For your own projects, you would import:
+// import '@inform-elevate/elevate-core-ui';
+// Or import specific components
+// import '@inform-elevate/elevate-core-ui/dist/components/dropzone/dropzone.js';
+```
+
+### Common Usage Patterns
+
+```html
+<!-- Basic image upload -->
+<elvt-dropzone
+  allow-files="multiple"
+  enable-file-filter
+  allowed-file-types='["image/jpeg", "image/png", "image/gif"]'>
+  <elvt-icon slot="icon" icon="mdi:image-multiple"></elvt-icon>
+  <div slot="title">Upload Images</div>
+  <div slot="description">Drag & drop images or click to browse</div>
+</elvt-dropzone>
+
+<!-- Single document upload -->
+<elvt-dropzone
+  allow-files="single"
+  enable-file-filter
+  allowed-file-types='["application/pdf", "application/msword"]'>
+  <elvt-icon slot="icon" icon="mdi:file-document-outline"></elvt-icon>
+  <div slot="title">Upload Document</div>
+  <div slot="description">Select one PDF or DOC file</div>
+</elvt-dropzone>
+
+<!-- CSV data import -->
+<elvt-dropzone
+  allow-files="single"
+  enable-file-filter
+  allowed-file-types='["text/csv"]'>
+  <elvt-icon slot="icon" icon="mdi:table-large"></elvt-icon>
+  <div slot="title">Import Data</div>
+  <div slot="description">Select a CSV file to import</div>
+</elvt-dropzone>
+
+<!-- Large upload area allowing files and folders -->
+<elvt-dropzone size="large" allow-files="multiple" allow-directories>
+  <elvt-icon slot="icon" icon="mdi:folder-upload"></elvt-icon>
+  <div slot="title">Upload Files & Folders</div>
+  <div slot="description">
+    Drag & drop multiple files or entire folders
+    <br />
+    <small>All file types accepted</small>
+  </div>
+</elvt-dropzone>
+```
+
+### Key Properties
+
+| Property | Options | Description |
+|----------|---------|-------------|
+| `size` | `small`, `medium` (default), `large` | Physical size of the dropzone area |
+| `disabled` | `true`, `false` (default) | Whether the dropzone accepts interactions |
+| `allow-files` | `none`, `single`, `multiple` (default) | Whether and how many files are allowed |
+| `allow-directories` | `true`, `false` (default) | Whether directory selection is allowed |
+| `enable-file-filter` | `true`, `false` (default) | Whether file type filtering is enabled |
+| `allowed-file-types` | Array of MIME types | Accepted file types (e.g., `["image/jpeg", "image/png"]`) |
+
+**Content Slots:** Use `slot="icon"` for upload icon, `slot="title"` for main heading, `slot="description"` for help text and file requirements.
+
+*For complete API reference including all properties, events, and methods, see the [Storybook documentation](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-dropzone).*
+
+## Accessibility
+
+### Essential Accessibility Practices
+
+**Provide keyboard interaction:**
+```html
+<!-- Good: Keyboard accessible file input -->
+<elvt-dropzone>
+  <elvt-icon slot="icon" icon="mdi:cloud-upload-outline"></elvt-icon>
+  <div slot="title">Upload Files</div>
+  <div slot="description">
+    Drag & drop files or press Space to browse
+  </div>
+</elvt-dropzone>
+```
+
+**Use clear, descriptive content:**
+- ✅ "Upload documents (PDF, DOC, DOCX up to 10MB)"
+- ❌ "Drop files here"
+
+**Announce state changes to screen readers:**
+```html
+<!-- Good: Announces state changes -->
+<elvt-file-dropzone aria-live="polite" state="drag-over">
+  <div slot="title">Drop files to upload</div>
+  <div slot="description">Release files to begin upload</div>
+</elvt-dropzone>
+```
+
+**Provide error messages and recovery guidance:**
+```html
+<!-- Good: Clear error recovery -->
+<elvt-file-dropzone state="invalid">
+  <elvt-icon slot="icon" icon="mdi:alert-circle-outline"></elvt-icon>
+  <div slot="title">File type not supported</div>
+  <div slot="description">
+    Please select PDF, DOC, or DOCX files only
+  </div>
+</elvt-dropzone>
+```
+
+**Maintain focus management:**
+- Focus should move to upload area when activated
+- Focus should remain on component during drag operations
+- Focus should move to success/error messages after upload
+
+**Ensure sufficient contrast:**
+- Border and background colors must meet 3:1 contrast ratio minimum
+- Text content must meet 4.5:1 contrast ratio
+- State changes must be visually distinct for users with color vision differences
+
+## Resources
+
+- **[Button](/docs/components/button)** - Upload action buttons and triggers
+- **[Progress](/docs/components/progress)** - Upload progress indicators
+- **[Icon](/docs/components/icon)** - Upload icons and status indicators
+- **[Storybook](https://elevate-core-ui.inform-cloud.io/?path=/docs/components-dropzone)** - Interactive examples and complete API documentation
+
+## Changelog
+
+<ComponentChangelog component="elvt-dropzone" />

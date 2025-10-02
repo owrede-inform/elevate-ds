@@ -1,0 +1,33 @@
+<svg width="320" height="200" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="320" height="200" fill="#f8fafc"/>
+
+  <!-- Ambiguous area - no clear boundaries, weak border -->
+  <rect x="60" y="60" width="200" height="80" rx="4" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- Multiple confusing areas that look clickable -->
+  <rect x="70" y="30" width="60" height="25" rx="4" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <rect x="140" y="30" width="50" height="25" rx="4" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <rect x="200" y="30" width="50" height="25" rx="4" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+
+  <!-- Small, unclear icon -->
+  <circle cx="160" cy="85" r="8" fill="#94a3b8" opacity="0.3"/>
+  <path d="M156 83 L160 79 L164 83 M160 79 L160 91" stroke="#94a3b8" stroke-width="1" fill="none"/>
+
+  <!-- Vague, unhelpful text -->
+  <text x="160" y="105" text-anchor="middle" fill="#64748b" font-family="system-ui" font-size="11">Upload</text>
+
+  <!-- Multiple small text elements creating confusion -->
+  <text x="100" y="42" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="9">Browse</text>
+  <text x="165" y="42" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="9">Files</text>
+  <text x="225" y="42" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="9">Select</text>
+
+  <!-- Unclear elements scattered around -->
+  <circle cx="90" cy="120" r="3" fill="#cbd5e1"/>
+  <circle cx="230" cy="120" r="3" fill="#cbd5e1"/>
+  <rect x="270" y="70" width="30" height="15" rx="2" fill="#f1f5f9" stroke="#e2e8f0"/>
+
+  <!-- Question marks indicating confusion -->
+  <text x="280" y="165" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="16" opacity="0.5">?</text>
+  <text x="40" y="170" text-anchor="middle" fill="#94a3b8" font-family="system-ui" font-size="14" opacity="0.4">?</text>
+</svg>

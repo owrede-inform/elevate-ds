@@ -6,6 +6,10 @@ group: Form Elements
 tags: [interactive, action, form]
 ---
 
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentDoDont from '@site/src/components/ComponentDoDont';
+import TocLinks from '@site/src/components/TocLinks';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
 # Button
 
@@ -109,49 +113,39 @@ Understanding these core principles will help you make better design decisions a
 
 **Why this matters:** When multiple buttons compete for attention with equal visual weight, users experience decision paralysis. They can't quickly identify the most important action, leading to hesitation and mistakes.
 
-:::tip Do: Use one primary button per page
-Use one primary button for the main action, with secondary buttons for supporting actions.
-
-```html
-<elvt-button tone="primary">Save Changes</elvt-button>
-<elvt-button>Cancel</elvt-button>
-```
-:::
-
-:::danger Don't: Use multiple primary buttons
-Don't use multiple primary buttons as it creates confusion about which action is most important.
-
-```html
-<!-- Avoid this -->
-<elvt-button tone="primary">Save Changes</elvt-button>
-<elvt-button tone="primary">Submit Form</elvt-button>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Use one primary button for the main action, with secondary buttons for supporting actions',
+      code: 'button-do-clear-hierarchy.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid multiple primary buttons as they create confusion about which action is most important',
+      image: '/docs/components/button/illustrations/button-dont-multiple-primary.svg'
+    }
+  ]}
+/>
 
 ### Writing Effective Button Labels
 
 **Why this matters:** Vague button labels increase cognitive load and create uncertainty. Users hesitate when they can't predict what will happen after clicking. Clear, action-oriented labels build confidence and reduce interaction friction.
 
-:::tip Do: Use clear, action-oriented labels
-Use labels that describe what will happen when the button is clicked.
-
-```html
-<elvt-button tone="danger">Delete Account</elvt-button>
-<elvt-button tone="success">Confirm Order</elvt-button>
-<elvt-button>Save Draft</elvt-button>
-```
-:::
-
-:::danger Don't: Use vague or generic labels
-Avoid generic labels that don't describe the specific action.
-
-```html
-<!-- Avoid these -->
-<elvt-button tone="danger">OK</elvt-button>
-<elvt-button tone="success">Yes</elvt-button>
-<elvt-button>Click Here</elvt-button>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Use clear, action-oriented labels that describe what will happen when clicked',
+      code: 'button-do-clear-labels.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid vague or generic labels that force users to guess what will happen',
+      image: '/docs/components/button/illustrations/button-dont-vague-labels.svg'
+    }
+  ]}
+/>
 
 ### Using Danger Tone Appropriately
 
@@ -185,11 +179,13 @@ npm install @inform-elevate/elevate-core-ui
 ```
 
 ```javascript
-// Import all components
-import '@inform-elevate/elevate-core-ui';
+// ELEVATE components are auto-registered globally
+// No additional imports needed in this documentation site
 
-// Or import specific components  
-import '@inform-elevate/elevate-core-ui/dist/components/button/button.js';
+// For your own projects, you would import:
+// import '@inform-elevate/elevate-core-ui';
+// Or import specific components
+// import '@inform-elevate/elevate-core-ui/dist/components/button/button.js';
 ```
 
 ### Common Usage Patterns

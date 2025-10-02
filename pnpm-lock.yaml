@@ -33,11 +33,11 @@ importers:
         specifier: ^6.0.0
         version: 6.0.2(react@18.3.1)
       '@inform-elevate/elevate-cdk':
-        specifier: ^0.16.0-alpha
-        version: 0.16.0-alpha
+        specifier: 0.16.1-alpha
+        version: 0.16.1-alpha
       '@inform-elevate/elevate-core-ui':
-        specifier: 0.0.35-alpha
-        version: 0.0.35-alpha(@floating-ui/dom@1.7.4)(@inform-elevate/elevate-cdk@0.16.0-alpha)(@shoelace-style/shoelace@2.20.1(@floating-ui/utils@0.2.10)(@types/react@18.3.24))(lit@3.3.1)
+        specifier: 0.0.36-alpha
+        version: 0.0.36-alpha(@floating-ui/dom@1.7.4)(@inform-elevate/elevate-cdk@0.16.1-alpha)(@shoelace-style/shoelace@2.20.1(@floating-ui/utils@0.2.10)(@types/react@18.3.24))(lit@3.3.1)
       '@inform-elevate/elevate-icons':
         specifier: ^0.5.0
         version: 0.5.0
@@ -122,7 +122,7 @@ importers:
         version: 6.0.2(react@18.3.1)
       '@inform-elevate/elevate-core-ui':
         specifier: ^0.0.35-alpha
-        version: 0.0.35-alpha(@floating-ui/dom@1.7.4)(@inform-elevate/elevate-cdk@0.16.0-alpha)(@shoelace-style/shoelace@2.20.1(@floating-ui/utils@0.2.10)(@types/react@18.3.24))(lit@3.3.1)
+        version: 0.0.35-alpha(@floating-ui/dom@1.7.4)(@inform-elevate/elevate-cdk@0.16.1-alpha)(@shoelace-style/shoelace@2.20.1(@floating-ui/utils@0.2.10)(@types/react@18.3.24))(lit@3.3.1)
       clsx:
         specifier: ^2.0.0
         version: 2.1.1
@@ -1423,12 +1423,21 @@ packages:
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
 
-  '@inform-elevate/elevate-cdk@0.16.0-alpha':
-    resolution: {integrity: sha512-ysy/xZ6O00fyU5lUHL43NzO2m84wMn18FiydocU/A8DH2vh8dDdgXMggx5tNnmB6gBgcc257m+/WoTHWt76ZvA==, tarball: https://npm.pkg.github.com/download/@inform-elevate/elevate-cdk/0.16.0-alpha/f4f1151a67d25b28880570083d29253b189d1575}
+  '@inform-elevate/elevate-cdk@0.16.1-alpha':
+    resolution: {integrity: sha512-TUHU4cUB+B4ea/CRujJBnbQjrmkkGvTvXsclzL72RK1yVz29uN/VZosNQ2OlI1NjhxZSVYi3LxAKH2uxL14vyQ==, tarball: https://npm.pkg.github.com/download/@inform-elevate/elevate-cdk/0.16.1-alpha/296e09f29ff30da1ecd961889b059833634e785d}
     engines: {node: '>=20.0.0'}
 
   '@inform-elevate/elevate-core-ui@0.0.35-alpha':
     resolution: {integrity: sha512-ZnMulOSh4mJVdfFe4YXA7ZFIl896ALGZ9hajGAg1D4jk/WB3cx2DC2yx/WPLPTjeUwYGSZNZN5TFC5X4FXOffA==, tarball: https://npm.pkg.github.com/download/@inform-elevate/elevate-core-ui/0.0.35-alpha/e2675a31f6b0f023ce99caa21e1d4b25bfa0cb2d}
+    engines: {node: '>=20.0.0'}
+    peerDependencies:
+      '@floating-ui/dom': ^1.7.3
+      '@inform-elevate/elevate-cdk': ^0.16.0-alpha
+      '@shoelace-style/shoelace': ^2.20.1
+      lit: ^3.3.0
+
+  '@inform-elevate/elevate-core-ui@0.0.36-alpha':
+    resolution: {integrity: sha512-BC8dLk81LKI1Wr0Wc378wpXr6HwBt97CBH4V9ibfU45rcfoAV0wmGVUKAcOOx6eqK1C4PDSQsKJ5lZCphIG5Kw==, tarball: https://npm.pkg.github.com/download/@inform-elevate/elevate-core-ui/0.0.36-alpha/2a5896aefc6386fdb49809a4ff952d6cbb9c81d2}
     engines: {node: '>=20.0.0'}
     peerDependencies:
       '@floating-ui/dom': ^1.7.3
@@ -8005,12 +8014,19 @@ snapshots:
 
   '@iconify/types@2.0.0': {}
 
-  '@inform-elevate/elevate-cdk@0.16.0-alpha': {}
+  '@inform-elevate/elevate-cdk@0.16.1-alpha': {}
 
-  '@inform-elevate/elevate-core-ui@0.0.35-alpha(@floating-ui/dom@1.7.4)(@inform-elevate/elevate-cdk@0.16.0-alpha)(@shoelace-style/shoelace@2.20.1(@floating-ui/utils@0.2.10)(@types/react@18.3.24))(lit@3.3.1)':
+  '@inform-elevate/elevate-core-ui@0.0.35-alpha(@floating-ui/dom@1.7.4)(@inform-elevate/elevate-cdk@0.16.1-alpha)(@shoelace-style/shoelace@2.20.1(@floating-ui/utils@0.2.10)(@types/react@18.3.24))(lit@3.3.1)':
     dependencies:
       '@floating-ui/dom': 1.7.4
-      '@inform-elevate/elevate-cdk': 0.16.0-alpha
+      '@inform-elevate/elevate-cdk': 0.16.1-alpha
+      '@shoelace-style/shoelace': 2.20.1(@floating-ui/utils@0.2.10)(@types/react@18.3.24)
+      lit: 3.3.1
+
+  '@inform-elevate/elevate-core-ui@0.0.36-alpha(@floating-ui/dom@1.7.4)(@inform-elevate/elevate-cdk@0.16.1-alpha)(@shoelace-style/shoelace@2.20.1(@floating-ui/utils@0.2.10)(@types/react@18.3.24))(lit@3.3.1)':
+    dependencies:
+      '@floating-ui/dom': 1.7.4
+      '@inform-elevate/elevate-cdk': 0.16.1-alpha
       '@shoelace-style/shoelace': 2.20.1(@floating-ui/utils@0.2.10)(@types/react@18.3.24)
       lit: 3.3.1
 

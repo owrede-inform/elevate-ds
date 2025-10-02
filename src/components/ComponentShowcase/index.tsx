@@ -260,14 +260,9 @@ export default function ComponentShowcase({
     }
   }, [sanitizedFileContent]);
 
-  // Get framework imports if needed
-  const imports = componentNames.length > 0
-    ? getFrameworkImports(selectedFramework, componentNames)
-    : '';
-
-  const displayCode = imports
-    ? `${imports}\n\n${transformedCode}`
-    : transformedCode;
+  // Import statements removed - components are auto-registered globally
+  // No need to show imports in documentation examples
+  const displayCode = transformedCode;
 
   return (
     <div className={`${styles.componentShowcase} componentShowcase`}>

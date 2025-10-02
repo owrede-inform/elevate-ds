@@ -7,6 +7,7 @@ tags: [layout, container, content]
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentDoDont from '@site/src/components/ComponentDoDont';
 import ComponentChangelog from '@site/src/components/ComponentChangelog';
 import TocLinks from '@site/src/components/TocLinks';
 
@@ -103,68 +104,39 @@ Understanding these core principles will help you create card layouts that enhan
 
 **Why this matters:** Cards without clear visual hierarchy force users to read all content to find relevant information. Good hierarchy enables quick scanning and helps users prioritize their attention effectively.
 
-:::tip Do: Use clear headings and visual hierarchy
-Structure card content with proper headings, logical spacing, and visual emphasis.
-
-```html
-<elvt-card>
-  <h3>Project Alpha</h3>
-  <p class="meta">Status: In Progress • Due: March 15</p>
-  <p>Backend API development is 80% complete. Frontend integration begins next week.</p>
-  <elvt-button tone="primary">View Details</elvt-button>
-</elvt-card>
-```
-:::
-
-:::danger Don't: Use flat hierarchy
-Avoid flat text structure that makes content difficult to scan and prioritize.
-
-```html
-<!-- Avoid this -->
-<elvt-card>
-  <p>Project Alpha</p>
-  <p>Status: In Progress</p>
-  <p>Due: March 15</p>
-  <p>Backend API development is 80% complete...</p>
-  <elvt-button>View Details</elvt-button>
-</elvt-card>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Use clear headings, visual emphasis, and logical spacing to create scannable content hierarchy',
+      code: 'card-do-clear-hierarchy.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid flat text structure where all content appears equally important',
+      image: '/docs/components/card/illustrations/card-dont-flat-hierarchy.svg'
+    }
+  ]}
+/>
 
 ### Grouping Related Content Effectively
 
 **Why this matters:** Cards that mix unrelated information increase cognitive load and make it harder for users to understand the purpose of each card. Logical grouping helps users process information more efficiently.
 
-:::tip Do: Group logically related information
-Keep related information together that serves a common purpose.
-
-```html
-<elvt-card>
-  <h3>Account Security</h3>
-  <div class="security-items">
-    <div class="item">Two-factor Authentication: Enabled</div>
-    <div class="item">Password Strength: Strong</div>
-    <div class="item">Last Login: 2 hours ago</div>
-  </div>
-  <elvt-button tone="primary">Security Settings</elvt-button>
-</elvt-card>
-```
-:::
-
-:::danger Don't: Mix unrelated information
-Avoid combining unrelated content that serves different purposes.
-
-```html
-<!-- Avoid this -->
-<elvt-card>
-  <h3>Mixed Information</h3>
-  <p>Account balance: $1,234.56</p>
-  <p>Weather today: Sunny, 72°F</p>
-  <p>Unread messages: 5</p>
-  <p>System update available</p>
-</elvt-card>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Group logically related information that serves a common purpose together',
+      code: 'card-do-related-content.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid mixing unrelated information that increases cognitive load',
+      image: '/docs/components/card/illustrations/card-dont-mixed-content.svg'
+    }
+  ]}
+/>
 
 ## Implementation
 
@@ -175,11 +147,13 @@ npm install @inform-elevate/elevate-core-ui
 ```
 
 ```javascript
-// Import all components
-import '@inform-elevate/elevate-core-ui';
+// ELEVATE components are auto-registered globally
+// No additional imports needed in this documentation site
 
-// Or import specific components  
-import '@inform-elevate/elevate-core-ui/dist/components/card/card.js';
+// For your own projects, you would import:
+// import '@inform-elevate/elevate-core-ui';
+// Or import specific components
+// import '@inform-elevate/elevate-core-ui/dist/components/card/card.js';
 ```
 
 ### Common Usage Patterns

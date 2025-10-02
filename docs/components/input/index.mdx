@@ -7,6 +7,7 @@ tags: [form, input, validation]
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentDoDont from '@site/src/components/ComponentDoDont';
 import ComponentChangelog from '@site/src/components/ComponentChangelog';
 import TocLinks from '@site/src/components/TocLinks';
 
@@ -102,89 +103,58 @@ Proper labeling and help text improve usability and accessibility.
 
 **Why this matters:** Unclear labels and missing help text force users to guess what information is expected, leading to errors, frustration, and form abandonment.
 
-:::tip Do: Use clear, descriptive labels with helpful guidance
-Provide specific labels and actionable help text that guide users toward success.
-
-```html
-<elvt-input 
-  type="email" 
-  label="Work Email Address" 
-  placeholder="name@company.com"
-  help-text="We'll use this to send you important account updates"
-  required>
-</elvt-input>
-```
-:::
-
-:::danger Don't: Use vague labels without context
-Avoid generic labels that don't specify requirements or expected format.
-
-```html
-<!-- Avoid this -->
-<elvt-input 
-  type="text" 
-  label="Email" 
-  placeholder="Email">
-</elvt-input>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Use clear, descriptive labels with helpful guidance that specify requirements and context',
+      code: 'input-do-clear-labels.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid vague labels that leave users guessing about format and requirements',
+      image: '/docs/components/input/illustrations/input-dont-vague-labels.svg'
+    }
+  ]}
+/>
 
 ### Providing Clear Validation Feedback
 
 **Why this matters:** Poor validation messages frustrate users and prevent successful form completion. Good validation helps users understand exactly what they need to fix.
 
-:::tip Do: Provide specific, actionable error messages
-Tell users exactly what's wrong and how to fix it.
-
-```html
-<elvt-input 
-  type="password" 
-  label="Password" 
-  invalid
-  help-text="Password must contain at least 8 characters, including 1 number and 1 symbol">
-</elvt-input>
-```
-:::
-
-:::danger Don't: Use generic or unhelpful error messages
-Avoid vague messages that don't help users understand how to fix the problem.
-
-```html
-<!-- Avoid this -->
-<elvt-input 
-  type="password" 
-  label="Password" 
-  invalid
-  help-text="Invalid password">
-</elvt-input>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Provide specific, actionable error messages that explain exactly what to fix',
+      code: 'input-do-clear-validation.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid generic error messages that leave users confused about how to proceed',
+      image: '/docs/components/input/illustrations/input-dont-vague-validation.svg'
+    }
+  ]}
+/>
 
 ### Using Appropriate Input Types
 
 **Why this matters:** Correct input types provide better mobile keyboards, built-in validation, and improved accessibility. Wrong types create friction and confusion.
 
-:::tip Do: Use specific input types for different data
-Choose the most appropriate input type for the expected data format.
-
-```html
-<elvt-input type="email" label="Email Address"></elvt-input>
-<elvt-input type="tel" label="Phone Number"></elvt-input>
-<elvt-input type="url" label="Website URL"></elvt-input>
-<elvt-input type="number" label="Age"></elvt-input>
-```
-:::
-
-:::danger Don't: Use generic text inputs for structured data
-Don't use text inputs when more specific types would provide better experience.
-
-```html
-<!-- Avoid this -->
-<elvt-input type="text" label="Email Address"></elvt-input>
-<elvt-input type="text" label="Phone Number"></elvt-input>
-<elvt-input type="text" label="Website URL"></elvt-input>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Use specific input types that provide appropriate mobile keyboards and built-in validation',
+      code: 'input-do-appropriate-types.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid generic text inputs when specific types would improve user experience',
+      image: '/docs/components/input/illustrations/input-dont-generic-types.svg'
+    }
+  ]}
+/>
 
 ## Implementation
 
@@ -195,11 +165,13 @@ npm install @inform-elevate/elevate-core-ui
 ```
 
 ```javascript
-// Import all components
-import '@inform-elevate/elevate-core-ui';
+// ELEVATE components are auto-registered globally
+// No additional imports needed in this documentation site
 
-// Or import specific components  
-import '@inform-elevate/elevate-core-ui/dist/components/input/input.js';
+// For your own projects, you would import:
+// import '@inform-elevate/elevate-core-ui';
+// Or import specific components
+// import '@inform-elevate/elevate-core-ui/dist/components/input/input.js';
 ```
 
 ### Common Usage Patterns

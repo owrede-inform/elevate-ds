@@ -346,30 +346,31 @@ export function transformToFramework(children: React.ReactNode, framework: strin
  */
 export function getFrameworkImports(framework: string, components: string[]): string {
   const uniqueComponents = [...new Set(components)];
-  
+
   switch (framework) {
     case 'webcomponent':
-      return `// Web Components are auto-registered
-import '@inform-elevate/elevate-core-ui';`;
-    
+      // Don't show imports for web components in documentation examples
+      // They are already auto-registered in this documentation site
+      return '';
+
     case 'react':
       return `// React wrappers
 import { ${uniqueComponents.join(', ')} } from '@inform-elevate/elevate-core-ui/react';`;
-    
+
     case 'angular':
       return `// Import Angular module
 import { ElevateModule } from '@inform-elevate/elevate-core-ui/angular';
 
 // Add to your module imports:
 // imports: [ElevateModule]`;
-    
+
     case 'vue':
       return `// Vue plugin
 import { ElevatePlugin } from '@inform-elevate/elevate-core-ui/vue';
 
 // Use plugin in your app:
 // app.use(ElevatePlugin);`;
-    
+
     default:
       return '// Framework not supported';
   }

@@ -4,6 +4,11 @@ description: Alerts provide important information and feedback to users about sy
 sidebar_position: 2
 ---
 
+import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentDoDont from '@site/src/components/ComponentDoDont';
+import TocLinks from '@site/src/components/TocLinks';
+import ComponentChangelog from '@site/src/components/ComponentChangelog';
+
 # Alert
 
 Alerts communicate important information to users in a prominent, contextually appropriate way. The ELEVATE Alert component helps designers and developers create consistent feedback systems that enhance user understanding while maintaining interface harmony.
@@ -90,52 +95,39 @@ Alerts that can be closed by the user.
 
 **Why this matters:** Well-written alerts help users understand situations quickly and take appropriate action without confusion or frustration.
 
-:::tip Do: Use clear, action-oriented language
-Write concise messages that explain the situation and suggest next steps when appropriate.
-
-```html
-<!-- Good: Clear and actionable -->
-<elvt-alert type="error">
-  Unable to save changes. Check your internet connection and try again.
-</elvt-alert>
-```
-:::
-
-:::danger Don't: Use vague or technical language
-Avoid confusing messages that don't help users understand what happened or what to do.
-
-```html
-<!-- Avoid this -->
-<elvt-alert type="error">
-  Error 500: Internal server exception occurred.
-</elvt-alert>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Use clear, action-oriented language that helps users understand and resolve issues',
+      code: 'alert-do-clear-content.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid vague technical messages that confuse users without providing helpful guidance',
+      image: '/docs/components/alert/illustrations/alert-dont-vague-content.svg'
+    }
+  ]}
+/>
 
 ### Choosing Appropriate Alert Types
 
 **Why this matters:** Using the correct alert type helps users quickly assess the importance and nature of the message.
 
-:::tip Do: Match alert types to message context
-Use error for failures, warning for potential issues, success for confirmations, and info for general guidance.
-
-```html
-<elvt-alert type="success">Payment processed successfully!</elvt-alert>
-<elvt-alert type="warning">Your session expires in 5 minutes.</elvt-alert>
-<elvt-alert type="error">Invalid email address format.</elvt-alert>
-<elvt-alert type="info">Pro tip: Use keyboard shortcuts to work faster.</elvt-alert>
-```
-:::
-
-:::danger Don't: Misuse alert types
-Avoid using error styling for non-critical messages or success styling for warnings.
-
-```html
-<!-- Avoid this -->
-<elvt-alert type="error">Welcome to the application!</elvt-alert>
-<elvt-alert type="success">Your account will be deleted soon.</elvt-alert>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Match alert types to message context - error for failures, warning for issues, success for confirmations, info for guidance',
+      code: 'alert-do-appropriate-types.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid misusing alert types - never use error styling for welcome messages or success styling for warnings',
+      image: '/docs/components/alert/illustrations/alert-dont-wrong-types.svg'
+    }
+  ]}
+/>
 
 ## Implementation
 
