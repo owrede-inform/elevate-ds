@@ -5,6 +5,7 @@ sidebar_position: 7
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentDoDont from '@site/src/components/ComponentDoDont';
 import TocLinks from '@site/src/components/TocLinks';
 import ComponentChangelog from '@site/src/components/ComponentChangelog';
 
@@ -81,91 +82,58 @@ Different switch sizes for various layout contexts and visual hierarchies.
 
 **Why this matters:** Ambiguous switch labels leave users uncertain about what they're controlling. Clear, descriptive labels help users understand the impact of their toggle actions.
 
-:::tip Do: Use specific, actionable labels
-Write labels that clearly describe what will happen when the switch is toggled.
-
-```html
-<elvt-switch>
-  <label slot="label">Email notifications</label>
-  <span slot="help-text">Receive alerts for important updates</span>
-</elvt-switch>
-
-<elvt-switch checked>
-  <label slot="label">Auto-save documents</label>
-  <span slot="help-text">Automatically save changes every 30 seconds</span>
-</elvt-switch>
-```
-:::
-
-:::danger Don't: Use vague or confusing labels
-Avoid generic labels that don't explain what the switch controls.
-
-```html
-<!-- Avoid this -->
-<elvt-switch>
-  <label slot="label">Enable feature</label>
-</elvt-switch>
-
-<elvt-switch>
-  <label slot="label">Toggle setting</label>
-</elvt-switch>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Use specific, actionable labels that clearly describe what the switch controls',
+      code: 'switch-do-clear-labels.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid generic labels that don\'t explain what the switch controls',
+      image: '/docs/components/switch/illustrations/switch-dont-vague-labels.svg'
+    }
+  ]}
+/>
 
 ### Indicating Current State
 
 **Why this matters:** Users need to understand whether a switch is currently on or off before they interact with it. Poor state indication leads to confusion and unintended actions.
 
-:::tip Do: Make switch states visually distinct
-Ensure on and off states are clearly different and follow user expectations.
-
-```html
-<elvt-switch checked>
-  <label slot="label">Dark mode (Currently on)</label>
-</elvt-switch>
-
-<elvt-switch>
-  <label slot="label">Notifications (Currently off)</label>
-</elvt-switch>
-```
-:::
-
-:::danger Don't: Rely only on subtle visual differences
-Avoid state indicators that are hard to distinguish or unclear.
-
-```html
-<!-- Avoid unclear state indication -->
-<elvt-switch style="opacity: 0.7;">
-  <label slot="label">Unknown state</label>
-</elvt-switch>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Make switch states visually distinct and follow user expectations',
+      code: 'switch-do-distinct-states.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid state indicators that are hard to distinguish or unclear',
+      image: '/docs/components/switch/illustrations/switch-dont-unclear-state.svg'
+    }
+  ]}
+/>
 
 ### Choosing Appropriate Context
 
 **Why this matters:** Switches work best for immediate, reversible state changes. Using switches for actions that require confirmation or have delayed effects creates misleading user expectations.
 
-:::tip Do: Use switches for immediate, reversible actions
-Reserve switches for settings that take effect immediately and can be easily changed.
-
-```html
-<elvt-switch>
-  <label slot="label">Show profile to public</label>
-  <span slot="help-text">Changes visibility immediately</span>
-</elvt-switch>
-```
-:::
-
-:::danger Don't: Use switches for destructive or complex actions
-Avoid switches for actions that require confirmation or have permanent effects.
-
-```html
-<!-- Avoid this - use button with confirmation -->
-<elvt-switch>
-  <label slot="label">Delete all data</label>
-</elvt-switch>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Use switches for immediate, reversible actions that take effect immediately',
+      code: 'switch-do-immediate-actions.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid switches for destructive actions that require confirmation',
+      image: '/docs/components/switch/illustrations/switch-dont-destructive-actions.svg'
+    }
+  ]}
+/>
 
 ## Implementation
 

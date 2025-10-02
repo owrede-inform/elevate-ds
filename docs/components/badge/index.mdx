@@ -5,6 +5,7 @@ sidebar_position: 10
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentDoDont from '@site/src/components/ComponentDoDont';
 import ComponentChangelog from '@site/src/components/ComponentChangelog';
 import TocLinks from '@site/src/components/TocLinks';
 
@@ -62,26 +63,20 @@ Badges indicating various status states with semantic colors.
 
 **Why this matters:** Color carries meaning and helps users quickly understand information. Consistent semantic color usage creates predictable user experiences.
 
-:::tip Do: Use semantic tones that match user expectations
-Apply tones that align with common conventions and user mental models.
-
-```html
-<elvt-badge tone="success">Approved</elvt-badge>
-<elvt-badge tone="warning">Under Review</elvt-badge>
-<elvt-badge tone="danger">Rejected</elvt-badge>
-<elvt-badge tone="primary">Draft</elvt-badge>
-```
-:::
-
-:::danger Don't: Use arbitrary tones without meaning
-Avoid tone choices that confuse users or contradict established patterns.
-
-```html
-<!-- Avoid this -->
-<elvt-badge tone="success">Error</elvt-badge>
-<elvt-badge tone="danger">Success</elvt-badge>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Use semantic tones that match user expectations',
+      code: 'badge-do-semantic-tones.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid tone choices that confuse users or contradict established patterns',
+      image: '/docs/components/badge/illustrations/badge-dont-arbitrary-tones.svg'
+    }
+  ]}
+/>
 
 ## Implementation
 

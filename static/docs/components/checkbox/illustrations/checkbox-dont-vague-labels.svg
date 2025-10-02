@@ -1,0 +1,32 @@
+<svg width="320" height="140" viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="320" height="140" fill="#f8fafc"/>
+
+  <!-- Vague checkbox labels -->
+  <rect x="40" y="30" width="12" height="12" rx="2" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="60" y="40" fill="#374151" font-family="system-ui" font-size="12">Communications</text>
+
+  <rect x="40" y="60" width="12" height="12" rx="2" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/>
+  <text x="60" y="70" fill="#374151" font-family="system-ui" font-size="12">Remember settings</text>
+
+  <!-- User confusion indicators -->
+  <g transform="translate(250, 40)">
+    <circle r="10" fill="#fef2f2" stroke="#ef4444" stroke-width="1"/>
+    <text x="0" y="3" text-anchor="middle" fill="#ef4444" font-family="system-ui" font-size="12">?</text>
+  </g>
+
+  <g transform="translate(250, 70)">
+    <circle r="10" fill="#fef2f2" stroke="#ef4444" stroke-width="1"/>
+    <text x="0" y="3" text-anchor="middle" fill="#ef4444" font-family="system-ui" font-size="12">?</text>
+  </g>
+
+  <!-- Thought bubbles showing confusion -->
+  <text x="275" y="25" fill="#64748b" font-family="system-ui" font-size="8">What kind of</text>
+  <text x="275" y="35" fill="#64748b" font-family="system-ui" font-size="8">communications?</text>
+
+  <text x="275" y="80" fill="#64748b" font-family="system-ui" font-size="8">Which settings?</text>
+  <text x="275" y="90" fill="#64748b" font-family="system-ui" font-size="8">For how long?</text>
+
+  <!-- Problem indicator -->
+  <text x="160" y="120" text-anchor="middle" fill="#64748b" font-family="system-ui" font-size="10">Labels are too generic and confusing</text>
+</svg>

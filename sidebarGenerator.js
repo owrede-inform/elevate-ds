@@ -14,7 +14,7 @@
  */
 function isIndexFile(id) {
   const indexPatterns = [
-    '/foundation.mdx',
+    '/index.mdx',
     '/index.md', 
     '/index.tsx',
     '/index.ts',
@@ -32,7 +32,7 @@ function isIndexFile(id) {
  * @returns {number} - Priority (lower = higher priority)
  */
 function getIndexPriority(id) {
-  if (id.endsWith('/foundation.mdx') || id.endsWith('foundation.mdx')) return 1;
+  if (id.endsWith('/index.mdx') || id.endsWith('index.mdx')) return 1;
   if (id.endsWith('/index.md') || id.endsWith('index.md')) return 2;
   if (id.endsWith('/index.tsx') || id.endsWith('index.tsx')) return 3;
   if (id.endsWith('/index.ts') || id.endsWith('index.ts')) return 4;

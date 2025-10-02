@@ -1,8 +1,5 @@
 export const container = `
 <div>
-  <div style="display: flex; align-items: center; gap: 0.5rem; margin-right: 2rem;">
-    <h4>{{title}}</h4>
-  </div>
   <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
     {{items}}
   </div>

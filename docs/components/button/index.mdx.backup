@@ -20,100 +20,86 @@ Buttons are the primary interface for user actions in digital products. The ELEV
 ## Overview
 
 ### When to Use Buttons
-- **Form submissions**: Save, submit, confirm, or cancel form data
-- **Primary actions**: Sign up, purchase, download, get started
-- **Workflow navigation**: Next step, continue, proceed to checkout
-- **Content actions**: Edit, delete, duplicate, archive items
-- **Modal interactions**: Close, confirm, or dismiss dialogs
+- **Primary actions**: Sign up, submit, save, confirm, purchase
+- **Secondary actions**: Cancel, back, learn more, edit  
+- **Navigation**: Next step, continue, proceed to checkout
+- **Destructive actions**: Delete, remove, reset, archive
 
 ### When NOT to Use Buttons
-- **Page navigation**: Use Link component for moving between pages or external sites
-- **On/off toggles**: Use Switch component for binary state changes
-- **Multiple selections**: Use Checkbox or Radio for choosing from options
-- **Content filtering**: Use FilterButton or Chip components for refining content
-- **Menu items**: Use Menu component for dropdown or context menu options
+- **Links**: Use Link component for navigation between pages or external sites
+- **Toggles**: Use Switch component for on/off states or settings
+- **Selection**: Use Checkbox or Radio for multiple choice selections
+- **Filters**: Use FilterButton or Chip components for content filtering
 
 ## Variations
 
-<ComponentShowcase
+### Tone
+
+Each tone communicates a different type of action and creates visual hierarchy in your interface.
+
+<ComponentShowcase 
   title="Button Tones"
-  description="Different button tones communicate action priority and semantic meaning."
+  description="Different button tones for various use cases and semantic meaning."
   code="button-tone-variations.html" />
 
-<ComponentShowcase
-  title="Button Sizes"
-  description="Three sizes available: small (compact interfaces), medium (default), and large (prominent actions)."
-  code="buttons-sizes.html" />
+
+### Size
 
 <ComponentShowcase
+    title="Button Sizes"
+    description="Three button sizes available - small, medium (default), and large."
+    code="buttons-sizes.html" />
+
+### State
+
+Buttons can be disabled when an action is temporarily unavailable, or show a selected state for toggle functionality.
+
+<ComponentShowcase 
   title="Button States"
-  description="Disabled state prevents interaction when actions are unavailable."
+  description="Buttons support disabled and selected states."
   code="button-states.html" />
 
-<ComponentShowcase
-  title="Buttons with Icons"
-  description="Icons provide visual context and improve recognition of common actions."
+### Icon Usage
+
+Buttons can include icons to enhance clarity and provide visual context. Icons should always support the button's purpose.
+
+#### Prefix Icons
+
+Icons before text help identify the action type or category.
+
+<ComponentShowcase 
+  title="Buttons with Prefix Icons"
+  description="Icons placed before button text provide visual context for the action."
   code="buttons-with-prefix-icons.html" />
 
-## Properties
+#### Suffix Icons
 
-| Property | Options | Purpose |
-|----------|---------|---------|
-| **tone** | `primary`, `secondary`, `tertiary`, `danger` | Controls visual hierarchy and semantic meaning |
-| **size** | `small`, `medium`, `large` | Adjusts button dimensions for different contexts |
-| **disabled** | `true`, `false` | Prevents interaction when action is unavailable |
-| **icon** | Icon name or component | Adds visual context before or after text |
-| **iconOnly** | `true`, `false` | Shows only icon without text (requires aria-label) |
+Icons after text suggest direction or outcome of the action.
+
+<ComponentShowcase
+  title="Buttons with Suffix Icons"
+  description="Icons placed after button text indicate direction or outcome."
+  code="buttons-with-suffix-icons.html" />
+
+#### Icon Only
+
+Icon-only buttons save space but require clear, universally understood icons and accessibility considerations.
+
+<ComponentShowcase
+  title="Icon-Only Buttons"
+  description="Buttons with only icons should have proper accessibility attributes."
+  code="icon-only-buttons.html" />
+
 
 ## Design Principles
 
-**Visual Hierarchy**: Use one primary button per screen section to guide user attention to the most important action.
+Understanding these core principles will help you make better design decisions and avoid interface patterns that confuse or frustrate users.
 
-**Semantic Communication**: Button tone should match the action's impact - danger for destructive actions, primary for main goals.
+### Visual Hierarchy Principle
+**Clear hierarchy guides user attention and reduces cognitive load.** Users should immediately understand which action is most important on any given screen. Competing visual weights create confusion and decision paralysis.
 
-**Cognitive Load Reduction**: Clear, action-oriented labels help users predict outcomes and build confidence.
-
-**Consistency**: Similar actions should use similar button styles across your product to reduce learning time.
-
-## Usage Guidelines
-
-### Button Hierarchy
-
-<ComponentDoDont
-  examples={[
-    {
-      type: 'do',
-      title: 'Use one primary button per section to establish clear hierarchy',
-      code: 'button-do-clear-hierarchy.html'
-    },
-    {
-      type: 'dont',
-      title: 'Avoid multiple primary buttons competing for attention',
-      image: '/docs/components/button/illustrations/button-dont-multiple-primary.svg'
-    }
-  ]}
-/>
-
-### Button Labels
-
-<ComponentDoDont
-  examples={[
-    {
-      type: 'do',
-      title: 'Use action-oriented labels that predict the outcome',
-      code: 'button-do-clear-labels.html'
-    },
-    {
-      type: 'dont',
-      title: 'Avoid vague labels that create uncertainty',
-      image: '/docs/components/button/illustrations/button-dont-vague-labels.svg'
-    }
-  ]}
-/>
-
-### Danger Tone Usage
-
-Only use danger tone for destructive actions with significant consequences. Reserve it for actions like deleting data, removing users, or permanently altering content.
+### Semantic Communication Principle  
+**Visual design should match functional meaning.** Colors, shapes, and styling should intuitively communicate what type of action the button performs. Misleading visual cues break user expectations and decrease trust.
 
 ### Cognitive Load Principle
 **Reduce the mental effort required to use your interface.** Button labels should be descriptive and action-oriented. Generic or vague labels force users to guess what will happen, increasing friction and mistakes.

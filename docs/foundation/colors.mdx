@@ -27,43 +27,39 @@ The ELEVATE color system provides a comprehensive palette designed for accessibi
 
 ## Primary Color
 
+The primary brand color used for key actions, links, and highlights.
+
 <ColorRamp title="Blue" selector="primitives-color-blue-*" />
 
-### Usage Examples (light mode)
-
-- **Primary Actions** - Blue 500 for buttons, links, CTAs
-- **Hover States** - Blue 600 for interactive feedback
-- **Focus States** - Blue 500 for focus indicators
-- **Backgrounds** - Blue 50 for subtle highlighting
 
 ## Semantic Color Palette
 
 ### Neutral Colors
-<ColorRamp title="Gray" selector="primitives-color-gray-*" exclude="primitives-color-gray-0" />
+
 Used for elements that do not need to grab attention or convey a certain information.
 
+<ColorRamp selector="primitives-color-gray-*" exclude="primitives-color-gray-0" />
+
 ### Success Colors
-<ColorRamp title="Green" selector="primitives-color-green-*" />
+
 Used for positive feedback, confirmations, and successful states.
 
+<ColorRamp selector="primitives-color-green-*" />
+
 ### Warning Colors
-<ColorRamp title="Orange" selector="primitives-color-orange-*" />
+
 For cautions, important notices, and attention-grabbing elements.
 
+<ColorRamp selector="primitives-color-orange-*" />
+
 ### Error Colors
-<ColorRamp title="Red" selector="primitives-color-red-*" />
+
 For errors, destructive actions, and critical alerts.
 
-### Pure Colors
-Absolute black and white for maximum contrast and special cases.
+<ColorRamp selector="primitives-color-red-*" />
 
-```css
-/* Pure Colors */
---elvt-primitives-color-white: #ffffff;      /* Pure white */
---elvt-primitives-color-black: #000000;      /* Pure black */
-```
 
-## Semantic Color Tokens
+## Alias Tokens
 
 ### Layout Surface Colors
 Background colors for different interface surfaces and layers.

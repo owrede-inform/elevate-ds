@@ -37,7 +37,7 @@ const sidebars: SidebarsConfig = {
   designSidebar: [
     {
       type: 'category',
-      label: 'Design',
+      label: 'Foundation',
       link: {
         type: 'doc',
         id: 'foundation/index',

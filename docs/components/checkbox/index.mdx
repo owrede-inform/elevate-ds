@@ -5,6 +5,7 @@ sidebar_position: 5
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentDoDont from '@site/src/components/ComponentDoDont';
 import ComponentChangelog from '@site/src/components/ComponentChangelog';
 import TocLinks from '@site/src/components/TocLinks';
 
@@ -85,70 +86,39 @@ Understanding these core principles will help you create checkbox interfaces tha
 
 **Why this matters:** Vague or confusing checkbox labels force users to guess what they're agreeing to or selecting. Clear labels reduce form abandonment and prevent user frustration with unexpected results.
 
-:::tip Do: Use clear, specific labels that describe exactly what users are selecting
-Write labels that clearly explain what happens when the checkbox is selected.
-
-```html
-<elvt-checkbox name="newsletter" value="subscribe">
-  Email me about new features and updates
-</elvt-checkbox>
-
-<elvt-checkbox name="session" value="remember">
-  Keep me signed in for 30 days
-</elvt-checkbox>
-```
-:::
-
-:::danger Don't: Use vague or confusing labels that require interpretation
-Avoid generic labels that don't help users understand what they're selecting.
-
-```html
-<!-- Avoid this -->
-<elvt-checkbox name="marketing">
-  Communications
-</elvt-checkbox>
-
-<elvt-checkbox name="persistence">
-  Remember settings
-</elvt-checkbox>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Use clear, specific labels that describe exactly what users are selecting',
+      code: 'checkbox-do-clear-labels.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid generic labels that don\'t help users understand what they\'re selecting',
+      image: '/docs/components/checkbox/illustrations/checkbox-dont-vague-labels.svg'
+    }
+  ]}
+/>
 
 ### Organizing Related Checkboxes
 
 **Why this matters:** Poor checkbox organization increases cognitive load and makes it difficult for users to understand their options. Logical grouping and clear hierarchy help users make informed decisions efficiently.
 
-:::tip Do: Group related options with clear headings and logical organization
-Use fieldsets and legends to group related checkboxes semantically.
-
-```html
-<fieldset>
-  <legend>Notification Preferences</legend>
-  <elvt-checkbox name="notifications" value="email">
-    Email notifications
-  </elvt-checkbox>
-  <elvt-checkbox name="notifications" value="sms">
-    SMS notifications
-  </elvt-checkbox>
-  <elvt-checkbox name="notifications" value="push">
-    Push notifications
-  </elvt-checkbox>
-</fieldset>
-```
-:::
-
-:::danger Don't: Mix unrelated options without clear organization
-Avoid grouping unrelated checkboxes together without semantic structure.
-
-```html
-<!-- Avoid this -->
-<div>
-  <elvt-checkbox name="notifications" value="email">Email notifications</elvt-checkbox>
-  <elvt-checkbox name="theme" value="dark">Dark mode</elvt-checkbox>
-  <elvt-checkbox name="terms" value="accepted">Terms and conditions</elvt-checkbox>
-</div>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Group related options with clear headings and logical organization',
+      code: 'checkbox-do-organized-groups.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid grouping unrelated checkboxes together without semantic structure',
+      image: '/docs/components/checkbox/illustrations/checkbox-dont-unorganized-options.svg'
+    }
+  ]}
+/>
 
 ## Implementation
 

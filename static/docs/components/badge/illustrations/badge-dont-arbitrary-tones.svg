@@ -1,0 +1,33 @@
+<svg width="320" height="120" viewBox="0 0 320 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="320" height="120" fill="#f8fafc"/>
+
+  <!-- Confusing badge usage -->
+  <rect x="40" y="30" width="60" height="20" rx="10" fill="#22c55e" stroke="none"/>
+  <text x="70" y="42" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="10" font-weight="500">Error</text>
+
+  <rect x="120" y="30" width="60" height="20" rx="10" fill="#ef4444" stroke="none"/>
+  <text x="150" y="42" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="10" font-weight="500">Success</text>
+
+  <rect x="200" y="30" width="60" height="20" rx="10" fill="#3b82f6" stroke="none"/>
+  <text x="230" y="42" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="10" font-weight="500">Warning</text>
+
+  <!-- Confusion indicators -->
+  <g transform="translate(70, 65)">
+    <circle r="10" fill="#fef2f2" stroke="#ef4444" stroke-width="1"/>
+    <text x="0" y="3" text-anchor="middle" fill="#ef4444" font-family="system-ui" font-size="12">?</text>
+  </g>
+
+  <g transform="translate(150, 65)">
+    <circle r="10" fill="#fef2f2" stroke="#ef4444" stroke-width="1"/>
+    <text x="0" y="3" text-anchor="middle" fill="#ef4444" font-family="system-ui" font-size="12">?</text>
+  </g>
+
+  <g transform="translate(230, 65)">
+    <circle r="10" fill="#fef2f2" stroke="#ef4444" stroke-width="1"/>
+    <text x="0" y="3" text-anchor="middle" fill="#ef4444" font-family="system-ui" font-size="12">?</text>
+  </g>
+
+  <!-- Problem indicator -->
+  <text x="160" y="100" text-anchor="middle" fill="#64748b" font-family="system-ui" font-size="10">Colors contradict meanings, confusing users</text>
+</svg>

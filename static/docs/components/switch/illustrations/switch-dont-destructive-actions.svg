@@ -1,0 +1,24 @@
+<svg width="320" height="100" viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="320" height="100" fill="#f8fafc"/>
+
+  <!-- Destructive switch (dangerous) -->
+  <rect x="40" y="35" width="30" height="16" rx="8" fill="#ef4444"/>
+  <circle cx="62" cy="43" r="6" fill="#ffffff"/>
+  <text x="80" y="47" fill="#374151" font-family="system-ui" font-size="12">Delete all data</text>
+
+  <!-- Warning signs -->
+  <g transform="translate(250, 35)">
+    <polygon points="0,12 6,0 -6,0" fill="#f59e0b" stroke="#d97706" stroke-width="1"/>
+    <text x="0" y="8" text-anchor="middle" fill="#ffffff" font-family="system-ui" font-size="8" font-weight="bold">!</text>
+  </g>
+
+  <!-- Danger indicator -->
+  <g transform="translate(160, 65)">
+    <circle r="12" fill="#fef2f2" stroke="#ef4444" stroke-width="1"/>
+    <text x="0" y="4" text-anchor="middle" fill="#ef4444" font-family="system-ui" font-size="14" font-weight="bold">⚠</text>
+  </g>
+
+  <!-- Problem indicator -->
+  <text x="160" y="85" text-anchor="middle" fill="#64748b" font-family="system-ui" font-size="10">Destructive actions need confirmation, not switches</text>
+</svg>
