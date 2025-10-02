@@ -47,11 +47,11 @@
 /* ELEVATE button styling integration */
 .buttons elvt-button {
   /* Note: ELEVATE buttons use internal component tokens that aren't exposed as --elvt-components-button-* */
-  /* The component handles its own styling through internal design tokens */
+  /* The component handles its own styling through internal foundation tokens */
   min-width: 140px;
 }
 
-/* Responsive design */
+/* Responsive foundation */
 @media screen and (max-width: 768px) {
   .heroBanner .hero__title {
     font-size: var(--elvt-type-alias-default-display-m-font-size, 2rem);

@@ -1,6 +1,6 @@
 export interface Options {
   /**
-   * Enable ELEVATE design system integration
+   * Enable ELEVATE foundation system integration
    * @default true
    */
   enableElevateDesignSystem?: boolean;

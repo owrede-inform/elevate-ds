@@ -107,7 +107,7 @@ class NPMSecurityChecker {
       }
 
       // Check for suspicious install hooks (skip for our own package)
-      if (packageName !== '@inform/elevate-design-system-docs') {
+      if (packageName !== '@inform/elevate-foundation-system-docs') {
         const suspiciousHooks = ['preinstall', 'install', 'postinstall'];
         for (const hook of suspiciousHooks) {
           if (packageJson.scripts && packageJson.scripts[hook]) {

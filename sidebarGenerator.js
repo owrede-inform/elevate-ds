@@ -82,8 +82,8 @@ function sortSidebarItems(items, docs = null) {
       bPos = bDoc?.frontMatter?.sidebar_position || bDoc?.sidebar_position || 
              b.customProps?.sidebar_position || b.sidebar_position;
       
-      // Debug logging for design folder
-      if (process.env.NODE_ENV === 'development' && (a.id.includes('design/') || b.id.includes('design/'))) {
+      // Debug logging for foundation folder
+      if (process.env.NODE_ENV === 'development' && (a.id.includes('foundation/') || b.id.includes('foundation/'))) {
         console.log(`[Sidebar] Comparing ${a.id} (pos: ${aPos}) vs ${b.id} (pos: ${bPos})`);
       }
       

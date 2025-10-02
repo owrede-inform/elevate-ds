@@ -634,7 +634,7 @@ class ChangelogGenerator {
       }
     ];
     
-    // Visual/design patterns
+    // Visual/foundation patterns
     const visualPatterns = [
       /(?:design|style|styling|theme|color|font|layout|spacing|margin|padding)/i,
       /(?:visual|appearance|look|ui|user\s+interface)/i,

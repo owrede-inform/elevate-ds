@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'ELEVATE Design System',
-  tagline: 'A comprehensive design system built for modern web applications of INFORM GmbH',
+  tagline: 'A comprehensive foundation system built for modern web applications of INFORM GmbH',
   
   // Force deployment refresh - ensure ELEVATE CSS is included - 2025-01-27T18:40:00Z
   favicon: 'img/favicon.ico',
@@ -214,7 +214,7 @@ const config: Config = {
       {name: 'theme-name', content: 'docusaurus-theme-inform-elevate'},
       {name: 'theme-version', content: '1.0.0'},
       {name: 'organization', content: 'INFORM GmbH'},
-      {name: 'design-system', content: 'ELEVATE'},
+      {name: 'foundation-system', content: 'ELEVATE'},
       {name: 'keywords', content: 'INFORM, ELEVATE, Design System, Components, Documentation'},
       {name: 'author', content: 'INFORM GmbH'},
     ],
@@ -237,7 +237,7 @@ const config: Config = {
         },
         {
           type: 'doc',
-          docId: 'design/index',
+          docId: 'foundation/index',
           position: 'left',
           label: 'Design',
         },
@@ -284,7 +284,7 @@ const config: Config = {
             },
             {
               label: 'Design Tokens',
-              to: 'docs/design-tokens',
+              to: 'docs/foundation-tokens',
             },
           ],
         },

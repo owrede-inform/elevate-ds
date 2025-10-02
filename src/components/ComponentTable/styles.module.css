@@ -106,7 +106,7 @@
 
 /* Remove ELEVATE-specific part selectors - not needed for HTML table */
 
-/* Clean approach: Focus on proper ELEVATE design token application */
+/* Clean approach: Focus on proper ELEVATE foundation token application */
 
 /* Table body rows with ELEVATE component tokens */
 .componentTable .table tbody tr {

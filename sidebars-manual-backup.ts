@@ -40,7 +40,7 @@ const sidebars: SidebarsConfig = {
       },
       items: [
         'guidelines/index',
-        'guidelines/design',
+        'guidelines/foundation',
         'guidelines/accessibility',
         'guidelines/devices',
         'guidelines/language',
@@ -49,7 +49,7 @@ const sidebars: SidebarsConfig = {
     },
   ],
 
-  // Components sidebar - All design system components with proper category structure
+  // Components sidebar - All foundation system components with proper category structure
   componentsSidebar: [
     {
       type: 'category',
@@ -134,17 +134,17 @@ const sidebars: SidebarsConfig = {
       label: 'Design',
       link: {
         type: 'doc',
-        id: 'design/index',
+        id: 'foundation/index',
       },
       items: [
-        'design/index',
-        'design/colors',
-        'design/typography',
-        'design/spacing',
-        'design/shadows',
-        'design/grid-layout',
-        'design/animation',
-        'design-tokens',
+        'foundation/index',
+        'foundation/colors',
+        'foundation/typography',
+        'foundation/spacing',
+        'foundation/shadows',
+        'foundation/grid-layout',
+        'foundation/animation',
+        'foundation-tokens',
       ],
     },
   ],

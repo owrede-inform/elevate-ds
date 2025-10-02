@@ -460,7 +460,7 @@ class GitHubChangelogGenerator {
       
       // Critical system-wide changes that affect component behavior (very selective)
       { pattern: /web\s+component\s+decorator|component\s+base|lit\s+element.*change/i, reason: 'Component framework change' },
-      { pattern: /design\s+tokens.*update.*all|all.*components.*design.*token/i, reason: 'Global design token change' },
+      { pattern: /design\s+tokens.*update.*all|all.*components.*design.*token/i, reason: 'Global foundation token change' },
       
       // Component-specific patterns that must include the component name
       { pattern: new RegExp(`${componentShortName}\\s+(group|wrapper|container|variant|size|shape|state)`, 'i'), reason: 'Component feature' },

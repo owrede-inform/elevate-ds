@@ -37,7 +37,7 @@ const heroActions = [
 ];
 
 const backgroundImages = [
-  'hero-design-system.png',
+  'hero-foundation-system.png',
   'hero-components.png',
   'hero-abstract.png'
 ];

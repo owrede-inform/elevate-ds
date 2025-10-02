@@ -15,7 +15,7 @@ const NAVIGATION_ITEMS: NavigationItem[] = [
   { label: 'Guidelines', to: '/docs/guidelines/' },
   { label: 'Components', to: '/docs/components/' },
   { label: 'Patterns', to: '/docs/patterns/' },
-  { label: 'Design', to: '/docs/design/' },
+  { label: 'Design', to: '/docs/foundation/' },
   { label: 'DS', to: '/docs/ds/' },
 ];
 

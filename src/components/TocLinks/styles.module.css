@@ -73,7 +73,7 @@
   color: var(--elvt-primitives-color-blue-300, #5facff);
 }
 
-/* Responsive design */
+/* Responsive foundation */
 @media (max-width: 768px) {
   .tocColumns {
     columns: 1;

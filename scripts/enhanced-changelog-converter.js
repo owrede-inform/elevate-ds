@@ -119,7 +119,7 @@ function detectImpactType(title, fullLine) {
     }
   }
   
-  // Visual/design patterns
+  // Visual/foundation patterns
   if (/(?:design|style|styling|theme|color|font|layout|spacing|visual|appearance|ui)/i.test(text)) {
     return { impact: 'visual', isApiChange: false, apiChangeType: null };
   }

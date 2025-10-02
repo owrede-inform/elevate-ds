@@ -28,8 +28,8 @@ interface CustomHeroProps {
  * 
  * Features:
  * - Selects random PNG from specified folder or array
- * - Responsive design with content overlay
- * - ELEVATE design system integration
+ * - Responsive foundation with content overlay
+ * - ELEVATE foundation system integration
  * - Customizable actions and styling
  */
 const CustomHero: React.FC<CustomHeroProps> = ({

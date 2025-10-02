@@ -508,7 +508,7 @@
   opacity: 0.8;
 }
 
-/* Responsive design */
+/* Responsive foundation */
 @media (max-width: 768px) {
   .codeComparison {
     grid-template-columns: 1fr;

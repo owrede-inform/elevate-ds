@@ -21,13 +21,13 @@ const apiChangeTests = [
   'Change method signature for validate() function',
   'Rename "color" property to "theme" in Card',
   'Deprecated old "onClick" method in favor of "onActivate"',
-  'Update Button design without API changes', // Should NOT be API change
+  'Update Button foundation without API changes', // Should NOT be API change
   'Fix styling bug in Modal component' // Should NOT be API change
 ];
 
 // Test cases for impact types
 const impactTests = [
-  'Update Button design and color scheme',
+  'Update Button foundation and color scheme',
   'Optimize performance of Table rendering',
   'Add accessibility support for screen readers',
   'Improve TypeScript types and documentation',
