@@ -1,7 +1,7 @@
-label: Design
+label: Foundation
 position: 2
 collapsible: true
 collapsed: false
 link:
   type: doc
-  id: design/index
+  id: foundation/index

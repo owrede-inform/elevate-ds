@@ -5,6 +5,7 @@ sidebar_position: 4
 ---
 
 import ComponentShowcase from '@site/src/components/ComponentShowcase';
+import ComponentDoDont from '@site/src/components/ComponentDoDont';
 import ComponentChangelog from '@site/src/components/ComponentChangelog';
 import TocLinks from '@site/src/components/TocLinks';
 
@@ -102,104 +103,58 @@ Different sizes for various layout contexts and visual hierarchies.
 
 **Why this matters:** Unclear option labels force users to guess or spend time figuring out which option matches their intent, leading to errors and frustration.
 
-:::tip Do: Use clear, descriptive option text
-Write option labels that clearly describe what the user is selecting.
-
-```html
-<elvt-select name="shipping" placeholder="Choose shipping speed">
-  <label slot="label">Shipping Method</label>
-  <elvt-option value="standard">Standard (5-7 business days)</elvt-option>
-  <elvt-option value="express">Express (2-3 business days)</elvt-option>
-  <elvt-option value="overnight">Overnight (next business day)</elvt-option>
-</elvt-select>
-```
-:::
-
-:::danger Don't: Use vague or unclear option labels
-Avoid generic labels that don't help users understand their choices.
-
-```html
-<!-- Avoid this -->
-<elvt-select name="shipping" placeholder="Choose option">
-  <label slot="label">Shipping</label>
-  <elvt-option value="option1">Option 1</elvt-option>
-  <elvt-option value="option2">Option 2</elvt-option>
-  <elvt-option value="option3">Option 3</elvt-option>
-</elvt-select>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Use clear, descriptive option text that helps users understand their choices',
+      code: 'select-do-clear-labels.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid vague or generic labels that force users to guess what options mean',
+      image: '/docs/components/select/illustrations/select-dont-vague-labels.svg'
+    }
+  ]}
+/>
 
 ### Organizing Large Option Lists
 
 **Why this matters:** Long, unorganized lists become difficult to scan and slow down user task completion. Good organization helps users find options quickly.
 
-:::tip Do: Group related options logically
-Organize options in a way that makes sense to users and helps them find choices quickly.
-
-```html
-<elvt-select name="location" placeholder="Select location">
-  <label slot="label">Office Location</label>
-  <optgroup label="North America">
-    <elvt-option value="us-ny">New York, USA</elvt-option>
-    <elvt-option value="us-ca">San Francisco, USA</elvt-option>
-    <elvt-option value="ca-to">Toronto, Canada</elvt-option>
-  </optgroup>
-  <optgroup label="Europe">
-    <elvt-option value="uk-ln">London, UK</elvt-option>
-    <elvt-option value="de-be">Berlin, Germany</elvt-option>
-    <elvt-option value="fr-pa">Paris, France</elvt-option>
-  </optgroup>
-</elvt-select>
-```
-:::
-
-:::danger Don't: Present long lists without organization
-Avoid alphabetical-only sorting when logical grouping would be more helpful.
-
-```html
-<!-- Avoid this for location-based selections -->
-<elvt-select name="location" placeholder="Select location">
-  <label slot="label">Office Location</label>
-  <elvt-option value="de-be">Berlin, Germany</elvt-option>
-  <elvt-option value="uk-ln">London, UK</elvt-option>
-  <elvt-option value="us-ny">New York, USA</elvt-option>
-  <elvt-option value="fr-pa">Paris, France</elvt-option>
-  <elvt-option value="us-ca">San Francisco, USA</elvt-option>
-  <elvt-option value="ca-to">Toronto, Canada</elvt-option>
-</elvt-select>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Group related options logically to help users find choices quickly',
+      code: 'select-do-organized-groups.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid presenting long lists without logical organization or grouping',
+      image: '/docs/components/select/illustrations/select-dont-unorganized-list.svg'
+    }
+  ]}
+/>
 
 ### Providing Helpful Default States
 
 **Why this matters:** Good defaults reduce cognitive load and help users complete tasks faster. Poor defaults force users to make unnecessary decisions or selections.
 
-:::tip Do: Use meaningful placeholders and defaults
-Provide helpful placeholder text and select sensible defaults when appropriate.
-
-```html
-<elvt-select name="country" placeholder="Select your country" value="us">
-  <label slot="label">Country</label>
-  <elvt-option value="us">United States</elvt-option>
-  <elvt-option value="ca">Canada</elvt-option>
-  <elvt-option value="uk">United Kingdom</elvt-option>
-</elvt-select>
-```
-:::
-
-:::danger Don't: Use generic placeholders
-Avoid placeholders that don't help users understand what to select.
-
-```html
-<!-- Avoid this -->
-<elvt-select name="country" placeholder="Choose">
-  <label slot="label">Country</label>
-  <elvt-option value="us">United States</elvt-option>
-  <elvt-option value="ca">Canada</elvt-option>
-  <elvt-option value="uk">United Kingdom</elvt-option>
-</elvt-select>
-```
-:::
+<ComponentDoDont
+  examples={[
+    {
+      type: 'do',
+      title: 'Use meaningful placeholders and helpful defaults that guide users',
+      code: 'select-do-meaningful-defaults.html'
+    },
+    {
+      type: 'dont',
+      title: 'Avoid generic placeholders that provide no guidance to users',
+      image: '/docs/components/select/illustrations/select-dont-generic-placeholder.svg'
+    }
+  ]}
+/>
 
 ## Implementation
 
